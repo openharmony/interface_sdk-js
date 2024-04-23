@@ -540,9 +540,9 @@ declare namespace distributedKVStore {
      * A constructor used to create a FieldNode instance with the specified field.
      * name Indicates the field node name.
      *
-     * @param { string } name
+     * @param { string } name - It can not be empty.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Parameters verification failed.
+     *                                                                 2.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 9
      */
@@ -555,7 +555,7 @@ declare namespace distributedKVStore {
      * @param { FieldNode } child - The field node to append.
      * @returns { boolean } Returns true if the child node is successfully added to this {@code FieldNode} and false otherwise.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Parameters verification failed.
+     *                                                                 2.Incorrect Parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 9
      */
@@ -993,8 +993,7 @@ declare namespace distributedKVStore {
      * @param { number } offset - Indicates the start position.
      * @returns { Query } Returns the {@coed Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -1006,8 +1005,7 @@ declare namespace distributedKVStore {
      * @param { string } field - Indicates the specified field.
      * @returns { Query } Returns the {@coed Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -1041,8 +1039,7 @@ declare namespace distributedKVStore {
      * @param { string } prefix - Indicates the specified key prefix.
      * @returns { Query } Returns the {@coed Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -1054,8 +1051,7 @@ declare namespace distributedKVStore {
      * @param { string } index - Indicates the index to set.
      * @returns { Query } Returns the {@coed Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -1064,7 +1060,7 @@ declare namespace distributedKVStore {
     /**
      * Add device ID key prefix.Used by {@code DeviceKVStore}.
      *
-     * @param { string } deviceId - Specify device id to query from.
+     * @param { string } deviceId - Specify device id to query from, It can not be empty.
      * @returns { Query } Returns the {@code Query} object with device ID prefix added.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *                                                                 2.Incorrect parameters types;
@@ -1177,7 +1173,6 @@ declare namespace distributedKVStore {
      * @param { AsyncCallback<void> } callback - the callback of putBatch.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1190,7 +1185,6 @@ declare namespace distributedKVStore {
      * @param { AsyncCallback<void> } callback - the callback of putBatch.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
@@ -1206,7 +1200,6 @@ declare namespace distributedKVStore {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1219,7 +1212,6 @@ declare namespace distributedKVStore {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
@@ -1235,7 +1227,6 @@ declare namespace distributedKVStore {
      * @param { AsyncCallback<void> } callback - the callback of putBatch.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -1251,7 +1242,6 @@ declare namespace distributedKVStore {
      * @param { AsyncCallback<void> } callback - the callback of putBatch.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -1270,7 +1260,6 @@ declare namespace distributedKVStore {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -1286,7 +1275,6 @@ declare namespace distributedKVStore {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -1367,7 +1355,6 @@ declare namespace distributedKVStore {
      * @param { AsyncCallback<void> } callback - the callback of delete.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -1383,7 +1370,6 @@ declare namespace distributedKVStore {
      * @param { AsyncCallback<void> } callback - the callback of delete.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -1402,7 +1388,6 @@ declare namespace distributedKVStore {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -1418,7 +1403,6 @@ declare namespace distributedKVStore {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -1433,7 +1417,7 @@ declare namespace distributedKVStore {
     /**
      * Deletes key-value pairs in batches from the {@code SingleKVStore} database.
      *
-     * @param { string[] } keys - Indicates the key-value pairs to be deleted in batches.
+     * @param { string[] } keys - Indicates the key-value pairs to be deleted in batches, It can not be empty.
      * @param { AsyncCallback<void> } callback - the callback of deleteBatch.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *                                                                 2.Incorrect parameters types;
@@ -1446,7 +1430,7 @@ declare namespace distributedKVStore {
     /**
      * Deletes key-value pairs in batches from the {@code SingleKVStore} database.
      *
-     * @param { string[] } keys - Indicates the key-value pairs to be deleted in batches.
+     * @param { string[] } keys - Indicates the key-value pairs to be deleted in batches, It can not be empty.
      * @param { AsyncCallback<void> } callback - the callback of deleteBatch.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *                                                                 2.Incorrect parameters types;
@@ -1475,7 +1459,7 @@ declare namespace distributedKVStore {
     /**
      * Deletes key-value pairs in batches from the {@code SingleKVStore} database.
      *
-     * @param { string[] } keys - Indicates the key-value pairs to be deleted in batches.
+     * @param { string[] } keys - Indicates the key-value pairs to be deleted in batches, It can not be empty.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *                                                                 2.Incorrect parameters types;
@@ -1560,8 +1544,7 @@ declare namespace distributedKVStore {
      * @param { AsyncCallback<Entry[]> } callback - {Entry[]}: the list of all key-value pairs
      * that match the specified key prefix.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1576,8 +1559,7 @@ declare namespace distributedKVStore {
      * @returns { Promise<Entry[]> } {Entry[]}: the list of all key-value pairs that match the
      * specified key prefix.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1592,8 +1574,7 @@ declare namespace distributedKVStore {
      * @param { AsyncCallback<Entry[]> } callback - {Entry[]}: the list of all key-value pairs
      * matching the specified {@code Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1608,8 +1589,7 @@ declare namespace distributedKVStore {
      * @returns { Promise<Entry[]> } {Entry[]}: the list of all key-value pairs matching the
      * specified {@code Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1628,8 +1608,7 @@ declare namespace distributedKVStore {
      * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified keyPrefix.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1646,8 +1625,7 @@ declare namespace distributedKVStore {
      * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified keyPrefix.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -1667,8 +1645,7 @@ declare namespace distributedKVStore {
      * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified keyPrefix.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1685,8 +1662,7 @@ declare namespace distributedKVStore {
      * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified keyPrefix.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -1702,8 +1678,7 @@ declare namespace distributedKVStore {
      * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified {@code Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1716,8 +1691,7 @@ declare namespace distributedKVStore {
      * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified {@code Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -1733,8 +1707,7 @@ declare namespace distributedKVStore {
      * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified {@code Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1747,8 +1720,7 @@ declare namespace distributedKVStore {
      * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified {@code Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -1764,8 +1736,7 @@ declare namespace distributedKVStore {
      * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified {@code dataSharePredicates.DataSharePredicates} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -1780,9 +1751,8 @@ declare namespace distributedKVStore {
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates the datasharePredicates.
      * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified {@code dataSharePredicates.DataSharePredicates} object.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified
-     *                                                                 2.Incorrect parameters types
-     *                                                                 3.Parameter verification failed
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100003 - Database corrupted.
@@ -1801,8 +1771,7 @@ declare namespace distributedKVStore {
      * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified {@code dataSharePredicates.DataSharePredicates} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -1818,8 +1787,7 @@ declare namespace distributedKVStore {
      * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified {@code dataSharePredicates.DataSharePredicates} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100003 - Database corrupted.
@@ -1837,8 +1805,7 @@ declare namespace distributedKVStore {
      * @param { KVStoreResultSet } resultSet - Indicates the {@code KVStoreResultSet} object to close.
      * @param { AsyncCallback<void> } callback - the callback of closeResultSet.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -1850,8 +1817,7 @@ declare namespace distributedKVStore {
      * @param { KVStoreResultSet } resultSet - Indicates the {@code KVStoreResultSet} object to close.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -1864,8 +1830,7 @@ declare namespace distributedKVStore {
      * @param { AsyncCallback<number> } callback - {number}: the number of results matching the
      * specified {@code Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1880,8 +1845,7 @@ declare namespace distributedKVStore {
      * @returns { Promise<number> } {number}: the number of results matching the specified
      * {@code Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1892,7 +1856,7 @@ declare namespace distributedKVStore {
     /**
      * Backs up a database in the specified filename.
      *
-     * @param { string } file - Indicates the database backup filename.
+     * @param { string } file - Indicates the database backup filename, It can not be empty.
      * @param { AsyncCallback<void> } callback - the callback of backup.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *                                                                 2.Parameter verification failed.
@@ -1905,7 +1869,7 @@ declare namespace distributedKVStore {
     /**
      * Backs up a database in the specified filename.
      *
-     * @param { string } file - Indicates the database backup filename.
+     * @param { string } file - Indicates the database backup filename, It can not be empty.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *                                                                 2.Parameter verification failed.
@@ -1918,7 +1882,7 @@ declare namespace distributedKVStore {
     /**
      * Restores a database from a specified database file.
      *
-     * @param { string } file - Indicates the database backup filename.
+     * @param { string } file - Indicates the database backup filename, It can not be empty.
      * @param { AsyncCallback<void> } callback - the callback of restore.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *                                                                 2.Parameter verification failed.
@@ -1931,7 +1895,7 @@ declare namespace distributedKVStore {
     /**
      * Restores a database from a specified database file.
      *
-     * @param { string } file - Indicates the database backup filename.
+     * @param { string } file - Indicates the database backup filename, It can not be empty.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *                                                                 2.Parameter verification failed.
@@ -1944,7 +1908,7 @@ declare namespace distributedKVStore {
     /**
      * Delete database backup files based on the specified filenames.
      *
-     * @param { Array<string> } files - Indicates the backup filenames to be deleted.
+     * @param { Array<string> } files - Indicates the backup filenames to be deleted, It can not be empty.
      * @param { AsyncCallback<Array<[string, number]>> } callback - {Array<[string, number]>}:
      * the list of backup file and it's corresponding delete result which 0 means delete success
      * and otherwise failed.
@@ -1958,7 +1922,7 @@ declare namespace distributedKVStore {
     /**
      * Delete database backup files based on the specified filenames.
      *
-     * @param { Array<string> } files - Indicates the backup filenames to be deleted.
+     * @param { Array<string> } files - Indicates the backup filenames to be deleted, It can not be empty.
      * @returns { Promise<Array<[string, number]>> } {Array<[string, number]>}: the list of backup
      * file and it's corresponding delete result which 0 means delete success and otherwise failed.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
@@ -2057,7 +2021,7 @@ declare namespace distributedKVStore {
      * means to enable synchronization, and false means the opposite.
      * @param { AsyncCallback<void> } callback - the callback of enableSync.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -2070,7 +2034,7 @@ declare namespace distributedKVStore {
      * means to enable synchronization, and false means the opposite.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -2085,8 +2049,7 @@ declare namespace distributedKVStore {
      * data will be synchronized.
      * @param { AsyncCallback<void> } callback - the callback of setSyncRange.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -2101,8 +2064,7 @@ declare namespace distributedKVStore {
      * data will be synchronized.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -2115,8 +2077,7 @@ declare namespace distributedKVStore {
      * database synchronization, in milliseconds.
      * @param { AsyncCallback<void> } callback - the callback of setSyncParam.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -2129,8 +2090,7 @@ declare namespace distributedKVStore {
      * database synchronization, in milliseconds.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -2145,8 +2105,7 @@ declare namespace distributedKVStore {
      * {@code PULL}, or {@code PUSH_PULL}.
      * @param { number } delayMs - Indicates the delay allowed for the synchronization, in milliseconds.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100004 - Not found.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -2164,8 +2123,7 @@ declare namespace distributedKVStore {
      * {@code PULL}, or {@code PUSH_PULL}.
      * @param { number } delayMs - Indicates the delay allowed for the synchronization, in milliseconds.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100004 - Not found.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -2182,7 +2140,7 @@ declare namespace distributedKVStore {
      * @param { Callback<ChangeNotification> } listener - {ChangeNotification}: the {@code ChangeNotification}
      * object indicates the data change events in the distributed database.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -2197,7 +2155,7 @@ declare namespace distributedKVStore {
      * @param { Callback<ChangeNotification> } listener - {ChangeNotification}: the {@code ChangeNotification}
      * object indicates the data change events in the distributed database.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -2214,7 +2172,7 @@ declare namespace distributedKVStore {
      * deviceId and it's corresponding synchronization result which 0 means synchronization success
      * and otherwise failed.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -2227,7 +2185,7 @@ declare namespace distributedKVStore {
      * @param { Callback<ChangeNotification> } listener - {ChangeNotification}: the {@code ChangeNotification}
      * object indicates the data change events in the distributed database.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
@@ -2242,7 +2200,7 @@ declare namespace distributedKVStore {
      * deviceId and it's corresponding synchronization result which 0 means synchronization success
      * and otherwise failed.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -2320,7 +2278,7 @@ declare namespace distributedKVStore {
     /**
      * Obtains the value matching a specified device ID and key.
      *
-     * @param { string } deviceId - Indicates the device to be queried.
+     * @param { string } deviceId - Indicates the device to be queried. The length must be less than {@code MAX_KEY_LENGTH}.
      * @param { string } key - Indicates the key of the value to be queried.
      * @param { AsyncCallback<boolean | string | number | Uint8Array> } callback -
      * {boolean | string | number | Uint8Array}: the returned value specified by the deviceId and key.
@@ -2338,7 +2296,7 @@ declare namespace distributedKVStore {
     /**
      * Obtains the value matching a specified device ID and key.
      *
-     * @param { string } deviceId - Indicates the device to be queried.
+     * @param { string } deviceId - Indicates the device to be queried. The length must be less than {@code MAX_KEY_LENGTH}.
      * @param { string } key - Indicates the key of the value to be queried.
      * @returns { Promise<boolean | string | number | Uint8Array> }
      * {Uint8Array|string|boolean|number}: the returned value specified by the deviceId and key.
@@ -2360,8 +2318,7 @@ declare namespace distributedKVStore {
      * @param { AsyncCallback<Entry[]> } callback - {Entry[]}: the list of all key-value pairs
      * that match the local device ID and specified key prefix.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -2376,8 +2333,7 @@ declare namespace distributedKVStore {
      * @returns { Promise<Entry[]> } {Entry[]}: the list of all key-value pairs that match the
      * local device ID and specified key prefix.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -2393,8 +2349,7 @@ declare namespace distributedKVStore {
      * @param { AsyncCallback<Entry[]> } callback - {Entry[]}: the list of all key-value pairs
      * that match the specified deviceId and key prefix.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
@@ -2410,8 +2365,7 @@ declare namespace distributedKVStore {
      * @returns { Promise<Entry[]> } {Entry[]}: the list of all key-value pairs that match the
      * specified deviceId and key prefix.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
@@ -2426,8 +2380,7 @@ declare namespace distributedKVStore {
      * @param { AsyncCallback<Entry[]> } callback - {Entry[]}: the list of all key-value pairs
      * matching the local device ID and specified {@code Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -2442,8 +2395,7 @@ declare namespace distributedKVStore {
      * @returns { Promise<Entry[]> } {Entry[]}: the list of all key-value pairs matching the local device ID and
      * specified {@code Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -2459,8 +2411,7 @@ declare namespace distributedKVStore {
      * @param { AsyncCallback<Entry[]> } callback - {Entry[]}: the list of all key-value pairs
      * matching the specified deviceId and {@code Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
@@ -2476,8 +2427,7 @@ declare namespace distributedKVStore {
      * @returns { Promise<Entry[]> } {Entry[]}: the list of all key-value pairs matching the
      * specified deviceId and {@code Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
@@ -2496,8 +2446,7 @@ declare namespace distributedKVStore {
      * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the local device ID and specified keyPrefix.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -2514,8 +2463,7 @@ declare namespace distributedKVStore {
      * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the local device ID and specified keyPrefix.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -2535,8 +2483,7 @@ declare namespace distributedKVStore {
      * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the local device ID and specified keyPrefix.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -2553,8 +2500,7 @@ declare namespace distributedKVStore {
      * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the local device ID and specified keyPrefix.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -2575,8 +2521,7 @@ declare namespace distributedKVStore {
      * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified deviceId and keyPrefix.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
@@ -2594,8 +2539,7 @@ declare namespace distributedKVStore {
      * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified deviceId and keyPrefix.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -2616,8 +2560,7 @@ declare namespace distributedKVStore {
      * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified deviceId and keyPrefix.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
@@ -2635,8 +2578,7 @@ declare namespace distributedKVStore {
      * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified deviceId and keyPrefix.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -2652,8 +2594,7 @@ declare namespace distributedKVStore {
      * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the local device ID and specified {@code Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -2666,8 +2607,7 @@ declare namespace distributedKVStore {
      * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the local device ID and specified {@code Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -2683,8 +2623,7 @@ declare namespace distributedKVStore {
      * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the local device ID and specified {@code Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -2697,8 +2636,7 @@ declare namespace distributedKVStore {
      * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the local device ID and specified {@code Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -2715,8 +2653,7 @@ declare namespace distributedKVStore {
      * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified deviceId and {@code Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
@@ -2730,8 +2667,7 @@ declare namespace distributedKVStore {
      * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified deviceId and {@code Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -2748,8 +2684,7 @@ declare namespace distributedKVStore {
      * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified deviceId and {@code Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
@@ -2763,8 +2698,7 @@ declare namespace distributedKVStore {
      * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified deviceId and {@code Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -2780,8 +2714,7 @@ declare namespace distributedKVStore {
      * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the local device ID and specified {@code dataSharePredicates.DataSharePredicates} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -2797,8 +2730,7 @@ declare namespace distributedKVStore {
      * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the local device ID and specified {@code dataSharePredicates.DataSharePredicates} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100003 - Database corrupted.
@@ -2817,8 +2749,7 @@ declare namespace distributedKVStore {
      * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the local device ID and specified {@code dataSharePredicates.DataSharePredicates} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -2834,8 +2765,7 @@ declare namespace distributedKVStore {
      * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the local device ID and specified {@code dataSharePredicates.DataSharePredicates} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100003 - Database corrupted.
@@ -2855,8 +2785,7 @@ declare namespace distributedKVStore {
      * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified deviceId and {@code dataSharePredicates.DataSharePredicates} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -2873,8 +2802,7 @@ declare namespace distributedKVStore {
      * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified deviceId and {@code dataSharePredicates.DataSharePredicates} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100003 - Database corrupted.
@@ -2898,8 +2826,7 @@ declare namespace distributedKVStore {
      * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified deviceId and {@code dataSharePredicates.DataSharePredicates} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -2916,8 +2843,7 @@ declare namespace distributedKVStore {
      * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified deviceId and {@code dataSharePredicates.DataSharePredicates} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types;
-     *                                                                 3.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100003 - Database corrupted.
@@ -2936,7 +2862,7 @@ declare namespace distributedKVStore {
      * @param { AsyncCallback<number> } callback - {number}: the number of results matching the
      * local device ID and specified {@code Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -2951,7 +2877,7 @@ declare namespace distributedKVStore {
      * @returns { Promise<number> } {number}: the number of results matching the local device ID and specified
      * {@code Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -2967,7 +2893,7 @@ declare namespace distributedKVStore {
      * @param { AsyncCallback<number> } callback - {number}: the number of results matching the
      * specified deviceId and {@code Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
@@ -2983,7 +2909,7 @@ declare namespace distributedKVStore {
      * @returns { Promise<number> } {number}: the number of results matching the specified
      * deviceId and {@code Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Parameter verification failed.
+     *                                                                 2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
@@ -2998,10 +2924,11 @@ declare namespace distributedKVStore {
    * to create a {@link KVManager} instance.
    *
    * @param { KVManagerConfig } config - Indicates the KVStore configuration information,
-   * including the package name and context.
+   * including the package name and context, and package name can not be empty.
    * @returns { KVManager } : the {@code KVManager} instance.
    * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-   *                                                                 2.Incorrect parameters types,3.Parameter verification failed.
+   *                                                                 2.Incorrect parameters types;
+   *                                                                 3.Parameter verification failed.
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
    * @since 9
    */
@@ -3133,7 +3060,8 @@ declare namespace distributedKVStore {
      *
      * @param { string } appId - Identifies the application that obtains the databases, and cannot exceed 256 characters.
      * @param { AsyncCallback<string[]> } callback - {string[]}: the storeId of all created KVStore databases.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:Mandatory parameters are left unspecified.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+     *                                                                 2.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -3145,7 +3073,8 @@ declare namespace distributedKVStore {
      *
      * @param { string } appId - Identifies the application that obtains the databases, and cannot exceed 256 characters.
      * @returns { Promise<string[]> } {string[]}: the storeId of all created KVStore databases.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:Mandatory parameters are left unspecified.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified.
+     *                                                                 2.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
