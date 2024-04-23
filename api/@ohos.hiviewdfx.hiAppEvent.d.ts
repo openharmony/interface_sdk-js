@@ -761,6 +761,18 @@ declare namespace hiAppEvent {
     setSize(size: number): void;
 
     /**
+     * Set the number of rows per read.
+     *
+     * @param { number } size Row size.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 11104001 - Invalid size value.
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 12
+     */
+    setRow(size: number): void;
+
+    /**
      * Read the event data monitored by the watcher.
      *
      * @returns { AppEventPackage } The read event package.
