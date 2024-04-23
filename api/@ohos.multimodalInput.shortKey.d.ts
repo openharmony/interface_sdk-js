@@ -59,7 +59,7 @@ declare namespace shortKey {
 export default shortKey;
 
 /**
- * FingerprintAction
+ * Enumerates fingerprint key event types.
  *
  * @enum { number }
  * @syscap SystemCapability.MultimodalInput.Input.Core
@@ -67,7 +67,7 @@ export default shortKey;
  */
 export declare enum FingerprintAction {
   /**
-   * This action represents the user placing their finger down.
+   * Key touching.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 12
@@ -75,7 +75,7 @@ export declare enum FingerprintAction {
   DOWN = 0,
 
   /**
-   * This action represents the user lifting their finger.
+   * Finger lifting.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 12
@@ -83,7 +83,7 @@ export declare enum FingerprintAction {
   UP = 1,
 
   /**
-   * This action signifies that the user is currently engaged in sliding.
+   * Sliding on the fingerprint key.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 12
@@ -91,7 +91,7 @@ export declare enum FingerprintAction {
   SLIDE = 2,
 
   /**
-   * This action represents the retouch event.
+   *  Second touch during the double-click process.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 12
@@ -99,7 +99,7 @@ export declare enum FingerprintAction {
   RETOUCH = 3,
 
   /**
-   * This action corresponds to a click event
+   * Double-click event.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 12
@@ -108,7 +108,7 @@ export declare enum FingerprintAction {
 }
 
 /**
- * FingerprintEvent
+ * Fingerprint key event.
  *
  * @interface FingerprintEvent
  * @syscap SystemCapability.MultimodalInput.Input.Core
@@ -116,7 +116,7 @@ export declare enum FingerprintAction {
  */
 export declare interface FingerprintEvent {
   /**
-   * Fingerprint action
+   * Fingerprint key event type.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 12
@@ -124,10 +124,14 @@ export declare interface FingerprintEvent {
   action: FingerprintAction;
 
   /**
-   * This field represents the percentage of relative sliding distance on X-axis
-   * compared to the total sliding distance.
-   * A positve value indicates sliding to the right, while a negative value indicates sliding to the left.
-   * This value is only meaningful when the type is "SLIDE".
+   * This value indicates the sliding percentage of the fingerprint key on the X axis,
+   * that is, the ratio of the relative sliding distance to the device length
+   * compared with the previous report of the sliding event.
+   * A positive value indicates moving in the positive direction of the X axis,
+   * and a negative value indicates the opposite.
+   * The vertical upward direction of the device stands for the positive direction of the Y axis,
+   * and the horizontal rightward direction stands for the positive direction of the X axis.
+   * This way, a rectangular coordinate system is constructed.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 12
@@ -135,10 +139,14 @@ export declare interface FingerprintEvent {
   distanceX: number;
 
   /**
-   * This field represents the percentage of relative sliding distance on Y-axis
-   * compared to the total sliding distance.
-   * A positve value indicates upward sliding , while a negative value indicates downward sliding.
-   * This value is only meaningful when the type is "SLIDE".
+   * This value indicates the sliding percentage of the fingerprint key on the Y axis,
+   * that is, the ratio of the relative sliding distance to the component length
+   * compared with the previous report of the sliding event.
+   * A positive value indicates moving in the positive direction of the Y axis,
+   * and a negative value indicates the opposite.
+   * The vertical upward direction of the device stands for the positive direction of the Y axis,
+   * and the horizontal rightward direction stands for the positive direction of the X axis.
+   * This way, a rectangular coordinate system is constructed.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 12

@@ -317,7 +317,7 @@ declare namespace inputMonitor {
   function off(type: 'threeFingersTap', receiver?: Callback<ThreeFingersTap>): void;
 
   /**
-   * Listens for fingerprint events.
+   * Enables listening for fingerprint key events.
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'fingerprint' } type - Event type, which is **fingerprint**.
@@ -333,7 +333,7 @@ declare namespace inputMonitor {
   function on(type: 'fingerprint', receiver: Callback<FingerprintEvent>): void;
 
   /**
-   * Cancel listening fingerprint events.
+   * Cancels listening for fingerprint key events.
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'fingerprint' } type - Event type, which is **fingerprint**.
