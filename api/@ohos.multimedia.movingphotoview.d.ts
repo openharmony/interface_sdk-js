@@ -18,14 +18,7 @@
  * @kit MediaLibraryKit
  */
 
-/**
- * Defines the moving photo.
- * 
- * @typedef MovingPhoto
- * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
- * @since 12
- */
-declare type MovingPhoto = import('../api/@ohos.file.photoAccessHelper').default.MovingPhoto;
+import photoAccessHelper from './@ohos.file.photoAccessHelper';;
 
 /**
  * Defines the moving photo view options.
@@ -46,7 +39,7 @@ declare interface MovingPhotoViewOptions {
      * @atomicservice
      * @since 12
      */
-    data: MovingPhoto;
+    data: photoAccessHelper.MovingPhoto;
     /**
      * controller of MovingPhotoView.
      *
