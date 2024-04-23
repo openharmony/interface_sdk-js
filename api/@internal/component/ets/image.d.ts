@@ -139,6 +139,37 @@ declare enum ImageRenderMode {
 /**
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+declare enum DynamicRangeMode {
+  /**
+   * Allow image content to use an unrestricted extended range.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  HIGH = 0,
+
+  /**
+   * Allow image content to use some extended range.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  CONSTRAINT = 1,
+
+  /**
+   * Restrict the image content dynamic range to the standard range.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  STANDARD = 2,
+}
+
+/**
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
@@ -717,6 +748,16 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @form
    */
   renderMode(value: ImageRenderMode): ImageAttribute;
+
+  /**
+   * Set dynamic range mode of image.
+   *
+   * @param { DynamicRangeMode } value - Indicates the resizable options.
+   * @returns { ImageAttribute } Returns the instance of the ImageAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  dynamicRangeMode(value: DynamicRangeMode): ImageAttribute;
 
   /**
    * Sets the interpolation effect of an image. The interpolation effect is only magnified for the image.
