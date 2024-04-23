@@ -2477,7 +2477,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    FOLLOW_RECENT = 17
+    FOLLOW_DESKTOP = 17
   }
 
   /**
