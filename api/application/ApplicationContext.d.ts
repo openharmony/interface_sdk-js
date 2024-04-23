@@ -481,5 +481,5 @@ export default class ApplicationContext extends Context {
    * @stagemodelonly
    * @since 12
    */
-  setSupportProcessCache(isSupported : boolean): void;
+  setSupportedProcessCache(isSupported : boolean): void;
 }
