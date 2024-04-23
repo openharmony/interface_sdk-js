@@ -59,7 +59,7 @@ declare interface UIExtensionOptions {
    * @systemapi
    * @since 12
    */
-  enableDensityDPI?: boolean;
+  isHostDensityDpiFollowed?: boolean;
 }
 
 /**
