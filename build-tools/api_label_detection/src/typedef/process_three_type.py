@@ -19,7 +19,8 @@ def get_judgment_node_type_dict():
         'Namespace': 'Namespace',
         'Class': 'Class',
         'Interface': 'Interface',
-        'Method': 'Method'
+        'Method': 'Method',
+        'Struct': 'Struct'
     }
     return type_dict
 

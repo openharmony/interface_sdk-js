@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit ArkGraphics 2D
+ * @kit ArkGraphics2D
  */
 /**
  * The date structure that provides the basis for graphics.
@@ -97,6 +97,30 @@ declare namespace common2D {
      * @since 11
      */
     bottom: number;
+  }
+
+  /**
+   * Coordinates in the font layout.
+   * @typedef Point
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  interface Point {
+    /**
+     * X-axis coordinate.
+     * @type { number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    x: number;
+
+    /**
+     * Y-axis coordinate.
+     * @type { number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    y: number;
   }
 }
 

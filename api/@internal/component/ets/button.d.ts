@@ -260,6 +260,59 @@ declare enum ButtonRole {
 }
 
 /**
+ * Defines the callback type used in ButtonConfiguration.
+ *
+ * @typedef {function} ButtonTriggerClickCallback
+ * @param { number } xPos - The value of xPos is x coordinate.
+ * @param { number } yPos - The value of yPos is y coordinate.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type ButtonTriggerClickCallback = (xPos: number, yPos: number) => void;
+
+/**
+ * ButtonConfiguration used by button content modifier.
+ *
+ * @interface ButtonConfiguration
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+
+declare interface ButtonConfiguration extends CommonConfiguration<ButtonConfiguration> {
+  /**
+   * Button with inner text label.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  label: string;
+
+  /**
+   * Indicates whether the button is pressed.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  pressed: boolean;
+
+  /**
+   * Trigger button click x coordinate and y coordinate.
+   *
+   * @type { ButtonTriggerClickCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  triggerClick: ButtonTriggerClickCallback;
+}
+
+/**
  * Enum for Control Size.
  *
  * @enum { string }
@@ -1145,6 +1198,17 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @form
    */
   fontFamily(value: string | Resource): ButtonAttribute;
+
+  /**
+   * Set the content modifier of button.
+   *
+   * @param { ContentModifier<ButtonConfiguration> } modifier - The content modifier of button.
+   * @returns { ButtonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  contentModifier(modifier: ContentModifier<ButtonConfiguration>): ButtonAttribute;
 
   /**
    * Set button label style.

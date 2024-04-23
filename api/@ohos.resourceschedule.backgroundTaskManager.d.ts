@@ -21,6 +21,7 @@
 import { AsyncCallback, Callback } from './@ohos.base';
 import { WantAgent } from './@ohos.wantAgent';
 import Context from './application/BaseContext';
+import notificationManager from './@ohos.notificationManager';
 
 /**
  * Manages background tasks.
@@ -51,6 +52,40 @@ declare namespace backgroundTaskManager {
      * @since 9
      */
     actualDelayTime: number;
+  }
+
+  /**
+   * The info of continuous task notification.
+   *
+   * @interface ContinuousTaskNotification
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @since 12
+   */
+  interface ContinuousTaskNotification {
+    /**
+     * The notification slot type.
+     *
+     * @type { notificationManager.SlotType }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 12
+     */
+    slotType: notificationManager.SlotType;
+    /**
+     * The notification content type.
+     *
+     * @type { notificationManager.ContentType }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 12
+     */
+    contentType: notificationManager.ContentType;
+    /**
+     * The notification id.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 12
+     */
+    notificationId: number;
   }
 
   /**
@@ -177,7 +212,7 @@ declare namespace backgroundTaskManager {
    * @param { Context } context - App running context.
    * @param { string[] } bgModes - Indicates which background mode to request.
    * @param { WantAgent } wantAgent - Indicates which ability to start when user click the notification bar.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @returns { Promise<ContinuousTaskNotification> } The The continuous task notification.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 9800001 - Memory operation failed.
@@ -190,7 +225,7 @@ declare namespace backgroundTaskManager {
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 12
    */
-  function startBackgroundRunning(context: Context, bgModes: string[], wantAgent: WantAgent): Promise<void>;
+  function startBackgroundRunning(context: Context, bgModes: string[], wantAgent: WantAgent): Promise<ContinuousTaskNotification>;
 
   /**
    * UIAbility uses this method to update background mode.
@@ -198,7 +233,7 @@ declare namespace backgroundTaskManager {
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { Context } context - App running context.
    * @param { string[] } bgModes - Indicates which background mode to request.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @returns { Promise<ContinuousTaskNotification> } The continuous task notification.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 9800001 - Memory operation failed.
@@ -211,7 +246,7 @@ declare namespace backgroundTaskManager {
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 12
    */
-  function updateBackgroundRunning(context: Context, bgModes: string[]): Promise<void>;
+  function updateBackgroundRunning(context: Context, bgModes: string[]): Promise<ContinuousTaskNotification>;
 
   /**
    * Service ability uses this method to request stop running in background.

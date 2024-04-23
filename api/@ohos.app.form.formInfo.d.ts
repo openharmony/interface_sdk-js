@@ -993,6 +993,34 @@ declare namespace formInfo {
      * @since 12
      */
     HOST_BG_INVERSE_COLOR_KEY = 'ohos.extra.param.key.host_bg_inverse_color',
+
+    /**
+     * Indicates the key specifying the user granted permission name, which is represented as
+     * want: {
+     *   "parameters": {
+     *       FORM_PERMISSION_NAME_KEY: "permissionName"
+     *    }
+     * }.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @atomicservice
+     * @since 12
+     */
+    FORM_PERMISSION_NAME_KEY = 'ohos.extra.param.key.permission_name',
+
+    /**
+     * Indicates the key specifying whether the user granted, which is represented as
+     * want: {
+     *   "parameters": {
+     *       FORM_PERMISSION_GRANTED_KEY: true
+     *    }
+     * }.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @atomicservice
+     * @since 12
+     */
+    FORM_PERMISSION_GRANTED_KEY = 'ohos.extra.param.key.permission_granted',
   }
 
   /**
@@ -1053,27 +1081,6 @@ declare namespace formInfo {
      * @since 12
      */
     supportedDimensions?: Array<number>;
-  }
-
-  /**
-   * Configuration update flags.
-   *
-   * @typedef ConfigurationUpdateFlags
-   * @syscap SystemCapability.Ability.Form
-   * @atomicservice
-   * @since 12
-   */
-  interface ConfigurationUpdateFlags {
-    /**
-     * Indicates whether font update enabled.
-     *
-     * @type { ?boolean }
-     * @default true
-     * @syscap SystemCapability.Ability.Form
-     * @atomicservice
-     * @since 12
-     */
-    fontEnabled?: boolean;
   }
 
   /**

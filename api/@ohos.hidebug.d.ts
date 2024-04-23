@@ -144,7 +144,7 @@ declare namespace hidebug {
    * The generated file is in the files folder under the application directory.
    *
    * @param { string } filename - Indicates the user-defined file name,  excluding the file suffix.
-   * @throws {BusinessError} 401 - the parameter check failed
+   * @throws {BusinessError} 401 - the parameter check failed, Parameter type error
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 9
    */
@@ -165,7 +165,7 @@ declare namespace hidebug {
    * The generated file is in the files folder under the application directory.
    *
    * @param { string } filename - Indicates the user-defined file name, excluding the file suffix.
-   * @throws {BusinessError} 401 - the parameter check failed
+   * @throws {BusinessError} 401 - the parameter check failed, Parameter type error
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 9
    */
@@ -179,7 +179,9 @@ declare namespace hidebug {
    * @param { number } serviceid - Indicates the id of the service ability.
    * @param { number } fd - The file descriptor.
    * @param { Array<string> } args - The args list of the system ability dump interface.
-   * @throws {BusinessError} 401 - the parameter check failed
+   * @throws {BusinessError} 401 - the parameter check failed, Possible causes:
+   *                               1.the parameter type error
+   *                               2.the args parameter is not string array
    * @throws {BusinessError} 11400101 - the service id is invalid
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 9
@@ -732,7 +734,10 @@ declare namespace hidebug {
    * @param { TraceFlag } flag - Trace flag.
    * @param { number } limitSize - Max size of trace file, in bytes, the max is 500MB.
    * @returns { string } Returns absolute path of the trace file.
-   * @throws { BusinessError } 401 - Invalid argument
+   * @throws { BusinessError } 401 - Invalid argument, Possible causes:
+   *                           1.The limit parameter is too small
+   *                           2.The parameter is not within the enumeration type
+   *                           3.The parameter type error or parameter order error
    * @throws { BusinessError } 11400102 - Have already capture trace
    * @throws { BusinessError } 11400103 - Without write permission on the file
    * @throws { BusinessError } 11400104 - The status of the trace is abnormal

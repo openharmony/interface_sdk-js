@@ -598,6 +598,16 @@ declare interface RichEditorParagraphStyle {
    * @since 12
    */
   wordBreak?: WordBreak;
+
+  /**
+   * Set line break strategy type.
+   *
+   * @type { ?LineBreakStrategy }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  lineBreakStrategy?: LineBreakStrategy;
 }
 
 /**
@@ -2582,7 +2592,16 @@ declare interface SelectionMenuOptions {
    * @atomicservice
    * @since 11
    */
-  onAppear?: () => void;
+    /**
+   * Callback function when the selection menu appears.
+   * 
+   * @type { ?MenuOnAppearCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onAppear?: MenuOnAppearCallback;
 
   /**
    * Callback function when the selection menu disappears.
@@ -3413,6 +3432,18 @@ declare interface CopyEvent {
  * @since 12
  */
 declare type SubmitCallback = (enterKey: EnterKeyType, event: SubmitEvent) => void;
+
+/**
+ * Callback function when the selection menu appears.
+ *
+ * @typedef { function } MenuOnAppearCallback
+ * @param { number } start - Start offset of the selected content in rich editor.
+ * @param { number } end - End offset of the selected content in rich editor.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type MenuOnAppearCallback = (start: number, end: number) => void;
 
 /**
  * Provides an interface for writing texts.

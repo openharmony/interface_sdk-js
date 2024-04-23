@@ -34,7 +34,7 @@ declare namespace installer {
    *
    * @param { AsyncCallback<BundleInstaller> } callback - The callback of BundleInstaller object.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Input parameters check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9
@@ -81,7 +81,7 @@ declare namespace installer {
      * @param { AsyncCallback<void> } callback - The callback of installing haps result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-     * @throws { BusinessError } 401 - Input parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
      * @throws { BusinessError } 17700011 - Failed to install the HAP because the HAP signature fails to be verified.
@@ -117,7 +117,7 @@ declare namespace installer {
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
      * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-     * @throws { BusinessError } 401 - Input parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter hapFiles is needed for code signature; 4. The size of specifiedDistributionType is greater than 128; 5. The size of additionalInfo is greater than 3000.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
      * @throws { BusinessError } 17700011 - Failed to install the HAP because the HAP signature fails to be verified.
@@ -155,7 +155,7 @@ declare namespace installer {
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
      * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-     * @throws { BusinessError } 401 - Input parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter hapFiles is needed for code signature; 4. The size of specifiedDistributionType is greater than 128; 5. The size of additionalInfo is greater than 3000.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
      * @throws { BusinessError } 17700011 - Failed to install the HAP because the HAP signature fails to be verified.
@@ -191,7 +191,7 @@ declare namespace installer {
      * @param { AsyncCallback<void> } callback - The callback of installing haps result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-     * @throws { BusinessError } 401 - Input parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
      * @throws { BusinessError } 17700011 - Failed to install the HAP because the HAP signature fails to be verified.
      * @throws { BusinessError } 17700012 - Failed to install the HAP because the HAP path is invalid or the HAP is too large.
@@ -225,7 +225,7 @@ declare namespace installer {
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
      * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-     * @throws { BusinessError } 401 - Input parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
      * @throws { BusinessError } 17700011 - Failed to install the HAP because the HAP signature fails to be verified.
      * @throws { BusinessError } 17700012 - Failed to install the HAP because the HAP path is invalid or the HAP is too large.
@@ -261,7 +261,7 @@ declare namespace installer {
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
      * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-     * @throws { BusinessError } 401 - Input parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
      * @throws { BusinessError } 17700011 - Failed to install the HAP because the HAP signature fails to be verified.
      * @throws { BusinessError } 17700012 - Failed to install the HAP because the HAP path is invalid or the HAP is too large.
@@ -297,7 +297,7 @@ declare namespace installer {
      * @returns { Promise<void> }
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-     * @throws { BusinessError } 401 - Input parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
      * @throws { BusinessError } 17700011 - Failed to install the HAP because the HAP signature fails to be verified.
@@ -333,7 +333,7 @@ declare namespace installer {
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
      * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-     * @throws { BusinessError } 401 - Input parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter hapFiles is needed for code signature; 4. The size of specifiedDistributionType is greater than 128; 5. The size of additionalInfo is greater than 3000.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
      * @throws { BusinessError } 17700011 - Failed to install the HAP because the HAP signature fails to be verified.
@@ -371,7 +371,7 @@ declare namespace installer {
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
      * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-     * @throws { BusinessError } 401 - Input parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter hapFiles is needed for code signature; 4. The size of specifiedDistributionType is greater than 128; 5. The size of additionalInfo is greater than 3000.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
      * @throws { BusinessError } 17700011 - Failed to install the HAP because the HAP signature fails to be verified.
@@ -408,7 +408,7 @@ declare namespace installer {
      * @param { AsyncCallback<void> } callback - The callback of uninstalling application result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.UNINSTALL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-     * @throws { BusinessError } 401 - Input parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700001 - The specified bundle name is not found.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @throws { BusinessError } 17700020 - The specified bundle is pre-installed bundle which cannot be uninstalled.
@@ -428,7 +428,7 @@ declare namespace installer {
      * @param { AsyncCallback<void> } callback - The callback of uninstalling application result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.UNINSTALL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-     * @throws { BusinessError } 401 - Input parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700001 - The specified bundle name is not found.
      * @throws { BusinessError } 17700020 - The specified bundle is pre-installed bundle which cannot be uninstalled.
      * @throws { BusinessError } 17700040 - The specified bundle is a shared bundle which cannot be uninstalled.
@@ -448,7 +448,7 @@ declare namespace installer {
      * @returns { Promise<void> }
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.UNINSTALL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-     * @throws { BusinessError } 401 - Input parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700001 - The specified bundle name is not found.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @throws { BusinessError } 17700020 - The specified bundle is pre-installed bundle which cannot be uninstalled.
@@ -469,7 +469,7 @@ declare namespace installer {
      * @param { AsyncCallback<void> } callback - The callback of recovering application result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.RECOVER_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-     * @throws { BusinessError } 401 - Input parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700001 - The specified bundle name is not found.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -486,7 +486,7 @@ declare namespace installer {
      * @param { AsyncCallback<void> } callback - The callback of recovering application result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.RECOVER_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-     * @throws { BusinessError } 401 - Input parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700001 - The specified bundle name is not found.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -503,7 +503,7 @@ declare namespace installer {
      * @returns { Promise<void> }
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.RECOVER_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-     * @throws { BusinessError } 401 - Input parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700001 - The specified bundle name is not found.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -520,7 +520,7 @@ declare namespace installer {
      * @param { AsyncCallback<void> } callback - The callback of uninstalling shared bundle result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.UNINSTALL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-     * @throws { BusinessError } 401 - Input parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700020 - The specified bundle is pre-installed bundle which cannot be uninstalled.
      * @throws { BusinessError } 17700037 - The version of shared bundle is dependent on other applications.
      * @throws { BusinessError } 17700038 - The specified shared bundle does not exist.
@@ -538,7 +538,7 @@ declare namespace installer {
      * @returns { Promise<void> }
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.UNINSTALL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-     * @throws { BusinessError } 401 - Input parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700020 - The specified bundle is pre-installed bundle which cannot be uninstalled.
      * @throws { BusinessError } 17700037 - The version of shared bundle is dependent on other applications.
      * @throws { BusinessError } 17700038 - The specified shared bundle does not exist.
@@ -557,7 +557,7 @@ declare namespace installer {
      * @param { AsyncCallback<void> } callback - Indicates the callback used to return the HAP installation result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_SELF_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-     * @throws { BusinessError } 401 - Input parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter hapFiles is needed for code signature; 4. The size of specifiedDistributionType is greater than 128; 5. The size of additionalInfo is greater than 3000.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
      * @throws { BusinessError } 17700011 - Failed to install the HAP because the HAP signature fails to be verified.
@@ -590,7 +590,7 @@ declare namespace installer {
      * @param { AsyncCallback<void> } callback - Indicates the callback used to return the HAP installation result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_SELF_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-     * @throws { BusinessError } 401 - Input parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
      * @throws { BusinessError } 17700011 - Failed to install the HAP because the HAP signature fails to be verified.
      * @throws { BusinessError } 17700012 - Failed to install the HAP because the HAP path is invalid or the HAP is too large.
@@ -623,7 +623,7 @@ declare namespace installer {
      * @returns { Promise<void> }
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_SELF_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-     * @throws { BusinessError } 401 - Input parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter hapFiles is needed for code signature; 4. The size of specifiedDistributionType is greater than 128; 5. The size of additionalInfo is greater than 3000.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
      * @throws { BusinessError } 17700011 - Failed to install the HAP because the HAP signature fails to be verified.
@@ -657,7 +657,7 @@ declare namespace installer {
    * @returns { Promise<void> } Returns addExtResource result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700301 - AddExtResource failed due to parse file failed.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -675,7 +675,7 @@ declare namespace installer {
   * @returns { Promise<void> } Returns removeExtResource result.
   * @throws { BusinessError } 201 - Permission denied.
   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-  * @throws { BusinessError } 401 - The parameter check failed.
+  * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
   * @throws { BusinessError } 17700302 - RemoveExtResource failed due to module does not exist.
   * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -693,7 +693,7 @@ declare namespace installer {
      * @returns { Promise<void> }
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.UNINSTALL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-     * @throws { BusinessError } 401 - Input parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700001 - The specified bundle name is not found.
      * @throws { BusinessError } 17700045 - Failed to uninstall because enterprise device management disallow uninstall.
      * @throws { BusinessError } 17700057 - Failed to uninstall updates because the HAP is not pre-installed.

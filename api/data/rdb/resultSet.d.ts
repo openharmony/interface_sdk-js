@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file The result set of database queries.
+ * @kit ArkData
+ */
+
 import { AsyncCallback } from '../../@ohos.base';
 
 /**

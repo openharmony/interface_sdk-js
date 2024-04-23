@@ -3186,6 +3186,26 @@ declare namespace call {
      * @since 11
      */
     originalCallType: number;
+
+    /**
+     * Indicates the location of the phone number.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    numberLocation?: string;
+
+    /**
+     * Indicates the mark information of the phone number.
+     *
+     * @type { ?NumberMarkInfo }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    numberMarkInfo?: NumberMarkInfo;
   }
 
   /**
@@ -3256,6 +3276,16 @@ declare namespace call {
      * @since 11
      */
     voipBundleName: string;
+
+    /**
+     * Indicates whether the VoIP incoming call default show live call banner. Default value is true.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    showBannerForIncomingCall?: boolean;
   }
 
   /**
@@ -5235,6 +5265,175 @@ declare namespace call {
      * @since 11
      */
     height: number;
+  }
+
+  /**
+   * Indicates the mark information of the phone number.
+   *
+   * @interface NumberMarkInfo
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  export interface NumberMarkInfo {
+    /**
+     * Indicates the type of number mark.
+     *
+     * @type { MarkType }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    markType: MarkType;
+
+    /**
+     * Indicates the content of number mark.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    markContent?: string;
+
+    /**
+     * Indicates the count of number mark.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    markCount?: number;
+
+    /**
+     * Indicates the source of number mark.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    markSource?: string;
+
+    /**
+     * Indicates if this is a number mark from cloud.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    isCloud?: boolean;
+  }
+
+  /**
+   * Indicates the type of the number mark.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  export enum MarkType {
+    /**
+     * Indicates the mark is none.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    MARK_TYPE_NONE = 0,
+
+    /**
+     * Indicates the mark is crank.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    MARK_TYPE_CRANK = 1,
+
+    /**
+     * Indicates the mark is fraud.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    MARK_TYPE_FRAUD = 2,
+
+    /**
+     * Indicates the mark is express.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    MARK_TYPE_EXPRESS = 3,
+
+    /**
+     * Indicates the mark is promote sales.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    MARK_TYPE_PROMOTE_SALES = 4,
+
+    /**
+     * Indicates the mark is house agent.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    MARK_TYPE_HOUSE_AGENT = 5,
+
+    /**
+     * Indicates the mark is insurance.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    MARK_TYPE_INSURANCE = 6,
+
+    /**
+     * Indicates the mark is taxi.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    MARK_TYPE_TAXI = 7,
+
+    /**
+     * Indicates the mark is custom.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    MARK_TYPE_CUSTOM = 8,
+
+    /**
+     * Indicates the mark is others.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    MARK_TYPE_OTHERS = 9,
+
+    /**
+     * Indicates the mark is yellow page.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    MARK_TYPE_YELLOW_PAGE = 10
   }
 }
 

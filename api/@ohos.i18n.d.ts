@@ -32,6 +32,7 @@ import { BusinessError } from './@ohos.base';
  *
  * @namespace i18n
  * @syscap SystemCapability.Global.I18n
+ * @crossplatform
  * @form
  * @atomicservice
  * @since 11
@@ -569,6 +570,32 @@ declare namespace i18n {
      * @since 12
      */
     static getBestMatchLocale(locale: string, localeList: string[]): string;
+
+    /**
+     * Get a three-letter abbreviation of the specified language.
+     *
+     * @param { string } locale - the origin locale or language code.
+     * @returns { string } 3 letter language code. 
+     * @throws {BusinessError} 401 - check param failed.
+     * @throws {BusinessError} 890001 - param value not valid.
+     * @static
+     * @syscap SystemCapability.Global.I18n
+     * @since 12
+     */
+    static getThreeLetterLanguage(locale: string): string;
+
+    /**
+     * Get a three-letter abbreviation of the specified region.
+     *
+     * @param { string } locale - the origin locale or region code.
+     * @returns { string } 3 letter region code. 
+     * @throws {BusinessError} 401 - check param failed.
+     * @throws {BusinessError} 890001 - param value not valid.
+     * @static
+     * @syscap SystemCapability.Global.I18n
+     * @since 12
+     */
+    static getThreeLetterRegion(locale: string): string;
   }
 
   /**
