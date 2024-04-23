@@ -33,7 +33,7 @@ declare interface MovingPhotoViewOptions {
     /**
      * data of MovingPhotoView.
      *
-     * @type { MovingPhoto }
+     * @type { photoAccessHelper.MovingPhoto }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
