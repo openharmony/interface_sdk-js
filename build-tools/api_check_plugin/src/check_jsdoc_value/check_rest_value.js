@@ -76,10 +76,15 @@ function checkReturnsValue(tag, node, fileName) {
   };
   const voidArr = ['void'];
   const tagValue = tag.type.replace(/\n|\r|\s/g, '');
+  let apiReturnsValue = '';
   if (!commentNodeWhiteList.includes(node.kind)) {
     return returnsResult;
   }
-  let apiReturnsValue = getDeclareValue(node.type);
+  if (node.kind === ts.SyntaxKind.TypeAliasDeclaration) {
+    apiReturnsValue = ts.SyntaxKind.VoidKeyword === node.type?.type ? 'void' : node.type?.type?.getText().replace(/\n|\r|\s/g, '');
+  } else {
+    apiReturnsValue = getDeclareValue(node.type);
+  }
   if (voidArr.indexOf(apiReturnsValue) !== -1 || apiReturnsValue === undefined) {
     returnsResult.checkResult = false;
     returnsResult.errorInfo = ErrorValueInfo.ERROR_INFO_RETURNS;
@@ -404,14 +409,25 @@ function checkInterfaceTypedefTag(tag, node, fileName) {
     errorInfo: '',
   };
   const tagValue = tag.name;
+  const tagType = tag.type.replace(/\n|\r|\s/g, '');
+  
   if (commentNodeWhiteList.includes(node.kind)) {
     const apiValue = node.name?.escapedText;
-    if (apiValue !== undefined && tagValue !== apiValue) {
-      interfaceResult.checkResult = false;
-      if (tag.tag === 'interface') {
-        interfaceResult.errorInfo = ErrorValueInfo.ERROR_INFO_VALUE_INTERFACE;
-      } else if (tag.tag === 'typedef') {
+    if (node.kind === ts.SyntaxKind.TypeAliasDeclaration) {
+      const isFunctionType = ts.SyntaxKind.FunctionType === node.type?.kind;
+      let apiType = isFunctionType === true ? 'function' : node.type.getText().replace(/\n|\r|\s/g, '');
+      if (tagType !== apiType) {
+        interfaceResult.checkResult = false;
         interfaceResult.errorInfo = ErrorValueInfo.ERROR_INFO_VALUE_TYPEDEF;
+      }
+    } else {
+      if (apiValue !== undefined && tagValue !== apiValue) {
+        interfaceResult.checkResult = false;
+        if (tag.tag === 'interface') {
+          interfaceResult.errorInfo = ErrorValueInfo.ERROR_INFO_VALUE_INTERFACE;
+        } else if (tag.tag === 'typedef') {
+          interfaceResult.errorInfo = ErrorValueInfo.ERROR_INFO_VALUE_TYPEDEF;
+        }
       }
     }
   }
