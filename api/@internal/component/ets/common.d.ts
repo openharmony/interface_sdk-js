@@ -4473,8 +4473,7 @@ declare function animateTo(value: AnimateParam, event: () => void): void;
  * @param { function } event - Specify the closure function that displays dynamic effects,
  * and the system will automatically insert transition animations for state changes caused by the closure function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @since 11
+ * @since 12
  */
 declare function animateToImmediately(value: AnimateParam, event: () => void): void;
 
@@ -5889,8 +5888,7 @@ declare interface BlurStyleOptions {
    * @type { ?number }
    * @default 1.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 10
+   * @since 12
    */
   scale?: number;
 
@@ -8243,16 +8241,14 @@ declare type PixelMap = import('../api/@ohos.multimedia.image').default.PixelMap
  *
  * @interface PixelMapMock
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @since 7
+ * @since 12
  */
 declare interface PixelMapMock {
   /**
    * release function.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 7
+   * @since 12
    */
   release(): void;
 }
@@ -13120,19 +13116,12 @@ declare type RectShape = import('../api/@ohos.arkui.shape').RectShape;
  * @form
  */
 declare class CommonMethod<T> {
+
   /**
    * constructor.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 7
-   */
-  /**
-   * constructor.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 9
+   * @since 12
    * @form
    */
   constructor();
@@ -14937,8 +14926,7 @@ declare class CommonMethod<T> {
    * @param { LinearGradientBlurOptions } options - the linear gradient blur options.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 10
+   * @since 12
    */
   linearGradientBlur(value: number, options: LinearGradientBlurOptions): T;
 
@@ -15267,8 +15255,7 @@ declare class CommonMethod<T> {
    *
    * @returns { T } return the component attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 11
+   * @since 12
    */
   systemBarEffect(): T;
 
@@ -15351,8 +15338,7 @@ declare class CommonMethod<T> {
    * @param { boolean } value - true means the component should apply the effects template.
    * @returns { T } return the component attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 10
+   * @since 12
    */
   useEffect(value: boolean): T;
 
@@ -15440,7 +15426,6 @@ declare class CommonMethod<T> {
    * @param { boolean } value - true means the component should remain stationary.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
    * @since 12
    */
   freeze(value: boolean): T;
@@ -17217,8 +17202,7 @@ declare class CommonMethod<T> {
    * @param { string } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 8
+   * @since 12
    * @test
    */
   key(value: string): T;
@@ -17617,9 +17601,8 @@ declare class CommonMethod<T> {
    * If the value is 0, the component keep same, else the value is 1, component are fully spherical.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
    * @crossplatform
-   * @since 10
+   * @since 12
    */
   sphericalEffect(value: number): T;
 
@@ -17630,9 +17613,8 @@ declare class CommonMethod<T> {
    * The color brightness in the component rendering content area is greater than the value and can be displayed, otherwise it will not be displayed.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
    * @crossplatform
-   * @since 10
+   * @since 12
    */
   lightUpEffect(value: number): T;
 
@@ -17642,9 +17624,8 @@ declare class CommonMethod<T> {
    * @param { PixelStretchEffectOptions } options
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
    * @crossplatform
-   * @since 10
+   * @since 12
    */
   pixelStretchEffect(options: PixelStretchEffectOptions): T;
 
@@ -17882,8 +17863,7 @@ declare class CommonMethod<T> {
    * @param { BackgroundBrightnessOptions } params - params indicates BackgroundBrightnessOptions
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 11
+   * @since 12
    */
   backgroundBrightness(params: BackgroundBrightnessOptions): T;
 
@@ -18164,8 +18144,7 @@ declare type CustomBuilder = (() => any) | void;
  * The range of this value is [0,1]. A value of 1 means region ending position and 0 means region starting position.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @since 10
+ * @since 12
  */
 declare type FractionStop = [ number, number ];
 
@@ -18204,19 +18183,12 @@ declare type FractionStop = [ number, number ];
  * @form
  */
 declare class CommonShapeMethod<T> extends CommonMethod<T> {
+
   /**
    * constructor.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 7
-   */
-  /**
-   * constructor.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 9
+   * @since 12
    * @form
    */
   constructor();
@@ -18867,8 +18839,7 @@ declare interface PixelRoundPolicy {
  *
  * @interface LinearGradientBlurOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @since 10
+ * @since 12
  */
 declare interface LinearGradientBlurOptions {
   /**
@@ -18876,8 +18847,7 @@ declare interface LinearGradientBlurOptions {
    *
    * @type { FractionStop[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 10
+   * @since 12
    */
   fractionStops: FractionStop[];
   /**
@@ -18885,8 +18855,7 @@ declare interface LinearGradientBlurOptions {
    *
    * @type { GradientDirection }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 10
+   * @since 12
    */
   direction: GradientDirection;
 }
@@ -19814,39 +19783,23 @@ declare class CustomComponent extends CommonAttribute {
   queryNavDestinationInfo(): NavDestinationInfo | undefined;
 }
 
+
 /**
  * View
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @since 7
- */
-/**
- * View
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @since 9
+ * @since 12
  * @form
  */
 declare class View {
+
   /**
    * Just use for generate tsbundle
    *
    * @param { any } value
    * @returns { any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 7
-   */
-  /**
-   * Just use for generate tsbundle
-   *
-   * @param { any } value
-   * @returns { any }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 9
+   * @since 12
    * @form
    */
   create(value: any): any;
@@ -20362,8 +20315,7 @@ declare interface EdgeEffectOptions {
  *
  * @interface BackgroundBrightnessOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @since 11
+ * @since 12
  */
 declare interface BackgroundBrightnessOptions {
 
@@ -20373,8 +20325,7 @@ declare interface BackgroundBrightnessOptions {
    *
    * @type { number } -The default value is 0.0, value range: (0.0, +∞).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 11
+   * @since 12
    */
   rate: number;
 
@@ -20385,8 +20336,7 @@ declare interface BackgroundBrightnessOptions {
    *
    * @type { number }  -The default value is 0.0, value range: [-1.0, 1.0].
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 11
+   * @since 12
    */
   lightUpDegree: number;
 }
