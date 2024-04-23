@@ -18,7 +18,7 @@
  * @kit MediaLibraryKit
  */
 
-import photoAccessHelper from './@ohos.file.photoAccessHelper';;
+import photoAccessHelper from './@ohos.file.photoAccessHelper';
 
 /**
  * Defines the moving photo view options.
