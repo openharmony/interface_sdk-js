@@ -1996,6 +1996,14 @@ declare namespace photoAccessHelper {
      */
     PORTRAIT,
     /**
+     * Group photo album
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    GROUP_PHOTO,
+    /**
      * Highlight album
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
