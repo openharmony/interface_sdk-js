@@ -5888,7 +5888,8 @@ declare interface BlurStyleOptions {
    * @type { ?number }
    * @default 1.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 12
+   * @systemapi
+   * @since 10
    */
   scale?: number;
 
@@ -8241,14 +8242,16 @@ declare type PixelMap = import('../api/@ohos.multimedia.image').default.PixelMap
  *
  * @interface PixelMapMock
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 12
+ * @systemapi
+ * @since 7
  */
 declare interface PixelMapMock {
   /**
    * release function.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 12
+   * @systemapi
+   * @since 7
    */
   release(): void;
 }
@@ -13116,12 +13119,19 @@ declare type RectShape = import('../api/@ohos.arkui.shape').RectShape;
  * @form
  */
 declare class CommonMethod<T> {
-
   /**
    * constructor.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 12
+   * @systemapi
+   * @since 7
+   */
+  /**
+   * constructor.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 9
    * @form
    */
   constructor();
@@ -15255,7 +15265,8 @@ declare class CommonMethod<T> {
    *
    * @returns { T } return the component attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 12
+   * @systemapi
+   * @since 11
    */
   systemBarEffect(): T;
 
@@ -15338,7 +15349,8 @@ declare class CommonMethod<T> {
    * @param { boolean } value - true means the component should apply the effects template.
    * @returns { T } return the component attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 12
+   * @systemapi
+   * @since 10
    */
   useEffect(value: boolean): T;
 
@@ -15426,6 +15438,7 @@ declare class CommonMethod<T> {
    * @param { boolean } value - true means the component should remain stationary.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @since 12
    */
   freeze(value: boolean): T;
@@ -17863,7 +17876,8 @@ declare class CommonMethod<T> {
    * @param { BackgroundBrightnessOptions } params - params indicates BackgroundBrightnessOptions
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 12
+   * @systemapi
+   * @since 11
    */
   backgroundBrightness(params: BackgroundBrightnessOptions): T;
 
@@ -18183,12 +18197,19 @@ declare type FractionStop = [ number, number ];
  * @form
  */
 declare class CommonShapeMethod<T> extends CommonMethod<T> {
-
   /**
    * constructor.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 12
+   * @systemapi
+   * @since 7
+   */
+  /**
+   * constructor.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 9
    * @form
    */
   constructor();
@@ -19783,23 +19804,39 @@ declare class CustomComponent extends CommonAttribute {
   queryNavDestinationInfo(): NavDestinationInfo | undefined;
 }
 
-
 /**
  * View
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 12
+ * @systemapi
+ * @since 7
+ */
+/**
+ * View
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 9
  * @form
  */
 declare class View {
-
   /**
    * Just use for generate tsbundle
    *
    * @param { any } value
    * @returns { any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 12
+   * @systemapi
+   * @since 7
+   */
+  /**
+   * Just use for generate tsbundle
+   *
+   * @param { any } value
+   * @returns { any }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 9
    * @form
    */
   create(value: any): any;
@@ -20315,7 +20352,8 @@ declare interface EdgeEffectOptions {
  *
  * @interface BackgroundBrightnessOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 12
+ * @systemapi
+ * @since 11
  */
 declare interface BackgroundBrightnessOptions {
 
@@ -20325,7 +20363,8 @@ declare interface BackgroundBrightnessOptions {
    *
    * @type { number } -The default value is 0.0, value range: (0.0, +∞).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 12
+   * @systemapi
+   * @since 11
    */
   rate: number;
 
@@ -20336,7 +20375,8 @@ declare interface BackgroundBrightnessOptions {
    *
    * @type { number }  -The default value is 0.0, value range: [-1.0, 1.0].
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 12
+   * @systemapi
+   * @since 11
    */
   lightUpDegree: number;
 }
