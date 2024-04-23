@@ -1831,6 +1831,7 @@ declare namespace huks {
     /**
      * the returned list of key aliases
      * 
+     * @type { Array.<string> }
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
      * @since 12
