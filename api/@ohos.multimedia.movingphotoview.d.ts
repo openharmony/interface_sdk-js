@@ -12,9 +12,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
  * @file A component which support applications to show moving photo data 
  * @kit MediaLibraryKit
+ */
+
+/**
+ * Defines the moving photo.
+ *
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @since 12
  */
 declare type MovingPhoto = import('../api/@ohos.file.photoAccessHelper').default.MovingPhoto;
 
@@ -52,7 +60,7 @@ declare interface MovingPhotoViewOptions {
 /**
  * Defines the moving photo view interface.
  *
- * @interface VideoInterface
+ * @interface MovingPhotoViewInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -115,7 +123,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      */
     onStart(event: () => void): MovingPhotoViewAttribute;
     /**
-     * Called when the video playback stoped.
+     * Called when the video playback stopped.
      *
      * @param { function } event
      * @returns { MovingPhotoViewAttribute }
