@@ -281,26 +281,6 @@ declare enum EffectFillStyle {
 }
 
 /**
- * Declare the effect options of symbols
- * 
- * @interface EffectOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 12
- */
-declare interface EffectOptions {
-  /**
-   * The active state of the effect
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  isActive?: boolean,
-}
-
-/**
  * Defines SymbolEffect class.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -650,13 +630,25 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * Called when the symbolGlyph effect is set.
    *
    * @param { SymbolEffect } [symbolEffect] - The symbol effect type
-   * @param { EffectOptions } [effectOptions] - The symbol effect options
+   * @param { boolean } [isActive] - The active state of the effect
    * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  symbolEffect(symbolEffect: SymbolEffect, effectOptions?: EffectOptions): SymbolGlyphAttribute;
+  symbolEffect(symbolEffect: SymbolEffect, isActive?: boolean): SymbolGlyphAttribute;
+
+  /**
+   * Called when the symbolGlyph effect is set.
+   *
+   * @param { SymbolEffect } [symbolEffect] - The symbol effect type
+   * @param { number } [triggerValue] - The trigger of the effect
+   * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  symbolEffect(symbolEffect: SymbolEffect, triggerValue?: number): SymbolGlyphAttribute;
 }
 
 /**
