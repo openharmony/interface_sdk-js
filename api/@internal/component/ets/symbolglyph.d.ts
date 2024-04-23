@@ -199,7 +199,7 @@ declare enum SymbolEffectStrategy {
 }
 
 /**
- * The dirction type of symbol effect
+ * The direction type of symbol effect
  * 
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
