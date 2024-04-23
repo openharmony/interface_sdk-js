@@ -20,7 +20,8 @@
 
 /**
  * Defines the moving photo.
- *
+ * 
+ * @typedef MovingPhoto
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @since 12
  */
