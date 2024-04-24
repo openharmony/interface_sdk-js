@@ -19815,6 +19815,16 @@ declare interface MeasureResult extends SizeResult {
 declare type NavDestinationInfo = import('../api/@ohos.arkui.observer').default.NavDestinationInfo;
 
 /**
+ * The router page information.
+ *
+ * @typedef {import('../api/@ohos.arkui.observer').default.RouterPageInfo} RouterPageInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+ declare type RouterPageInfo = import('../api/@ohos.arkui.observer').default.RouterPageInfo;
+
+/**
  * The navigation information.
  *
  * @typedef {import('../api/@ohos.arkui.observer').default.NavigationInfo} NavigationInfo
@@ -20330,6 +20340,27 @@ declare class CustomComponent extends CommonAttribute {
    * @since 12
    */
   queryNavigationInfo(): NavigationInfo | undefined;
+
+  /**
+   * Query the router page information of the current custom component.
+   *
+   * @returns { RouterPageInfo | undefined } The router page information, or undefined if it is not available.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+   queryRouterPageInfo(): RouterPageInfo | undefined;
+
+  /**
+   * The callback method after the custom component is built.
+   *
+   * Triggered when the custom component has been built.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+   onDidBuild?(): void;
 }
 
 /**
