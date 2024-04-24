@@ -1481,7 +1481,6 @@ declare namespace distributedKVStore {
      * @param { AsyncCallback<void> } callback - the callback of removeDeviceData.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *                                                                 2.Parameter verification failed.
-     * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 9
