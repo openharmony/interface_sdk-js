@@ -127,7 +127,7 @@ export default class StartOptions {
    * @stagemodelonly
    * @since 12
    */
-  windowFocus?: boolean;
+  windowFocused?: boolean;
 
   /**
    * The process mode.
