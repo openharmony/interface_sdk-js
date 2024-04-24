@@ -2472,7 +2472,7 @@ declare namespace window {
     USER_ROTATION_LANDSCAPE_INVERTED = 16,
 
     /**
-     * Follow the background desktop rotate mode.
+     * Follow the desktop rotate mode.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
