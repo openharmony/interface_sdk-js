@@ -31,7 +31,7 @@ import photoAccessHelper from './@ohos.file.photoAccessHelper';
  */
 declare interface MovingPhotoViewOptions {
     /**
-     * data of MovingPhotoView.
+     * moving photo data.
      *
      * @type { photoAccessHelper.MovingPhoto }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -39,7 +39,7 @@ declare interface MovingPhotoViewOptions {
      * @atomicservice
      * @since 12
      */
-    data: photoAccessHelper.MovingPhoto;
+    movingPhoto: photoAccessHelper.MovingPhoto;
     /**
      * controller of MovingPhotoView.
      *
@@ -62,7 +62,7 @@ declare interface MovingPhotoViewOptions {
  */
 interface MovingPhotoViewInterface {
     /**
-     * Set the value.
+     * Set the options.
      *
      * @param { MovingPhotoViewOptions } value
      * @returns { MovingPhotoViewAttribute }
@@ -71,8 +71,19 @@ interface MovingPhotoViewInterface {
      * @atomicservice
      * @since 12
      */
-    (value: MovingPhotoViewOptions): MovingPhotoViewAttribute;
+    (options: MovingPhotoViewOptions): MovingPhotoViewAttribute;
 }
+
+/**
+ * function that moving photo view media events callback.
+ *
+ * @typedef {Function} MovingPhotoViewEventCallback
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type MovingPhotoViewEventCallback = () => void;
+
 /**
  * Defines the moving photo view attribute functions.
  *
@@ -86,14 +97,14 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
     /**
      * Called when judging whether the video is muted.
      *
-     * @param { boolean } value
+     * @param { boolean } isMuted
      * @returns { MovingPhotoViewAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 12
      */
-    muted(value: boolean): MovingPhotoViewAttribute;
+    muted(isMuted: boolean): MovingPhotoViewAttribute;
 	/**
      * Called when determining the zoom type of the view.
      *
@@ -115,7 +126,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @atomicservice
      * @since 12
      */
-    onStart(event: () => void): MovingPhotoViewAttribute;
+    onStart(callback: MovingPhotoViewEventCallback): MovingPhotoViewAttribute;
     /**
      * Called when the video playback stopped.
      *
@@ -126,7 +137,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @atomicservice
      * @since 12
      */
-    onStop(event: () => void): MovingPhotoViewAttribute;
+    onStop(callback: MovingPhotoViewEventCallback): MovingPhotoViewAttribute;
     /**
      * Called when the video playback ends.
      *
@@ -137,7 +148,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @atomicservice
      * @since 12
      */
-    onFinish(event: () => void): MovingPhotoViewAttribute;
+    onFinish(callback: MovingPhotoViewEventCallback): MovingPhotoViewAttribute;
     /**
      * Called when playback fails.
      *
@@ -148,7 +159,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @atomicservice
      * @since 12
      */
-    onError(event: () => void): MovingPhotoViewAttribute;
+    onError(callback: MovingPhotoViewEventCallback): MovingPhotoViewAttribute;
 }
 /**
  * Defines the MovingPhotoView controller.
@@ -169,7 +180,7 @@ export class MovingPhotoViewController {
      */
     constructor();
     /**
-     * Start playback.
+     * Start play moving photo.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -178,7 +189,7 @@ export class MovingPhotoViewController {
      */
     startPlayback();
     /**
-     * Stop playback.
+     * Stop play moving photo.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
