@@ -1068,7 +1068,16 @@ declare namespace bundleManager {
      * @atomicservice
      * @since 12
      */
-    AUTO_ROTATION_UNSPECIFIED
+    AUTO_ROTATION_UNSPECIFIED,
+
+    /**
+     * Indicates the orientation follow the background desktop rotate mode
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @atomicservice
+     * @since 12
+     */
+    FOLLOW_DESKTOP
   }
 
   /**
