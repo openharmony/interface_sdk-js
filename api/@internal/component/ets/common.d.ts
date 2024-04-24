@@ -5959,8 +5959,7 @@ declare interface BlurStyleOptions {
    * @type { ?number }
    * @default 1.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 10
+   * @since 12
    */
   scale?: number;
 
@@ -15693,8 +15692,7 @@ declare class CommonMethod<T> {
    *
    * @returns { T } return the component attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 11
+   * @since 12
    */
   systemBarEffect(): T;
 
@@ -15777,8 +15775,7 @@ declare class CommonMethod<T> {
    * @param { boolean } value - true means the component should apply the effects template.
    * @returns { T } return the component attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 10
+   * @since 12
    */
   useEffect(value: boolean): T;
 
@@ -15866,7 +15863,6 @@ declare class CommonMethod<T> {
    * @param { boolean } value - true means the component should remain stationary.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
    * @since 12
    */
   freeze(value: boolean): T;
@@ -18335,8 +18331,7 @@ declare class CommonMethod<T> {
    * @param { BackgroundBrightnessOptions } params - params indicates BackgroundBrightnessOptions
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 11
+   * @since 12
    */
   backgroundBrightness(params: BackgroundBrightnessOptions): T;
 
@@ -20957,8 +20952,7 @@ declare class ChildrenMainSize {
  *
  * @interface BackgroundBrightnessOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @since 11
+ * @since 12
  */
 declare interface BackgroundBrightnessOptions {
 
@@ -20968,8 +20962,7 @@ declare interface BackgroundBrightnessOptions {
    *
    * @type { number } -The default value is 0.0, value range: (0.0, +∞).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 11
+   * @since 12
    */
   rate: number;
 
@@ -20980,8 +20973,7 @@ declare interface BackgroundBrightnessOptions {
    *
    * @type { number }  -The default value is 0.0, value range: [-1.0, 1.0].
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 11
+   * @since 12
    */
   lightUpDegree: number;
 }
