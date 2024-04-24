@@ -447,10 +447,10 @@ declare namespace abilityManager {
    * @param { string } bundleName - The bundle name of the resident process.
    * @param { boolean } enable - Set resident process enable status.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denien. the caller application can only set the resident status of the configured process.
    * @throws { BusinessError } 202 - Not a system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Non empty package name needs to be provided, 2.The second parameter needs to provide a Boolean type setting value.
    * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16200006 - The caller application can only set the resident status of the configured process.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 12
