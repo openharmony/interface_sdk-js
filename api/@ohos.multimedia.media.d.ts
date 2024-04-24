@@ -4675,6 +4675,7 @@ declare namespace media {
     location?: Location;
     /**
      * Set global metadata info. Details see @AVMetadata
+     * @type { ?AVMetadata }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 12
      */
