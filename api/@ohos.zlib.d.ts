@@ -572,11 +572,11 @@ declare namespace zlib {
   function decompressFile(inFile: string, outFile: string, options?: Options): Promise<void>;
 
   /**
-   * Get the original size of the compressed zip file.
+   * Get the original size of the compressed zip file, the size is the meta data stored in zip file.
    *
    * @param { string } inFile - Indicates the path of the compressed file.
    * @returns { Promise<number> } Returns the original size of the compressed file.
-   * @throws { BusinessError } 401 - The parameter check failed, has no parameter or parameter not string.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 900001 - The input source file is invalid.
    * @throws { BusinessError } 900003 - The input source file is not ZIP format or damaged.
    * @syscap SystemCapability.BundleManager.Zlib
