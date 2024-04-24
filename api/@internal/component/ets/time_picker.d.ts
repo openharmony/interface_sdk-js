@@ -558,14 +558,24 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
   textStyle?: PickerTextStyle;
 
   /**
-   * Text style of button items
+   * Style of accept button.
    *
    * @type { ?PickerDialogButtonStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  buttonStyle?: PickerDialogButtonStyle;
+  acceptButtonStyle?: PickerDialogButtonStyle;
+
+  /**
+   * Style of cancel button.
+   *
+   * @type { ?PickerDialogButtonStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  cancelButtonStyle?: PickerDialogButtonStyle;
 
   /**
    * Text style of selected items

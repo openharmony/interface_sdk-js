@@ -20,6 +20,11 @@ from typedef.process_three_type import get_three_label_value
 from utils.constants import label_comparison_dist
 
 
+def process_struct_type(dict_data: dict, label='default') -> list:
+    missing_tag_class_list = judgment_is_default(dict_data, label)
+    return missing_tag_class_list
+
+
 def process_class_type(dict_data: dict, label='default') -> list:
     missing_tag_class_list = judgment_is_default(dict_data, label)
     return missing_tag_class_list
@@ -65,18 +70,17 @@ def process_method_tag(dict_data: dict, label):
     parent_information = get_js_doc_info(dict_data['jsDocInfos'])
     if not parent_information:
         return missing_tag_data_list
-
-    if len(dict_data['params']) > 0:
-        process_key = {
-            'typeLocations': 'typeLocations',
-            'objLocations': 'objLocations'
-        }
+    process_key = {
+        'typeLocations': 'typeLocations',
+        'objLocations': 'objLocations'
+    }
+    if 'params' in dict_data and len(dict_data['params']) > 0:
         # 处理入参
         result_param_list = process_func_param(dict_data, process_key, label, parent_information)
         missing_tag_data_list.extend(result_param_list)
         # 处理出参
-        result_return_list = process_func_anonymous_obj(dict_data, process_key, label, parent_information)
-        missing_tag_data_list.extend(result_return_list)
+    result_return_list = process_func_anonymous_obj(dict_data, process_key, label, parent_information)
+    missing_tag_data_list.extend(result_return_list)
 
     return missing_tag_data_list
 
@@ -120,7 +124,8 @@ def process_param_or_return(dict_data: dict, key_info: str, parent_info: dict,
         message_of_error = diff_of_param_obj(key_info, in_out=1).split('#')
     for child_info in process_data[key_info]:
         # 父有，参or对象没
-        if parent_info[label] and (not child_info[label]):
+        if label in parent_info and label in child_info and \
+                parent_info[label] and (not child_info[label]):
             error_type = message_of_error[0]
             error_message = message_of_error[1].replace('&', new_label)
             error_result.setdefault('error_type', error_type)
@@ -174,7 +179,9 @@ def process_no_js_info(dict_data: dict, label):
         if 'jsDocInfos' not in child_data:
             continue
         data_tag_info = get_js_doc_info(child_data['jsDocInfos'])
-        if 'label' in data_tag_info and data_tag_info['label']:
+        if not data_tag_info:
+            continue
+        if label in data_tag_info and data_tag_info[label]:
             error_type = ErrorType.PARENT_NO_TAG.value.replace('$', dict_data['apiType'])
             error_message = (ErrorMessage.METHOD_HAVE_PARENT_NO.value
                              .replace('&', new_label)
@@ -187,33 +194,14 @@ def process_no_js_info(dict_data: dict, label):
 
 
 def process_js_info(dict_data: dict, label):
-    error_result = {}
     new_label = label.replace('is', '')
     parent_information = get_js_doc_info(dict_data['jsDocInfos'])
     # 对应值是空值
     if not parent_information:
         error_result = process_no_js_info(dict_data, label)
         return error_result
-    count_label = 0
     len_of_dict_data = len(dict_data['childApis'])
-    for child_data in dict_data['childApis']:
-        if 'jsDocInfos' not in child_data and parent_information[label]:
-            count_label += 1
-        else:
-            child_tag_infor = get_js_doc_info(child_data['jsDocInfos'])
-            if parent_information[label] and child_tag_infor[label]:
-                break
-            elif parent_information[label] and (not child_tag_infor[label]):
-                count_label += 1
-                # 父没，子有
-            elif (not parent_information[label]) and child_tag_infor[label]:
-                error_type = ErrorType.PARENT_NO_TAG.value.replace('$', dict_data['apiType'])
-                error_message = (ErrorMessage.METHOD_HAVE_PARENT_NO.value
-                                 .replace('$', dict_data['apiType'])
-                                 .replace('&', new_label))
-                error_result.setdefault('error_type', error_type)
-                error_result.setdefault('error_message', error_message)
-                break
+    count_label, error_result = judgement_js_info(dict_data, parent_information, label, new_label)
     # 父有，子一个都没有
     if 0 != len_of_dict_data and count_label == len_of_dict_data:
         error_type = ErrorType.CHILD_NO_TAG.value
@@ -224,6 +212,36 @@ def process_js_info(dict_data: dict, label):
         error_result.setdefault('error_message', error_message)
 
     return error_result
+
+
+def judgement_js_info(dict_data, parent_information, label, new_label):
+    count_label = 0
+    error_result = {}
+    for child_data in dict_data['childApis']:
+        if 'jsDocInfos' not in child_data:
+            if parent_information[label]:
+                count_label += 1
+        else:
+            child_tag_infor = get_js_doc_info(child_data['jsDocInfos'])
+            if not child_tag_infor:
+                count_label += 1
+            elif label in parent_information and label in child_tag_infor and \
+                    parent_information[label] and child_tag_infor[label]:
+                break
+            elif label in parent_information and label in child_tag_infor and \
+                    parent_information[label] and (not child_tag_infor[label]):
+                count_label += 1
+                # 父没，子有
+            elif label in parent_information and label in child_tag_infor and \
+                    (not parent_information[label]) and child_tag_infor[label]:
+                error_type = ErrorType.PARENT_NO_TAG.value.replace('$', dict_data['apiType'])
+                error_message = (ErrorMessage.METHOD_HAVE_PARENT_NO.value
+                                 .replace('$', dict_data['apiType'])
+                                 .replace('&', new_label))
+                error_result.setdefault('error_type', error_type)
+                error_result.setdefault('error_message', error_message)
+                break
+    return count_label, error_result
 
 
 def get_message_obj(dict_data: dict, error_result: dict, in_or_out=None) -> Output:
@@ -259,11 +277,13 @@ def process_tag_dict(dict_data: dict, label: list):
         'Class': process_class_type,
         'Namespace': process_namespace_type,
         'Interface': process_interface_type,
-        'Method': process_method_type
+        'Method': process_method_type,
+        'Struct': process_struct_type
     }
-    api_type = dict_data['apiType']
-    if api_type in process_special_tag:
-        process_result = process_special_tag[api_type](dict_data, label)
-        process_result_list.extend(process_result)
+    if 'apiType' in dict_data:
+        api_type = dict_data['apiType']
+        if api_type in process_special_tag:
+            process_result = process_special_tag[api_type](dict_data, label)
+            process_result_list.extend(process_result)
 
     return process_result_list

@@ -736,13 +736,10 @@ declare namespace appAccount {
 
     /**
      * Obtains information about all accessible accounts.
-     * <p>
      * This method applies to the following accounts:
-     * <ul>
-     * <li>Accounts of this application.</li>
-     * <li>Accounts of third-party applications. To obtain such information,
-     * your application must have gained authorization from the third-party applications.</li>
-     * </ul>
+     * <br> Accounts of this application.
+     * <br> Accounts of third-party applications. To obtain such information,
+     * <br> your application must have gained authorization from the third-party applications.
      *
      * @permission ohos.permission.GET_ALL_APP_ACCOUNTS
      * @param { AsyncCallback<Array<AppAccountInfo>> } callback - Asynchronous callback interface.
@@ -755,13 +752,10 @@ declare namespace appAccount {
 
     /**
      * Obtains information about all accessible accounts.
-     * <p>
      * This method applies to the following accounts:
-     * <ul>
-     * <li>Accounts of this application.</li>
-     * <li>Accounts of third-party applications. To obtain such information,
-     * your application must have gained authorization from the third-party applications.</li>
-     * </ul>
+     * <br> Accounts of this application.
+     * <br> Accounts of third-party applications. To obtain such information,
+     * <br> your application must have gained authorization from the third-party applications.
      *
      * @permission ohos.permission.GET_ALL_APP_ACCOUNTS
      * @returns { Promise<Array<AppAccountInfo>> } Returns a list of application accounts.
@@ -774,14 +768,11 @@ declare namespace appAccount {
 
     /**
      * Obtains information about all accessible accounts.
-     * <p>
      * This method applies to the following accounts:
-     * <ul>
-     * <li>Accounts of this application.</li>
-     * <li>Accounts of third-party applications. To obtain such information,
-     * your application must have gained authorization from the third-party applications or
-     * have gained the ohos.permission.GET_ALL_APP_ACCOUNTS permission.</li>
-     * </ul>
+     * <br> Accounts of this application.
+     * <br> Accounts of third-party applications. To obtain such information,
+     * <br> your application must have gained authorization from the third-party applications or
+     * <br> have gained the ohos.permission.GET_ALL_APP_ACCOUNTS permission.
      *
      * @param { AsyncCallback<Array<AppAccountInfo>> } callback - Asynchronous callback interface. Returns a list of application accounts.
      * @throws { BusinessError } 401 - The parameter check failed.
@@ -793,14 +784,11 @@ declare namespace appAccount {
 
     /**
      * Obtains information about all accessible accounts.
-     * <p>
      * This method applies to the following accounts:
-     * <ul>
-     * <li>Accounts of this application.</li>
-     * <li>Accounts of third-party applications. To obtain such information,
-     * your application must have gained authorization from the third-party applications or
-     * have gained the ohos.permission.GET_ALL_APP_ACCOUNTS permission.</li>
-     * </ul>
+     * <br> Accounts of this application.
+     * <br> Accounts of third-party applications. To obtain such information,
+     * <br> your application must have gained authorization from the third-party applications or
+     * <br> have gained the ohos.permission.GET_ALL_APP_ACCOUNTS permission.
      *
      * @returns { Promise<Array<AppAccountInfo>> } Returns a list of application accounts.
      * @throws { BusinessError } 401 - The parameter check failed.
@@ -812,13 +800,10 @@ declare namespace appAccount {
 
     /**
      * Obtains information about all accounts of a specified account owner.
-     * <p>
      * This method applies to the following accounts:
-     * <ul>
-     * <li>Accounts of this application.</li>
-     * <li>Accounts of third-party applications. To obtain such information,
-     * your application must have gained authorization from the third-party applications.</li>
-     * </ul>
+     * <br> Accounts of this application.
+     * <br> Accounts of third-party applications. To obtain such information,
+     * <br> your application must have gained authorization from the third-party applications.
      *
      * @permission ohos.permission.GET_ALL_APP_ACCOUNTS
      * @param { string } owner - Indicates the account owner of your application or third-party applications.
@@ -832,13 +817,10 @@ declare namespace appAccount {
 
     /**
      * Obtains information about all accounts of a specified account owner.
-     * <p>
      * This method applies to the following accounts:
-     * <ul>
-     * <li>Accounts of this application.</li>
-     * <li>Accounts of third-party applications. To obtain such information,
-     * your application must have gained authorization from the third-party applications.</li>
-     * </ul>
+     * <br> Accounts of this application.
+     * <br> Accounts of third-party applications. To obtain such information,
+     * <br> your application must have gained authorization from the third-party applications.
      *
      * @permission ohos.permission.GET_ALL_APP_ACCOUNTS
      * @param { string } owner - Indicates the account owner of your application or third-party applications.
@@ -852,14 +834,11 @@ declare namespace appAccount {
 
     /**
      * Gets information about all accounts of a specified account owner.
-     * <p>
      * This method applies to the following accounts:
-     * <ul>
-     * <li>Accounts of this application.</li>
-     * <li>Accounts of third-party applications. To obtain such information,
-     * your application must have gained authorization from the third-party applications or
-     * have gained the ohos.permission.GET_ALL_APP_ACCOUNTS permission.</li>
-     * </ul>
+     * <br> Accounts of this application.
+     * <br> Accounts of third-party applications. To obtain such information,
+     * <br> your application must have gained authorization from the third-party applications or
+     * <br> have gained the ohos.permission.GET_ALL_APP_ACCOUNTS permission.
      *
      * @param { string } owner - Indicates the account owner of your application or third-party applications.
      * @param { AsyncCallback<Array<AppAccountInfo>> } callback - Asynchronous callback interface. Returns a list of application accounts.
@@ -874,14 +853,11 @@ declare namespace appAccount {
 
     /**
      * Gets information about all accounts of a specified account owner.
-     * <p>
      * This method applies to the following accounts:
-     * <ul>
-     * <li>Accounts of this application.</li>
-     * <li>Accounts of third-party applications. To obtain such information,
-     * your application must have gained authorization from the third-party applications or
-     * have gained the ohos.permission.GET_ALL_APP_ACCOUNTS permission.</li>
-     * </ul>
+     * <br> Accounts of this application.
+     * <br> Accounts of third-party applications. To obtain such information,
+     * <br> your application must have gained authorization from the third-party applications or
+     * <br> have gained the ohos.permission.GET_ALL_APP_ACCOUNTS permission.
      *
      * @param { string } owner - Indicates the account owner of your application or third-party applications.
      * @returns { Promise<Array<AppAccountInfo>> } Returns a list of application accounts.

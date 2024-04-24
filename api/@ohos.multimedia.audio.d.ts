@@ -465,6 +465,12 @@ declare namespace audio {
      */
     USB_HEADSET = 22,
     /**
+     * Display port device.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 12
+     */
+    DISPLAY_PORT = 23,
+    /**
      * Default device type.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 9
@@ -2508,6 +2514,17 @@ declare namespace audio {
      * @since 10
      */
     isActiveSync(volumeType: AudioVolumeType): boolean;
+    /**
+     * user disable the safe media volume state.
+     * @permission ohos.permission.MODIFY_AUDIO_SETTINGS
+     * @returns {Promise<void>} Promise used to return the result.
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 202 - Not system App.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 12
+     */
+    disableSafeMediaVolume(): Promise<void>;
   }
 
   /**

@@ -167,7 +167,6 @@ declare namespace connection {
    * @permission ohos.permission.GET_NETWORK_INFO
    * @returns { Promise<NetHandle> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -194,7 +193,6 @@ declare namespace connection {
    * @permission ohos.permission.GET_NETWORK_INFO
    * @returns { NetHandle } if the default network is not activated.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -223,7 +221,6 @@ declare namespace connection {
    * @permission ohos.permission.GET_NETWORK_INFO
    * @returns { Promise<Array<NetHandle>> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -237,7 +234,6 @@ declare namespace connection {
    * @permission ohos.permission.GET_NETWORK_INFO
    * @returns { Array<NetHandle> } Returns data networks that are activated.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -405,7 +401,6 @@ declare namespace connection {
    * @permission ohos.permission.GET_NETWORK_INFO
    * @returns { Promise<boolean> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -418,7 +413,6 @@ declare namespace connection {
    * @permission ohos.permission.GET_NETWORK_INFO
    * @returns { boolean } Returns true if the current network is metered, else returns false.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -469,7 +463,6 @@ declare namespace connection {
    * @permission ohos.permission.GET_NETWORK_INFO
    * @returns { Promise<boolean> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -483,7 +476,6 @@ declare namespace connection {
    * @permission ohos.permission.GET_NETWORK_INFO
    * @returns { boolean } Returns true if the default data network is activated, else returns false.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -514,7 +506,6 @@ declare namespace connection {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -546,7 +537,6 @@ declare namespace connection {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -660,7 +650,6 @@ declare namespace connection {
   /**
    * Obtains the {@link NetHandle} bound to a process using {@link setAppNet}.
    * @returns { Promise<NetHandle> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -671,7 +660,6 @@ declare namespace connection {
   /**
    * Obtains the {@link NetHandle} bound to a process using {@link setAppNet}.
    * @returns { NetHandle } Returns the {@link NetHandle} bound to a process using {@link setAppNet}.
-   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -761,7 +749,6 @@ declare namespace connection {
   /**
    * Obtains the network independent global {@link HttpProxy} proxy settings.
    * @returns { Promise<HttpProxy> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
@@ -896,7 +883,6 @@ declare namespace connection {
    * @permission ohos.permission.INTERNET
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
@@ -913,7 +899,6 @@ declare namespace connection {
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -1159,6 +1144,18 @@ declare namespace connection {
      * @crossplatform
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Cancels listening for network status changes.
+     * @param { AsyncCallback<void> } callback - the callback of unregister.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+     * @throws { BusinessError } 2100003 - System internal error.
+     * @throws { BusinessError } 2101007 - The callback is not exists.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     unregister(callback: AsyncCallback<void>): void;
   }

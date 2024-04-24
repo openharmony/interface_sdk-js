@@ -374,6 +374,14 @@ export { RatingModifier } from './arkui/RatingModifier';
 export { RectModifier } from './arkui/RectModifier';
 
 /**
+ * Export RefreshModifier, which is used to expose applyNormalAttribute function.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export { RefreshModifier } from './arkui/RefreshModifier';
+
+/**
  * Export RichEditorModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
