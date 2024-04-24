@@ -149,6 +149,16 @@ declare interface TextDecorationOptions {
    * @since 12
    */
   color?: ResourceColor;
+
+  /**
+   * The style value of decoration.
+   *
+   * @type { ?TextDecorationStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  style?: TextDecorationStyle;
 }
 
 /**
