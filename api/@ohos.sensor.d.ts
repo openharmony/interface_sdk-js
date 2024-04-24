@@ -2743,6 +2743,7 @@ declare namespace sensor {
 
   /**
    * The sensor reporting frequency is divided into three modes.
+   * @typedef {'game' | 'ui' | 'normal'}
    * @syscap SystemCapability.Sensors.Sensor
    * @atomicservice
    * @since 11

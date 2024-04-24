@@ -337,12 +337,16 @@ declare namespace vibrator {
   /**
    * The use of vibration.
    *
+   * @typedef {'unknown' | 'alarm' | 'ring' | 'notification' | 'communication' |
+   * 'touch' | 'media' | 'physicalFeedback' | 'simulateReality'}
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 9
    */
   /**
    * The use of vibration.
    *
+   * @typedef {'unknown' | 'alarm' | 'ring' | 'notification' | 'communication' |
+   * 'touch' | 'media' | 'physicalFeedback' | 'simulateReality'}
    * @syscap SystemCapability.Sensors.MiscDevice
    * @atomicservice
    * @since 11
@@ -400,20 +404,21 @@ declare namespace vibrator {
   /**
    * Describes the effect of vibration.
    *
-   * @type { VibrateTime | VibratePreset }
+   * @typedef { VibrateTime | VibratePreset }
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 9
    */
   /**
    * Describes the effect of vibration.
    *
-   * @type { VibrateTime | VibratePreset | VibrateFromFile }
+   * @typedef { VibrateTime | VibratePreset | VibrateFromFile }
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 10
    */
   /**
    * Describes the effect of vibration.
    *
+   * @typedef { VibrateTime | VibratePreset | VibrateFromFile }
    * @syscap SystemCapability.Sensors.MiscDevice
    * @atomicservice
    * @since 11
