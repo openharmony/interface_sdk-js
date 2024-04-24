@@ -4544,8 +4544,7 @@ declare function animateTo(value: AnimateParam, event: () => void): void;
  * @param { function } event - Specify the closure function that displays dynamic effects,
  * and the system will automatically insert transition animations for state changes caused by the closure function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @since 11
+ * @since 12
  */
 declare function animateToImmediately(value: AnimateParam, event: () => void): void;
 
@@ -15354,8 +15353,7 @@ declare class CommonMethod<T> {
    * @param { LinearGradientBlurOptions } options - the linear gradient blur options.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 10
+   * @since 12
    */
   linearGradientBlur(value: number, options: LinearGradientBlurOptions): T;
 
@@ -17667,8 +17665,7 @@ declare class CommonMethod<T> {
    * @param { string } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 8
+   * @since 12
    * @test
    */
   key(value: string): T;
@@ -18076,9 +18073,8 @@ declare class CommonMethod<T> {
    * If the value is 0, the component keep same, else the value is 1, component are fully spherical.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
    * @crossplatform
-   * @since 10
+   * @since 12
    */
   sphericalEffect(value: number): T;
 
@@ -18089,9 +18085,8 @@ declare class CommonMethod<T> {
    * The color brightness in the component rendering content area is greater than the value and can be displayed, otherwise it will not be displayed.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
    * @crossplatform
-   * @since 10
+   * @since 12
    */
   lightUpEffect(value: number): T;
 
@@ -18101,9 +18096,8 @@ declare class CommonMethod<T> {
    * @param { PixelStretchEffectOptions } options
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
    * @crossplatform
-   * @since 10
+   * @since 12
    */
   pixelStretchEffect(options: PixelStretchEffectOptions): T;
 
@@ -18623,8 +18617,7 @@ declare type CustomBuilder = (() => any) | void;
  * The range of this value is [0,1]. A value of 1 means region ending position and 0 means region starting position.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @since 10
+ * @since 12
  */
 declare type FractionStop = [ number, number ];
 
@@ -19326,8 +19319,7 @@ declare interface PixelRoundPolicy {
  *
  * @interface LinearGradientBlurOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @since 10
+ * @since 12
  */
 declare interface LinearGradientBlurOptions {
   /**
@@ -19335,8 +19327,7 @@ declare interface LinearGradientBlurOptions {
    *
    * @type { FractionStop[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 10
+   * @since 12
    */
   fractionStops: FractionStop[];
   /**
@@ -19344,8 +19335,7 @@ declare interface LinearGradientBlurOptions {
    *
    * @type { GradientDirection }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 10
+   * @since 12
    */
   direction: GradientDirection;
 }
