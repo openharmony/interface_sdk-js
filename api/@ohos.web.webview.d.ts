@@ -543,6 +543,15 @@ declare namespace webview {
      * @since 12
      */
     isCspBypassing?: boolean;
+
+    /**
+     * If isCodeCacheSupported is true, then the js of this scheme can generate code cache.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    isCodeCacheSupported?: boolean;
   }
 
   /**
