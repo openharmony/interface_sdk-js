@@ -13227,6 +13227,43 @@ declare enum DragPreviewMode {
 }
 
 /**
+ * Define the menu pop-up policy
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum MenuPolicy {
+  /**
+   * Default value. The default logic of whether to pop up a menu depends on the scene.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  DEFAULT = 0,
+
+  /**
+   * Hide pop up menu.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  HIDE = 1,
+
+  /**
+   * Show pop up menu.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  SHOW = 2,
+}
+
+/**
  * ImageModifier
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -21564,6 +21601,26 @@ declare interface GestureModifier {
    * @since 12
    */
   applyGesture(event: UIGestureEvent): void;
+}
+
+/**
+ * Defines the selection options.
+ *
+ * @interface SelectionOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface SelectionOptions {
+  /**
+   * Menu pop-up policy.
+   *
+   * @type { ?MenuPolicy }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  menuPolicy?: MenuPolicy;
 }
 
 declare module 'commonEvent' {
