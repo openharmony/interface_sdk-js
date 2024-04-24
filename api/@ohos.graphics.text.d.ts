@@ -924,7 +924,7 @@ declare namespace text {
      * Rect of text box.
      * @type { common2D.Rect }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since 12
      */
     rect: common2D.Rect;
 
@@ -932,7 +932,7 @@ declare namespace text {
      * Text direction.
      * @type { TextDirection }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since 12
      */
     direction: TextDirection;
   }

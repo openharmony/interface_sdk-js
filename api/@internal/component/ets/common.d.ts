@@ -7354,7 +7354,17 @@ declare interface BorderImageOption {
    * @since 11
    * @form
    */
-  slice?: Length | EdgeWidths,
+  /**
+   * Border image slice
+   *
+   * @type { ?(Length | EdgeWidths | LocalizedEdgeWidths) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  slice?: Length | EdgeWidths | LocalizedEdgeWidths,
 
   /**
    * Border image repeat
@@ -7441,7 +7451,17 @@ declare interface BorderImageOption {
    * @since 11
    * @form
    */
-  width?: Length | EdgeWidths,
+  /**
+   * Border image width
+   *
+   * @type { ?(Length | EdgeWidths | LocalizedEdgeWidths) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  width?: Length | EdgeWidths | LocalizedEdgeWidths,
 
   /**
    * Border image outset
@@ -7470,7 +7490,17 @@ declare interface BorderImageOption {
    * @since 11
    * @form
    */
-  outset?: Length | EdgeWidths,
+  /**
+   * Border image outset
+   *
+   * @type { ?(Length | EdgeWidths | LocalizedEdgeWidths) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  outset?: Length | EdgeWidths | LocalizedEdgeWidths,
 
   /**
    * Border image center fill
@@ -7706,6 +7736,17 @@ declare interface ClickEvent extends BaseEvent {
    * @form
    */
   y: number;
+
+  /**
+   * Prevent the default function.
+   *
+   * @type { function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  preventDefault: () => void;
 }
 
 /**
@@ -8404,6 +8445,17 @@ declare interface TouchEvent extends BaseEvent {
    * @since 11
    */
   getHistoricalPoints(): Array<HistoricalPoint>;
+
+  /**
+   * Prevent the default function.
+   *
+   * @type { function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  preventDefault: () => void;
 }
 
 /**
@@ -10072,13 +10124,13 @@ declare interface SheetOptions extends BindOptions {
    /**
    * Defines the sheet prefer type
    *
-   * @type { ?(SheetType.CENTER | SheetType.POPUP) }
+   * @type { ?SheetType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  preferType?: SheetType.CENTER | SheetType.POPUP;
+  preferType?: SheetType;
 
   /**
    * Defines the sheet title
@@ -10152,22 +10204,22 @@ declare interface SheetOptions extends BindOptions {
   /**
    * Defines the sheet's border width.
    *
-   * @type { ?(Dimension | EdgeWidths) }
+   * @type { ?(Dimension | EdgeWidths | LocalizedEdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  borderWidth?: Dimension | EdgeWidths;
+  borderWidth?: Dimension | EdgeWidths | LocalizedEdgeWidths;
 
   /**
    * Defines the sheet's border color.
    *
-   * @type { ?(ResourceColor | EdgeColors) }
+   * @type { ?(ResourceColor | EdgeColors | LocalizedEdgeColors) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  borderColor?: ResourceColor | EdgeColors;
+  borderColor?: ResourceColor | EdgeColors | LocalizedEdgeColors;
 
   /**
    * Defines the sheet's border style.
@@ -10220,6 +10272,26 @@ declare interface SheetOptions extends BindOptions {
    * @since 12
    */
   onDetentsDidChange?: Callback<number>;
+
+  /**
+   * Called when width of the sheet changed
+   *
+   * @type { ?Callback<number> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onWidthDidChange?: Callback<number>;
+
+  /**
+   * Called when the sheet type changed
+   *
+   * @type { ?Callback<SheetType> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onTypeDidChange?: Callback<SheetType>;
 }
 
 /**
@@ -11973,6 +12045,16 @@ declare interface ContextMenuOptions {
   preview?: MenuPreviewMode | CustomBuilder;
 
   /**
+   * Defines the border radius of menu.
+   *
+   * @type { ?(Length | BorderRadiuses) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  borderRadius?: Length | BorderRadiuses;
+
+  /**
    * Callback function when the context menu appears.
    *
    * @type { ?function }
@@ -13120,6 +13202,20 @@ declare enum DragPreviewMode {
    * @since 12
    */
   DISABLE_SCALE = 2,
+  /**
+   * Enable the default shadow effect of preview.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  ENABLE_DEFAULT_SHADOW = 3,
+  /**
+   * Enable the default radius effect of preview.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  ENABLE_DEFAULT_RADIUS = 4,
 }
 
 /**
@@ -13157,12 +13253,12 @@ declare interface DragPreviewOptions {
  /**
   * Drag preview mode.
   *
-  * @type { ?DragPreviewMode }
+  * @type { ?(DragPreviewMode | Array<DragPreviewMode>) }
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @atomicservice
   * @since 12
   */
-  mode?: DragPreviewMode;
+  mode?: DragPreviewMode | Array<DragPreviewMode>;
 
   /**
   * Drag preview modifier.
@@ -13791,7 +13887,18 @@ declare class CommonMethod<T> {
    * @since 11
    * @form
    */
-  padding(value: Padding | Length): T;
+  /**
+   * Inner margin.
+   *
+   * @param { Padding | Length | LocalizedPadding } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  padding(value: Padding | Length | LocalizedPadding): T;
 
   /**
    * Outer Margin.
@@ -13831,7 +13938,18 @@ declare class CommonMethod<T> {
    * @since 11
    * @form
    */
-  margin(value: Margin | Length): T;
+  /**
+   * Outer Margin.
+   *
+   * @param { Margin | Length | LocalizedMargin } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  margin(value: Margin | Length | LocalizedMargin): T;
 
   /**
    * Background.
@@ -14323,7 +14441,18 @@ declare class CommonMethod<T> {
    * @since 11
    * @form
    */
-  borderWidth(value: Length | EdgeWidths): T;
+  /**
+   * Border width
+   *
+   * @param { Length | EdgeWidths | LocalizedEdgeWidths } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  borderWidth(value: Length | EdgeWidths | LocalizedEdgeWidths): T;
 
   /**
    * Border color
@@ -14363,7 +14492,18 @@ declare class CommonMethod<T> {
    * @since 11
    * @form
    */
-  borderColor(value: ResourceColor | EdgeColors): T;
+  /**
+   * Border color
+   *
+   * @param { ResourceColor | EdgeColors | LocalizedEdgeColors } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  borderColor(value: ResourceColor | EdgeColors | LocalizedEdgeColors): T;
 
   /**
    * Border radius
@@ -14403,7 +14543,18 @@ declare class CommonMethod<T> {
    * @since 11
    * @form
    */
-  borderRadius(value: Length | BorderRadiuses): T;
+  /**
+   * Border radius
+   *
+   * @param { Length | BorderRadiuses | LocalizedBorderRadiuses } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  borderRadius(value: Length | BorderRadiuses | LocalizedBorderRadiuses): T;
 
   /**
    * Border image
@@ -14524,15 +14675,15 @@ declare class CommonMethod<T> {
   /**
    * Outline color
    *
-   * @param { ResourceColor | EdgeColors } value
+   * @param { ResourceColor | EdgeColors | LocalizedEdgeColors } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
-  outlineColor(value: ResourceColor | EdgeColors): T;
+  outlineColor(value: ResourceColor | EdgeColors | LocalizedEdgeColors): T;
 
   /**
    * Outline radius
@@ -15207,6 +15358,17 @@ declare class CommonMethod<T> {
    * @since 10
    */
   linearGradientBlur(value: number, options: LinearGradientBlurOptions): T;
+
+  /**
+   * Component motion blur interface.
+   * 
+   * @param { MotionBlurOptions } value - the attributes of motion blur.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  motionBlur(value: MotionBlurOptions):T;
 
   /**
    * Adds a highlight effect to the current component.
@@ -16037,6 +16199,17 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
+  /**
+   * This callback is triggered when the size or position of this component change finished.
+   *
+   * @param { function } event - event callback.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
   onAreaChange(event: (oldValue: Area, newValue: Area) => void): T;
 
   /**
@@ -16472,15 +16645,15 @@ declare class CommonMethod<T> {
   /**
    * position
    *
-   * @param { Position | Edges } value
+   * @param { Position | Edges | LocalizedEdges } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
-  position(value: Position | Edges): T;
+  position(value: Position | Edges | LocalizedEdges): T;
 
   /**
    * Sets the anchor point of the element when it is positioned. The base point is offset from the top start point of the element.
@@ -16520,7 +16693,18 @@ declare class CommonMethod<T> {
    * @since 11
    * @form
    */
-  markAnchor(value: Position): T;
+  /**
+   * Sets the anchor point of the element when it is positioned. The base point is offset from the top start point of the element.
+   *
+   * @param { Position | LocalizedPosition} value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  markAnchor(value: Position | LocalizedPosition): T;
 
   /**
    * Coordinate offset relative to the layout completion position.
@@ -16568,15 +16752,15 @@ declare class CommonMethod<T> {
    * Coordinate offset relative to the layout completion position.
    * Setting this attribute does not affect the layout of the parent container. The position is adjusted only during drawing.
    *
-   * @param { Position | Edges } value
+   * @param { Position | Edges | LocalizedEdges } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
-  offset(value: Position | Edges): T;
+  offset(value: Position | Edges | LocalizedEdges): T;
 
   /**
    * If the value is true, the component is available and can respond to operations such as clicking.
@@ -19167,6 +19351,60 @@ declare interface LinearGradientBlurOptions {
 }
 
 /**
+ * Define motion blur anchor coordinates.
+ * 
+ * @interface MotionBlurAnchor
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface MotionBlurAnchor {
+  /**
+   * Define anchor coordinate x-value.Value range [0.0, 1.0].
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  x: number;
+  /**
+   * Define anchor coordinate y-value.Value range [0.0, 1.0].
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  y: number;
+}
+
+/**
+ * Define motion blur options.
+ * 
+ * @interface MotionBlurOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface MotionBlurOptions {
+  /**
+   * Define the size of motion blur radius.The range of this value is  [0.0, ∞).
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  radius: number;
+  /**
+   * Define motion blur anchor coordinates.
+   * 
+   * @type { MotionBlurAnchor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  anchor: MotionBlurAnchor;
+}
+
+/**
  * Sub component border info.
  *
  * @interface LayoutBorderInfo
@@ -19590,6 +19828,16 @@ declare interface MeasureResult extends SizeResult {
  * @since 11
  */
 declare type NavDestinationInfo = import('../api/@ohos.arkui.observer').default.NavDestinationInfo;
+
+/**
+ * The navigation information.
+ *
+ * @typedef {import('../api/@ohos.arkui.observer').default.NavigationInfo} NavigationInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type NavigationInfo = import('../api/@ohos.arkui.observer').default.NavigationInfo;
 
 /**
  * UIContext
@@ -20087,6 +20335,16 @@ declare class CustomComponent extends CommonAttribute {
    * @since 12
    */
   queryNavDestinationInfo(): NavDestinationInfo | undefined;
+
+  /**
+   * Query the navigation information of the current custom component.
+   * 
+   * @returns { NavigationInfo | undefined } The navigation information, or undefined if it is not available
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  queryNavigationInfo(): NavigationInfo | undefined;
 }
 
 /**

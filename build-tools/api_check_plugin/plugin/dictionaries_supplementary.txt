@@ -542,6 +542,7 @@ nextgroup
 nlink
 nmea
 nnrt
+nnrtdevice
 nopadding
 mori
 nodownload
@@ -657,6 +658,7 @@ preresolve
 presentationml
 presently
 presistent
+previewed
 prevgroup
 prikey
 primaries
@@ -672,6 +674,7 @@ pss
 pssh
 puk
 pvr
+quant
 querier
 queriers
 racing
@@ -754,7 +757,6 @@ sdpi
 searchsetter
 sece
 secinfo
-securityguard
 seeked
 semicircles
 sendable
@@ -991,6 +993,7 @@ wallpapers
 wantagent
 wapi
 wappush
+warmup
 watchers
 waterflow
 wcdma
@@ -1060,3 +1063,4 @@ geofences
 gbk
 ocsp
 encipherment
+reconfirmed

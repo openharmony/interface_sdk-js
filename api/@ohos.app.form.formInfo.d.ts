@@ -1084,27 +1084,6 @@ declare namespace formInfo {
   }
 
   /**
-   * Configuration update flags.
-   *
-   * @typedef ConfigurationUpdateFlags
-   * @syscap SystemCapability.Ability.Form
-   * @atomicservice
-   * @since 12
-   */
-  interface ConfigurationUpdateFlags {
-    /**
-     * Indicates whether font update enabled.
-     *
-     * @type { ?boolean }
-     * @default true
-     * @syscap SystemCapability.Ability.Form
-     * @atomicservice
-     * @since 12
-     */
-    fontEnabled?: boolean;
-  }
-
-  /**
    * Defines the FormDimension enum.
    *
    * @enum { number }

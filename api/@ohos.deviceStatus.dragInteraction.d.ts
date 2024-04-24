@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -101,7 +101,8 @@ declare namespace dragInteraction {
    *
    * @param { 'drag' } type Indicates the event type.
    * @param { Callback<DragState> } callback Indicates the callback to receive the changed dragging state.
-   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -114,7 +115,8 @@ declare namespace dragInteraction {
    * @param { 'drag' } type Indicates the event type.
    * @param { Callback<DragState> }callback Indicates the callback for which listening is disabled. If this parameter
    * is not specified, listening will be disabled for all registered callbacks.
-   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
    * @since 10

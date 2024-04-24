@@ -185,7 +185,7 @@ declare interface TextPickerOptions {
   /**
    * Value of the current selection.
    *
-   * @type { ?(string | string[]) }
+   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -213,7 +213,7 @@ declare interface TextPickerOptions {
   /**
    * Current selected subscript.
    *
-   * @type { ?(number | number[]) }
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -606,7 +606,7 @@ declare interface TextPickerResult {
   /**
    * The currently selected value.
    *
-   * @type { string | string[] }
+   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -634,6 +634,7 @@ declare interface TextPickerResult {
   /**
    * The subscript of the current selection.
    *
+   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -767,14 +768,24 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
   textStyle?: PickerTextStyle;
 
   /**
-   * Text style of button items
+   * Style of accept button.
    *
    * @type { ?PickerDialogButtonStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  buttonStyle?: PickerDialogButtonStyle;
+  acceptButtonStyle?: PickerDialogButtonStyle;
+
+  /**
+   * Style of cancel button.
+   *
+   * @type { ?PickerDialogButtonStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  cancelButtonStyle?: PickerDialogButtonStyle;
 
   /**
    * Text style of selected items

@@ -166,7 +166,8 @@ declare namespace wallpaper {
    *
    * @param { WallpaperType } wallpaperType - indicates the wallpaper type.
    * @returns { Array<RgbaColor> } the Array<RgbaColor> returned by the function.
-   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 401 - parameter error. Possible causes:
+   *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @systemapi Hide this for inner system use.
@@ -360,7 +361,8 @@ declare namespace wallpaper {
    * @permission ohos.permission.SET_WALLPAPER
    * @param { WallpaperType } wallpaperType - indicates the wallpaper type.
    * @param { AsyncCallback<void> } callback - the callback of restore.
-   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 401 - parameter error. Possible causes:
+   *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 201 - permission denied.
    * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
    * @syscap SystemCapability.MiscServices.Wallpaper
@@ -375,7 +377,8 @@ declare namespace wallpaper {
    * @permission ohos.permission.SET_WALLPAPER
    * @param { WallpaperType } wallpaperType - indicates the wallpaper type.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 401 - parameter error. Possible causes:
+   *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 201 - permission denied.
    * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
    * @syscap SystemCapability.MiscServices.Wallpaper
@@ -421,7 +424,8 @@ declare namespace wallpaper {
    * @param { string | image.PixelMap } source - indicates the uri path from a JPEG or PNG file or the pixel map of the PNG file.
    * @param { WallpaperType } wallpaperType - indicates the wallpaper type.
    * @param { AsyncCallback<void> } callback - the callback of setImage.
-   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 401 - parameter error. Possible causes:
+   *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 201 - permission denied.
    * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
    * @syscap SystemCapability.MiscServices.Wallpaper
@@ -437,7 +441,8 @@ declare namespace wallpaper {
    * @param { string | image.PixelMap } source - indicates the uri path from a JPEG or PNG file or the pixel map of the PNG file.
    * @param { WallpaperType } wallpaperType - indicates the wallpaper type.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 401 - parameter error. Possible causes:
+   *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 201 - permission denied.
    * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
    * @syscap SystemCapability.MiscServices.Wallpaper
@@ -478,7 +483,8 @@ declare namespace wallpaper {
    * @permission ohos.permission.GET_WALLPAPER
    * @param { WallpaperType } wallpaperType - indicates the wallpaper type.
    * @param { AsyncCallback<image.PixelMap> } callback - the callback of getImage.
-   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 401 - parameter error. Possible causes:
+   *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 201 - permission denied.
    * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
    * @syscap SystemCapability.MiscServices.Wallpaper
@@ -493,7 +499,8 @@ declare namespace wallpaper {
    * @permission ohos.permission.GET_WALLPAPER
    * @param { WallpaperType } wallpaperType - indicates the wallpaper type.
    * @returns { Promise<image.PixelMap> } the promise returned by the function.
-   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 401 - parameter error. Possible causes:
+   *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 201 - permission denied.
    * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
    * @syscap SystemCapability.MiscServices.Wallpaper
@@ -509,7 +516,8 @@ declare namespace wallpaper {
    * @param { string } source - indicates the uri path of the MP4 file.
    * @param { WallpaperType } wallpaperType - indicates the wallpaper type.
    * @param { AsyncCallback<void> } callback - the callback of setVideo.
-   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 401 - parameter error. Possible causes:
+   *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 201 - permission denied.
    * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
    * @syscap SystemCapability.MiscServices.Wallpaper
@@ -525,7 +533,8 @@ declare namespace wallpaper {
    * @param { string } source - indicates the uri path of the MP4 file.
    * @param { WallpaperType } wallpaperType - indicates the wallpaper type.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 401 - parameter error. Possible causes:
+   *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 201 - permission denied.
    * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
    * @syscap SystemCapability.MiscServices.Wallpaper
@@ -541,7 +550,8 @@ declare namespace wallpaper {
    * @param { string } source - indicates the uri path of the custom wallpaper.
    * @param { WallpaperType } wallpaperType - indicates the wallpaper type.
    * @param { AsyncCallback<void> } callback - the callback of setCustomWallpaper.
-   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 401 - parameter error. Possible causes:
+   *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 201 - permission denied.
    * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
    * @syscap SystemCapability.MiscServices.Wallpaper
@@ -557,7 +567,8 @@ declare namespace wallpaper {
    * @param { string } source - indicates the uri path of the custom wallpaper.
    * @param { WallpaperType } wallpaperType - indicates the wallpaper type.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 401 - parameter error. Possible causes:
+   *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 201 - permission denied.
    * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
    * @syscap SystemCapability.MiscServices.Wallpaper
@@ -584,7 +595,8 @@ declare namespace wallpaper {
    * @param { function } callback - wallpaperType indicates the wallpaper type.
    * resourceType indicates the resource type of the wallpaper.
    * uri indicates the wallpaper resource address.
-   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 401 - parameter error. Possible causes:
+   *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @systemapi Hide this for inner system use.
@@ -613,7 +625,8 @@ declare namespace wallpaper {
    * @param { function } callback - wallpaperType indicates the wallpaper type.
    * resourceType indicates the resource type of the wallpaper.
    * uri indicates the wallpaper resource address.
-   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 401 - parameter error. Possible causes:
+   *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @systemapi Hide this for inner system use.

@@ -4488,6 +4488,18 @@ declare namespace webview {
     static getRenderProcessMode(): RenderProcessMode;
 
     /**
+     * Terminate render process associated with this controller of the ArkWeb.
+     *
+     * @returns { boolean } true if it was possible to terminate the render process, otherwise false.
+     *         Calling this on a not yet started, or an already terminated render will have no effect.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    terminateRenderProcess(): boolean;
+
+    /**
      * Compile javascript and generate code cache.
      * @param { string } url - Url of the javascript.
      * @param { string | Uint8Array } script - javascript source code.
@@ -4525,6 +4537,16 @@ declare namespace webview {
      * @since 12
      */
     static clearHostIP(hostName: string): void;
+
+    /**
+     * Warmup the registered service worker associated the url.
+     * @param { string } url - The url.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static warmupServiceWorker(url: string): void;
   }
 
   /**
