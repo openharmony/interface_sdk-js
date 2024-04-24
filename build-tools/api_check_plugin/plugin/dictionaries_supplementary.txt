@@ -805,6 +805,7 @@ spn
 spooler
 spp
 spreadsheetml
+springs
 spry
 spy
 srgb
