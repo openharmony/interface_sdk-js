@@ -627,7 +627,7 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   renderingStrategy(value: SymbolRenderingStrategy): SymbolGlyphAttribute;
 
   /**
-   * Called when the symbolGlyph effect is set.
+   * Define effect options for SymbolGlyph.
    *
    * @param { SymbolEffect } [symbolEffect] - The symbol effect type
    * @param { boolean } [isActive] - The active state of the effect
@@ -639,7 +639,7 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   symbolEffect(symbolEffect: SymbolEffect, isActive?: boolean): SymbolGlyphAttribute;
 
   /**
-   * Called when the symbolGlyph effect is set.
+   *  Define effect options for SymbolGlyph.
    *
    * @param { SymbolEffect } [symbolEffect] - The symbol effect type
    * @param { number } [triggerValue] - The trigger of the effect
