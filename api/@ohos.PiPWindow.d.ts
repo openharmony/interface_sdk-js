@@ -320,6 +320,7 @@ declare namespace PiPWindow {
   /**
    * Describe picture-in-picture action event type.
    *
+   * @typedef { PiPVideoActionEvent | PiPCallActionEvent | PiPMeetingActionEvent | PiPLiveActionEvent }
    * @syscap SystemCapability.Window.SessionManager
    * @since 11
    */
@@ -343,7 +344,8 @@ declare namespace PiPWindow {
 
   /**
    * Describe picture-in-picture call template action event type.
-   * 
+   *
+   * @typedef { 'hangUp' | 'micStateChanged' | 'videoStateChanged' }
    * @syscap SystemCapability.Window.SessionManager
    * @since 11
    */
@@ -351,7 +353,8 @@ declare namespace PiPWindow {
 
   /**
    * Describe picture-in-picture meeting template action event type.
-   * 
+   *
+   * @typedef { 'hangUp' | 'voiceStateChanged' | 'videoStateChanged' }
    * @syscap SystemCapability.Window.SessionManager
    * @since 11
    */
@@ -359,7 +362,8 @@ declare namespace PiPWindow {
 
   /**
    * Describe picture-in-picture live template action event type.
-   * 
+   *
+   * @typedef { 'playbackStateChanged' }
    * @syscap SystemCapability.Window.SessionManager
    * @since 11
    */
@@ -368,7 +372,9 @@ declare namespace PiPWindow {
   /**
    * Describe picture-in-picture control panel action event callback.
    * 
-   * @typedef {function} ControlPanelActionEventCallback
+   * @typedef { function } ControlPanelActionEventCallback
+   * @param { PiPActionEventType } event - the event from controlPanel
+   * @param { number } [status] - the status of control button
    * @syscap SystemCapability.Window.SessionManager
    * @since 12
    */
