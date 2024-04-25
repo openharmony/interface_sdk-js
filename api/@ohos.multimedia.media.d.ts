@@ -419,6 +419,13 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 11
      */
+    /**
+     * The metadata to retrieve the information about the album title
+     * of the media source. This field is readonly in current version.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 12
+     */
     album?: string;
 
     /**
@@ -427,6 +434,13 @@ declare namespace media {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 11
+     */
+    /**
+     * The metadata to retrieve the information about the performer or
+     * artist associated with the media source. This field is readonly in current version.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 12
      */
     albumArtist?: string;
 
@@ -437,6 +451,13 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 11
      */
+    /**
+     * The metadata to retrieve the information about the artist of
+     * the media source. This field is readonly in current version.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 12
+     */
     artist?: string;
 
     /**
@@ -445,6 +466,13 @@ declare namespace media {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 11
+     */
+    /**
+     * The metadata to retrieve the information about the author of
+     * the media source. This field is readonly in current version.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 12
      */
     author?: string;
 
@@ -455,6 +483,13 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 11
      */
+    /**
+     * The metadata to retrieve the information about the created time of
+     * the media source. This field is readonly in current version.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 12
+     */
     dateTime?: string;
 
     /**
@@ -463,6 +498,13 @@ declare namespace media {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 11
+     */
+    /**
+     * The metadata to retrieve the information about the created or modified time
+     * with the specific date format of the media source. This field is readonly in current version.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 12
      */
     dateTimeFormat?: string;
 
@@ -473,6 +515,13 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 11
      */
+    /**
+     * The metadata to retrieve the information about the composer of
+     * the media source. This field is readonly in current version.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 12
+     */
     composer?: string;
 
     /**
@@ -480,6 +529,12 @@ declare namespace media {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 11
+     */
+    /**
+     * The metadata to retrieve the playback duration of the media source. This field is readonly in current version.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 12
      */
     duration?: string;
 
@@ -498,6 +553,12 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 11
      */
+    /**
+     * If this value exists the media contains audio content. This field is readonly in current version.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 12
+     */
     hasAudio?: string;
 
     /**
@@ -505,6 +566,12 @@ declare namespace media {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 11
+     */
+    /**
+     * If this value exists the media contains video content. This field is readonly in current version.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 12
      */
     hasVideo?: string;
 
@@ -515,6 +582,13 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 11
      */
+    /**
+     * The metadata to retrieve the mime type of the media source. Some
+     * example mime types include: "video/mp4", "audio/mp4", "audio/amr-wb". This field is readonly in current version.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 12
+     */
     mimeType?: string;
 
     /**
@@ -524,6 +598,13 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 11
      */
+    /**
+     * The metadata to retrieve the number of tracks, such as audio, video,
+     * text, in the media source, such as a mp4 or 3gpp file. This field is readonly in current version.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 12
+     */
     trackCount?: string;
 
     /**
@@ -531,6 +612,12 @@ declare namespace media {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 11
+     */
+    /**
+     * It is the audio sample rate, if available. This field is readonly in current version.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 12
      */
     sampleRate?: string;
 
@@ -540,6 +627,12 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 11
      */
+    /**
+     * The metadata to retrieve the media source title. This field is readonly in current version.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 12
+     */
     title?: string;
 
     /**
@@ -548,6 +641,12 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 11
      */
+    /**
+     * If the media contains video, this key retrieves its height. This field is readonly in current version.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 12
+     */
     videoHeight?: string;
 
     /**
@@ -555,6 +654,12 @@ declare namespace media {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 11
+     */
+    /**
+     * If the media contains video, this key retrieves its width. This field is readonly in current version.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 12
      */
     videoWidth?: string;
 
@@ -575,6 +680,22 @@ declare namespace media {
      * @since 12
      */
     hdrType?: HdrType;
+
+    /**
+     * The geographical location info of the video.
+     * @type { ?Location }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 12
+     */
+    location?: Location;
+
+    /**
+     * Custom parameter key-value map read from moov.meta.list.
+     * @type { ?Record<string, string> }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 12
+     */
+    customInfo?: Record<string, string>;
   }
 
   /**
@@ -4540,14 +4661,25 @@ declare namespace media {
      * the range of rotation angle should be {0, 90, 180, 270}, default is 0.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9
+     * @deprecated since 12
+     * @useinstead ohos.multimedia.media/media.AVMetadata#videoOrientation
      */
     rotation?: number;
     /**
      * Geographical location information.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9
+     * @deprecated since 12
+     * @useinstead ohos.multimedia.media/media.AVMetadata#location
      */
     location?: Location;
+    /**
+     * Set global metadata info. Details see @AVMetadata
+     * @type { ?AVMetadata }
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 12
+     */
+    metadata?: AVMetadata;
   }
 
   /**
