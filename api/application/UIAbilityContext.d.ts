@@ -3583,4 +3583,18 @@ export default class UIAbilityContext extends Context {
    * @since 12
    */
   hideAbility(): Promise<void>;
+
+  /**
+   * Set whether restoration is enabled when the UIAbility is switched back from the background.
+   *
+   * @param { boolean } enabled - The flag that indicates whether restoration is enabled when the UIAbility is switched
+   * back from the background.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+  setRestoreEnabled(enabled: boolean): void;
 }
