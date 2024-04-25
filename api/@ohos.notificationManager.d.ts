@@ -36,6 +36,7 @@ import { NotificationProgress as _NotificationProgress } from './notification/no
 import { NotificationFlags as _NotificationFlags } from './notification/notificationFlags';
 import { NotificationFlagStatus as _NotificationFlagStatus } from './notification/notificationFlags';
 import { NotificationRequest as _NotificationRequest } from './notification/notificationRequest';
+import { UnifiedGroupInfo as _UnifiedGroupInfo } from './notification/notificationRequest';
 import { DistributedOptions as _DistributedOptions } from './notification/notificationRequest';
 import type { NotificationFilter as _NotificationFilter } from './notification/notificationRequest';
 import type { NotificationCheckRequest as _NotificationCheckRequest } from './notification/notificationRequest';
@@ -2362,6 +2363,25 @@ declare namespace notificationManager {
   function removeDoNotDisturbProfile(templates: Array<DoNotDisturbProfile>): Promise<void>;
 
   /**
+   * Set system additional config information of notification
+   *
+   * @permission ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+   * @param { string } key - addition config key.
+   * @param { string } value - addition config value.
+   * @returns { Promise<number> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  function setAdditionalConfig(key: string, value: string): Promise<number>;
+
+  /**
    * Describes a button option for a triggering.
    *
    * @typedef ButtonOptions
@@ -3079,6 +3099,16 @@ declare namespace notificationManager {
    * @since 9
    */
   export type NotificationRequest = _NotificationRequest;
+
+  /**
+   * Defines a UnifiedGroupInfo instance.
+   *
+   * @typedef {_UnifiedGroupInfo} UnifiedGroupInfo
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  export type UnifiedGroupInfo = _UnifiedGroupInfo;
 
   /**
    * Defines a NotificationFilter instance.
