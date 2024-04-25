@@ -63,6 +63,7 @@ export default shortKey;
  *
  * @enum { number }
  * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @systemapi Hide this for inner system use.
  * @since 12
  */
 export declare enum FingerprintAction {
