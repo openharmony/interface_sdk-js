@@ -127,7 +127,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
     /**
      * Called when the video is played.
      *
-     * @param { function } event
+     * @param { MovingPhotoViewEventCallback } callback
      * @returns { MovingPhotoViewAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -138,7 +138,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
     /**
      * Called when the video playback stopped.
      *
-     * @param { function } event
+     * @param { MovingPhotoViewEventCallback } callback
      * @returns { MovingPhotoViewAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -149,7 +149,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
     /**
      * Called when the video playback ends.
      *
-     * @param { function } event
+     * @param { MovingPhotoViewEventCallback } callback
      * @returns { MovingPhotoViewAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -160,7 +160,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
     /**
      * Called when playback fails.
      *
-     * @param { function } event
+     * @param { MovingPhotoViewEventCallback } callback
      * @returns { MovingPhotoViewAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
