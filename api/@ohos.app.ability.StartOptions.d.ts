@@ -119,6 +119,17 @@ export default class StartOptions {
   windowHeight?: number;
 
   /**
+   * Indicates the window is focused.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+  windowFocused?: boolean;
+
+  /**
    * The process mode.
    * This property only takes effect when calling UIAbilityContext.startAbility.
    * The properties processMode and startupVisibility must be set simultaneously.
