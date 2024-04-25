@@ -87,6 +87,7 @@
     "SystemCapability.Multimedia.Image.ImageSource",
     "SystemCapability.Multimedia.Image.ImagePacker",
     "SystemCapability.Multimedia.Image.ImageReceiver",
+    "SystemCapability.Multimedia.ImageEffect.Core",
     "SystemCapability.Multimedia.MediaLibrary.Core",
     "SystemCapability.Multimedia.MediaLibrary.DistributedCore",
     "SystemCapability.Multimedia.SystemSound.Core",
