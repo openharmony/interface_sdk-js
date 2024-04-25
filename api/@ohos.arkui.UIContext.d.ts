@@ -2523,6 +2523,16 @@ export class UIContext {
    * @since 12
    */
   setDynamicDimming(id: string, value: number): void;
+
+  /**
+   * Get the name of current window.
+   *
+   * @returns { string | undefined } The name of current window, or undefined if the window doesn't exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getWindowName(): string | undefined;
 }
 
 /**
