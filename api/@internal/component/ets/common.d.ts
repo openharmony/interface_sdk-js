@@ -14146,7 +14146,7 @@ declare class CommonMethod<T> {
   /**
    * PixelRound
    *
-   * @param { PixelRoundPolicy } value
+   * @param { PixelRoundPolicy } value - indicates the pixel round policy.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
