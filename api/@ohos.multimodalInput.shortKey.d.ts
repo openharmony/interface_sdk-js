@@ -70,6 +70,7 @@ export declare enum FingerprintAction {
    * Key touching.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @systemapi Hide this for inner system use.
    * @since 12
    */
   DOWN = 0,
@@ -78,6 +79,7 @@ export declare enum FingerprintAction {
    * Finger lifting.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @systemapi Hide this for inner system use.
    * @since 12
    */
   UP = 1,
@@ -86,6 +88,7 @@ export declare enum FingerprintAction {
    * Sliding on the fingerprint key.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @systemapi Hide this for inner system use.
    * @since 12
    */
   SLIDE = 2,
@@ -94,6 +97,7 @@ export declare enum FingerprintAction {
    *  Second touch during the double-click process.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @systemapi Hide this for inner system use.
    * @since 12
    */
   RETOUCH = 3,
@@ -102,6 +106,7 @@ export declare enum FingerprintAction {
    * Double-click event.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @systemapi Hide this for inner system use.
    * @since 12
    */
   CLICK = 4,
@@ -112,13 +117,16 @@ export declare enum FingerprintAction {
  *
  * @interface FingerprintEvent
  * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @systemapi Hide this for inner system use.
  * @since 12
  */
 export declare interface FingerprintEvent {
   /**
    * Fingerprint key event type.
    *
+   * @type { FingerprintAction }
    * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @systemapi Hide this for inner system use.
    * @since 12
    */
   action: FingerprintAction;
@@ -133,7 +141,9 @@ export declare interface FingerprintEvent {
    * and the horizontal rightward direction stands for the positive direction of the X axis.
    * This way, a rectangular coordinate system is constructed.
    *
+   * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @systemapi Hide this for inner system use.
    * @since 12
    */
   distanceX: number;
@@ -148,7 +158,9 @@ export declare interface FingerprintEvent {
    * and the horizontal rightward direction stands for the positive direction of the X axis.
    * This way, a rectangular coordinate system is constructed.
    *
+   * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @systemapi Hide this for inner system use.
    * @since 12
    */
   distanceY: number;
