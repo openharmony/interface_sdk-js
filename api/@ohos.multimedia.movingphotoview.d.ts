@@ -18,15 +18,7 @@
  * @kit MediaLibraryKit
  */
 
-/**
- * import the MovingPhoto type object from media kit.
- *
- * @typedef MovingPhoto
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 12
- */
-declare type MovingPhoto = import('../api/@ohos.file.photoAccessHelper').default.MovingPhoto;
+import photoAccessHelper from './@ohos.file.photoAccessHelper';
 
 /**
  * Defines the moving photo view options.
@@ -47,7 +39,7 @@ declare interface MovingPhotoViewOptions {
      * @atomicservice
      * @since 12
      */
-    movingPhoto: MovingPhoto;
+    movingPhoto: photoAccessHelper.MovingPhoto;
     /**
      * controller of MovingPhotoView.
      *
@@ -85,7 +77,7 @@ interface MovingPhotoViewInterface {
 /**
  * function that moving photo view media events callback.
  *
- * @typedef MovingPhotoViewEventCallback
+ * @typedef { Function } MovingPhotoViewEventCallback
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
