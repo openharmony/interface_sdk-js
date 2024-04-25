@@ -1033,44 +1033,6 @@ interface TextInputInterface {
 }
 
 /**
- * CaretStyle object.
- *
- * @interface CaretStyle
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * CaretStyle object.
- *
- * @interface CaretStyle
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11
- */
-interface CaretStyle {
-  /**
-   * Define the cursor width of CaretStyle.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Define the cursor width of CaretStyle.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  width?: Length;
-}
-
-/**
  * PasswordIcon object.
  *
  * @interface PasswordIcon
