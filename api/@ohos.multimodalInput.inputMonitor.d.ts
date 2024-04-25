@@ -325,7 +325,6 @@ declare namespace inputMonitor {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
    * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 12
@@ -341,7 +340,6 @@ declare namespace inputMonitor {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
    * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 12
