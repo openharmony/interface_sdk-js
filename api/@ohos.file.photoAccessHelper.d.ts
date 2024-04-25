@@ -161,6 +161,30 @@ declare namespace photoAccessHelper {
   }
 
   /**
+   * Enumeration of dynamic range type
+   *
+   * @enum { number } DynamicRangeType
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 12
+   */
+  enum DynamicRangeType {
+    /**
+     * SDR(Standard-Dynamic Range) format
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    SDR = 0,
+    /**
+     * HDR(High-Dynamic Range) format
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    HDR = 1
+  }
+
+  /**
    * Photo asset position
    *
    * @enum { number } Photo asset position, such as local device or cloud
@@ -1572,7 +1596,14 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 12
      */
-    MOVING_PHOTO_EFFECT_MODE = 'moving_photo_effect_mode'
+    MOVING_PHOTO_EFFECT_MODE = 'moving_photo_effect_mode',
+    /**
+     * Dynamic range type of the asset, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    DYNAMIC_RANGE_TYPE = 'dynamic_range_type'
   }
 
   /**
