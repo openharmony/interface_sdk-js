@@ -33,7 +33,7 @@ declare interface MovingPhotoViewOptions {
     /**
      * moving photo data.
      *
-     * @type { MovingPhoto }
+     * @type { photoAccessHelper.MovingPhoto }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
@@ -77,7 +77,7 @@ interface MovingPhotoViewInterface {
 /**
  * function that moving photo view media events callback.
  *
- * @typedef { Function } MovingPhotoViewEventCallback
+ * @typedef { function } MovingPhotoViewEventCallback
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
