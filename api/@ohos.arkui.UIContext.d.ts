@@ -46,7 +46,7 @@ import { TextPickerDialogOptions } from 'textPickerDialogParam';
 import type { CustomBuilder, DragItemInfo, DragEvent } from 'DragControllerParam';
 import { MeasureOptions } from './@ohos.measure';
 import type dragController from './@ohos.arkui.dragController';
-import image from './@ohos.multimedia.image'
+import image from './@ohos.multimedia.image';
 import { LocalStorage } from 'StateManagement';
 import type common from './@ohos.app.ability.common';
 import { GestureEvent } from 'GestureEventModule';
@@ -2523,6 +2523,16 @@ export class UIContext {
    * @since 12
    */
   setDynamicDimming(id: string, value: number): void;
+
+  /**
+   * Get the name of current window.
+   *
+   * @returns { string | undefined } The name of current window, or undefined if the window doesn't exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getWindowName(): string | undefined;
 }
 
 /**

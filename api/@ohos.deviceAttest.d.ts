@@ -33,7 +33,8 @@ declare namespace deviceAttest {
    *
    * @param { AsyncCallback<AttestResultInfo> } callback Indicates the callback containing the AttestResultInfo object.
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Input parameters wrong, the number of parameters is incorrect,
+                or the type of parameters is incorrect.
    * @throws { BusinessError } 20000001 -  system service exception.
    * @syscap SystemCapability.XTS.DeviceAttest
    * @systemapi Hide this for inner system use.
@@ -46,7 +47,8 @@ declare namespace deviceAttest {
    *
    * @returns { Promise<AttestResultInfo> } Returns that the AttestResultInfo object is returned in Promise mode.
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Input parameters wrong, the number of parameters is incorrect,
+                or the type of parameters is incorrect.
    * @throws { BusinessError } 20000001 -  system service exception.
    * @syscap SystemCapability.XTS.DeviceAttest
    * @systemapi Hide this for inner system use.
@@ -59,7 +61,8 @@ declare namespace deviceAttest {
    *
    * @returns { AttestResultInfo } Obtains the AttestResultInfo object synchronously.
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Input parameters wrong, the number of parameters is incorrect,
+                or the type of parameters is incorrect.
    * @throws { BusinessError } 20000001 -  system service exception.
    * @syscap SystemCapability.XTS.DeviceAttest
    * @systemapi Hide this for inner system use.

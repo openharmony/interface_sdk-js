@@ -205,6 +205,16 @@ export class FrameNode {
   dispose(): void;
 
   /**
+   * Get the position of the node relative to its screen.
+   *
+   * @returns { Position } - Returns position of the node relative to its screen.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getPositionToScreen(): Position;
+
+  /**
    * Get the position of the node relative to window.
    *
    * @returns { Position } - Returns position of the node relative to window.
@@ -393,4 +403,44 @@ export class FrameNode {
    * @since 12
    */
   invalidate(): void;
+
+  /**
+   * Get the position of the node relative to screen.
+   *
+   * @returns { Position } - Returns position of the node relative to screen.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getPositionToScreen(): Position;
+
+  /**
+   * Get the position of the node relative to window with transform.
+   *
+   * @returns { Position } - Returns position of the node relative to window with transform.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getPositionToWindowWithTransform(): Position;
+
+  /**
+   * Get the position of the node relative to its parent with transform.
+   *
+   * @returns { Position } - Returns position of the node relative to its parent with transform.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getPositionToParentWithTransform(): Position;
+
+  /**
+   * Get the position of the node relative to screen with transform.
+   *
+   * @returns { Position } - Returns position of the node relative to screen with transform.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getPositionToScreenWithTransform(): Position;
 }

@@ -1899,13 +1899,45 @@ declare namespace camera {
   }
 
   /**
-   * Zoom object.
+   * ZoomPointInfo object.
    *
-   * @interface Zoom
+   * @typedef ZoomPointInfo
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since 11
+   * @systemapi
+   * @since 12
    */
-  interface Zoom {
+  interface ZoomPointInfo {
+    /**
+     * The zoom ratio value.
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    readonly zoomRatio: number;
+
+    /**
+     * The equivalent focal Length.
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    readonly equivalentFocalLength: number;
+  }
+
+  /**
+   * Zoom query object.
+   *
+   * @interface ZoomQuery
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @since 12
+   */
+  interface ZoomQuery {
     /**
      * Gets all supported zoom ratio range.
      *
@@ -1914,8 +1946,38 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
      */
+    /**
+     * Gets all supported zoom ratio range.
+     * Move to ZoomQuery interface from Zoom since 12.
+     *
+     * @returns { Array<number> } The zoom ratio range.
+     * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
     getZoomRatioRange(): Array<number>;
 
+    /**
+     * Gets all important zoom ratio infos.
+     *
+     * @returns { Array<ZoomPointInfo> } The zoom point infos.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    getZoomPointInfos(): Array<ZoomPointInfo>;
+  }
+
+  /**
+   * Zoom object.
+   *
+   * @interface Zoom
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @since 11
+   */
+  interface Zoom extends ZoomQuery {
     /**
      * Gets zoom ratio.
      *

@@ -54,6 +54,7 @@ import InsightIntentContext from '@ohos.app.ability.InsightIntentContext';
 import insightIntentDriver from '@ohos.app.ability.insightIntentDriver';
 import InsightIntentExecutor from '@ohos.app.ability.InsightIntentExecutor';
 import missionManager from '@ohos.app.ability.missionManager';
+import OpenLinkOptions from '@ohos.app.ability.OpenLinkOptions';
 import quickFixManager from '@ohos.app.ability.quickFixManager';
 import ServiceExtensionAbility from '@ohos.app.ability.ServiceExtensionAbility';
 import ShareExtensionAbility from '@ohos.app.ability.ShareExtensionAbility';

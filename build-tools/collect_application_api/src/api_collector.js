@@ -84,7 +84,7 @@ class ProgramFactory {
       const resolvedModules = [];
       for (const moduleName of moduleNames) {
         const moduleLookupLocaton = ts.resolveModuleName(moduleName, containingFile, options,
-          moduleLookupResolutionHost);
+          this.moduleLookupResolutionHost());
         if (moduleLookupLocaton.resolvedModule) {
           resolvedModules.push(moduleLookupLocaton.resolvedModule);
         } else {

@@ -362,8 +362,10 @@ declare namespace deviceSettings {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SETTINGS
    * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { string } item - the scene to execute power policy.
-   * @param { string } value - device power policy.
+   * @param { string } item - item indicates the device properties that need to be set, including screenOff, powerPolicy and dateTime.
+   *                          screenOff means the device screen off time, powerPolicy means the device power policy
+   *                          and dataTime means the device system time.
+   * @param { string } value - device settings policy.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -380,8 +382,9 @@ declare namespace deviceSettings {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SETTINGS
    * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { string } item - the scene to execute power policy.
-   * @returns { string } device power policy.
+   * @param { string } item - item indicates the device properties that need to be get, including screenOff and powerPolicy.
+   *                          screenOff means the device screen off time, powerPolicy means the device power policy.
+   * @returns { string } device settings policy.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.

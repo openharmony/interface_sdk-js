@@ -5734,6 +5734,20 @@ declare namespace window {
      * @since 12
      */
     off(type: 'windowRectChange', callback?: Callback<RectChangeOptions>): void;
+
+    /**
+     * Set gray scale of window.
+     *
+     * @param { number } grayScale - The value of gray scale.
+     * @returns { Promise<void> } - The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    setWindowGrayScale(grayScale: number): Promise<void>;
   }
 
   /**

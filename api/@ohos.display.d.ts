@@ -248,6 +248,70 @@ declare namespace display {
   function off(type: 'foldStatusChange', callback?: Callback<FoldStatus>): void;
 
   /**
+   * Register the callback for fold angle changes.
+   *
+   * @param { 'foldAngleChange' } type the event of fold angle changes.
+   * @param { Callback<Array<number>> } callback Callback used to return the current fold angle of device.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 12
+   */
+  function on(type: 'foldAngleChange', callback: Callback<Array<number>>): void;
+
+  /**
+   * Unregister the callback for fold angle changes.
+   *
+   * @param { 'foldAngleChange' } type the event of fold angle changes.
+   * @param { Callback<Array<number>> } callback Callback used to return the current fold angle of device.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 12
+   */
+  function off(type: 'foldAngleChange', callback?: Callback<Array<number>>): void;
+
+  /**
+   * Register the callback for device capture status changes.
+   *
+   * @param { 'captureStatusChange' } type the event of capture status changes.
+   * @param { Callback<boolean> } callback Callback used to return the device capture status.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 12
+   */
+  function on(type: 'captureStatusChange', callback: Callback<boolean>): void;
+
+  /**
+   * Unregister the callback for device capture status changes.
+   *
+   * @param { 'captureStatusChange' } type the event of capture status changes.
+   * @param { Callback<boolean> } callback Callback used to return the device capture status.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 12
+   */
+  function off(type: 'captureStatusChange', callback?: Callback<boolean>): void;
+
+
+  /**
+   * Check whether the device is captured.
+   *
+   * @returns { boolean } true means the device is captured.
+   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 12
+   */
+  function isCaptured(): boolean;
+
+  /**
    * Get the display mode of the foldable device.
    *
    * @returns { FoldDisplayMode } display mode of the foldable device.

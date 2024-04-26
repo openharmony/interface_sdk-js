@@ -514,6 +514,7 @@ mmicode
 mnc
 moderately
 moitor
+moov
 mplink
 mschap
 msdos
@@ -542,6 +543,7 @@ nextgroup
 nlink
 nmea
 nnrt
+nnrtdevice
 nopadding
 mori
 nodownload
@@ -673,6 +675,7 @@ pss
 pssh
 puk
 pvr
+quant
 querier
 queriers
 racing
@@ -774,6 +777,7 @@ shuts
 sigalgs
 silenced
 singly
+skews
 slidable
 sliderstyle
 statvfs
@@ -803,6 +807,7 @@ spn
 spooler
 spp
 spreadsheetml
+springs
 spry
 spy
 srgb

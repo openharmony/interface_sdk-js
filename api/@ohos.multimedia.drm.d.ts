@@ -520,7 +520,8 @@ declare namespace drm {
    * Creates a MediaKeySystem instance.
    * @param { string } name - Used to point a Digital Right Management solution.
    * @returns { MediaKeySystem } The MediaKeySystem instance.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
+   * 1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
    * @throws { BusinessError } 24700101 - All unknown errors.
    * @throws { BusinessError } 24700103 - Meet max MediaKeySystem num limit.
    * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
@@ -535,7 +536,9 @@ declare namespace drm {
    * @param { string } mimeType - Used to specifies the media type.
    * @param { ContentProtectionLevel } level - Used to specifies the ContentProtectionLevel.
    * @returns { boolean } Whether these conditions will be met.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
+   * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * 3.Parameter verification failed.
    * @throws { BusinessError } 24700101 - All unknown errors.
    * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
    * @syscap SystemCapability.Multimedia.Drm.Core
@@ -548,7 +551,9 @@ declare namespace drm {
    * @param { string } name - Used to point a Digital Right Management solution.
    * @param { string } mimeType - Used to specifies the media type.
    * @returns { boolean } Whether these conditions will be met.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
+   * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * 3.Parameter verification failed.
    * @throws { BusinessError } 24700101 - All unknown errors.
    * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
    * @syscap SystemCapability.Multimedia.Drm.Core
@@ -560,7 +565,9 @@ declare namespace drm {
    * Judge whether a system that specifies name is supported.
    * @param { string } name - Used to point a Digital Right Management solution.
    * @returns { boolean } Whether these conditions will be met.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
+   * 1.Mandatory parameters are left unspecified. 2.Parameter verification failed,
+   * the param name's length is zero or too big(exceeds 4096 Bytes).
    * @throws { BusinessError } 24700101 - All unknown errors.
    * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
    * @syscap SystemCapability.Multimedia.Drm.Core
@@ -581,7 +588,9 @@ declare namespace drm {
      * Get the specified configuration.
      * @param { string } - configName - Used to specify the config name.
      * @returns { string } The config value string.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
+     * 1.Mandatory parameters are left unspecified. 2.Parameter verification failed,
+     * the param's length is zero or too big(exceeds 4096 Bytes).
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
@@ -593,7 +602,9 @@ declare namespace drm {
      * Set the specified configuration.
      * @param { string } configName - Used to specify the config name.
      * @param { string } value - The value to be set.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
+     * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+     * 3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
@@ -605,7 +616,8 @@ declare namespace drm {
      * Get the specified configuration.
      * @param { string } configName - Used to specify the config name.
      * @returns { Uint8Array } The config value.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
+     * 1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
@@ -617,7 +629,9 @@ declare namespace drm {
      * Set the specified configuration.
      * @param { string } configName - Used to specify the config name.
      * @param { Uint8Array } value - The value to be set.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
+     * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+     * 3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
@@ -661,7 +675,9 @@ declare namespace drm {
      * Process the response corresponding the key system request obtained by the application.
      * @param { Uint8Array } response - Response corresponding to the request.
      * @returns { Promise<void> } Promise used to return the result.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
+     * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+     * 3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
@@ -683,7 +699,8 @@ declare namespace drm {
      * Register keySystemRequired events.
      * @param { 'keySystemRequired' } type - Type of the drm event to listen for.
      * @param { function } callback - Used to listen for the key system required event.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
+     * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 11
@@ -694,7 +711,8 @@ declare namespace drm {
      * Unregister keySystemRequired events.
      * @param { 'keySystemRequired' } type - Type of the drm event to listen for.
      * @param { function } callback - Used to listen for the key system required event.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
+     * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 11
@@ -705,7 +723,9 @@ declare namespace drm {
      * Create a MediaKeySession instance with level.
      * @param { ContentProtectionLevel } level - Used to specify the content protection level.
      * @returns { MediaKeySession } A MediaKeySession instance.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
+     * 1.Mandatory parameters are left unspecified. 2.The param level exceeds reasonable range,
+     * please use value in ContentProtectionLevel.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700104 - Meet max MediaKeySession num limit.
      * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
@@ -739,7 +759,9 @@ declare namespace drm {
      * Get offline media key status corresponding to the mediaKeyId.
      * @param { Uint8Array } mediaKeyId - The media key identifier.
      * @returns { OfflineMediaKeyStatus } Offline media key Status.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
+     * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+     * 3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
@@ -750,7 +772,8 @@ declare namespace drm {
     /**
      * Remove media key corresponding to the mediaKeyId.
      * @param { Uint8Array } mediaKeyId - The mediaKeyId specifies which media key should be clear.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - The parameter check failed.Possibly because:
+     * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
@@ -783,7 +806,9 @@ declare namespace drm {
      * @param { number } mediaKeyType - Offline or online.
      * @param { OptionsData[] } options - Optional data the application set to drm framework.
      * @returns { Promise<MediaKeyRequest> } Promise with MediaKeyRequest used to return the result.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 -The parameter check failed. Possibly because:
+     * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
+     * 3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
@@ -795,7 +820,9 @@ declare namespace drm {
      * Process the response corresponding to the media key request obtained by the application.
      * @param { Uint8Array } response - The response.
      * @returns { Promise<Uint8Array> } Promise with media key identifier in Uint8ARRY used to return the result.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
+     * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+     * 3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
@@ -827,7 +854,9 @@ declare namespace drm {
      * @param { Uint8Array } mediaKeyId - The mediaKeyId specifies which media content's media key request
      * should be generated.
      * @returns { Promise<Uint8Array> } Promise with media key request in Uint8Array used to return the result.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
+     * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
+     * 3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
@@ -840,7 +869,9 @@ declare namespace drm {
      * @param { Uint8Array } mediaKeyId - The mediaKeyId specifies which media content's media key it is.
      * @param { Uint8Array } response - The offline media key.
      * @returns { Promise<void> } Promise used to return the result.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
+     * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
+     * 3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
@@ -852,7 +883,9 @@ declare namespace drm {
      * Restore offline media key.
      * @param { Uint8Array } mediaKeyId - The mediaKeyId specifies which media key should be restore.
      * @returns { Promise<void> } Promise used to return the result.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
+     * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
+     * 3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
@@ -874,7 +907,9 @@ declare namespace drm {
      * Whether the encrypted content require a secure decoder or not.
      * @param { string } mimeType - The media type.
      * @returns { boolean } Whether secure decoder is required.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
+     * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
+     * 3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
@@ -886,7 +921,9 @@ declare namespace drm {
      * Register keyRequired event.
      * @param { 'keyRequired' } type - Type of the drm event to listen for.
      * @param { function } callback used to listen for the key required event.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
+     * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
+     * 3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 11
@@ -897,7 +934,9 @@ declare namespace drm {
      * Unregister keyRequired event.
      * @param { 'keyRequired' } type - Type of the drm event to listen for.
      * @param { function } callback used to listen for the key required event.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
+     * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
+     * 3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 11
@@ -908,7 +947,9 @@ declare namespace drm {
      * Register keyExpired event.
      * @param { 'keyExpired' } type - Type of the drm event to listen for.
      * @param { function } callback - Used to listen for the key required event.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
+     * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
+     * 3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 11
@@ -919,7 +960,9 @@ declare namespace drm {
      * Unregister keyExpired event.
      * @param { 'keyExpired' } type - Type of the drm event to listen for.
      * @param { function } callback - Used to listen for the key required event.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
+     * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
+     * 3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 11
@@ -930,7 +973,9 @@ declare namespace drm {
      * Register vendorDefined event.
      * @param { 'vendorDefined' } type - Type of the drm event to listen for.
      * @param { function } callback - Used to listen for the vendor defined event.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
+     * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
+     * 3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 11
@@ -941,7 +986,9 @@ declare namespace drm {
      * Unregister vendorDefined event.
      * @param { 'vendorDefined' } type - Type of the drm event to listen for.
      * @param { function } callback - Used to listen for the vendor defined event.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
+     * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
+     * 3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 11
@@ -952,7 +999,9 @@ declare namespace drm {
      * Register expirationUpdate event.
      * @param { 'expirationUpdate' } type - Type of the drm event to listen for.
      * @param { function } callback - Used to listen for expiration update event.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
+     * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
+     * 3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 11
@@ -963,7 +1012,9 @@ declare namespace drm {
      * Unregister expirationUpdate event.
      * @param { 'expirationUpdate' } type - Type of the drm event to listen for.
      * @param { function } callback - Used to listen for expiration update event.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
+     * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
+     * 3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 11
@@ -974,7 +1025,9 @@ declare namespace drm {
      * Register keysChange event.
      * @param { 'keysChange' } type - Type of the drm event to listen for.
      * @param { function } callback - Used to listen for keys change event.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
+     * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
+     * 3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 11
@@ -985,7 +1038,9 @@ declare namespace drm {
      * Unregister keysChange event.
      * @param { 'keysChange' } type - Type of the drm event to listen for.
      * @param { function } callback - Used to listen for keys change event.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
+     * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
+     * 3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 11

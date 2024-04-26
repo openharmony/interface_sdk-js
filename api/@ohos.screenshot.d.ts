@@ -29,6 +29,13 @@ import image from './@ohos.multimedia.image';
  * @systemapi Hide this for inner system use.
  * @since 7
  */
+ /**
+ * Declares the screenshot APIs.
+ *
+ * @namespace screenshot
+ * @syscap SystemCapability.WindowManager.WindowManager.Core
+ * @since 12
+ */
 declare namespace screenshot {
   /**
    * Takes a screenshot and saves it as a PixelMap object.
@@ -85,12 +92,56 @@ declare namespace screenshot {
   function save(options?: ScreenshotOptions): Promise<image.PixelMap>;
 
   /**
+   * Takes a screenshot and picks it as a PickInfo object.
+   *
+   * @returns { Promise<PickInfo> } Promise used to return a PickInfo object.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 12
+   */
+  function pick(): Promise<PickInfo>;
+
+  /**
+   * Describes the region of the screen to pick info.
+   *
+   * @interface PickInfo
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 12
+   */
+  interface PickInfo {
+    /**
+     * the region of the screen to capture.
+     *
+     * @type { Rect }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 12
+     */
+    pickRect: Rect;
+
+    /**
+     * the region of the screen to capture pixelMap.
+     *
+     * @type { image.PixelMap }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 12
+     */
+    pixelMap: image.PixelMap;
+  }
+
+  /**
    * Describes the region of the screen to capture.
    *
    * @interface Rect
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 7
+   */
+  /**
+   * Describes the region of the screen to capture.
+   *
+   * @interface Rect
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 12
    */
   interface Rect {
     /**
@@ -100,6 +151,13 @@ declare namespace screenshot {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 7
+     */
+    /**
+     * The X-axis coordinate of the upper left vertex of the rectangle.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 12
      */
     left: number;
 
@@ -111,6 +169,13 @@ declare namespace screenshot {
      * @systemapi Hide this for inner system use.
      * @since 7
      */
+    /**
+     * The Y-axis coordinate of the upper left vertex of the rectangle.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 12
+     */
     top: number;
 
     /**
@@ -121,6 +186,13 @@ declare namespace screenshot {
      * @systemapi Hide this for inner system use.
      * @since 7
      */
+    /**
+     * Width of the rectangle.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 12
+     */
     width: number;
 
     /**
@@ -130,6 +202,13 @@ declare namespace screenshot {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 7
+     */
+    /**
+     * Height of the rectangle.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 12
      */
     height: number;
   }
