@@ -1394,6 +1394,17 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 12
    */
   resizable(value: ResizableOptions): ImageAttribute;
+
+  /**
+   * Whether to support sensitive privacy information
+   *
+   * @param { boolean } supported - Whether to support sensitive privacy information.
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 12
+   */
+  privacySensitive(supported: boolean): ImageAttribute;
 }
 
 /**
