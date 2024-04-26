@@ -1051,6 +1051,17 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 12
    */
   onMarqueeStateChange(callback: Callback<MarqueeState>): TextAttribute;
+
+  /**
+   * Whether to support sensitive privacy information
+   *
+   * @param { boolean } supported - Whether to support sensitive privacy information.
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 12
+   */
+  privacySensitive(supported: boolean): TextAttribute;
 }
 
 /**
