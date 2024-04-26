@@ -1060,7 +1060,10 @@ declare namespace cert {
      *
      * @param { cryptoFramework.PubKey } key - public key to verify cert.
      * @param { AsyncCallback<void> } callback - the callback of verify.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
@@ -1070,7 +1073,10 @@ declare namespace cert {
      *
      * @param { cryptoFramework.PubKey } key - public key to verify cert.
      * @param { AsyncCallback<void> } callback - the callback of verify.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -1081,7 +1087,10 @@ declare namespace cert {
      *
      * @param { cryptoFramework.PubKey } key - public key to verify cert.
      * @param { AsyncCallback<void> } callback - the callback of verify.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -1095,7 +1104,10 @@ declare namespace cert {
      *
      * @param { cryptoFramework.PubKey } key - public key to verify cert.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
@@ -1105,7 +1117,10 @@ declare namespace cert {
      *
      * @param { cryptoFramework.PubKey } key - public key to verify cert.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -1116,7 +1131,10 @@ declare namespace cert {
      *
      * @param { cryptoFramework.PubKey } key - public key to verify cert.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -1129,7 +1147,9 @@ declare namespace cert {
      * Get X509 cert encoded data.
      *
      * @param { AsyncCallback<EncodingBlob> } callback - the callback of getEncoded.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                    1. Mandatory parameters are left unspecified;
+     *                                                    2. Incorrect parameter types;
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
@@ -1140,7 +1160,9 @@ declare namespace cert {
      * Get X509 cert encoded data.
      *
      * @param { AsyncCallback<EncodingBlob> } callback - the callback of getEncoded.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                    1. Mandatory parameters are left unspecified;
+     *                                                    2. Incorrect parameter types;
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
@@ -1152,7 +1174,9 @@ declare namespace cert {
      * Get X509 cert encoded data.
      *
      * @param { AsyncCallback<EncodingBlob> } callback - the callback of getEncoded.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                    1. Mandatory parameters are left unspecified;
+     *                                                    2. Incorrect parameter types;
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
@@ -1237,7 +1261,10 @@ declare namespace cert {
      * Check the X509 cert validity with date.
      *
      * @param { string } date - indicates the cert date.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @throws { BusinessError } 19030003 - the certificate has not taken effect.
@@ -1249,7 +1276,10 @@ declare namespace cert {
      * Check the X509 cert validity with date.
      *
      * @param { string } date - indicates the cert date.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @throws { BusinessError } 19030003 - the certificate has not taken effect.
@@ -1262,7 +1292,10 @@ declare namespace cert {
      * Check the X509 cert validity with date.
      *
      * @param { string } date - indicates the cert date.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @throws { BusinessError } 19030003 - the certificate has not taken effect.
@@ -1791,7 +1824,10 @@ declare namespace cert {
      *
      * @param { CertItemType } itemType
      * @returns { DataBlob } cert item value.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
@@ -1803,7 +1839,10 @@ declare namespace cert {
      *
      * @param { CertItemType } itemType
      * @returns { DataBlob } cert item value.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
@@ -1816,7 +1855,10 @@ declare namespace cert {
      *
      * @param { CertItemType } itemType
      * @returns { DataBlob } cert item value.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
@@ -1832,7 +1874,10 @@ declare namespace cert {
      *
      * @param { X509CertMatchParameters } param - indicate the match parameters.
      * @returns { boolean } true - match X509Cert, false - not match.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
@@ -1844,7 +1889,10 @@ declare namespace cert {
      *
      * @param { X509CertMatchParameters } param - indicate the match parameters.
      * @returns { boolean } true - match X509Cert, false - not match.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
@@ -1945,7 +1993,10 @@ declare namespace cert {
    *
    * @param { EncodingBlob } inStream - indicate the input cert data.
    * @param { AsyncCallback<X509Cert> } callback - the callback of createX509Cert.
-   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   *                                                     1. Mandatory parameters are left unspecified;
+   *                                                     2. Incorrect parameter types;
+   *                                                     3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 19020001 - memory error.
    * @syscap SystemCapability.Security.Cert
@@ -1957,7 +2008,10 @@ declare namespace cert {
    *
    * @param { EncodingBlob } inStream - indicate the input cert data.
    * @param { AsyncCallback<X509Cert> } callback - the callback of createX509Cert.
-   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   *                                                     1. Mandatory parameters are left unspecified;
+   *                                                     2. Incorrect parameter types;
+   *                                                     3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 19020001 - memory error.
    * @syscap SystemCapability.Security.Cert
@@ -1970,7 +2024,10 @@ declare namespace cert {
    *
    * @param { EncodingBlob } inStream - indicate the input cert data.
    * @param { AsyncCallback<X509Cert> } callback - the callback of createX509Cert.
-   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   *                                                     1. Mandatory parameters are left unspecified;
+   *                                                     2. Incorrect parameter types;
+   *                                                     3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 19020001 - memory error.
    * @syscap SystemCapability.Security.Cert
@@ -1986,7 +2043,10 @@ declare namespace cert {
    *
    * @param { EncodingBlob } inStream - indicate the input cert data.
    * @returns { Promise<X509Cert> } the promise of X509 cert instance.
-   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   *                                                     1. Mandatory parameters are left unspecified;
+   *                                                     2. Incorrect parameter types;
+   *                                                     3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 19020001 - memory error.
    * @syscap SystemCapability.Security.Cert
@@ -1998,7 +2058,10 @@ declare namespace cert {
    *
    * @param { EncodingBlob } inStream - indicate the input cert data.
    * @returns { Promise<X509Cert> } the promise of X509 cert instance.
-   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   *                                                     1. Mandatory parameters are left unspecified;
+   *                                                     2. Incorrect parameter types;
+   *                                                     3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 19020001 - memory error.
    * @syscap SystemCapability.Security.Cert
@@ -2011,7 +2074,10 @@ declare namespace cert {
    *
    * @param { EncodingBlob } inStream - indicate the input cert data.
    * @returns { Promise<X509Cert> } the promise of X509 cert instance.
-   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   *                                                     1. Mandatory parameters are left unspecified;
+   *                                                     2. Incorrect parameter types;
+   *                                                     3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 19020001 - memory error.
    * @syscap SystemCapability.Security.Cert
@@ -2086,7 +2152,10 @@ declare namespace cert {
      *
      * @param { ExtensionOidType } valueType
      * @returns { DataArray } cert extension OID list value.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
@@ -2098,7 +2167,10 @@ declare namespace cert {
      *
      * @param { ExtensionOidType } valueType
      * @returns { DataArray } cert extension OID list value.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
@@ -2111,7 +2183,10 @@ declare namespace cert {
      *
      * @param { ExtensionOidType } valueType
      * @returns { DataArray } cert extension OID list value.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
@@ -2128,7 +2203,10 @@ declare namespace cert {
      * @param { ExtensionEntryType } valueType
      * @param { DataBlob } oid
      * @returns { DataBlob } cert extension entry value.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
@@ -2141,7 +2219,10 @@ declare namespace cert {
      * @param { ExtensionEntryType } valueType
      * @param { DataBlob } oid
      * @returns { DataBlob } cert extension entry value.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
@@ -2155,7 +2236,10 @@ declare namespace cert {
      * @param { ExtensionEntryType } valueType
      * @param { DataBlob } oid
      * @returns { DataBlob } cert extension entry value.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
@@ -2239,7 +2323,10 @@ declare namespace cert {
    *
    * @param { EncodingBlob } inStream - indicate the input cert extensions data.
    * @param { AsyncCallback<CertExtension> } callback - the callback of of certificate extension instance.
-   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   *                                                     1. Mandatory parameters are left unspecified;
+   *                                                     2. Incorrect parameter types;
+   *                                                     3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 19020001 - memory error.
    * @syscap SystemCapability.Security.Cert
@@ -2251,7 +2338,10 @@ declare namespace cert {
    *
    * @param { EncodingBlob } inStream - indicate the input cert extensions data.
    * @param { AsyncCallback<CertExtension> } callback - the callback of of certificate extension instance.
-   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   *                                                     1. Mandatory parameters are left unspecified;
+   *                                                     2. Incorrect parameter types;
+   *                                                     3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 19020001 - memory error.
    * @syscap SystemCapability.Security.Cert
@@ -2264,7 +2354,10 @@ declare namespace cert {
    *
    * @param { EncodingBlob } inStream - indicate the input cert extensions data.
    * @param { AsyncCallback<CertExtension> } callback - the callback of of certificate extension instance.
-   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   *                                                     1. Mandatory parameters are left unspecified;
+   *                                                     2. Incorrect parameter types;
+   *                                                     3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 19020001 - memory error.
    * @syscap SystemCapability.Security.Cert
@@ -2280,7 +2373,10 @@ declare namespace cert {
    *
    * @param { EncodingBlob } inStream - indicate the input cert extensions data.
    * @returns { Promise<CertExtension> } the promise of certificate extension instance.
-   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   *                                                     1. Mandatory parameters are left unspecified;
+   *                                                     2. Incorrect parameter types;
+   *                                                     3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 19020001 - memory error.
    * @syscap SystemCapability.Security.Cert
@@ -2292,7 +2388,10 @@ declare namespace cert {
    *
    * @param { EncodingBlob } inStream - indicate the input cert extensions data.
    * @returns { Promise<CertExtension> } the promise of certificate extension instance.
-   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   *                                                     1. Mandatory parameters are left unspecified;
+   *                                                     2. Incorrect parameter types;
+   *                                                     3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 19020001 - memory error.
    * @syscap SystemCapability.Security.Cert
@@ -2305,7 +2404,10 @@ declare namespace cert {
    *
    * @param { EncodingBlob } inStream - indicate the input cert extensions data.
    * @returns { Promise<CertExtension> } the promise of certificate extension instance.
-   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   *                                                     1. Mandatory parameters are left unspecified;
+   *                                                     2. Incorrect parameter types;
+   *                                                     3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 19020001 - memory error.
    * @syscap SystemCapability.Security.Cert
@@ -2329,7 +2431,9 @@ declare namespace cert {
      * Returns the ASN of this CRL entry 1 der coding form, i.e. internal sequence.
      *
      * @param { AsyncCallback<EncodingBlob> } callback - the callback of getEncoded.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
@@ -2417,7 +2521,9 @@ declare namespace cert {
      * Returns the ASN of this CRL entry 1 der coding form, i.e. internal sequence.
      *
      * @param { AsyncCallback<EncodingBlob> } callback - the callback of getEncoded.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
@@ -2429,7 +2535,9 @@ declare namespace cert {
      * Returns the ASN of this CRL entry 1 der coding form, i.e. internal sequence.
      *
      * @param { AsyncCallback<EncodingBlob> } callback - the callback of getEncoded.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
@@ -2666,7 +2774,10 @@ declare namespace cert {
      *
      * @param { X509Cert } cert - input cert data.
      * @returns { boolean } result of Check cert is revoked or not.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @syscap SystemCapability.Security.Cert
      * @since 9
      * @deprecated since 11
@@ -2689,7 +2800,9 @@ declare namespace cert {
      * Get the der coding format.
      *
      * @param { AsyncCallback<EncodingBlob> } callback - the callback of getEncoded.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
@@ -2720,7 +2833,10 @@ declare namespace cert {
      *
      * @param { cryptoFramework.PubKey } key - input public Key.
      * @param { AsyncCallback<void> } callback - the callback of getEncoded.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
@@ -2734,7 +2850,10 @@ declare namespace cert {
      *
      * @param { cryptoFramework.PubKey } key - input public Key.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
@@ -2801,7 +2920,10 @@ declare namespace cert {
      *
      * @param { number } serialNumber - serial number of crl.
      * @returns { X509CrlEntry } next update of crl.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
@@ -2816,7 +2938,10 @@ declare namespace cert {
      *
      * @param { X509Cert } cert - cert of x509.
      * @returns { X509CrlEntry } X509CrlEntry instance.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
@@ -2830,7 +2955,9 @@ declare namespace cert {
      * Get all entries in this CRL.
      *
      * @param { AsyncCallback<Array<X509CrlEntry>> } callback - the callback of getRevokedCerts.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
@@ -2932,7 +3059,10 @@ declare namespace cert {
    *
    * @param { EncodingBlob } inStream - indicates the input CRL data.
    * @param { AsyncCallback<X509Crl> } callback - the callback of createX509Crl to return x509 CRL instance.
-   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   *                                                     1. Mandatory parameters are left unspecified;
+   *                                                     2. Incorrect parameter types;
+   *                                                     3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 19020001 - memory error.
    * @syscap SystemCapability.Security.Cert
@@ -2948,7 +3078,10 @@ declare namespace cert {
    *
    * @param { EncodingBlob } inStream - indicates the input CRL data.
    * @returns { Promise<X509Crl> } the promise of x509 CRL instance.
-   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   *                                                     1. Mandatory parameters are left unspecified;
+   *                                                     2. Incorrect parameter types;
+   *                                                     3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 19020001 - memory error.
    * @syscap SystemCapability.Security.Cert
@@ -2981,7 +3114,10 @@ declare namespace cert {
      *
      * @param { X509Cert } cert - input cert data.
      * @returns { boolean } result of Check cert is revoked or not.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @since 11
@@ -2991,7 +3127,10 @@ declare namespace cert {
      *
      * @param { X509Cert } cert - input cert data.
      * @returns { boolean } result of Check cert is revoked or not.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -3022,7 +3161,9 @@ declare namespace cert {
      * Get the der coding format.
      *
      * @param { AsyncCallback<EncodingBlob> } callback - the callback of getEncoded.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
@@ -3034,7 +3175,9 @@ declare namespace cert {
      * Get the der coding format.
      *
      * @param { AsyncCallback<EncodingBlob> } callback - the callback of getEncoded.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
@@ -3077,7 +3220,10 @@ declare namespace cert {
      *
      * @param { cryptoFramework.PubKey } key - input public Key.
      * @param { AsyncCallback<void> } callback - the callback of getEncoded.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3088,7 +3234,10 @@ declare namespace cert {
      *
      * @param { cryptoFramework.PubKey } key - input public Key.
      * @param { AsyncCallback<void> } callback - the callback of getEncoded.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3102,7 +3251,10 @@ declare namespace cert {
      *
      * @param { cryptoFramework.PubKey } key - input public Key.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3113,7 +3265,10 @@ declare namespace cert {
      *
      * @param { cryptoFramework.PubKey } key - input public Key.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3221,7 +3376,10 @@ declare namespace cert {
      *
      * @param { bigint } serialNumber - serial number of CRL.
      * @returns { X509CRLEntry } next update of CRL.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
@@ -3233,7 +3391,10 @@ declare namespace cert {
      *
      * @param { bigint } serialNumber - serial number of CRL.
      * @returns { X509CRLEntry } next update of CRL.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
@@ -3248,7 +3409,10 @@ declare namespace cert {
      *
      * @param { X509Cert } cert - cert of x509.
      * @returns { X509CRLEntry } X509CRLEntry instance.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
@@ -3260,7 +3424,10 @@ declare namespace cert {
      *
      * @param { X509Cert } cert - cert of x509.
      * @returns { X509CRLEntry } X509CRLEntry instance.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
@@ -3274,7 +3441,9 @@ declare namespace cert {
      * Get all entries in this CRL.
      *
      * @param { AsyncCallback<Array<X509CRLEntry>> } callback - the callback of getRevokedCerts.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
@@ -3285,7 +3454,9 @@ declare namespace cert {
      * Get all entries in this CRL.
      *
      * @param { AsyncCallback<Array<X509CRLEntry>> } callback - the callback of getRevokedCerts.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
@@ -3477,7 +3648,10 @@ declare namespace cert {
      *
      * @param { X509CRLMatchParameters } param - indicate the X509CRLMatchParameters object.
      * @returns { boolean } true - match X509CRL, false - not match.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
@@ -3489,7 +3663,10 @@ declare namespace cert {
      *
      * @param { X509CRLMatchParameters } param - indicate the X509CRLMatchParameters object.
      * @returns { boolean } true - match X509CRL, false - not match.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
@@ -3562,7 +3739,10 @@ declare namespace cert {
    *
    * @param { EncodingBlob } inStream - indicates the input CRL data.
    * @param { AsyncCallback<X509CRL> } callback - the callback of createX509CRL to return x509 CRL instance.
-   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   *                                                     1. Mandatory parameters are left unspecified;
+   *                                                     2. Incorrect parameter types;
+   *                                                     3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 19020001 - memory error.
    * @syscap SystemCapability.Security.Cert
@@ -3575,7 +3755,10 @@ declare namespace cert {
    *
    * @param { EncodingBlob } inStream - indicates the input CRL data.
    * @param { AsyncCallback<X509CRL> } callback - the callback of createX509CRL to return x509 CRL instance.
-   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   *                                                     1. Mandatory parameters are left unspecified;
+   *                                                     2. Incorrect parameter types;
+   *                                                     3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 19020001 - memory error.
    * @syscap SystemCapability.Security.Cert
@@ -3591,7 +3774,10 @@ declare namespace cert {
    *
    * @param { EncodingBlob } inStream - indicates the input CRL data.
    * @returns { Promise<X509CRL> } the promise of x509 CRL instance.
-   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   *                                                     1. Mandatory parameters are left unspecified;
+   *                                                     2. Incorrect parameter types;
+   *                                                     3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 19020001 - memory error.
    * @syscap SystemCapability.Security.Cert
@@ -3604,7 +3790,10 @@ declare namespace cert {
    *
    * @param { EncodingBlob } inStream - indicates the input CRL data.
    * @returns { Promise<X509CRL> } the promise of x509 CRL instance.
-   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   *                                                     1. Mandatory parameters are left unspecified;
+   *                                                     2. Incorrect parameter types;
+   *                                                     3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 19020001 - memory error.
    * @syscap SystemCapability.Security.Cert
@@ -3644,7 +3833,10 @@ declare namespace cert {
      *
      * @param { CertChainData } certChain - indicate the cert chain validator data.
      * @param { AsyncCallback<void> } callback - the callback of validate.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
@@ -3662,7 +3854,10 @@ declare namespace cert {
      *
      * @param { CertChainData } certChain - indicate the cert chain validator data.
      * @param { AsyncCallback<void> } callback - the callback of validate.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
@@ -3681,7 +3876,10 @@ declare namespace cert {
      *
      * @param { CertChainData } certChain - indicate the cert chain validator data.
      * @param { AsyncCallback<void> } callback - the callback of validate.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
@@ -3703,7 +3901,10 @@ declare namespace cert {
      *
      * @param { CertChainData } certChain - indicate the cert chain validator data.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
@@ -3721,7 +3922,10 @@ declare namespace cert {
      *
      * @param { CertChainData } certChain - indicate the cert chain validator data.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
@@ -3740,7 +3944,10 @@ declare namespace cert {
      *
      * @param { CertChainData } certChain - indicate the cert chain validator data.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
@@ -3792,7 +3999,10 @@ declare namespace cert {
    *
    * @param { string } algorithm - indicates the cert chain validator type.
    * @returns { CertChainValidator } the cert chain validator instance.
-   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   *                                                     1. Mandatory parameters are left unspecified;
+   *                                                     2. Incorrect parameter types;
+   *                                                     3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 19020001 - memory error.
    * @throws { BusinessError } 19020002 - runtime error.
@@ -3805,7 +4015,10 @@ declare namespace cert {
    *
    * @param { string } algorithm - indicates the cert chain validator type.
    * @returns { CertChainValidator } the cert chain validator instance.
-   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   *                                                     1. Mandatory parameters are left unspecified;
+   *                                                     2. Incorrect parameter types;
+   *                                                     3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 19020001 - memory error.
    * @throws { BusinessError } 19020002 - runtime error.
@@ -3819,7 +4032,10 @@ declare namespace cert {
    *
    * @param { string } algorithm - indicates the cert chain validator type.
    * @returns { CertChainValidator } the cert chain validator instance.
-   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   *                                                     1. Mandatory parameters are left unspecified;
+   *                                                     2. Incorrect parameter types;
+   *                                                     3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 19020001 - memory error.
    * @throws { BusinessError } 19020002 - runtime error.
@@ -4451,7 +4667,10 @@ declare namespace cert {
      *
      * @param { X509CertMatchParameters } param - indicate the X509CertMatchParameters object.
      * @returns { Promise<Array<X509Cert>> }
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
@@ -4463,7 +4682,10 @@ declare namespace cert {
      *
      * @param { X509CertMatchParameters } param - indicate the X509CertMatchParameters object.
      * @returns { Promise<Array<X509Cert>> }
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
@@ -4478,7 +4700,10 @@ declare namespace cert {
      *
      * @param { X509CertMatchParameters } param - indicate the X509CertMatchParameters object.
      * @param { AsyncCallback<Array<X509Cert>> } callback - the callback of select cert.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
@@ -4490,7 +4715,10 @@ declare namespace cert {
      *
      * @param { X509CertMatchParameters } param - indicate the X509CertMatchParameters object.
      * @param { AsyncCallback<Array<X509Cert>> } callback - the callback of select cert.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
@@ -4505,7 +4733,10 @@ declare namespace cert {
      *
      * @param { X509CRLMatchParameters } param - indicate the X509CRLMatchParameters object.
      * @returns { Promise<Array<X509CRL>> }
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
@@ -4517,7 +4748,10 @@ declare namespace cert {
      *
      * @param { X509CRLMatchParameters } param - indicate the X509CRLMatchParameters object.
      * @returns { Promise<Array<X509CRL>> }
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
@@ -4532,7 +4766,10 @@ declare namespace cert {
      *
      * @param { X509CRLMatchParameters } param - indicate the X509CRLMatchParameters object.
      * @param { AsyncCallback<Array<X509CRL>> } callback - the callback of select CRL.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
@@ -4544,7 +4781,10 @@ declare namespace cert {
      *
      * @param { X509CRLMatchParameters } param - indicate the X509CRLMatchParameters object.
      * @param { AsyncCallback<Array<X509CRL>> } callback - the callback of select CRL.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
@@ -4561,7 +4801,10 @@ declare namespace cert {
    * @param { Array<X509Cert> } certs - array of X509Cert.
    * @param { Array<X509CRL> } [options] crls - array of X509CRL.
    * @returns { CertCRLCollection }
-   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   *                                                     1. Mandatory parameters are left unspecified;
+   *                                                     2. Incorrect parameter types;
+   *                                                     3. Parameter verification failed.
    * @throws { BusinessError } 19020001 - memory error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -4573,7 +4816,10 @@ declare namespace cert {
    * @param { Array<X509Cert> } certs - array of X509Cert.
    * @param { Array<X509CRL> } [options] crls - array of X509CRL.
    * @returns { CertCRLCollection }
-   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   *                                                     1. Mandatory parameters are left unspecified;
+   *                                                     2. Incorrect parameter types;
+   *                                                     3. Parameter verification failed.
    * @throws { BusinessError } 19020001 - memory error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -4630,7 +4876,10 @@ declare namespace cert {
      *
      * @param { CertChainValidationParameters } param - indicate the cert chain Validate parameters.
      * @returns { Promise<CertChainValidationResult> } the promise returned by the function.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
@@ -4649,7 +4898,10 @@ declare namespace cert {
      *
      * @param { CertChainValidationParameters } param - indicate the cert chain Validate parameters.
      * @returns { Promise<CertChainValidationResult> } the promise returned by the function.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
@@ -4671,7 +4923,10 @@ declare namespace cert {
      *
      * @param { CertChainValidationParameters } param - indicate the cert chain validate parameters.
      * @param { AsyncCallback<CertChainValidationResult> } callback - indicate the cert chain validate result.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
@@ -4690,7 +4945,10 @@ declare namespace cert {
      *
      * @param { CertChainValidationParameters } param - indicate the cert chain validate parameters.
      * @param { AsyncCallback<CertChainValidationResult> } callback - indicate the cert chain validate result.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
@@ -4742,7 +5000,10 @@ declare namespace cert {
    *
    * @param { EncodingBlob } inStream - indicate the input cert data.
    * @returns { Promise<X509CertChain> }
-   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   *                                                     1. Mandatory parameters are left unspecified;
+   *                                                     2. Incorrect parameter types;
+   *                                                     3. Parameter verification failed.
    * @throws { BusinessError } 19020001 - memory error.
    * @throws { BusinessError } 19030001 - crypto operation error.
    * @syscap SystemCapability.Security.Cert
@@ -4755,7 +5016,10 @@ declare namespace cert {
    *
    * @param { EncodingBlob } inStream - indicate the input cert data.
    * @returns { Promise<X509CertChain> }
-   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   *                                                     1. Mandatory parameters are left unspecified;
+   *                                                     2. Incorrect parameter types;
+   *                                                     3. Parameter verification failed.
    * @throws { BusinessError } 19020001 - memory error.
    * @throws { BusinessError } 19030001 - crypto operation error.
    * @syscap SystemCapability.Security.Cert
@@ -4771,7 +5035,10 @@ declare namespace cert {
    *
    * @param { EncodingBlob } inStream - indicate the input cert data.
    * @param { AsyncCallback<X509CertChain> } callback
-   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   *                                                     1. Mandatory parameters are left unspecified;
+   *                                                     2. Incorrect parameter types;
+   *                                                     3. Parameter verification failed.
    * @throws { BusinessError } 19020001 - memory error.
    * @throws { BusinessError } 19030001 - crypto operation error.
    * @syscap SystemCapability.Security.Cert
@@ -4784,7 +5051,10 @@ declare namespace cert {
    *
    * @param { EncodingBlob } inStream - indicate the input cert data.
    * @param { AsyncCallback<X509CertChain> } callback
-   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   *                                                     1. Mandatory parameters are left unspecified;
+   *                                                     2. Incorrect parameter types;
+   *                                                     3. Parameter verification failed.
    * @throws { BusinessError } 19020001 - memory error.
    * @throws { BusinessError } 19030001 - crypto operation error.
    * @syscap SystemCapability.Security.Cert
@@ -4799,7 +5069,10 @@ declare namespace cert {
    *
    * @param { Array<X509Cert> } certs - indicate the certificate array.
    * @returns { X509CertChain } the certificate chain object.
-   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   *                                                     1. Mandatory parameters are left unspecified;
+   *                                                     2. Incorrect parameter types;
+   *                                                     3. Parameter verification failed.
    * @throws { BusinessError } 19020001 - memory error.
    * @throws { BusinessError } 19030001 - crypto operation error.
    * @syscap SystemCapability.Security.Cert
@@ -4811,7 +5084,10 @@ declare namespace cert {
    *
    * @param { Array<X509Cert> } certs - indicate the certificate array.
    * @returns { X509CertChain } the certificate chain object.
-   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   *                                                     1. Mandatory parameters are left unspecified;
+   *                                                     2. Incorrect parameter types;
+   *                                                     3. Parameter verification failed.
    * @throws { BusinessError } 19020001 - memory error.
    * @throws { BusinessError } 19030001 - crypto operation error.
    * @syscap SystemCapability.Security.Cert
@@ -4826,7 +5102,10 @@ declare namespace cert {
    *
    * @param { CertChainBuildParameters } param - indicate the certificate chain build parameters.
    * @returns { Promise<CertChainBuildResult> } the promise returned by the function.
-   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   *                                                     1. Mandatory parameters are left unspecified;
+   *                                                     2. Incorrect parameter types;
+   *                                                     3. Parameter verification failed.
    * @throws { BusinessError } 19020001 - memory error.
    * @throws { BusinessError } 19020002 - runtime error.
    * @throws { BusinessError } 19030001 - crypto operation error.
@@ -4849,7 +5128,10 @@ declare namespace cert {
    * @param { Uint8Array } keystore - the file path of the P12.
    * @param { string } pwd - the password of the P12.
    * @returns { Promise<Array<X509TrustAnchor>> } the promise returned by the function.
-   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   *                                                     1. Mandatory parameters are left unspecified;
+   *                                                     2. Incorrect parameter types;
+   *                                                     3. Parameter verification failed.
    * @throws { BusinessError } 19020001 - memory error.
    * @throws { BusinessError } 19020002 - runtime error.
    * @throws { BusinessError } 19030001 - crypto operation error.
@@ -4871,7 +5153,10 @@ declare namespace cert {
    *
    * @param { string } nameStr - the string format of the Name type defined by X509.
    * @returns { Promise<X500DistinguishedName> } the promise returned by the function.
-   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   *                                                     1. Mandatory parameters are left unspecified;
+   *                                                     2. Incorrect parameter types;
+   *                                                     3. Parameter verification failed.
    * @throws { BusinessError } 19020001 - memory error.
    * @throws { BusinessError } 19020002 - runtime error.
    * @throws { BusinessError } 19030001 - crypto operation error.
@@ -4893,7 +5178,10 @@ declare namespace cert {
    *
    * @param { Uint8Array } nameDer - the DER format of the Name type defined by X509.
    * @returns { Promise<X500DistinguishedName> } the promise returned by the function.
-   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   *                                                     1. Mandatory parameters are left unspecified;
+   *                                                     2. Incorrect parameter types;
+   *                                                     3. Parameter verification failed.
    * @throws { BusinessError } 19020001 - memory error.
    * @throws { BusinessError } 19020002 - runtime error.
    * @throws { BusinessError } 19030001 - crypto operation error.
@@ -4939,7 +5227,10 @@ declare namespace cert {
      *
      * @param { string } type - the specified type name.
      * @returns { Array<string> } distinguished name string.
-     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
