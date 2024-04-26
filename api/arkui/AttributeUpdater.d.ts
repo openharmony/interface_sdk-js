@@ -20,7 +20,6 @@
  *
  * @implements AttributeModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
  * @crossplatform
  * @since 12
  */
@@ -31,7 +30,6 @@ export declare class AttributeUpdater<T> implements AttributeModifier<T> {
    *
    * @param { T } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
    * @crossplatform
    * @since 12
    */
@@ -42,7 +40,6 @@ export declare class AttributeUpdater<T> implements AttributeModifier<T> {
    *
    * @param { T } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
    * @crossplatform
    * @since 12
    */
@@ -53,7 +50,6 @@ export declare class AttributeUpdater<T> implements AttributeModifier<T> {
    *
    * @returns { T | undefined } The attribute of the modifier.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
    * @crossplatform
    * @since 12
    */
