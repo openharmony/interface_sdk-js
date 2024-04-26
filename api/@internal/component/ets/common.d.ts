@@ -191,7 +191,7 @@ declare const Component: ClassDecorator & ((options: ComponentOptions) => ClassD
  * @crossplatform
  * @since 12
  */
-declare const ComponentV2: ClassDecorator
+declare const ComponentV2: ClassDecorator;
 
 /**
  * Defines the options of Entry ClassDecorator.
@@ -664,6 +664,14 @@ declare interface ProvideOptions {
 declare const Provide: PropertyDecorator & ((value: string | ProvideOptions) => PropertyDecorator);
 
 /**
+ * Defining Provider PropertyDecorator.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare const Provider: (aliasName?: string) => PropertyDecorator;
+
+/**
  * Defining Consume PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -694,6 +702,23 @@ declare const Provide: PropertyDecorator & ((value: string | ProvideOptions) => 
  * @form
  */
 declare const Consume: PropertyDecorator & ((value: string) => PropertyDecorator);
+
+/**
+* Defining Consumer PropertyDecorator.
+* @syscap SystemCapability.ArkUI.ArkUI.Full
+* @crossplatform
+* @since 12
+*/
+declare const Consumer: (aliasName?: string) => PropertyDecorator;
+
+/**
+* Defining Computed MethodDecorator.
+*
+* @syscap SystemCapability.ArkUI.ArkUI.Full
+* @crossplatform
+* @since 12
+*/
+declare const Computed: MethodDecorator;
 
 /**
  * Defining StorageProp PropertyDecorator.
