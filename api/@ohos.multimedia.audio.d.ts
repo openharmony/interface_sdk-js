@@ -471,7 +471,7 @@ declare namespace audio {
      */
     DISPLAY_PORT = 23,
     /**
-     * A device type for rerouting audio to other remote devices by system application
+     * Device type for rerouting audio to other remote devices by system application
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 12
      */
