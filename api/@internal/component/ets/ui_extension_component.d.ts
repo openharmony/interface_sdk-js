@@ -23,6 +23,7 @@
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
  * @since 12
  */
 declare enum DpiFollowStrategy {
@@ -30,6 +31,7 @@ declare enum DpiFollowStrategy {
    * Followed the host DPI.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @since 12
    */
   FOLLOW_HOST_DPI = 0,
@@ -38,6 +40,7 @@ declare enum DpiFollowStrategy {
    * Followed the UIExtensionAbility.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @since 12
    */
   FOLLOW_UI_EXTENSION_ABILITY = 1,
