@@ -103,7 +103,7 @@ export default class ApplicationStateObserver {
 
 /**
  * The process data.
- *
+ * @typedef { _ProcessData.default }
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @since 9
