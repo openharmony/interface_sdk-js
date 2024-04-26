@@ -2832,8 +2832,7 @@ declare namespace avSession {
      * The name of play list which current media belongs to
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     avQueueName?: string;
 
