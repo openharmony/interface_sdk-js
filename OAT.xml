@@ -80,6 +80,12 @@ Note:If the text contains special characters, please escape them according to th
             <filefilter name="copyrightPolicyFilter" desc="compatibility，license文件头校验策略的过滤条件" >
                 <filteritem type="filepath" name="build-tools/dts_parser/build_package/.*" desc="可执行脚本，无法添加版权头"/>
             </filefilter>
+            <filefilter name="defaultPolicyFilter" desc="compatibility，license文件头校验策略的过滤条件" >
+                <filteritem type="filepath" name="build-tools/dts_parser/package/.*" desc="可执行脚本，无法添加LICENSE头"/>
+            </filefilter>
+            <filefilter name="copyrightPolicyFilter" desc="compatibility，license文件头校验策略的过滤条件" >
+                <filteritem type="filepath" name="build-tools/dts_parser/package/.*" desc="可执行脚本，无法添加版权头"/>
+            </filefilter>
         </filefilterlist>
 
     </oatconfig>

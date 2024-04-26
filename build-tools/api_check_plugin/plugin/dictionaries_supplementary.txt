@@ -514,6 +514,7 @@ mmicode
 mnc
 moderately
 moitor
+moov
 mplink
 mschap
 msdos
@@ -542,6 +543,7 @@ nextgroup
 nlink
 nmea
 nnrt
+nnrtdevice
 nopadding
 mori
 nodownload
@@ -657,6 +659,7 @@ preresolve
 presentationml
 presently
 presistent
+previewed
 prevgroup
 prikey
 primaries
@@ -672,6 +675,7 @@ pss
 pssh
 puk
 pvr
+quant
 querier
 queriers
 racing
@@ -754,7 +758,6 @@ sdpi
 searchsetter
 sece
 secinfo
-securityguard
 seeked
 semicircles
 sendable
@@ -803,6 +806,7 @@ spn
 spooler
 spp
 spreadsheetml
+springs
 spry
 spy
 srgb
@@ -991,6 +995,7 @@ wallpapers
 wantagent
 wapi
 wappush
+warmup
 watchers
 waterflow
 wcdma
@@ -1060,3 +1065,4 @@ geofences
 gbk
 ocsp
 encipherment
+reconfirmed

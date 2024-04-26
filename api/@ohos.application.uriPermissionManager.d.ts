@@ -41,7 +41,9 @@ declare namespace uriPermissionManager {
    * @param { AsyncCallback<number> } callback - the callback of grantUriPermission.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   *                                 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000058 - Invalid URI flag.
    * @throws { BusinessError } 16000059 - Invalid URI type.
@@ -69,7 +71,9 @@ declare namespace uriPermissionManager {
    * @returns { Promise<number> } - the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   *                                 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000058 - Invalid URI flag.
    * @throws { BusinessError } 16000059 - Invalid URI type.
@@ -89,7 +93,9 @@ declare namespace uriPermissionManager {
    * @param { AsyncCallback<number> } callback - the callback of revokeUriPermission.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   *                                 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000059 - Invalid URI type.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -103,7 +109,9 @@ declare namespace uriPermissionManager {
    * @param { string } targetBundleName - Indicates the bundle name of authorization target.
    * @param { AsyncCallback<number> } callback - the callback of revokeUriPermission.
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   *                                 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000059 - Invalid URI type.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -121,7 +129,9 @@ declare namespace uriPermissionManager {
    * @returns { Promise<number> } - the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   *                                 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000059 - Invalid URI type.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -135,7 +145,9 @@ declare namespace uriPermissionManager {
    * @param { string } targetBundleName - Indicates the bundle name of authorization target.
    * @returns { Promise<number> } - the promise returned by the function.
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   *                                 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000059 - Invalid URI type.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core

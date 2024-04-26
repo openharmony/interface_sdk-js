@@ -113,6 +113,48 @@ declare class TextClockController {
 }
 
 /**
+ * TextClockConfiguration used by text clock content modifier
+ *
+ * @interface TextClockConfiguration
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface TextClockConfiguration extends CommonConfiguration<TextClockConfiguration> {
+  /**
+   * Specifies the current time zone.
+   * The valid value is an integer ranging from - 14 to 12,
+   * Where a negative value indicates the eastern time zone, for example, -8.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  timeZoneOffset: number;
+
+  /**
+   * TextClock is started or not.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  started: boolean;
+
+  /**
+   * The time of the TextClock.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  timeValue: number;
+}
+
+/**
  * TextClock component, which provides the text clock capability.
  *
  * @interface TextClockInterface
@@ -494,6 +536,17 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @form
    */
   fontFeature(value: string): TextClockAttribute;
+
+  /**
+   * Set the content modifier of textclock.
+   *
+   * @param { ContentModifier<TextClockConfiguration> } modifier - The content modifier of textclock.
+   * @returns { TextClockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  contentModifier(modifier: ContentModifier<TextClockConfiguration>): TextClockAttribute;
 }
 
 /**

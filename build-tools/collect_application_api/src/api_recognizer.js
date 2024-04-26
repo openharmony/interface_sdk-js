@@ -691,14 +691,14 @@ class SystemApiRecognizer {
           return;
         }
         if (!typeSymbol && childSymbol.members) {
-          setHeritageMembersFroMmembers(heritageMembers, childSymbol.members);
+          this.setHeritageMembersFroMmembers(heritageMembers, childSymbol.members);
           return;
         }
         const valueDeclaration = typeSymbol.valueDeclaration;
         if (!valueDeclaration || !this.isSdkApi(valueDeclaration.getSourceFile().fileName)) {
           return;
         }
-        setHeritageMembersFroMmembers(heritageMembers, typeSymbol.members);
+        this.setHeritageMembersFroMmembers(heritageMembers, typeSymbol.members);
       });
     });
     return heritageMembers;
