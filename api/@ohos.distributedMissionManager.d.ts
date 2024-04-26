@@ -102,7 +102,7 @@ declare namespace distributedMissionManager {
    * @param { MissionParameter } parameter - Parameters corresponding to mission.
    * @param { AsyncCallback<void> } callback - the callback of startSyncRemoteMissions.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -116,7 +116,7 @@ declare namespace distributedMissionManager {
    * @param { MissionParameter } parameter - Parameters corresponding to mission.
    * @returns { Promise<void> } - the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -130,7 +130,7 @@ declare namespace distributedMissionManager {
    * @param { MissionDeviceInfo } parameter - Parameters corresponding to mission.
    * @param { AsyncCallback<void> } callback - the callback of stopSyncRemoteMissions.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -144,7 +144,7 @@ declare namespace distributedMissionManager {
    * @param { MissionDeviceInfo } parameter - Parameters corresponding to mission.
    * @returns { Promise<void> } - the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -159,7 +159,7 @@ declare namespace distributedMissionManager {
    * @param { MissionCallback } options - The callbacks for registering mission.
    * @param { AsyncCallback<void> } callback - the callback of registerMissionListener.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -178,7 +178,7 @@ declare namespace distributedMissionManager {
    * @param { MissionCallback } options - The callbacks for registering mission.
    * @returns { Promise<void> } - the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -192,7 +192,7 @@ declare namespace distributedMissionManager {
    * @param { MissionDeviceInfo } parameter - Parameters corresponding to mission.
    * @param { AsyncCallback<void> } callback - the callback of registerMissionListener.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -206,7 +206,7 @@ declare namespace distributedMissionManager {
    * @param { MissionDeviceInfo } parameter - Parameters corresponding to mission.
    * @returns { Promise<void> } - the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -220,7 +220,7 @@ declare namespace distributedMissionManager {
    * @param { 'continueStateChange' } type - Indicate the event type.
    * @param { Callback<{ state: ContinueState, info: ContinuableInfo }> } callback - The callback of continueStateChange.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -232,7 +232,7 @@ declare namespace distributedMissionManager {
    * @param { 'continueStateChange' } type - Indicate the event type.
    * @param { Callback<ContinueCallbackInfo> } callback - The callback of continueStateChange.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system use.
    * @since 11
@@ -246,7 +246,7 @@ declare namespace distributedMissionManager {
    * @param { 'continueStateChange' } type - Indicate the event type.
    * @param { Callback<{ state: ContinueState, info: ContinuableInfo }> } [callback] - The callback of continueStateChange.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -258,7 +258,7 @@ declare namespace distributedMissionManager {
    * @param { 'continueStateChange' } type - Indicate the event type.
    * @param { Callback<ContinueCallbackInfo> } callback - The callback of continueStateChange.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Params error. Possible causes: Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system use.
    * @since 11
@@ -274,7 +274,7 @@ declare namespace distributedMissionManager {
    * @param { AsyncCallback<void> } callback - the callback of continueMission.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16300501 - The system ability work abnormally.
    * @throws { BusinessError } 16300502 - Failed to get the missionInfo of the specified missionId.
    * @throws { BusinessError } 16300503 - The application is not installed on the remote end and installation-free is
@@ -303,7 +303,7 @@ declare namespace distributedMissionManager {
    * @returns { Promise<void> } - the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16300501 - The system ability work abnormally.
    * @throws { BusinessError } 16300502 - Failed to get the missionInfo of the specified missionId.
    * @throws { BusinessError } 16300503 - The application is not installed on the remote end and installation-free is
@@ -327,7 +327,7 @@ declare namespace distributedMissionManager {
    * @param { AsyncCallback<void> } callback - The callback of continue mission result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16300501 - The system ability work abnormally.
    * @throws { BusinessError } 16300503 - The application is not installed on the remote end and installation-free is
    * not supported.
@@ -351,7 +351,7 @@ declare namespace distributedMissionManager {
    * @returns { Promise<void> } - the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16300501 - The system ability work abnormally.
    * @throws { BusinessError } 16300503 - The application is not installed on the remote end and installation-free is
    * not supported.
@@ -384,7 +384,7 @@ declare namespace distributedMissionManager {
    * @since 10
    */
   export type ContinueMissionInfo = _ContinueMissionInfo;
-  
+
   /**
    * ContinueCallback registered for notify continue result.
    *

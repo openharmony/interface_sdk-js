@@ -387,7 +387,7 @@ export default class Context extends BaseContext {
    * @returns { Context } Returns the application context.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -400,7 +400,7 @@ export default class Context extends BaseContext {
    *
    * @param { string } moduleName - Indicates the module name.
    * @returns { Context } Returns the application context.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 9
@@ -410,7 +410,7 @@ export default class Context extends BaseContext {
    *
    * @param { string } moduleName - Indicates the module name.
    * @returns { Context } Returns the application context.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @crossplatform
@@ -421,7 +421,7 @@ export default class Context extends BaseContext {
    *
    * @param { string } moduleName - Indicates the module name.
    * @returns { Context } Returns the application context.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @crossplatform
@@ -436,7 +436,7 @@ export default class Context extends BaseContext {
    * @param { string } bundleName - Indicates the bundle name.
    * @param { string } moduleName - Indicates the module name.
    * @returns { Context } Returns the application context.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -450,7 +450,7 @@ export default class Context extends BaseContext {
    * @param { string } bundleName - Indicates the bundle name.
    * @param { string } moduleName - Indicates the module name.
    * @returns { resmgr.ResourceManager } Returns the system HSP module resource manager.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16400001 - If the input bundleName is not system hsp.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -463,7 +463,7 @@ export default class Context extends BaseContext {
    * Get application context
    *
    * @returns { ApplicationContext } Returns the application context.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 9
@@ -472,7 +472,7 @@ export default class Context extends BaseContext {
    * Get application context
    *
    * @returns { ApplicationContext } Returns the application context.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @crossplatform
@@ -482,7 +482,7 @@ export default class Context extends BaseContext {
    * Get application context
    *
    * @returns { ApplicationContext } Returns the application context.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @crossplatform
@@ -496,7 +496,7 @@ export default class Context extends BaseContext {
    *
    * @param { string } dataGroupID - Indicates the groupId.
    * @param { AsyncCallback<string> } callback - The callback of getGroupDir.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
@@ -507,7 +507,7 @@ export default class Context extends BaseContext {
    *
    * @param { string } dataGroupID - Indicates the groupId.
    * @param { AsyncCallback<string> } callback - The callback of getGroupDir.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
@@ -521,7 +521,7 @@ export default class Context extends BaseContext {
    *
    * @param { string } dataGroupID - Indicates the groupId.
    * @returns { Promise<string> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
@@ -532,7 +532,7 @@ export default class Context extends BaseContext {
    *
    * @param { string } dataGroupID - Indicates the groupId.
    * @returns { Promise<string> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
@@ -550,7 +550,7 @@ export default class Context extends BaseContext {
    * @returns { resmgr.ResourceManager } Returns the module resource manager.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
