@@ -68,7 +68,10 @@ declare namespace displaySync {
      * If the function isn't be called. The DisplaySync's
      * minimum/maximum/expected rate default value is 60.
      * @param { ExpectedFrameRateRange } rateRange - Indicates ExpectedFrameRateRange.
-     * @throws { BusinessError } 401 - if parameter error
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     *                                                                   1. Mandatory parameters are left unspecified.
+     *                                                                   2. Incorrect parameters types.
+     *                                                                   3. Parameter verification failed.
      * or check ExpectedFrameRateRange if valid.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11

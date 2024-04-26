@@ -57,7 +57,10 @@ declare namespace uiExtensionHost {
      *
      * @param { 'avoidAreaChange' } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
      * @param { Callback<{ type: window.AvoidAreaType, area: window.AvoidArea }> } callback - Callback used to return the area.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     *                                                                   1. Mandatory parameters are left unspecified.
+     *                                                                   2. Incorrect parameters types.
+     *                                                                   3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 11
@@ -69,7 +72,10 @@ declare namespace uiExtensionHost {
      *
      * @param { 'avoidAreaChange' } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
      * @param { Callback<{ type: window.AvoidAreaType, area: window.AvoidArea }> } callback - Callback used to return the area.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     *                                                                   1. Mandatory parameters are left unspecified.
+     *                                                                   2. Incorrect parameters types.
+     *                                                                   3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 11
@@ -81,7 +87,10 @@ declare namespace uiExtensionHost {
      *
      * @param { 'windowSizeChange' } type - The value is fixed at 'windowSizeChange', indicating the window size change event.
      * @param { Callback<window.Size> } callback - Callback used to return the window size.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     *                                                                   1. Mandatory parameters are left unspecified.
+     *                                                                   2. Incorrect parameters types.
+     *                                                                   3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 11
@@ -93,7 +102,10 @@ declare namespace uiExtensionHost {
      *
      * @param { 'windowSizeChange' } type - The value is fixed at 'windowSizeChange', indicating the window size change event.
      * @param { Callback<window.Size> } callback - Callback used to return the window size.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     *                                                                   1. Mandatory parameters are left unspecified.
+     *                                                                   2. Incorrect parameters types.
+     *                                                                   3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 11
@@ -115,7 +127,10 @@ declare namespace uiExtensionHost {
      *
      * @param { boolean } shouldHide - Hide the non-secure windows if true, otherwise means the opposite.
      * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     *                                                                   1. Mandatory parameters are left unspecified.
+     *                                                                   2. Incorrect parameters types.
+     *                                                                   3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 11
@@ -128,7 +143,10 @@ declare namespace uiExtensionHost {
      * @param { string } name - window name of sub window
      * @param { window.SubWindowOptions } subWindowOptions - options of sub window creation
      * @returns { Promise<window.Window> } Promise used to return the subwindow.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     *                                                                   1. Mandatory parameters are left unspecified.
+     *                                                                   2. Incorrect parameters types.
+     *                                                                   3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported on this device.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window proxy is abnormal.

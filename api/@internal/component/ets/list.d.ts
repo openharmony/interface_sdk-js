@@ -716,7 +716,10 @@ declare class ListScroller extends Scroller {
    * @param { number } index - Index of the ListItemGroup in List.
    * @param { number } indexInGroup - Index of the ListItem in ListItemGroup.
    * @returns { RectResult } Returns the size and position.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   *                                                                   1. Mandatory parameters are left unspecified.
+   *                                                                   2. Incorrect parameters types.
+   *                                                                   3. Parameter verification failed.
    * @throws { BusinessError } 100004 - Controller not bound to component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -728,7 +731,10 @@ declare class ListScroller extends Scroller {
    * @param { number } index - Index of the ListItemGroup in List.
    * @param { number } indexInGroup - Index of the ListItem in ListItemGroup.
    * @returns { RectResult } Returns the size and position.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   *                                                                   1. Mandatory parameters are left unspecified.
+   *                                                                   2. Incorrect parameters types.
+   *                                                                   3. Parameter verification failed.
    * @throws { BusinessError } 100004 - Controller not bound to component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -744,7 +750,10 @@ declare class ListScroller extends Scroller {
    * @param { number } indexInGroup - Index of the ListItem in ListItemGroup.
    * @param { boolean } smooth - If true, scroll to index item with animation. If false, scroll to index item without animation.
    * @param { ScrollAlign } align - Sets the alignment mode of a specified index.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   *                                                                   1. Mandatory parameters are left unspecified.
+   *                                                                   2. Incorrect parameters types.
+   *                                                                   3. Parameter verification failed.
    * @throws { BusinessError } 100004 - Controller not bound to component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -757,7 +766,10 @@ declare class ListScroller extends Scroller {
    * @param { number } indexInGroup - Index of the ListItem in ListItemGroup.
    * @param { boolean } smooth - If true, scroll to index item with animation. If false, scroll to index item without animation.
    * @param { ScrollAlign } align - Sets the alignment mode of a specified index.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   *                                                                   1. Mandatory parameters are left unspecified.
+   *                                                                   2. Incorrect parameters types.
+   *                                                                   3. Parameter verification failed.
    * @throws { BusinessError } 100004 - Controller not bound to component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -770,7 +782,10 @@ declare class ListScroller extends Scroller {
    * Collapse all listItem.
    *
    * @param { CloseSwipeActionOptions } options - Options of close Swipe items.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   *                                                                   1. Mandatory parameters are left unspecified.
+   *                                                                   2. Incorrect parameters types.
+   *                                                                   3. Parameter verification failed.
    * @throws { BusinessError } 100004 - Controller not bound to component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -780,7 +795,10 @@ declare class ListScroller extends Scroller {
    * Collapse all listItem.
    *
    * @param { CloseSwipeActionOptions } options - Options of close Swipe items.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   *                                                                   1. Mandatory parameters are left unspecified.
+   *                                                                   2. Incorrect parameters types.
+   *                                                                   3. Parameter verification failed.
    * @throws { BusinessError } 100004 - Controller not bound to component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

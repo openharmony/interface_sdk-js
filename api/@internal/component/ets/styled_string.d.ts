@@ -65,7 +65,10 @@ declare class StyledString {
      * @param { number } length - the length of the subStyledString's characters.
      * @param { StyledStringKey } [styledKey] - the specified type.
      * @returns { Array<SpanStyle> }
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     *                                                                   1. Mandatory parameters are left unspecified.
+     *                                                                   2. Incorrect parameters types.
+     *                                                                   3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
@@ -89,7 +92,10 @@ declare class StyledString {
      * @param { number } start - the start position of the subStyledString.
      * @param { number } [length] - the length of the subStyledString's characters.
      * @returns { StyledString }
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     *                                                                   1. Mandatory parameters are left unspecified.
+     *                                                                   2. Incorrect parameters types.
+     *                                                                   3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
@@ -596,7 +602,10 @@ declare class MutableStyledString extends StyledString {
      * @param { number } start - the start position of the replacedString.
      * @param { number } length - the length of the replacedString's characters.
      * @param { string } other - must be unicode string.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     *                                                                   1. Mandatory parameters are left unspecified.
+     *                                                                   2. Incorrect parameters types.
+     *                                                                   3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
@@ -608,7 +617,10 @@ declare class MutableStyledString extends StyledString {
     *
     * @param { number } start - the start position of the insertedString.
     * @param { string } other - must be unicode string.
-    * @throws { BusinessError } 401 - The parameter check failed.
+    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+    *                                                                   1. Mandatory parameters are left unspecified.
+    *                                                                   2. Incorrect parameters types.
+    *                                                                   3. Parameter verification failed.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @since 12
@@ -620,7 +632,10 @@ declare class MutableStyledString extends StyledString {
     *
     * @param { number } start - the start position of the removedString.
     * @param { number } length - the length of the removedString's characters.
-    * @throws { BusinessError } 401 - The parameter check failed.
+    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+    *                                                                   1. Mandatory parameters are left unspecified.
+    *                                                                   2. Incorrect parameters types.
+    *                                                                   3. Parameter verification failed.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @since 12
@@ -631,7 +646,10 @@ declare class MutableStyledString extends StyledString {
      * Replace the specified range string attribute.
      *
      * @param { SpanStyle } spanStyle - the SpanStyle Object.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     *                                                                   1. Mandatory parameters are left unspecified.
+     *                                                                   2. Incorrect parameters types.
+     *                                                                   3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
@@ -655,7 +673,10 @@ declare class MutableStyledString extends StyledString {
      * @param { number } start - the start position of the removedAttributeStyledString.
      * @param { number } length - the length of the removedAttributeStyledString's characters.
      * @param { StyledStringKey } styledKey - the specified attribute type's key.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     *                                                                   1. Mandatory parameters are left unspecified.
+     *                                                                   2. Incorrect parameters types.
+     *                                                                   3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
@@ -667,7 +688,10 @@ declare class MutableStyledString extends StyledString {
      *
      * @param { number } start - the start position of the attributeRemovedStyledString's characters.
      * @param { number } length - the length of the attributeRemovedStyledString's characters.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     *                                                                   1. Mandatory parameters are left unspecified.
+     *                                                                   2. Incorrect parameters types.
+     *                                                                   3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
@@ -689,7 +713,10 @@ declare class MutableStyledString extends StyledString {
      * @param { number } start - the start position of the replacedStyledString.
      * @param { number } length - the length of the replacedStyledString's characters.
      * @param { StyledString } other - new StyledString.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     *                                                                   1. Mandatory parameters are left unspecified.
+     *                                                                   2. Incorrect parameters types.
+     *                                                                   3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
@@ -701,7 +728,10 @@ declare class MutableStyledString extends StyledString {
      *
      * @param { number } start - the start position of the insertedStyledString.
      * @param { StyledString } other - new StyledString.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     *                                                                   1. Mandatory parameters are left unspecified.
+     *                                                                   2. Incorrect parameters types.
+     *                                                                   3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
