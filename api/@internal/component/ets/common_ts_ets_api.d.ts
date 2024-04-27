@@ -44,6 +44,33 @@
  */
 declare class AppStorage {
   /**
+   * Obtain a handler or an alias to AppStorage property with given name.
+   *
+   * @param { string } propName AppStorage property name
+   * @returns { AbstractProperty<T> | undefined } AbstractProperty object if property with given name exists
+   * return undefined otherwise
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  static ref<T>(propName: string): AbstractProperty<T> | undefined;
+
+  /**
+   * Obtain a handler or an alias to AppStorage property with given name.
+   *
+   * If property does not exist in AppStorage, create it with given default value.
+   *
+   * @param { string } propName AppStorage property name
+   * @param { T } defaultValue If property does not exist in AppStorage,
+   *        create it with given default value.
+   * @returns { AbstractProperty<T> } AbstractProperty object
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  static setAndRef<T>(propName: string, defaultValue: T): AbstractProperty<T>;
+
+  /**
    * Called when a link is set.
    * Create and return a two-way sync ("link") to named property
    *
@@ -570,6 +597,58 @@ declare class AppStorage {
    * @since 11
    */
   static size(): number;
+}
+
+/**
+ *
+ *  AbstractProperty can be understood as a handler or an alias
+ *  to a property inside LocalStorage / AppStorage singleton
+ *  allows to read the value with @see get and to change the
+ *  value with @see set.
+ *
+ * Functions
+ *   reads the referenced AppStorage/LocalStorage property value with given name @see get()
+ *   write a new value to the AppStorage/LocalStorage property value @see set()
+ *   returns the referenced AppStorage/LocalStorage property name @see info()
+ *
+ * Use ref or setAndRef to obtain a AbstractProperty.
+ *
+ * @interface AbstractProperty<T>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface AbstractProperty<T> {
+  /**
+  * reads value of the referenced AppStorage/LocalStorage property.
+  *
+  * @returns { T } value of the referenced AppStorage/LocalStorage property.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  get(): T;
+
+  /**
+   * Set new value, must be of type T, can be 'undefined' or 'null'.
+   * Updates the value of the referenced AppStorage/LocalStorage property.
+   *
+   * @param { T } newValue new value set to AppStorage/LocalStorage
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  set(newValue: T): void;
+
+  /**
+   * returns the name of the referenced property
+   *
+   * @returns { string } name of the referenced property
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  info(): string;
 }
 
 /**
@@ -1699,6 +1778,33 @@ declare class LocalStorage {
    * @form
    */
   static getShared(): LocalStorage;
+
+   /**
+   * Obtain a handler or an alias to LocalStorage property with given name.
+   *
+   * @param { string } propName LocalStorage property name
+   * @returns { AbstractProperty<T> | undefined } AbstractProperty object if property with given name exists
+   * return undefined otherwise.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+   public ref<T>(propName: string): AbstractProperty<T> | undefined;
+
+   /**
+    * Obtain a handler or an alias to LocalStorage property with given name.
+    *
+    * If property does not exist in LocalStorage, create it with given default value.
+    *
+    * @param { string } propName LocalStorage property name
+    * @param { T } defaultValue If property does not exist in LocalStorage,
+    *        create it with given default value.
+    * @returns { AbstractProperty<T> } AbstractProperty object
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @since 12
+    */
+   public setAndRef<T>(propName: string, defaultValue: T): AbstractProperty<T>;
 
   /**
    * Check if LocalStorage has a property with given name

@@ -124,7 +124,8 @@ declare namespace securityManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
    * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { string } item - item indicates the specific type of security policy.
+   * @param { string } item - item indicates the specified security policy that needs to be obtained, including patch and encryption.
+   *                          patch means the device security patch tag, and encryption means the device encryption status.
    * @returns { string } security policy of the specific type.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.

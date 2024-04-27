@@ -3859,6 +3859,29 @@ declare namespace photoAccessHelper {
      * @since 11
      */
     addResource(type: ResourceType, proxy: PhotoProxy): void;
+
+    /**
+     * Set camera shot key.
+     *
+     * @param { string } cameraShotKey - Camera shot key of the asset
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    setCameraShotKey(cameraShotKey: string): void;
+
+    /**
+     * Save the photo asset captured by camera.
+     *
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @throws { BusinessError } 14000016 - Operation Not Support
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    saveCameraPhoto(): void;
   }
 
   /**
