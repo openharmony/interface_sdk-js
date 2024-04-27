@@ -321,7 +321,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    map<U>(callbackFn: (value: T, index: number, array:  Array<T>) => U): Array<U>;
+    map<U>(callbackFn: (value: T, index: number, array: Array<T>) => U): Array<U>;
     /**
      * Returns the elements of an ArkTS Array that meet the condition specified in a callback function.
      * 
@@ -383,8 +383,11 @@ declare namespace collections {
     /**
      * Returns the item located at the specified index.
      *
-     * @param { number } index - The zero-based index of the desired code unit. A negative index will count back from the last item.
-     * @returns { T | undefined } The element in the array matching the given index. Always returns undefined if index < -array.length or index >= array.length without attempting to access the corresponding property.
+     * @param { number } index - The zero-based index of the desired code unit.
+     * A negative index will count back from the last item.
+     * @returns { T | undefined } The element in the array matching the given index.
+     * Always returns undefined if index < -array.length or index >= array.length without
+     * attempting to access the corresponding property.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The at method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -1177,7 +1180,8 @@ declare namespace collections {
     /**
      * Performs the specified action for each element in an array.
      *
-     * @param { TypedArrayForEachCallback<number, Int8Array> } callbackFn -  A function that accepts up to three arguments.
+     * @param { TypedArrayForEachCallback<number, Int8Array> } callbackFn -  A function that
+     * accepts up to three arguments.
      * forEach calls the callbackfn function one time for each element in the array.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
@@ -1240,7 +1244,8 @@ declare namespace collections {
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { TypedArrayReduceCallback<number, number, Int8Array> } callbackFn - A function that accepts up to four arguments.
+     * @param { TypedArrayReduceCallback<number, number, Int8Array> } callbackFn - A function that
+     * accepts up to four arguments.
      * The reduce method calls the callbackfn function one time for each element in the array.
      * @returns { number } The value that results from running the "reducer" callback function to
      * completion over the entire typed array.
@@ -1258,7 +1263,8 @@ declare namespace collections {
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { TypedArrayReduceCallback<number, number, Int8Array> } callbackFn - A function that accepts up to four arguments.
+     * @param { TypedArrayReduceCallback<number, number, Int8Array> } callbackFn - A function that
+     * accepts up to four arguments.
      * The reduce method calls the callbackfn function one time for each element in the array.
      * @param { number } initialValue - If initialValue is specified, it is used as the initial value to start
      * the accumulation. The first call to the callbackfn function provides this value as an argument
@@ -1279,7 +1285,8 @@ declare namespace collections {
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { TypedArrayReduceCallback<U, number, Int8Array> } callbackFn - A function that accepts up to four arguments.
+     * @param { TypedArrayReduceCallback<U, number, Int8Array> } callbackFn - A function that
+     * accepts up to four arguments.
      * The reduce method calls the callbackfn function one time for each element in the array.
      * @param { U } initialValue - If initialValue is specified, it is used as the initial value to start
      * the accumulation. The first call to the callbackfn function provides this value as an argument
@@ -1737,7 +1744,8 @@ declare namespace collections {
     /**
      * Performs the specified action for each element in an array.
      *
-     * @param { TypedArrayForEachCallback<number, Uint8Array> } callbackFn -  A function that accepts up to three arguments.
+     * @param { TypedArrayForEachCallback<number, Uint8Array> } callbackFn -  A function that
+     * accepts up to three arguments.
      * forEach calls the callbackfn function one time for each element in the array.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
@@ -1783,7 +1791,8 @@ declare namespace collections {
      * Calls a defined callback function on each element of an array, and returns an array that
      * contains the results.
      *
-     * @param { TypedArrayForEachCallback<number, Uint8Array> } callbackFn - A function that accepts up to three arguments.
+     * @param { TypedArrayForEachCallback<number, Uint8Array> } callbackFn - A function that
+     * accepts up to three arguments.
      * The map method calls the callbackfn function one time for each element in the array.
      * @returns { Uint8Array } The array itself.
      * @throws { BusinessError } 401 - Parameter error.
@@ -1800,7 +1809,8 @@ declare namespace collections {
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { TypedArrayReduceCallback<number, number, Uint8Array> } callbackFn - A function that accepts up to four arguments.
+     * @param { TypedArrayReduceCallback<number, number, Uint8Array> } callbackFn - A function that
+     * accepts up to four arguments.
      * The reduce method calls the callbackfn function one time for each element in the array.
      * @returns { number } The value that results from running the "reducer" callback function to
      * completion over the entire typed array.
@@ -1818,7 +1828,8 @@ declare namespace collections {
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { TypedArrayReduceCallback<number, number, Uint8Array> } callbackFn - A function that accepts up to four arguments.
+     * @param { TypedArrayReduceCallback<number, number, Uint8Array> } callbackFn - A function that
+     * accepts up to four arguments.
      * The reduce method calls the callbackfn function one time for each element in the array.
      * @param { number } initialValue - If initialValue is specified, it is used as the initial value to start
      * the accumulation. The first call to the callbackfn function provides this value as an argument
@@ -1839,7 +1850,8 @@ declare namespace collections {
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { TypedArrayReduceCallback<U, number, Uint8Array> } callbackFn - A function that accepts up to four arguments.
+     * @param { TypedArrayReduceCallback<U, number, Uint8Array> } callbackFn - A function that
+     * accepts up to four arguments.
      * The reduce method calls the callbackfn function one time for each element in the array.
      * @param { U } initialValue - If initialValue is specified, it is used as the initial value to start
      * the accumulation. The first call to the callbackfn function provides this value as an argument
@@ -2297,7 +2309,8 @@ declare namespace collections {
     /**
      * Performs the specified action for each element in an array.
      *
-     * @param { TypedArrayForEachCallback<number, Int16Array> } callbackFn -  A function that accepts up to three arguments.
+     * @param { TypedArrayForEachCallback<number, Int16Array> } callbackFn -  A function that
+     * accepts up to three arguments.
      * forEach calls the callbackfn function one time for each element in the array.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
@@ -2343,7 +2356,8 @@ declare namespace collections {
      * Calls a defined callback function on each element of an array, and returns an array that
      * contains the results.
      *
-     * @param { TypedArrayForEachCallback<number, Int16Array> } callbackFn - A function that accepts up to three arguments.
+     * @param { TypedArrayForEachCallback<number, Int16Array> } callbackFn - A function that
+     * accepts up to three arguments.
      * The map method calls the callbackfn function one time for each element in the array.
      * @returns { Int16Array } The array itself.
      * @throws { BusinessError } 401 - Parameter error.
@@ -2360,7 +2374,8 @@ declare namespace collections {
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { TypedArrayReduceCallback<number, number, Int16Array> } callbackFn - A function that accepts up to four arguments.
+     * @param { TypedArrayReduceCallback<number, number, Int16Array> } callbackFn - A function that
+     * accepts up to four arguments.
      * The reduce method calls the callbackfn function one time for each element in the array.
      * @returns { number } The value that results from running the "reducer" callback function to
      * completion over the entire typed array.
@@ -2378,7 +2393,8 @@ declare namespace collections {
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { TypedArrayReduceCallback<number, number, Int16Array> } callbackFn - A function that accepts up to four arguments.
+     * @param { TypedArrayReduceCallback<number, number, Int16Array> } callbackFn - A function that
+     * accepts up to four arguments.
      * The reduce method calls the callbackfn function one time for each element in the array.
      * @param { number } initialValue - If initialValue is specified, it is used as the initial value to start
      * the accumulation. The first call to the callbackfn function provides this value as an argument
@@ -2399,7 +2415,8 @@ declare namespace collections {
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { TypedArrayReduceCallback<U, number, Int16Array> } callbackFn - A function that accepts up to four arguments.
+     * @param { TypedArrayReduceCallback<U, number, Int16Array> } callbackFn - A function that
+     * accepts up to four arguments.
      * The reduce method calls the callbackfn function one time for each element in the array.
      * @param { U } initialValue - If initialValue is specified, it is used as the initial value to start
      * the accumulation. The first call to the callbackfn function provides this value as an argument
@@ -2857,7 +2874,8 @@ declare namespace collections {
     /**
      * Performs the specified action for each element in an array.
      *
-     * @param { TypedArrayForEachCallback<number, Uint16Array> } callbackFn -  A function that accepts up to three arguments.
+     * @param { TypedArrayForEachCallback<number, Uint16Array> } callbackFn -  A function that
+     * accepts up to three arguments.
      * forEach calls the callbackfn function one time for each element in the array.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
@@ -2920,7 +2938,8 @@ declare namespace collections {
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { TypedArrayReduceCallback<number, number, Uint16Array> } callbackFn - A function that accepts up to four arguments.
+     * @param { TypedArrayReduceCallback<number, number, Uint16Array> } callbackFn - A function that
+     * accepts up to four arguments.
      * The reduce method calls the callbackfn function one time for each element in the array.
      * @returns { number } The value that results from running the "reducer" callback function to
      * completion over the entire typed array.
@@ -2938,7 +2957,8 @@ declare namespace collections {
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { TypedArrayReduceCallback<number, number, Uint16Array> } callbackFn - A function that accepts up to four arguments.
+     * @param { TypedArrayReduceCallback<number, number, Uint16Array> } callbackFn - A function that
+     * accepts up to four arguments.
      * The reduce method calls the callbackfn function one time for each element in the array.
      * @param { number } initialValue - If initialValue is specified, it is used as the initial value to start
      * the accumulation. The first call to the callbackfn function provides this value as an argument
@@ -2959,7 +2979,8 @@ declare namespace collections {
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { TypedArrayReduceCallback<U, number, Uint16Array> } callbackFn - A function that accepts up to four arguments.
+     * @param { TypedArrayReduceCallback<U, number, Uint16Array> } callbackFn - A function that
+     * accepts up to four arguments.
      * The reduce method calls the callbackfn function one time for each element in the array.
      * @param { U } initialValue - If initialValue is specified, it is used as the initial value to start
      * the accumulation. The first call to the callbackfn function provides this value as an argument
@@ -3417,7 +3438,8 @@ declare namespace collections {
     /**
      * Performs the specified action for each element in an array.
      *
-     * @param { TypedArrayForEachCallback<number, Int32Array> } callbackFn -  A function that accepts up to three arguments.
+     * @param { TypedArrayForEachCallback<number, Int32Array> } callbackFn -  A function that
+     * accepts up to three arguments.
      * forEach calls the callbackfn function one time for each element in the array.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
@@ -3463,7 +3485,8 @@ declare namespace collections {
      * Calls a defined callback function on each element of an array, and returns an array that
      * contains the results.
      *
-     * @param { TypedArrayForEachCallback<number, Int32Array> } callbackFn - A function that accepts up to three arguments.
+     * @param { TypedArrayForEachCallback<number, Int32Array> } callbackFn - A function that
+     * accepts up to three arguments.
      * The map method calls the callbackfn function one time for each element in the array.
      * @returns { Int32Array } The array itself.
      * @throws { BusinessError } 401 - Parameter error.
@@ -3480,7 +3503,8 @@ declare namespace collections {
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { TypedArrayReduceCallback<number, number, Int32Array> } callbackFn - A function that accepts up to four arguments.
+     * @param { TypedArrayReduceCallback<number, number, Int32Array> } callbackFn - A function that
+     * accepts up to four arguments.
      * The reduce method calls the callbackfn function one time for each element in the array.
      * @returns { number } The value that results from running the "reducer" callback function to
      * completion over the entire typed array.
@@ -3498,7 +3522,8 @@ declare namespace collections {
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { TypedArrayReduceCallback<number, number, Int32Array> } callbackFn - A function that accepts up to four arguments.
+     * @param { TypedArrayReduceCallback<number, number, Int32Array> } callbackFn - A function that
+     * accepts up to four arguments.
      * The reduce method calls the callbackfn function one time for each element in the array.
      * @param { number } initialValue - If initialValue is specified, it is used as the initial value to start
      * the accumulation. The first call to the callbackfn function provides this value as an argument
@@ -3519,7 +3544,8 @@ declare namespace collections {
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { TypedArrayReduceCallback<U, number, Int32Array> } callbackFn - A function that accepts up to four arguments.
+     * @param { TypedArrayReduceCallback<U, number, Int32Array> } callbackFn - A function that
+     * accepts up to four arguments.
      * The reduce method calls the callbackfn function one time for each element in the array.
      * @param { U } initialValue - If initialValue is specified, it is used as the initial value to start
      * the accumulation. The first call to the callbackfn function provides this value as an argument
@@ -3977,7 +4003,8 @@ declare namespace collections {
     /**
      * Performs the specified action for each element in an array.
      *
-     * @param { TypedArrayForEachCallback<number, Uint32Array> } callbackFn -  A function that accepts up to three arguments.
+     * @param { TypedArrayForEachCallback<number, Uint32Array> } callbackFn -  A function that
+     * accepts up to three arguments.
      * forEach calls the callbackfn function one time for each element in the array.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
@@ -4040,7 +4067,8 @@ declare namespace collections {
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { TypedArrayReduceCallback<number, number, Uint32Array> } callbackFn - A function that accepts up to four arguments.
+     * @param { TypedArrayReduceCallback<number, number, Uint32Array> } callbackFn - A function that
+     * accepts up to four arguments.
      * The reduce method calls the callbackfn function one time for each element in the array.
      * @returns { number } The value that results from running the "reducer" callback function to
      * completion over the entire typed array.
@@ -4058,7 +4086,8 @@ declare namespace collections {
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { TypedArrayReduceCallback<number, number, Uint32Array> } callbackFn - A function that accepts up to four arguments.
+     * @param { TypedArrayReduceCallback<number, number, Uint32Array> } callbackFn - A function that
+     * accepts up to four arguments.
      * The reduce method calls the callbackfn function one time for each element in the array.
      * @param { number } initialValue - If initialValue is specified, it is used as the initial value to start
      * the accumulation. The first call to the callbackfn function provides this value as an argument
@@ -4079,7 +4108,8 @@ declare namespace collections {
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { TypedArrayReduceCallback<U, number, Uint32Array> } callbackFn - A function that accepts up to four arguments.
+     * @param { TypedArrayReduceCallback<U, number, Uint32Array> } callbackFn - A function that
+     * accepts up to four arguments.
      * The reduce method calls the callbackfn function one time for each element in the array.
      * @param { U } initialValue - If initialValue is specified, it is used as the initial value to start
      * the accumulation. The first call to the callbackfn function provides this value as an argument
