@@ -464,6 +464,36 @@ interface DataPanelInterface {
 }
 
 /**
+ * DataPanelConfiguration used by dataPanel content modifier
+ *
+ * @interface DataPanelConfiguration
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface DataPanelConfiguration extends CommonConfiguration<DataPanelConfiguration> {
+  /**
+   * Current data value. the max length is 9.
+   *
+   * @type { number[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  values: number[];
+
+  /**
+   * Maximum value of the current data.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  maxValue: number;
+}
+
+/**
  * Defines the DataPanel attribute functions.
  *
  * @extends CommonMethod
@@ -621,6 +651,17 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
    * @since 11
    */
   trackShadow(value: DataPanelShadowOptions): DataPanelAttribute;
+
+  /**
+   * Set the content modifier of data panel.
+   *
+   * @param { ContentModifier<DataPanelConfiguration> } modifier - The content modifier of data panel.
+   * @returns { DataPanelAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  contentModifier(modifier: ContentModifier<DataPanelConfiguration>): DataPanelAttribute;
 }
 
 /**

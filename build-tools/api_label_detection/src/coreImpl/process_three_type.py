@@ -20,6 +20,11 @@ from typedef.process_three_type import get_three_label_value
 from utils.constants import label_comparison_dist
 
 
+def process_struct_type(dict_data: dict, label='default') -> list:
+    missing_tag_class_list = judgment_is_default(dict_data, label)
+    return missing_tag_class_list
+
+
 def process_class_type(dict_data: dict, label='default') -> list:
     missing_tag_class_list = judgment_is_default(dict_data, label)
     return missing_tag_class_list
@@ -65,18 +70,17 @@ def process_method_tag(dict_data: dict, label):
     parent_information = get_js_doc_info(dict_data['jsDocInfos'])
     if not parent_information:
         return missing_tag_data_list
-
+    process_key = {
+        'typeLocations': 'typeLocations',
+        'objLocations': 'objLocations'
+    }
     if 'params' in dict_data and len(dict_data['params']) > 0:
-        process_key = {
-            'typeLocations': 'typeLocations',
-            'objLocations': 'objLocations'
-        }
         # 处理入参
         result_param_list = process_func_param(dict_data, process_key, label, parent_information)
         missing_tag_data_list.extend(result_param_list)
         # 处理出参
-        result_return_list = process_func_anonymous_obj(dict_data, process_key, label, parent_information)
-        missing_tag_data_list.extend(result_return_list)
+    result_return_list = process_func_anonymous_obj(dict_data, process_key, label, parent_information)
+    missing_tag_data_list.extend(result_return_list)
 
     return missing_tag_data_list
 
@@ -273,7 +277,8 @@ def process_tag_dict(dict_data: dict, label: list):
         'Class': process_class_type,
         'Namespace': process_namespace_type,
         'Interface': process_interface_type,
-        'Method': process_method_type
+        'Method': process_method_type,
+        'Struct': process_struct_type
     }
     if 'apiType' in dict_data:
         api_type = dict_data['apiType']

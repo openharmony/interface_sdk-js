@@ -149,7 +149,8 @@ declare namespace deviceInfo {
    *
    * @permission ohos.permission.ENTERPRISE_GET_DEVICE_INFO
    * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { string } label - label indicates the specific type of information.
+   * @param { string } label - label indicates the specific information that needs to be queried,
+   *                           the supported device information include deviceName, deviceSerial and simInfo.
    * @returns { string } the specific information of device.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.

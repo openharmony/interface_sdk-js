@@ -29,13 +29,13 @@ declare class StyledString {
     /**
      * constructor.
      *
-     * @param { string } value - indicates the current object value of the StyledString.
+     * @param { string | ImageAttachment } value - indicates the current object value of the StyledString.
      * @param { Array<StyleOptions> } [styles] - indicates the SpanStyle objects.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
      */
-    constructor(value: string, styles?: Array<StyleOptions>);
+    constructor(value: string | ImageAttachment, styles?: Array<StyleOptions>);
 
     /**
      * Get the length of the StyledString's characters.
@@ -373,6 +373,17 @@ declare class DecorationStyle {
      * @since 12
      */
     readonly color?: ResourceColor;
+
+    /**
+     * Get the decorationStyle of the StyledString.
+     *
+     * @type { ?TextDecorationStyle } - the decorationStyle of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    readonly style?: TextDecorationStyle;
 }
 
 /**
@@ -403,6 +414,16 @@ declare interface DecorationStyleInterface {
      * @since 12
      */
     color?: ResourceColor;
+
+    /**
+     * The style value of the decoration property object.
+     *
+     * @type { ?TextDecorationStyle }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    style?: TextDecorationStyle;
 }
 
 /**
@@ -553,11 +574,12 @@ declare interface GestureStyleInterface {
 /**
  * Defines the Span Type.
  *
+ * @typedef { TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle | TextShadowStyle | GestureStyle | ImageAttachment } StyledStringValue
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
-declare type StyledStringValue = TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle | TextShadowStyle | GestureStyle;
+declare type StyledStringValue = TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle | TextShadowStyle | GestureStyle | ImageAttachment;
 
 /**
  * MutableStyledString
@@ -760,4 +782,188 @@ declare enum StyledStringKey {
      * @since 12
      */
     GESTURE = 100,
+
+    /**
+     * The key of ImageAttachment.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    IMAGE = 300,
+}
+
+/**
+ * Defines ImageAttachment.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class ImageAttachment {
+
+    /**
+     * constructor.
+     *
+     * @param { ImageAttachmentInterface } value - image attachment object.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    constructor(value: ImageAttachmentInterface);
+
+    /**
+     * Get the image content of the StyledString.
+     *
+     * @type { PixelMap } - the image content of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    readonly value: PixelMap;
+
+    /**
+     * Get the imageSize of the StyledString.
+     *
+     * @type { ?SizeOptions } - the imageSize of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    readonly size?: SizeOptions;
+
+    /**
+     * Get the ImageSpanAlignment of the StyledString.
+     *
+     * @type { ?ImageSpanAlignment } - the ImageSpanAlignment of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    readonly verticalAlign?: ImageSpanAlignment;
+
+    /**
+     * Get the imageFit of the StyledString.
+     *
+     * @type { ?ImageFit } - the imageFit of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    readonly objectFit?: ImageFit;
+
+    /**
+     * Get the imageAttachmentLayoutStyle of the StyledString.
+     *
+     * @type { ?ImageAttachmentLayoutStyle } - the imageAttachmentLayoutStyle of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    readonly layoutStyle?: ImageAttachmentLayoutStyle;
+}
+
+/**
+ * Defines the ImageAttachmentInterface.
+ *
+ * @interface ImageAttachmentInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface ImageAttachmentInterface {
+    /**
+     * The content of the ImageAttachment.
+     *
+     * @type { PixelMap }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    value: PixelMap;
+
+    /**
+     * Image size.
+     *
+     * @type { ?SizeOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    size?: SizeOptions;
+
+    /**
+     * Image vertical align.
+     *
+     * @type { ?ImageSpanAlignment }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    verticalAlign?: ImageSpanAlignment;
+
+    /**
+     * Image fit.
+     *
+     * @type { ?ImageFit }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    objectFit?: ImageFit;
+
+    /**
+     * The Image Layout Style.
+     *
+     * @type { ?ImageAttachmentLayoutStyle }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    layoutStyle?: ImageAttachmentLayoutStyle;
+}
+
+/**
+ * Defines the  ImageAttachment Layout Style.
+ *
+ * @interface ImageAttachmentLayoutStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface ImageAttachmentLayoutStyle {
+    /**
+     * Outer Margin.
+     *
+     * @type { ?(LengthMetrics | Margin) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    margin?: LengthMetrics | Margin;
+
+    /**
+     * Inner margin.
+     *
+     * @type { ?(LengthMetrics | Padding) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    padding?: LengthMetrics | Padding;
+
+    /**
+     * Border radius.
+     *
+     * @type { ?(LengthMetrics | BorderRadiuses) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    borderRadius?: LengthMetrics | BorderRadiuses;
 }

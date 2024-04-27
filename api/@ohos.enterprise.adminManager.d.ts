@@ -554,7 +554,6 @@ declare namespace adminManager {
    * Get the super administrator of device.
    *
    * @returns { Promise<Want> } promise contained the want indicates the super administrator of the device.
-   * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly

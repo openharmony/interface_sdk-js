@@ -166,7 +166,6 @@ declare interface SwitchStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
-   * @form
    */
   pointRadius?: number | Resource;
 
@@ -177,7 +176,6 @@ declare interface SwitchStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
-   * @form
    */
   unselectedColor?: ResourceColor;
 
@@ -188,7 +186,6 @@ declare interface SwitchStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
-   * @form
    */
   pointColor?: ResourceColor;
 
@@ -199,7 +196,6 @@ declare interface SwitchStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
-   * @form
    */
   trackBorderRadius?: number | Resource;
 }

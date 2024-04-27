@@ -574,7 +574,6 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * which affects the pop-up position of the pop-up window.
    *
    * @param { IndexerAlign } value - indicates the alignment style of Alphabet index.
-   * @param { Length } offset
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -584,7 +583,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * which affects the pop-up position of the pop-up window.
    *
    * @param { IndexerAlign } value - indicates the alignment style of Alphabet index.
-   * @param { Length } offset - indicates the horizontal space between pop-up window and indexer bar.
+   * @param { Length } [offset] - indicates the horizontal space between pop-up window and indexer bar.
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -595,7 +594,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * which affects the pop-up position of the pop-up window.
    *
    * @param { IndexerAlign } value - indicates the alignment style of Alphabet index.
-   * @param { Length } offset - indicates the horizontal space between pop-up window and indexer bar.
+   * @param { Length } [offset] - indicates the horizontal space between pop-up window and indexer bar.
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
