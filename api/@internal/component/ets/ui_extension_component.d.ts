@@ -43,7 +43,7 @@ declare enum DpiFollowStrategy {
    * @systemapi
    * @since 12
    */
-  FOLLOW_UI_EXTENSION_ABILITY = 1,
+  FOLLOW_UI_EXTENSION_ABILITY_DPI = 1,
 }
 
 /**
