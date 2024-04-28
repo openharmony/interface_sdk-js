@@ -1641,6 +1641,17 @@ declare type LengthConstrain = {
 declare type VoidCallback  = () => void;
 
 /**
+ * Defines length metrics unit.
+ *
+ * @typedef { import('../api/arkui/Graphics').LengthMetricsUnit } LengthMetricsUnit
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @since 12
+ */
+declare type LengthMetricsUnit = import('../api/arkui/Graphics').LengthMetricsUnit;
+
+/**
  * Defines LengthMetrics.
  *
  * @typedef { import('../api/arkui/Graphics').LengthMetrics } LengthMetrics
