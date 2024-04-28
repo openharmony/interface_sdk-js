@@ -673,7 +673,10 @@ declare namespace deviceManager {
    *
    * @param { string } bundleName Indicates the bundle name of the application.
    * @param { AsyncCallback<DeviceManager> } callback Indicates the callback to be invoked upon {@code DeviceManager} instance creation.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                                                  1. Mandatory parameters are left unspecified;
+   *                                                  2. Incorrect parameter types;
+   *                                                  3. Parameter verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi this method can be used only by system applications.
@@ -732,7 +735,10 @@ declare namespace deviceManager {
      * @returns { Array<DeviceInfo> } Returns a list of trusted devices.
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @throws { BusinessError } 201 - Permission verify failed.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter type; 3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -747,7 +753,10 @@ declare namespace deviceManager {
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { AsyncCallback<Array<DeviceInfo>> } callback Indicates the callback to be invoked upon getTrustedDeviceList
      * @throws { BusinessError } 202 - The caller is not a system application.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter type; 3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 8
@@ -791,7 +800,10 @@ declare namespace deviceManager {
      *
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { AsyncCallback<DeviceInfo> } callback Indicates the callback to be invoked upon getLocalDeviceInfo
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter type; 3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed.
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -821,7 +833,11 @@ declare namespace deviceManager {
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { string } networkId - device network id.
      * @param { AsyncCallback<DeviceInfo> } callback - Indicates the callback to be invoked upon getDeviceInfo.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter type; 3. Parameter verification failed; 4. The size of specified networkId is greater than 255.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed;
+     *                                                  4. The size of specified networkId is greater than 255.
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -837,7 +853,11 @@ declare namespace deviceManager {
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { string } networkId - device network id.
      * @returns { Promise<DeviceInfo> } Returns device info.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter type; 3. Parameter verification failed; 4. The size of specified networkId is greater than 255.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed;
+     *                                                  4. The size of specified networkId is greater than 255.
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -852,7 +872,11 @@ declare namespace deviceManager {
      *
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { SubscribeInfo } subscribeInfo subscribe info to discovery device
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter type; 3.Parameter verification failed; 4.The size of specified param is greater than 255.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed;
+     *                                                  4. The size of specified param is greater than 255.
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 11600104 - Discovery invalid.
@@ -871,7 +895,11 @@ declare namespace deviceManager {
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { SubscribeInfo } subscribeInfo subscribe info to discovery device
      * @param { string } filterOptions filterOptions to filter discovery device
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter type; 3.Parameter verification failed; 4.The size of specified param is greater than 255.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed;
+     *                                                  4. The size of specified param is greater than 255.
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 11600104 - Discovery invalid.
@@ -889,7 +917,11 @@ declare namespace deviceManager {
      *
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { number } subscribeId Service subscribe ID
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter type; 3.Parameter verification failed; 4.The size of specified param is greater than 255.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed;
+     *                                                  4. The size of specified param is greater than 255.
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
@@ -906,7 +938,10 @@ declare namespace deviceManager {
      *
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { PublishInfo } publishInfo publish info to Publish discovery device
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter type; 3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed.
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 11600105 - Publish invalid.
@@ -923,7 +958,10 @@ declare namespace deviceManager {
      *
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { number } publishId Service publish ID, identify a publish operation, should be a unique id in package range
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter type; 3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed.
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
@@ -941,7 +979,10 @@ declare namespace deviceManager {
      * @param { DeviceInfo } deviceInfo deviceInfo of device to authenticate
      * @param { AuthParam } authParam authParam of device to authenticate
      * @param { AsyncCallback<{ deviceId: string, pinToken?: number }> } callback Indicates the callback to be invoked upon authenticateDevice
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter type; 3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed.
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -960,7 +1001,10 @@ declare namespace deviceManager {
      *
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { DeviceInfo } deviceInfo deviceInfo of device to unAuthenticate
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter type; 3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed.
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
@@ -978,7 +1022,10 @@ declare namespace deviceManager {
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { AuthInfo } authInfo device auth info o verify
      * @param { AsyncCallback<{ deviceId: string, level: number }> } callback Indicates the callback to be invoked upon verifyAuthInfo
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter type; 3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed.
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -993,7 +1040,11 @@ declare namespace deviceManager {
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { number } operateAction User Operation Actions.
      * @param { string } params Indicates the input param of the user.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter type; 3. Parameter verification failed; 4. The size of specified params is greater than 255.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed;
+     *                                                  4. The size of specified params is greater than 255.
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
@@ -1010,7 +1061,11 @@ declare namespace deviceManager {
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { string } requestInfo - Request credential params, the params is json string, it includes version and userId.
      * @param { AsyncCallback<{ registerInfo: string }> } callback Indicates the callback to be invoked upon requestCredential
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter type; 3. Parameter verification failed; 4. The size of specified requestInfo is greater than 255.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed;
+     *                                                  4. The size of specified requestInfo is greater than 255.
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -1027,7 +1082,11 @@ declare namespace deviceManager {
      * userId, deviceId, version, devicePk and credentialData, the credentialData is array, each array element
      * include credentialType, credentialId, serverPk, pkInfoSignature, pkInfo, authCode, peerDeviceId.
      * @param { AsyncCallback<{ resultInfo: string }> } callback Indicates the callback to be invoked upon importCredential.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter type; 3. Parameter verification failed; 4. The size of specified credentialInfo is greater than 5999.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed;
+     *                                                  4. The size of specified credentialInfo is greater than 5999.
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -1042,7 +1101,11 @@ declare namespace deviceManager {
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { string } queryInfo - delete credential params. the params is json string, it includes processType, authType, userId.
      * @param { AsyncCallback<{ resultInfo: string }> } callback Indicates the callback to be invoked upon deleteCredential
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter type; 3. Parameter verification failed; 4. The size of specified queryInfo is greater than 5999.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed;
+     *                                                  4. The size of specified queryInfo is greater than 5999.
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -1058,7 +1121,11 @@ declare namespace deviceManager {
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { 'uiStateChange' } type Ui state to unregister.
      * @param { Callback<{ param: string }> } callback Indicates the devicemanager ui state to register.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter type; 3. Parameter verification failed; 4. The size of specified eventType is greater than 255.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed;
+     *                                                  4. The size of specified eventType is greater than 255.
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -1075,7 +1142,11 @@ declare namespace deviceManager {
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { 'uiStateChange' } type Ui state to unregister.
      * @param { Callback<{ param: string }> } callback Indicates the devicemanager ui state to unregister.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter type; 3. Parameter verification failed; 4. The size of specified eventType is greater than 255.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed;
+     *                                                  4. The size of specified eventType is greater than 255.
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -1093,7 +1164,11 @@ declare namespace deviceManager {
      * @param { 'deviceStateChange' } type Device status change.
      * @param { Callback<{ action: DeviceStateChangeAction, device: DeviceInfo }> } callback
      *          Indicates the device state callback to register.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter type; 3. Parameter verification failed; 4. The size of specified eventType is greater than 255.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed;
+     *                                                  4. The size of specified eventType is greater than 255.
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -1109,7 +1184,11 @@ declare namespace deviceManager {
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { 'deviceStateChange' } type Device status change.
      * @param { Callback<{ action: DeviceStateChangeAction, device: DeviceInfo }> } callback Indicates the device state callback to register.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter type; 3. Parameter verification failed; 4. The size of specified eventType is greater than 255.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed;
+     *                                                  4. The size of specified eventType is greater than 255.
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -1125,7 +1204,11 @@ declare namespace deviceManager {
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { 'deviceFound' } type Successfully discovered device.
      * @param { Callback<{ subscribeId: number, device: DeviceInfo }> } callback Indicates the device found callback to register.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter type; 3. Parameter verification failed; 4. The size of specified eventType is greater than 255.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed;
+     *                                                  4. The size of specified eventType is greater than 255.
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -1141,7 +1224,11 @@ declare namespace deviceManager {
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { 'deviceFound' } type Successfully discovered device.
      * @param { Callback<{ subscribeId: number, device: DeviceInfo }> } callback Indicates the device found callback to register.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter type; 3. Parameter verification failed; 4. The size of specified eventType is greater than 255.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed;
+     *                                                  4. The size of specified eventType is greater than 255.
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -1157,7 +1244,11 @@ declare namespace deviceManager {
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { 'discoverFail' } type Discovery Device Failure.
      * @param { Callback<{ subscribeId: number, reason: number }> } callback Indicates the device found result callback to register.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter type; 3. Parameter verification failed; 4. The size of specified eventType is greater than 255.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed;
+     *                                                  4. The size of specified eventType is greater than 255.
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -1173,7 +1264,11 @@ declare namespace deviceManager {
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { 'discoverFail' } type Discovery Device Failure.
      * @param { Callback<{ subscribeId: number, reason: number }> } callback Indicates the device found result callback to register.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter type; 3. Parameter verification failed; 4. The size of specified eventType is greater than 255.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed;
+     *                                                  4. The size of specified eventType is greater than 255.
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -1189,7 +1284,11 @@ declare namespace deviceManager {
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { 'publishSuccess' } type Successfully published device.
      * @param { Callback<{ publishId: number }> } callback Indicates the device publish result callback to register.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter type; 3. Parameter verification failed; 4. The size of specified eventType is greater than 255.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed;
+     *                                                  4. The size of specified eventType is greater than 255.
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -1204,7 +1303,11 @@ declare namespace deviceManager {
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { 'publishSuccess' } type Successfully published device.
      * @param { Callback<{ publishId: number }> } callback Indicates the device publish result callback to register.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter type; 3. Parameter verification failed; 4. The size of specified eventType is greater than 255.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed;
+     *                                                  4. The size of specified eventType is greater than 255.
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -1219,7 +1322,11 @@ declare namespace deviceManager {
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { 'publishFail' } type Failed to publish device.
      * @param { Callback<{ publishId: number, reason: number }> } callback Indicates the device publish result callback to register.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter type; 3. Parameter verification failed; 4. The size of specified eventType is greater than 255.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed;
+     *                                                  4. The size of specified eventType is greater than 255.
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -1234,7 +1341,11 @@ declare namespace deviceManager {
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { 'publishFail' } type Failed to publish device.
      * @param { Callback<{ publishId: number, reason: number }> } callback Indicates the device publish result callback to register.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter type; 3. Parameter verification failed; 4. The size of specified eventType is greater than 255.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed;
+     *                                                  4. The size of specified eventType is greater than 255.
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -1249,7 +1360,11 @@ declare namespace deviceManager {
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { 'serviceDie' } type Service death.
      * @param { function } callback Indicates the service error callback to register.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter type; 3. Parameter verification failed; 4. The size of specified eventType is greater than 255.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed;
+     *                                                  4. The size of specified eventType is greater than 255.
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -1265,7 +1380,11 @@ declare namespace deviceManager {
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { 'serviceDie' } type Service death.
      * @param { function } callback Indicates the service error callback to register.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter type; 3. Parameter verification failed; 4. The size of specified eventType is greater than 255.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed;
+     *                                                  4. The size of specified eventType is greater than 255.
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.

@@ -546,7 +546,7 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @crossplatform
    * @since 12
    */
-  contentModifier(modifier: ContentModifier<TextClockConfiguration>): TextClockAttribute
+  contentModifier(modifier: ContentModifier<TextClockConfiguration>): TextClockAttribute;
 }
 
 /**

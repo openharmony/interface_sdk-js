@@ -18,17 +18,19 @@
  * @kit ArkUI
  */
 
+import { Content } from './Content';
 import { UIContext } from '../@ohos.arkui.UIContext';
 import { WrappedBuilder } from 'wrappedBuilderObject';
 
 /**
  * Defines ComponentContent.
  *
+ * @extends Content
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
-export class ComponentContent<T extends Object> {
+export class ComponentContent<T extends Object> extends Content{
   /**
    * Constructor.
    *

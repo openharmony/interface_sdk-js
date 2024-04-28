@@ -92,7 +92,7 @@ export class Parser {
       }
     });
     if (Boolean(process.env.NEED_DETECTION)) {
-      parserParam.setProgram(fileArr);
+      parserParam.setProgram([fileDir]);
     }
     const sourceFileInfo: ApiInfo = new ApiInfo(ApiType.SOURCE_FILE, sourceFile, undefined);
     sourceFileInfo.setFilePath(relFilePath);
