@@ -147,6 +147,24 @@ declare namespace osAccount {
     activateOsAccount(localId: number): Promise<void>;
 
     /**
+     * Deactivates a specified OS account.
+     *
+     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
+     * @param { number } localId - Indicates the local ID of the OS account.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @throws { BusinessError } 12300008 - Restricted Account.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    deactivateOsAccount(localId: number): Promise<void>;
+
+    /**
      * Checks whether the function of supporting multiple OS accounts is enabled.
      *
      * @param { AsyncCallback<boolean> } callback - Returns {@code true} if this function is enabled; returns {@code false} otherwise.
