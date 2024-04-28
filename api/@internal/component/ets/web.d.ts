@@ -130,7 +130,7 @@ type NativeMediaPlayerConfig = {
 /**
  * The callback of render process not responding.
  *
- * @typedef {Function} OnRenderProcessNotRespondingCallback
+ * @typedef {function} OnRenderProcessNotRespondingCallback
  * @param {RenderProcessNotRespondingData} data - details of onRenderProcessNotResponding.
  * @syscap SystemCapability.Web.Webview.Core
  * @since 12
@@ -140,7 +140,7 @@ type OnRenderProcessNotRespondingCallback = (data : RenderProcessNotRespondingDa
 /**
  * The callback of render process responding.
  *
- * @typedef {Function} OnRenderProcessRespondingCallback
+ * @typedef {function} OnRenderProcessRespondingCallback
  * @syscap SystemCapability.Web.Webview.Core
  * @since 12
  */
