@@ -35,7 +35,7 @@ declare namespace overlay {
    * @param { string } moduleName - Indicates the module name of the overlay module to be set.
    * @param { boolean } isEnabled - The value true means to enable overlay feature, and the value false means to disable overlay feature.
    * @param { AsyncCallback<void> } callback - The callback of setting specified overlay module enabled state result.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 17700002 - The specified module name is not found.
    * @throws { BusinessError } 17700033 - The specified module is not an overlay module.
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
@@ -49,7 +49,7 @@ declare namespace overlay {
    * @param { string } moduleName - Indicates the module name of the overlay module to be set.
    * @param { boolean } isEnabled - The value true means to enable overlay feature, and the value false means to disable overlay feature.
    * @returns { Promise<void> }
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 17700002 - The specified module name is not found.
    * @throws { BusinessError } 17700033 - The specified module is not an overlay module.
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
@@ -65,7 +65,7 @@ declare namespace overlay {
    * @param { string } moduleName - Indicates the module name of the overlay module to be set.
    * @param { boolean } isEnabled - The value true means to enable overlay feature, and the value false means to disable overlay feature.
    * @param { AsyncCallback<void> } callback - The callback of setting specified overlay module enabled state result.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
@@ -87,7 +87,7 @@ declare namespace overlay {
    * @param { string } moduleName - Indicates the module name of the overlay module to be set.
    * @param { boolean } isEnabled - The value true means to enable overlay feature, and the value false means to disable overlay feature.
    * @returns { Promise<void> }
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
@@ -105,7 +105,7 @@ declare namespace overlay {
    *
    * @param { string } moduleName - Indicates the module name of the overlay module to be queried.
    * @param { AsyncCallback<OverlayModuleInfo> } callback - The callback of getting OverlayModuleInfo object.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 17700002 - The specified module name is not found.
    * @throws { BusinessError } 17700032 - The specified bundle does not contain any overlay module.
    * @throws { BusinessError } 17700033 - The specified module is not an overlay module.
@@ -119,7 +119,7 @@ declare namespace overlay {
    *
    * @param { string } moduleName - Indicates the module name of the overlay module to be queried.
    * @returns { Promise<OverlayModuleInfo> }
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 17700002 - The specified module name is not found.
    * @throws { BusinessError } 17700032 - The specified bundle does not contain any overlay module.
    * @throws { BusinessError } 17700033 - The specified module is not an overlay module.
@@ -133,7 +133,7 @@ declare namespace overlay {
    *
    * @param { string } targetModuleName - Indicates the target module name of the target module to be queried.
    * @param { AsyncCallback<Array<OverlayModuleInfo>> } callback - The callback of getting a list of OverlayModuleInfo object.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 17700002 - The specified module name is not found.
    * @throws { BusinessError } 17700034 - The specified module is an overlay module.
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
@@ -147,7 +147,7 @@ declare namespace overlay {
    *
    * @param { string } targetModuleName - Indicates the target module name of the target module to be queried.
    * @returns { Promise<Array<OverlayModuleInfo>> }
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 17700002 - The specified module name is not found.
    * @throws { BusinessError } 17700034 - The specified module is an overlay module.
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
@@ -161,7 +161,7 @@ declare namespace overlay {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Indicates the application bundle name of the overlay bundle to be quired.
    * @param { AsyncCallback<Array<OverlayModuleInfo>> } callback - The callback of getting a list of OverlayModuleInfo object.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
@@ -180,7 +180,7 @@ declare namespace overlay {
    * @param { string } bundleName - Indicates the application bundle name of the overlay bundle to be quired.
    * @param { string } moduleName - Indicates the module name of the overlay module to be queried.
    * @param { AsyncCallback<Array<OverlayModuleInfo>> } callback - The callback of getting a list of OverlayModuleInfo object.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
@@ -201,7 +201,7 @@ declare namespace overlay {
    * @param { string } bundleName - Indicates the application bundle name of the overlay bundle to be quired.
    * @param { string } moduleName - Indicates the module name of the overlay module to be queried.
    * @returns { Promise<Array<OverlayModuleInfo>> } Returns a list of OverlayModuleInfo object.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
@@ -221,7 +221,7 @@ declare namespace overlay {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } targetBundleName - Indicates the application target bundle name of the overlay bundle to be quired.
    * @param { AsyncCallback<Array<OverlayModuleInfo>> } callback - The callback of getting a list of OverlayModuleInfo object.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
@@ -240,7 +240,7 @@ declare namespace overlay {
    * @param { string } targetBundleName - Indicates the application target bundle name of the overlay bundle to be quired.
    * @param { string } moduleName - Indicates the module name of the overlay module to be queried.
    * @param { AsyncCallback<Array<OverlayModuleInfo>> } callback - The callback of getting a list of OverlayModuleInfo object.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
@@ -261,7 +261,7 @@ declare namespace overlay {
    * @param { string } targetBundleName - Indicates the application target bundle name of the overlay bundle to be quired.
    * @param { string } moduleName - Indicates the module name of the overlay module to be queried.
    * @returns { Promise<Array<OverlayModuleInfo>> } Returns a list of OverlayModuleInfo object.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.

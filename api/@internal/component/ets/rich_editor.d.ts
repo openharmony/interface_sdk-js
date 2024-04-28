@@ -205,43 +205,6 @@ declare enum RichEditorResponseType {
 }
 
 /**
- * Define the menu pop-up policy
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 12
- */
-declare enum MenuPolicy {
-  /**
-   * Default value. The default logic of whether to pop up a menu depends on the scene.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  DEFAULT = 0,
-
-  /**
-   * Never pop up menu.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  NEVER = 1,
-
-  /**
-   * Always pop up menu.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  ALWAYS = 2,
-}
-
-/**
  * Defines the span position.
  *
  * @interface RichEditorSpanPosition
@@ -598,6 +561,16 @@ declare interface RichEditorParagraphStyle {
    * @since 12
    */
   wordBreak?: WordBreak;
+
+  /**
+   * Set line break strategy type.
+   *
+   * @type { ?LineBreakStrategy }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  lineBreakStrategy?: LineBreakStrategy;
 }
 
 /**
@@ -1907,26 +1880,6 @@ declare interface KeyboardOptions {
 }
 
 /**
- * Defines the selection options of RichEditor.
- *
- * @interface SelectionOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 12
- */
-declare interface SelectionOptions {
-  /**
-   * Menu pop-up policy.
-   *
-   * @type { ?MenuPolicy }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  menuPolicy?: MenuPolicy;
-}
-
-/**
  * Defines the image span options of RichEditor.
  *
  * @interface RichEditorImageSpanOptions
@@ -2582,7 +2535,16 @@ declare interface SelectionMenuOptions {
    * @atomicservice
    * @since 11
    */
-  onAppear?: () => void;
+    /**
+   * Callback function when the selection menu appears.
+   * 
+   * @type { ?MenuOnAppearCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onAppear?: MenuOnAppearCallback;
 
   /**
    * Callback function when the selection menu disappears.
@@ -3413,6 +3375,18 @@ declare interface CopyEvent {
  * @since 12
  */
 declare type SubmitCallback = (enterKey: EnterKeyType, event: SubmitEvent) => void;
+
+/**
+ * Callback function when the selection menu appears.
+ *
+ * @typedef { function } MenuOnAppearCallback
+ * @param { number } start - Start offset of the selected content in rich editor.
+ * @param { number } end - End offset of the selected content in rich editor.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type MenuOnAppearCallback = (start: number, end: number) => void;
 
 /**
  * Provides an interface for writing texts.

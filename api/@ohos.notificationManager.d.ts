@@ -161,7 +161,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect service.
    * @throws { BusinessError } 1600004 - Notification is not enabled.
    * @throws { BusinessError } 1600005 - Notification slot is not enabled.
-   * @throws { BusinessError } 1600008 - The user is not exist.
+   * @throws { BusinessError } 1600008 - The user does not exist.
    * @throws { BusinessError } 1600009 - Over max number notifications per second.
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
@@ -184,7 +184,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600004 - Notification is not enabled.
    * @throws { BusinessError } 1600005 - Notification slot is not enabled.
    * @throws { BusinessError } 1600007 - The notification is not exist.
-   * @throws { BusinessError } 1600008 - The user is not exist.
+   * @throws { BusinessError } 1600008 - The user does not exist.
    * @throws { BusinessError } 1600009 - Over max number notifications per second.
    * @throws { BusinessError } 1600012 - No memory space.
    * @throws { BusinessError } 1600014 - No relevant right.
@@ -212,7 +212,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect service.
    * @throws { BusinessError } 1600004 - Notification is not enabled.
    * @throws { BusinessError } 1600005 - Notification slot is not enabled.
-   * @throws { BusinessError } 1600008 - The user is not exist.
+   * @throws { BusinessError } 1600008 - The user does not exist.
    * @throws { BusinessError } 1600009 - Over max number notifications per second.
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
@@ -235,7 +235,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600004 - Notification is not enabled.
    * @throws { BusinessError } 1600005 - Notification slot is not enabled.
    * @throws { BusinessError } 1600007 - The notification is not exist.
-   * @throws { BusinessError } 1600008 - The user is not exist.
+   * @throws { BusinessError } 1600008 - The user does not exist.
    * @throws { BusinessError } 1600009 - Over max number notifications per second.
    * @throws { BusinessError } 1600012 - No memory space.
    * @throws { BusinessError } 1600014 - No relevant right.
@@ -264,7 +264,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect service.
    * @throws { BusinessError } 1600004 - Notification is not enabled.
    * @throws { BusinessError } 1600005 - Notification slot is not enabled.
-   * @throws { BusinessError } 1600008 - The user is not exist.
+   * @throws { BusinessError } 1600008 - The user does not exist.
    * @throws { BusinessError } 1600009 - Over max number notifications per second.
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
@@ -294,7 +294,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect service.
    * @throws { BusinessError } 1600004 - Notification is not enabled.
    * @throws { BusinessError } 1600005 - Notification slot is not enabled.
-   * @throws { BusinessError } 1600008 - The user is not exist.
+   * @throws { BusinessError } 1600008 - The user does not exist.
    * @throws { BusinessError } 1600009 - Over max number notifications per second.
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
@@ -318,7 +318,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect service.
    * @throws { BusinessError } 1600004 - Notification is not enabled.
    * @throws { BusinessError } 1600005 - Notification slot is not enabled.
-   * @throws { BusinessError } 1600008 - The user is not exist.
+   * @throws { BusinessError } 1600008 - The user does not exist.
    * @throws { BusinessError } 1600009 - Over max number notifications per second.
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
@@ -409,7 +409,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect service.
    * @throws { BusinessError } 1600007 - The notification is not exist.
-   * @throws { BusinessError } 1600008 - The user is not exist.
+   * @throws { BusinessError } 1600008 - The user does not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -436,7 +436,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect service.
    * @throws { BusinessError } 1600007 - The notification is not exist.
-   * @throws { BusinessError } 1600008 - The user is not exist.
+   * @throws { BusinessError } 1600008 - The user does not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -457,7 +457,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect service.
    * @throws { BusinessError } 1600007 - The notification is not exist.
-   * @throws { BusinessError } 1600008 - The user is not exist.
+   * @throws { BusinessError } 1600008 - The user does not exist.
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -823,7 +823,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect service.
-   * @throws { BusinessError } 1600008 - The user is not exist.
+   * @throws { BusinessError } 1600008 - The user does not exist.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @since 11
@@ -853,7 +853,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect service.
-   * @throws { BusinessError } 1600008 - The user is not exist.
+   * @throws { BusinessError } 1600008 - The user does not exist.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @since 11
@@ -872,7 +872,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect service.
-   * @throws { BusinessError } 1600008 - The user is not exist.
+   * @throws { BusinessError } 1600008 - The user does not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -891,7 +891,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect service.
-   * @throws { BusinessError } 1600008 - The user is not exist.
+   * @throws { BusinessError } 1600008 - The user does not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -1352,7 +1352,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect service.
-   * @throws { BusinessError } 1600008 - The user is not exist.
+   * @throws { BusinessError } 1600008 - The user does not exist.
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1373,7 +1373,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect service.
-   * @throws { BusinessError } 1600008 - The user is not exist.
+   * @throws { BusinessError } 1600008 - The user does not exist.
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1429,7 +1429,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect service.
-   * @throws { BusinessError } 1600008 - The user is not exist.
+   * @throws { BusinessError } 1600008 - The user does not exist.
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1449,7 +1449,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect service.
-   * @throws { BusinessError } 1600008 - The user is not exist.
+   * @throws { BusinessError } 1600008 - The user does not exist.
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -2076,7 +2076,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect service.
-   * @throws { BusinessError } 1600008 - The user is not exist.
+   * @throws { BusinessError } 1600008 - The user does not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -2096,7 +2096,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect service.
-   * @throws { BusinessError } 1600008 - The user is not exist.
+   * @throws { BusinessError } 1600008 - The user does not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -2115,7 +2115,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect service.
-   * @throws { BusinessError } 1600008 - The user is not exist.
+   * @throws { BusinessError } 1600008 - The user does not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -2134,7 +2134,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect service.
-   * @throws { BusinessError } 1600008 - The user is not exist.
+   * @throws { BusinessError } 1600008 - The user does not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9

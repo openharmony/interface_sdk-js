@@ -25,6 +25,8 @@ import * as _AbilityStateData from './application/AbilityStateData';
 import * as _AppStateData from './application/AppStateData';
 import type * as _ProcessData from './application/ProcessData';
 import { ProcessInformation as _ProcessInformation } from './application/ProcessInformation';
+import * as _AbilityFirstFrameStateObserver from './application/AbilityFirstFrameStateObserver';
+import * as _AbilityFirstFrameStateData from './application/AbilityFirstFrameStateData';
 
 /**
  * This module provides the function of app manager service.
@@ -190,6 +192,27 @@ declare namespace appManager {
   }
 
   /**
+   * Enum for the preload mode
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+  export enum PreloadMode {
+    /**
+     * Preload application when press the app icon down.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    PRESS_DOWN
+  }
+
+  /**
    * Register application state observer.
    *
    * @permission ohos.permission.RUNNING_STATE_OBSERVER
@@ -239,6 +262,23 @@ declare namespace appManager {
    * @since 11
    */
   function on(type: 'appForegroundState', observer: AppForegroundStateObserver): void;
+
+  /**
+   * Register ability first frame state observe.
+   *
+   * @permission ohos.permission.RUNNING_STATE_OBSERVER
+   * @param { 'abilityFirstFrameState' } type - The ability first frame drawing state.
+   * @param { AbilityFirstFrameStateObserver } observer - The ability first frame state observer.
+   * @param { string } [bundleName] - The target bundle name.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 12
+   */
+  function on(type: 'abilityFirstFrameState', observer: AbilityFirstFrameStateObserver, bundleName?: string): void;
   
   /**
    * Unregister application state observer.
@@ -289,6 +329,22 @@ declare namespace appManager {
    * @since 11
    */
   function off(type: 'appForegroundState', observer?: AppForegroundStateObserver): void;
+
+  /**
+   * Unregister ability first frame state observer.
+   *
+   * @permission ohos.permission.RUNNING_STATE_OBSERVER
+   * @param { 'abilityFirstFrameState' } type - The ability first frame drawing state.
+   * @param { AbilityFirstFrameStateObserver } [observer] - The ability first frame state observer.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 12
+   */
+  function off(type: 'abilityFirstFrameState', observer?: AbilityFirstFrameStateObserver): void;
   
   /**
    * getForegroundApplications.
@@ -736,6 +792,28 @@ declare namespace appManager {
   function isApplicationRunning(bundleName: string, callback: AsyncCallback<boolean>): void;
 
   /**
+   * Preload the target application, create process and initialize resources.
+   * 
+   * @permission ohos.permission.PRELOAD_APPLICATION
+   * @param { string } bundleName - The bundle name of the application to preload.
+   * @param { number } userId - Indicates the user identification.
+   * @param { PreloadMode } mode - Preload application mode.
+   * @param { number } [appIndex] - The index of application clone.
+   * @returns { Promise<void> } Returns the result of preloadApplication.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16300005 - The target bundle does not exist.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+  function preloadApplication(bundleName: string, userId: number, mode: PreloadMode, appIndex?: number): Promise<void>;
+
+  /**
    * The ability or extension state data.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -794,6 +872,24 @@ declare namespace appManager {
    * @since 10
    */
   export type ProcessData = _ProcessData.default;
+
+  /**
+   * The ability first frame state observer.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 12
+   */
+  export type AbilityFirstFrameStateObserver = _AbilityFirstFrameStateObserver.default;
+
+  /**
+   * The class of an ability first frame state data.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 12
+   */
+  export type AbilityFirstFrameStateData = _AbilityStateData.default;
 }
 
 export default appManager;

@@ -192,7 +192,7 @@ declare namespace inputEventClient {
    * @systemapi hide for inner use
    * @since 12
    */
-    function permitInjection(result: boolean): void;
+   function permitInjection(result: boolean): void;
 }
 
 export default inputEventClient;

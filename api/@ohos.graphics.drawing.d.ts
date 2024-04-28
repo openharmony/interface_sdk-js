@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -301,6 +301,50 @@ declare namespace drawing {
   }
 
   /**
+   * Enumerates storage filter mode.
+   * @enum { number }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  enum FilterMode {
+    /**
+     * Single sample point (nearest neighbor).
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    FILTER_MODE_NEAREST = 0,
+
+    /**
+     * Interpolate between 2x2 sample points (bilinear interpolation).
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    FILTER_MODE_LINEAR = 1,
+  }
+
+  /**
+   * Provides an interface to the drawing, and samplingOptions used when sampling from the image.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  class SamplingOptions {
+    /**
+     * Constructor for the samplingOptions.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    constructor();
+    /**
+     * Constructor for the samplingOptions with filter mode.
+     * @param { FilterMode } filterMode - Storage filter mode.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    constructor(filterMode: FilterMode);
+  }
+
+  /**
    * Provides an interface to the drawing, and how to clip and transform the drawing.
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11
@@ -338,7 +382,7 @@ declare namespace drawing {
     drawCircle(x: number, y: number, radius: number): void;
 
     /**
-     * Draw an pixelmap, with the upper left corner at (left, top).
+     * Draw a pixelmap, with the upper left corner at (left, top).
      * @param { image.PixelMap } pixelmap - PixelMap.
      * @param { number } left - Left side of image.
      * @param { number } top - Top side of image.
@@ -346,7 +390,17 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
-    drawImage(pixelmap: image.PixelMap, left: number, top: number): void;
+    /**
+     * Draw a pixelmap, with the upper left corner at (left, top).
+     * @param { image.PixelMap } pixelmap - PixelMap.
+     * @param { number } left - Left side of image.
+     * @param { number } top - Top side of image.
+     * @param { SamplingOptions } samplingOptions - SamplingOptions used to describe the sampling mode.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    drawImage(pixelmap: image.PixelMap, left: number, top: number, samplingOptions?: SamplingOptions): void;
 
     /**
      * Fills clip with color color. Mode determines how ARGB is combined with destination.
@@ -401,6 +455,22 @@ declare namespace drawing {
     drawTextBlob(blob: TextBlob, x: number, y: number): void;
 
     /**
+     * Draws the pixelmap base on the mesh which is evenly distributed across the pixelmap.
+     * @param { image.PixelMap } pixelmap - The pixelmap to draw using the mesh.
+     * @param { number } meshWidth - The number of columns in the mesh.
+     * @param { number } meshHeight - The number of rows in the mesh.
+     * @param { Array<number> } vertices - Array of vertices, specifying where the mesh should be drawn.
+     * @param { number } vertOffset - Number of vert elements to skip before drawing.
+     * @param { Array<number> } colors - Array of colors, specifying a color at each vertex.
+     * @param { number } colorOffset - Number of color elements to skip before drawing.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    drawPixelMapMesh(pixelmap: image.PixelMap, meshWidth: number, meshHeight: number,
+      vertices: Array<number>, vertOffset: number, colors: Array<number>, colorOffset: number): void;
+
+    /**
      * Set pen to a canvas.
      * @param { Pen } pen - object.
      * @throws { BusinessError } 401 - Parameter error.
@@ -431,6 +501,125 @@ declare namespace drawing {
      * @since 11
      */
     detachBrush(): void;
+
+    /**
+     * Saves the current canvas status (canvas matrix) to the top of the stack.
+     * @returns { number } Return the number of saved states.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    save(): number;
+
+    /**
+     * Restores the canvas status (canvas matrix) saved on the top of the stack.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    restore(): void;
+
+    /**
+     * Restores the specific number of the canvas status (canvas matrix) saved in the stack.
+     * @param { number } count - Depth of state stack to restore.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    restoreToCount(count: number): void;
+
+    /**
+     * Gets the number of the canvas status (canvas matrix) saved in the stack.
+     * @returns { number } Return represent depth of save state stack.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    getSaveCount(): number;
+
+    /**
+     * Scales by sx on the x-axis and sy on the y-axis.
+     * @param { number } sx - Indicates the amount to scale on x-axis.
+     * @param { number } sy - Indicates the amount to scale on y-axis.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    scale(sx: number, sy: number): void;
+
+    /**
+     * Skews by sx on the x-axis and sy on the y-axis.
+     * @param { number } sx - Indicates the value skew transformation on x-axis.
+     * @param { number } sy - Indicates the value skew transformation on y-axis.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    skew(sx: number, sy: number) : void;
+
+    /**
+     * Rotates by degrees, positive degrees rotates clockwise.
+     * @param { number } degrees - Indicates the amount to rotate, in degrees.
+     * @param { number } sx - Indicates the x-axis value of the point to rotate about.
+     * @param { number } sy - Indicates the y-axis value of the point to rotate about.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    rotate(degrees: number, sx: number, sy: number) : void;
+
+    /**
+     * Translates by dx along the x-axis and dy along the y-axis.
+     * @param { number } dx - Indicates the distance to translate on x-axis.
+     * @param { number } dy - Indicates the distance to translate on y-axis.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    translate(dx: number, dy: number): void;
+
+    /**
+     * Replaces the clipping area with the intersection or difference of the current clipping area and path,
+     * and use a clipping edge that is aliased or anti-aliased.
+     * @param { Path } path - To combine with clip.
+     * @param { ClipOp } clipOp - Indicates the operation to apply to clip. The default value is intersect.
+     * @param { boolean } doAntiAlias - True if clip is to be anti-aliased. The default value is false.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    clipPath(path: Path, clipOp?: ClipOp, doAntiAlias?: boolean): void;
+
+    /**
+     * Replaces the clipping area with the intersection or difference between the
+     * current clipping area and Rect, and use a clipping edge that is aliased or anti-aliased.
+     * @param { common2D.Rect } rect - To combine with clipping area.
+     * @param { ClipOp } clipOp - Indicates the operation to apply to clip. The default value is intersect.
+     * @param { boolean } doAntiAlias - True if clip is to be anti-aliased. The default value is false.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    clipRect(rect: common2D.Rect, clipOp?: ClipOp, doAntiAlias?: boolean): void;
+  }
+
+  /**
+   * Enumerates clip operations.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  enum ClipOp {
+    /**
+     * Clips with difference.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    DIFFERENCE = 0,
+    /**
+     * Clips with intersection.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    INTERSECT = 1,
   }
 
   /**
@@ -679,6 +868,68 @@ declare namespace drawing {
      */
     leading: number;
   }
+
+  /**
+   * MaskFilter is the class for object that perform transformations on an alpha-channel mask before drawing it.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  class MaskFilter {
+    /**
+     * Makes a MaskFilter with a blur effect.
+     * @param { BlurType } blurType - Indicates the blur type.
+     * @param { number } sigma - Indicates the standard deviation of the Gaussian blur to apply. Must be > 0.
+     * @returns { MaskFilter } MaskFilter object.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    static createBlurMaskFilter(blurType: BlurType, sigma: number): MaskFilter;
+  }
+
+  /**
+   * Defines a PathEffect, which is used to affects stroked paths.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  class PathEffect {
+    /**
+     * Makes a dash PathEffect.
+     * @param { Array<number> } intervals - Array of ON and OFF distances. Must contain an even number of entries (>=2),
+     * with the even indices specifying the "on" intervals, and the odd indices specifying the "off" intervals.
+     * @param { number } phase - Offset into the intervals array.
+     * @returns { PathEffect } PathEffect object.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    static createDashPathEffect(intervals: Array<number>, phase: number): PathEffect;
+  }
+
+  /**
+   * Defines a ShadowLayer, which is used to specify the color, blur radius, and offset of the shadow.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  class ShadowLayer {
+    /**
+     * Makes a new ShadowLayer.
+     *
+     * @param { number } blurRadius - The blur radius of the shadow.
+     * @param { number } x - The offset point on x-axis.
+     * @param { number } y - The offset point on y-axis.
+     * @param { common2D.Color } color - The shadow color.
+     * @returns { ShadowLayer } ShadowLayer object.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    static create(blurRadius: number, x: number, y: number, color: common2D.Color): ShadowLayer;
+  }
+
   /**
    * ColorFilters are optional objects in the drawing pipeline.
    * 
@@ -736,6 +987,105 @@ declare namespace drawing {
   }
 
   /**
+   * Enumerate join styles. The join style defines the shape of the joins of a
+   * polyline segment drawn by the pen.
+   * @enum { number }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  enum JoinStyle {
+    /**
+     * Miter corner. If the angle of a polyline is small, its miter length may be inappropriate.
+     * In this case, you need to use the miter limit to limit the miter length.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    MITER_JOIN = 0,
+
+    /**
+     * Round corner.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    ROUND_JOIN = 1,
+
+    /**
+     * Bevel corner.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    BEVEL_JOIN = 2
+  }
+
+  /**
+   * Enumerates cap styles of a pen. The cap style defines
+   * the style of both ends of a segment drawn by the pen.
+   * @enum { number }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  enum CapStyle {
+    /**
+     * No cap style. Both ends of the segment are cut off square.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    FLAT_CAP = 0,
+
+    /**
+     * Square cap style. Both ends have a square, the height of which
+     * is half of the width of the segment, with the same width.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    SQUARE_CAP = 1,
+
+    /**
+     * Round cap style. Both ends have a semicircle centered, the diameter of which
+     * is the same as the width of the segment.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    ROUND_CAP = 2
+  }
+
+  /**
+   * Enumerates blur type.
+   * @enum { number }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  enum BlurType {
+    /**
+     * Fuzzy inside and outside.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    NORMAL = 0,
+
+    /**
+     * Solid inside, fuzzy outside.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    SOLID = 1,
+
+    /**
+     * Nothing inside, fuzzy outside.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    OUTER = 2,
+
+    /**
+     * Fuzzy inside, nothing outside.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    INNER = 3
+  }
+
+  /**
    * Provides settings for strokes during drawing.
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11
@@ -787,6 +1137,33 @@ declare namespace drawing {
     */
     setColorFilter(filter: ColorFilter): void;
     /**
+     * Sets MaskFilter to pen.
+     *
+     * @param { MaskFilter } filter - MaskFilter to apply to subsequent draw.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    setMaskFilter(filter: MaskFilter): void;
+    /**
+     * Sets PathEffect to pen.
+     *
+     * @param { PathEffect } effect - PathEffect to apply to subsequent draw.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    setPathEffect(effect: PathEffect): void;
+    /**
+     * Sets ShadowLayer to pen.
+     *
+     * @param { ShadowLayer } shadowLayer - ShadowLayer to apply to subsequent draw.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    setShadowLayer(shadowLayer: ShadowLayer): void;
+    /**
     * Sets a blender that implements the specified blendmode enum.
     * 
     * @param { BlendMode } mode - Blendmode.
@@ -804,6 +1181,40 @@ declare namespace drawing {
     * @since 11
     */
     setDither(dither: boolean): void;
+    /**
+     * Sets the JoinStyle for a pen.
+     *
+     * @param { JoinStyle } style - The JoinStyle.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    setJoinStyle(style: JoinStyle): void;
+    /**
+     * Obtains the JoinStyle of a pen.
+     *
+     * @returns { JoinStyle } The JoinStyle.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    getJoinStyle(): JoinStyle;
+    /**
+     * Sets the CapStyle for a pen.
+     *
+     * @param { CapStyle } style - The CapStyle.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    setCapStyle(style: CapStyle): void;
+    /**
+     * Obtains the CapStyle of a pen.
+     *
+     * @returns { CapStyle } The CapStyle.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    getCapStyle(): CapStyle;
   }
 
   /**
@@ -846,13 +1257,30 @@ declare namespace drawing {
      */
     setColorFilter(filter: ColorFilter): void;
     /**
+     * Sets MaskFilter to brush.
+     * @param { MaskFilter } filter - MaskFilter to apply to subsequent draw.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    setMaskFilter(filter: MaskFilter): void;
+    /**
+     * Sets ShadowLayer to brush.
+     *
+     * @param { ShadowLayer } shadowLayer - ShadowLayer painting.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    setShadowLayer(shadowLayer: ShadowLayer): void;
+    /**
      * Sets a blender that implements the specified blendmode enum.
      * @param { BlendMode } mode - Blendmode.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
-    setBlendMode(mode: BlendMode): void;    
+    setBlendMode(mode: BlendMode): void;
   }
 }
 

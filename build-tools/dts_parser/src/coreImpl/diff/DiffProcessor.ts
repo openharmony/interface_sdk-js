@@ -159,8 +159,8 @@ export namespace DiffProcessorHelper {
         ['famodelonly_stagemodelonly', ApiDiffType.FA_TO_STAGE],
         ['stagemodelonly_famodelonly', ApiDiffType.STAGE_TO_FA],
       ]);
-      const modelLimitationOfOld: string = oldJsDocInfo ? oldJsDocInfo.getModelLimitation() : '';
-      const modelLimitationOfNew: string = newJsDocInfo ? newJsDocInfo.getModelLimitation() : '';
+      const modelLimitationOfOld: string = oldJsDocInfo ? oldJsDocInfo.getModelLimitation().toLowerCase() : '';
+      const modelLimitationOfNew: string = newJsDocInfo ? newJsDocInfo.getModelLimitation().toLowerCase() : '';
       if (modelLimitationOfNew === modelLimitationOfOld) {
         return undefined;
       }

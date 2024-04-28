@@ -46,10 +46,12 @@ import { TextPickerDialogOptions } from 'textPickerDialogParam';
 import type { CustomBuilder, DragItemInfo, DragEvent } from 'DragControllerParam';
 import { MeasureOptions } from './@ohos.measure';
 import type dragController from './@ohos.arkui.dragController';
+import image from './@ohos.multimedia.image';
 import { LocalStorage } from 'StateManagement';
 import type common from './@ohos.app.ability.common';
 import { GestureEvent } from 'GestureEventModule';
 import { ClickEvent } from 'ClickEventModule';
+import type pointer from './@ohos.multimodalInput.pointer';
 
 /**
  * class Font
@@ -1836,6 +1838,60 @@ export class FocusController {
 }
 
 /**
+ * Pointer style.
+ *
+ * @typedef {pointer.PointerStyle} PointerStyle
+ * @syscap SystemCapability.MultimodalInput.Input.Pointer
+ * @since 12
+ */
+export type PointerStyle = pointer.PointerStyle;
+
+/**
+ * class CursorController
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export class CursorController {
+  /**
+   * Restore default cursor.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  restoreDefault(): void;
+  /**
+   * Set cursor style.
+   * 
+   * @param { PointerStyle } value - cursor style enum.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setCursor(value: PointerStyle): void;
+}
+
+/**
+ * class ContextMenuController
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export class ContextMenuController {
+  /**
+   * Close context menu.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  close(): void;
+}
+
+/**
  * The base context of an ability or an application. It allows access to
  * application-specific resources.
  *
@@ -1845,6 +1901,57 @@ export class FocusController {
  * @since 12
  */
 export type Context = common.Context;
+
+/**
+ * class ComponentSnapshot
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+export class ComponentSnapshot {
+  /**
+     * Get a component snapshot by component id.
+     *
+     * @param { string } id - Target component ID, set by developer through .id attribute.
+     * @param { AsyncCallback<image.PixelMap> } callback - Callback that contains the snapshot in PixelMap format.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+  get(id: string, callback: AsyncCallback<image.PixelMap>): void;
+
+  /**
+   * Get a component snapshot by component id.
+   *
+   * @param { string } id - Target component ID, set by developer through .id attribute.
+   * @returns { Promise<image.PixelMap> } A Promise with the snapshot in PixelMap format.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  get(id: string): Promise<image.PixelMap>;
+
+  /**
+   * Generate a snapshot from a custom component builder.
+   *
+   * @param { CustomBuilder } builder - Builder function of a custom component.
+   * @param { AsyncCallback<image.PixelMap> } callback - Callback that contains the snapshot in PixelMap format.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  createFromBuilder(builder: CustomBuilder, callback: AsyncCallback<image.PixelMap>): void;
+
+  /**
+   * Generate a snapshot from a custom component builder.
+   *
+   * @param { CustomBuilder } builder - Builder function of a custom component.
+   * @returns { Promise<image.PixelMap> } A Promise with the snapshot in PixelMap format.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  createFromBuilder(builder: CustomBuilder): Promise<image.PixelMap>;
+}
 
 /**
  * class UIContext
@@ -2302,6 +2409,88 @@ export class UIContext {
   getFocusController(): FocusController;
 
   /**
+   * Get object cursor controller.
+   *
+   * @returns { CursorController } object cursor controller.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getCursorController(): CursorController;
+
+  /**
+   * Get object context menu controller.
+   *
+   * @returns { ContextMenuController } object context menu controller.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getContextMenuController(): ContextMenuController;
+
+  /**
+   * Get ComponentSnapshot.
+   * @returns { ComponentSnapshot } the ComponentSnapshot
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  getComponentSnapshot(): ComponentSnapshot;
+
+  /**
+   * Converts a value in vp units to a value in px.
+   * @param { number } value
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  vp2px(value: number): number;
+
+  /**
+   * Converts a value in px units to a value in vp.
+   * @param { number } value
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  px2vp(value: number): number;
+
+  /**
+   * Converts a value in fp units to a value in px.
+   * @param { number } value
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  fp2px(value: number): number;
+
+  /**
+   * Converts a value in px units to a value in fp.
+   * @param { number } value
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  px2fp(value: number): number;
+
+  /**
+   * Converts a value in lpx units to a value in px.
+   * @param { number } value
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  lpx2px(value: number): number;
+
+  /**
+   * Converts a value in px units to a value in lpx.
+   * @param { number } value
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  px2lpx(value: number): number;
+
+  /**
    * Get current LocalStorage shared from stage.
    *
    * @returns { LocalStorage | undefined }
@@ -2334,6 +2523,16 @@ export class UIContext {
    * @since 12
    */
   setDynamicDimming(id: string, value: number): void;
+
+  /**
+   * Get the name of current window.
+   *
+   * @returns { string | undefined } The name of current window, or undefined if the window doesn't exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getWindowName(): string | undefined;
 }
 
 /**

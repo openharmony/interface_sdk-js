@@ -191,6 +191,40 @@ interface Vector2 {
   y: number
 }
 
+ /**
+  * Defined a vector with two T type values.
+  *
+  * @interface Vector2T
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @atomicservice
+  * @since 12
+  */
+ interface Vector2T<T> {
+
+  /**
+   * Value for x-axis of the vector.
+   *
+   * @type { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  x: T
+
+  /**
+   * Value for y-axis of the vector.
+   *
+   * @type { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  y: T
+}
+
 /**
  * Defined a vector with three values.
  *
@@ -198,6 +232,15 @@ interface Vector2 {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
+ */
+/**
+ * Defined a vector with three values.
+ *
+ * @interface Vector3
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
  */
 interface Vector3 {
   /**
@@ -317,6 +360,15 @@ export type Offset = Vector2;
  * @since 11
  */
 export type Position = Vector2;
+
+/**
+ * PositionT info.
+ * @typedef {Vector2T<T> }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export type PositionT<T> = Vector2T<T>;
 
 /**
  * Pivot info.
@@ -621,18 +673,18 @@ export interface SizeT<T> {
 }
 
 /**
- * Defines the Length Metric.
+ * Defines the Length Metrics.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
-declare class LengthMetric {
+declare class LengthMetrics {
   /**
    * Constructor.
    *
    * @param { number } value - The value of length.
-   * @param { LengthUnit } unit - The length unit.
+   * @param { LengthUnit } [unit] - The length unit.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -640,67 +692,67 @@ declare class LengthMetric {
   constructor(value: number, unit?:LengthUnit);
 
   /**
-   * Init a lengthMetric with px unit.
+   * Init a lengthMetrics with px unit.
    *
-   * @param { number } value - The value of the length metric.
-   * @returns { LengthMetric } Returns the lengthMetric object with unit px.
+   * @param { number } value - The value of the length metrics.
+   * @returns { LengthMetrics } Returns the lengthMetrics object with unit px.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  static px(value: number): LengthMetric;
+  static px(value: number): LengthMetrics;
 
   /**
-   * Init a lengthMetric with vp unit.
+   * Init a lengthMetrics with vp unit.
    *
-   * @param { number } value - The value of the length metric.
-   * @returns { LengthMetric } - Returns the lengthMetric object with unit vp.
+   * @param { number } value - The value of the length metrics.
+   * @returns { LengthMetrics } - Returns the lengthMetrics object with unit vp.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  static vp(value: number): LengthMetric;
+  static vp(value: number): LengthMetrics;
 
   /**
-   * Init a lengthMetric with fp unit.
+   * Init a lengthMetrics with fp unit.
    *
-   * @param { number } value - The value of the length metric.
-   * @returns { LengthMetric } Returns the lengthMetric object with unit fp.
+   * @param { number } value - The value of the length metrics.
+   * @returns { LengthMetrics } Returns the lengthMetrics object with unit fp.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  static fp(value: number): LengthMetric;
+  static fp(value: number): LengthMetrics;
 
   /**
-   * Init a lengthMetric with percent unit.
+   * Init a lengthMetrics with percent unit.
    *
-   * @param { number } value - The value of the length metric.
-   * @returns { LengthMetric } Returns the lengthMetric object with unit percent.
+   * @param { number } value - The value of the length metrics.
+   * @returns { LengthMetrics } Returns the lengthMetrics object with unit percent.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  static percent(value: number): LengthMetric;
+  static percent(value: number): LengthMetrics;
 
   /**
-   * Init a lengthMetric with lpx unit.
+   * Init a lengthMetrics with lpx unit.
    *
-   * @param { number } value - The value of the length metric.
-   * @returns { LengthMetric } Returns the lengthMetric object with unit lpx.
+   * @param { number } value - The value of the length metrics.
+   * @returns { LengthMetrics } Returns the lengthMetrics object with unit lpx.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  static lpx(value: number): LengthMetric;
+  static lpx(value: number): LengthMetrics;
   
   /**
-   * The unit of the LengthMetric. The default value is VP.
+   * The unit of the LengthMetrics. The default value is VP.
    *
    * @type { LengthUnit }
    * @default VP
@@ -711,7 +763,7 @@ declare class LengthMetric {
   public unit: LengthUnit;
 
   /**
-   * The value of the LengthMetric.
+   * The value of the LengthMetrics.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -719,6 +771,112 @@ declare class LengthMetric {
    * @since 12
    */
   public value: number;
+}
+
+/**
+* Defines the ColorMetrics class.
+* 
+* @syscap SystemCapability.ArkUI.ArkUI.Full
+* @crossplatform
+* @since 12
+*/
+declare class ColorMetrics {
+  /**
+  * Instantiate the ColorMetrics class using color number 
+  * 
+  * @param { number } value - color number
+  * @returns { ColorMetrics } ColorMetrics class
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  static numeric(value: number): ColorMetrics;
+
+  /**
+  * Instantiate the ColorMetrics class using color rgb
+  * 
+  * @param { number } red - red value of rgba
+  * @param { number } green - green value of rgba
+  * @param { number } blue - blue value of rgba
+  * @param { number } alpha - opacity value of rgba
+  * @returns { ColorMetrics } ColorMetrics class
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  static rgba(red: number, green: number, blue: number, alpha?: number): ColorMetrics;
+
+  /**
+  * Instantiate the ColorMetrics class using ResourceColor
+  * 
+  * @param { ResourceColor } color - resource color
+  * @returns { ColorMetrics } ColorMetrics class
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  static resourceColor(color: ResourceColor): ColorMetrics;
+	
+  /**
+  * blend color
+  * 
+  * @param { ColorMetrics } overlayColor - overlay color
+  * @returns { ColorMetrics } ColorMetrics class
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  blendColor(overlayColor: ColorMetrics): ColorMetrics;
+	
+  /**
+  * Get color of the ColorMetrics.
+  * 
+  * @returns { string } The color of the ColorMetrics.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+   get color(): string;
+
+  /**
+  * Get red value of the ColorMetrics.
+  * 
+  * @returns { number } The red value of the ColorMetrics.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+   get red(): number;
+
+  /**
+  * Get green value of the ColorMetrics.
+  * 
+  * @returns { number } The green value of the ColorMetrics.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  get green(): number;
+
+  /**
+  * Get blue value of the ColorMetrics.
+  * 
+  * @returns { number } The blue value of the ColorMetrics.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  get blue(): number;
+
+  /**
+  * Get opacity value of the ColorMetrics.
+  * 
+  * @returns { number } The opacity value of the ColorMetrics.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  get alpha(): number;
 }
 
 /**

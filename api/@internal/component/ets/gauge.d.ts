@@ -184,6 +184,46 @@ declare interface GaugeIndicatorOptions {
 }
 
 /**
+ * GaugeConfiguration used by content modifier
+ *
+ * @interface GaugeConfiguration 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface GaugeConfiguration extends CommonConfiguration<GaugeConfiguration> {
+  /**
+   * Current data value.
+   * 
+   * @type { number } data value - the current data value.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  value: number;
+
+  /**
+   * Current Segment Minimum Value.
+   * 
+   * @type { number } segment minimum value - the current segment minimum value.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  min: number;
+
+  /**
+   * Current Segment Maximum Value.
+   * 
+   * @type { number } segment maximum value - the current segment maximum value.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  max: number;
+}
+
+/**
  * @extends CommonMethod<GaugeAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
@@ -448,7 +488,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 12
    */
   trackShadow(value: GaugeShadowOptions): GaugeAttribute;
 
@@ -472,6 +512,17 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @since 12
    */
   indicator(value: GaugeIndicatorOptions): GaugeAttribute;
+
+  /**
+   * Set the content modifier of gauge.
+   *
+   * @param { ContentModifier<GaugeConfiguration> } modifier - The content modifier of gauge.
+   * @returns { GaugeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  contentModifier(modifier: ContentModifier<GaugeConfiguration>): GaugeAttribute;
 }
 
 /**

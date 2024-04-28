@@ -2470,6 +2470,90 @@ declare namespace webview {
   }
 
   /**
+   * Enum type supplied to {@link OfflineResourceMap} for indicating the type of resource.
+   * @enum {number}
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  enum OfflineResourceType {
+    /**
+     * Image resource
+     * 
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    IMAGE,
+
+    /**
+     * CSS resource
+     * 
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    CSS,
+
+    /**
+     * Classic javascript resource
+     * 
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    CLASSIC_JS,
+
+    /**
+     * Module javascript resource
+     * 
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    MODULE_JS
+  }
+
+  /**
+   * Define offline resource's content and info.
+   * @interface OfflineResourceMap
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  interface OfflineResourceMap {
+    /**
+     * Url list of resource.
+     *
+     * @type { Array<string> }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    urlList: Array<string>,
+
+    /**
+     * Arraybuffer of resource.
+     * 
+     * @type { Uint8Array }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    resource: Uint8Array,
+
+    /**
+     * Response headers of resource.
+     *
+     * @type { Array<WebHeader> }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    responseHeaders: Array<WebHeader>,
+
+    /**
+     * Resource type
+     *
+     * @type { OfflineResourceType }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    type: OfflineResourceType
+  }
+
+  /**
    * Provides methods for controlling the web controller.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
@@ -4488,6 +4572,18 @@ declare namespace webview {
     static getRenderProcessMode(): RenderProcessMode;
 
     /**
+     * Terminate render process associated with this controller of the ArkWeb.
+     *
+     * @returns { boolean } true if it was possible to terminate the render process, otherwise false.
+     *         Calling this on a not yet started, or an already terminated render will have no effect.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    terminateRenderProcess(): boolean;
+
+    /**
      * Compile javascript and generate code cache.
      * @param { string } url - Url of the javascript.
      * @param { string | Uint8Array } script - javascript source code.
@@ -4525,6 +4621,25 @@ declare namespace webview {
      * @since 12
      */
     static clearHostIP(hostName: string): void;
+
+    /**
+     * Warmup the registered service worker associated the url.
+     * @param { string } url - The url.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static warmupServiceWorker(url: string): void;
+
+    /**
+     * Inject offline resources into cache.
+     *
+     * @param { Array<OfflineResourceMap> } resourceMaps - array of offline resource info maps.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    injectOfflineResources(resourceMaps: Array<OfflineResourceMap>): void;
   }
 
   /**
@@ -5083,7 +5198,7 @@ declare namespace webview {
      * Initialize data stream.
      * 
      * @returns { Promise<void> } The promise of data stream is initialized.
-     * @throws { BusinessError } 17100022 - Data stream init failed.
+     * @throws { BusinessError } 17100022 - The http body stream init failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5389,7 +5504,7 @@ declare namespace webview {
      * 
      * @param { WebSchemeHandlerResponse } response - Set response header to intercept.
      * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100021 - Resource handler process failed.
+     * @throws { BusinessError } 17100021 - Resource handler is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5400,7 +5515,7 @@ declare namespace webview {
      * 
      * @param { ArrayBuffer } data - Set response body to intercept.
      * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100021 - Resource handler process failed.
+     * @throws { BusinessError } 17100021 - Resource handler is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5409,7 +5524,7 @@ declare namespace webview {
     /**
      * Notify that this request should be finished and there is no more data available.
      * 
-     * @throws { BusinessError } 17100021 - Resource handler process failed.
+     * @throws { BusinessError } 17100021 - Resource handler is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5420,7 +5535,7 @@ declare namespace webview {
      * 
      * @param { WebNetErrorList } code - Set response error code to intercept.
      * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100021 - Resource handler process failed.
+     * @throws { BusinessError } 17100021 - Resource handler is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12

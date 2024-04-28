@@ -79,14 +79,6 @@ declare struct AdComponent {
     interactionListener: advertising.AdInteractionListener;
 
     /**
-     * The builder param to render customized ad content.
-     * @type { ?() => void }
-     * @syscap SystemCapability.Advertising.Ads
-     * @since 12
-     */
-    @BuilderParam adRenderer?: () => void;
-
-    /**
      * The method to build ad component.
      * @syscap SystemCapability.Advertising.Ads
      * @since 11

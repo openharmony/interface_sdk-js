@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Helper functions to access image and video assets
  * @kit MediaLibraryKit
  */
 
@@ -610,7 +610,7 @@ declare namespace photoAccessHelper {
     /**
      * Request video file
      *
-     * @permission ohos.permission.READ_IMAGEVIDEO and ohos.permission.WRITE_IMAGEVIDEO
+     * @permission ohos.permission.READ_IMAGEVIDEO
      * @param { Context } context - Hap context information
      * @param { PhotoAsset } asset - the photo asset requested
      * @param { RequestOptions } requestOptions - the request options
@@ -3134,23 +3134,26 @@ declare namespace photoAccessHelper {
      * @atomicservice
      * @since 11
      */
-    IMAGE_VIDEO_TYPE = '*/*'
+    IMAGE_VIDEO_TYPE = '*/*',
+
+    /**
+     * MOVING_PHOTO_IMAGE_TYPE indicates that the selected media resources are moving photos.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    MOVING_PHOTO_IMAGE_TYPE = 'image/movingPhoto'
   }
 
   /**
-   * PhotoSelectOptions Object
-   *
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @since 10
-   */
-  /**
-   * PhotoSelectOptions Object
+   * Class BaseSelectOptions, which is extracted from class PhotoSelectOptions
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 11
+   * @since 12
    */
-  class PhotoSelectOptions {
+  class BaseSelectOptions {
     /**
      * The Type of the file in the picker window.
      *
@@ -3165,6 +3168,15 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * The Type of the file in the picker window.
+     * Move from class PhotoSelectOptions to it's base class BaseSelectOptions
+     *
+     * @type { ?PhotoViewMIMETypes }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
      */
     MIMEType?: PhotoViewMIMETypes;
 
@@ -3183,6 +3195,15 @@ declare namespace photoAccessHelper {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Maximum number of images for a single selection.
+     * Move from class PhotoSelectOptions to it's base class BaseSelectOptions
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
     maxSelectNumber?: number;
 
     /**
@@ -3192,6 +3213,15 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Support search.
+     * Move from class PhotoSelectOptions to it's base class BaseSelectOptions
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
      */
     isSearchSupported?: boolean;
 
@@ -3203,17 +3233,16 @@ declare namespace photoAccessHelper {
      * @atomicservice
      * @since 11
      */
-    isPhotoTakingSupported?: boolean;
-
     /**
-     * Support editing photos.
+     * Support taking photos.
+     * Move from class PhotoSelectOptions to it's base class BaseSelectOptions
      *
      * @type { ?boolean }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since 11
+     * @since 12
      */
-    isEditSupported?: boolean;
+    isPhotoTakingSupported?: boolean;
 
     /**
     * The recommendation options when use recommendation photo function.
@@ -3223,6 +3252,15 @@ declare namespace photoAccessHelper {
     * @atomicservice
     * @since 11
     */
+    /**
+     * The recommendation options when use recommendation photo function.
+     * Move from class PhotoSelectOptions to it's base class BaseSelectOptions
+     *
+     * @type { ?RecommendationOptions }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
     recommendationOptions?: RecommendationOptions;
 
     /**
@@ -3233,7 +3271,49 @@ declare namespace photoAccessHelper {
      * @atomicservice
      * @since 11
      */
+    /**
+     * The uri for the preselected files.
+     * Move from class PhotoSelectOptions to it's base class BaseSelectOptions
+     *
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
     preselectedUris?: Array<string>;
+  }
+
+  /**
+   * PhotoSelectOptions Object
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 10
+   */
+  /**
+   * PhotoSelectOptions Object
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 11
+   */
+  /**
+   * PhotoSelectOptions extends base class BaseSelectOptions
+   *
+   * @extends BaseSelectOptions
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 12
+   */
+  class PhotoSelectOptions extends BaseSelectOptions {
+    /**
+     * Support editing photos.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 11
+     */
+    isEditSupported?: boolean;
   }
 
   /**
@@ -3779,6 +3859,29 @@ declare namespace photoAccessHelper {
      * @since 11
      */
     addResource(type: ResourceType, proxy: PhotoProxy): void;
+
+    /**
+     * Set camera shot key.
+     *
+     * @param { string } cameraShotKey - Camera shot key of the asset
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    setCameraShotKey(cameraShotKey: string): void;
+
+    /**
+     * Save the photo asset captured by camera.
+     *
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @throws { BusinessError } 14000016 - Operation Not Support
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    saveCameraPhoto(): void;
   }
 
   /**

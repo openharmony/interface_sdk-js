@@ -18,6 +18,8 @@
  * @kit AbilityKit
  */
 
+import bundleManager from './../@ohos.bundle.bundleManager';
+
 /**
  * Indicates the RecoverableApplicationInfo
  *
@@ -70,4 +72,37 @@ export interface RecoverableApplicationInfo {
    * @since 11
    */
   readonly iconId: number;
+
+  /**
+   * Indicates whether the application is a system application
+   *
+   * @type { boolean }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  readonly systemApp: boolean;
+
+  /**
+   * Indicates the type of application.
+   *
+   * @type { bundleManager.BundleType }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  readonly bundleType: bundleManager.BundleType;
+
+  /**
+   * Indicates the application source code path.
+   *
+   * @type { Array<string> }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  readonly codePaths: Array<string>;
 }
