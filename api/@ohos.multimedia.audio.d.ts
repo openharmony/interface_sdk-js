@@ -1983,6 +1983,18 @@ declare namespace audio {
      * @since 11
      */
     getSpatializationManager(): AudioSpatializationManager;
+
+    /**
+     * user disable the safe media volume state.
+     * @permission ohos.permission.MODIFY_AUDIO_SETTINGS
+     * @returns {Promise<void>} Promise used to return the result.
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 202 - Not system App.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 12
+     */
+    disableSafeMediaVolume(): Promise<void>;
   }
 
   /**
@@ -2514,17 +2526,6 @@ declare namespace audio {
      * @since 10
      */
     isActiveSync(volumeType: AudioVolumeType): boolean;
-    /**
-     * user disable the safe media volume state.
-     * @permission ohos.permission.MODIFY_AUDIO_SETTINGS
-     * @returns {Promise<void>} Promise used to return the result.
-     * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 202 - Not system App.
-     * @syscap SystemCapability.Multimedia.Audio.Core
-     * @systemapi
-     * @since 12
-     */
-    disableSafeMediaVolume(): Promise<void>;
   }
 
   /**

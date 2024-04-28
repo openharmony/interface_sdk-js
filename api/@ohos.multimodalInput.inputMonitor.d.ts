@@ -24,6 +24,7 @@ import type display from './@ohos.display';
 import type { TouchEvent } from './@ohos.multimodalInput.touchEvent';
 import type { Rotate, Pinch, ThreeFingersSwipe, FourFingersSwipe } from './@ohos.multimodalInput.gestureEvent';
 import type { ThreeFingersTap } from './@ohos.multimodalInput.gestureEvent';
+import type { FingerprintEvent } from './@ohos.multimodalInput.shortKey';
 
 /**
  * Global input event listener
@@ -102,7 +103,7 @@ declare namespace inputMonitor {
    * @since 11
    */
   function on(type: 'mouse', rect: display.Rect[], receiver: Callback<MouseEvent>): void;
-  
+
   /**
    * Cancel listening for touch input events.
    *
@@ -284,7 +285,7 @@ declare namespace inputMonitor {
    * @since 10
    */
   function off(type: 'fourFingersSwipe', receiver?: Callback<FourFingersSwipe>): void;
-  
+
   /**
    * Listens for touchPad three fingers tap events.
    *
@@ -315,5 +316,34 @@ declare namespace inputMonitor {
    */
   function off(type: 'threeFingersTap', receiver?: Callback<ThreeFingersTap>): void;
 
+  /**
+   * Enables listening for fingerprint key events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { 'fingerprint' } type - Event type, which is **fingerprint**.
+   * @param { Callback<FingerprintEvent> } receiver - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - SystemAPI permit error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 12
+   */
+  function on(type: 'fingerprint', receiver: Callback<FingerprintEvent>): void;
+
+  /**
+   * Cancels listening for fingerprint key events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { 'fingerprint' } type - Event type, which is **fingerprint**.
+   * @param { Callback<FingerprintEvent> } receiver - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - SystemAPI permit error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 12
+   */
+  function off(type: 'fingerprint', receiver?: Callback<FingerprintEvent>): void;
 }
 export default inputMonitor;
