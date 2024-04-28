@@ -105,6 +105,10 @@ export const Plugin: PluginType = {
       },
       {
         isRequiredOption: false,
+        options: ['--isOH <string>', 'detection check labels', ''],
+      },
+      {
+        isRequiredOption: false,
         options: ['--path <string>', 'check api path, split with comma', ''],
       },
       {
@@ -161,6 +165,7 @@ export const Plugin: PluginType = {
       collectPath: argv.collectPath,
       collectFile: argv.collectFile,
       checkLabels: argv.checkLabels,
+      isOH: argv.isOH,
       path: argv.path,
       checker: argv.checker,
       old: argv.old,
@@ -401,6 +406,7 @@ function diffApi(options: OptionObjType): ToolNameValueType {
 }
 function detectionApi(options: OptionObjType): ToolNameValueType {
   process.env.NEED_DETECTION = 'true';
+  process.env.IS_OH = options.isOH;
   options.format = formatType.NULL;
   const fileDir: string = path.resolve(FileUtils.getBaseDirName(), options.collectPath);
   let collectFile: string = '';
@@ -461,7 +467,7 @@ function diffApiCallback(data: BasicDiffInfo[], sheet: ExcelJS.Worksheet, dest?:
       dtsName.replace(/\\/g, '/'),
       SyscapProcessorHelper.matchSubsystem(diffInfo),
       SyscapProcessorHelper.getSingleKitInfo(diffInfo)
-      
+
     ];
   });
 
@@ -514,11 +520,12 @@ export const toolNameMethod: Map<string, ToolNameMethodType> = new Map([
  */
 export type OptionObjType = {
   toolName: toolNameType;
-  path: string;
-  checker: string;
   collectPath: string;
   collectFile: string;
   checkLabels: string;
+  isOH: string;
+  path: string;
+  checker: string;
   old: string;
   new: string;
   oldVersion: string;

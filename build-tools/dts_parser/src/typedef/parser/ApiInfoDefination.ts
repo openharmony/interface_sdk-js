@@ -14,6 +14,7 @@
  */
 
 import ts from 'typescript';
+import path from "path";
 
 import { Comment } from './Comment';
 import { DecoratorInfo } from './Decorator';
@@ -870,8 +871,57 @@ export class ParserParam {
       allowJs: false,
       lib: [...apiLibs, ...this.rootNames],
       module: ts.ModuleKind.CommonJS,
+      baseUrl: "./",
+      paths: {
+        "@/*": ["./*"]
+      },
     };
     const compilerHost: ts.CompilerHost = ts.createCompilerHost(compilerOption);
+    // 设置别名
+    compilerHost.resolveModuleNames = (moduleNames: string[], containingFile: string, reusedNames: string[] | undefined, redirectedReference: ts.ResolvedProjectReference | undefined, compilerOptions: ts.CompilerOptions) => {
+      return moduleNames.map(moduleName => {
+        if (process.env.IS_OH === 'true') {
+          return undefined;
+        }
+        const value: ts.ResolvedModule = {
+          resolvedFileName: '',
+          isExternalLibraryImport: false
+        }
+        const alias: { [key: string]: string } = {
+          "^(@ohos\\.inner\\.)(.*)$": "../../../base/ets/api/",
+          "^(@ohos\\.)(.*)$": "../../../base/ets/api/",
+        };
+        for (const key in alias) {
+          const regex = new RegExp(key);
+          if (regex.test(moduleName)) {
+            moduleName = moduleName.replace(regex, ($0, $1, $2) => {
+              let realPath = '';
+              switch ($1) {
+                case "@ohos.":
+                  realPath = alias[key] + $1 + $2;
+                  break;
+                case "@ohos\.inner\.":
+                  realPath = alias[key] + $2.replace(/\./g, '/');
+                  break;
+                default:
+                  realPath = '';
+                  break;
+              }
+              return realPath;
+            });
+            break;
+          }
+        }
+        const resolvedFileName: string | undefined = ts.resolveModuleName(moduleName, containingFile, compilerOptions, compilerHost).resolvedModule?.resolvedFileName
+        if (resolvedFileName) {
+          value.resolvedFileName = resolvedFileName;
+          value.isExternalLibraryImport = true;
+        } else {
+          return undefined;
+        }
+        return value;
+      });
+    };
     this.tsProgram = ts.createProgram({
       rootNames: [...apiLibs],
       options: compilerOption,
