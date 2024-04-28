@@ -608,7 +608,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @param { string } appId - Globally unique identifier of an application, which is allocated by the cloud.
    * @param { AtomicServiceOptions } [options] - Indicates the atomic service start options.
    * @returns { Promise<AbilityResult> } Returns the result of openAtomicService.
-   * @throws { BusinessError } 401 - Params error. Possible causes: Incorrect parameter types.
+   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000003 - The appId does not exist.
    * @throws { BusinessError } 16000004 - Can not start invisible component
