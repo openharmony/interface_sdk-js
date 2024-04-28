@@ -64,6 +64,24 @@ declare interface SurfaceRect {
 }
 
 /**
+ * Surface rotation options.
+ *
+ * @interface SurfaceRotationOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+declare interface SurfaceRotationOptions {
+  /**
+   * Lock property of the surface rotation.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  lock?: boolean;
+}
+
+/**
  * Defines XComponentController
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -134,6 +152,24 @@ declare class XComponentController {
    * @since 12
    */
   getXComponentSurfaceRect(): SurfaceRect;
+
+  /**
+   * Set the rotation options of the Surface created by XComponent.
+   *
+   * @param { SurfaceRotationOptions } rotationOptions - The surface rotation options.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  setXComponentSurfaceRotation(rotationOptions: SurfaceRotationOptions): void;
+
+  /**
+   * Get the rotation options result of the Surface created by XComponent.
+   *
+   * @returns { Required<SurfaceRotationOptions> } The surface rotation options result.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  getXComponentSurfaceRotation(): Required<SurfaceRotationOptions>;
 
   /**
    * Called after the surface is first created.
