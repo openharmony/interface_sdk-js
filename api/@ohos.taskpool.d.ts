@@ -139,6 +139,29 @@ declare namespace taskpool {
   }
 
   /**
+   * Indicates the type of callback to be registered.
+   *
+   * @typedef { function } CallbackFunction
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  type CallbackFunction = () => void;
+
+  /**
+   * Indicates the type of callback with error code to be registered.
+   *
+   * @typedef { function } CallbackFunctionWithError
+   * @param { Error } e - the error message.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  type CallbackFunctionWithError = (e: Error) => void;
+
+  /**
    * The Task class provides an interface to create a task.
    *
    * @syscap SystemCapability.Utils.Lang
@@ -321,6 +344,58 @@ declare namespace taskpool {
      * @since 11
      */
     removeDependency(...tasks: Task[]): void;
+
+    /**
+     * Register a callback and call it when the task is enqueued.
+     *
+     * @param { CallbackFunction } [callback] - Callback to be registered and executed later on the host side.
+     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 10200034 - The executed task does not support the registration of listeners.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    onEnqueued(callback: CallbackFunction): void;
+
+    /**
+     * Register a callback and call it when the task before execute.
+     *
+     * @param { CallbackFunction } [callback] - Callback to be registered and executed later on the host side.
+     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 10200034 - The executed task does not support the registration of listeners.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    onStartExecution(callback: CallbackFunction): void;
+
+    /**
+     * Register a callback and call it when the task fails to execute.
+     *
+     * @param { CallbackFunctionWithError } [callback] - Callback to be registered and executed later on the host side.
+     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 10200034 - The executed task does not support the registration of listeners.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    onExecutionFailed(callback: CallbackFunctionWithError): void;
+
+    /**
+     * Register a callback and call it when the task successfully executes.
+     *
+     * @param { CallbackFunction } [callback] - Callback to be registered and executed later on the host side.
+     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 10200034 - The executed task does not support the registration of listeners.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    onExecutionSucceeded(callback: CallbackFunction): void;
 
     /**
      * Concurrent function to execute in taskpool.
