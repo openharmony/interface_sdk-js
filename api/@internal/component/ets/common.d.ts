@@ -6342,6 +6342,16 @@ declare interface PickerDialogButtonStyle {
    * @since 12
    */
   borderRadius?: Length | BorderRadiuses;
+
+  /**
+   * Define whether the button default to responding to the Enter key
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  primary?: boolean;
 }
 
 /**
