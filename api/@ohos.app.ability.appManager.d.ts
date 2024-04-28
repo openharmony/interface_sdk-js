@@ -27,6 +27,7 @@ import type * as _ProcessData from './application/ProcessData';
 import { ProcessInformation as _ProcessInformation } from './application/ProcessInformation';
 import * as _AbilityFirstFrameStateObserver from './application/AbilityFirstFrameStateObserver';
 import * as _AbilityFirstFrameStateData from './application/AbilityFirstFrameStateData';
+import bundleManager from './@ohos.bundle.bundleManager';
 
 /**
  * This module provides the function of app manager service.
@@ -613,6 +614,24 @@ declare namespace appManager {
    * @since 11
    */
   function getRunningProcessInformation(): Promise<Array<ProcessInformation>>;
+
+  /**
+   * Get running process information by bundle type.
+   *
+   * @permission ohos.permission.GET_RUNNING_INFO
+   * @param { bundleManager.BundleType } bundleType - the bundle type of the process
+   * @returns { Promise<Array<ProcessInformation>> } Returns the array of {@link ProcessInformation}.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 12
+   */
+  function getRunningProcessInformationByBundleType(
+    bundleType: bundleManager.BundleType): Promise<Array<ProcessInformation>>;
 
   /**
    * If you apply for permission, you can obtain information about all running processes.
