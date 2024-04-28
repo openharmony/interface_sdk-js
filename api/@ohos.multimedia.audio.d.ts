@@ -1773,8 +1773,10 @@ declare namespace audio {
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
      * @since 11
@@ -1787,8 +1789,10 @@ declare namespace audio {
      * @param { Array<string> } subKeys - Sub keys of the audio parameters to get.
      * @returns { Promise<Record<string, string>> } Promise used to return the key-value pairs.
      * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
      * @since 11
@@ -2060,8 +2064,10 @@ declare namespace audio {
      * Obtains the audio devices with a specific flag.
      * @param { DeviceFlag } deviceFlag - Audio device flag.
      * @returns { AudioDeviceDescriptors } The device list.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 10
      */
@@ -2073,8 +2079,10 @@ declare namespace audio {
      * @param { 'deviceChange' } type - Type of the event to listen for. Only the deviceChange event is supported.
      * @param { DeviceFlag } deviceFlag - Audio device flag.
      * @param { Callback<DeviceChangeAction> } callback - Callback used to obtain the device update details.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 9
      */
@@ -2084,8 +2092,10 @@ declare namespace audio {
      * UnSubscribes to device change events.
      * @param { 'deviceChange' } type - Type of the event to listen for. Only the deviceChange event is supported.
      * @param { Callback<DeviceChangeAction> } callback - Callback used to obtain the device update details.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 9
      */
@@ -2096,8 +2106,10 @@ declare namespace audio {
      * @param { DeviceUsage } deviceUsage - Audio device usage.
      * @returns { AudioDeviceDescriptors } The device list.
      * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
      * @since 11
@@ -2111,8 +2123,10 @@ declare namespace audio {
      * @param { DeviceUsage } deviceUsage - Audio device usage.
      * @param { Callback<DeviceChangeAction> } callback - Callback used to obtain the device update details.
      * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
      * @since 11
@@ -2124,8 +2138,10 @@ declare namespace audio {
      * @param { 'availableDeviceChange' } type - Type of the event to listen for. Only the availableDeviceChange event is supported.
      * @param { Callback<DeviceChangeAction> } callback - Callback used to obtain the device update details.
      * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
      * @since 11
@@ -2173,8 +2189,10 @@ declare namespace audio {
      * Checks whether a device is active.
      * @param { CommunicationDeviceType } deviceType - Audio device type.
      * @returns { boolean } The active status of the device.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @since 10
      */
@@ -2243,8 +2261,10 @@ declare namespace audio {
      * Get output device for target audio renderer info.
      * @param { AudioRendererInfo } rendererInfo - Audio renderer information
      * @param { AsyncCallback<AudioDeviceDescriptors> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Input parameter value error. Return by callback.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed. Return by callback.
      * @throws { BusinessError } 6800301 - System error. Return by callback.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 10
@@ -2254,8 +2274,10 @@ declare namespace audio {
      * Get output device for target audio renderer info.
      * @param { AudioRendererInfo } rendererInfo - Audio renderer information.
      * @returns { Promise<AudioDeviceDescriptors> } Promise used to return the result.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Input parameter value error. Return by promise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed. Return by promise.
      * @throws { BusinessError } 6800301 - System error. Return by promise.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 10
@@ -2266,8 +2288,10 @@ declare namespace audio {
      * Gets preferred output device for target audio renderer info.
      * @param { AudioRendererInfo } rendererInfo - Audio renderer information.
      * @returns { AudioDeviceDescriptors } The preferred devices.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 10
      */
@@ -2280,8 +2304,10 @@ declare namespace audio {
      * preferOutputDeviceChangeForRendererInfo event is supported.
      * @param { AudioRendererInfo } rendererInfo - Audio renderer information.
      * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed prefer devices information.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 10
      */
@@ -2291,8 +2317,10 @@ declare namespace audio {
      * @param { 'preferOutputDeviceChangeForRendererInfo' } type - Type of the event to listen for. Only the
      * preferOutputDeviceChangeForRendererInfo event is supported.
      * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed prefer devices in subscribe.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 10
      */
@@ -2302,8 +2330,10 @@ declare namespace audio {
      * Get input device for target audio capturer info.
      * @param { AudioCapturerInfo } capturerInfo - Audio capturer information.
      * @param { AsyncCallback<AudioDeviceDescriptors> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by callback.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed. Return by callback.
      * @throws { BusinessError } 6800301 - System error. Return by callback.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 10
@@ -2313,8 +2343,10 @@ declare namespace audio {
      * Get input device for target audio capturer info.
      * @param { AudioCapturerInfo } capturerInfo - Audio capturer information.
      * @returns { Promise<AudioDeviceDescriptors> } Promise used to return the result.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by promise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed. Return by promise.
      * @throws { BusinessError } 6800301 - System error. Return by promise.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 10
@@ -2327,8 +2359,10 @@ declare namespace audio {
      * @param { 'preferredInputDeviceChangeForCapturerInfo' } type - Type of the event to listen for.
      * @param { AudioCapturerInfo } capturerInfo - Audio capturer information.
      * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed preferred devices information.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 10
      */
@@ -2337,8 +2371,10 @@ declare namespace audio {
      * Unsubscribes to preferred input device change events.
      * @param { 'preferredInputDeviceChangeForCapturerInfo' } type - Type of the event to listen for.
      * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed preferred devices in subscribe.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 10
      */
@@ -2348,8 +2384,10 @@ declare namespace audio {
      * Gets preferred input device for target audio capturer info.
      * @param { AudioCapturerInfo } capturerInfo - Audio capturer information.
      * @returns { AudioDeviceDescriptors } The preferred devices.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 10
      */
@@ -2415,8 +2453,10 @@ declare namespace audio {
      * Gets information of audio effects.
      * @param { StreamUsage } usage - Stream usage.
      * @param { AsyncCallback<AudioEffectInfoArray> } callback - Callback used to return the information of audio effects.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by callback.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed. Return by callback.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 10
      */
@@ -2425,8 +2465,10 @@ declare namespace audio {
      * Gets information of audio effects.
      * @param { StreamUsage } usage - Stream usage.
      * @returns { Promise<AudioEffectInfoArray> } Promise used to return the information of audio effects.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by promise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed. Return by promise.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 10
      */
@@ -2435,8 +2477,10 @@ declare namespace audio {
      * Gets information of audio effects.
      * @param { StreamUsage } usage - Stream usage.
      * @returns { AudioEffectInfoArray } The information of audio effects.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 10
      */
@@ -2447,8 +2491,10 @@ declare namespace audio {
      * registered clients will receive the callback.
      * @param { 'audioRendererChange' } type - Type of the event to listen for. Only the audioRendererChange event is supported.
      * @param { Callback<AudioRendererChangeInfoArray> } callback - Callback invoked for the audio renderer change event.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 9
      */
@@ -2457,8 +2503,10 @@ declare namespace audio {
     /**
      * UnSubscribes to audio renderer change events.
      * @param { 'audioRendererChange' } type - Type of the event to listen for. Only the audioRendererChange event is supported.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 9
      */
@@ -2469,8 +2517,10 @@ declare namespace audio {
      * registered clients will receive the callback.
      * @param { 'audioCapturerChange' } type - Type of the event to listen for. Only the audioCapturerChange event is supported.
      * @param { Callback<AudioCapturerChangeInfoArray> } callback - Callback invoked for the audio capturer change event.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 9
      */
@@ -2479,8 +2529,10 @@ declare namespace audio {
     /**
      * UnSubscribes to audio capturer change events.
      * @param { 'audioCapturerChange' } type - Type of the event to listen for. Only the audioCapturerChange event is supported.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 9
      */
@@ -2508,8 +2560,10 @@ declare namespace audio {
      * Checks whether a stream is active.
      * @param { AudioVolumeType } volumeType - Audio stream type.
      * @returns { boolean } The active status of the stream.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 10
      */
@@ -2556,8 +2610,10 @@ declare namespace audio {
      * Get the volume group list for a networkId.
      * @param { string } networkId - Distributed deice net work id
      * @returns { VolumeGroupInfos } Volume group info list.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
      * @since 10
@@ -2584,8 +2640,10 @@ declare namespace audio {
      * Obtains an AudioVolumeGroupManager instance.
      * @param { number } groupId - volume group id, use LOCAL_VOLUME_GROUP_ID in default
      * @returns { AudioVolumeGroupManager } The audio volume group manager instance.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 10
      */
@@ -2595,8 +2653,10 @@ declare namespace audio {
      * Listens for system volume change events. This method uses a callback to get volume change events.
      * @param { 'volumeChange' } type - Type of the event to listen for. Only the volumeChange event is supported.
      * @param { Callback<VolumeEvent> } callback - Callback used to get the system volume change event.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 9
      */
@@ -2668,8 +2728,10 @@ declare namespace audio {
      * Obtains the volume of a stream.
      * @param { AudioVolumeType } volumeType - Audio stream type.
      * @returns { number } Current system volume level.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 10
      */
@@ -2695,8 +2757,10 @@ declare namespace audio {
      * Obtains the minimum volume allowed for a stream.
      * @param { AudioVolumeType } volumeType - Audio stream type.
      * @returns { number } Min volume level.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 10
      */
@@ -2722,8 +2786,10 @@ declare namespace audio {
      * Obtains the maximum volume allowed for a stream.
      * @param { AudioVolumeType } volumeType - Audio stream type.
      * @returns { number } Max volume level.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 10
      */
@@ -2775,8 +2841,10 @@ declare namespace audio {
      * @param { AudioVolumeType } volumeType - Audio stream type.
      * @returns { boolean } The mute status of the stream. The value true
      * means that the stream is muted, and false means the opposite.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 10
      */
@@ -2829,8 +2897,10 @@ declare namespace audio {
      * Listens for ringer mode change events. This method uses a callback to get ringer mode changes.
      * @param { 'ringerModeChange' } type - Type of the event to listen for. Only the ringerModeChange event is supported.
      * @param { Callback<AudioRingMode> } callback - Callback used to get the updated ringer mode.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 9
      */
@@ -2866,8 +2936,10 @@ declare namespace audio {
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
      * @since 11
@@ -2903,8 +2975,10 @@ declare namespace audio {
      * Listens for system microphone state change events. This method uses a callback to get microphone change events.
      * @param { 'micStateChange' } type - Type of the event to listen for. Only the micStateChange event is supported.
      * @param { Callback<MicStateChangeEvent> } callback - Callback used to get the system microphone state change event.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 9
      */
@@ -2925,8 +2999,10 @@ declare namespace audio {
      * @param { VolumeAdjustType } adjustType - Volume adjustment type.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by callback.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed. Return by callback.
      * @throws { BusinessError } 6800301 - System error. Return by callback.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
@@ -2940,8 +3016,10 @@ declare namespace audio {
      * @param { VolumeAdjustType } adjustType - Volume adjustment type.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by promise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed. Return by promise.
      * @throws { BusinessError } 6800301 - System error. Return by promise.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
@@ -2957,8 +3035,10 @@ declare namespace audio {
      * @param { VolumeAdjustType } adjustType - Volume adjustment type.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by callback.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed. Return by callback.
      * @throws { BusinessError } 6800301 - System error. Return by callback.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
@@ -2973,8 +3053,10 @@ declare namespace audio {
      * @param { VolumeAdjustType } adjustType - Volume adjustment type.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by promise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed. Return by promise.
      * @throws { BusinessError } 6800301 - System error. Return by promise.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
@@ -2989,8 +3071,10 @@ declare namespace audio {
      * @param { number } volumeLevel - Volume level to set.
      * @param { DeviceType } device - Output device type.
      * @param { AsyncCallback<number> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by callback.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed. Return by callback.
      * @throws { BusinessError } 6800301 - System error. Return by callback.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 10
@@ -3003,8 +3087,10 @@ declare namespace audio {
      * @param { number } volumeLevel - Volume level to set.
      * @param { DeviceType } device - Output device type.
      * @returns { Promise<number> } Promise used to return the result.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by promise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed. Return by promise.
      * @throws { BusinessError } 6800301 - System error. Return by promise.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 10
@@ -3016,8 +3102,10 @@ declare namespace audio {
      * @param { number } volumeLevel - Volume level to set.
      * @param { DeviceType } device - Output device type.
      * @returns { number } The system volume in dB.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 10
      */
@@ -3028,8 +3116,10 @@ declare namespace audio {
      * This method uses a promise to return the result.
      * @param { AudioDeviceDescriptor } inputDevice - the target device.
      * @returns { Promise<number> } Promise used to return the max amplitude value.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by promise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed. Return by promise.
      * @throws { BusinessError } 6800301 - System error. Return by promise.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 12
@@ -3040,8 +3130,10 @@ declare namespace audio {
      * This method uses a promise to return the result.
      * @param { AudioDeviceDescriptor } outputDevice - the target device.
      * @returns { Promise<number> } Promise used to return the max amplitude value.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by promise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed. Return by promise.
      * @throws { BusinessError } 6800301 - System error. Return by promise.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 12
@@ -3072,8 +3164,10 @@ declare namespace audio {
      * @param { AudioDeviceDescriptor } deviceDescriptor - Audio device description.
      * @returns { boolean } Whether spatialization is supported by the specified device.
      * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
@@ -3095,8 +3189,10 @@ declare namespace audio {
      * @param { AudioDeviceDescriptor } deviceDescriptor - Audio device description.
      * @returns { boolean } Whether head tracking is supported by the specified device.
      * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
@@ -3110,8 +3206,10 @@ declare namespace audio {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied. Return by callback.
      * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
@@ -3124,7 +3222,9 @@ declare namespace audio {
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied. Return by promise.
      * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
@@ -3147,8 +3247,10 @@ declare namespace audio {
      * @param { 'spatializationEnabledChange' } type - Type of the event to listen for.
      * @param { Callback<boolean> } callback - Callback used to get the spatialization enable state.
      * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
@@ -3160,8 +3262,10 @@ declare namespace audio {
      * @param { 'spatializationEnabledChange' } type - Type of the event to listen for.
      * @param { Callback<boolean> } callback - Callback used to get the spatialization enable state.
      * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
@@ -3175,8 +3279,10 @@ declare namespace audio {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied. Return by callback.
      * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
@@ -3189,7 +3295,9 @@ declare namespace audio {
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied. Return by promise.
      * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
@@ -3212,8 +3320,10 @@ declare namespace audio {
      * @param { 'headTrackingEnabledChange' } type - Type of the event to listen for.
      * @param { Callback<boolean> } callback - Callback used to get the head tracking enable state.
      * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
@@ -3225,8 +3335,10 @@ declare namespace audio {
      * @param { 'headTrackingEnabledChange' } type - Type of the event to listen for.
      * @param { Callback<boolean> } callback - Callback used to get the head tracking enable state.
      * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
@@ -3239,8 +3351,10 @@ declare namespace audio {
      * @param { AudioSpatialDeviceState } spatialDeviceState - Spatial device state.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
@@ -3253,8 +3367,10 @@ declare namespace audio {
      * @param { AudioSpatializationSceneType } spatializationSceneType - Spatialization scene type.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 12
@@ -3348,6 +3464,7 @@ declare namespace audio {
 
   /**
    * Array of VolumeGroupInfos, which is read-only.
+   * @typedef { Array<Readonly<VolumeGroupInfo>> } VolumeGroupInfos
    * @syscap SystemCapability.Multimedia.Audio.Volume
    * @systemapi
    * @since 9
@@ -3356,6 +3473,7 @@ declare namespace audio {
 
   /**
    * Array of AudioRendererChangeInfo, which is read-only.
+   * @typedef { Array<Readonly<AudioRendererChangeInfo>> } AudioRendererChangeInfoArray
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    * @since 9
    */
@@ -3408,6 +3526,7 @@ declare namespace audio {
 
   /**
    * Array of AudioCapturerChangeInfo, which is read-only.
+   * @typedef { Array<Readonly<AudioCapturerChangeInfo>> } AudioCapturerChangeInfoArray
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @since 9
    */
@@ -3565,6 +3684,7 @@ declare namespace audio {
 
   /**
    * Array of AudioDeviceDescriptors, which is read-only.
+   * @typedef { Array<Readonly<AudioDeviceDescriptor>> } AudioDeviceDescriptors
    * @syscap SystemCapability.Multimedia.Audio.Device
    * @since 7
    */
@@ -3918,8 +4038,10 @@ declare namespace audio {
      * Sets the current audio effect mode. This method uses an asynchronous callback to return the result.
      * @param { AudioEffectMode } mode - Audio effect mode.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by callback.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed. Return by callback.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 10
      */
@@ -3928,8 +4050,10 @@ declare namespace audio {
      * Sets the current audio effect mode. This method uses a promise to return the result.
      * @param { AudioEffectMode } mode - Audio effect mode.
      * @returns { Promise<void> } Promise used to return the result.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by promise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed. Return by promise.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 10
      */
@@ -4114,8 +4238,10 @@ declare namespace audio {
     /**
      * Sets the playback speed.
      * @param { number } speed -  Audio playback speed. The value type is float, form 0.25 to 4.0.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 11
      */
@@ -4178,8 +4304,10 @@ declare namespace audio {
     /**
      * Set interrupt mode.
      * @param { InterruptMode } mode - The interrupt mode.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Interrupt
      * @since 10
      */
@@ -4214,8 +4342,10 @@ declare namespace audio {
      * Changes the volume with ramp for a duration.
      * @param { number } volume - Volume to set. The value type is float, form 0.0 to 1.0.
      * @param { number } duration -  Duration for volume ramp, in millisecond.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 11
      */
@@ -4314,8 +4444,10 @@ declare namespace audio {
     /**
      * Sets channel blend mode for this stream.
      * @param { ChannelBlendMode } mode - Target channel blend mode.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @throws { BusinessError } 6800103 - Operation not permit at current state.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 11
@@ -4327,8 +4459,10 @@ declare namespace audio {
      * triggered when audio playback is interrupted.
      * @param { 'audioInterrupt' } type - Type of the event to listen for. Only the audioInterrupt event is supported.
      * @param { Callback<InterruptEvent> } callback - Callback used to listen for interrupt callback.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Interrupt
      * @since 9
      */
@@ -4384,8 +4518,10 @@ declare namespace audio {
      * The event is triggered when output device change for this stream.
      * @param { 'outputDeviceChange' } type - Type of the event to listen for.
      * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to listen device change event.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 10
      */
@@ -4396,8 +4532,10 @@ declare namespace audio {
      * The event is triggered when output device change for this stream.
      * @param { 'outputDeviceChangeWithInfo' } type - Type of the event to listen for.
      * @param { Callback<AudioStreamDeviceChangeInfo> } callback - Callback used to listen device change event.
-     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - if input parameter value error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 11
      */
@@ -4407,8 +4545,10 @@ declare namespace audio {
      * Unsubscribes output device change event callback.
      * @param { 'outputDeviceChange' } type - Type of the event to listen for.
      * @param { Callback<AudioDeviceDescriptors> } callback - Callback used in subscribe.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 10
      */
@@ -4418,8 +4558,10 @@ declare namespace audio {
      * Unsubscribes output device change event callback.
      * @param { 'outputDeviceChangeWithInfo' } type - Type of the event to listen for.
      * @param { Callback<AudioStreamDeviceChangeInfo> } callback - Callback used in subscribe.
-     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - if input parameter value error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 11
      */
@@ -4430,8 +4572,10 @@ declare namespace audio {
      * The event is triggered when audio buffer is available for writing more data.
      * @param { 'writeData' } type - Type of the event to listen for.
      * @param { Callback<ArrayBuffer> } callback - Callback with buffer to write.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 11
      */
@@ -4441,8 +4585,10 @@ declare namespace audio {
      * Unsubscribes audio data callback.
      * @param { 'writeData' } type - Type of the event to listen for.
      * @param { Callback<ArrayBuffer> } callback - Callback used in subscribe.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 11
      */
@@ -4877,8 +5023,10 @@ declare namespace audio {
      * triggered when audio recording is interrupted.
      * @param { 'audioInterrupt' } type - Type of the event to listen for. Only the audioInterrupt event is supported.
      * @param { Callback<InterruptEvent> } callback - Callback used to listen for interrupt callback.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Interrupt
      * @since 10
      */
@@ -4887,8 +5035,10 @@ declare namespace audio {
     /**
      * UnSubscribes to audio interrupt events.
      * @param { 'audioInterrupt' } type - Type of the event to listen for. Only the audioInterrupt event is supported.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Interrupt
      * @since 10
      */
@@ -4899,8 +5049,10 @@ declare namespace audio {
      * The event is triggered when input device change for this stream.
      * @param { 'inputDeviceChange' } type - Type of the event to listen for.
      * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to listen device change event.
-     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - if input parameter value error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 11
      */
@@ -4909,8 +5061,10 @@ declare namespace audio {
      * Unsubscribes input device change event callback.
      * @param { 'inputDeviceChange' } type - Type of the event to listen for.
      * @param { Callback<AudioDeviceDescriptors> } callback - Callback used in subscribe.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 11
      */
@@ -4921,8 +5075,10 @@ declare namespace audio {
      * The event is triggered when input device change for this stream.
      * @param { 'audioCapturerChange' } type - Type of the event to listen for.
      * @param { Callback<AudioCapturerChangeInfo> } callback - Callback used to listen device change event.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 11
      */
@@ -4931,8 +5087,10 @@ declare namespace audio {
      * Unsubscribes audio capturer info change event callback.
      * @param { 'audioCapturerChange' } type - Type of the event to listen for.
      * @param { Callback<AudioCapturerChangeInfo> } callback - Callback used in subscribe.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 11
      */
@@ -4943,8 +5101,10 @@ declare namespace audio {
      * The event is triggered when audio buffer is available for reading more data.
      * @param { 'readData' } type - Type of the event to listen for.
      * @param { Callback<ArrayBuffer> } callback - Callback with the buffer to read.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 11
      */
@@ -4954,8 +5114,10 @@ declare namespace audio {
      * Unsubscribes audio data callback.
      * @param { 'readData' } type - Type of the event to listen for.
      * @param { Callback<ArrayBuffer> } callback - Callback used in subscribe.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 11
      */
@@ -5037,8 +5199,10 @@ declare namespace audio {
      * @param { AsrAecMode } mode - ASR AEC Mode.
      * @returns { boolean } Indicates whether the mode has been successfully set.
      * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @throws { BusinessError } 6800104 - Operation not allowed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
@@ -5062,8 +5226,10 @@ declare namespace audio {
      * @param { AsrNoiseSuppressionMode } mode - ASR noise suppression mode.
      * @returns { boolean } Indicates whether the mode has been successfully set.
      * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @throws { BusinessError } 6800104 - Operation not allowed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
@@ -5100,8 +5266,10 @@ declare namespace audio {
    * of this capturer must be {@link SourceType#SOURCE_TYPE_VOICE_RECOGNITION}.
    * @returns { AsrProcessingController } ASR Processing Controller.
    * @throws { BusinessError } 202 - Caller is not a system application.
-   * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-   * @throws { BusinessError } 6800101 - Input parameter value error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                                 1.Mandatory parameters are left unspecified;
+   *                                 2.Incorrect parameter types.
+   * @throws { BusinessError } 6800101 - Parameter verification failed.
    * @throws { BusinessError } 6800104 - Operation not allowed. e.g. the source type of the input audio capturer is not
    * {@link SourceType#SOURCE_TYPE_VOICE_RECOGNITION} or {@link SourceType#SOURCE_TYPE_WAKEUP}, or this audio capturer
    * is already released.
@@ -5391,6 +5559,7 @@ declare namespace audio {
 
   /**
    * Array of AudioEffectMode, which is read-only.
+   * @typedef { Array<Readonly<AudioEffectMode>> } AudioEffectInfoArray
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    * @since 10
    */
