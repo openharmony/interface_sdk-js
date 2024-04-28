@@ -1855,7 +1855,8 @@ declare namespace distributedKVStore {
     /**
      * Backs up a database in the specified filename.
      *
-     * @param { string } file - Indicates the database backup filename, It can not be empty.
+     * @param { string } file - Indicates the database backup filename, It can not be empty and
+     * The length must be less than {@code MAX_KEY_LENGTH}.
      * @param { AsyncCallback<void> } callback - the callback of backup.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *                                                                 2.Parameter verification failed.
@@ -1868,7 +1869,8 @@ declare namespace distributedKVStore {
     /**
      * Backs up a database in the specified filename.
      *
-     * @param { string } file - Indicates the database backup filename, It can not be empty.
+     * @param { string } file - Indicates the database backup filename, It can not be empty and
+     * The length must be less than {@code MAX_KEY_LENGTH}.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *                                                                 2.Parameter verification failed.
@@ -1881,7 +1883,8 @@ declare namespace distributedKVStore {
     /**
      * Restores a database from a specified database file.
      *
-     * @param { string } file - Indicates the database backup filename, It can not be empty.
+     * @param { string } file - Indicates the database backup filename, It can not be empty and
+     * The length must be less than {@code MAX_KEY_LENGTH}.
      * @param { AsyncCallback<void> } callback - the callback of restore.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *                                                                 2.Parameter verification failed.
@@ -1894,7 +1897,8 @@ declare namespace distributedKVStore {
     /**
      * Restores a database from a specified database file.
      *
-     * @param { string } file - Indicates the database backup filename, It can not be empty.
+     * @param { string } file - Indicates the database backup filename, It can not be empty and
+     * The length must be less than {@code MAX_KEY_LENGTH}.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *                                                                 2.Parameter verification failed.
@@ -1907,7 +1911,8 @@ declare namespace distributedKVStore {
     /**
      * Delete database backup files based on the specified filenames.
      *
-     * @param { Array<string> } files - Indicates the backup filenames to be deleted, It can not be empty.
+     * @param { Array<string> } files - Indicates the backup filenames to be deleted, It can not be empty and
+     * The length must be less than {@code MAX_KEY_LENGTH}.
      * @param { AsyncCallback<Array<[string, number]>> } callback - {Array<[string, number]>}:
      * the list of backup file and it's corresponding delete result which 0 means delete success
      * and otherwise failed.
@@ -1921,7 +1926,8 @@ declare namespace distributedKVStore {
     /**
      * Delete database backup files based on the specified filenames.
      *
-     * @param { Array<string> } files - Indicates the backup filenames to be deleted, It can not be empty.
+     * @param { Array<string> } files - Indicates the backup filenames to be deleted, It can not be empty and
+     * The length must be less than {@code MAX_KEY_LENGTH}.
      * @returns { Promise<Array<[string, number]>> } {Array<[string, number]>}: the list of backup
      * file and it's corresponding delete result which 0 means delete success and otherwise failed.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
@@ -2277,8 +2283,8 @@ declare namespace distributedKVStore {
     /**
      * Obtains the value matching a specified device ID and key.
      *
-     * @param { string } deviceId - Indicates the device to be queried. The length must be less than {@code MAX_KEY_LENGTH}.
-     * @param { string } key - Indicates the key of the value to be queried.
+     * @param { string } deviceId - Indicates the device to be queried.
+     * @param { string } key - Indicates the key of the value to be queried. The length must be less than {@code MAX_KEY_LENGTH}.
      * @param { AsyncCallback<boolean | string | number | Uint8Array> } callback -
      * {boolean | string | number | Uint8Array}: the returned value specified by the deviceId and key.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
@@ -2295,8 +2301,8 @@ declare namespace distributedKVStore {
     /**
      * Obtains the value matching a specified device ID and key.
      *
-     * @param { string } deviceId - Indicates the device to be queried. The length must be less than {@code MAX_KEY_LENGTH}.
-     * @param { string } key - Indicates the key of the value to be queried.
+     * @param { string } deviceId - Indicates the device to be queried.
+     * @param { string } key - Indicates the key of the value to be queried. The length must be less than {@code MAX_KEY_LENGTH}.
      * @returns { Promise<boolean | string | number | Uint8Array> }
      * {Uint8Array|string|boolean|number}: the returned value specified by the deviceId and key.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
