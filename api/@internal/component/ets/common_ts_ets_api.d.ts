@@ -53,7 +53,7 @@ declare class AppStorage {
    * @crossplatform
    * @since 12
    */
-  static ref<T>(propName: string): AbstractProperty<T> | undefined
+  static ref<T>(propName: string): AbstractProperty<T> | undefined;
 
   /**
    * Obtain a handler or an alias to AppStorage property with given name.
@@ -68,7 +68,7 @@ declare class AppStorage {
    * @crossplatform
    * @since 12
    */
-  static setAndRef<T>(propName: string, defaultValue: T): AbstractProperty<T>
+  static setAndRef<T>(propName: string, defaultValue: T): AbstractProperty<T>;
 
   /**
    * Called when a link is set.
@@ -1789,7 +1789,7 @@ declare class LocalStorage {
    * @crossplatform
    * @since 12
    */
-   public ref<T>(propName: string): AbstractProperty<T> | undefined
+   public ref<T>(propName: string): AbstractProperty<T> | undefined;
 
    /**
     * Obtain a handler or an alias to LocalStorage property with given name.
@@ -1804,7 +1804,7 @@ declare class LocalStorage {
     * @crossplatform
     * @since 12
     */
-   public setAndRef<T>(propName: string, defaultValue: T): AbstractProperty<T>
+   public setAndRef<T>(propName: string, defaultValue: T): AbstractProperty<T>;
 
   /**
    * Check if LocalStorage has a property with given name
