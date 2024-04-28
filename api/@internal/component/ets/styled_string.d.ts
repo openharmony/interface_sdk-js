@@ -614,18 +614,6 @@ declare class ParagraphStyle {
     readonly textIndent?: number;
 
     /**
-     * Get the line height of the StyledString.
-     * The unit is vp.
-     *
-     * @type { ?number } - the line height of the StyledString or undefined
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 12
-     */
-    readonly lineHeight?: number;
-
-    /**
      * Get the maximum number of lines of the StyledString.
      *
      * @type { ?number } - the maximum number of the StyledString or undefined
@@ -700,16 +688,6 @@ declare interface ParagraphStyleInterface {
     textIndent?: LengthMetrics;
 
     /**
-     * Set the line height.
-     *
-     * @type { ?LengthMetrics }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 12
-     */
-    lineHeight?: LengthMetrics;
-
-    /**
      * The maximum number of lines of content.
      *
      * @type { ?number }
@@ -749,15 +727,50 @@ declare interface ParagraphStyleInterface {
      */
     leadingMargin?: LengthMetrics | LeadingMarginPlaceholder;
 }
+
 /**
- * Defines the Span Type.
+ * Defines LineHeightStyle.
  *
- * @typedef { TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle | TextShadowStyle | GestureStyle | ImageAttachment | ParagraphStyle | CustomSpan } StyledStringValue
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
-declare type StyledStringValue = TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle | TextShadowStyle | GestureStyle | ImageAttachment | ParagraphStyle | CustomSpan;
+declare class LineHeightStyle {
+   
+    /**
+     * constructor.
+     *
+     * @param { LengthMetrics } lineHeight - line height value.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    constructor(lineHeight: LengthMetrics);
+
+    /**
+     * Get the lineHeight value of the StyledString.
+     * The unit is vp.
+     * 
+     * @type { number } - the lineHeight value of the StyledString
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    readonly lineHeight: number;
+}
+
+/**
+ * Defines the Span Type.
+ *
+ * @typedef { TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle | TextShadowStyle | 
+ * GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | CustomSpan } StyledStringValue
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type StyledStringValue = TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle | TextShadowStyle | 
+GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | CustomSpan;
 
 /**
  * MutableStyledString
@@ -951,6 +964,15 @@ declare enum StyledStringKey {
       * @since 12
       */
      TEXT_SHADOW = 4,
+
+     /**
+      * The key of LineHeightStyle.
+      *
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @crossplatform
+      * @since 12
+      */
+     LINE_HEIGHT = 5,
 
     /**
      * The key of GestureStyle.
@@ -1300,5 +1322,5 @@ declare abstract class CustomSpan {
      * @crossplatform
      * @since 12
      */
-    abstract onDraw(context: DrawContext,  drawInfo: CustomSpanDrawInfo): void;
+    abstract onDraw(context: DrawContext, drawInfo: CustomSpanDrawInfo): void;
 }
