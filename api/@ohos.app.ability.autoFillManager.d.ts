@@ -24,6 +24,8 @@ import type * as _PageNodeInfo from './application/PageNodeInfo';
 import { AutoFillType } from './application/AutoFillType';
 import type * as _AutoFillRequest from './application/AutoFillRequest';
 import type * as _AutoFillRect from './application/AutoFillRect';
+import type * as _AutoFillPopupConfig from './application/AutoFillPopupConfig';
+import { PopupPlacement } from './application/AutoFillPopupConfig';
 
 /**
  * This module provides the function of auto fill manager.
@@ -174,6 +176,38 @@ declare namespace autoFillManager {
    * @since 12
    */
   export type AutoFillRect = _AutoFillRect.default;
+
+  /**
+   * The auto fill popup config.
+   *
+   * @typedef { _AutoFillPopupConfig.default } AutoFillPopupConfig
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+  export type AutoFillPopupConfig = _AutoFillPopupConfig.default;
+
+  /**
+   * The popup size of auto fill popup config.
+   *
+   * @typedef { _AutoFillPopupConfig.PopupSize } PopupSize
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+  export type PopupSize = _AutoFillPopupConfig.PopupSize;
+
+  /**
+   * The popup placement of auto fill popup config.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+  export { PopupPlacement };
 }
 
 export default autoFillManager;

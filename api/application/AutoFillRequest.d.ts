@@ -19,6 +19,7 @@
  */
 
 import type { AutoFillType } from './AutoFillType';
+import type AutoFillPopupConfig from './AutoFillPopupConfig';
 import type ViewData from './ViewData';
 
 /**
@@ -178,6 +179,20 @@ export interface FillRequestCallback {
    * @since 11
    */
   onCancel(): void;
+
+  /**
+   * autofill popup config.
+   *
+   * @param { AutoFillPopupConfig } autoFillPopupConfig - Indicates the autofill popup config.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+   setAutoFillPopupConfig(autoFillPopupConfig: AutoFillPopupConfig): void;
 }
 
 /**
