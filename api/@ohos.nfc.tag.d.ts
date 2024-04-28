@@ -1030,6 +1030,7 @@ declare namespace tag {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3100202 - The element state is invalid.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12
