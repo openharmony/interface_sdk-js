@@ -13595,6 +13595,18 @@ declare type PathShape = import('../api/@ohos.arkui.shape').PathShape;
 declare type RectShape = import('../api/@ohos.arkui.shape').RectShape;
 
 /**
+ * Defines the type that can be undefined.
+ *
+ * @typedef { T | undefined } Optional<T>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 12
+ */
+declare type Optional<T> = T | undefined;
+
+/**
  * CommonMethod.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -13732,6 +13744,18 @@ declare class CommonMethod<T> {
    * @since 12
    */
   drawModifier(modifier: DrawModifier | undefined): T;
+
+  /**
+   * Sets the custom property of the current component.
+   *
+   * @param { string } name - the name of the custom property.
+   * @param { Optional<Object> } value - the value of the custom property.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  customProperty(name: string, value: Optional<Object>): T;
 
   /**
    * Expands the safe area.
