@@ -33,8 +33,8 @@ declare namespace asset {
    * @param { AssetMap } attributes - a map object containing attributes of the Asset to be added.
    * @returns { Promise<void> } the promise object returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. 
-   * Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 
+   * 2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 24000001 - Service unavailable.
    * @throws { BusinessError } 24000003 - Data already exists.
    * @throws { BusinessError } 24000005 - Device status mismatch.
@@ -62,8 +62,8 @@ declare namespace asset {
    * @returns { Promise<void> } the promise object returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. 
-   * Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 
+   * 2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 24000001 - Service unavailable.
    * @throws { BusinessError } 24000003 - Data already exists.
    * @throws { BusinessError } 24000005 - Device status mismatch.
@@ -88,8 +88,8 @@ declare namespace asset {
    *
    * @param { AssetMap } attributes - a map object containing attributes of the Asset to be added.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. 
-   * Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 
+   * 2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 24000001 - Service unavailable.
    * @throws { BusinessError } 24000003 - Data already exists.
    * @throws { BusinessError } 24000005 - Device status mismatch.
@@ -182,8 +182,8 @@ declare namespace asset {
    * @param { AssetMap } query - a map object containing attributes of the Asset to be updated.
    * @param { AssetMap } attributesToUpdate - a map object containing attributes with new values.
    * @returns { Promise<void> } the promise object returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. 
-   * Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 
+   * 2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 24000001 - Service unavailable.
    * @throws { BusinessError } 24000002 - Data not found.
    * @throws { BusinessError } 24000005 - Device status mismatch.
@@ -211,8 +211,8 @@ declare namespace asset {
    * @returns { Promise<void> } the promise object returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. 
-   * Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 
+   * 2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 24000001 - Service unavailable.
    * @throws { BusinessError } 24000002 - Data not found.
    * @throws { BusinessError } 24000005 - Device status mismatch.
@@ -236,8 +236,8 @@ declare namespace asset {
    *
    * @param { AssetMap } query - a map object containing attributes of the Asset to be updated.
    * @param { AssetMap } attributesToUpdate - a map object containing attributes with new values.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. 
-   * Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 
+   * 2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 24000001 - Service unavailable.
    * @throws { BusinessError } 24000002 - Data not found.
    * @throws { BusinessError } 24000005 - Device status mismatch.
@@ -285,8 +285,8 @@ declare namespace asset {
    * that require user authentication in a specific user space.
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { number } userId - the user identifier to pre-query one or more Assets. The user identifier cannot be lower
-   *  than 100.
+   * @param { number } userId - the user identifier to pre-query one or more Assets. The user identifier cannot be 
+   * lower than 100.
    * @param { AssetMap } query - a map object containing attributes of the Asset to be queried.
    * @returns { Promise<Uint8Array> } the promise object returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
@@ -423,8 +423,8 @@ declare namespace asset {
    *
    * @param { AssetMap } handle - a map object containing the handle returned by {@link preQuery}.
    * @returns { Promise<void> } the promise object returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. 
-   * Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 
+   * 2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 24000001 - Service unavailable.
    * @throws { BusinessError } 24000006 - Out of memory.
    * @throws { BusinessError } 24000010 - IPC communication is abnormal.
@@ -447,8 +447,8 @@ declare namespace asset {
    * @returns { Promise<void> } the promise object returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. 
-   * Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 
+   * 2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 24000001 - Service unavailable.
    * @throws { BusinessError } 24000006 - Out of memory.
    * @throws { BusinessError } 24000010 - IPC communication is abnormal.
@@ -465,8 +465,8 @@ declare namespace asset {
    * Post-processing (e.g. release cached resource) for querying multiple Assets that require user authentication.
    *
    * @param { AssetMap } handle - a map object containing the handle returned by {@link preQuerySync}.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. 
-   * Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 
+   * 2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 24000001 - Service unavailable.
    * @throws { BusinessError } 24000006 - Out of memory.
    * @throws { BusinessError } 24000010 - IPC communication is abnormal.
