@@ -134,18 +134,11 @@ def extract_file_path(file_path):
 
 
 def start_do_diff(old_file_path, new_file_path, output_file_path):
-    # 处理linux
-    old_linux = os.path.join(old_file_path, 'linux')
-    new_linux = os.path.join(new_file_path, 'linux')
-    unzip(old_linux)
-    unzip(new_linux)
-    do_diff(old_linux, new_linux, 'linux')
-    # 处理windows
-    old_windows = os.path.join(old_file_path, 'windows')
-    new_windows = os.path.join(new_file_path, 'windows')
-    unzip(old_windows)
-    unzip(new_windows)
-    do_diff(old_windows, new_windows, 'windows')
+    old_platform = os.path.basename(old_file_path)
+    system_type = old_platform
+    unzip(old_file_path)
+    unzip(new_file_path)
+    do_diff(old_file_path, new_file_path, system_type)
     # 输出Excel
     if os.path.isdir(output_file_path):
         output_file_path = os.path.join(output_file_path, 'diff.xlsx')

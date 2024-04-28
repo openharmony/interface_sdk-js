@@ -26,4 +26,4 @@ import common2D from '@ohos.graphics.common2D';
 import drawing from '@ohos.graphics.drawing';
 import text from '@ohos.graphics.text';
 
-export { displaySync, colorSpaceManager, hdrCapability, effectKit, common2D, drawing };
+export { displaySync, colorSpaceManager, hdrCapability, effectKit, common2D, drawing, text };

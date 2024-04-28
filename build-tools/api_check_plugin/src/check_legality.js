@@ -54,25 +54,29 @@ function checkJsDocLegality(node, comments, checkInfoMap) {
   legalityCheck(node, comments, [ts.SyntaxKind.ModuleDeclaration], ['namespace'], true, checkInfoMap);
   // 'param'
   legalityCheck(node, comments, [ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
-    ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature, ts.SyntaxKind.Constructor], ['param'], true, checkInfoMap,
-  (currentNode, checkResult) => {
-    if (!new Set([ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
+    ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature, ts.SyntaxKind.Constructor,
+    ts.SyntaxKind.TypeAliasDeclaration], ['param'], true, checkInfoMap,
+    (currentNode, checkResult) => {
+      if (!new Set([ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
       ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.Constructor]).has(currentNode.kind)) {
-      return true;
+        return true;
+      }
+      return currentNode.parameters;
     }
-    return currentNode.parameters;
-  }
   );
   // 'returns'
   legalityCheck(node, comments, [ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
-    ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature], ['returns'], true, checkInfoMap,
-  (currentNode, checkResult) => {
-    if (!checkResult && !new Set([ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
-      ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature]).has(currentNode.kind)) {
-      return false;
-    }
-    return !(!checkResult && !new Set([ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
-      ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature]).has(currentNode.kind)) && (currentNode.type &&
+    ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature, ts.SyntaxKind.TypeAliasDeclaration],
+    ['returns'], true, checkInfoMap,
+    (currentNode, checkResult) => {
+      if (!checkResult && !new Set([ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
+        ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature,
+        ts.SyntaxKind.TypeAliasDeclaration]).has(currentNode.kind)) {
+        return false;
+      }
+      return !(!checkResult && !new Set([ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
+        ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature,
+        ts.SyntaxKind.TypeAliasDeclaration]).has(currentNode.kind)) && (currentNode.type &&
         currentNode.type.kind !== ts.SyntaxKind.VoidKeyword);
   }
   );
@@ -83,7 +87,8 @@ function checkJsDocLegality(node, comments, checkInfoMap) {
     }
   );
   // typedef/interface
-  legalityCheck(node, comments, [ts.SyntaxKind.InterfaceDeclaration], ['interface', 'typedef'], true, checkInfoMap);
+  legalityCheck(node, comments, [ts.SyntaxKind.InterfaceDeclaration, ts.SyntaxKind.TypeAliasDeclaration],
+    ['interface', 'typedef'], true, checkInfoMap);
   // 'type', 'readonly'
   legalityCheck(node, comments, [ts.SyntaxKind.PropertyDeclaration, ts.SyntaxKind.PropertySignature],
     ['type', 'readonly'], false, checkInfoMap);
@@ -138,11 +143,20 @@ function legalityCheck(node, comments, legalKinds, tagsName, isRequire, checkInf
   const illegalKinds = getIllegalKinds(legalKinds);
   let illegalKindSet = new Set(illegalKinds);
   const legalKindSet = new Set(legalKinds);
+  const isFunctionType = ts.SyntaxKind.FunctionType === node.type?.kind;
+  const functionTag = ['param', 'returns', 'throws'];
   tagsName.forEach(tagName => {
     if (tagName === 'extends') {
       illegalKindSet = new Set(commentNodeWhiteList);
     } else if (tagName === 'syscap') {
       illegalKindSet = new Set([]);
+    }
+    if (functionTag.includes(tagName) && !isFunctionType) {
+      legalKindSet.delete(ts.SyntaxKind.TypeAliasDeclaration);
+    }
+    if (tagName === 'returns' && node.kind === ts.SyntaxKind.TypeAliasDeclaration && isFunctionType &&
+      node.type?.type?.kind === ts.SyntaxKind.VoidKeyword) {
+      legalKindSet.delete(ts.SyntaxKind.TypeAliasDeclaration);
     }
     comments.forEach((comment, index) => {
       if (!checkInfoMap[index]) {
@@ -156,8 +170,10 @@ function legalityCheck(node, comments, legalKinds, tagsName, isRequire, checkInf
       if (tagName === 'since') {
       }
       if (tagName === 'param' && (ts.isMethodDeclaration(node) || ts.isMethodSignature(node) ||
-        ts.isFunctionDeclaration(node) || ts.isCallSignatureDeclaration(node) || ts.isConstructorDeclaration(node))) {
-        parameterNum = node.parameters.length;
+        ts.isFunctionDeclaration(node) || ts.isCallSignatureDeclaration(node) || ts.isConstructorDeclaration(node) ||
+        ts.isTypeAliasDeclaration(node))) {
+        const parameterLength = ts.isTypeAliasDeclaration(node) ? node.type.parameters?.length : node.parameters.length;
+        parameterNum = parameterLength === undefined ? 0 : parameterLength;
         checkResult = parameterNum !== dealSpecialTagResult.paramTagNum;
       }
       let extraCheckResult = false;

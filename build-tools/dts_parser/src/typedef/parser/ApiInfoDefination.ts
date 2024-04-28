@@ -231,7 +231,7 @@ export class BasicApiInfo {
   }
 }
 
-export class ExportDefaultInfo extends BasicApiInfo {}
+export class ExportDefaultInfo extends BasicApiInfo { }
 
 export class ReferenceInfo extends BasicApiInfo {
   pathName: string = '';
@@ -818,7 +818,7 @@ export class ParserParam {
     rootNames: [],
     options: {},
   });
-  constructor() {}
+  constructor() { }
 
   getFileDir(): string {
     return this.fileDir;
@@ -864,16 +864,18 @@ export class ParserParam {
   }
 
   setProgram(apiLibs: Array<string>): void {
-    const compilerOption = {
+    const compilerOption: ts.CompilerOptions = {
       target: ts.ScriptTarget.ES2017,
       ets: this.getETSOptions([]),
       allowJs: false,
       lib: [...apiLibs, ...this.rootNames],
       module: ts.ModuleKind.CommonJS,
     };
+    const compilerHost: ts.CompilerHost = ts.createCompilerHost(compilerOption);
     this.tsProgram = ts.createProgram({
-      rootNames: [...apiLibs, ...this.rootNames],
+      rootNames: [...apiLibs],
       options: compilerOption,
+      host: compilerHost
     });
   }
 }

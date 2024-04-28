@@ -1105,6 +1105,15 @@ declare class SegmentButtonOptions {
    * @crossplatform
    * @since 11
    */
+   /**
+   * The font color of buttons.
+   *
+   * @type { ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   fontColor: ResourceColor;
 
   /**

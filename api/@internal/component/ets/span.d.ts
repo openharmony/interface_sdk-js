@@ -487,7 +487,18 @@ declare class SpanAttribute extends BaseSpan<SpanAttribute> {
    * @since 11
    * @form
    */
-  decoration(value: { type: TextDecorationType; color?: ResourceColor }): SpanAttribute;
+  /**
+   * Called when the text decoration of the text is set.
+   *
+   * @param { DecorationStyleInterface } value
+   * @returns { SpanAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  decoration(value: DecorationStyleInterface): SpanAttribute;
 
   /**
    * Called when the distance between text fonts is set.
