@@ -366,5 +366,49 @@ declare namespace utils {
       reason: T
     }
   }
+  /**
+   * ArkTS JSON utils.
+   *
+   * @namespace ASON
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 12
+   */
+  namespace ASON {
+    /**
+     * Redefines ISendable for convenience.
+     *
+     * @typedef { lang.ISendable } ISendable
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    type ISendable = lang.ISendable;
+    /**
+     * Converts a JavaScript Object Notation (JSON) string into an ArkTS Value.
+     *
+     * @param { string } text - A valid JSON string.
+     * @returns { ISendable | null } Return an ArkTS Value.
+     * @throws { BusinessError } 401 - Parameter error. Invalid JSON string.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    function parse(text: string): ISendable | null;
+    /**
+     * Converts an ArkTS value to a JavaScript Object Notation (JSON) string.
+     *
+     * @param { ISendable } value - The value to stringify.
+     * @returns { string } The JSON string representation of the value.
+     * @throws { BusinessError } 401 - Parameter error. Invalid ArkTS value.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    function stringify(value: ISendable): string;
+  }
 }
 export default utils;
