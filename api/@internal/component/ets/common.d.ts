@@ -21706,25 +21706,25 @@ declare interface UIGestureEvent {
   /**
    * Add a gesture bound to the component.
    *
-   * @param { GestureHandler } gesture - gesture indicates the gesture bound to a component.
+   * @param { GestureHandler<T> } gesture - gesture indicates the gesture bound to a component.
    * @param { GesturePriority } priority - priority indicates the gesture's priority.
    * @param { GestureMask } mask - mask indicates the gesture's GestureMask value.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  addGesture(gesture: GestureHandler, priority?: GesturePriority, mask?: GestureMask): void;
+  addGesture<T>(gesture: GestureHandler<T>, priority?: GesturePriority, mask?: GestureMask): void;
 
   /**
    * Add a parallel gesture bound to the component.
    *
-   * @param { GestureHandler } gesture - gesture indicates the gesture bound to a component.
+   * @param { GestureHandler<T> } gesture - gesture indicates the gesture bound to a component.
    * @param { GestureMask } mask - mask indicates the gesture's GestureMask value.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  addParallelGesture(gesture: GestureHandler, mask?: GestureMask): void;
+  addParallelGesture<T>(gesture: GestureHandler<T>, mask?: GestureMask): void;
 
   /**
    * Remove the gesture that is bound to the component and marked as tag.
