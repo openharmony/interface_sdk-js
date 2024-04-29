@@ -364,7 +364,6 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @atomicservice
      * @since 11
      */
     GET_ABILITY_INFO_ONLY_SYSTEM_APP = 0x00000010,
