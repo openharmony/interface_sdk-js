@@ -713,7 +713,6 @@ declare namespace resourceManager {
    * @param { AsyncCallback<ResourceManager> } callback - Indicates the callback containing the ResourceManager object.
    * @syscap SystemCapability.Global.ResourceManager
    * @FAModelOnly
-   * @atomicservice
    * @since 11
    */
   export function getResourceManager(callback: AsyncCallback<ResourceManager>): void;
@@ -734,7 +733,6 @@ declare namespace resourceManager {
    * @param { AsyncCallback<ResourceManager> } callback - Indicates the callback containing the ResourceManager object.
    * @syscap SystemCapability.Global.ResourceManager
    * @FAModelOnly
-   * @atomicservice
    * @since 11
    */
   export function getResourceManager(bundleName: string, callback: AsyncCallback<ResourceManager>): void;
@@ -753,7 +751,6 @@ declare namespace resourceManager {
    * @returns { Promise<ResourceManager> } The ResourceManager object is returned in Promise mode.
    * @syscap SystemCapability.Global.ResourceManager
    * @FAModelOnly
-   * @atomicservice
    * @since 11
    */
   export function getResourceManager(): Promise<ResourceManager>;
@@ -774,7 +771,6 @@ declare namespace resourceManager {
    * @returns { Promise<ResourceManager> } The ResourceManager object is returned in Promise mode.
    * @syscap SystemCapability.Global.ResourceManager
    * @FAModelOnly
-   * @atomicservice
    * @since 11
    */
   export function getResourceManager(bundleName: string): Promise<ResourceManager>;
