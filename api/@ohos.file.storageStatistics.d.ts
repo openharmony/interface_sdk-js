@@ -136,6 +136,22 @@ declare namespace storageStatistics {
    *
    * @permission ohos.permission.STORAGE_MANAGER
    * @param { string } packageName - The name of the application
+   * @param { AsyncCallback<BundleStats> } callback - callback
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 13600008 - No such object.
+   * @throws { BusinessError } 13900042 - Unknown error.
+   * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+   * @systemapi
+   * @since 9
+   */ 
+  /**
+   * Get the bundle statistics.
+   *
+   * @permission ohos.permission.STORAGE_MANAGER
+   * @param { string } packageName - The name of the application
    * @param { number } index - The index number of the clone application, the default value is 0.
    * @param { AsyncCallback<BundleStats> } callback - callback
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -150,6 +166,22 @@ declare namespace storageStatistics {
    */
   function getBundleStats(packageName: string, callback: AsyncCallback<BundleStats>, index?: number): void;
 
+  /**
+   * Get the bundle statistics.
+   *
+   * @permission ohos.permission.STORAGE_MANAGER
+   * @param { string } packageName - The name of the application
+   * @returns { Promise<BundleStats> } return Promise
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 13600008 - No such object.
+   * @throws { BusinessError } 13900042 - Unknown error.
+   * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+   * @systemapi
+   * @since 9
+   */
   /**
    * Get the bundle statistics.
    *
