@@ -43,7 +43,7 @@ export { NodeController } from './arkui/NodeController';
  * @crossplatform
  * @since 11
  */
-export { FrameNode } from './arkui/FrameNode';
+export { FrameNode, LayoutConstraint } from './arkui/FrameNode';
 
 /**
  * Export Graphics. Defines the basic types related to the Graphics.
