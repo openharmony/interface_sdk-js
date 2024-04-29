@@ -149,7 +149,8 @@ declare namespace inputDevice {
    *
    * @param { 'change' } type - Type of the input device event, which is **change**.
    * @param { Callback<DeviceListener> } listener - Callback for the input device event.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 9
    */
@@ -160,7 +161,8 @@ declare namespace inputDevice {
    *
    * @param { 'change' } type - Type of the input device event, which is **change**.
    * @param { Callback<DeviceListener> } listener - Callback for the input device event.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 9
    */
@@ -391,7 +393,8 @@ declare namespace inputDevice {
    * Obtains the IDs of all input devices.
    *
    * @param { AsyncCallback<Array<number>> } callback - Callback function, receive reported data
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 9
    */
@@ -411,7 +414,8 @@ declare namespace inputDevice {
    *
    * @param { number } deviceId - ID of the input device whose information is to be obtained.
    * @param { AsyncCallback<InputDeviceData> } callback - Callback function, receive reported data
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 9
    */
@@ -422,7 +426,8 @@ declare namespace inputDevice {
    *
    * @param { number } deviceId - ID of the input device whose information is to be obtained.
    * @returns { Promise<InputDeviceData> }
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 9
    */
@@ -433,7 +438,8 @@ declare namespace inputDevice {
    *
    * @param { number } deviceId - ID of the input device whose information is to be obtained.
    * @returns { InputDeviceData }
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 10
    */
@@ -445,7 +451,8 @@ declare namespace inputDevice {
    * @param { number } deviceId - ID of the input device.
    * @param { Array<KeyCode> } keys - Key codes of the input device, You can query maximum of five key codes at a time.
    * @param { AsyncCallback<Array<boolean>> } callback -Indicates whether the specified key codes are supported.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 9
    */
@@ -457,7 +464,8 @@ declare namespace inputDevice {
    * @param { number } deviceId - ID of the input device.
    * @param { Array<KeyCode> } keys - Key codes of the input device, You can query maximum of five key codes at a time.
    * @returns { Promise<Array<boolean>> } Returns a result indicating whether the specified key codes are supported.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 9
    */
@@ -469,7 +477,8 @@ declare namespace inputDevice {
    * @param { number } deviceId - ID of the input device.
    * @param { Array<KeyCode> } keys - Key codes of the input device, You can query maximum of five key codes at a time.
    * @returns { Array<boolean> } Returns a result indicating whether the specified key codes are supported.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 10
    */
@@ -480,7 +489,8 @@ declare namespace inputDevice {
    *
    * @param { number } deviceId - ID of the specified input device.
    * @param { AsyncCallback<KeyboardType> } callback - Returns the keyboard type.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 9
    */
@@ -491,7 +501,8 @@ declare namespace inputDevice {
    *
    * @param { number } deviceId - ID of the specified input device.
    * @returns { Promise<KeyboardType> } Returns the keyboard type.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 9
    */
@@ -502,7 +513,8 @@ declare namespace inputDevice {
    *
    * @param { number } deviceId - ID of the specified input device.
    * @returns { KeyboardType } Returns the keyboard type.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 10
    */
@@ -514,7 +526,8 @@ declare namespace inputDevice {
    * @param { number } delay - Repeat delay time, the unit is ms.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @systemapi hide for inner use.
    * @since 10
@@ -527,7 +540,8 @@ declare namespace inputDevice {
    * @param { number } delay - Repeat delay time, the unit is ms.
    * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @systemapi hide for inner use.
    * @since 10
@@ -539,7 +553,8 @@ declare namespace inputDevice {
    *
    * @param { AsyncCallback<number> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @systemapi hide for inner use.
    * @since 10
@@ -551,7 +566,8 @@ declare namespace inputDevice {
    *
    * @returns { Promise<number> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @systemapi hide for inner use.
    * @since 10
@@ -564,7 +580,8 @@ declare namespace inputDevice {
    * @param { number } rate - Repetition rate, the unit is ms.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @systemapi hide for inner use.
    * @since 10
@@ -577,7 +594,8 @@ declare namespace inputDevice {
    * @param { number } rate - Repetition rate, the unit is ms.
    * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @systemapi hide for inner use.
    * @since 10
@@ -589,7 +607,8 @@ declare namespace inputDevice {
    *
    * @param { AsyncCallback<number> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @systemapi hide for inner use.
    * @since 10
@@ -601,7 +620,8 @@ declare namespace inputDevice {
    *
    * @returns { Promise<number> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @systemapi hide for inner use.
    * @since 10
