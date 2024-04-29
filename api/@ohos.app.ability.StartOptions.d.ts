@@ -119,7 +119,7 @@ export default class StartOptions {
   windowHeight?: number;
 
   /**
-   * Indicates the window is focused.
+   * Indicates the cold startup window is focused.
    *
    * @type { ?boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core

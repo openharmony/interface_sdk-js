@@ -21,6 +21,7 @@
 import { ApplicationInfo } from './ApplicationInfo';
 import { Metadata } from './Metadata';
 import bundleManager from './../@ohos.bundle.bundleManager';
+import { Skill } from './Skill';
 
 /**
  * Extension information about a bundle
@@ -286,4 +287,15 @@ export interface ExtensionAbilityInfo {
    * @since 11
    */
   readonly writePermission: string;
+
+  /**
+   * Indicates skills of the extension ability
+   *
+   * @type { Array<Skill> }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+    readonly skills: Array<Skill>;
 }

@@ -2071,6 +2071,16 @@ declare namespace sensor {
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
+  /**
+   * Obtains the sensor information of a specified type.
+   * @param { SensorId } type - Indicate the sensor type, {@code SensorId}.
+   * @param { AsyncCallback<Sensor> } callback - callback sensor info.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500102 - The sensor is not supported by the device.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @since 12
+   */
   function getSingleSensor(type: SensorId, callback: AsyncCallback<Sensor>): void;
 
   /**
@@ -2082,7 +2092,29 @@ declare namespace sensor {
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
+  /**
+   * Obtains the sensor information of a specified type.
+   * @param { SensorId } type - Indicate the sensor type, {@code SensorId}.
+   * @returns { Promise<Sensor> } Promise used to return the result.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500102 - The sensor is not supported by the device.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @since 12
+   */
   function getSingleSensor(type: SensorId): Promise<Sensor>;
+
+  /**
+   * Synchronously obtains the sensor information of a specified type.
+   * @param { SensorId } type - Indicate the sensor type, {@code SensorId}.
+   * @returns { Sensor } Returns sensor information.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500102 - The sensor is not supported by the device.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @since 12
+   */
+  function getSingleSensorSync(type: SensorId): Sensor;
 
   /**
    * Obtains all sensor information on the device.
@@ -2103,6 +2135,15 @@ declare namespace sensor {
    * @since 9
    */
   function getSensorList(): Promise<Array<Sensor>>;
+
+  /**
+   * Synchronously obtains all sensor information on the device.
+   * @returns { Array<Sensor> } Return a list of sensor information.
+   * @throws { BusinessError } 14500101 - Service exception.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @since 12
+   */
+  function getSensorListSync(): Array<Sensor>;
 
   /**
    * Indicates geomagnetic field data.
@@ -2702,6 +2743,7 @@ declare namespace sensor {
 
   /**
    * The sensor reporting frequency is divided into three modes.
+   * @typedef {'game' | 'ui' | 'normal'}
    * @syscap SystemCapability.Sensors.Sensor
    * @atomicservice
    * @since 11
@@ -3413,6 +3455,22 @@ declare namespace sensor {
      * @since 8
      */
     intensity: number;
+
+    /**
+     * Indicates color temperature, in kelvin.
+     * @type { ?number }
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 12
+     */
+    colorTemperature?: number;
+
+    /**
+     * Indicates infrared luminance, in cd/m2.
+     * @type { ?number }
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 12
+     */
+    infraredLuminance?: number;
   }
 
   /**

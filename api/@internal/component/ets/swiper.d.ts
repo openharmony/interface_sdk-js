@@ -910,9 +910,11 @@ declare enum SwiperDisplayMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
+   * @deprecated since 12
+   * @useinstead Scroller#scrollTo
    */
   AUTO_LINEAR,
 }

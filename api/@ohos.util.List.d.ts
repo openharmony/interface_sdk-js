@@ -91,7 +91,10 @@ declare class List<T> {
    * @param { number } index - index index index at which the specified element is to be inserted
    * @throws { BusinessError } 10200011 - The insert method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
-   * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types;
+   * 3.Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    */
@@ -102,7 +105,10 @@ declare class List<T> {
    * @param { number } index - index index index at which the specified element is to be inserted
    * @throws { BusinessError } 10200011 - The insert method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
-   * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types;
+   * 3.Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -115,7 +121,9 @@ declare class List<T> {
    * @param { number } index - index index specified position
    * @returns { T } the T type
    * @throws { BusinessError } 10200011 - The get method cannot be bound.
-   * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    */
@@ -126,7 +134,9 @@ declare class List<T> {
    * @param { number } index - index index specified position
    * @returns { T } the T type
    * @throws { BusinessError } 10200011 - The get method cannot be bound.
-   * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -182,7 +192,9 @@ declare class List<T> {
    * out of bounds (greater than or equal to length or less than 0), throw an exception
    * @throws { BusinessError } 10200011 - The removeByIndex method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
-   * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    */
@@ -194,7 +206,9 @@ declare class List<T> {
    * out of bounds (greater than or equal to length or less than 0), throw an exception
    * @throws { BusinessError } 10200011 - The removeByIndex method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
-   * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -294,7 +308,9 @@ declare class List<T> {
    * @returns { T } the T type
    * @throws { BusinessError } 10200011 - The set method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
-   * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    */
@@ -306,7 +322,9 @@ declare class List<T> {
    * @returns { T } the T type
    * @throws { BusinessError } 10200011 - The set method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
-   * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -344,7 +362,9 @@ declare class List<T> {
    * thisArg (Optional) The value to be used as this value for when callbackFn is called.
    * If thisArg is omitted, undefined is used as the this value.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
-   * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    */
@@ -358,7 +378,9 @@ declare class List<T> {
    * thisArg (Optional) The value to be used as this value for when callbackFn is called.
    * If thisArg is omitted, undefined is used as the this value.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
-   * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -372,7 +394,9 @@ declare class List<T> {
    * Specifies the sort order. Must be a function,return number type,If it returns firstValue
    * minus secondValue, it returns an list sorted in ascending order;If it returns secondValue
    * minus firstValue, it returns an list sorted in descending order;
-   * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types.
    * @throws { BusinessError } 10200011 - The sort method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @since 8
@@ -385,7 +409,9 @@ declare class List<T> {
    * Specifies the sort order. Must be a function,return number type,If it returns firstValue
    * minus secondValue, it returns an list sorted in ascending order;If it returns secondValue
    * minus firstValue, it returns an list sorted in descending order;
-   * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types.
    * @throws { BusinessError } 10200011 - The sort method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -418,7 +444,9 @@ declare class List<T> {
    * @returns { List<T> }
    * @throws { BusinessError } 10200011 - The getSubList method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
-   * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    */
@@ -430,7 +458,9 @@ declare class List<T> {
    * @returns { List<T> }
    * @throws { BusinessError } 10200011 - The getSubList method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
-   * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -446,7 +476,9 @@ declare class List<T> {
    * thisArg (Optional) The value to be used as this value for when callbackFn is called.
    * If thisArg is omitted, undefined is used as the this value.
    * @throws { BusinessError } 10200011 - The replaceAllElements method cannot be bound.
-   * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    */
@@ -460,7 +492,9 @@ declare class List<T> {
    * thisArg (Optional) The value to be used as this value for when callbackFn is called.
    * If thisArg is omitted, undefined is used as the this value.
    * @throws { BusinessError } 10200011 - The replaceAllElements method cannot be bound.
-   * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10

@@ -708,6 +708,7 @@ renderbuffertarget
 renegotiation
 repayment
 repeates
+replacer
 reposition
 resizeable
 resmgr
@@ -777,6 +778,7 @@ shuts
 sigalgs
 silenced
 singly
+skews
 slidable
 sliderstyle
 statvfs
@@ -971,6 +973,7 @@ useriam
 userspace
 usim
 ussd
+utd
 utilized
 utimes
 uuids

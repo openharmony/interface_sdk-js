@@ -416,7 +416,18 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @atomicservice
    * @since 11
    */
-  title(value: string | CustomBuilder | NavDestinationCommonTitle | NavDestinationCustomTitle): NavDestinationAttribute;
+  /**
+   * NavDestination title bar
+   *
+   * @param { string | CustomBuilder | NavDestinationCommonTitle | NavDestinationCustomTitle } value
+   * @param { NavigationTitleOptions } [options] - Indicates the options of titlebar.
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  title(value: string | CustomBuilder | NavDestinationCommonTitle | NavDestinationCustomTitle, options?: NavigationTitleOptions): NavDestinationAttribute;
 
   /**
    * Hide navigation title bar

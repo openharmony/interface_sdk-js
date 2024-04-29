@@ -305,6 +305,16 @@ export class FrameNode {
   getId(): string;
 
   /**
+   * Get the unique id of the FrameNode.
+   *
+   * @returns { number } - Returns the unique id of the FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getUniqueId(): number;
+
+  /**
    * Get the type of the FrameNode. The type is the name of component, for example, the nodeType of Button is "Button",
    * and the nodeType of custom  component is "__Common__".
    *
@@ -364,6 +374,17 @@ export class FrameNode {
    * @since 12
    */
   getInspectorInfo(): Object;
+
+  /**
+   * * Get the custom property of the component corresponding to this FrameNode.
+   *
+   * @param { string } name - the name of the custom property.
+   * @returns { Object | undefined } - Returns the value of the custom property.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getCustomProperty(name: string): Object | undefined;
 
   /**
    * Set commonEvent response to the current FrameNode.

@@ -43,6 +43,16 @@ declare type DrawableDescriptor = import ('../api/@ohos.arkui.drawableDescriptor
  */
 declare type DrawingColorFilter = import('../api/@ohos.graphics.drawing').default.ColorFilter;
 
+/**
+ * Enumerates all the levels available for the image resolution quality.
+ *
+ * @typedef {import('../api/@ohos.multimedia.image').default.ResolutionQuality} ResolutionQuality
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 12
+ */
+declare type ResolutionQuality  = import('../api/@ohos.multimedia.image').default.ResolutionQuality;
+
 
 /**
  * @enum { number }
@@ -1446,6 +1456,17 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 12
    */
   resizable(value: ResizableOptions): ImageAttribute;
+
+  /**
+   * Set the quality enhancement level of image.
+   *
+   * @param { ResolutionQuality } imageQuality
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 12
+   */
+  enhancedImageQuality(imageQuality: ResolutionQuality): ImageAttribute;
 }
 
 /**

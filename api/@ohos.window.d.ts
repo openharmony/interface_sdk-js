@@ -2469,7 +2469,15 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    USER_ROTATION_LANDSCAPE_INVERTED = 16
+    USER_ROTATION_LANDSCAPE_INVERTED = 16,
+
+    /**
+     * Follow the desktop rotate mode.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    FOLLOW_DESKTOP = 17
   }
 
   /**

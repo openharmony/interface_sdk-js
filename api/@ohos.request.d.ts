@@ -2581,6 +2581,21 @@ declare namespace request {
        * @atomicservice
        * @since 11
        */
+      /**
+       * The path to save the uploaded file.
+       * Currently support:
+       * 1: relative path, like "./xxx/yyy/zzz.html", "xxx/yyy/zzz.html", under caller's cache folder.
+       * 2: internal protocol path, starting with "internal://", like "internal://cache/path/to/file.txt".
+       * 3: application storage path, only the base directory and its subdirectories are supported, like "/data/storage/el1/base/path/to/file.txt".
+       * 4: file protocol path with self bundle name, only the base directory and its subdirectories are supported, like "file://com.example.test/data/storage/el2/base/file.txt".
+       * 5: user file url, like "file://media/Photo/path/to/file.png".
+       *
+       * @type { string }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
+       * @atomicservice
+       * @since 12
+       */
       path: string;
       /**
        * The MIME type of the file.
@@ -2936,7 +2951,7 @@ declare namespace request {
        * The path to save the downloaded file, the default is "./".
        * Currently support:
        * 1: relative path, like "./xxx/yyy/zzz.html", "xxx/yyy/zzz.html", under caller's cache folder.
-       * 2: internal protocol path, "internal://cache/" is mandatory, like "internal://cache/path/to/file.txt".
+       * 2: internal protocol path, starting with "internal://", like "internal://cache/path/to/file.txt".
        * 3: application storage path, only the base directory and its subdirectories are supported, like "/data/storage/el1/base/path/to/file.txt".
        * 4: file protocol path with self bundle name, only the base directory and its subdirectories are supported, like "file://com.example.test/data/storage/el2/base/file.txt".
        *
