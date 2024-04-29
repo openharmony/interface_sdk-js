@@ -2157,7 +2157,17 @@ declare namespace image {
      * @crossplatform
      * @since 12
      */
-    SCENE_VERSION = 'HwMnoteSceneVersion'
+    SCENE_VERSION = 'HwMnoteSceneVersion',
+
+    /**
+     * GIF LOOP COUNT
+     * If infinite loop returns 0, other values represent the number of loops
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    GIF_LOOP_COUNT = 'GIFLoopCount'
   }
 
   /**
