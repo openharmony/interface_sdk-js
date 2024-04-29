@@ -102,7 +102,7 @@ declare namespace volumeManager {
     path: string;
 
     /**
-     * The file system type of the volume, which can be vfat, ntfs, or exfat.
+     * The file system type of the volume.
      *
      * @type { string }
      * @syscap SystemCapability.FileManagement.StorageService.Volume
