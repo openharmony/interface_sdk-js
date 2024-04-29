@@ -447,6 +447,17 @@ declare interface CustomDialogControllerOptions {
    * @since 12
    */
   shadow?: ShadowOptions | ShadowStyle;
+
+  /**
+   * Defines the customDialog's background blur Style
+   *
+   * @type { ?BlurStyle }
+   * @default BlurStyle.COMPONENT_ULTRA_THICK
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  backgroundBlurStyle?: BlurStyle;
 }
 
 /**

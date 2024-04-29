@@ -214,6 +214,18 @@ declare namespace effectKit {
     getLargestProportionColor(): Color;
 
     /**
+     * Get top proportion color of an image
+     * @param { number } colorCount - The number of colors to require, the value is 1 to 10.
+     * @returns { Array<Color | null> } An array of feature colors sorted by proportion, with a size equal to
+     *                                  the minimum of colorCount and the actual number of extracted feature colors.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @form
+     * @atomicservice
+     * @since 12
+     */
+    getTopProportionColors(colorCount: number): Array<Color | null>;
+
+    /**
      * Get highest saturation color of an image
      * @returns { Color } Highest saturation color picked in the image.
      * @syscap SystemCapability.Multimedia.Image.Core

@@ -137,6 +137,46 @@ declare interface CheckboxOptions {
 }
 
 /**
+ * CheckBoxConfiguration used by content modifier.
+ *
+ * @interface CheckBoxConfiguration
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface CheckBoxConfiguration extends CommonConfiguration<CheckBoxConfiguration> {
+  /**
+   * Current name of checkbox.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  name: string;
+
+  /**
+   * Indicates whether the checkbox is selected.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  selected: boolean;
+
+  /**
+   * Trigger checkbox select change.
+   *
+   * @type { Callback<boolean> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  triggerChange: Callback<boolean>;
+}
+
+/**
  * Provides an interface for the Checkbox component.
  *
  * @interface CheckboxInterface
@@ -435,6 +475,17 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * @form
    */
   onChange(callback: (value: boolean) => void): CheckboxAttribute;
+
+  /**
+   * Set the content modifier of checkbox.
+   *
+   * @param { ContentModifier<CheckBoxConfiguration> } modifier - The content modifier of checkbox.
+   * @returns { CheckboxAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  contentModifier(modifier: ContentModifier<CheckBoxConfiguration>): CheckboxAttribute;
 }
 
 /**

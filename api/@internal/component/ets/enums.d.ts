@@ -5478,6 +5478,15 @@ declare enum ImageSize {
    * @form
    */
   Contain,
+
+  /**
+   * Zoom in or out without maintaining the aspect ratio so that the image fills the display boundary.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  FILL = 3,
 }
 
 /**
@@ -8944,6 +8953,46 @@ declare enum WordBreak {
 }
 
 /**
+ * Enum of line break strategy
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum LineBreakStrategy  {
+  /**
+   * By default. Display as many characters as possible on each line until no more characters
+   * can be displayed on that line, and do not automatically add hyphens under this strategy
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  GREEDY = 0,
+
+  /**
+   * High quality folding. Optimize the layout of the entire text's line breaks and automatically
+   * add hyphens if necessary.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  HIGH_QUALITY  = 1,
+
+  /**
+   * Balanced folding. We will try our best to ensure that the width of each line in a paragraph
+   * is the same, and if necessary, we will add conjunction
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  BALANCED  = 2,
+}
+
+/**
  * Enum of ellipsisMode
  *
  * @enum { number }
@@ -9318,6 +9367,61 @@ declare enum MarqueeUpdateStrategy  {
    * @since 12
    */
   PRESERVE_POSITION = 1
+}
+
+/**
+ * Type of text decoration line style.
+ * 
+ * @enum {number}
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum TextDecorationStyle {
+  /**
+   * Solid line.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  SOLID = 0,
+
+  /**
+   * Double lines.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  DOUBLE = 1,
+
+  /**
+   * Dotted line.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  DOTTED = 2,
+
+  /**
+   * Dashed line.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  DASHED = 3,
+
+  /**
+   * Wavy line.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  WAVY = 4,
 }
 
 declare module 'borderStyle' {

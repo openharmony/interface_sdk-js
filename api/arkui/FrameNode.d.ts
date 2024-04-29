@@ -20,9 +20,10 @@
 
 import { UIContext } from '../@ohos.arkui.UIContext';
 import { RenderNode } from './RenderNode';
-import { Size, Position, Edges, LengthMetric, SizeT } from './Graphics';
+import { Size, Position, Edges, LengthMetrics, SizeT } from './Graphics';
 import { UICommonEvent } from 'commonEvent';
 import { CommonAttribute } from 'commonAttribute';
+import { DrawContext } from './Graphics';
 
 /**
  * Defines FrameNode.
@@ -204,6 +205,16 @@ export class FrameNode {
   dispose(): void;
 
   /**
+   * Get the position of the node relative to its screen.
+   *
+   * @returns { Position } - Returns position of the node relative to its screen.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getPositionToScreen(): Position;
+
+  /**
    * Get the position of the node relative to window.
    *
    * @returns { Position } - Returns position of the node relative to window.
@@ -246,42 +257,42 @@ export class FrameNode {
   /**
    * Get the user config border width of the FrameNode.
    *
-   * @returns { Edges<LengthMetric> } - Returns the user config border width of the FrameNode.
+   * @returns { Edges<LengthMetrics> } - Returns the user config border width of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  getUserConfigBorderWidth(): Edges<LengthMetric>;
+  getUserConfigBorderWidth(): Edges<LengthMetrics>;
 
   /**
    * Get the user config padding of the FrameNode.
    *
-   * @returns { Edges<LengthMetric> } - Returns the user config padding of the FrameNode.
+   * @returns { Edges<LengthMetrics> } - Returns the user config padding of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  getUserConfigPadding(): Edges<LengthMetric>;
+  getUserConfigPadding(): Edges<LengthMetrics>;
 
   /**
    * Get the user config margin of the FrameNode.
    *
-   * @returns { Edges<LengthMetric> } - Returns the user config margin of the FrameNode.
+   * @returns { Edges<LengthMetrics> } - Returns the user config margin of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  getUserConfigMargin(): Edges<LengthMetric>;
+  getUserConfigMargin(): Edges<LengthMetrics>;
 
   /**
    * Get the user config size of the FrameNode.
    *
-   * @returns { SizeT<LengthMetric> } - Returns the user config size of the FrameNode.
+   * @returns { SizeT<LengthMetrics> } - Returns the user config size of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  getUserConfigSize(): SizeT<LengthMetric>;
+  getUserConfigSize(): SizeT<LengthMetrics>;
 
   /**
    * Get the id of the FrameNode.
@@ -292,6 +303,16 @@ export class FrameNode {
    * @since 12
    */
   getId(): string;
+
+  /**
+   * Get the unique id of the FrameNode.
+   *
+   * @returns { number } - Returns the unique id of the FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getUniqueId(): number;
 
   /**
    * Get the type of the FrameNode. The type is the name of component, for example, the nodeType of Button is "Button",
@@ -355,6 +376,17 @@ export class FrameNode {
   getInspectorInfo(): Object;
 
   /**
+   * * Get the custom property of the component corresponding to this FrameNode.
+   *
+   * @param { string } name - the name of the custom property.
+   * @returns { Object | undefined } - Returns the value of the custom property.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getCustomProperty(name: string): Object | undefined;
+
+  /**
    * Set commonEvent response to the current FrameNode.
    *
    * @returns { UICommonEvent } - Returns a Object inside the FrameNode, which is used to set callbacks about different events.
@@ -373,4 +405,63 @@ export class FrameNode {
    * @since 12
    */
   get commonAttribute(): CommonAttribute;
+
+  /**
+   * Draw Method. Executed when the associated RenderNode in the current FrameNode is onDraw.
+   *
+   * @param { DrawContext } context - The DrawContext will be used when executed draw method.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onDraw?(context: DrawContext): void;
+
+  /**
+   * Invalidate the RenderNode in the FrameNode, which will cause a re-render of the RenderNode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  invalidate(): void;
+
+  /**
+   * Get the position of the node relative to screen.
+   *
+   * @returns { Position } - Returns position of the node relative to screen.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getPositionToScreen(): Position;
+
+  /**
+   * Get the position of the node relative to window with transform.
+   *
+   * @returns { Position } - Returns position of the node relative to window with transform.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getPositionToWindowWithTransform(): Position;
+
+  /**
+   * Get the position of the node relative to its parent with transform.
+   *
+   * @returns { Position } - Returns position of the node relative to its parent with transform.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getPositionToParentWithTransform(): Position;
+
+  /**
+   * Get the position of the node relative to screen with transform.
+   *
+   * @returns { Position } - Returns position of the node relative to screen with transform.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getPositionToScreenWithTransform(): Position;
 }

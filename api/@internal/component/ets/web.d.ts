@@ -101,15 +101,15 @@ type OnOverrideUrlLoadingCallback = (webResourceRequest: WebResourceRequest) => 
 type OnIntelligentTrackingPreventionCallback = (details: IntelligentTrackingPreventionDetails) => void;
 
 /**
- * The configuration of native video player.
+ * The configuration of native media player.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12
  */
-type NativeVideoPlayerConfig = {
+type NativeMediaPlayerConfig = {
   /**
-   * Should playing web video by native application instead of web player.
+   * Should playing web media by native application instead of web player.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -118,7 +118,7 @@ type NativeVideoPlayerConfig = {
   enable: boolean,
 
   /**
-   * The contents painted by native video player should overlay web page.
+   * The contents painted by native media player should overlay web page.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -126,6 +126,25 @@ type NativeVideoPlayerConfig = {
    */
   shouldOverlay: boolean
 }
+
+/**
+ * The callback of render process not responding.
+ *
+ * @typedef {function} OnRenderProcessNotRespondingCallback
+ * @param {RenderProcessNotRespondingData} data - details of onRenderProcessNotResponding.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 12
+ */
+type OnRenderProcessNotRespondingCallback = (data : RenderProcessNotRespondingData) => void;
+
+/**
+ * The callback of render process responding.
+ *
+ * @typedef {function} OnRenderProcessRespondingCallback
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 12
+ */
+type OnRenderProcessRespondingCallback = () => void;
 
 /**
  * Enum type supplied to {@link getMessageLevel} for receiving the console log level of JavaScript.
@@ -1135,6 +1154,31 @@ declare enum WebLayoutMode {
    * @since 11
    */
   FIT_CONTENT,
+}
+
+/**
+ * Enum type supplied to {@link RenderProcessNotRespondingData} when onRenderProcessNotResponding is called.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 12
+ */
+declare enum RenderProcessNotRespondingReason {
+  /**
+   * Timeout for input sent to render process.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  INPUT_TIMEOUT,
+
+  /**
+   * Timeout for navigation commit.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  NAVIGATION_COMMIT_TIMEOUT,
 }
 
 /**
@@ -4368,6 +4412,42 @@ declare interface LargestContentfulPaint {
 }
 
 /**
+ * Defines the render process not responding info.
+ *
+ * @interface RenderProcessNotRespondingData
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 12
+ */
+declare interface RenderProcessNotRespondingData {
+  /**
+   * JavaScript stack info of the webpage when render process not responding.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  jsStack: string;
+
+  /**
+   * Process id of render process not responding.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  pid: number;
+
+  /**
+   * Reason for the render process not responding.
+   *
+   * @type { RenderProcessNotRespondingReason }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  reason: RenderProcessNotRespondingReason;
+}
+
+/**
  * Defines the Web attribute functions.
  *
  * @extends CommonMethod<WebAttribute>
@@ -6971,16 +7051,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   textAutosizing(textAutosizing: boolean): WebAttribute;
 
   /**
-   * Enable app creates native video player to play web page video source.
+   * Enable app creates native media player to play web page media source.
    *
-   * @param { NativeVideoPlayerConfig } config - The configuration of native video player.
+   * @param { NativeMediaPlayerConfig } config - The configuration of native media player.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
    */
-  enableNativeVideoPlayer(config: NativeVideoPlayerConfig): WebAttribute;
-  
+  enableNativeMediaPlayer(config: NativeMediaPlayerConfig): WebAttribute;
+
   /**
    * Sets the enable window drag smooth for web.
    *
@@ -6991,6 +7071,26 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 12
    */
    enableSmoothDragResize(mode: boolean): WebAttribute;
+
+  /**
+   * Triggered when render process not responding.
+   *
+   * @param { OnRenderProcessNotRespondingCallback } callback The triggered function when render process not responding.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+   onRenderProcessNotResponding(callback: OnRenderProcessNotRespondingCallback): WebAttribute;
+
+  /**
+   * Triggered when the unresponsive render process becomes responsive.
+   *
+   * @param { OnRenderProcessRespondingCallback } callback The triggered function when the unresponsive render process becomes responsive.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+   onRenderProcessResponding(callback: OnRenderProcessRespondingCallback): WebAttribute;
 }
 
 /**

@@ -101,6 +101,10 @@ export const Plugin: PluginType = {
       },
       {
         isRequiredOption: false,
+        options: ['-L,--check-labels <string>', 'detection check labels', ''],
+      },
+      {
+        isRequiredOption: false,
         options: ['--path <string>', 'check api path, split with comma', ''],
       },
       {
@@ -156,6 +160,7 @@ export const Plugin: PluginType = {
       toolName: toolName,
       collectPath: argv.collectPath,
       collectFile: argv.collectFile,
+      checkLabels: argv.checkLabels,
       path: argv.path,
       checker: argv.checker,
       old: argv.old,
@@ -419,9 +424,9 @@ function detectionApi(options: OptionObjType): ToolNameValueType {
     let runningCommand: string = '';
 
     if (process.env.NODE_ENV === 'development') {
-      runningCommand = `python ${path.resolve(FileUtils.getBaseDirName(), '../api_label_detection/src/main.py')} -N detection -P ${path.resolve(path.dirname(options.output), 'detection.json')} -O ${path.resolve(options.output)}`;
+      runningCommand = `python ${path.resolve(FileUtils.getBaseDirName(), '../api_label_detection/src/main.py')} -N detection -L ${options.checkLabels} -P ${path.resolve(path.dirname(options.output), 'detection.json')} -O ${path.resolve(options.output)}`;
     } else if (process.env.NODE_ENV === 'production') {
-      runningCommand = `python ${path.resolve(FileUtils.getBaseDirName(), './main.exe')} -N detection -P ${path.resolve(path.dirname(options.output), 'detection.json')} -O ${path.resolve(options.output)}`;
+      runningCommand = `${path.resolve(FileUtils.getBaseDirName(), './main.exe')} -N detection -L ${options.checkLabels} -P ${path.resolve(path.dirname(options.output), 'detection.json')} -O ${path.resolve(options.output)}`;
     }
     buffer = execSync(runningCommand, {
       timeout: 120000,
@@ -513,6 +518,7 @@ export type OptionObjType = {
   checker: string;
   collectPath: string;
   collectFile: string;
+  checkLabels: string;
   old: string;
   new: string;
   oldVersion: string;

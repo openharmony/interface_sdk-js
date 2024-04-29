@@ -394,7 +394,34 @@ declare enum ContentType {
    * @atomicservice
    * @since 12
    */
-  ID_CARD_NUMBER = 17
+  ID_CARD_NUMBER = 17,
+
+  /**
+   * Nickname content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  NICKNAME = 23,
+
+  /**
+   * Detail info without street content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  DETAIL_INFO_WITHOUT_STREET = 24,
+
+  /**
+   * Format address content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  FORMAT_ADDRESS = 25
 }
 
 /**
@@ -1201,17 +1228,6 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 12
    */
   textOverflow(value: TextOverflow): TextInputAttribute;
-
-  /**
-   * Called when the baseline offset is set.
-   *
-   * @param { Dimension } value
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  baselineOffset(value: Dimension): TextInputAttribute;
 
   /**
    * Specify the indentation of the first line in a text-block.
@@ -2111,6 +2127,17 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   wordBreak(value: WordBreak): TextInputAttribute;
 
   /**
+   * Set the text line break strategy type.
+   *
+   * @param { LineBreakStrategy } strategy - The text line break strategy type.
+   * @returns { TextInputAttribute } The attribute of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  lineBreakStrategy(strategy: LineBreakStrategy): TextInputAttribute;
+
+  /**
    * Define custom keyboard of the text input.
    *
    * @param { CustomBuilder } value
@@ -2314,6 +2341,28 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 12
    */
   fontFeature(value: string): TextInputAttribute;  
+
+  /**
+   * Define the password visible mode of the text input.
+   *
+   * @param { boolean } visible - Indicates the password visible mode. 
+   * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  showPassword(visible: boolean): TextInputAttribute;
+
+  /**
+   * Called when changing the password visible mode of the text input.
+   *
+   * @param { Callback<boolean> } callback - callback of the password visible mode change event.
+   * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onSecurityStateChange(callback: Callback<boolean>): TextInputAttribute;
 }
 
 /**

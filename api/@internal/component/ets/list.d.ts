@@ -1081,6 +1081,17 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   edgeEffect(value: EdgeEffect, options?: EdgeEffectOptions): ListAttribute;
 
   /**
+   * Called when setting whether to enable fading Edge effect.
+   *
+   * @param { Optional<boolean> } value - Whether to turn on the edge fade effect
+   * @returns { ListAttribute } the attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  fadingEdge(value: Optional<boolean>): ListAttribute;
+
+  /**
    * Called when need to decide contentStartOffset the list will show.
    * @param { number } value - the value Of startOffset.
    * @returns { ListAttribute } the attribute of the list.
@@ -1420,6 +1431,17 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 11
    */
   friction(value: number | Resource): ListAttribute;
+
+  /**
+   * Set children main size for List.
+   *
+   * @param { ChildrenMainSize } value - children main size for List
+   * @returns { ListAttribute } the attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  childrenMainSize(value: ChildrenMainSize): ListAttribute;
 
   /**
    * Called when the offset and status callback of the slide are set.

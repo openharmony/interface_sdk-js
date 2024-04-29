@@ -56,7 +56,8 @@ export default class InputMethodExtensionContext extends ExtensionContext {
    *
    * @param { Want } want - Indicates the ability to start.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 401 - parameter error. Possible causes:
+   *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.

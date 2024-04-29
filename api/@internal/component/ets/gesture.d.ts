@@ -3618,3 +3618,10 @@ declare enum GesturePriority {
    */
   PRIORITY = 1,
 }
+
+declare module "GestureEventModule" {
+  module "GestureEventModule" {
+    // @ts-ignore
+    export { GestureEvent };
+  }
+}

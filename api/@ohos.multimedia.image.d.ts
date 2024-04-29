@@ -406,6 +406,43 @@ declare namespace image {
   }
 
   /**
+   * Enumerates image resolution quality.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @systemapi
+   * @since 12
+   */
+  enum ResolutionQuality {
+    /**
+     * Low quality images, short decoding time.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @since 12
+     */
+    LOW = 1,
+
+    /**
+     * Medium quality images, moderate decoding time.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @since 12
+     */
+    MEDIUM = 2,
+
+    /**
+     * High quality images, longer decoding time.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @since 12
+     */
+    HIGH = 3
+  }
+
+  /**
    * Describes the size of an image.
    *
    * @typedef Size
@@ -2313,6 +2350,64 @@ declare namespace image {
   }
 
   /**
+   * Enumerates decoding dynamic range.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 12
+   */
+  enum DecodingDynamicRange {
+    /**
+     * Decoding according to the content of the image.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    AUTO = 0,
+
+    /**
+     * Decoding to standard dynamic range.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    SDR = 1,
+
+    /**
+     * Decoding to high dynamic range.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    HDR = 2
+  }
+
+  /**
+   * Enumerates packing dynamic range.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 12
+   */
+  enum PackingDynamicRange {
+    /**
+     * Packing according to the content of the image.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    AUTO = 0,
+
+    /**
+     * Packing to standard dynamic range.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    SDR = 1,
+  }
+
+  /**
    * Enum for image scale mode.
    *
    * @enum { number }
@@ -2936,6 +3031,15 @@ declare namespace image {
      * @since 12
      */
     mimeType: string;
+
+    /**
+     * Indicates whether the image high dynamic range
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    isHdr: boolean;
   }
 
   /**
@@ -3043,6 +3147,15 @@ declare namespace image {
      * @since 11
      */
     bufferSize?: number;
+
+    /**
+     * The desired dynamic range of the target image.
+     *
+     * @type { ?PackingDynamicRange }
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @since 12
+     */
+    desiredDynamicRange?: PackingDynamicRange;
   }
 
   /**
@@ -3474,6 +3587,25 @@ declare namespace image {
      * @since 11
      */
     desiredColorSpace?: colorSpaceManager.ColorSpaceManager;
+    
+    /**
+     * The desired dynamic range of the image pixelmap.
+     *
+     * @type { ?DecodingDynamicRange }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @since 12
+     */
+    desiredDynamicRange?: DecodingDynamicRange;
+
+    /**
+     * Resolution Quality of the image.
+     *
+     * @type { ?ResolutionQuality }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @systemapi
+     * @since 12
+     */
+    resolutionQuality?: ResolutionQuality;
   }
 
   /**
@@ -3938,7 +4070,8 @@ declare namespace image {
    * @param { ArrayBuffer } colors The image color buffer.
    * @param { InitializationOptions } options Initialization options for pixelmap.
    * @returns { PixelMap } Returns the instance if the operation is successful;Otherwise, return undefined.
-   * @throws { BusinessError } 401 - Invalid input parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types. 3.Parameter verification failed.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
    * @since 12
@@ -3950,7 +4083,8 @@ declare namespace image {
    *
    * @param { InitializationOptions } options Initialization options for pixelmap.
    * @returns { PixelMap } Returns the instance if the operation is successful;Otherwise, return undefined.
-   * @throws { BusinessError } 401 - Invalid input parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types. 3.Parameter verification failed.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
    * @since 12
@@ -3965,7 +4099,8 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
    * @param { AsyncCallback<void> } callback Callback used to return the operation result.
    * If the operation fails, an error message is returned.
    * @throws { BusinessError } 62980103 - The image data is not supported.
-   * @throws { BusinessError } 401 - Invalid input parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 62980246 - Failed to read the pixelMap.
    * @throws { BusinessError } 62980248 - Pixelmap not allow modify.
    * @syscap SystemCapability.Multimedia.Image.Core
@@ -3982,7 +4117,8 @@ function createPremultipliedPixelMap(src: PixelMap, dst: PixelMap, callback: Asy
    * @returns { Promise<void> } A Promise instance used to return the operation result.
    * If the operation fails, an error message is returned.
    * @throws { BusinessError } 62980103 - The image data is not supported.
-   * @throws { BusinessError } 401 - Invalid input parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 62980246 - Failed to read the pixelMap.
    * @throws { BusinessError } 62980248 - Pixelmap not allow modify.
    * @syscap SystemCapability.Multimedia.Image.Core
@@ -3999,7 +4135,8 @@ function createPremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<void
    * @param { AsyncCallback<void> } callback Callback used to return the operation result.
    * If the operation fails, an error message is returned.
    * @throws { BusinessError } 62980103 - The image data is not supported.
-   * @throws { BusinessError } 401 - Invalid input parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 62980246 - Failed to read the pixelMap.
    * @throws { BusinessError } 62980248 - Pixelmap not allow modify.
    * @syscap SystemCapability.Multimedia.Image.Core
@@ -4016,7 +4153,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap, callback: A
    * @returns { Promise<void> } A Promise instance used to return the operation result.
    * If the operation fails, an error message is returned.
    * @throws { BusinessError } 62980103 - The image data is not supported.
-   * @throws { BusinessError } 401 - Invalid input parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 62980246 - Failed to read the pixelMap.
    * @throws { BusinessError } 62980248 - Pixelmap not allow modify.
    * @syscap SystemCapability.Multimedia.Image.Core
@@ -4589,7 +4727,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Reads image pixel map data and writes the data to an ArrayBuffer.
      *
      * @param { ArrayBuffer } dst A buffer to which the image pixel map data will be written.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -4683,7 +4822,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Reads image pixel map data in an area.
      *
      * @param { PositionArea } area Area from which the image pixel map data will be read.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -4784,7 +4924,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Writes image pixel map data to the specified area.
      *
      * @param { PositionArea } area Area to which the image pixel map data will be written.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -4885,7 +5026,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Reads image data in an ArrayBuffer and writes the data to a PixelMap object.
      *
      * @param { ArrayBuffer } src A buffer from which the image data will be read.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -5175,7 +5317,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Set the transparent rate of pixel map.
      *
      * @param { number } rate The value of transparent rate.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -5259,7 +5402,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Obtains new pixel map with alpha information.
      *
      * @returns { PixelMap } return the new image pixel map. If the operation fails, an error message is returned.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -5360,7 +5503,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { number } x The zoom value of width.
      * @param { number } y The zoom value of height.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -5462,7 +5606,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { number } x The position value of width.
      * @param { number } y The position value of height.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -5555,7 +5700,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Image rotation.
      *
      * @param { number } angle The rotation angle.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -5657,7 +5803,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { boolean } horizontal Is flip in horizontal.
      * @param { boolean } vertical Is flip in vertical.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -5750,7 +5897,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Crop the image.
      *
      * @param { Region } region The region to crop.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -5853,7 +6001,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { colorSpaceManager.ColorSpaceManager } targetColorSpace - The color space for pixel map.
      * @param { AsyncCallback<void> } callback - Callback used to return the operation result. If the operation fails, an error message is returned.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 62980104 - Failed to initialize the internal object.
      * @throws { BusinessError } 62980108 - Failed to convert the color space.
      * @throws { BusinessError } 62980115 - Invalid image parameter.
@@ -5871,7 +6020,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { colorSpaceManager.ColorSpaceManager } targetColorSpace - The color space for pixel map.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 62980104 - Failed to initialize the internal object.
      * @throws { BusinessError } 62980108 - Failed to convert the color space.
      * @throws { BusinessError } 62980115 - Invalid image parameter.

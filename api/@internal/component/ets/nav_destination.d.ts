@@ -416,7 +416,18 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @atomicservice
    * @since 11
    */
-  title(value: string | CustomBuilder | NavDestinationCommonTitle | NavDestinationCustomTitle): NavDestinationAttribute;
+  /**
+   * NavDestination title bar
+   *
+   * @param { string | CustomBuilder | NavDestinationCommonTitle | NavDestinationCustomTitle } value
+   * @param { NavigationTitleOptions } [options] - Indicates the options of titlebar.
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  title(value: string | CustomBuilder | NavDestinationCommonTitle | NavDestinationCustomTitle, options?: NavigationTitleOptions): NavDestinationAttribute;
 
   /**
    * Hide navigation title bar
@@ -575,6 +586,50 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @since 11
    */
   onReady(callback: import('../api/@ohos.base').Callback<NavDestinationContext>): NavDestinationAttribute;
+
+  /**
+   * Invoked before the navDestination is appeared.
+   *
+   * @param { Callback<void> } callback - Indicates callback before the navDestination is appeared.
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onWillAppear(callback: Callback<void>): NavDestinationAttribute;
+
+  /**
+   * Invoked before the navDestination is disappeared.
+   *
+   * @param { Callback<void> } callback - Indicates callback before the navDestination is disappeared.
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onWillDisappear(callback: Callback<void>): NavDestinationAttribute;
+
+  /**
+   * Invoked before the navDestination is displayed.
+   *
+   * @param { Callback<void> } callback - Indicates callback before the navDestination is displayed.
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onWillShow(callback: Callback<void>): NavDestinationAttribute;
+
+  /**
+   * Invoked before the navDestination is hidden.
+   *
+   * @param { Callback<void> } callback - Indicates callback before the navDestination is hidden.
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onWillHide(callback: Callback<void>): NavDestinationAttribute;
 }
 
 /**

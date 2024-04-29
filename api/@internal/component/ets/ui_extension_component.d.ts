@@ -38,6 +38,17 @@ declare interface UIExtensionOptions {
    * @since 11
    */
   isTransferringCaller?: boolean;
+
+  /**
+   * Set placeholder.
+   * If set placeholder ComponentContent, show placeholder node when connection is not established.
+   *
+   * @type { ?ComponentContent }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 12
+   */
+  placeholder?: ComponentContent;
 }
 
 /**

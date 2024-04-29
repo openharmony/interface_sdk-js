@@ -88,23 +88,11 @@ interface TextInterface {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
-   /**
-   * Called when writing text.
-   *
-   * @param { string | Resource | StyledString } content
-   * @param { TextOptions } value
-   * @returns { TextAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   * @form
-   */
-   (content?: string | Resource | StyledString, value?: TextOptions): TextAttribute;
+  (content?: string | Resource, value?: TextOptions): TextAttribute;
   }
 
 /**
@@ -395,6 +383,17 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   fontWeight(value: number | FontWeight | string): TextAttribute;
 
   /**
+   * Set font line spacing.
+   *
+   * @param { LengthMetrics } value
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  lineSpacing(value: LengthMetrics): TextAttribute;
+
+  /**
    * Called when the horizontal center mode of the font is set.
    *
    * @param { TextAlign } value
@@ -632,7 +631,18 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 11
    * @form
    */
-  decoration(value: { type: TextDecorationType; color?: ResourceColor }): TextAttribute;
+  /**
+   * Called when the text decoration of the text is set.
+   *
+   * @param { DecorationStyleInterface } value
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  decoration(value: DecorationStyleInterface): TextAttribute;
 
   /**
    * Called when the distance between text fonts is set.
@@ -883,6 +893,17 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   wordBreak(value: WordBreak): TextAttribute;
 
   /**
+   * Set the text line break strategy type.
+   *
+   * @param { LineBreakStrategy } strategy - The text line break strategy type.
+   * @returns { TextAttribute } The attribute of the text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  lineBreakStrategy(strategy: LineBreakStrategy): TextAttribute;
+
+  /**
    * Called when using the Clipboard menu
    *
    * @param { function } callback - callback of the listened event.
@@ -1029,6 +1050,28 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 12
    */
   fontFeature(value: string): TextAttribute;
+
+  /**
+   * Set the marquee options.
+   *
+   * @param { Optional<MarqueeOptions> } value
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  marqueeOptions(value: Optional<MarqueeOptions>): TextAttribute;
+
+  /**
+   * Called when the text marquee state changes.
+   *
+   * @param { Callback<MarqueeState> } callback - callback of the marquee state change event.
+   * @returns { TextAttribute } returns the instance of the TextAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onMarqueeStateChange(callback: Callback<MarqueeState>): TextAttribute;
 }
 
 /**
@@ -1236,6 +1279,71 @@ declare enum TextResponseType {
 }
 
 /**
+ * Defines marquee state.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum MarqueeState {
+  /**
+   * The marquee started.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  START = 0,
+
+  /**
+   * The marquee a round finished and start next round.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  BOUNCE = 1,
+
+  /**
+   * The marquee all finished.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  FINISH = 2,
+}
+
+/**
+ * Defines marquee start policy.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum MarqueeStartPolicy {
+  /**
+   * Start marquee in any case. This is the default policy.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  DEFAULT = 0,
+
+  /**
+   * Start marquee only when get focus.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  ON_FOCUS = 1,
+}
+
+/**
  * Defines the options of Text.
  *
  * @interface TextOptions
@@ -1274,6 +1382,86 @@ declare interface TextOptions {
 }
 
 /**
+ * Defines the marquee options.
+ *
+ * @interface MarqueeOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface MarqueeOptions {
+  /**
+   * Is need start marquee.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  start: boolean;
+
+  /**
+   * The step size of the marquee.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  step?: number;
+
+  /**
+   * The rounds of the marquee.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  loop?: number;
+
+  /**
+   * The running direction of the marquee.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  fromStart?: boolean;
+
+  /**
+   * The waiting time between each round of the marquee.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  delay?: number;
+
+  /**
+   * Set whether the text is faded out.
+   * 
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  fadeout?: boolean;
+
+  /**
+   * The start policy for marquee.
+   * 
+   * @type { ?MarqueeStartPolicy }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  marqueeStartPolicy?: MarqueeStartPolicy;
+}
+
+/**
  * Defines the controller of Text.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1305,4 +1493,14 @@ declare class TextController {
    * @since 12
    */
   closeSelectionMenu(): void;
+
+  /**
+   * Update the styles of StyledString by setStyledString.
+   *
+   * @param { StyledString } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setStyledString(value: StyledString): void;
 }

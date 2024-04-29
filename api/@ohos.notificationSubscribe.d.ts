@@ -383,7 +383,7 @@ declare namespace notificationSubscribe {
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect service.
-   * @throws { BusinessError } 1600008 - The user is not exist.
+   * @throws { BusinessError } 1600008 - The user does not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -402,7 +402,7 @@ declare namespace notificationSubscribe {
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect service.
-   * @throws { BusinessError } 1600008 - The user is not exist.
+   * @throws { BusinessError } 1600008 - The user does not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9

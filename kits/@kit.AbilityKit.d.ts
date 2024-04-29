@@ -54,6 +54,7 @@ import InsightIntentContext from '@ohos.app.ability.InsightIntentContext';
 import insightIntentDriver from '@ohos.app.ability.insightIntentDriver';
 import InsightIntentExecutor from '@ohos.app.ability.InsightIntentExecutor';
 import missionManager from '@ohos.app.ability.missionManager';
+import OpenLinkOptions from '@ohos.app.ability.OpenLinkOptions';
 import quickFixManager from '@ohos.app.ability.quickFixManager';
 import ServiceExtensionAbility from '@ohos.app.ability.ServiceExtensionAbility';
 import ShareExtensionAbility from '@ohos.app.ability.ShareExtensionAbility';
@@ -87,6 +88,12 @@ import Package, {
   CheckPackageHasInstalledOptions, CheckPackageHasInstalledResponse
 } from '@system.package';
 import privacyManager from '@ohos.privacyManager';
+import EmbeddedUIExtensionAbility from '@ohos.app.ability.EmbeddedUIExtensionAbility';
+import StartupConfig from '@ohos.app.appstartup.StartupConfig';
+import StartupConfigEntry from '@ohos.app.appstartup.StartupConfigEntry';
+import StartupListener from '@ohos.app.appstartup.StartupListener';
+import StartupTask from '@ohos.app.appstartup.StartupTask';
+import startupManager from '@ohos.app.appstartup.startupManager';
 
 export {
   Ability, AbilityConstant, AbilityLifecycleCallback, AbilityStage, ActionExtensionAbility,
@@ -101,5 +108,6 @@ export {
   continuationManager, dataUriUtils, defaultAppManager, dialogRequest, dialogSession, distributedBundle,
   distributedBundleManager, distributedMissionManager, errorManager, featureAbility, freeInstall,
   innerBundleManager, insightIntent, insightIntentDriver, installer, launcherBundleManager, missionManager,
-  overlay, particleAbility, quickFixManager, uriPermissionManager, wantAgent, wantConstant, privacyManager
+  overlay, particleAbility, quickFixManager, uriPermissionManager, wantAgent, wantConstant, privacyManager,
+  EmbeddedUIExtensionAbility, StartupConfig, StartupConfigEntry, StartupListener, StartupTask, startupManager
 };

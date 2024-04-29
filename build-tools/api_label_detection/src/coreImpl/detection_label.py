@@ -39,15 +39,22 @@ def judgement_dict_data(result, result_key):
         if dict_data['apiType'] == 'Enum':
             enum_label_detection(dict_data)
         elif 'apiType' in dict_data and dict_data['apiType'] in judgment_node_type:
-            message_list = process_tag_dict(dict_data)
+            message_list = process_tag_dict(dict_data, check_label_list)
             if message_list:
                 result_list.extend(message_list)
-        my_dict[dict_data['definedText']] = dict_data
+        get_data_info(dict_data, my_dict)
         dict_keys = dict_data.keys()
         if 'childApis' in dict_keys:  # 递归处理child
             judgement_dict_data(dict_data, 'childApis')
     # 校验成对函数漏标
     paired_function_omission_label(my_dict)
+
+
+def get_data_info(dict_data, my_dict):
+    if 'jsDocInfos' in dict_data:
+        if get_js_doc_info(dict_data['jsDocInfos']) is not None:
+            if not label_type_conversion(get_js_doc_info(dict_data['jsDocInfos'])['deprecatedVersion']):
+                my_dict[dict_data['definedText']] = dict_data
 
 
 def enum_label_detection(parent_enum_info: dict):
@@ -130,7 +137,7 @@ def dismantle_one_to_many(my_dict: dict, start, function_name, api_name_list):
         api_name = my_dict[defined_text]['apiName']
         if get_start_characters(api_name) in one_to_many_function:
             if (get_remaining_characters(get_start_characters(api_name), api_name)
-                    == get_remaining_characters(start, function_name)):
+                    == get_remaining_characters(start, function_name) and function_name != api_name):
                 api_name_list.append(defined_text)
 
 

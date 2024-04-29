@@ -466,6 +466,16 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @since 11
    */
   onChange(callback: (value: TimePickerResult) => void): TimePickerAttribute;
+
+  /**
+   * Enable or disable haptic feedback.
+   *
+   * @param { boolean } enable - Default value is true, set false to disable haptic feedback.
+   * @returns { TimePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  enableHapticFeedback(enable: boolean): TimePickerAttribute;
 }
 
 /**
@@ -558,14 +568,24 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
   textStyle?: PickerTextStyle;
 
   /**
-   * Text style of button items
+   * Style of accept button.
    *
    * @type { ?PickerDialogButtonStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  buttonStyle?: PickerDialogButtonStyle;
+  acceptButtonStyle?: PickerDialogButtonStyle;
+
+  /**
+   * Style of cancel button.
+   *
+   * @type { ?PickerDialogButtonStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  cancelButtonStyle?: PickerDialogButtonStyle;
 
   /**
    * Text style of selected items
@@ -804,6 +824,16 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @since 12
    */
   onWillDisappear?: () => void;
+ 
+  /**
+   * Defines the dialog's shadow.
+   *
+   * @type { ?(ShadowOptions | ShadowStyle) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  shadow?: ShadowOptions | ShadowStyle;
 }
 
 /**

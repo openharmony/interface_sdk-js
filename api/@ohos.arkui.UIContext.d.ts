@@ -33,7 +33,7 @@ import type observer from './@ohos.arkui.observer';
 import promptAction from './@ohos.promptAction';
 import router from './@ohos.router';
 import type componentUtils from './@ohos.arkui.componentUtils';
-import { ComponentContent } from './@ohos.arkui.node'
+import { ComponentContent } from './@ohos.arkui.node';
 import type { AnimatorOptions, AnimatorResult } from './@ohos.animator';
 import type { Callback, AsyncCallback } from './@ohos.base';
 import type { Color, FontStyle, Nullable } from 'CommonEnums';
@@ -44,9 +44,14 @@ import { DatePickerDialogOptions } from 'DatePickerDialogParam';
 import { TimePickerDialogOptions } from 'TimePickerDialogParam';
 import { TextPickerDialogOptions } from 'textPickerDialogParam';
 import type { CustomBuilder, DragItemInfo, DragEvent } from 'DragControllerParam';
+import { MeasureOptions } from './@ohos.measure';
 import type dragController from './@ohos.arkui.dragController';
+import image from './@ohos.multimedia.image';
 import { LocalStorage } from 'StateManagement';
 import type common from './@ohos.app.ability.common';
+import { GestureEvent } from 'GestureEventModule';
+import { ClickEvent } from 'ClickEventModule';
+import type pointer from './@ohos.multimodalInput.pointer';
 
 /**
  * class Font
@@ -1008,6 +1013,34 @@ export class PromptAction {
 }
 
 /**
+ * Defines the callback type used in UIObserver watch click event.
+ * The value of event indicates the information of ClickEvent.
+ * The value of node indicates the frameNode which will receive the event.
+ * 
+ * @typedef { function } ClickEventListenerCallback
+ * @param { ClickEvent } event - the information of ClickEvent
+ * @param { FrameNode } [node] - the information of frameNode
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type ClickEventListenerCallback = (event: ClickEvent, node?: FrameNode) => void;
+
+/**
+ * Defines the callback type used in UIObserver watch gesture.
+ * The value of event indicates the information of gesture.
+ * The value of node indicates the frameNode which will receive the event.
+ * 
+ * @typedef { function } GestureEventListenerCallback
+ * @param { GestureEvent } event - the information of GestureEvent
+ * @param { FrameNode } [node] - the information of frameNode
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type GestureEventListenerCallback = (event: GestureEvent, node?: FrameNode) => void;
+
+/**
  * Register callbacks to observe ArkUI behavior.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1337,6 +1370,102 @@ export class UIObserver {
     observerOptions: observer.NavDestinationSwitchObserverOptions,
     callback?: Callback<observer.NavDestinationSwitchInfo>
   ): void;
+
+  /**
+   * Registers a callback function to be called before clickEvent is called.
+   *
+   * @param { 'willClick' } type - The type of event to listen for.
+   * @param { ClickEventListenerCallback } callback - The callback function to be called
+   *                                                  when the clickEvent will be trigger or after.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  on(type: 'willClick', callback: ClickEventListenerCallback): void;
+
+  /**
+   * Removes a callback function to be called before clickEvent is called.
+   *
+   * @param { 'willClick' } type - The type of event to remove the listener for.
+   * @param { ClickEventListenerCallback } [callback] - The callback function to remove. If not provided,
+   *                                                    all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  off(type: 'willClick', callback?: ClickEventListenerCallback): void;
+
+  /**
+   * Registers a callback function to be called after clickEvent is called.
+   *
+   * @param { 'didClick' } type - The type of event to listen for.
+   * @param { ClickEventListenerCallback } callback - The callback function to be called
+   *                                                  when the clickEvent will be trigger or after.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  on(type: 'didClick', callback: ClickEventListenerCallback): void;
+
+  /**
+   * Removes a callback function to be called after clickEvent is called.
+   *
+   * @param { 'didClick' } type - The type of event to remove the listener for.
+   * @param { ClickEventListenerCallback } [callback] - The callback function to remove. If not provided,
+   *                                                    all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  off(type: 'didClick', callback?: ClickEventListenerCallback): void;
+
+  /**
+   * Registers a callback function to be called before tapGesture is called.
+   *
+   * @param { 'willClick' } type - The type of event to listen for.
+   * @param { GestureEventListenerCallback } callback - The callback function to be called
+   *                                                    when the clickEvent will be trigger or after.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  on(type: 'willClick', callback: GestureEventListenerCallback): void;
+
+  /**
+   * Removes a callback function to be called before tapGesture is called.
+   *
+   * @param { 'willClick' } type - The type of event to remove the listener for.
+   * @param { GestureEventListenerCallback } [callback] - The callback function to remove. If not provided,
+   *                                                      all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  off(type: 'willClick', callback?: GestureEventListenerCallback): void;
+
+  /**
+   * Registers a callback function to be called after tapGesture is called.
+   *
+   * @param { 'didClick' } type - The type of event to listen for.
+   * @param { GestureEventListenerCallback } callback - The callback function to be called
+   *                                                    when the clickEvent will be trigger or after.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  on(type: 'didClick', callback: GestureEventListenerCallback): void;
+
+  /**
+   * Removes a callback function to be called after tapGesture is called.
+   *
+   * @param { 'didClick' } type - The type of event to remove the listener for.
+   * @param { GestureEventListenerCallback } [callback] - The callback function to remove. If not provided,
+   *                                                      all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  off(type: 'didClick', callback?: GestureEventListenerCallback): void;
 }
 
 /**
@@ -1654,6 +1783,36 @@ export class DragController {
 }
 
 /**
+ * class MeasureUtils
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export class MeasureUtils {
+  /**
+   * Obtains the width of the specified text in a single line layout.
+   *
+   * @param { MeasureOptions } options - Options.
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  measureText(options: MeasureOptions): number;
+
+  /**
+   * Obtains the width and height of the specified text in a single line layout.
+   *
+   * @param { MeasureOptions } options - Options of measure area occupied by text.
+   * @returns { SizeOptions } width and height for text to display
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  measureTextSize(options: MeasureOptions): SizeOptions;
+}
+
+/**
  * class FocusController
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 12
@@ -1679,6 +1838,60 @@ export class FocusController {
 }
 
 /**
+ * Pointer style.
+ *
+ * @typedef {pointer.PointerStyle} PointerStyle
+ * @syscap SystemCapability.MultimodalInput.Input.Pointer
+ * @since 12
+ */
+export type PointerStyle = pointer.PointerStyle;
+
+/**
+ * class CursorController
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export class CursorController {
+  /**
+   * Restore default cursor.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  restoreDefault(): void;
+  /**
+   * Set cursor style.
+   * 
+   * @param { PointerStyle } value - cursor style enum.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setCursor(value: PointerStyle): void;
+}
+
+/**
+ * class ContextMenuController
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export class ContextMenuController {
+  /**
+   * Close context menu.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  close(): void;
+}
+
+/**
  * The base context of an ability or an application. It allows access to
  * application-specific resources.
  *
@@ -1688,6 +1901,57 @@ export class FocusController {
  * @since 12
  */
 export type Context = common.Context;
+
+/**
+ * class ComponentSnapshot
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+export class ComponentSnapshot {
+  /**
+     * Get a component snapshot by component id.
+     *
+     * @param { string } id - Target component ID, set by developer through .id attribute.
+     * @param { AsyncCallback<image.PixelMap> } callback - Callback that contains the snapshot in PixelMap format.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+  get(id: string, callback: AsyncCallback<image.PixelMap>): void;
+
+  /**
+   * Get a component snapshot by component id.
+   *
+   * @param { string } id - Target component ID, set by developer through .id attribute.
+   * @returns { Promise<image.PixelMap> } A Promise with the snapshot in PixelMap format.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  get(id: string): Promise<image.PixelMap>;
+
+  /**
+   * Generate a snapshot from a custom component builder.
+   *
+   * @param { CustomBuilder } builder - Builder function of a custom component.
+   * @param { AsyncCallback<image.PixelMap> } callback - Callback that contains the snapshot in PixelMap format.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  createFromBuilder(builder: CustomBuilder, callback: AsyncCallback<image.PixelMap>): void;
+
+  /**
+   * Generate a snapshot from a custom component builder.
+   *
+   * @param { CustomBuilder } builder - Builder function of a custom component.
+   * @returns { Promise<image.PixelMap> } A Promise with the snapshot in PixelMap format.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  createFromBuilder(builder: CustomBuilder): Promise<image.PixelMap>;
+}
 
 /**
  * class UIContext
@@ -1759,6 +2023,30 @@ export class UIContext {
    * @since 11
    */
   getUIInspector(): UIInspector;
+
+  /**
+   * get the filtered attributes of the component tree.
+   * @param { Array<string> } [filters] - the list of filters used to filter out component tree to be obtained.
+   * @returns { string } the specified attributes of the component tree in json string.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getFilteredInspectorTree(filters?: Array<string>): string;
+
+  /**
+   * get the filtered attributes of the component tree with the specified id and depth
+   * @param { string } id - ID of the specified component tree to be obtained.
+   * @param { number } depth - depth of the component tree to be obtained.
+   * @param { Array<string> } [filters] - the list of filters used to filter out component tree to be obtained.
+   * @returns { string } the specified attributes of the component tree in json string.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getFilteredInspectorTreeById(id: string, depth: number, filters?: Array<string>): string;
 
   /**
    * get object router.
@@ -2049,6 +2337,15 @@ export class UIContext {
   getDragController(): DragController;
 
   /**
+    * Get MeasureUtils.
+    * @returns { MeasureUtils } the MeasureUtils
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @since 12
+    */
+  getMeasureUtils(): MeasureUtils;
+
+  /**
    * Defining keyframe animation function.
    *
    * @param { KeyframeAnimateParam } param - overall animation parameters
@@ -2070,6 +2367,18 @@ export class UIContext {
   keyframeAnimateTo(param: KeyframeAnimateParam, keyframes: Array<KeyframeState>): void;
 
   /**
+   * Define animation functions for immediate distribution.
+   *
+   * @param { AnimateParam } param - Set animation effect parameters.
+   * @param { Callback<void> } event - Specify the closure function that displays dynamic effects,
+   * and the system will automatically insert transition animations for state changes caused by the closure function.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 12
+   */
+  animateToImmediately(param: AnimateParam, event: Callback<void>): void;
+
+  /**
    * Get FrameNode by id.
    *
    * @param { string } id - The id of FrameNode.
@@ -2078,7 +2387,18 @@ export class UIContext {
    * @crossplatform
    * @since 12
    */
-   getFrameNodeById(id: string): FrameNode | null;
+  getFrameNodeById(id: string): FrameNode | null;
+
+  /**
+   * Get FrameNode by uniqueId.
+   *
+   * @param { number } id - The uniqueId of the FrameNode.
+   * @returns { FrameNode | null } - The FrameNode with the target uniqueId, or null if the frameNode is not existed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getFrameNodeByUniqueId(id: number): FrameNode | null;
 
   /**
    * Get FocusController.
@@ -2087,6 +2407,88 @@ export class UIContext {
    * @since 12
    */
   getFocusController(): FocusController;
+
+  /**
+   * Get object cursor controller.
+   *
+   * @returns { CursorController } object cursor controller.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getCursorController(): CursorController;
+
+  /**
+   * Get object context menu controller.
+   *
+   * @returns { ContextMenuController } object context menu controller.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getContextMenuController(): ContextMenuController;
+
+  /**
+   * Get ComponentSnapshot.
+   * @returns { ComponentSnapshot } the ComponentSnapshot
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  getComponentSnapshot(): ComponentSnapshot;
+
+  /**
+   * Converts a value in vp units to a value in px.
+   * @param { number } value
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  vp2px(value: number): number;
+
+  /**
+   * Converts a value in px units to a value in vp.
+   * @param { number } value
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  px2vp(value: number): number;
+
+  /**
+   * Converts a value in fp units to a value in px.
+   * @param { number } value
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  fp2px(value: number): number;
+
+  /**
+   * Converts a value in px units to a value in fp.
+   * @param { number } value
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  px2fp(value: number): number;
+
+  /**
+   * Converts a value in lpx units to a value in px.
+   * @param { number } value
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  lpx2px(value: number): number;
+
+  /**
+   * Converts a value in px units to a value in lpx.
+   * @param { number } value
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  px2lpx(value: number): number;
 
   /**
    * Get current LocalStorage shared from stage.
@@ -2121,6 +2523,16 @@ export class UIContext {
    * @since 12
    */
   setDynamicDimming(id: string, value: number): void;
+
+  /**
+   * Get the name of current window.
+   *
+   * @returns { string | undefined } The name of current window, or undefined if the window doesn't exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getWindowName(): string | undefined;
 }
 
 /**

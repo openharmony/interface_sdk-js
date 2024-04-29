@@ -119,6 +119,7 @@ cdma
 ce
 certsign
 cfa
+cfb
 cft
 channeldown
 channelup
@@ -513,6 +514,7 @@ mmicode
 mnc
 moderately
 moitor
+moov
 mplink
 mschap
 msdos
@@ -541,6 +543,7 @@ nextgroup
 nlink
 nmea
 nnrt
+nnrtdevice
 nopadding
 mori
 nodownload
@@ -585,6 +588,7 @@ osd
 ota
 ott
 ounted
+outlines
 overheated
 overlimit
 overline
@@ -592,6 +596,7 @@ owningproperties
 ows
 oximeter
 p2p
+paddings
 paginated
 paramcheck
 parameterf
@@ -617,6 +622,7 @@ pfa
 pfb
 pgo
 photographing
+phonemes
 phy
 pickers
 pixelmap
@@ -653,6 +659,7 @@ preresolve
 presentationml
 presently
 presistent
+previewed
 prevgroup
 prikey
 primaries
@@ -668,6 +675,7 @@ pss
 pssh
 puk
 pvr
+quant
 querier
 queriers
 racing
@@ -750,7 +758,6 @@ sdpi
 searchsetter
 sece
 secinfo
-securityguard
 seeked
 semicircles
 sendable
@@ -770,6 +777,7 @@ shuts
 sigalgs
 silenced
 singly
+skews
 slidable
 sliderstyle
 statvfs
@@ -799,6 +807,7 @@ spn
 spooler
 spp
 spreadsheetml
+springs
 spry
 spy
 srgb
@@ -902,6 +911,7 @@ unauth
 unbinding
 unblock
 unblocking
+unbond
 uncalibrated
 uncategorized
 uncatergorized
@@ -962,6 +972,7 @@ useriam
 userspace
 usim
 ussd
+utd
 utilized
 utimes
 uuids
@@ -986,6 +997,7 @@ wallpapers
 wantagent
 wapi
 wappush
+warmup
 watchers
 waterflow
 wcdma
@@ -1029,6 +1041,8 @@ zfail
 zoffset
 zoomin
 zoomout
+asr
+aec
 zoomreset
 zooms
 zpass
@@ -1051,3 +1065,6 @@ sbas
 uncertainty
 geofences
 gbk
+ocsp
+encipherment
+reconfirmed

@@ -282,6 +282,20 @@ declare namespace util {
    */
   function parseUUID(uuid: string): Uint8Array;
 
+  /**
+   * Get the hash code of an object.
+   *
+   * @param { object } [object] - The object that need to get hash code.
+   * @returns { number } Return a hash code of an object.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  function getHash(object: object): number;
 
   /**
    * Defines the TextDecoder related options parameters.
@@ -2280,7 +2294,7 @@ declare namespace util {
 
   /**
    * The Type represents two different encoding formats for base64
-   * 
+   *
    * @enum { number } Type
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform

@@ -4917,6 +4917,33 @@ declare class CanvasRenderer extends CanvasPath {
    * @form
    */
   transferFromImageBitmap(bitmap: ImageBitmap): void;
+
+  /**
+   * Allocate a layer for subsequent drawing.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  saveLayer(): void;
+
+  /**
+   * Remove changes to transform and clip since saveLayer was last called and draw the layer on canvas.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  restoreLayer(): void;
+
+  /**
+     * Clear the backing buffer, drawing state stack, any defined paths, and styles.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+  reset(): void;
 }
 
 /**
@@ -5560,6 +5587,15 @@ declare class DrawingRenderingContext {
    * @since 12
    */
   get canvas(): DrawingCanvas;
+
+  /**
+   * Invalidate the component, which will cause a re-render of the component.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  invalidate(): void;
 }
 
 /**

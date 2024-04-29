@@ -320,6 +320,36 @@ declare enum SliderInteraction {
 }
 
 /**
+ * Defines the valid slidable range. If and only if MIN <= from <= to <= MAX, sliding range can be set successfully.
+ *
+ * @interface SlideRange
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface SlideRange {
+  /**
+   * Set the start point of sliding range.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  from?: number;
+
+  /**
+   * Set the end point of sliding range.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  to?: number;
+}
+
+/**
  * Defines the options of Slider.
  *
  * @interface SliderOptions
@@ -754,6 +784,78 @@ declare interface SliderBlockStyle {
 }
 
 /**
+ * Defines the callback type used in SliderConfiguration.
+ *
+ * @typedef {function} SliderTriggerChangeCallback 
+ * @param { number } value - The value of slider.
+ * @param { SliderChangeMode } mode - The changeMode of slider.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type SliderTriggerChangeCallback = (value: number, mode: SliderChangeMode) => void;
+
+/**
+ * SliderConfiguration used by slider content modifier
+ *
+ * @interface SliderConfiguration
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface SliderConfiguration extends CommonConfiguration<SliderConfiguration> {
+  /**
+   * Current progress value.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  value: number;
+
+  /**
+   * Minimum value.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  min: number;
+
+  /**
+   * Maximum value.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  max: number;
+
+  /**
+   * The sliding step size of Slider.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  step: number;
+
+  /**
+   * Trigger slider change
+   *
+   * @type { SliderTriggerChangeCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  triggerChange: SliderTriggerChangeCallback;
+}
+
+/**
  * Provides an interface for the slide bar component.
  *
  * @interface SliderInterface
@@ -1062,7 +1164,6 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * Called when the percentage of bubble prompt is set when sliding.
    *
    * @param { boolean } value
-   * @param { ResourceStr } content
    * @returns { SliderAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -1071,7 +1172,6 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * Called when the percentage of bubble prompt is set when sliding.
    *
    * @param { boolean } value
-   * @param { ResourceStr } content
    * @returns { SliderAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -1363,6 +1463,28 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @since 12
    */
   minResponsiveDistance(value: number): SliderAttribute;
+
+  /**
+   * Set the content modifier of slider.
+   *
+   * @param { ContentModifier<SliderConfiguration> } modifier - The content modifier of slider.
+   * @returns { SliderAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  contentModifier(modifier: ContentModifier<SliderConfiguration>): SliderAttribute;
+
+  /**
+   * Set the valid slidable range.
+   *
+   * @param { SlideRange } value
+   * @returns { SliderAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  slideRange(value: SlideRange): SliderAttribute;
 }
 
 /**

@@ -829,6 +829,13 @@ declare namespace connection {
      * @since 10
      */
     state: BondState;
+    /**
+     * Cause of unbond.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 12
+     */
+    cause: UnbondCause;
   }
 
   /**
@@ -1192,6 +1199,51 @@ declare namespace connection {
      * @since 12
      */
     DEVICE_TYPE_OTHERS = 7
+  }
+
+  /**
+   * Enum for cause of unbond.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 12
+   */
+  enum UnbondCause {
+    /**
+     * User proactively removed device.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 12
+     */
+    USER_REMOVED = 0,
+    /**
+     * Remote device shut down.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 12
+     */
+    REMOTE_DEVICE_DOWN = 1,
+    /**
+     * Wrong PIN code.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 12
+     */
+    AUTH_FAILURE = 2,
+    /**
+     * Remote device rejected.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 12
+     */
+    AUTH_REJECTED = 3,
+    /**
+     * Internal error.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 12
+     */
+    INTERNAL_ERROR = 4
   }
 }
 export default connection;
