@@ -152,8 +152,8 @@ declare namespace storageStatistics {
    *
    * @permission ohos.permission.STORAGE_MANAGER
    * @param { string } packageName - The name of the application
-   * @param { number } index - The index number of the clone application, the default value is 0.
    * @param { AsyncCallback<BundleStats> } callback - callback
+   * @param { number } index - The index number of the clone application, the default value is 0.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - The input parameter is invalid.
