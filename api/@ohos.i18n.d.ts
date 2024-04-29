@@ -514,7 +514,7 @@ declare namespace i18n {
      * @param { UnitInfo } fromUnit - Information of the unit to be converted.
      * @param { UnitInfo } toUnit - Information about the unit to be converted to.
      * @param { number } value - Indicates the number to be formatted.
-     * @param { string } locale - The locale to be used. It must be a valid locale.
+     * @param { string } locale - The locale to be used.
      * @param { string } [style] - The style of format.
      * @returns { string } converted number and unit.
      * @syscap SystemCapability.Global.I18n
@@ -535,7 +535,7 @@ declare namespace i18n {
      * Get the order of year, month, day in the specified locale. Year, month, day are separated by '-'.
      * 'y' stands for year, 'L' stands for month, d stands for day.
      *
-     * @param { string } locale - Information of the locale. It must be a valid locale.
+     * @param { string } locale - Information of the locale.
      * @returns { string } the string of 'y', 'L', 'd' joined by '-'.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
@@ -689,7 +689,7 @@ declare namespace i18n {
     /**
      * A constructor used to create a PhoneNumberFormat object.
      *
-     * @param { string } country - Indicates a character string containing the country information for the PhoneNumberFormat object. It must be a valid country.
+     * @param { string } country - Indicates a character string containing the country information for the PhoneNumberFormat object.
      * @param { PhoneNumberFormatOptions } [options] - format types: "E164", "RFC3966", "INTERNATIONAL", "NATIONAL".
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
@@ -739,7 +739,7 @@ declare namespace i18n {
      * Determine the location by phone number, and return it according to the specified regional language.
      *
      * @param { string } number - input phone number.
-     * @param { string } locale - locale ID. It must be a valid locale.
+     * @param { string } locale - locale ID.
      * @returns { string } a string represents phone number's location.
      * @syscap SystemCapability.Global.I18n
      * @since 9
@@ -750,7 +750,7 @@ declare namespace i18n {
   /**
    * Get a Calendar instance specified by locale and type.
    *
-   * @param { string } locale - The locale used to get calendar. It must be a valid locale.
+   * @param { string } locale - The locale used to get calendar.
    * @param { string } [type] - If type is not specified, get locale's default Calendar, else get the specified type of Calendar.
    *  such as buddhist, chinese, coptic, ethiopic, hebrew, gregory, indian, islamic_civil, islamic_tbla, islamic_umalqura,
    *  japanese, persian.
