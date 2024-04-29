@@ -542,7 +542,7 @@ declare namespace distributedKVStore {
      *
      * @param { string } name - It can not be empty.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Parameter verification failed.
+     * <br>2.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 9
      */
@@ -555,7 +555,7 @@ declare namespace distributedKVStore {
      * @param { FieldNode } child - The field node to append.
      * @returns { boolean } Returns true if the child node is successfully added to this {@code FieldNode} and false otherwise.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect Parameters types.
+     * <br>2.Incorrect Parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 9
      */
@@ -665,7 +665,7 @@ declare namespace distributedKVStore {
      * final position is invalid, false will be returned.
      * @returns { boolean } Returns true if the operation succeeds; return false otherwise.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types.
+     * <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -677,7 +677,7 @@ declare namespace distributedKVStore {
      * @param { number } position - Indicates the absolute position.
      * @returns { boolean } Returns true if the operation succeeds; return false otherwise.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *                                                                 2.Incorrect parameters types.
+     * <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
