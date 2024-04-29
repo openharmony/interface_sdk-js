@@ -3952,6 +3952,19 @@ declare interface WebOptions {
    * @since 11
    */
   incognitoMode? : boolean;
+  
+  /**
+   * Sets the shared render process token of the Web, the parameter is optional and default value is "".
+   * when the Web is in multilprocess mode, Webs with the same sharedRenderProcessToken will attempt 
+   * to reuse the same render process.The shared render process will remain active until all associated
+   * Webs ard destroyed.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  sharedRenderProcessToken? : string;
 }
 
 /**
