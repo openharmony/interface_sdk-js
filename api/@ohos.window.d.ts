@@ -2696,6 +2696,7 @@ declare namespace window {
   /**
    * Specific system bar type.
    *
+   * @typedef {'status' | 'navigation' | 'navigationIndicator'}
    * @syscap SystemCapability.Window.SessionManager
    * @crossplatform
    * @atomicservice
