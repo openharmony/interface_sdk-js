@@ -54,7 +54,7 @@ declare namespace uiAppearance {
      * @systemapi hide this for inner system use
      * @since 10
      */
-    ALWAYS_LIGHT = 1,
+    ALWAYS_LIGHT = 1
   }
 
   /**
