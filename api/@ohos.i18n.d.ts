@@ -326,7 +326,7 @@ declare namespace i18n {
      * Set the locale currently used by the system.
      *
      * @permission ohos.permission.UPDATE_CONFIGURATION
-     * @param { string } locale - The locale to be used. It must be a valid region.
+     * @param { string } locale - The locale to be used. It must be a valid locale.
      * @throws { BusinessError } 201 - the application does not have permission to call this function
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 890001 - param value not valid. Possible causes: Parameter verification failed.
