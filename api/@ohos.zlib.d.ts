@@ -584,7 +584,7 @@ declare namespace zlib {
    * @atomicservice
    * @since 12
    */
-  function getOriginalSize(compressedFile: string): Promise<number>
+  function getOriginalSize(compressedFile: string): Promise<number>;
 
   /**
    * Asynchronous creation of verification objects.
