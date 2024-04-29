@@ -767,9 +767,9 @@ declare class NavPathStack {
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   *                                                                   1. Mandatory parameters are left unspecified.
-   *                                                                   2. Incorrect parameters types.
-   *                                                                   3. Parameter verification failed.
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @throws { BusinessError } 100005 - Builder function not registered.
    * @throws { BusinessError } 100006 - NavDestination not found.
@@ -784,9 +784,9 @@ declare class NavPathStack {
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   *                                                                   1. Mandatory parameters are left unspecified.
-   *                                                                   2. Incorrect parameters types.
-   *                                                                   3. Parameter verification failed.
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @throws { BusinessError } 100005 - Builder function not registered.
    * @throws { BusinessError } 100006 - NavDestination not found.
@@ -852,9 +852,9 @@ declare class NavPathStack {
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   *                                                                   1. Mandatory parameters are left unspecified.
-   *                                                                   2. Incorrect parameters types.
-   *                                                                   3. Parameter verification failed.
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @throws { BusinessError } 100005 - Builder function not registered.
    * @throws { BusinessError } 100006 - NavDestination not found.
@@ -870,9 +870,9 @@ declare class NavPathStack {
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   *                                                                   1. Mandatory parameters are left unspecified.
-   *                                                                   2. Incorrect parameters types.
-   *                                                                   3. Parameter verification failed.
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @throws { BusinessError } 100005 - Builder function not registered.
    * @throws { BusinessError } 100006 - NavDestination not found.
@@ -892,9 +892,9 @@ declare class NavPathStack {
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   *                                                                   1. Mandatory parameters are left unspecified.
-   *                                                                   2. Incorrect parameters types.
-   *                                                                   3. Parameter verification failed.
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @throws { BusinessError } 100005 - Builder function not registered.
    * @throws { BusinessError } 100006 - NavDestination not found.
@@ -911,9 +911,9 @@ declare class NavPathStack {
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   *                                                                   1. Mandatory parameters are left unspecified.
-   *                                                                   2. Incorrect parameters types.
-   *                                                                   3. Parameter verification failed.
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @throws { BusinessError } 100005 - Builder function not registered.
    * @throws { BusinessError } 100006 - NavDestination not found.

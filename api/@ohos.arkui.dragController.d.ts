@@ -370,9 +370,9 @@ declare namespace dragController {
    * @param { DragInfo } dragInfo - Information about the drag event.
    * @param { AsyncCallback<{ event: DragEvent, extraParams: string }> } callback - Callback that contains the drag event information.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   *                                                                   1. Mandatory parameters are left unspecified.
-   *                                                                   2. Incorrect parameters types.
-   *                                                                   3. Parameter verification failed.
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - if some internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -387,9 +387,9 @@ declare namespace dragController {
    * @param { DragInfo } dragInfo - Information about the drag event.
    * @returns { Promise<{ event: DragEvent, extraParams: string }> } A Promise with the drag event information.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   *                                                                   1. Mandatory parameters are left unspecified.
-   *                                                                   2. Incorrect parameters types.
-   *                                                                   3. Parameter verification failed.
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - if some internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -406,9 +406,9 @@ declare namespace dragController {
    * @param { DragInfo } dragInfo - Information about the drag event.
    * @returns { DragAction } one drag action object
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   *                                                                   1. Mandatory parameters are left unspecified.
-   *                                                                   2. Incorrect parameters types.
-   *                                                                   3. Parameter verification failed.
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - if some internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
@@ -421,9 +421,9 @@ declare namespace dragController {
    * @param { DragInfo } dragInfo - Information about the drag event.
    * @returns { DragAction } one drag action object
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   *                                                                   1. Mandatory parameters are left unspecified.
-   *                                                                   2. Incorrect parameters types.
-   *                                                                   3. Parameter verification failed.
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - if some internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice

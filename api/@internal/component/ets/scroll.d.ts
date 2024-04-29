@@ -518,9 +518,9 @@ declare class Scroller {
    *
    * @param { number } velocity - initial velocity of fling, in vp/s.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   *                                                                   1. Mandatory parameters are left unspecified.
-   *                                                                   2. Incorrect parameters types.
-   *                                                                   3. Parameter verification failed.
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100004 - Controller not bound to component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -682,9 +682,9 @@ declare class Scroller {
    * @param { number } index - Index of the item.
    * @returns { RectResult } Returns the size and position.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   *                                                                   1. Mandatory parameters are left unspecified.
-   *                                                                   2. Incorrect parameters types.
-   *                                                                   3. Parameter verification failed.
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100004 - Controller not bound to component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -696,9 +696,9 @@ declare class Scroller {
    * @param { number } index - Index of the item.
    * @returns { RectResult } Returns the size and position.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   *                                                                   1. Mandatory parameters are left unspecified.
-   *                                                                   2. Incorrect parameters types.
-   *                                                                   3. Parameter verification failed.
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100004 - Controller not bound to component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
