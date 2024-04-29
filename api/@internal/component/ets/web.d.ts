@@ -499,13 +499,13 @@ declare enum CacheMode {
   None,
 
   /**
-   * Load cache first, then online.
+   * Load online and not cache.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   /**
-   * Load cache first, then online.
+   * Load online and not cache.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
