@@ -378,14 +378,6 @@ export interface SpotLight extends Light {
  * @since 12
  */
 export interface DirectionalLight extends Light {
-  /**
-   * Near plane of the directional light.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
-   */
-  nearPlane: number;
 }
 
 /**
