@@ -380,7 +380,7 @@ declare namespace i18n {
      * Add one language to preferred language List.
      *
      * @permission ohos.permission.UPDATE_CONFIGURATION
-     * @param { string } language - the language to be added. It must be a valid region.
+     * @param { string } language - the language to be added. It must be a valid language.
      * @param { number } [index] - the position of preferred language list to be inserted.
      * @throws { BusinessError } 201 - the application does not have permission to call this function
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
