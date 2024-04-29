@@ -80,6 +80,7 @@ export default class InputMethodExtensionContext extends ExtensionContext {
    *
    * @param { Want } want - Indicates the ability to start.
    * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - parameter error.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
