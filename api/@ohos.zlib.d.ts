@@ -886,7 +886,7 @@ declare namespace zlib {
    * A callback function for reading input data provided by a user. When the decompression process requires more input data,
    * zlib will call this function. This function should read data from the data source to the buffer.
    *
-   * @typedef InflateBackInputCallback
+   * @typedef { function }
    * @param { object } inDesc - A universal user-defined data object.
    * The specific type and content depend on the actual application scenario, which can include configuration data, file handles, etc.
    * @returns { ArrayBuffer } Return the buffer successfully read by the data source through the input descriptor.
@@ -900,7 +900,7 @@ declare namespace zlib {
    * The output data provided by the user is written into the callback function. Whenever decompressed data is ready for output,
    * zlib calls this function to write the data from the buffer to the target location.
    *
-   * @typedef InflateBackOutputCallback
+   * @typedef { function }
    * @param { object } outDesc - Object passed to output function. Object dependency requirement implementation.
    * @param { ArrayBuffer } buf - Used to store data to be written.
    * @param { number } length - Write the length of the output buffer.
