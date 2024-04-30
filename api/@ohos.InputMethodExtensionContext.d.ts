@@ -52,7 +52,7 @@ export default class InputMethodExtensionContext extends ExtensionContext {
   destroy(): Promise<void>;
 
   /**
-   * Inputmethod extension uses this method to start a specific ability. 
+   * Inputmethod extension uses this method to start a specific ability.
    *
    * @param { Want } want - Indicates the ability to start.
    * @returns { Promise<void> } The promise returned by the function.
