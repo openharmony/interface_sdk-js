@@ -468,6 +468,8 @@ export class PropertyInfo extends ApiInfo {
   isRequired: boolean = false; // 属性是否为必选
   isStatic: boolean = false; // 属性是否为静态
   typeKind: ts.SyntaxKind = -1; //type类型的kind值
+  typeLocations: TypeLocationInfo[] = []; // 参数、返回值的JsDoc信息
+  objLocations: TypeLocationInfo[] = []; // 匿名类型的JsDoc信息
 
   addType(type: string[]): void {
     this.type.push(...type);
@@ -507,6 +509,22 @@ export class PropertyInfo extends ApiInfo {
 
   getTypeKind(): ts.SyntaxKind {
     return this.typeKind;
+  }
+
+  addTypeLocations(typeLocation: TypeLocationInfo): void {
+    this.typeLocations.push(typeLocation);
+  }
+
+  getTypeLocations(): TypeLocationInfo[] {
+    return this.typeLocations;
+  }
+
+  addObjLocations(ObjLocation: TypeLocationInfo): void {
+    this.objLocations.push(ObjLocation);
+  }
+
+  getObjLocations(): TypeLocationInfo[] {
+    return this.objLocations;
   }
 }
 
@@ -626,8 +644,8 @@ export class MethodInfo extends ApiInfo {
   isStatic: boolean = false; // 方法是否是静态
   sync: string = ''; //同步函数标志
   returnValueType: ts.SyntaxKind = -1;
-  typeLocations: Comment.JsDocInfo[] = []; // 参数、返回值的JsDoc信息
-  objLocations: Comment.JsDocInfo[] = []; // 匿名类型的JsDoc信息
+  typeLocations: TypeLocationInfo[] = []; // 参数、返回值的JsDoc信息
+  objLocations: TypeLocationInfo[] = []; // 匿名类型的JsDoc信息
 
   setCallForm(callForm: string): void {
     this.callForm = callForm;
@@ -669,19 +687,19 @@ export class MethodInfo extends ApiInfo {
     return this.isStatic;
   }
 
-  addTypeLocations(typeLocation: Comment.JsDocInfo): void {
+  addTypeLocations(typeLocation: TypeLocationInfo): void {
     this.typeLocations.push(typeLocation);
   }
 
-  getTypeLocations(): Comment.JsDocInfo[] {
+  getTypeLocations(): TypeLocationInfo[] {
     return this.typeLocations;
   }
 
-  addObjLocations(ObjLocation: Comment.JsDocInfo): void {
+  addObjLocations(ObjLocation: TypeLocationInfo): void {
     this.objLocations.push(ObjLocation);
   }
 
-  getObjLocations(): Comment.JsDocInfo[] {
+  getObjLocations(): TypeLocationInfo[] {
     return this.objLocations;
   }
 
@@ -694,6 +712,18 @@ export class MethodInfo extends ApiInfo {
   }
 }
 
+export class TypeLocationInfo extends Comment.JsDocInfo {
+  typeName: string = '';//当前类型名称
+
+  getTypeName(): string {
+    return this.typeName;
+  }
+
+  setTypeName(typeName: string): void {
+    this.typeName = typeName;
+  }
+}
+
 export class ParamInfo {
   apiType: string = ''; // api的类型为方法参数
   apiName: string = ''; // 参数名
@@ -701,8 +731,8 @@ export class ParamInfo {
   type: string[] = []; // 参数的类型
   isRequired: boolean = false; // 参数是否必选
   definedText: string = '';
-  typeLocations: Comment.JsDocInfo[] = []; // 参数、返回值的JsDoc信息
-  objLocations: Comment.JsDocInfo[] = []; // 匿名类型的JsDoc信息
+  typeLocations: TypeLocationInfo[] = []; // 参数、返回值的JsDoc信息
+  objLocations: TypeLocationInfo[] = []; // 匿名类型的JsDoc信息
 
   constructor(apiType: string) {
     this.apiType = apiType;
@@ -752,19 +782,19 @@ export class ParamInfo {
     return this.definedText;
   }
 
-  addTypeLocations(typeLocation: Comment.JsDocInfo): void {
+  addTypeLocations(typeLocation: TypeLocationInfo): void {
     this.typeLocations.push(typeLocation);
   }
 
-  getTypeLocations(): Comment.JsDocInfo[] {
+  getTypeLocations(): TypeLocationInfo[] {
     return this.typeLocations;
   }
 
-  addObjLocations(ObjLocation: Comment.JsDocInfo): void {
+  addObjLocations(ObjLocation: TypeLocationInfo): void {
     this.objLocations.push(ObjLocation);
   }
 
-  getObjLocations(): Comment.JsDocInfo[] {
+  getObjLocations(): TypeLocationInfo[] {
     return this.objLocations;
   }
 }
@@ -881,7 +911,7 @@ export class ParserParam {
     compilerHost.resolveModuleNames = (moduleNames: string[], containingFile: string, reusedNames: string[] | undefined, redirectedReference: ts.ResolvedProjectReference | undefined, compilerOptions: ts.CompilerOptions) => {
       return moduleNames.map(moduleName => {
         if (process.env.IS_OH === 'true') {
-          return undefined;
+          return ts.resolveModuleName(moduleName, containingFile, compilerOptions, compilerHost).resolvedModule;
         }
         const value: ts.ResolvedModule = {
           resolvedFileName: '',

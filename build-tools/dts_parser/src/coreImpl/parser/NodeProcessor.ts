@@ -49,6 +49,7 @@ import {
   ParserParam,
   FileTag,
   TypeParamInfo,
+  TypeLocationInfo,
 } from '../../typedef/parser/ApiInfoDefination';
 import { Comment } from '../../typedef/parser/Comment';
 import { StringUtils } from '../../utils/StringUtils';
@@ -578,6 +579,14 @@ export class NodeProcessorHelper {
     ModifierHelper.processModifiers(propertyNode.modifiers, propertyInfo);
     propertyInfo.setIsRequired(!propertyNode.questionToken ? true : false);
     propertyInfo.addType(NodeProcessorHelper.processDataType(propertyNode.type));
+    if (Boolean(process.env.NEED_DETECTION) && propertyNode.type) {
+      NodeProcessorHelper.processFunctionTypeNode(
+        propertyNode.type,
+        propertyInfo,
+        new ParamInfo(ApiType.PARAM),
+        false
+      );
+    }
     propertyInfo.setTypeKind(propertyNode.type ? propertyNode.type.kind : -1);
     return propertyInfo;
   }
@@ -744,7 +753,7 @@ export class NodeProcessorHelper {
    */
   static processFunctionTypeNode(
     typeNode: ts.TypeNode,
-    methodInfo: MethodInfo,
+    methodInfo: MethodInfo | PropertyInfo,
     paramInfo: ParamInfo,
     isParam: boolean = true
   ): void {
@@ -780,7 +789,7 @@ export class NodeProcessorHelper {
    */
   static processFunctionTypeReference(
     typeNode: ts.TypeReferenceNode,
-    methodInfo: MethodInfo,
+    methodInfo: MethodInfo | PropertyInfo,
     paramInfo: ParamInfo,
     isParam: boolean = true
   ): void {
@@ -821,12 +830,13 @@ export class NodeProcessorHelper {
       if (jsDocInfos.length === 0) {
         return;
       }
-      const jsDoc: Comment.JsDocInfo = jsDocInfos[jsDocInfos.length - 1];
-      jsDoc.removeTags();
+      const typeLocationInfo: TypeLocationInfo = jsDocInfos[jsDocInfos.length - 1] as TypeLocationInfo;
+      typeLocationInfo.removeTags();
+      new TypeLocationInfo().setTypeName.apply(typeLocationInfo, [typeNode.getFullText().trim()]);
       if (isParam) {
-        paramInfo.addTypeLocations(jsDoc);
+        paramInfo.addTypeLocations(typeLocationInfo);
       } else {
-        methodInfo.addTypeLocations(jsDoc);
+        methodInfo.addTypeLocations(typeLocationInfo);
       }
     } catch (error) {
     } finally {
@@ -846,7 +856,7 @@ export class NodeProcessorHelper {
    */
   static processFunctionTypeObject(
     typeObject: ts.TypeLiteralNode,
-    methodInfo: MethodInfo,
+    methodInfo: MethodInfo | PropertyInfo,
     paramInfo: ParamInfo,
     isParam: boolean = true
   ): void {
@@ -861,12 +871,11 @@ export class NodeProcessorHelper {
       if (jsDocInfos.length === 0) {
         return;
       }
-      const jsDoc: Comment.JsDocInfo = jsDocInfos[jsDocInfos.length - 1];
-      jsDoc.removeTags();
+      const typeLocationInfo: TypeLocationInfo = jsDocInfos[jsDocInfos.length - 1] as TypeLocationInfo;
       if (isParam) {
-        paramInfo.addObjLocations(jsDoc);
+        paramInfo.addObjLocations(typeLocationInfo);
       } else {
-        methodInfo.addObjLocations(jsDoc);
+        methodInfo.addObjLocations(typeLocationInfo);
       }
       if (ts.isPropertySignature(member) && member.type) {
         NodeProcessorHelper.processFunctionTypeNode(member.type, methodInfo, paramInfo, isParam);

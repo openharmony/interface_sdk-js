@@ -441,6 +441,7 @@ function detectionApi(options: OptionObjType): ToolNameValueType {
     const error = exception as Error;
     LogUtil.e(`error collect`, error.stack ? error.stack : error.message);
   } finally {
+    LogUtil.i(`detection run over`, buffer.toString());
   }
   return {
     data: [],
