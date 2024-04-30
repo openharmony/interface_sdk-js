@@ -5877,6 +5877,33 @@ declare namespace window {
      * @since 12
      */
     setWindowGrayScale(grayScale: number): Promise<void>;
+
+    /**
+     * Set whether to enable immersive mode.
+     *
+     * @param { boolean } enabled - The value true means to enable immersive mode, and false means the opposite.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 12
+     */
+    setImmersiveModeEnabledState(enabled: boolean): void;
+
+    /**
+     * Get whether the immersive mode is enabled or not.
+     *
+     * @returns { boolean } - The value true means the immersive mode is enabled, and false means the opposite.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 12
+     */
+    getImmersiveModeEnabledState(): boolean;
   }
 
   /**
