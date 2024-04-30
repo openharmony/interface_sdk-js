@@ -147,6 +147,24 @@ declare namespace osAccount {
     activateOsAccount(localId: number): Promise<void>;
 
     /**
+     * Deactivates a specified OS account.
+     *
+     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
+     * @param { number } localId - Indicates the local ID of the OS account.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @throws { BusinessError } 12300008 - Restricted Account.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    deactivateOsAccount(localId: number): Promise<void>;
+
+    /**
      * Checks whether the function of supporting multiple OS accounts is enabled.
      *
      * @param { AsyncCallback<boolean> } callback - Returns {@code true} if this function is enabled; returns {@code false} otherwise.
@@ -1273,6 +1291,28 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 8
      */
+    /**
+     * Creates an OS account using the account type and domain account info.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @param { OsAccountType } type - Indicates the type of the OS account to create.
+     *        {@link OsAccountType} specifies the account types available in the system.
+     * @param { DomainAccountInfo } domainInfo - Indicates the domain account info.
+     * @param { AsyncCallback<OsAccountInfo> } callback - Returns information about the created OS account; returns {@code null} if the creation fails.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - Parameters error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid type or domainInfo.
+     * @throws { BusinessError } 12300004 - Account already exists.
+     * @throws { BusinessError } 12300005 - Multi-user not supported.
+     * @throws { BusinessError } 12300006 - Unsupported account type.
+     * @throws { BusinessError } 12300007 - The number of accounts reaches the upper limit.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
     createOsAccountForDomain(
       type: OsAccountType,
       domainInfo: DomainAccountInfo,
@@ -1301,7 +1341,31 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 8
      */
-    createOsAccountForDomain(type: OsAccountType, domainInfo: DomainAccountInfo): Promise<OsAccountInfo>;
+    /**
+     * Creates an OS account using the account type, domain account info and options.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @param { OsAccountType } type - Indicates the type of the OS account to create.
+     *        {@link OsAccountType} specifies the account types available in the system.
+     * @param { DomainAccountInfo } domainInfo - Indicates the domain account info.
+     * @param { CreateOsAccountForDomainOptions } [options] - Indicates the options to create an OS account for domain.
+     * @returns { Promise<OsAccountInfo> } Returns information about the created OS account; returns {@code null} if the creation fails.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - Parameters error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid type, domainInfo or options.
+     * @throws { BusinessError } 12300004 - Account already exists.
+     * @throws { BusinessError } 12300005 - Multi-user not supported.
+     * @throws { BusinessError } 12300006 - Unsupported account type.
+     * @throws { BusinessError } 12300007 - The number of accounts reaches the upper limit.
+     * @throws { BusinessError } 12300015 - Short name already exists.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    createOsAccountForDomain(type: OsAccountType, domainInfo: DomainAccountInfo, options?: CreateOsAccountForDomainOptions): Promise<OsAccountInfo>;
 
     /**
      * Queries information about the current OS account.
@@ -2226,6 +2290,16 @@ declare namespace osAccount {
      */
     shortName: string;
   }
+
+  /**
+   * Options to create an OS account for domain.
+   *
+   * @interface CreateOsAccountForDomainOptions
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  interface CreateOsAccountForDomainOptions extends CreateOsAccountOptions {}
 
   /**
    * Provides information about domain accounts.

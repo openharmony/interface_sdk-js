@@ -1755,6 +1755,45 @@ declare interface NavigationTitleOptions {
    * @since 11
    */
   backgroundBlurStyle?: BlurStyle;
+
+  /**
+   * Set title bar style.
+   *
+   * @type { ?BarStyle }
+   * @default BarStyle.STANDARD
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  barStyle?: BarStyle;
+}
+
+/**
+ * Declare BarStyle enum.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum BarStyle {
+  /**
+   * Standard style means that the bar and content area are column layouts.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  STANDARD = 0,
+
+  /**
+   * Stack style means that the bar and content area are stack layouts.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  STACK = 1,
 }
 
 /**

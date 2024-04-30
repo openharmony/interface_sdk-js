@@ -8508,6 +8508,7 @@ declare interface TouchEvent extends BaseEvent {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 12
  */
 declare type SizeChangeCallback = (oldValue: SizeOptions, newValue: SizeOptions) => void;
@@ -18605,6 +18606,7 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 12
    */
   onSizeChange(event: SizeChangeCallback): T;
