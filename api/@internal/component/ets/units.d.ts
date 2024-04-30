@@ -1651,6 +1651,16 @@ declare type VoidCallback  = () => void;
 declare type LengthMetrics = import('../api/arkui/Graphics').LengthMetrics;
 
 /**
+ * Defines ColorMetrics.
+ *
+ * @typedef { import('../api/arkui/Graphics').ColorMetrics } ColorMetrics
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type ColorMetrics = import('../api/arkui/Graphics').ColorMetrics;
+
+/**
  * Defines the font used for text.
  *
  * @interface Font
