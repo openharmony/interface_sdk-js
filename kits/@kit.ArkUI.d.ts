@@ -23,7 +23,7 @@ import Animator, { AnimatorOptions, AnimatorResult } from '@ohos.animator';
 import WindowExtensionAbility, { WindowExtensionContext } from '@ohos.application.WindowExtensionAbility';
 import {
   Chip, ChipOptions, ChipSize, IconCommonOptions, LabelMarginOptions, LabelOptions, PrefixIconOptions,
-  SuffixIconOptions
+  SuffixIconOptions, SymbolOptions
 } from '@ohos.arkui.advanced.Chip';
 import {
   IconOptions, LabelOptions as ChipItemLabelOptions, ChipGroupItemOptions, ChipItemStyle, ChipGroupSpaceOptions, IconItemOptions, IconGroupSuffix, ChipGroup
@@ -121,7 +121,7 @@ export {
   RequestFullWindowOptions, Rotation, Router, RouterOptions, RouterState, Scale, ScreenOnVisibleOptions, SegmentButton, SegmentButtonItemOptionsArray,
   SegmentButtonOptions, SelectDialog, SelectOptions, SelectTitleBar, SelectTitleBarMenuItem, SelectionMenu,
   SelectionMenuOptions, ShowActionMenuOptions, ShowDialogOptions, ShowDialogSuccessResponse,
-  ShowToastOptions, Size, SplitLayout, SubHeader, SuffixIconOptions, SwipeRefresher, SystemMediaQuery, SystemRouter,
+  ShowToastOptions, Size, SplitLayout, SubHeader, SuffixIconOptions, SwipeRefresher, SymbolOptions, SystemMediaQuery, SystemRouter, 
   TabSegmentButtonConstructionOptions, TabSegmentButtonOptions, TabTitleBar, TabTitleBarMenuItem, TabTitleBarTabItem,
   TipsDialog, ToolBar, ToolBarOption, ToolBarOptions, Translation, TreeController, TreeListenType, TreeListener,
   TreeListenerManager, TreeView, UIContext, UIInspector, UIObserver, WindowExtensionAbility,

@@ -21,6 +21,7 @@
 /// <reference path="../component/units.d.ts" />
 
 import { ResourceStr } from 'GlobalResource';
+import { SymbolGlyphModifier } from './@ohos.arkui.modifier';
 
 /**
  * Enum for ChipSize
@@ -225,6 +226,37 @@ export interface SuffixIconOptions extends IconCommonOptions {
  * @since 12
  */
 export interface PrefixIconOptions extends IconCommonOptions {}
+
+/**
+ * Defines symbol options.
+ *
+ * @interface SymbolOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export interface SymbolOptions {
+
+  /**
+   * Symbol normal.
+   *
+   * @type { ?SymbolGlyphModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  normal?: SymbolGlyphModifier;
+
+  /**
+   * Symbol activated.
+   *
+   * @type { ?SymbolGlyphModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  activated?: SymbolGlyphModifier;
+}
 
 /**
  * Defines label margin.
@@ -447,6 +479,16 @@ export interface ChipOptions {
   prefixIcon?: PrefixIconOptions;
 
   /**
+   * Chip prefix symbol.
+   *
+   * @type { ?SymbolOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  prefixSymbol?: SymbolOptions;
+
+  /**
    * Chip label.
    *
    * @type { LabelOptions }
@@ -483,6 +525,16 @@ export interface ChipOptions {
    * @since 12
    */
   suffixIcon?: SuffixIconOptions;
+
+  /**
+   * Chip suffix symbol.
+   *
+   * @type { ?SymbolOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  suffixSymbol?: SymbolOptions;
 
   /**
    * Show close icon.
