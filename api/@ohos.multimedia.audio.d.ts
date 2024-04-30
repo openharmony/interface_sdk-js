@@ -471,6 +471,12 @@ declare namespace audio {
      */
     DISPLAY_PORT = 23,
     /**
+     * Device type for rerouting audio to other remote devices by system application
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 12
+     */
+    REMOTE_CAST = 24,
+    /**
      * Default device type.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 9
