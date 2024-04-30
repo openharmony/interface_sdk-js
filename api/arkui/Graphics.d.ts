@@ -673,6 +673,35 @@ export interface SizeT<T> {
 }
 
 /**
+ * Enumerates the length metrics unit.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export enum LengthMetricsUnit {
+
+  /**
+   * The default length metrics unit.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  DEFAULT = 0,
+
+  /**
+   * The pixel length metrics unit.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  PX = 1
+}
+
+/**
  * Defines the Length Metrics.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
