@@ -3898,6 +3898,24 @@ declare namespace cryptoFramework {
     init(priKey: PriKey): Promise<void>;
 
     /**
+     * Used to init environment.
+     *
+     * @param { PriKey } priKey - the private key.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    initSync(priKey: PriKey): void;
+
+    /**
      * Used to append the message need to be signed.
      *
      * @param { DataBlob } data - the data need to be signed.
@@ -3996,6 +4014,24 @@ declare namespace cryptoFramework {
      * @since 12
      */
     update(data: DataBlob): Promise<void>;
+
+    /**
+     * Used to append the message need to be signed.
+     *
+     * @param { DataBlob } data - the data need to be signed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    updateSync(data: DataBlob): void;
 
     /**
      * Used to sign message, include the update data.
@@ -4196,6 +4232,25 @@ declare namespace cryptoFramework {
      * @since 12
      */
     sign(data: DataBlob | null): Promise<DataBlob>;
+
+    /**
+     * Used to append the message need to be signed.
+     *
+     * @param { DataBlob | null } data - the private key.
+     * @returns { DataBlob } return the signed message.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    signSync(data: DataBlob | null): DataBlob;
 
     /**
      * Set the specified parameter to the sign object.
@@ -4496,6 +4551,24 @@ declare namespace cryptoFramework {
     init(pubKey: PubKey): Promise<void>;
 
     /**
+     * Used to init environment.
+     *
+     * @param { PubKey } pubKey - the public key.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    initSync(pubKey: PubKey): void;
+
+    /**
      * Used to append the message need to be verified.
      *
      * @param { DataBlob } data - the data need to be verified.
@@ -4594,6 +4667,24 @@ declare namespace cryptoFramework {
      * @since 12
      */
     update(data: DataBlob): Promise<void>;
+
+    /**
+     * Used to append the message need to be verified.
+     *
+     * @param { DataBlob } data - the data need to be verified.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    updateSync(data: DataBlob): void;
 
     /**
      * Used to verify message, include the update data.
@@ -4806,6 +4897,26 @@ declare namespace cryptoFramework {
      * @since 12
      */
     verify(data: DataBlob | null, signatureData: DataBlob): Promise<boolean>;
+
+    /**
+     * Used to verify message, include the update data.
+     *
+     * @param { DataBlob | null } data - the data need to be verified.
+     * @param { DataBlob } signatureData - the signature data.
+     * @returns { boolean } return the verify result.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    verifySync(data: DataBlob | null, signatureData: DataBlob): boolean;
 
     /**
      * Used to recover signed data.
@@ -5244,6 +5355,26 @@ declare namespace cryptoFramework {
      * @since 12
      */
     generateSecret(priKey: PriKey, pubKey: PubKey): Promise<DataBlob>;
+
+    /**
+     * Used to generate secret.
+     *
+     * @param { PriKey } priKey - the private key.
+     * @param { PubKey } pubKey - the public key.
+     * @returns { DataBlob } the promise used to return secret.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    generateSecretSync(priKey: PriKey, pubKey: PubKey): DataBlob;
 
     /**
      * Indicates the algorithm name.
