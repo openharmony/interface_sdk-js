@@ -40,7 +40,7 @@ declare namespace usbManager {
    *
    * @param { USBDevice } device - USB device on the device list returned by getDevices(). It cannot be empty.
    * @returns { Readonly<USBDevicePipe> } object for data transfer.
-   * @throws { BusinessError } 401 - Parameter error.Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.                             
    * @throws { BusinessError } 14400001 - Permission denied. Need call requestRight to get permission.
@@ -54,7 +54,7 @@ declare namespace usbManager {
    *
    * @param { string } deviceName - device name defined by USBDevice.name. It cannot be empty.
    * @returns { boolean } indicates if the user has the permission to access the device.
-   * @throws { BusinessError } 401 - Parameter error.Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.  
    * @syscap SystemCapability.USB.USBManager
@@ -68,7 +68,7 @@ declare namespace usbManager {
    *
    * @param { string } deviceName - device name defined by USBDevice.name. It cannot be empty.
    * @returns { Promise<boolean> } indicates if the device access permissions are granted.
-   * @throws { BusinessError } 401 - Parameter error.Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.  
    * @syscap SystemCapability.USB.USBManager
@@ -82,7 +82,7 @@ declare namespace usbManager {
    *
    * @param { string } deviceName - device name defined by USBDevice.name. It cannot be empty.
    * @returns { boolean } indicates if the device access permissions are removed.
-   * @throws { BusinessError } 401 - Parameter error.Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.  
    * @syscap SystemCapability.USB.USBManager
@@ -97,7 +97,7 @@ declare namespace usbManager {
    * @param { string } bundleName - refers to application that require access permissions. It cannot be empty.
    * @param { string } deviceName - device name defined by USBDevice.name. It cannot be empty.
    * @returns { boolean } value to indicate whether the permission is granted.
-   * @throws { BusinessError } 401 - Parameter error.Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.  
    * @syscap SystemCapability.USB.USBManager
@@ -113,7 +113,7 @@ declare namespace usbManager {
    *
    * @param { string } funcs - descriptor of the supported function list. It cannot be empty.
    * @returns { number } the numeric mask combination of the function list.
-   * @throws { BusinessError } 401 - Parameter error.Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.  
    * @syscap SystemCapability.USB.USBManager
@@ -129,7 +129,7 @@ declare namespace usbManager {
    *
    * @param { FunctionType } funcs - numeric mask combination of the function list. The type of funcs must be number. It cannot be empty.
    * @returns { string } - descriptor of the supported function list.
-   * @throws { BusinessError } 401 - Parameter error.Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.  
    * @syscap SystemCapability.USB.USBManager
@@ -145,7 +145,7 @@ declare namespace usbManager {
    *
    * @param { FunctionType } funcs - numeric mask combination of the supported function list. It cannot be empty.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error.Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.  
    * @throws { BusinessError } 14400002 - Permission denied.The HDC is disabled by the system.
@@ -187,7 +187,7 @@ declare namespace usbManager {
    *
    * @param { number } portId - unique ID of the port. It cannot be empty.
    * @returns { PortModeType } the mask combination for the supported mode list in PortModeType.
-   * @throws { BusinessError } 401 - Parameter error.Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.  
    * @syscap SystemCapability.USB.USBManager
@@ -205,7 +205,7 @@ declare namespace usbManager {
    * @param { PowerRoleType } powerRole - charging role. It cannot be empty.
    * @param { DataRoleType } dataRole - data role. It cannot be empty.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error.Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.  
    * @syscap SystemCapability.USB.USBManager
@@ -224,7 +224,7 @@ declare namespace usbManager {
    * @param { string } tokenId - refers to application that require access permissions. It cannot be empty.
    * @param { string } deviceName - device name defined by USBDevice.name. It cannot be empty.
    * @returns { boolean } value to indicate whether the permission is granted.
-   * @throws { BusinessError } 401 - Parameter error.Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.  
    * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
@@ -254,7 +254,7 @@ declare namespace usbManager {
    * @permission ohos.permission.MANAGE_USB_CONFIG
    * @param { FunctionType } funcs - numeric mask combination of the function list. It cannot be empty.
    * @returns { string } - descriptor of the supported function list.
-   * @throws { BusinessError } 401 - Parameter error.Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.  
    * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
@@ -270,7 +270,7 @@ declare namespace usbManager {
    * @permission ohos.permission.MANAGE_USB_CONFIG
    * @param { FunctionType } funcs - numeric mask combination of the supported function list. It cannot be empty.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error.Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.  
    * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
@@ -311,7 +311,7 @@ declare namespace usbManager {
    * @permission ohos.permission.MANAGE_USB_CONFIG
    * @param { number } portId - unique ID of the port. It cannot be empty.
    * @returns { PortModeType } the mask combination for the supported mode list in PortModeType.
-   * @throws { BusinessError } 401 - Parameter error.Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.   
    * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
@@ -329,7 +329,7 @@ declare namespace usbManager {
    * @param { PowerRoleType } powerRole - charging role. It cannot be empty.
    * @param { DataRoleType } dataRole - data role. It cannot be empty.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error.Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.  
    * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
@@ -347,7 +347,7 @@ declare namespace usbManager {
    * @param { USBInterface } iface - USB interface, which is used to determine the interface to claim. It cannot be empty.
    * @param { boolean } [force] - optional parameter that determines whether to forcibly claim the USB interface.
    * @returns { number } returns **0** if the USB interface is successfully claimed; returns an error code otherwise.
-   * @throws { BusinessError } 401 - Parameter error.Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.  
    * @syscap SystemCapability.USB.USBManager
@@ -372,7 +372,7 @@ declare namespace usbManager {
    * @param { USBDevicePipe } pipe - device pipe, which is used to determine the bus number and device address. It cannot be empty.
    * @param { USBConfiguration } config - device configuration. It cannot be empty.
    * @returns { number } returns **0** if the device configuration is successfully set; returns an error code otherwise.
-   * @throws { BusinessError } 401 - Parameter error.Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.  
    * @syscap SystemCapability.USB.USBManager
@@ -386,7 +386,7 @@ declare namespace usbManager {
    * @param { USBDevicePipe } pipe - device pipe, which is used to determine the bus number and device address. It cannot be empty.
    * @param { USBInterface } iface - USB interface, which is used to determine the interface to set. It cannot be empty.
    * @returns { number } returns **0** if the USB interface is successfully set; return an error code otherwise.
-   * @throws { BusinessError } 401 - Parameter error.Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.  
    * @syscap SystemCapability.USB.USBManager
@@ -399,7 +399,7 @@ declare namespace usbManager {
    *
    * @param { USBDevicePipe } pipe - device pipe, which is used to determine the bus number and device address. It cannot be empty.
    * @returns { Uint8Array } returns the raw descriptor data.
-   * @throws { BusinessError } 401 - Parameter error.Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.  
    * @syscap SystemCapability.USB.USBManager
@@ -412,7 +412,7 @@ declare namespace usbManager {
    *
    * @param { USBDevicePipe } pipe - device pipe, which is used to determine the USB device. It cannot be empty.
    * @returns { number } returns the file descriptor of the USB device.
-   * @throws { BusinessError } 401 - Parameter error.Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.  
    * @syscap SystemCapability.USB.USBManager
@@ -428,7 +428,7 @@ declare namespace usbManager {
    * @param { number } [timeout] - timeout duration. This parameter is optional. The default value is **0**, indicating no timeout. 
    * @returns { Promise<number> } returns the size of the transmitted or received data block if the control transfer is successful;
    * return -1 if an exception occurs.
-   * @throws { BusinessError } 401 - Parameter error.Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.  
    * @syscap SystemCapability.USB.USBManager
@@ -445,7 +445,7 @@ declare namespace usbManager {
    * @param { number } [timeout] - timeout duration. This parameter is optional. The default value is **0**, indicating no timeout.
    * @returns { Promise<number> } the size of the transmitted or received data block if the control transfer is successful;
    * return -1 if an exception occurs.
-   * @throws { BusinessError } 401 - Parameter error.Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.  
    * @syscap SystemCapability.USB.USBManager
@@ -463,7 +463,7 @@ declare namespace usbManager {
    *
    * @param { USBDevicePipe } pipe - device pipe, which is used to determine the USB device. It cannot be empty.
    * @returns { number } returns **0** if the USB device pipe is closed successfully; return an error code otherwise.
-   * @throws { BusinessError } 401 - Parameter error.Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.USB.USBManager
@@ -480,7 +480,7 @@ declare namespace usbManager {
    */
   interface USBEndpoint {
     /**
-     * Endpoint address. It cannot be empty.
+     * Endpoint address.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -488,7 +488,7 @@ declare namespace usbManager {
     address: number;
 
     /**
-     * Endpoint attributes. It cannot be empty.
+     * Endpoint attributes.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -496,7 +496,7 @@ declare namespace usbManager {
     attributes: number;
 
     /**
-     * Endpoint interval. It cannot be empty.
+     * Endpoint interval.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -504,7 +504,7 @@ declare namespace usbManager {
     interval: number;
 
     /**
-     * Maximum size of data packets on the endpoint. It cannot be empty.
+     * Maximum size of data packets on the endpoint.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -512,7 +512,7 @@ declare namespace usbManager {
     maxPacketSize: number;
 
     /**
-     * Endpoint direction. It cannot be empty.
+     * Endpoint direction.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -520,7 +520,7 @@ declare namespace usbManager {
     direction: USBRequestDirection;
 
     /**
-     * Endpoint number. It cannot be empty.
+     * Endpoint number.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -528,7 +528,7 @@ declare namespace usbManager {
     number: number;
 
     /**
-     * Endpoint type. It cannot be empty.
+     * Endpoint type.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -536,7 +536,7 @@ declare namespace usbManager {
     type: number;
 
     /**
-     * Unique ID defined by USBInterface.id, which indicates the interface to which the endpoint belongs. It cannot be empty.
+     * Unique ID defined by USBInterface.id, which indicates the interface to which the endpoint belongs.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -553,7 +553,7 @@ declare namespace usbManager {
    */
   interface USBInterface {
     /**
-     * Unique ID of the USB interface. It cannot be empty.
+     * Unique ID of the USB interface.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -561,7 +561,7 @@ declare namespace usbManager {
     id: number;
 
     /**
-     * Interface protocol. It cannot be empty.
+     * Interface protocol.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -569,7 +569,7 @@ declare namespace usbManager {
     protocol: number;
 
     /**
-     * Device type. It cannot be empty.
+     * Device type.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -577,7 +577,7 @@ declare namespace usbManager {
     clazz: number;
 
     /**
-     * Device subclass. It cannot be empty.
+     * Device subclass.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -585,7 +585,7 @@ declare namespace usbManager {
     subClass: number;
 
     /**
-     * Alternation between descriptors of the same USB interface. It cannot be empty.
+     * Alternation between descriptors of the same USB interface.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -593,7 +593,7 @@ declare namespace usbManager {
     alternateSetting: number;
 
     /**
-     * Interface name. It cannot be empty.
+     * Interface name.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -601,7 +601,7 @@ declare namespace usbManager {
     name: string;
 
     /**
-     * USBEndpoint that belongs to the USB interface. It cannot be empty.
+     * USBEndpoint that belongs to the USB interface.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -618,7 +618,7 @@ declare namespace usbManager {
    */
   interface USBConfiguration {
     /**
-     * Unique ID of the USB configuration. It cannot be empty.
+     * Unique ID of the USB configuration.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -626,7 +626,7 @@ declare namespace usbManager {
     id: number;
 
     /**
-     * Configuration attributes. It cannot be empty.
+     * Configuration attributes.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -634,7 +634,7 @@ declare namespace usbManager {
     attributes: number;
 
     /**
-     * Maximum power consumption, in mA. It cannot be empty.
+     * Maximum power consumption, in mA.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -642,7 +642,7 @@ declare namespace usbManager {
     maxPower: number;
 
     /**
-     * Configuration name, which can be left empty. It cannot be empty.
+     * Configuration name, which can be left empty.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -650,7 +650,7 @@ declare namespace usbManager {
     name: string;
 
     /**
-     * Support for remote wakeup. It cannot be empty.
+     * Support for remote wakeup.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -658,7 +658,7 @@ declare namespace usbManager {
     isRemoteWakeup: boolean;
 
     /**
-     * Support for independent power supplies. It cannot be empty.
+     * Support for independent power supplies.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -666,7 +666,7 @@ declare namespace usbManager {
     isSelfPowered: boolean;
 
     /**
-     * Supported interface attributes. It cannot be empty.
+     * Supported interface attributes.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -683,7 +683,7 @@ declare namespace usbManager {
    */
   interface USBDevice {
     /**
-     * Bus address. It cannot be empty.
+     * Bus address.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -691,7 +691,7 @@ declare namespace usbManager {
     busNum: number;
 
     /**
-     * Device address. It cannot be empty.
+     * Device address.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -699,7 +699,7 @@ declare namespace usbManager {
     devAddress: number;
 
     /**
-     * Device SN. It cannot be empty.
+     * Device SN.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -707,7 +707,7 @@ declare namespace usbManager {
     serial: string;
 
     /**
-     * Device name. It cannot be empty.
+     * Device name.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -715,7 +715,7 @@ declare namespace usbManager {
     name: string;
 
     /**
-     * Device manufacturer. It cannot be empty.
+     * Device manufacturer.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -723,7 +723,7 @@ declare namespace usbManager {
     manufacturerName: string;
 
     /**
-     * Product information. It cannot be empty.
+     * Product information.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -731,7 +731,7 @@ declare namespace usbManager {
     productName: string;
 
     /**
-     * Product version. It cannot be empty.
+     * Product version.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -739,7 +739,7 @@ declare namespace usbManager {
     version: string;
 
     /**
-     * Vendor ID. It cannot be empty.
+     * Vendor ID.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -747,7 +747,7 @@ declare namespace usbManager {
     vendorId: number;
 
     /**
-     * Product ID. It cannot be empty.
+     * Product ID.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -755,7 +755,7 @@ declare namespace usbManager {
     productId: number;
 
     /**
-     * Device class. It cannot be empty.
+     * Device class.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -763,7 +763,7 @@ declare namespace usbManager {
     clazz: number;
 
     /**
-     * Device subclass. It cannot be empty.
+     * Device subclass.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -771,7 +771,7 @@ declare namespace usbManager {
     subClass: number;
 
     /**
-     * Device protocol code. It cannot be empty.
+     * Device protocol code.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -779,7 +779,7 @@ declare namespace usbManager {
     protocol: number;
 
     /**
-     * Device configuration descriptor information. It cannot be empty.
+     * Device configuration descriptor information.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -796,7 +796,7 @@ declare namespace usbManager {
    */
   interface USBDevicePipe {
     /**
-     * Bus address. It cannot be empty.
+     * Bus address.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -804,7 +804,7 @@ declare namespace usbManager {
     busNum: number;
 
     /**
-     * Device address. It cannot be empty.
+     * Device address.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -951,7 +951,7 @@ declare namespace usbManager {
    */
   interface USBPortStatus {
     /**
-     * USB mode. It cannot be empty.
+     * USB mode.
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -960,7 +960,7 @@ declare namespace usbManager {
     currentMode: number;
 
     /**
-     * Power role. It cannot be empty.
+     * Power role.
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -969,7 +969,7 @@ declare namespace usbManager {
     currentPowerRole: number;
 
     /**
-     * Data role. It cannot be empty.
+     * Data role.
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -988,7 +988,7 @@ declare namespace usbManager {
    */
   interface USBPort {
     /**
-     * Unique ID of the USB port. It cannot be empty.
+     * Unique ID of the USB port.
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -997,7 +997,7 @@ declare namespace usbManager {
     id: number;
 
     /**
-     * Mask combination for the supported mode list of the USB port. It cannot be empty.
+     * Mask combination for the supported mode list of the USB port.
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1006,7 +1006,7 @@ declare namespace usbManager {
     supportedModes: PortModeType;
 
     /**
-     * USB port role. It cannot be empty.
+     * USB port role.
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1024,7 +1024,7 @@ declare namespace usbManager {
    */
   interface USBControlParams {
     /**
-     * Request type. It cannot be empty.
+     * Request type.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -1032,7 +1032,7 @@ declare namespace usbManager {
     request: number;
 
     /**
-     * Request target type. It cannot be empty.
+     * Request target type.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -1040,7 +1040,7 @@ declare namespace usbManager {
     target: USBRequestTargetType;
 
     /**
-     * Control request type. It cannot be empty.
+     * Control request type.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -1048,7 +1048,7 @@ declare namespace usbManager {
     reqType: USBControlRequestType;
 
     /**
-     * Request parameter value. It cannot be empty.
+     * Request parameter value.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -1056,7 +1056,7 @@ declare namespace usbManager {
     value: number;
 
     /**
-     * Index of the parameter value. It cannot be empty.
+     * Index of the parameter value.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -1064,7 +1064,7 @@ declare namespace usbManager {
     index: number;
 
     /**
-     * Data written to or read from the buffer. It cannot be empty.
+     * Data written to or read from the buffer.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
