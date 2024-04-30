@@ -1996,6 +1996,7 @@ declare interface RichEditorBuilderSpanOptions {
  * @interface PlaceholderStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface PlaceholderStyle {
@@ -3242,6 +3243,7 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @returns { RichEditorAttribute } The attribute of the rich editor.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   placeholder(value: ResourceStr, style?: PlaceholderStyle): RichEditorAttribute;
