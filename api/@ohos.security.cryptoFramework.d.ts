@@ -850,6 +850,21 @@ declare namespace cryptoFramework {
      * @since 12
      */
     getEncodedDer(format: string): DataBlob;
+
+    /**
+     * Encode the private key object to string in PEM format.
+     *
+     * @param { string } format - indicates the encoding format.
+     * @returns { string } the string of the key object in PEM format.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    getEncodedPem(format: string): string;
   }
 
   /**
@@ -941,6 +956,21 @@ declare namespace cryptoFramework {
      * @since 12
      */
     getEncodedDer(format: string): DataBlob;
+
+    /**
+     * Encode the public key object to string in PEM format.
+     *
+     * @param { string } format - indicates the encoding format.
+     * @returns { string } the string of the key object in PEM format.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    getEncodedPem(format: string): string;
   }
 
   /**
@@ -1528,6 +1558,38 @@ declare namespace cryptoFramework {
      * @since 12
      */
     convertKeySync(pubKey: DataBlob | null, priKey: DataBlob | null): KeyPair;
+
+    /**
+     * Used to convert asymmetric key in PEM format to keypair object.
+     *
+     * @param { string | null } pubKey - the public key string in PEM format.
+     * @param { string | null } priKey - the private key string in PEM format.
+     * @returns { Promise<KeyPair> } return keypair.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    convertPemKey(pubKey: string | null, priKey: string | null): Promise<KeyPair>;
+
+    /**
+     * Used to convert asymmetric key in PEM format to keypair object.
+     *
+     * @param { string | null } pubKey - the public key string in PEM format.
+     * @param { string | null } priKey - the private key string in PEM format.
+     * @returns { KeyPair } return keypair.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    convertPemKeySync(pubKey: string | null, priKey: string | null): KeyPair;
 
     /**
      * The algName of the AsyKeyGenerator.
