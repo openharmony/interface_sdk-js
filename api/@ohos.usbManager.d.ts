@@ -480,7 +480,7 @@ declare namespace usbManager {
    */
   interface USBEndpoint {
     /**
-     * Endpoint address.
+     * Endpoint address
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -488,7 +488,7 @@ declare namespace usbManager {
     address: number;
 
     /**
-     * Endpoint attributes.
+     * Endpoint attributes
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -496,7 +496,7 @@ declare namespace usbManager {
     attributes: number;
 
     /**
-     * Endpoint interval.
+     * Endpoint interval
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -504,7 +504,7 @@ declare namespace usbManager {
     interval: number;
 
     /**
-     * Maximum size of data packets on the endpoint.
+     * Maximum size of data packets on the endpoint
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -512,7 +512,7 @@ declare namespace usbManager {
     maxPacketSize: number;
 
     /**
-     * Endpoint direction.
+     * Endpoint direction
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -520,7 +520,7 @@ declare namespace usbManager {
     direction: USBRequestDirection;
 
     /**
-     * Endpoint number.
+     * Endpoint number
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -528,7 +528,7 @@ declare namespace usbManager {
     number: number;
 
     /**
-     * Endpoint type.
+     * Endpoint type
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -536,7 +536,7 @@ declare namespace usbManager {
     type: number;
 
     /**
-     * Unique ID defined by USBInterface.id, which indicates the interface to which the endpoint belongs.
+     * Unique ID defined by USBInterface.id, which indicates the interface to which the endpoint belongs
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -553,7 +553,7 @@ declare namespace usbManager {
    */
   interface USBInterface {
     /**
-     * Unique ID of the USB interface.
+     * Unique ID of the USB interface
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -561,7 +561,7 @@ declare namespace usbManager {
     id: number;
 
     /**
-     * Interface protocol.
+     * Interface protocol
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -569,7 +569,7 @@ declare namespace usbManager {
     protocol: number;
 
     /**
-     * Device type.
+     * Device type
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -577,7 +577,7 @@ declare namespace usbManager {
     clazz: number;
 
     /**
-     * Device subclass.
+     * Device subclass
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -585,7 +585,7 @@ declare namespace usbManager {
     subClass: number;
 
     /**
-     * Alternation between descriptors of the same USB interface.
+     * Alternation between descriptors of the same USB interface
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -593,7 +593,7 @@ declare namespace usbManager {
     alternateSetting: number;
 
     /**
-     * Interface name.
+     * Interface name
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -601,7 +601,7 @@ declare namespace usbManager {
     name: string;
 
     /**
-     * USBEndpoint that belongs to the USB interface.
+     * USBEndpoint that belongs to the USB interface
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -618,7 +618,7 @@ declare namespace usbManager {
    */
   interface USBConfiguration {
     /**
-     * Unique ID of the USB configuration.
+     * Unique ID of the USB configuration
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -626,7 +626,7 @@ declare namespace usbManager {
     id: number;
 
     /**
-     * Configuration attributes.
+     * Configuration attributes
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -634,7 +634,7 @@ declare namespace usbManager {
     attributes: number;
 
     /**
-     * Maximum power consumption, in mA.
+     * Maximum power consumption, in mA
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -642,7 +642,7 @@ declare namespace usbManager {
     maxPower: number;
 
     /**
-     * Configuration name, which can be left empty.
+     * Configuration name, which can be left empty
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -650,7 +650,7 @@ declare namespace usbManager {
     name: string;
 
     /**
-     * Support for remote wakeup.
+     * Support for remote wakeup
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -658,7 +658,7 @@ declare namespace usbManager {
     isRemoteWakeup: boolean;
 
     /**
-     * Support for independent power supplies.
+     * Support for independent power supplies
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -666,7 +666,7 @@ declare namespace usbManager {
     isSelfPowered: boolean;
 
     /**
-     * Supported interface attributes.
+     * Supported interface attributes
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -683,7 +683,7 @@ declare namespace usbManager {
    */
   interface USBDevice {
     /**
-     * Bus address.
+     * Bus address
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -691,7 +691,7 @@ declare namespace usbManager {
     busNum: number;
 
     /**
-     * Device address.
+     * Device address
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -699,7 +699,7 @@ declare namespace usbManager {
     devAddress: number;
 
     /**
-     * Device SN.
+     * Device SN
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -707,7 +707,7 @@ declare namespace usbManager {
     serial: string;
 
     /**
-     * Device name.
+     * Device name
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -715,7 +715,7 @@ declare namespace usbManager {
     name: string;
 
     /**
-     * Device manufacturer.
+     * Device manufacturer
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -723,7 +723,7 @@ declare namespace usbManager {
     manufacturerName: string;
 
     /**
-     * Product information.
+     * Product information
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -731,7 +731,7 @@ declare namespace usbManager {
     productName: string;
 
     /**
-     * Product version.
+     * Product version
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -739,7 +739,7 @@ declare namespace usbManager {
     version: string;
 
     /**
-     * Vendor ID.
+     * Vendor ID
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -747,7 +747,7 @@ declare namespace usbManager {
     vendorId: number;
 
     /**
-     * Product ID.
+     * Product ID
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -755,7 +755,7 @@ declare namespace usbManager {
     productId: number;
 
     /**
-     * Device class.
+     * Device class
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -763,7 +763,7 @@ declare namespace usbManager {
     clazz: number;
 
     /**
-     * Device subclass.
+     * Device subclass
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -771,7 +771,7 @@ declare namespace usbManager {
     subClass: number;
 
     /**
-     * Device protocol code.
+     * Device protocol code
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -779,7 +779,7 @@ declare namespace usbManager {
     protocol: number;
 
     /**
-     * Device configuration descriptor information.
+     * Device configuration descriptor information
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -796,7 +796,7 @@ declare namespace usbManager {
    */
   interface USBDevicePipe {
     /**
-     * Bus address.
+     * Bus address
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -804,7 +804,7 @@ declare namespace usbManager {
     busNum: number;
 
     /**
-     * Device address.
+     * Device address
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -951,7 +951,7 @@ declare namespace usbManager {
    */
   interface USBPortStatus {
     /**
-     * USB mode.
+     * USB mode
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -960,7 +960,7 @@ declare namespace usbManager {
     currentMode: number;
 
     /**
-     * Power role.
+     * Power role
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -969,7 +969,7 @@ declare namespace usbManager {
     currentPowerRole: number;
 
     /**
-     * Data role.
+     * Data role
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -988,7 +988,7 @@ declare namespace usbManager {
    */
   interface USBPort {
     /**
-     * Unique ID of the USB port.
+     * Unique ID of the USB port
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -997,7 +997,7 @@ declare namespace usbManager {
     id: number;
 
     /**
-     * Mask combination for the supported mode list of the USB port.
+     * Mask combination for the supported mode list of the USB port
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1006,7 +1006,7 @@ declare namespace usbManager {
     supportedModes: PortModeType;
 
     /**
-     * USB port role.
+     * USB port role
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1024,7 +1024,7 @@ declare namespace usbManager {
    */
   interface USBControlParams {
     /**
-     * Request type.
+     * Request type
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -1032,7 +1032,7 @@ declare namespace usbManager {
     request: number;
 
     /**
-     * Request target type.
+     * Request target type
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -1040,7 +1040,7 @@ declare namespace usbManager {
     target: USBRequestTargetType;
 
     /**
-     * Control request type.
+     * Control request type
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -1048,7 +1048,7 @@ declare namespace usbManager {
     reqType: USBControlRequestType;
 
     /**
-     * Request parameter value.
+     * Request parameter value
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -1056,7 +1056,7 @@ declare namespace usbManager {
     value: number;
 
     /**
-     * Index of the parameter value.
+     * Index of the parameter value
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -1064,7 +1064,7 @@ declare namespace usbManager {
     index: number;
 
     /**
-     * Data written to or read from the buffer.
+     * Data written to or read from the buffer
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
