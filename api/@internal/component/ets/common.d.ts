@@ -21155,7 +21155,10 @@ declare class ChildrenMainSize {
    *
    * @param { number } childDefaultSize - default main size, in vp. If the main axis is vertical, it indicates height.
    * If the main axis is horizontal, it indicates width.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -21167,7 +21170,10 @@ declare class ChildrenMainSize {
    *
    * @param { number } value - default main size, in vp. If the main axis is vertical, it indicates height.
    * If the main axis is horizontal, it indicates width.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -21191,7 +21197,10 @@ declare class ChildrenMainSize {
    * @param { number } start - Zero-based index at which to start changing the children main size.
    * @param { number } [deleteCount] - Indicating the number of children main size to remove from start.
    * @param { Array<number> } [childrenSize] - Add the new children main size, beginning from start.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -21206,7 +21215,10 @@ declare class ChildrenMainSize {
    *
    * @param { number } index - index of child to be updated.
    * @param { number } childSize - new section options.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
