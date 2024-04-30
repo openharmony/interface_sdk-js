@@ -796,7 +796,7 @@ declare namespace usbManager {
    */
   interface USBDevicePipe {
     /**
-     * Bus address
+     * Bus address.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9
