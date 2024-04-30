@@ -1096,7 +1096,7 @@ declare namespace unifiedDataChannel {
    * @param { AsyncCallback<string> } callback - {string}: the unique identifier.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   *                                                                   2.Incorrect Parameters types.
+   *                                                                  2.Incorrect Parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 10
    */
@@ -1108,7 +1108,7 @@ declare namespace unifiedDataChannel {
    * @param { AsyncCallback<string> } callback - {string}: the unique identifier.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   *                                                                   2.Incorrect Parameters types.
+   *                                                                  2.Incorrect Parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
    * @since 11
@@ -1123,7 +1123,7 @@ declare namespace unifiedDataChannel {
    * @returns { Promise<string> } {string}: the unique identifier.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   *                                                                   2.Incorrect Parameters types.
+   *                                                                  2.Incorrect Parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 10
    */
@@ -1135,7 +1135,7 @@ declare namespace unifiedDataChannel {
    * @returns { Promise<string> } {string}: the unique identifier.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   *                                                                   2.Incorrect Parameters types.
+   *                                                                  2.Incorrect Parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
    * @since 11
@@ -1150,7 +1150,7 @@ declare namespace unifiedDataChannel {
    * @param { AsyncCallback<void> } callback - the callback of updateData.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   *                                                                   2.Incorrect Parameters types.
+   *                                                                  2.Incorrect Parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 10
    */
@@ -1162,7 +1162,7 @@ declare namespace unifiedDataChannel {
    * @param { AsyncCallback<void> } callback - the callback of updateData.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   *                                                                   2.Incorrect Parameters types.
+   *                                                                  2.Incorrect Parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
    * @since 11
@@ -1177,7 +1177,7 @@ declare namespace unifiedDataChannel {
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   *                                                                   2.Incorrect Parameters types.
+   *                                                                  2.Incorrect Parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 10
    */
@@ -1189,7 +1189,7 @@ declare namespace unifiedDataChannel {
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   *                                                                   2.Incorrect Parameters types.
+   *                                                                  2.Incorrect Parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
    * @since 11
@@ -1203,7 +1203,7 @@ declare namespace unifiedDataChannel {
    * @param { AsyncCallback<Array<UnifiedData>> } callback - {Array<UnifiedData>}: the target {@link UnifiedData} object array.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   *                                                                   2.Incorrect Parameters types.
+   *                                                                  2.Incorrect Parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 10
    */
@@ -1214,7 +1214,7 @@ declare namespace unifiedDataChannel {
    * @param { AsyncCallback<Array<UnifiedData>> } callback - {Array<UnifiedData>}: the target {@link UnifiedData} object array.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   *                                                                   2.Incorrect Parameters types.
+   *                                                                  2.Incorrect Parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
    * @since 11
@@ -1228,7 +1228,7 @@ declare namespace unifiedDataChannel {
    * @returns { Promise<Array<UnifiedData>> } {Array<UnifiedData>}: the target {@link UnifiedData} object array.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   *                                                                   2.Incorrect Parameters types.
+   *                                                                  2.Incorrect Parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 10
    */
@@ -1239,7 +1239,7 @@ declare namespace unifiedDataChannel {
    * @returns { Promise<Array<UnifiedData>> } {Array<UnifiedData>}: the target {@link UnifiedData} object array.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   *                                                                   2.Incorrect Parameters types.
+   *                                                                  2.Incorrect Parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
    * @since 11
@@ -1253,7 +1253,7 @@ declare namespace unifiedDataChannel {
    * @param { AsyncCallback<Array<UnifiedData>> } callback - {Array<UnifiedData>}: the deleted {@link UnifiedData} object array.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   *                                                                   2.Incorrect Parameters types.
+   *                                                                  2.Incorrect Parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 10
    */
@@ -1264,7 +1264,7 @@ declare namespace unifiedDataChannel {
    * @param { AsyncCallback<Array<UnifiedData>> } callback - {Array<UnifiedData>}: the deleted {@link UnifiedData} object array.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   *                                                                   2.Incorrect Parameters types.
+   *                                                                  2.Incorrect Parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
    * @since 11
@@ -1278,7 +1278,7 @@ declare namespace unifiedDataChannel {
    * @returns { Promise<Array<UnifiedData>> } {Array<UnifiedData>}: the deleted {@link UnifiedData} object array.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   *                                                                   2.Incorrect Parameters types.
+   *                                                                  2.Incorrect Parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 10
    */
@@ -1289,7 +1289,7 @@ declare namespace unifiedDataChannel {
    * @returns { Promise<Array<UnifiedData>> } {Array<UnifiedData>}: the deleted {@link UnifiedData} object array.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   *                                                                   2.Incorrect Parameters types.
+   *                                                                  2.Incorrect Parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
    * @since 11
