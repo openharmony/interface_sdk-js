@@ -110,14 +110,17 @@ declare namespace installer {
      * To install an enterprise administrator application, you must have the permission ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE.
      * To install an enterprise normal application, you must have the permission ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE.
      *
-     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
+     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or
+     * ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { InstallParam } installParam - Indicates other parameters required for the installation.
      * @param { AsyncCallback<void> } callback - The callback of installing HAPs result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
      * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter hapFiles is needed for code signature; 4. The size of specifiedDistributionType is greater than 128; 5. The size of additionalInfo is greater than 3000.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * 2. Incorrect parameter types; 3. Parameter hapFiles is needed for code signature;
+     * 4. The size of specifiedDistributionType is greater than 128; 5. The size of additionalInfo is greater than 3000.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
      * @throws { BusinessError } 17700011 - Failed to install the HAP because the HAP signature fails to be verified.
@@ -148,14 +151,17 @@ declare namespace installer {
      * To install an enterprise administrator application, you must have the permission ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE.
      * To install an enterprise normal application, you must have the permission ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE.
      *
-     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
+     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or
+     * ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { InstallParam } installParam - Indicates other parameters required for the installation.
      * @param { AsyncCallback<void> } callback - The callback of installing HAPs result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
      * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter hapFiles is needed for code signature; 4. The size of specifiedDistributionType is greater than 128; 5. The size of additionalInfo is greater than 3000.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * 2. Incorrect parameter types; 3. Parameter hapFiles is needed for code signature;
+     * 4. The size of specifiedDistributionType is greater than 128; 5. The size of additionalInfo is greater than 3000.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
      * @throws { BusinessError } 17700011 - Failed to install the HAP because the HAP signature fails to be verified.
@@ -219,7 +225,8 @@ declare namespace installer {
      * To install an enterprise administrator application, you must have the permission ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE.
      * To install an enterprise normal application, you must have the permission ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE.
      *
-     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
+     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or
+     * ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { AsyncCallback<void> } callback - The callback of installing HAPs result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
@@ -255,7 +262,8 @@ declare namespace installer {
      * To install an enterprise administrator application, you must have the permission ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE.
      * To install an enterprise normal application, you must have the permission ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE.
      *
-     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
+     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or
+     * ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { AsyncCallback<void> } callback - The callback of installing HAPs result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
@@ -326,14 +334,17 @@ declare namespace installer {
      * To install an enterprise administrator application, you must have the permission ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE.
      * To install an enterprise normal application, you must have the permission ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE.
      *
-     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
+     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or
+     * ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { InstallParam } installParam - Indicates other parameters required for the installation.
      * @returns { Promise<void> }
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
      * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter hapFiles is needed for code signature; 4. The size of specifiedDistributionType is greater than 128; 5. The size of additionalInfo is greater than 3000.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * 2. Incorrect parameter types; 3. Parameter hapFiles is needed for code signature;
+     * 4. The size of specifiedDistributionType is greater than 128; 5. The size of additionalInfo is greater than 3000.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
      * @throws { BusinessError } 17700011 - Failed to install the HAP because the HAP signature fails to be verified.
@@ -364,14 +375,17 @@ declare namespace installer {
      * To install an enterprise administrator application, you must have the permission ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE.
      * To install an enterprise normal application, you must have the permission ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE.
      *
-     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
+     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or
+     * ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { InstallParam } installParam - Indicates other parameters required for the installation.
      * @returns { Promise<void> }
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
      * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter hapFiles is needed for code signature; 4. The size of specifiedDistributionType is greater than 128; 5. The size of additionalInfo is greater than 3000.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * 2. Incorrect parameter types; 3. Parameter hapFiles is needed for code signature;
+     * 4. The size of specifiedDistributionType is greater than 128; 5. The size of additionalInfo is greater than 3000.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
      * @throws { BusinessError } 17700011 - Failed to install the HAP because the HAP signature fails to be verified.
@@ -557,7 +571,9 @@ declare namespace installer {
      * @param { AsyncCallback<void> } callback - Indicates the callback used to return the HAP installation result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_SELF_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter hapFiles is needed for code signature; 4. The size of specifiedDistributionType is greater than 128; 5. The size of additionalInfo is greater than 3000.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * 2. Incorrect parameter types; 3. Parameter hapFiles is needed for code signature;
+     * 4. The size of specifiedDistributionType is greater than 128; 5. The size of additionalInfo is greater than 3000.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
      * @throws { BusinessError } 17700011 - Failed to install the HAP because the HAP signature fails to be verified.
@@ -569,7 +585,8 @@ declare namespace installer {
      * @throws { BusinessError } 17700039 - Failed to install because disallow install a shared bundle by hapFilePaths.
      * @throws { BusinessError } 17700041 - Failed to install because enterprise device management disallow install.
      * @throws { BusinessError } 17700042 - Failed to install the HAP because of incorrect URI in the data proxy.
-     * @throws { BusinessError } 17700043 - Failed to install the HAP because of low APL in the non-system data proxy (required APL: system_basic or system_core).
+     * @throws { BusinessError } 17700043 - Failed to install the HAP because of low APL in the non-system data proxy
+     * (required APL: system_basic or system_core).
      * @throws { BusinessError } 17700044 - Failed to install the HAP because the isolationMode configured is not supported.
      * @throws { BusinessError } 17700047 - Failed to install the HAP because the VersionCode to be updated is not greater than the current VersionCode.
      * @throws { BusinessError } 17700048 - Failed to install the HAP because the code signature verification is failed.
@@ -601,7 +618,8 @@ declare namespace installer {
      * @throws { BusinessError } 17700039 - Failed to install because disallow install a shared bundle by hapFilePaths.
      * @throws { BusinessError } 17700041 - Failed to install because enterprise device management disallow install.
      * @throws { BusinessError } 17700042 - Failed to install the HAP because of incorrect URI in the data proxy.
-     * @throws { BusinessError } 17700043 - Failed to install the HAP because of low APL in the non-system data proxy (required APL: system_basic or system_core).
+     * @throws { BusinessError } 17700043 - Failed to install the HAP because of low APL in the non-system data proxy
+     * (required APL: system_basic or system_core).
      * @throws { BusinessError } 17700044 - Failed to install the HAP because the isolationMode configured is not supported.
      * @throws { BusinessError } 17700047 - Failed to install the HAP because the VersionCode to be updated is not greater than the current VersionCode.
      * @throws { BusinessError } 17700048 - Failed to install the HAP because the code signature verification is failed.
@@ -623,7 +641,9 @@ declare namespace installer {
      * @returns { Promise<void> }
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_SELF_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter hapFiles is needed for code signature; 4. The size of specifiedDistributionType is greater than 128; 5. The size of additionalInfo is greater than 3000.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * 2. Incorrect parameter types; 3. Parameter hapFiles is needed for code signature;
+     * 4. The size of specifiedDistributionType is greater than 128; 5. The size of additionalInfo is greater than 3000.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
      * @throws { BusinessError } 17700011 - Failed to install the HAP because the HAP signature fails to be verified.
@@ -635,7 +655,8 @@ declare namespace installer {
      * @throws { BusinessError } 17700039 - Failed to install because disallow install a shared bundle by hapFilePaths.
      * @throws { BusinessError } 17700041 - Failed to install because enterprise device management disallow install.
      * @throws { BusinessError } 17700042 - Failed to install the HAP because of incorrect URI in the data proxy.
-     * @throws { BusinessError } 17700043 - Failed to install the HAP because of low APL in the non-system data proxy (required APL: system_basic or system_core).
+     * @throws { BusinessError } 17700043 - Failed to install the HAP because of low APL in the non-system data proxy
+     * (required APL: system_basic or system_core).
      * @throws { BusinessError } 17700044 - Failed to install the HAP because the isolationMode configured is not supported.
      * @throws { BusinessError } 17700047 - Failed to install the HAP because the VersionCode to be updated is not greater than the current VersionCode.
      * @throws { BusinessError } 17700048 - Failed to install the HAP because the code signature verification is failed.

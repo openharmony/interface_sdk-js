@@ -2444,17 +2444,17 @@ declare interface RichEditorDeleteValue {
  */
 declare interface RichEditorChangeValue {
   /**
-   * Spans to be replaced.
+   * Range of content that will be replaced.
    *
-   * @type { Array<RichEditorTextSpanResult> }
+   * @type { TextRange }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  originalSpans: Array<RichEditorTextSpanResult>;
+  rangeBefore: TextRange;
 
   /**
-   * Spans to replace.
+   * Text spans to replace.
    *
    * @type { Array<RichEditorTextSpanResult> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2462,6 +2462,26 @@ declare interface RichEditorChangeValue {
    * @since 12
    */
   replacedSpans: Array<RichEditorTextSpanResult>;
+
+  /**
+   * Image spans to replace.
+   *
+   * @type { Array<RichEditorImageSpanResult> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  replacedImageSpans: Array<RichEditorImageSpanResult>;
+
+  /**
+   * Symbol spans to replace.
+   *
+   * @type { Array<RichEditorTextSpanResult> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  replacedSymbolSpans: Array<RichEditorTextSpanResult>;
 }
 
 /**
@@ -3295,13 +3315,13 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   /**
    * Called after text changed.
    *
-   * @param { Callback<Array<RichEditorTextSpanResult>> } callback - The triggered function after text content is about to change.
+   * @param { OnDidChangeCallback } callback - The triggered function after content changed.
    * @returns { RichEditorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  onDidChange(callback: Callback<Array<RichEditorTextSpanResult>>) : RichEditorAttribute;
+  onDidChange(callback: OnDidChangeCallback) : RichEditorAttribute;
 
   /**
     * Called before the cut event.

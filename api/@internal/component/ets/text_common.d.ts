@@ -147,6 +147,50 @@ declare interface TextDataDetectorConfig {
 }
 
 /**
+ * Defines range of text type component.
+ *
+ * @interface TextRange
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface TextRange {
+  /**
+   * Start offset.
+   *
+   * @type { ?number }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  start?: number;
+
+  /**
+   * End offset.
+   *
+   * @type { ?number }
+   * @default text length
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  end?: number;
+}
+
+/**
+ * Callback after content changed.
+ * 
+ * @typedef { function } OnDidChangeCallback
+ * @param { TextRange } rangeBefore - Range of content that had been replaced.
+ * @param { TextRange } rangeAfter - Range of content that newly added.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type OnDidChangeCallback = (rangeBefore: TextRange, rangeAfter: TextRange) => void;
+
+/**
  * Defines the cursor style
  *
  * @interface CaretStyle

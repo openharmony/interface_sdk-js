@@ -19,6 +19,7 @@
  */
 
 import Want from '../@ohos.app.ability.Want';
+import StartOptions from '../@ohos.app.ability.StartOptions';
 
 /**
  * Provides the information required for triggering a WantAgent.
@@ -80,4 +81,15 @@ export interface TriggerInfo {
    * @since 11
    */
   extraInfos?: Record<string, Object>;
+
+  /**
+   * Specific options for triggering a wantagent which is used for starting an ability.
+   *
+   * @type { ?StartOptions }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+   startOptions?: StartOptions;
 }

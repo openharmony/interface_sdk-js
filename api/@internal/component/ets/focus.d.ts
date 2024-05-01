@@ -13,45 +13,77 @@
  * limitations under the License.
  */
 
-/// <reference path="../../component/common.d.ts" />
-
 /**
- * Defines a modifier which can update attributes to native side.
+ * Focus box style.
  *
- * @implements AttributeModifier
+ * @interface FocusBoxStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
-export declare class AttributeUpdater<T> implements AttributeModifier<T> {
-
+interface FocusBoxStyle {
   /**
-   * Defines the normal update attribute function.
+   * Describes the focus-box margin.
    *
-   * @param { T } instance
+   * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  applyNormalAttribute?(instance: T): void;
-
+  margin?: LengthMetrics;
   /**
-   * Defines a function for initialization.
+   * Describes the focus-box color.
    *
-   * @param { T } instance
+   * @type { ?ColorMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  initializeModifier(instance: T): void;
-
+  strokeColor?: ColorMetrics;
   /**
-   * Get attribute of the modifier.
+   * Describes the focus-box stroke width.
    *
-   * @returns { T | undefined } The attribute of the modifier.
+   * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  get attribute(): T | undefined;
+  strokeWidth?: LengthMetrics;
+}
+
+/**
+ * Focus Priority
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum FocusPriority {
+  /**
+   * Default priority.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  AUTO = 0,
+
+  /**
+   * Prior priority.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  PRIOR = 2000,
+
+  /**
+   * Previous focus priority.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  PREVIOUS = 3000,
 }

@@ -104,7 +104,8 @@ declare namespace inputConsumer {
    * @param { 'key' } type - type of the inputevent about input which is to be subscribed.
    * @param { KeyOptions } keyOptions - the key events about input which is to be subscribed.
    * @param { Callback<KeyOptions> } callback - callback function, receive reported data.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use
    * @since 8
@@ -117,7 +118,8 @@ declare namespace inputConsumer {
    * @param { 'key' } type - type of the inputevent about input which is to be subscribed.
    * @param { KeyOptions } keyOptions - the key events about input which is to be subscribed.
    * @param { Callback<KeyOptions> } callback - callback function, receive reported data.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use
    * @since 8
@@ -133,7 +135,8 @@ declare namespace inputConsumer {
    * all key events directly dispatch to window, if the value <b>false</b> indicates not shield shortcut key.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use.
    * @since 11
@@ -148,7 +151,8 @@ declare namespace inputConsumer {
    * @returns { boolean } Returns true if shield event interception, returns false otherwise.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use.
    * @since 11

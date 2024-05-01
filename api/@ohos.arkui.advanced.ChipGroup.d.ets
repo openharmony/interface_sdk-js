@@ -21,8 +21,8 @@
 /// <reference path="../component/units.d.ts" />
 
 import { ResourceStr } from 'GlobalResource';
-import { ChipSize } from '@ohos.arkui.advanced.Chip';
-
+import { ChipSize, SymbolOptions } from '@ohos.arkui.advanced.Chip';
+import { SymbolGlyphModifier } from './@ohos.arkui.modifier';
 
 /**
  * Defines icon options.
@@ -98,6 +98,16 @@ export interface ChipGroupItemOptions {
     prefixIcon?: IconOptions;
 
     /**
+     * Prefix symbol.
+     *
+     * @type { ?SymbolOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    prefixSymbol?: SymbolOptions;
+
+    /**
      * Chip label.
      *
      * @type { LabelOptions }
@@ -116,6 +126,16 @@ export interface ChipGroupItemOptions {
      * @since 12
      */
     suffixIcon?: IconOptions;
+
+    /**
+     * suffix symbol.
+     *
+     * @type { ?SymbolOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    suffixSymbol?: SymbolOptions;
 
     /**
      * Allow close.
@@ -242,7 +262,7 @@ export interface ChipGroupSpaceOptions {
  */
 export interface IconItemOptions {
     /**
-     * IconItemOptions.
+     * IconOptions.
      *
      * @type { IconOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -275,13 +295,13 @@ export declare struct IconGroupSuffix {
     /**
      * Suffix item.
      *
-     * @type { Array<IconItemOptions> }
+     * @type { Array<IconItemOptions | SymbolGlyphModifier> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
      */
     @Prop
-    items: Array<IconItemOptions>;
+    items: Array<IconItemOptions | SymbolGlyphModifier>;
 }
 
 
@@ -372,4 +392,3 @@ export declare struct ChipGroup {
     @BuilderParam
     suffix?: Callback<void>;
 }
-

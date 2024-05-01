@@ -41,7 +41,7 @@ declare namespace json {
    * @param { string } text - A valid JSON string.
    * @param { Transformer } [reviver] - A function that transforms the results.
    * @returns { Object | null } Return an Object, array, string, number, boolean, or null value corresponding to JSON text.
-   * @throws { BusinessError } 401 - if the input parameters are invalid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 12
@@ -52,10 +52,10 @@ declare namespace json {
    * Converts a JavaScript value to a JavaScript Object Notation (JSON) string.
    *
    * @param { Object } value - A JavaScript value, usually an Object or array.
-   * @param { (number | string)[] | null } [replacer] - An array of strings and numbers that acts as an approved list for selecting the object properties that will be stringified.
+   * @param { (number | string)[] | null } [replacer] - An array of strings and numbers that acts as an approved list for selecting the object properties that will be stringify.
    * @param { string | number } [space] - Adds indentation, white space, and line break characters to the return-value JSON text to make it easier to read.
    * @returns { string } Return a JSON text.
-   * @throws { BusinessError } 401 - if the input parameters are invalid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 12
@@ -69,7 +69,7 @@ declare namespace json {
    * @param { Transformer } [replacer] - A function that transforms the results.
    * @param { string | number } [space] - Adds indentation, white space, and line break characters to the return-value JSON text to make it easier to read.
    * @returns { string } Return a JSON text.
-   * @throws { BusinessError } 401 - if the input parameters are invalid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 12
@@ -82,7 +82,7 @@ declare namespace json {
    * @param { object } obj - The object parsed from a JSON string.
    * @param { string } property - Determine whether the object contains the property.
    * @returns { boolean } Return true if the key is in the object, otherwise return false.
-   * @throws { BusinessError } 401 - if the input parameters are invalid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 12
@@ -94,7 +94,7 @@ declare namespace json {
    *
    * @param { object } obj - The object parsed from a JSON string.
    * @param { string } property - The property to be removed.
-   * @throws { BusinessError } 401 - if the input parameters are invalid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 12

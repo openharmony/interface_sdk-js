@@ -1064,6 +1064,17 @@ declare class Path2D extends CanvasPath {
   constructor();
 
   /**
+   * Create an empty path object.
+   *
+   * @param { LengthMetricsUnit } [unit] - the unit mode
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 12
+   */
+  constructor(unit: LengthMetricsUnit);
+
+  /**
    * Create a copy of a path object
    *
    * @param { Path2D } path - Path object to be copied
@@ -1100,6 +1111,18 @@ declare class Path2D extends CanvasPath {
   constructor(path: Path2D);
 
   /**
+   * Create a copy of a path object
+   *
+   * @param { Path2D } path - Path object to be copied
+   * @param { LengthMetricsUnit } [unit] - the unit mode
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 12
+   */
+  constructor(path: Path2D, unit: LengthMetricsUnit);
+
+  /**
    * Create a new path according to the description.
    *
    * @param { string } d - Indicates the path string that compiles with the SVG path description specifications.
@@ -1134,6 +1157,18 @@ declare class Path2D extends CanvasPath {
    * @form
    */
   constructor(d: string);
+
+  /**
+   * Create a new path according to the description.
+   *
+   * @param { string } description - Indicates the path string that compiles with the SVG path description specifications.
+   * @param { LengthMetricsUnit } [unit] - the unit mode
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 12
+   */
+  constructor(description: string, unit: LengthMetricsUnit);
 }
 
 /**
@@ -1928,6 +1963,18 @@ declare class ImageBitmap {
   constructor(src: string);
 
   /**
+   * Create an ImageBitmap object based on the transferred image path.
+   *
+   * @param { string } src - Path of the image object.
+   * @param { LengthMetricsUnit } [unit] - the unit mode
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 12
+   */
+  constructor(src: string, unit: LengthMetricsUnit);
+  
+  /**
    * Transfer a PixelMap object to construct an ImageBitmap object.
    *
    * @param { PixelMap } data - PixelMap object
@@ -1952,6 +1999,17 @@ declare class ImageBitmap {
    * @since 11
    */
   constructor(data: PixelMap);
+
+  /**
+   * Transfer a PixelMap object to construct an ImageBitmap object.
+   *
+   * @param { PixelMap } data - PixelMap object
+   * @param { LengthMetricsUnit } [unit] - the unit mode
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  constructor(data: PixelMap, unit: LengthMetricsUnit);
 }
 
 /**
@@ -2136,6 +2194,20 @@ declare class ImageData {
    * @form
    */
   constructor(width: number, height: number, data?: Uint8ClampedArray);
+
+  /**
+   * Create an ImageData object based on the input parameters.
+   *
+   * @param { number } width - Width of the image.
+   * @param { number } height - Height of the image.
+   * @param { Uint8ClampedArray } data - Data of the image. If this parameter is not specified, the default value is a black rectangular image.
+   * @param { LengthMetricsUnit } [unit] - the unit mode
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 12
+   */
+  constructor(width: number, height: number, data?: Uint8ClampedArray, unit?: LengthMetricsUnit);
 }
 
 /**
@@ -5155,6 +5227,18 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @form
    */
   constructor(settings?: RenderingContextSettings);
+
+  /**
+   * Constructor of the canvas drawing context object, which is used to create a drawing context object.
+   *
+   * @param { RenderingContextSettings } settings - Drawing attribute. For details, see {@link RenderingContextSettings}.
+   * @param { LengthMetricsUnit } [unit] - the unit mode
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 12
+   */
+  constructor(settings?: RenderingContextSettings, unit?: LengthMetricsUnit);
 }
 
 /**
@@ -5319,6 +5403,20 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
    * @form
    */
   constructor(width: number, height: number, settings?: RenderingContextSettings);
+
+  /**
+   * Constructor of the canvas drawing context object, which is used to create a drawing context object.
+   *
+   * @param { number } width - the width of the OffscreenCanvas
+   * @param { number } height - the height of the OffscreenCanvas
+   * @param { RenderingContextSettings } settings - Drawing attribute. For details, see {@link RenderingContextSettings}.
+   * @param { LengthMetricsUnit } [unit] - the unit mode
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 12
+   */
+  constructor(width: number, height: number, settings?: RenderingContextSettings, unit?: LengthMetricsUnit);
 }
 
 /**
@@ -5527,6 +5625,19 @@ declare class OffscreenCanvas {
    * @form
    */
   constructor(width: number, height: number);
+
+  /**
+   * Constructor of the off-screen canvas, which is used to create an off-screen canvas object.
+   *
+   * @param { number } width - Width of the off-screen canvas.
+   * @param { number } height - Height of the off-screen canvas.
+   * @param { LengthMetricsUnit } [unit] - the unit mode
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 12
+   */
+  constructor(width: number, height: number, unit: LengthMetricsUnit);
 }
 
 /**
@@ -5596,6 +5707,17 @@ declare class DrawingRenderingContext {
    * @since 12
    */
   invalidate(): void;
+
+  /**
+   * Create DrawingRenderingContext with setting LengthMetricsUnit.
+   *
+   * @param { LengthMetricsUnit } [unit] - the unit mode
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 12
+   */
+  constructor(unit?: LengthMetricsUnit);
 }
 
 /**

@@ -1147,6 +1147,14 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 6
      */
+    /**
+     * Whether the window is displayed in full screen mode. The default value is false.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 12
+     */
     isFullScreen: boolean;
 
     /**
@@ -1155,6 +1163,14 @@ declare namespace window {
      * @type { boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
+     */
+    /**
+     * Whether the window layout is in full screen mode(whether the window is immersive). The default value is false.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 12
      */
     isLayoutFullScreen: boolean;
 
@@ -1700,6 +1716,36 @@ declare namespace window {
      * @since 12
      */
     reason: RectChangeReason
+  }
+
+  /**
+   * Avoid area options
+   *
+   * @interface AvoidAreaOptions
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @atomicservice
+   * @since 12
+   */
+  interface AvoidAreaOptions {
+    /**
+     * Avoid area type
+     *
+     * @type { AvoidAreaType }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 12
+     */
+    type: AvoidAreaType,
+
+    /**
+     * Avoid area
+     *
+     * @type { AvoidArea }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 12
+     */
+    area: AvoidArea
   }
 
   /**
@@ -2336,6 +2382,14 @@ declare namespace window {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Display in landscape orientation.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     LANDSCAPE = 2,
 
     /**
@@ -2351,6 +2405,14 @@ declare namespace window {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Display in inverted portrait orientation.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     PORTRAIT_INVERTED = 3,
 
     /**
@@ -2365,6 +2427,14 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Display in inverted landscape orientation.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     LANDSCAPE_INVERTED = 4,
 
@@ -2397,6 +2467,13 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
+    /**
+     * Follow the rotation of the sensor, only work in the horizontal direction, ignore auto rotation lock.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 12
+     */
     AUTO_ROTATION_LANDSCAPE = 7,
 
     /**
@@ -2404,6 +2481,13 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
+     */
+    /**
+     * Follow the rotation of the sensor, controlled by auto rotation lock.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 12
      */
     AUTO_ROTATION_RESTRICTED = 8,
 
@@ -2469,7 +2553,15 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    USER_ROTATION_LANDSCAPE_INVERTED = 16
+    USER_ROTATION_LANDSCAPE_INVERTED = 16,
+
+    /**
+     * Follow the desktop rotate mode.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    FOLLOW_DESKTOP = 17
   }
 
   /**
@@ -2612,6 +2704,7 @@ declare namespace window {
   /**
    * Specific system bar type.
    *
+   * @typedef {'status' | 'navigation' | 'navigationIndicator'}
    * @syscap SystemCapability.Window.SessionManager
    * @crossplatform
    * @atomicservice
@@ -3313,6 +3406,18 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
+    /**
+     * Set the property of the window can layout in full screen
+     *
+     * @param { boolean } isLayoutFullScreen - The window can layout in full screen
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 12
+     */
     setWindowLayoutFullScreen(isLayoutFullScreen: boolean, callback: AsyncCallback<void>): void;
 
     /**
@@ -3325,6 +3430,18 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
+     */
+    /**
+     * Set the property of the window can layout in full screen
+     *
+     * @param { boolean } isLayoutFullScreen - The window can layout in full screen
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 12
      */
     setWindowLayoutFullScreen(isLayoutFullScreen: boolean): Promise<void>;
 
@@ -4003,7 +4120,17 @@ declare namespace window {
      * @atomicservice
      * @since 11
      */
-    on(type: 'avoidAreaChange', callback: Callback<{ type: AvoidAreaType, area: AvoidArea }>): void;
+    /**
+     * Register the callback of avoidAreaChange
+     *
+     * @param { 'avoidAreaChange' } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
+     * @param { Callback<AvoidAreaOptions> } callback - Callback used to return the area.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 12
+     */
+    on(type: 'avoidAreaChange', callback: Callback<AvoidAreaOptions>): void;
 
     /**
      * Unregister the callback of avoidAreaChange
@@ -4024,7 +4151,17 @@ declare namespace window {
      * @atomicservice
      * @since 11
      */
-    off(type: 'avoidAreaChange', callback?: Callback<{ type: AvoidAreaType, area: AvoidArea }>): void;
+    /**
+     * Unregister the callback of avoidAreaChange
+     *
+     * @param { 'avoidAreaChange' } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
+     * @param { Callback<AvoidAreaOptions> } callback - Callback used to return the area.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 12
+     */
+    off(type: 'avoidAreaChange', callback?: Callback<AvoidAreaOptions>): void;
 
     /**
      * Register the callback of keyboardHeightChange
@@ -5740,6 +5877,33 @@ declare namespace window {
      * @since 12
      */
     setWindowGrayScale(grayScale: number): Promise<void>;
+
+    /**
+     * Set whether to enable immersive mode.
+     *
+     * @param { boolean } enabled - The value true means to enable immersive mode, and false means the opposite.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 12
+     */
+    setImmersiveModeEnabledState(enabled: boolean): void;
+
+    /**
+     * Get whether the immersive mode is enabled or not.
+     *
+     * @returns { boolean } - The value true means the immersive mode is enabled, and false means the opposite.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 12
+     */
+    getImmersiveModeEnabledState(): boolean;
   }
 
   /**

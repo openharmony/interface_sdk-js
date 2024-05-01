@@ -502,7 +502,15 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 11
      */
-    onDataPrepared(data: T): void;
+    /**
+     * Indicates required media asset data is prepared
+     *
+     * @param { T } data - the returned data of media asset
+     * @param { Map<string, string> } [map] - additional information for the data
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    onDataPrepared(data: T, map?: Map<string, string>): void;
   }
 
   /**
@@ -1959,6 +1967,22 @@ declare namespace photoAccessHelper {
      * @since 11
      */
     PORTRAIT,
+    /**
+     * Highlight album
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    HIGHLIGHT = 4104,
+    /**
+     * Highlight suggestions album
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    HIGHLIGHT_SUGGESTIONS,
     /**
      * Any album
      *
@@ -3859,6 +3883,29 @@ declare namespace photoAccessHelper {
      * @since 11
      */
     addResource(type: ResourceType, proxy: PhotoProxy): void;
+
+    /**
+     * Set camera shot key.
+     *
+     * @param { string } cameraShotKey - Camera shot key of the asset
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    setCameraShotKey(cameraShotKey: string): void;
+
+    /**
+     * Save the photo asset captured by camera.
+     *
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @throws { BusinessError } 14000016 - Operation Not Support
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    saveCameraPhoto(): void;
   }
 
   /**
@@ -4207,6 +4254,195 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     getUri(): string;
+  }
+
+  /**
+   * Highlight album info type
+   *
+   * @enum { number } HighlightAlbumInfoType
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 12
+   */
+  enum HighlightAlbumInfoType {
+    /**
+     * Highlight cover info
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    COVER_INFO = 0,
+    /**
+     * Highlight play info
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    PLAY_INFO
+  }
+
+  /**
+   * Highlight user action type
+   *
+   * @enum { number } HighlightUserActionType
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 12
+   */
+  enum HighlightUserActionType {
+    /**
+     * Highlight album inserted picture count
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    INSERTED_PIC_COUNT = 0,
+    /**
+     * Highlight album removed picture count
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    REMOVED_PIC_COUNT,
+    /**
+     * Highlight album shared screenshot count
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    SHARED_SCREENSHOT_COUNT,
+    /**
+     * Highlight album shared cover count
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    SHARED_COVER_COUNT,
+    /**
+     * Highlight album renamed count
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    RENAMED_COUNT,
+    /**
+     * Highlight album changed cover count
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    CHANGED_COVER_COUNT,
+    /**
+     * Highlight album render viewed times
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    RENDER_VIEWED_TIMES = 100,
+    /**
+     * Highlight album render viewed duration
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    RENDER_VIEWED_DURATION,
+    /**
+     * Highlight album art layout viewed times
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    ART_LAYOUT_VIEWED_TIMES,
+    /**
+     * Highlight album art layout viewed duration
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    ART_LAYOUT_VIEWED_DURATION
+  }
+
+  /**
+   * Defines the class of highlight album.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi 
+   * @since 12
+   */
+  class HighlightAlbum {
+    /**
+     * The constructor to create a highlight instance.
+     *
+     * @param { Album } album - Analysis album
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Invalid parameter
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi 
+     * @since 12
+     */
+    constructor(album: Album);
+
+    /**
+     * Get highlight album info.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { HighlightAlbumInfoType } type - Highlight album info type
+     * @returns { Promise<string> } Returns highlight album info into a json string
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Invalid parameter
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    getHighlightAlbumInfo(type: HighlightAlbumInfoType): Promise<string>;
+
+    /**
+     * Get highlight resource array buffer.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { string } resourceUri - highlight resource uri
+     * @returns { Promise<ArrayBuffer> } Returns array buffer of the content
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Invalid parameter
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    getHighlightResource(resourceUri: string): Promise<ArrayBuffer>;
+
+    /**
+     * Set highlight user action data
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { HighlightUserActionType } type - Highlight user action type
+     * @param { number } actionData - User action highlight album data
+     * @returns { Promise<void> } Returns void
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Invalid parameter
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi 
+     * @since 12
+     */
+    setHighlightUserActionData(type: HighlightUserActionType, actionData: number): Promise<void>;
   }
 }
 

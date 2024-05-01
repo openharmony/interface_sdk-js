@@ -410,12 +410,14 @@ function checkInterfaceTypedefTag(tag, node, fileName) {
   };
   const tagValue = tag.name;
   const tagType = tag.type.replace(/\n|\r|\s/g, '');
-  
+
   if (commentNodeWhiteList.includes(node.kind)) {
     const apiValue = node.name?.escapedText;
     if (node.kind === ts.SyntaxKind.TypeAliasDeclaration) {
       const isFunctionType = ts.SyntaxKind.FunctionType === node.type?.kind;
-      let apiType = isFunctionType === true ? 'function' : node.type.getText().replace(/\n|\r|\s/g, '');
+      const isObjectType = ts.SyntaxKind.TypeLiteral === node.type?.kind;
+      let apiType = isFunctionType ? 'function' :
+        isObjectType ? 'object' : node.type.getText().replace(/\n|\r|\s/g, '');
       if (tagType !== apiType) {
         interfaceResult.checkResult = false;
         interfaceResult.errorInfo = ErrorValueInfo.ERROR_INFO_VALUE_TYPEDEF;
@@ -428,6 +430,8 @@ function checkInterfaceTypedefTag(tag, node, fileName) {
         } else if (tag.tag === 'typedef') {
           interfaceResult.errorInfo = ErrorValueInfo.ERROR_INFO_VALUE_TYPEDEF;
         }
+        interfaceResult.errorInfo = tag.tag === 'interface' ? ErrorValueInfo.ERROR_INFO_VALUE_INTERFACE :
+          tag.tag === 'typedef' ? ErrorValueInfo.ERROR_INFO_VALUE_TYPEDEF : '';
       }
     }
   }

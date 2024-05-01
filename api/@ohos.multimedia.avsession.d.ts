@@ -51,18 +51,6 @@ declare namespace avSession {
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 10
    */
-  /**
-   * Create an AVSession instance. An ability can only create one AVSession
-   * @param { Context } context - The context of application
-   * @param { string } tag - A user-defined name for this session
-   * @param { AVSessionType } type - The type of session {@link AVSessionType}
-   * @param { AsyncCallback<AVSession> } callback - async callback for AVSession.
-   * @throws { BusinessError } 401 - parameter check failed
-   * @throws { BusinessError } 6600101 - Session service exception.
-   * @syscap SystemCapability.Multimedia.AVSession.Core
-   * @atomicservice
-   * @since 12
-   */
   function createAVSession(context: Context, tag: string, type: AVSessionType, callback: AsyncCallback<AVSession>): void;
 
   /**
@@ -2832,8 +2820,7 @@ declare namespace avSession {
      * The name of play list which current media belongs to
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     avQueueName?: string;
 

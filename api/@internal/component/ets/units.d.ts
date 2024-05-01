@@ -1641,6 +1641,17 @@ declare type LengthConstrain = {
 declare type VoidCallback  = () => void;
 
 /**
+ * Defines length metrics unit.
+ *
+ * @typedef { import('../api/arkui/Graphics').LengthMetricsUnit } LengthMetricsUnit
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @since 12
+ */
+declare type LengthMetricsUnit = import('../api/arkui/Graphics').LengthMetricsUnit;
+
+/**
  * Defines LengthMetrics.
  *
  * @typedef { import('../api/arkui/Graphics').LengthMetrics } LengthMetrics
@@ -1649,6 +1660,16 @@ declare type VoidCallback  = () => void;
  * @since 12
  */
 declare type LengthMetrics = import('../api/arkui/Graphics').LengthMetrics;
+
+/**
+ * Defines ColorMetrics.
+ *
+ * @typedef { import('../api/arkui/Graphics').ColorMetrics } ColorMetrics
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type ColorMetrics = import('../api/arkui/Graphics').ColorMetrics;
 
 /**
  * Defines the font used for text.

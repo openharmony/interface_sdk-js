@@ -766,7 +766,10 @@ declare class NavPathStack {
    * @param { NavPathInfo } info - Indicates the route page to be pushed.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @throws { BusinessError } 100005 - Builder function not registered.
    * @throws { BusinessError } 100006 - NavDestination not found.
@@ -780,7 +783,10 @@ declare class NavPathStack {
    * @param { NavPathInfo } info - Indicates the route page to be pushed.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @throws { BusinessError } 100005 - Builder function not registered.
    * @throws { BusinessError } 100006 - NavDestination not found.
@@ -845,7 +851,10 @@ declare class NavPathStack {
    * @param { Object } param - Indicates the detailed parameter of the route page to be pushed.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @throws { BusinessError } 100005 - Builder function not registered.
    * @throws { BusinessError } 100006 - NavDestination not found.
@@ -860,7 +869,10 @@ declare class NavPathStack {
    * @param { Object } param - Indicates the detailed parameter of the route page to be pushed.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @throws { BusinessError } 100005 - Builder function not registered.
    * @throws { BusinessError } 100006 - NavDestination not found.
@@ -879,7 +891,10 @@ declare class NavPathStack {
    * @param { import('../api/@ohos.base').Callback<PopInfo> } onPop - The callback when next page returns.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @throws { BusinessError } 100005 - Builder function not registered.
    * @throws { BusinessError } 100006 - NavDestination not found.
@@ -895,7 +910,10 @@ declare class NavPathStack {
    * @param { import('../api/@ohos.base').Callback<PopInfo> } onPop - The callback when next page returns.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @throws { BusinessError } 100005 - Builder function not registered.
    * @throws { BusinessError } 100006 - NavDestination not found.
@@ -1737,6 +1755,45 @@ declare interface NavigationTitleOptions {
    * @since 11
    */
   backgroundBlurStyle?: BlurStyle;
+
+  /**
+   * Set title bar style.
+   *
+   * @type { ?BarStyle }
+   * @default BarStyle.STANDARD
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  barStyle?: BarStyle;
+}
+
+/**
+ * Declare BarStyle enum.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum BarStyle {
+  /**
+   * Standard style means that the bar and content area are column layouts.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  STANDARD = 0,
+
+  /**
+   * Stack style means that the bar and content area are stack layouts.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  STACK = 1,
 }
 
 /**
