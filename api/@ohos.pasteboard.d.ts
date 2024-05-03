@@ -21,6 +21,7 @@
 import { AsyncCallback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
 import image from './@ohos.multimedia.image';
+import unifiedDataChannel from './@ohos.data.unifiedDataChannel';
 
 /**
  * systemPasteboard
@@ -1146,6 +1147,17 @@ declare namespace pasteboard {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Gets pastedata from the system pasteboard.
+     * @permission ohos.permission.READ_PASTEBOARD
+     * @param { AsyncCallback<PasteData> } callback - the callback of getData.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - if type of callback is not AsyncCallback<PasteData>.
+     * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 12
+     */
     getData(callback: AsyncCallback<PasteData>): void;
 
     /**
@@ -1163,6 +1175,16 @@ declare namespace pasteboard {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Gets pastedata from the system pasteboard.
+     * @permission ohos.permission.READ_PASTEBOARD
+     * @returns { Promise<PasteData> } the promise returned by the getData.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 12
+     */
     getData(): Promise<PasteData>;
 
     /**
@@ -1172,6 +1194,16 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Gets pasteData from the system pasteboard.
+     * @permission ohos.permission.READ_PASTEBOARD
+     * @returns { PasteData }  a new PasteData.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 12900005 - Request time out.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 12
      */
     getDataSync(): PasteData;
 
@@ -1315,6 +1347,54 @@ declare namespace pasteboard {
      * @since 11
      */
     setDataSync(data: PasteData): void;
+
+    /**
+     * Gets unified data from the system pasteboard.
+     * @permission ohos.permission.READ_PASTEBOARD
+     * @returns { Promise<unifiedDataChannel.UnifiedData> } the promise returned by the getData.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 12
+     */
+    getUnifiedData(): Promise<unifiedDataChannel.UnifiedData>;
+
+    /**
+     * Gets unified data from the system pasteboard.
+     * @permission ohos.permission.READ_PASTEBOARD
+     * @returns { unifiedDataChannel.UnifiedData }  a new UnifiedData.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 12900005 - Request time out.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 12
+     */
+    getUnifiedDataSync(): unifiedDataChannel.UnifiedData;
+
+    /**
+     * Writes unified data to the system pasteboard.
+     * @param { unifiedDataChannel.UnifiedData } data - Unified data will be written to the pasteboard.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - if type of data is not UnifiedData.
+     * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
+     * @throws { BusinessError } 12900004 - Replication is prohibited.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 12
+     */
+    setUnifiedData(data: unifiedDataChannel.UnifiedData): Promise<void>;
+
+    /**
+     * Writes unified data to the system pasteboard.
+     * @param { unifiedDataChannel.UnifiedData } data - Unified data will be written to the pasteboard.
+     * @throws { BusinessError } 401 - if type of data is not UnifiedData.
+     * @throws { BusinessError } 12900005 - Request time out.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 12
+     */
+    setUnifiedDataSync(data: unifiedDataChannel.UnifiedData): void;
   }
 }
 

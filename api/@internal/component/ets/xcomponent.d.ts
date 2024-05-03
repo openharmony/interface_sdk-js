@@ -64,6 +64,24 @@ declare interface SurfaceRect {
 }
 
 /**
+ * Surface rotation options.
+ *
+ * @interface SurfaceRotationOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+declare interface SurfaceRotationOptions {
+  /**
+   * Lock property of the surface rotation.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  lock?: boolean;
+}
+
+/**
  * Defines XComponentController
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -134,6 +152,73 @@ declare class XComponentController {
    * @since 12
    */
   getXComponentSurfaceRect(): SurfaceRect;
+
+  /**
+   * Set the rotation options of the Surface created by XComponent.
+   *
+   * @param { SurfaceRotationOptions } rotationOptions - The surface rotation options.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  setXComponentSurfaceRotation(rotationOptions: SurfaceRotationOptions): void;
+
+  /**
+   * Get the rotation options result of the Surface created by XComponent.
+   *
+   * @returns { Required<SurfaceRotationOptions> } The surface rotation options result.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  getXComponentSurfaceRotation(): Required<SurfaceRotationOptions>;
+
+  /**
+   * Called after the surface is first created.
+   *
+   * @param { string } surfaceId - The id of the surface created by XComponent.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  onSurfaceCreated(surfaceId: string): void;
+
+  /**
+   * Called after the surface rectangle information is changed.
+   *
+   * @param { string } surfaceId - The id of the surface created by XComponent.
+   * @param { SurfaceRect } rect - The rectangle information of the surface created by XComponent.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  onSurfaceChanged(surfaceId: string, rect: SurfaceRect): void;
+
+  /**
+   * Called when the surface is about to be destroyed.
+   *
+   * @param { string } surfaceId - The id of the surface created by XComponent.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  onSurfaceDestroyed(surfaceId: string): void;
+
+  /**
+   * Start image analyzer.
+   *
+   * @param { ImageAnalyzerConfig } config - Image analyzer config.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 110001 - Image analysis feature is unsupported.
+   * @throws { BusinessError } 110002 - Image analysis is currently being executed.
+   * @throws { BusinessError } 110003 - Image analysis is stopped.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  startImageAnalyzer(config: ImageAnalyzerConfig): Promise<void>;
+
+  /**
+   * Stop image analyzer.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  stopImageAnalyzer(): void;
 }
 
 /**
@@ -192,6 +277,16 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    * @since 8
    */
   onDestroy(event: () => void): XComponentAttribute;
+
+  /**
+   * Enable image analyzer for XComponent.
+   *
+   * @param { boolean } enable
+   * @returns { XComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  enableAnalyzer(enable: boolean): XComponentAttribute;
 }
 
 /**

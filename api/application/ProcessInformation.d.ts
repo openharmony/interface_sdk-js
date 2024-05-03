@@ -19,6 +19,7 @@
  */
 
 import type appManager from '../@ohos.app.ability.appManager';
+import bundleManager from '../@ohos.bundle.bundleManager';
 
 /**
  * The class of an process information.
@@ -148,4 +149,14 @@ export interface ProcessInformation {
    * @since 11
    */
   state: appManager.ProcessState;
+
+  /**
+   * The bundle type of the process.
+   *
+   * @type { bundleManager.BundleType }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 12
+   */
+  bundleType: bundleManager.BundleType;
 }

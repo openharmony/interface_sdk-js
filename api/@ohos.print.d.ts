@@ -1446,6 +1446,39 @@ declare namespace print {
   }
 
   /**
+   * Enumeration of application event.
+   * @enum { number } ApplicationEvent
+   * @syscap SystemCapability.Print.PrintFramework
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  enum ApplicationEvent {
+    /**
+    * Application created.
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 12
+    */
+    APPLICATION_CREATED = 0,
+
+    /**
+    * Application closed for printing started.
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 12
+    */
+    APPLICATION_CLOSED_FOR_STARTED = 1,
+
+    /**
+    * Application closed for printing canceled.
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 12
+    */
+    APPLICATION_CLOSED_FOR_CANCELED = 2,
+  }
+
+  /**
    * defines print ExtensionInfo.
    * @typedef PrinterExtensionInfo
    * @syscap SystemCapability.Print.PrintFramework
@@ -2112,6 +2145,20 @@ declare namespace print {
    * @since 12
    */
   function getPrinterInfoById(printerId: string): Promise<PrinterInfo>;
+
+  /**
+   * Notify print service of application event.
+   * @permission ohos.permission.MANAGE_PRINT_JOB
+   * @param { ApplicationEvent } event - Indicates the event to be notified.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  function notifyPrintServiceEvent(event: ApplicationEvent): Promise<void>;
 }
 
 export default print;

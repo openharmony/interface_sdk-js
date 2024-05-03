@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,6 +19,7 @@
  */
 
 import type { AutoFillType } from './AutoFillType';
+import type AutoFillRect from './AutoFillRect';
 
 /**
  * Page node info for automatic filling.
@@ -117,4 +118,26 @@ export default interface PageNodeInfo {
    * @since 11
    */
   enableAutoFill: boolean;
+
+  /**
+   * The rect of page node.
+   *
+   * @type { AutoFillRect }
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @StageModelOnly
+   * @since 12
+   */
+  rect: AutoFillRect;
+
+  /**
+   * Is the page node in the focus.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @StageModelOnly
+   * @since 12
+   */
+  isFocus: boolean;
 }

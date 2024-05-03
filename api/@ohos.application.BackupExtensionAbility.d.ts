@@ -88,4 +88,30 @@ export default class BackupExtensionAbility {
    * @since 10
    */
   onRestore(bundleVersion: BundleVersion): void;
+
+  /**
+  * Callback to be called when the restore procedure is started.
+  * Developer could override this method to restore.
+  *
+  * @param { BundleVersion } bundleVersion Bundle version to be restore.
+  * @param { string } restoreInfo RestoreInfo to be restore.
+  * @returns { string } Return restore result.
+  * @syscap SystemCapability.FileManagement.StorageService.Backup
+  * @systemapi
+  * @StageModelOnly
+  * @since 12
+  */
+  onRestoreEx(bundleVersion: BundleVersion, restoreInfo: string): string;
+
+  /**
+    * Callback to be called when getting application backupInfo.
+    * Developer could override this method to provide the backupInfo.
+    *
+    * @returns { string } Return the backup application's info.
+    * @syscap SystemCapability.FileManagement.StorageService.Backup
+    * @systemapi
+    * @StageModelOnly
+    * @since 12
+    */
+  getBackupInfo(): string;
 }

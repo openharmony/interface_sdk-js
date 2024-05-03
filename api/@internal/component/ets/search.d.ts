@@ -108,6 +108,18 @@ declare class SearchController extends TextContentControllerBase {
    * @since 11
    */
   stopEditing(): void;
+
+  /**
+   * Text selection is achieved by specifying the start and end positions of the text.
+   *
+   * @param { number } selectionStart - The start position of the selected text.
+   * @param { number } selectionEnd - The end position of the selected text.
+   * @param { SelectionOptions } [options] - Indicates the options of the text selection.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setTextSelection(selectionStart: number, selectionEnd: number, options?: SelectionOptions): void;
 }
 
 /**
@@ -188,6 +200,15 @@ declare enum CancelButtonStyle {
  * @crossplatform
  * @since 11
  */
+/**
+ * Declare the type of search input box
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare enum SearchType {
   /**
    * Basic input mode.
@@ -195,6 +216,14 @@ declare enum SearchType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Basic input mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   NORMAL = 0,
 
@@ -205,6 +234,14 @@ declare enum SearchType {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Pure digital input mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   NUMBER = 2,
 
   /**
@@ -213,6 +250,14 @@ declare enum SearchType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Phone number entry mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   PHONE_NUMBER = 3,
 
@@ -223,7 +268,24 @@ declare enum SearchType {
    * @crossplatform
    * @since 11
    */
+  /**
+   * E-mail address input mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   EMAIL = 5,
+
+  /**
+   * Number decimal entry mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  NUMBER_DECIMAL = 12,
 }
 
 /**
@@ -667,6 +729,51 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   cancelButton(value: { style?: CancelButtonStyle, icon?: IconOptions }): SearchAttribute;
 
   /**
+   * Specify the indentation of the first line in a text-block.
+   *
+   * @param { Dimension } value - The length of text indent.
+   * @returns { SearchAttribute } The attribute of the text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  textIndent(value: Dimension): SearchAttribute;
+
+  /**
+   * Called when the inputFilter of text is set.
+   *
+   * @param { ResourceStr } value
+   * @param { Callback<string> } error
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  inputFilter(value: ResourceStr, error?: Callback<string>): SearchAttribute;
+
+  /**
+   * Called when judging whether the text editing change finished.
+   *
+   * @param { Callback<boolean> } callback
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onEditChange(callback: Callback<boolean>): SearchAttribute;
+
+  /**
+   * Define the text selected background color of the text input.
+   *
+   * @param { ResourceColor } value
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  selectedBackgroundColor(value: ResourceColor): SearchAttribute;
+
+  /**
    * Set the cursor style
    *
    * @param { CaretStyle } value - indicates the style of the cursor.
@@ -1013,6 +1120,16 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * crossplatform
    * @since 11
    */
+  /**
+   * Called when the input of maximum text length is set.
+   *
+   * @param { number } value
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * crossplatform
+   * @atomicservice
+   * @since 12
+   */
   maxLength(value: number): SearchAttribute;
 
   /**
@@ -1087,6 +1204,28 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   selectionMenuHidden(value: boolean): SearchAttribute;
 
   /**
+   * Called when the minimum font size of the font is set.
+   *
+   * @param { number | string | Resource } value
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  minFontSize(value: number | string | Resource): SearchAttribute;
+
+  /**
+   * Called when the maximum font size of the font is set.
+   *
+   * @param { number | string | Resource } value
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  maxFontSize(value: number | string | Resource): SearchAttribute;
+
+  /**
    * Define custom keyboard.
    *
    * @param { CustomBuilder } value
@@ -1104,7 +1243,51 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @atomicservice
    * @since 11
    */
-  customKeyboard(value: CustomBuilder): SearchAttribute;
+  /**
+   * Define custom keyboard.
+   *
+   * @param { CustomBuilder } value - Set up a custom keyboard of Search
+   * @param { KeyboardOptions } [options] - Indicates the custom keyboard options of Search
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  customKeyboard(value: CustomBuilder, options?: KeyboardOptions): SearchAttribute;
+
+  /**
+   * Called when the text decoration of the text is set.
+   *
+   * @param { TextDecorationOptions } value
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  decoration(value: TextDecorationOptions): SearchAttribute;
+
+  /**
+   * Called when the distance between text fonts is set.
+   *
+   * @param { number | string | Resource } value
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  letterSpacing(value: number | string | Resource): SearchAttribute;
+
+  /**
+   * Called when the line height of the font is set.
+   *
+   * @param { number | string | Resource } value
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  lineHeight(value: number | string | Resource): SearchAttribute;
 
   /**
    * Called when the search type is set.
@@ -1115,7 +1298,32 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Called when the search type is set.
+   *
+   * @param { SearchType } value
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   type(value: SearchType): SearchAttribute;
+
+  /**
+   * Set font feature.
+   *
+   * @param { string } value - The fontFeature.
+   * normal | <feature-tag-value>, 
+   * where <feature-tag-value> = <string> [ <integer> | on | off ], like: "ss01" 0
+   * the values of <feature-tag-value> reference to doc of search component
+   * number of <feature-tag-value> can be single or multiple, and separated by comma ','.
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  fontFeature(value: string): SearchAttribute;
 }
 
 /**

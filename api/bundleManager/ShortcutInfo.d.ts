@@ -156,4 +156,47 @@ export interface ShortcutWant {
    * @since 9
    */
   readonly targetAbility: string;
+
+  /**
+   * Indicates the parameters of the shortcut want
+   *
+   * @type { Array<ParameterItem> }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
+   * @since 12
+   */
+  readonly parameters: Array<ParameterItem>;
+}
+
+/**
+ * Obtains information about the ability that a shortcut will start.
+ *
+ * @typedef ParameterItem
+ * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+ * @systemapi
+ * @since 12
+ */
+export interface ParameterItem {
+  /**
+   * Indicates the key of the parameter item.
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
+   * @since 12
+   */
+  readonly key: string;
+
+  /**
+   * Indicates the value of the parameter item.
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
+   * @since 12
+   */
+  readonly value: string;
 }

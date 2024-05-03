@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,6 +19,7 @@
  */
 
 import type { AutoFillType } from './AutoFillType';
+import type AutoFillPopupConfig from './AutoFillPopupConfig';
 import type ViewData from './ViewData';
 
 /**
@@ -52,6 +53,17 @@ export interface FillRequest {
    * @since 11
    */
   viewData: ViewData;
+
+  /**
+   * Whether the UI extension window type is popup window.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @StageModelOnly
+   * @since 12
+   */
+  isPopup: boolean;
 }
 
 /**
@@ -72,6 +84,28 @@ export interface SaveRequest {
    * @systemapi
    * @StageModelOnly
    * @since 11
+   */
+  viewData: ViewData;
+}
+
+/**
+ * Update request for automatic filling.
+ *
+ * @interface UpdateRequest
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @systemapi
+ * @StageModelOnly
+ * @since 12
+ */
+export interface UpdateRequest {
+  /**
+   * The view data. Indicates the basic page information for the update request.
+   *
+   * @type { ViewData }
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @StageModelOnly
+   * @since 12
    */
   viewData: ViewData;
 }
@@ -145,6 +179,20 @@ export interface FillRequestCallback {
    * @since 11
    */
   onCancel(): void;
+
+  /**
+   * autofill popup config.
+   *
+   * @param { AutoFillPopupConfig } autoFillPopupConfig - Indicates the autofill popup config.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+   setAutoFillPopupConfig(autoFillPopupConfig: AutoFillPopupConfig): void;
 }
 
 /**

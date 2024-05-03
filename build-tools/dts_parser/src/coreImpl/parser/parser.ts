@@ -41,18 +41,20 @@ export class Parser {
     const files: Array<string> = FileUtils.readFilesInDir(fileDir, (name) => {
       return name.endsWith(StringConstant.DTS_EXTENSION) || name.endsWith(StringConstant.DETS_EXTENSION);
     });
-    parserParam.setFileDir(fileDir);
-    parserParam.setRootNames(files);
+    if (Boolean(process.env.NEED_DETECTION)) {
+      parserParam.setFileDir(fileDir);
+      parserParam.setRootNames(files);
+    }
     const apiMap: FilesMap = new Map();
-    let collectFiles: Array<string> = []
-    if (collectFile == '') {
+    let collectFiles: Array<string> = [];
+    if (collectFile === '') {
       collectFiles = files;
     } else if (FileUtils.isDirectory(collectFile)) {
       collectFiles = FileUtils.readFilesInDir(collectFile, (name) => {
         return name.endsWith(StringConstant.DTS_EXTENSION) || name.endsWith(StringConstant.DETS_EXTENSION);
       });
     } else if (FileUtils.isFile(collectFile)) {
-      collectFiles = [collectFile]
+      collectFiles = [collectFile];
     }
     collectFiles.forEach((filePath: string) => {
       Parser.parseFile(fileDir, filePath, apiMap);
@@ -72,7 +74,9 @@ export class Parser {
     if (!fs.existsSync(filePath)) {
       return new Map();
     }
-    parserParam.setFilePath(filePath);
+    if (Boolean(process.env.NEED_DETECTION)) {
+      parserParam.setFilePath(filePath);
+    }
     const fileContent: string = fs.readFileSync(filePath, StringConstant.UTF8);
     let relFilePath: string = '';
     relFilePath = path.relative(fileDir, filePath);
@@ -84,10 +88,12 @@ export class Parser {
     const fileArr: Array<string> = [filePath];
     sourceFile.statements.forEach((statement: ts.Statement) => {
       if (ts.isImportDeclaration(statement) && statement.moduleSpecifier.getText().startsWith('./', 1)) {
-        fileArr.push(path.resolve(filePath, '..', statement.moduleSpecifier.getText().replace(/'|"/g, '')))
+        fileArr.push(path.resolve(filePath, '..', statement.moduleSpecifier.getText().replace(/'|"/g, '')));
       }
-    })
-    parserParam.setProgram(fileArr);
+    });
+    if (Boolean(process.env.NEED_DETECTION)) {
+      parserParam.setProgram([fileDir]);
+    }
     const sourceFileInfo: ApiInfo = new ApiInfo(ApiType.SOURCE_FILE, sourceFile, undefined);
     sourceFileInfo.setFilePath(relFilePath);
     sourceFileInfo.setApiName(relFilePath);

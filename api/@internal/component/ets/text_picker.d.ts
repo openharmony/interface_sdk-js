@@ -185,7 +185,7 @@ declare interface TextPickerOptions {
   /**
    * Value of the current selection.
    *
-   * @type { ?(string | string[]) }
+   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -213,7 +213,7 @@ declare interface TextPickerOptions {
   /**
    * Current selected subscript.
    *
-   * @type { ?(number | number[]) }
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -565,6 +565,17 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @since 12
    */
   divider(value: DividerOptions | null): TextPickerAttribute;
+
+  /**
+   * Called when set the height of gradient
+   *
+   * @param { Dimension } value - The value the gradient height
+   * @returns { TextPickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  gradientHeight(value: Dimension): TextPickerAttribute;
 }
 
 /**
@@ -595,7 +606,7 @@ declare interface TextPickerResult {
   /**
    * The currently selected value.
    *
-   * @type { string | string[] }
+   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -623,6 +634,7 @@ declare interface TextPickerResult {
   /**
    * The subscript of the current selection.
    *
+   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -754,6 +766,26 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @since 11
    */
   textStyle?: PickerTextStyle;
+
+  /**
+   * Style of accept button.
+   *
+   * @type { ?PickerDialogButtonStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  acceptButtonStyle?: PickerDialogButtonStyle;
+
+  /**
+   * Style of cancel button.
+   *
+   * @type { ?PickerDialogButtonStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  cancelButtonStyle?: PickerDialogButtonStyle;
 
   /**
    * Text style of selected items
@@ -917,6 +949,16 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Defines the textPickerDialog's background color
+   *
+   * @type { ?ResourceColor }
+   * @default Color.Transparent
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   backgroundColor?: ResourceColor;
 
   /**
@@ -927,6 +969,16 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Defines the textPickerDialog's background blur Style
+   *
+   * @type { ?BlurStyle }
+   * @default BlurStyle.COMPONENT_ULTRA_THICK
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   backgroundBlurStyle?: BlurStyle;
 
@@ -971,6 +1023,16 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @since 12
    */
   onWillDisappear?: () => void;
+
+  /**
+   * Defines the dialog's shadow.
+   *
+   * @type { ?(ShadowOptions | ShadowStyle) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  shadow?: ShadowOptions | ShadowStyle; 
 }
 
 /**

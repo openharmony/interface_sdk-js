@@ -543,6 +543,15 @@ declare namespace webview {
      * @since 12
      */
     isCspBypassing?: boolean;
+
+    /**
+     * If isCodeCacheSupported is true, then the js of this scheme can generate code cache.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    isCodeCacheSupported?: boolean;
   }
 
   /**
@@ -2421,6 +2430,136 @@ declare namespace webview {
      * @since 11
      */
     getArray(): Array<string | number | boolean>;
+  }
+
+  /**
+   * Defines the render process mode.
+   *
+   * @enum {number}
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  enum RenderProcessMode {
+    /**
+     * Indicates the ArkWeb operates in single render process mode, which is the default value for
+     * mobile devices.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    SINGLE = 0,
+
+    /**
+     * Indicates the ArkWeb operates in multiple render process mode.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    MULTIPLE,
+  }
+
+  /**
+   * Options of generating code cache
+   * @interface CacheOptions
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  interface CacheOptions {
+    /**
+     * Response headers used to configure the validation key of code cache.
+     * Currently only support E-Tag and Last-Modified.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    responseHeaders: Array<WebHeader>;
+  }
+
+  /**
+   * Enum type supplied to {@link OfflineResourceMap} for indicating the type of resource.
+   * @enum {number}
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  enum OfflineResourceType {
+    /**
+     * Image resource
+     * 
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    IMAGE,
+
+    /**
+     * CSS resource
+     * 
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    CSS,
+
+    /**
+     * Classic javascript resource
+     * 
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    CLASSIC_JS,
+
+    /**
+     * Module javascript resource
+     * 
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    MODULE_JS
+  }
+
+  /**
+   * Define offline resource's content and info.
+   * @interface OfflineResourceMap
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  interface OfflineResourceMap {
+    /**
+     * Url list of resource.
+     *
+     * @type { Array<string> }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    urlList: Array<string>,
+
+    /**
+     * Arraybuffer of resource.
+     * 
+     * @type { Uint8Array }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    resource: Uint8Array,
+
+    /**
+     * Response headers of resource.
+     *
+     * @type { Array<WebHeader> }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    responseHeaders: Array<WebHeader>,
+
+    /**
+     * Resource type
+     *
+     * @type { OfflineResourceType }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    type: OfflineResourceType
   }
 
   /**
@@ -4362,14 +4501,14 @@ declare namespace webview {
     static clearIntelligentTrackingPreventionBypassingList(): void;
 
     /**
-     * Register a callback to intercept web pages playing video.
+     * Register a callback to intercept web pages playing media.
      *
-     * @param { CreateNativeVideoPlayerCallback } callback - Called everytime when web pages try to play video.
+     * @param { CreateNativeMediaPlayerCallback } callback - Called everytime when web pages try to play media.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
      */
-    onCreateNativeVideoPlayer(callback: CreateNativeVideoPlayerCallback): void
+    onCreateNativeMediaPlayer(callback: CreateNativeMediaPlayerCallback): void
 
     /**
      * Set enable overall web caching
@@ -4419,6 +4558,97 @@ declare namespace webview {
     * @since 12
     */
     static clearPrefetchedResource(cacheKeyList: Array<string>): void;
+
+    /**
+     * Set render process mode of the ArkWeb.
+     *
+     * @param { RenderProcessMode } mode - The render process mode for the ArkWeb.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static setRenderProcessMode(mode: RenderProcessMode): void;
+
+    /**
+     * Get render process mode of the ArkWeb.
+     *
+     * @returns { RenderProcessMode } mode - The render process mode of the ArkWeb.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static getRenderProcessMode(): RenderProcessMode;
+
+    /**
+     * Terminate render process associated with this controller of the ArkWeb.
+     *
+     * @returns { boolean } true if it was possible to terminate the render process, otherwise false.
+     *         Calling this on a not yet started, or an already terminated render will have no effect.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    terminateRenderProcess(): boolean;
+
+    /**
+     * Compile javascript and generate code cache.
+     * @param { string } url - Url of the javascript.
+     * @param { string | Uint8Array } script - javascript source code.
+     * @param { CacheOptions } cacheOptions - generate code cache option.
+     * @returns { Promise<number> } - the promise returned by the function.
+     *                                0 means generate code cache successfully, -1 means internal error.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    precompileJavaScript(url: string, script: string | Uint8Array, cacheOptions: CacheOptions): Promise<number>;
+
+    /**
+     * Set IP address for host name.
+     *
+     * @param { string } hostName - Which host name to be resolved.
+     * @param { string } address - Resolved IP address.
+     * @param { number } aliveTime - The validity seconds for resolve cache.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static setHostIP(hostName: string, address: string, aliveTime: number): void;
+
+    /**
+     * Clear the host name IP address.
+     *
+     * @param { string } hostName - Which host name to be cleared.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static clearHostIP(hostName: string): void;
+
+    /**
+     * Warmup the registered service worker associated the url.
+     * @param { string } url - The url.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static warmupServiceWorker(url: string): void;
+
+    /**
+     * Inject offline resources into cache.
+     *
+     * @param { Array<OfflineResourceMap> } resourceMaps - array of offline resource info maps.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    injectOfflineResources(resourceMaps: Array<OfflineResourceMap>): void;
   }
 
   /**
@@ -4977,7 +5207,7 @@ declare namespace webview {
      * Initialize data stream.
      * 
      * @returns { Promise<void> } The promise of data stream is initialized.
-     * @throws { BusinessError } 17100022 - Data stream init failed.
+     * @throws { BusinessError } 17100022 - The http body stream init failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5283,7 +5513,7 @@ declare namespace webview {
      * 
      * @param { WebSchemeHandlerResponse } response - Set response header to intercept.
      * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100021 - Resource handler process failed.
+     * @throws { BusinessError } 17100021 - Resource handler is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5294,7 +5524,7 @@ declare namespace webview {
      * 
      * @param { ArrayBuffer } data - Set response body to intercept.
      * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100021 - Resource handler process failed.
+     * @throws { BusinessError } 17100021 - Resource handler is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5303,7 +5533,7 @@ declare namespace webview {
     /**
      * Notify that this request should be finished and there is no more data available.
      * 
-     * @throws { BusinessError } 17100021 - Resource handler process failed.
+     * @throws { BusinessError } 17100021 - Resource handler is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5314,7 +5544,7 @@ declare namespace webview {
      * 
      * @param { WebNetErrorList } code - Set response error code to intercept.
      * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100021 - Resource handler process failed.
+     * @throws { BusinessError } 17100021 - Resource handler is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5440,21 +5670,21 @@ declare namespace webview {
      */
     HAVE_METADATA,
     /**
-     * Player has played all downloaded video data.
+     * Player has played all downloaded media data.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
      */
     HAVE_CURRENT_DATA,
     /**
-     * The buffered video data is not enough, and will cause jank.
+     * The buffered media data is not enough, and will cause jank.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
      */
     HAVE_FUTURE_DATA,
     /**
-     * The buffered video data is enough.
+     * The buffered media data is enough.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5463,13 +5693,13 @@ declare namespace webview {
   }
 
   /**
-   * Enum type supplied to {@link handleError} for indicating the error type of native video player.
+   * Enum type supplied to {@link handleError} for indicating the error type of native media player.
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
    */
-  enum VideoError {
+  enum MediaError {
     /**
      * Network error
      * @syscap SystemCapability.Web.Webview.Core
@@ -5478,7 +5708,7 @@ declare namespace webview {
      */
     NETWORK_ERROR = 1,
     /**
-     * Video format error, such as not a valid file.
+     * Media format error, such as not a valid file.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5494,20 +5724,20 @@ declare namespace webview {
   }
 
   /**
-   * The native video player status handler.
-   * Apps should use this class to handle native video player's status.
+   * The native media player status handler.
+   * Apps should use this class to handle native media player's status.
    *
-   * @interface NativeVideoPlayerHandler
+   * @interface NativeMediaPlayerHandler
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
    */
-  interface NativeVideoPlayerHandler {
+  interface NativeMediaPlayerHandler {
 
     /**
-     * Handle native video player playback status.
+     * Handle native media player playback status.
      *
-     * @param { PlaybackStatus } status - Playback status of native video player.
+     * @param { PlaybackStatus } status - Playback status of native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5515,11 +5745,11 @@ declare namespace webview {
     handleStatusChanged(status: PlaybackStatus): void
 
     /**
-     * Handle native video player volume.
+     * Handle native media player volume.
      *  volume: float
      *   value range: [0 - 1.0]
      *
-     * @param { number } volume - Current volume of native video player.
+     * @param { number } volume - Current volume of native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5527,9 +5757,9 @@ declare namespace webview {
     handleVolumeChanged(volume: number): void
 
     /**
-     * Handle native video player muted status.
+     * Handle native media player muted status.
      *
-     * @param { boolean } muted - Current mute status of native video player.
+     * @param { boolean } muted - Current mute status of native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5537,11 +5767,11 @@ declare namespace webview {
     handleMutedChanged(muted: boolean): void
 
     /**
-     * Handle playback rate of native video player.
+     * Handle playback rate of native media player.
      *  playbackRate: float
      *   value range: [0 - infinity]
      *
-     * @param { number } playbackRate - Current playback rate of native video player.
+     * @param { number } playbackRate - Current playback rate of native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5549,11 +5779,11 @@ declare namespace webview {
     handlePlaybackRateChanged(playbackRate: number): void
 
     /**
-     * Handle duration time of video.
+     * Handle duration time of media.
      *  duration: float
      *   value range: [0 - infinity]
      *
-     * @param { number } duration - Duration time (in seconds) of video.
+     * @param { number } duration - Duration time (in seconds) of media.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5561,11 +5791,11 @@ declare namespace webview {
     handleDurationChanged(duration: number): void
 
     /**
-     * Handle current playing time of video.
+     * Handle current playing time of media.
      *  currentPlayTime: float
      *   value range: [0 - duration]
      *
-     * @param { number } currentPlayTime - Current playing time (in seconds) of video.
+     * @param { number } currentPlayTime - Current playing time (in seconds) of media.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5573,11 +5803,11 @@ declare namespace webview {
     handleTimeUpdate(currentPlayTime: number): void
 
     /**
-     * Handle buffered end time of video.
+     * Handle buffered end time of media.
      *  bufferedEndTime: float
      *   value range: [0 - duration]
      *
-     * @param { number } bufferedEndTime - Buffered end time (in seconds) of video.
+     * @param { number } bufferedEndTime - Buffered end time (in seconds) of media.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5594,9 +5824,9 @@ declare namespace webview {
     handleEnded(): void
 
     /**
-     * Handle network state of native video player.
+     * Handle network state of native media player.
      *
-     * @param { NetworkState } state - Network state of native video player.
+     * @param { NetworkState } state - Network state of native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5604,9 +5834,9 @@ declare namespace webview {
     handleNetworkStateChanged(state: NetworkState): void
 
     /**
-     * Handle ready state of native video player.
+     * Handle ready state of native media player.
      *
-     * @param { ReadyState } state - Ready state of native video player.
+     * @param { ReadyState } state - Ready state of native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5614,9 +5844,9 @@ declare namespace webview {
     handleReadyStateChanged(state: ReadyState): void
 
     /**
-     * Handle native video player fullscreen state changed event.
+     * Handle native media player fullscreen state changed event.
      *
-     * @param { boolean } fullscreen - Fullscreen state of native video player.
+     * @param { boolean } fullscreen - Fullscreen state of native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5624,7 +5854,7 @@ declare namespace webview {
     handleFullscreenChanged(fullscreen: boolean): void
 
     /**
-     * Handle native video player seeking state.
+     * Handle native media player seeking state.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -5633,7 +5863,7 @@ declare namespace webview {
     handleSeeking(): void
 
     /**
-     * Handle native video player seek finished state.
+     * Handle native media player seek finished state.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -5642,15 +5872,15 @@ declare namespace webview {
     handleSeekFinished(): void
 
     /**
-     * Handle native video player error event.
+     * Handle native media player error event.
      *
-     * @param { VideoError } error - Error type of native video player.
+     * @param { MediaError } error - Error type of native media player.
      * @param { string } errorMessage - Description of current error.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
      */
-    handleError(error: VideoError, errorMessage: string): void
+    handleError(error: MediaError, errorMessage: string): void
 
     /**
      * Handle size of video.
@@ -5665,18 +5895,18 @@ declare namespace webview {
   }
 
   /**
-   * The bridge between web core and native video player.
+   * The bridge between web core and native media player.
    * Apps should implements this interface, and pass an instance to web core.
-   * Then web core can control native video player by this bridge.
+   * Then web core can control native media player by this bridge.
    *
-   * @interface NativeVideoPlayerBridge
+   * @interface NativeMediaPlayerBridge
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
    */
-  interface NativeVideoPlayerBridge {
+  interface NativeMediaPlayerBridge {
     /**
-     * Notify native video player that the rect of video tag has changed.
+     * Notify native media player that the rect of video tag has changed.
      *
      * @param { number } x - The x position of video tag in web component.
      * @param { number } y - The y position of video tag in web component.
@@ -5719,11 +5949,11 @@ declare namespace webview {
     seek(targetTime: number): void
 
     /**
-     * Request to change volume of native video player.
+     * Request to change volume of native media player.
      *  volume: float
      *   value range: [0 - 1.0]
      *
-     * @param { number } volume - The volume of native video player.
+     * @param { number } volume - The volume of native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5731,9 +5961,9 @@ declare namespace webview {
     setVolume(volume: number): void
 
     /**
-     * Request to mute native video player.
+     * Request to mute native media player.
      *
-     * @param { boolean } muted - Should mute native video player.
+     * @param { boolean } muted - Should mute native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5741,11 +5971,11 @@ declare namespace webview {
     setMuted(muted: boolean): void
 
     /**
-     * Request to change playback rate of native video player.
+     * Request to change playback rate of native media player.
      *  playbackRate: float
      *   value range: [0 - 10.0]
      *
-     * @param { number } playbackRate - The playback rate of native video player.
+     * @param { number } playbackRate - The playback rate of native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5753,7 +5983,7 @@ declare namespace webview {
     setPlaybackRate(playbackRate: number): void
 
     /**
-     * Request to release native video player.
+     * Request to release native media player.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -5781,22 +6011,43 @@ declare namespace webview {
   }
 
   /**
-   * Enum type for indicating the video source type of native video player.
+   * Enum type for indicating the media type of native media player.
+   * @enum {number}
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  enum MediaType {
+    /**
+     * Media type is video.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    VIDEO = 0,
+    /**
+     * Media type is audio.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    AUDIO
+  }
+
+  /**
+   * Enum type for indicating the media source type of native media player.
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
    */
-  enum VideoType {
+  enum SourceType {
     /**
-     * Video source is URL.
+     * Source type is URL.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
      */
     URL = 0,
     /**
-     * Video source is blob.
+     * Source type is blob.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5805,28 +6056,35 @@ declare namespace webview {
   }
 
   /**
-   * Video source information. Uri and format.
+   * Media source information. Uri and format.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
    */
-  class VideoSourceInfo {
+  class MediaSourceInfo {
     /**
-     * Video source, most time is Uri.
+     * Source type, most time is URL.
      * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
      * @since 12
      */
-    videoSource: string;
+    type: SourceType;
 
     /**
-     * Video format, such as mp4, webm, m3u8 etc.
+     * Media source, most time is Uri.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
      */
-    videoFormat: string;
+    source: string;
+
+    /**
+     * Media format, such as mp4, webm, m3u8 etc.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    format: string;
   }
 
   /**
@@ -5836,7 +6094,7 @@ declare namespace webview {
    * @atomicservice
    * @since 12
    */
-  class NativeVideoPlayerSurfaceInfo {
+  class NativeMediaPlayerSurfaceInfo {
     /**
      * Id of surface.
      * @syscap SystemCapability.Web.Webview.Core
@@ -5885,44 +6143,50 @@ declare namespace webview {
   }
 
   /**
-   * Video information.
+   * Media information.
    *
-   * @interface VideoInfo
+   * @interface MediaInfo
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
    */
-  interface VideoInfo {
+  interface MediaInfo {
     /**
-     * Video type : url or mse
+     * Id of media element.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    embedID: string,
+    /**
+     * Media type : Video or Audio.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
      */
-    videoType: VideoType,
+    mediaType: MediaType,
     /**
-     * Video source list, player should choose a appropriate one to play.
+     * Media source list, player should choose an appropriate one to play.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
      */
-    videoSrcList: VideoSourceInfo[],
+    mediaSrcList: MediaSourceInfo[],
     /**
-     * Surface to render video content on.
+     * Surface to render media content on.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
      */
-    surfaceInfo: NativeVideoPlayerSurfaceInfo,
+    surfaceInfo: NativeMediaPlayerSurfaceInfo,
     /**
-     * Should show video controls.
+     * Should show media controls.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
      */
     controlsShown: boolean,
     /**
-     * Limit video controls items.
+     * Limit media controls items.
      *  Such as 'nodownload', 'nofullscreen', 'noremoteplayback'
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -5937,7 +6201,7 @@ declare namespace webview {
      */
     muted: boolean,
     /**
-     * Player should show poster before video first frame shown.
+     * Player should show poster before media first frame shown.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5949,18 +6213,30 @@ declare namespace webview {
      * @atomicservice
      * @since 12
      */
-    preload: Preload
+    preload: Preload,
+    /**
+     * Header information of a media network request.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    headers: Record<string, string>,
+    /**
+     * The information list of attributes of media tag.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    attributes: Record<string, string>,
   }
 
   /**
-   * The callback of creating a native video player.
+   * The callback of creating a native media player.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
    */
-  type CreateNativeVideoPlayerCallback =
-      (handler: NativeVideoPlayerHandler, videoInfo: VideoInfo) => NativeVideoPlayerBridge
+  type CreateNativeMediaPlayerCallback =
+      (handler: NativeMediaPlayerHandler, mediaInfo: MediaInfo) => NativeMediaPlayerBridge
 }
 
 export default webview;

@@ -190,6 +190,13 @@ export { ImageAnimatorModifier } from './arkui/ImageAnimatorModifier';
 export { ImageModifier } from './arkui/ImageModifier';
 
 /**
+ * Export SymbolGlyphModifier, which is used to expose applyNormalAttribute function.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export { SymbolGlyphModifier } from './arkui/SymbolGlyphModifier';
+/**
  * Export ImageSpanModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -372,6 +379,14 @@ export { RatingModifier } from './arkui/RatingModifier';
  * @since 12
  */
 export { RectModifier } from './arkui/RectModifier';
+
+/**
+ * Export RefreshModifier, which is used to expose applyNormalAttribute function.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export { RefreshModifier } from './arkui/RefreshModifier';
 
 /**
  * Export RichEditorModifier, which is used to expose applyNormalAttribute function.
@@ -564,3 +579,12 @@ export { VideoModifier } from './arkui/VideoModifier';
  * @since 12
  */
 export { WaterFlowModifier } from './arkui/WaterFlowModifier';
+
+/**
+ * Export AttributeUpdater, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @crossplatform
+ * @since 12
+ */
+export { AttributeUpdater } from './arkui/AttributeUpdater';

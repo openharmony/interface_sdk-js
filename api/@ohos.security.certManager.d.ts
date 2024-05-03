@@ -83,7 +83,15 @@ declare namespace certificateManager {
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11
      */
-    CM_ERROR_INCORRECT_FORMAT = 17500003
+    CM_ERROR_INCORRECT_FORMAT = 17500003,
+
+    /**
+     * Indicates that the application is not authorized by user.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 12
+     */
+    CM_ERROR_NO_AUTHORIZATION = 17500005
   }
 
   /**
@@ -587,7 +595,8 @@ declare namespace certificateManager {
    * @param { string } certAlias - Indicates the certificate name inputted by the user.
    * @param { AsyncCallback<CMResult> } callback - the callback of installPrivateCertificate.
    * @throws { BusinessError } 201 - the application has no permission to call the API.
-   * @throws { BusinessError } 401 - the parameter check failed.
+   * @throws { BusinessError } 401 - the parameter check failed.Possible causes: 1. Mandatory parameters are left unspecified.
+   * 2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
    * @throws { BusinessError } 17500003 - the keystore is not valid format or keystorePwd is not correct.
    * @syscap SystemCapability.Security.CertificateManager
@@ -609,7 +618,8 @@ declare namespace certificateManager {
    * @param { string } certAlias - Indicates the certificate name inputted by the user.
    * @returns { Promise<CMResult> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application has no permission to call the API.
-   * @throws { BusinessError } 401 - the parameter check failed.
+   * @throws { BusinessError } 401 - the parameter check failed.Possible causes: 1. Mandatory parameters are left unspecified.
+   * 2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
    * @throws { BusinessError } 17500003 - the keystore is not valid format or keystorePwd is not correct.
    * @syscap SystemCapability.Security.CertificateManager
@@ -624,7 +634,8 @@ declare namespace certificateManager {
    * @param { string } keyUri - Indicates key's name.
    * @param { AsyncCallback<void> } callback - the callback of uninstallPrivateCertificate.
    * @throws { BusinessError } 201 - the application has no permission to call the API.
-   * @throws { BusinessError } 401 - the parameter check failed.
+   * @throws { BusinessError } 401 - the parameter check failed.Possible causes: 1. Mandatory parameters are left unspecified.
+   * 2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
    * @throws { BusinessError } 17500002 - the certificate do not exist .
    * @syscap SystemCapability.Security.CertificateManager
@@ -639,7 +650,8 @@ declare namespace certificateManager {
    * @param { string } keyUri - Indicates key's name.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application has no permission to call the API.
-   * @throws { BusinessError } 401 - the parameter check failed.
+   * @throws { BusinessError } 401 - the parameter check failed.Possible causes: 1. Mandatory parameters are left unspecified.
+   * 2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
    * @throws { BusinessError } 17500002 - the certificate do not exist .
    * @syscap SystemCapability.Security.CertificateManager
@@ -654,7 +666,8 @@ declare namespace certificateManager {
    * @param { AsyncCallback<CMResult> } callback - the callback of getAllAppPrivateCertificates.
    * @throws { BusinessError } 201 - the application has no permission to call the API.
    * @throws { BusinessError } 202 - the application is not system app.
-   * @throws { BusinessError } 401 - the parameter check failed.
+   * @throws { BusinessError } 401 - the parameter check failed.Possible causes: 1. Mandatory parameters are left unspecified.
+   * 2. Incorrect parameter types.
    * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
@@ -683,7 +696,8 @@ declare namespace certificateManager {
    * @param { string } keyUri - Indicates key's name.
    * @param { AsyncCallback<CMResult> } callback - the callback of getPrivateCertificate.
    * @throws { BusinessError } 201 - the application has no permission to call the API.
-   * @throws { BusinessError } 401 - the parameter check failed.
+   * @throws { BusinessError } 401 - the parameter check failed.Possible causes: 1. Mandatory parameters are left unspecified.
+   * 2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
    * @throws { BusinessError } 17500002 - the certificate do not exist .
    * @syscap SystemCapability.Security.CertificateManager
@@ -698,7 +712,8 @@ declare namespace certificateManager {
    * @param { string } keyUri - Indicates key's name.
    * @returns { Promise<CMResult> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application has no permission to call the API.
-   * @throws { BusinessError } 401 - the parameter check failed.
+   * @throws { BusinessError } 401 - the parameter check failed.Possible causes: 1. Mandatory parameters are left unspecified.
+   * 2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
    * @throws { BusinessError } 17500002 - the certificate do not exist .
    * @syscap SystemCapability.Security.CertificateManager
@@ -711,14 +726,31 @@ declare namespace certificateManager {
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
    * @param { string } authUri - Indicates the authorization relationship between application and application certificate.
-   * @param { CMSignatureSpec } spec - Indicates the properties of the signature and verification..
+   * @param { CMSignatureSpec } spec - Indicates the properties of the signature and verification.
    * @param { AsyncCallback<CMHandle> } callback - the callback of init.
    * @throws { BusinessError } 201 - the application has no permission to call the API.
-   * @throws { BusinessError } 401 - the parameter check failed.
+   * @throws { BusinessError } 401 - the parameter check failed.Possible causes: 1. Mandatory parameters are left unspecified.
+   * 2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
    * @throws { BusinessError } 17500002 - the certificate do not exist .
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11
+   */
+  /**
+   * Init operation for signing and verifying etc.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER
+   * @param { string } authUri - Indicates the authorization relationship between application and application certificate.
+   * @param { CMSignatureSpec } spec - Indicates the properties of the signature and verification.
+   * @param { AsyncCallback<CMHandle> } callback - the callback of init.
+   * @throws { BusinessError } 201 - the application has no permission to call the API.
+   * @throws { BusinessError } 401 - the parameter check failed.Possible causes: 1. Mandatory parameters are left unspecified.
+   * 2. Incorrect parameter types. 3.Parameter verification failed.
+   * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
+   * @throws { BusinessError } 17500002 - the certificate do not exist .
+   * @throws { BusinessError } 17500005 - the application is not authorized by user .
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 12
    */
   function init(authUri: string, spec: CMSignatureSpec, callback: AsyncCallback<CMHandle>): void;
 
@@ -730,11 +762,28 @@ declare namespace certificateManager {
    * @param { CMSignatureSpec } spec - Indicates the properties of the signature and verification.
    * @returns { Promise<CMHandle> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application has no permission to call the API.
-   * @throws { BusinessError } 401 - the parameter check failed.
+   * @throws { BusinessError } 401 - the parameter check failed.Possible causes: 1. Mandatory parameters are left unspecified.
+   * 2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
    * @throws { BusinessError } 17500002 - the certificate do not exist .
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11
+   */
+  /**
+   * Init operation for signing and verifying etc.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER
+   * @param { string } authUri - Indicates the authorization relationship between application and application certificate.
+   * @param { CMSignatureSpec } spec - Indicates the properties of the signature and verification.
+   * @returns { Promise<CMHandle> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application has no permission to call the API.
+   * @throws { BusinessError } 401 - the parameter check failed.Possible causes: 1. Mandatory parameters are left unspecified.
+   * 2. Incorrect parameter types. 3.Parameter verification failed.
+   * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
+   * @throws { BusinessError } 17500002 - the certificate do not exist .
+   * @throws { BusinessError } 17500005 - the application is not authorized by user .
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 12
    */
   function init(authUri: string, spec: CMSignatureSpec): Promise<CMHandle>;
 
@@ -746,7 +795,8 @@ declare namespace certificateManager {
    * @param { Uint8Array } data - Indicates the input value.
    * @param { AsyncCallback<void> } callback - the callback of update.
    * @throws { BusinessError } 201 - the application has no permission to call the API.
-   * @throws { BusinessError } 401 - the parameter check failed.
+   * @throws { BusinessError } 401 - the parameter check failed.Possible causes: 1. Mandatory parameters are left unspecified.
+   * 2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11
@@ -761,7 +811,8 @@ declare namespace certificateManager {
    * @param { Uint8Array } data - Indicates the input value.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application has no permission to call the API.
-   * @throws { BusinessError } 401 - the parameter check failed.
+   * @throws { BusinessError } 401 - the parameter check failed.Possible causes: 1. Mandatory parameters are left unspecified.
+   * 2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11
@@ -775,7 +826,8 @@ declare namespace certificateManager {
    * @param { Uint8Array } handle - Indicates the handle of the init operation.
    * @param { AsyncCallback<CMResult> } callback - the callback of finish.
    * @throws { BusinessError } 201 - the application has no permission to call the API.
-   * @throws { BusinessError } 401 - the parameter check failed.
+   * @throws { BusinessError } 401 - the parameter check failed.Possible causes: 1. Mandatory parameters are left unspecified.
+   * 2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11
@@ -790,7 +842,8 @@ declare namespace certificateManager {
    * @param { Uint8Array } signature - Indicates the sign data.
    * @param { AsyncCallback<CMResult> } callback - the callback of finish.
    * @throws { BusinessError } 201 - the application has no permission to call the API.
-   * @throws { BusinessError } 401 - the parameter check failed.
+   * @throws { BusinessError } 401 - the parameter check failed.Possible causes: 1. Mandatory parameters are left unspecified.
+   * 2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11
@@ -805,7 +858,8 @@ declare namespace certificateManager {
    * @param { Uint8Array } [options] signature - Indicates the sign data.
    * @returns { Promise<CMResult> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application has no permission to call the API.
-   * @throws { BusinessError } 401 - the parameter check failed.
+   * @throws { BusinessError } 401 - the parameter check failed.Possible causes: 1. Mandatory parameters are left unspecified.
+   * 2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11
@@ -819,7 +873,8 @@ declare namespace certificateManager {
    * @param { Uint8Array } handle - Indicates the handle of the init operation.
    * @param { AsyncCallback<void> } callback - the callback of abort.
    * @throws { BusinessError } 201 - the application has no permission to call the API.
-   * @throws { BusinessError } 401 - the parameter check failed.
+   * @throws { BusinessError } 401 - the parameter check failed.Possible causes: 1. Mandatory parameters are left unspecified.
+   * 2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11
@@ -833,12 +888,45 @@ declare namespace certificateManager {
    * @param { Uint8Array } handle - Indicates the handle of the init operation.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application has no permission to call the API.
-   * @throws { BusinessError } 401 - the parameter check failed.
+   * @throws { BusinessError } 401 - the parameter check failed.Possible causes: 1. Mandatory parameters are left unspecified.
+   * 2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11
    */
   function abort(handle: Uint8Array): Promise<void>;
+ 
+  /**
+   * Get the detail of public application certificate.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER
+   * @param { string } keyUri - Indicates the key's name.
+   * @returns { Promise<CMResult> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application has no permission to call the API.
+   * @throws { BusinessError } 401 - the parameter check failed.Possible causes: 1. Mandatory parameters are left unspecified.
+   * 2. Incorrect parameter types. 3.Parameter verification failed.
+   * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
+   * @throws { BusinessError } 17500002 - the certificate do not exist .
+   * @throws { BusinessError } 17500005 - the application is not authorized by user .
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 12
+   */
+  function getPublicCertificate(keyUri: string): Promise<CMResult>;
+
+  /**:
+   * Whether the current application is authorized by the specified public application certificate.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER
+   * @param { string } keyUri - Indicates the key's name.
+   * @returns { Promise<boolean> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application has no permission to call the API.
+   * @throws { BusinessError } 401 - the parameter check failed.Possible causes: 1. Mandatory parameters are left unspecified.
+   * 2. Incorrect parameter types. 3.Parameter verification failed.
+   * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 12
+   */
+  function isAuthorizedApp(keyUri: string): Promise<boolean>;
 }
 
 export default certificateManager;

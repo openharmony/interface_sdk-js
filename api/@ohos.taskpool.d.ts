@@ -139,6 +139,29 @@ declare namespace taskpool {
   }
 
   /**
+   * Indicates the type of callback to be registered.
+   *
+   * @typedef { function } CallbackFunction
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  type CallbackFunction = () => void;
+
+  /**
+   * Indicates the type of callback with error code to be registered.
+   *
+   * @typedef { function } CallbackFunctionWithError
+   * @param { Error } e - the error message.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  type CallbackFunctionWithError = (e: Error) => void;
+
+  /**
    * The Task class provides an interface to create a task.
    *
    * @syscap SystemCapability.Utils.Lang
@@ -252,7 +275,7 @@ declare namespace taskpool {
      * Set transfer list for this task.
      *
      * @param { ArrayBuffer[] } [transfer] - transfer Transfer list of this task, empty array is default.
-     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -261,7 +284,7 @@ declare namespace taskpool {
      * Set transfer list for this task.
      *
      * @param { ArrayBuffer[] } [transfer] - transfer Transfer list of this task, empty array is default.
-     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
      * @throws { BusinessError } 10200029 - Can not set an arraybuffer to both transferList and cloneList.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -275,7 +298,10 @@ declare namespace taskpool {
      *
      * @param { Object[] | ArrayBuffer[] } cloneList - Sendable objects or arrayBuffer objects in this list
      * will be transmitted to worker thread in a copy way.
-     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types;
+     * 3.Parameter verification failed.
      * @throws { BusinessError } 10200029 - Can not set an arraybuffer to both transferList and cloneList.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -288,7 +314,7 @@ declare namespace taskpool {
      * Register a callback for this task to receive and handle data from the taskpool worker thread.
      *
      * @param { Function } [callback] - Callback to be registered and executed later on the host side.
-     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -300,7 +326,10 @@ declare namespace taskpool {
      * Add dependencies on the task array for this task.
      *
      * @param { Task[] } tasks - tasks tasks An array of dependent tasks.
-     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types;
+     * 3.Parameter verification failed.
      * @throws { BusinessError } 10200026 - There is a circular dependency.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -313,7 +342,10 @@ declare namespace taskpool {
      * Remove dependencies on the task array for this task.
      *
      * @param { Task[] } tasks - tasks tasks An array of dependent tasks.
-     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types;
+     * 3.Parameter verification failed.
      * @throws { BusinessError } 10200027 - The dependency does not exist.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -321,6 +353,58 @@ declare namespace taskpool {
      * @since 11
      */
     removeDependency(...tasks: Task[]): void;
+
+    /**
+     * Register a callback and call it when the task is enqueued.
+     *
+     * @param { CallbackFunction } [callback] - Callback to be registered and executed later on the host side.
+     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 10200034 - The executed task does not support the registration of listeners.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    onEnqueued(callback: CallbackFunction): void;
+
+    /**
+     * Register a callback and call it when the task before execute.
+     *
+     * @param { CallbackFunction } [callback] - Callback to be registered and executed later on the host side.
+     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 10200034 - The executed task does not support the registration of listeners.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    onStartExecution(callback: CallbackFunction): void;
+
+    /**
+     * Register a callback and call it when the task fails to execute.
+     *
+     * @param { CallbackFunctionWithError } [callback] - Callback to be registered and executed later on the host side.
+     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 10200034 - The executed task does not support the registration of listeners.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    onExecutionFailed(callback: CallbackFunctionWithError): void;
+
+    /**
+     * Register a callback and call it when the task successfully executes.
+     *
+     * @param { CallbackFunction } [callback] - Callback to be registered and executed later on the host side.
+     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 10200034 - The executed task does not support the registration of listeners.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    onExecutionSucceeded(callback: CallbackFunction): void;
 
     /**
      * Concurrent function to execute in taskpool.
@@ -454,7 +538,10 @@ declare namespace taskpool {
      * Create a TaskGroup instance.
      *
      * @param { string } name - name name The name of taskGroup.
-     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types;
+     * 3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -467,7 +554,10 @@ declare namespace taskpool {
      *
      * @param { Function } func - func func Concurrent function to add in task group.
      * @param { unknown[] } args - args args The concurrent function arguments.
-     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types;
+     * 3.Parameter verification failed.
      * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -478,7 +568,10 @@ declare namespace taskpool {
      *
      * @param { Function } func - func func Concurrent function to add in task group.
      * @param { Object[] } args - args args The concurrent function arguments.
-     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types;
+     * 3.Parameter verification failed.
      * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -491,7 +584,10 @@ declare namespace taskpool {
      * Add a Task into TaskGroup.
      *
      * @param { Task } task - task task The task want to add in task group.
-     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types;
+     * 3.Parameter verification failed.
      * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -501,7 +597,10 @@ declare namespace taskpool {
      * Add a Task into TaskGroup.
      *
      * @param { Task } task - task task The task want to add in task group.
-     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types;
+     * 3.Parameter verification failed.
      * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -534,7 +633,9 @@ declare namespace taskpool {
      * Create a SequenceRunner instance.
      *
      * @param { Priority } priority - Task execution priority, MEDIUM is default.
-     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Incorrect parameter types;
+     * 2.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -547,7 +648,9 @@ declare namespace taskpool {
      *
      * @param { Task } task - The task want to execute.
      * @returns { Promise<Object> }
-     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types;
      * @throws { BusinessError } 10200003 - Worker initialization failure.
      * @throws { BusinessError } 10200006 - An exception occurred during serialization.
      * @throws { BusinessError } 10200025 - Add dependent task to SequenceRunner.
@@ -557,6 +660,18 @@ declare namespace taskpool {
      * @since 11
      */
     execute(task: Task): Promise<Object>;
+  }
+
+  /**
+   * The LongTask class provides an interface to create a task that has no upper limit on execution time.
+   *
+   * @extends Task
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  class LongTask extends Task {
   }
 
   /**
@@ -855,7 +970,10 @@ declare namespace taskpool {
    * @param { Function } func - func func Concurrent function want to execute.
    * @param { unknown[] } args - args args The concurrent function arguments.
    * @returns { Promise<unknown> }
-   * @throws { BusinessError } 401 - The input parameters are invalid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types;
+   * 3.Parameter verification failed.
    * @throws { BusinessError } 10200003 - Worker initialization failure.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
    * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
@@ -868,7 +986,10 @@ declare namespace taskpool {
    * @param { Function } func - func func Concurrent function want to execute.
    * @param { unknown[] } args - args args The concurrent function arguments.
    * @returns { Promise<unknown> }
-   * @throws { BusinessError } 401 - The input parameters are invalid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types;
+   * 3.Parameter verification failed.
    * @throws { BusinessError } 10200003 - Worker initialization failure.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
    * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
@@ -882,7 +1003,10 @@ declare namespace taskpool {
    * @param { Function } func - func func Concurrent function want to execute.
    * @param { Object[] } args - args args The concurrent function arguments.
    * @returns { Promise<Object> }
-   * @throws { BusinessError } 401 - The input parameters are invalid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types;
+   * 3.Parameter verification failed.
    * @throws { BusinessError } 10200003 - Worker initialization failure.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
    * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
@@ -899,7 +1023,10 @@ declare namespace taskpool {
    * @param { Task } task - task task The task want to execute.
    * @param { Priority } [priority] - priority priority Task priority, MEDIUM is default.
    * @returns { Promise<unknown> }
-   * @throws { BusinessError } 401 - The input parameters are invalid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types;
+   * 3.Parameter verification failed.
    * @throws { BusinessError } 10200003 - Worker initialization failure.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
    * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
@@ -912,7 +1039,10 @@ declare namespace taskpool {
    * @param { Task } task - task task The task want to execute.
    * @param { Priority } [priority] - priority priority Task priority, MEDIUM is default.
    * @returns { Promise<unknown> }
-   * @throws { BusinessError } 401 - The input parameters are invalid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types;
+   * 3.Parameter verification failed.
    * @throws { BusinessError } 10200003 - Worker initialization failure.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
    * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
@@ -926,7 +1056,10 @@ declare namespace taskpool {
    * @param { Task } task - task task The task want to execute.
    * @param { Priority } [priority] - priority priority Task priority, MEDIUM is default.
    * @returns { Promise<Object> }
-   * @throws { BusinessError } 401 - The input parameters are invalid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types;
+   * 3.Parameter verification failed.
    * @throws { BusinessError } 10200003 - Worker initialization failure.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
    * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
@@ -943,7 +1076,10 @@ declare namespace taskpool {
    * @param { TaskGroup } group - group group The task group want to execute.
    * @param { Priority } [priority] - priority priority Task group priority, MEDIUM is default.
    * @returns { Promise<unknown[]> }
-   * @throws { BusinessError } 401 - The input parameters are invalid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types;
+   * 3.Parameter verification failed.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -955,7 +1091,10 @@ declare namespace taskpool {
    * @param { TaskGroup } group - group group The task group want to execute.
    * @param { Priority } [priority] - priority priority Task group priority, MEDIUM is default.
    * @returns { Promise<Object[]> }
-   * @throws { BusinessError } 401 - The input parameters are invalid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types;
+   * 3.Parameter verification failed.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -971,7 +1110,10 @@ declare namespace taskpool {
    * @param { Task } task - task task The task want to execute.
    * @param { Priority } [priority] - priority priority Task priority, MEDIUM is default.
    * @returns { Promise<Object> }
-   * @throws { BusinessError } 401 - The input parameters are invalid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types;
+   * 3.Parameter verification failed.
    * @throws { BusinessError } 10200028 - The delayTime is less than zero.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -984,7 +1126,10 @@ declare namespace taskpool {
    * Cancel a concurrent task.
    *
    * @param { Task } task - task task The task want to cancel.
-   * @throws { BusinessError } 401 - The input parameters are invalid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types;
+   * 3.Parameter verification failed.
    * @throws { BusinessError } 10200015 - The task does not exist when it is canceled.
    * @throws { BusinessError } 10200016 - The task is executing when it is canceled.
    * @syscap SystemCapability.Utils.Lang
@@ -994,7 +1139,10 @@ declare namespace taskpool {
    * Cancel a concurrent task.
    *
    * @param { Task } task - task task The task want to cancel.
-   * @throws { BusinessError } 401 - The input parameters are invalid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types;
+   * 3.Parameter verification failed.
    * @throws { BusinessError } 10200015 - The task does not exist when it is canceled.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -1004,7 +1152,10 @@ declare namespace taskpool {
    * Cancel a concurrent task.
    *
    * @param { Task } task - task task The task want to cancel.
-   * @throws { BusinessError } 401 - The input parameters are invalid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types;
+   * 3.Parameter verification failed.
    * @throws { BusinessError } 10200015 - The task does not exist when it is canceled.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -1017,7 +1168,10 @@ declare namespace taskpool {
    * Cancel a concurrent task group.
    *
    * @param { TaskGroup } group - group group The task group want to cancel.
-   * @throws { BusinessError } 401 - The input parameters are invalid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types;
+   * 3.Parameter verification failed.
    * @throws { BusinessError } 10200018 - The task group does not exist when it is canceled.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -1027,7 +1181,10 @@ declare namespace taskpool {
    * Cancel a concurrent task group.
    *
    * @param { TaskGroup } group - group group The task group want to cancel.
-   * @throws { BusinessError } 401 - The input parameters are invalid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types;
+   * 3.Parameter verification failed.
    * @throws { BusinessError } 10200018 - The task group does not exist when it is canceled.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -1054,6 +1211,37 @@ declare namespace taskpool {
    * @since 11
    */
   function getTaskPoolInfo(): TaskPoolInfo;
+
+  /**
+   * Terminate a long task.
+   *
+   * @param { LongTask } longTask - The long task want to terminate.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types;
+   * 3.Parameter verification failed.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  function terminateTask(longTask: LongTask): void;
+
+    /**
+   * Check if the function is a concurrent function.
+   *
+   * @param { Function } func - The function name to check.
+   * @returns { boolean } Returns {@code true} if it is a concurrent function; returns {@code false} otherwise.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types;
+   * 3.Parameter verification failed.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+    function isConcurrent(func: Function): boolean;
 }
 
 export default taskpool;

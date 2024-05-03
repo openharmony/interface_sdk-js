@@ -243,6 +243,26 @@ declare interface OffsetResult {
 }
 
 /**
+ * Define scroll edge options
+ *
+ * @interface ScrollEdgeOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface ScrollEdgeOptions {
+  /**
+   * The fasten speed of scrolling to the edge, unit is vp/s.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  velocity?: number;
+}
+
+/**
  * Provides custom animation parameters.
  *
  * @interface ScrollAnimationOptions
@@ -481,7 +501,17 @@ declare class Scroller {
    * @atomicservice
    * @since 11
    */
-  scrollEdge(value: Edge);
+  /**
+   * Called when scrolling to the edge of the container.
+   *
+   * @param { Edge } value - Edge type of the container.
+   * @param { ScrollEdgeOptions } [options] - Options of scrolling to edge.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  scrollEdge(value: Edge, options?: ScrollEdgeOptions);
 
   /**
    * Fling the scroll view.
@@ -653,6 +683,18 @@ declare class Scroller {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Get child item size and position.
+   *
+   * @param { number } index - Index of the item.
+   * @returns { RectResult } Returns the size and position.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 100004 - Controller not bound to component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   getItemRect(index: number): RectResult;
 }
@@ -1281,6 +1323,16 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Determines whether the scroll view stops on multiples of the content size when the user scrolls.
+   *
+   * @param { boolean } value - A boolean value determines whether paging is enabled for scroll.
+   * @returns { ScrollAttribute } the attribute of the scroll.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   enablePaging(value: boolean): ScrollAttribute;
   

@@ -18,6 +18,7 @@ adts
 advertisements
 affinities
 agrees
+aiding
 aifc
 alerting
 algrithom
@@ -70,6 +71,7 @@ avoidareachange
 avrcp
 avsession
 backgrounding
+backpress
 backs
 base64
 bassboost
@@ -116,12 +118,16 @@ ccm
 cdma
 ce
 certsign
+cfa
+cfb
 cft
 channeldown
 channelup
 checkboxgroup
+checksum
 chload
 chromaticities
+chromaticity
 chrominance
 circled
 clamped
@@ -176,6 +182,7 @@ dci
 ddmp
 de
 deactivated
+deactivates
 deactivation
 decodes
 decomposed
@@ -197,6 +204,8 @@ deregisters
 deselected
 designative
 desynchronized
+detaches
+detaching
 detents
 developtools
 devicemanager
@@ -205,6 +214,7 @@ dfx
 dialling
 differed
 digidesign
+digitized
 dimbehind
 dirent
 dirxml
@@ -221,10 +231,13 @@ dismissal
 dismissing
 dispatches
 displacement
+dlna
 dlp
 dnd
+dng
 dnses
 donot
+dop
 downlink
 downmix
 dpad
@@ -247,6 +260,7 @@ edr
 efuse
 efx
 egid
+enhancing
 ehrpd
 ejectclosecd
 emption
@@ -443,6 +457,7 @@ lchown
 lclampf
 ldpi
 lenum
+leye
 lfloat
 libraryname
 lifted
@@ -500,6 +515,7 @@ mmicode
 mnc
 moderately
 moitor
+moov
 mplink
 mschap
 msdos
@@ -528,6 +544,7 @@ nextgroup
 nlink
 nmea
 nnrt
+nnrtdevice
 nopadding
 mori
 nodownload
@@ -566,10 +583,13 @@ opkey
 opl
 opname
 option
+opto
 originating
 osd
+ota
 ott
 ounted
+outlines
 overheated
 overlimit
 overline
@@ -577,6 +597,7 @@ owningproperties
 ows
 oximeter
 p2p
+paddings
 paginated
 paramcheck
 parameterf
@@ -602,6 +623,7 @@ pfa
 pfb
 pgo
 photographing
+phonemes
 phy
 pickers
 pixelmap
@@ -638,6 +660,7 @@ preresolve
 presentationml
 presently
 presistent
+previewed
 prevgroup
 prikey
 primaries
@@ -653,6 +676,7 @@ pss
 pssh
 puk
 pvr
+quant
 querier
 queriers
 racing
@@ -685,6 +709,7 @@ renderbuffertarget
 renegotiation
 repayment
 repeates
+replacer
 reposition
 resizeable
 resmgr
@@ -699,6 +724,7 @@ retried
 revocation
 revoked
 rewinding
+reye
 rfcomm
 rfid
 rfkill
@@ -753,6 +779,7 @@ shuts
 sigalgs
 silenced
 singly
+skews
 slidable
 sliderstyle
 statvfs
@@ -782,6 +809,7 @@ spn
 spooler
 spp
 spreadsheetml
+springs
 spry
 spy
 srgb
@@ -804,6 +832,7 @@ subpixel
 subscrbers
 subscribale
 subscribes
+subsec
 substate
 subtitles
 subtypes
@@ -882,7 +911,9 @@ unapply
 unassigned
 unauth
 unbinding
+unblock
 unblocking
+unbond
 uncalibrated
 uncategorized
 uncatergorized
@@ -921,6 +952,7 @@ unmuted
 unmutes
 unobserve
 unperceivable
+unpremultiplied
 unpressed
 unregistered
 unregistering
@@ -942,6 +974,7 @@ useriam
 userspace
 usim
 ussd
+utd
 utilized
 utimes
 uuids
@@ -966,6 +999,7 @@ wallpapers
 wantagent
 wapi
 wappush
+warmup
 watchers
 waterflow
 wcdma
@@ -1009,6 +1043,8 @@ zfail
 zoffset
 zoomin
 zoomout
+asr
+aec
 zoomreset
 zooms
 zpass
@@ -1028,3 +1064,9 @@ beidou
 qzss
 glonass
 sbas
+uncertainty
+geofences
+gbk
+ocsp
+encipherment
+reconfirmed

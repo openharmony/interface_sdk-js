@@ -159,6 +159,16 @@ declare enum ButtonType {
  * @since 11
  * @form
  */
+/**
+ * Enum for button style type.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ * @form
+ */
 declare enum ButtonStyleMode {
   /**
    * Normal button (with normal background color).
@@ -166,6 +176,15 @@ declare enum ButtonStyleMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   * @form
+   */
+  /**
+   * Normal button (with normal background color).
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    * @form
    */
   NORMAL = 0,
@@ -178,6 +197,15 @@ declare enum ButtonStyleMode {
    * @since 11
    * @form
    */
+  /**
+   * Emphasized button (with emphasized background color).
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
   EMPHASIZED = 1,
 
   /**
@@ -186,6 +214,15 @@ declare enum ButtonStyleMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   * @form
+   */
+  /**
+   * Textual button (with none background color).
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    * @form
    */
   TEXTUAL = 2,
@@ -223,12 +260,75 @@ declare enum ButtonRole {
 }
 
 /**
+ * Defines the callback type used in ButtonConfiguration.
+ *
+ * @typedef {function} ButtonTriggerClickCallback
+ * @param { number } xPos - The value of xPos is x coordinate.
+ * @param { number } yPos - The value of yPos is y coordinate.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type ButtonTriggerClickCallback = (xPos: number, yPos: number) => void;
+
+/**
+ * ButtonConfiguration used by button content modifier.
+ *
+ * @interface ButtonConfiguration
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+
+declare interface ButtonConfiguration extends CommonConfiguration<ButtonConfiguration> {
+  /**
+   * Button with inner text label.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  label: string;
+
+  /**
+   * Indicates whether the button is pressed.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  pressed: boolean;
+
+  /**
+   * Trigger button click x coordinate and y coordinate.
+   *
+   * @type { ButtonTriggerClickCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  triggerClick: ButtonTriggerClickCallback;
+}
+
+/**
  * Enum for Control Size.
  *
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
+ * @form
+ */
+/**
+ * Enum for Control Size.
+ *
+ * @enum { string }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
  * @form
  */
 declare enum ControlSize {
@@ -240,6 +340,15 @@ declare enum ControlSize {
    * @since 11
    * @form
    */
+  /**
+   * The component size is small.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
   SMALL = 'small',
 
   /**
@@ -248,6 +357,15 @@ declare enum ControlSize {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   * @form
+   */
+  /**
+   * The component size is normal.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    * @form
    */
   NORMAL = 'normal',
@@ -370,6 +488,17 @@ declare interface ButtonOptions {
    * @since 11
    * @form
    */
+  /**
+   * Describes the button style.
+   *
+   * @type { ?ButtonStyleMode }
+   * @default ButtonStyleMode.EMPHASIZED
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
   buttonStyle?: ButtonStyleMode;
 
   /**
@@ -380,6 +509,17 @@ declare interface ButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   * @form
+   */
+  /**
+   * Describes the button size.
+   *
+   * @type { ?ControlSize }
+   * @default ControlSize.NORMAL
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    * @form
    */
   controlSize?: ControlSize;
@@ -811,6 +951,17 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @since 11
    * @form
    */
+  /**
+   * Describes the button style.
+   *
+   * @param { ButtonStyleMode } value - button style mode
+   * @returns { ButtonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
   buttonStyle(value: ButtonStyleMode): ButtonAttribute;
   
   /** 
@@ -821,6 +972,17 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   * @form
+   */
+  /** 
+   * Set the Button size.
+   * 
+   * @param { ControlSize } value - control size
+   * @returns { ButtonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    * @form
    */
   controlSize(value: ControlSize): ButtonAttribute;
@@ -1036,6 +1198,17 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @form
    */
   fontFamily(value: string | Resource): ButtonAttribute;
+
+  /**
+   * Set the content modifier of button.
+   *
+   * @param { ContentModifier<ButtonConfiguration> } modifier - The content modifier of button.
+   * @returns { ButtonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  contentModifier(modifier: ContentModifier<ButtonConfiguration>): ButtonAttribute;
 
   /**
    * Set button label style.

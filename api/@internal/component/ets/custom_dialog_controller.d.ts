@@ -367,6 +367,15 @@ declare interface CustomDialogControllerOptions {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Whether it is a modal dialog
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   isModal?: boolean;
 
   /**
@@ -438,6 +447,17 @@ declare interface CustomDialogControllerOptions {
    * @since 12
    */
   shadow?: ShadowOptions | ShadowStyle;
+
+  /**
+   * Defines the customDialog's background blur Style
+   *
+   * @type { ?BlurStyle }
+   * @default BlurStyle.COMPONENT_ULTRA_THICK
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  backgroundBlurStyle?: BlurStyle;
 }
 
 /**

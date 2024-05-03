@@ -265,19 +265,20 @@ function mergeDiffsAndChangelogs(changelogs, diffs) {
     if (diffsData) {
       diffs.set(dataSignature, addChangelogLink(data, diffsData, diffs));
       changelogs.delete(dataSignature);
-    } else {
-      data.forEach(changelogData => {
-        const newApiSignature = getSignature(changelogData.newDtsName, changelogData.newApi);
-        const diffsData = diffs.get(newApiSignature);
-        if (!diffsData) {
-          return;
-        }
-        diffsData.forEach(diffData => {
-          diffData.changelog.add(changelogData.changelog);
-        });
-        changelogs.delete(dataSignature);
+      return;
+    } 
+    data.forEach(changelogData => {
+      const newApiSignature = getSignature(changelogData.newDtsName, changelogData.newApi);
+      const diffsData = diffs.get(newApiSignature);
+      if (!diffsData) {
+        return;
+      }
+      diffsData.forEach(diffData => {
+        diffData.changelog.add(changelogData.changelog);
       });
-    }
+      changelogs.delete(dataSignature);
+    });
+    
   });
 
   changelogs.forEach((changelogData, signature) => {

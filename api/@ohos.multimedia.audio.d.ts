@@ -465,6 +465,12 @@ declare namespace audio {
      */
     USB_HEADSET = 22,
     /**
+     * Display port device.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 12
+     */
+    DISPLAY_PORT = 23,
+    /**
      * Default device type.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 9
@@ -740,11 +746,29 @@ declare namespace audio {
      */
     SAMPLE_RATE_64000 = 64000,
     /**
+     * 88.2kHz sample rate.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 12
+     */
+    SAMPLE_RATE_88200 = 88200,
+    /**
      * 96kHz sample rate.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 8
      */
-    SAMPLE_RATE_96000 = 96000
+    SAMPLE_RATE_96000 = 96000,
+    /**
+     * 176.4kHz sample rate.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 12
+     */
+    SAMPLE_RATE_176400 = 176400,
+    /**
+     * 192kHz sample rate.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 12
+     */
+    SAMPLE_RATE_192000 = 192000
   }
 
   /**
@@ -959,6 +983,12 @@ declare namespace audio {
      * @since 10
      */
     STREAM_USAGE_ULTRASONIC = 16,
+    /**
+     * Video call usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 12
+     */
+    STREAM_USAGE_VIDEO_COMMUNICATION = 17,
   }
 
   /**
@@ -976,6 +1006,24 @@ declare namespace audio {
      * @since 9
      */
     INTERRUPT_REQUEST_TYPE_DEFAULT = 0,
+  }
+
+  /**
+   * Enumerates volume related operations.
+   * Flags should be powers of 2!
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Volume
+   * @systemapi
+   * @since 12
+   */
+  enum VolumeFlag {
+    /**
+     * Show system volume bar.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 12
+     */
+    FLAG_SHOW_SYSTEM_UI = 1,
   }
 
   /**
@@ -1054,7 +1102,7 @@ declare namespace audio {
     rendererFlags: number;
   }
 
-  /** 
+  /**
    * Describes audio renderer filter.
    * @typedef AudioRendererFilter
    * @syscap SystemCapability.Multimedia.Audio.Core
@@ -1935,6 +1983,18 @@ declare namespace audio {
      * @since 11
      */
     getSpatializationManager(): AudioSpatializationManager;
+
+    /**
+     * user disable the safe media volume state.
+     * @permission ohos.permission.MODIFY_AUDIO_SETTINGS
+     * @returns {Promise<void>} Promise used to return the result.
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 202 - Not system App.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 12
+     */
+    disableSafeMediaVolume(): Promise<void>;
   }
 
   /**
@@ -2575,6 +2635,21 @@ declare namespace audio {
     setVolume(volumeType: AudioVolumeType, volume: number): Promise<void>;
 
     /**
+     * Sets the volume for a stream. This method uses a promise to return the result.
+     * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
+     * @param { AudioVolumeType } volumeType - Audio stream type.
+     * @param { number } volume - Volume to set. The value range can be obtained by calling getMinVolume and getMaxVolume.
+     * @param { number } flags - volume flags used to enable different operations, can be union of {@link VolumeFlag}
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system App.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 12
+     */
+    setVolumeWithFlag(volumeType: AudioVolumeType, volume: number, flags: number): Promise<void>;
+
+    /**
      * Obtains the volume of a stream. This method uses an asynchronous callback to return the query result.
      * @param { AudioVolumeType } volumeType - Audio stream type.
      * @param { AsyncCallback<number> } callback - Callback used to return the volume.
@@ -2948,6 +3023,31 @@ declare namespace audio {
      * @since 10
      */
     getSystemVolumeInDbSync(volumeType: AudioVolumeType, volumeLevel: number, device: DeviceType): number;
+
+    /**
+     * Gets the max amplitude value for a specific input device.
+     * This method uses a promise to return the result.
+     * @param { AudioDeviceDescriptor } inputDevice - the target device.
+     * @returns { Promise<number> } Promise used to return the max amplitude value.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by promise.
+     * @throws { BusinessError } 6800301 - System error. Return by promise.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 12
+     */
+    getMaxAmplitudeForInputDevice(inputDevice: AudioDeviceDescriptor): Promise<number>;
+    /**
+     * Gets the max amplitude value for a specific output device.
+     * This method uses a promise to return the result.
+     * @param { AudioDeviceDescriptor } outputDevice - the target device.
+     * @returns { Promise<number> } Promise used to return the max amplitude value.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by promise.
+     * @throws { BusinessError } 6800301 - System error. Return by promise.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 12
+     */
+    getMaxAmplitudeForOutputDevice(outputDevice: AudioDeviceDescriptor): Promise<number>;
   }
 
   /**
@@ -3147,6 +3247,30 @@ declare namespace audio {
      * @since 11
      */
     updateSpatialDeviceState(spatialDeviceState: AudioSpatialDeviceState): void;
+
+    /**
+     * Set spatialization rendering scene type.
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
+     * @param { AudioSpatializationSceneType } spatializationSceneType - Spatialization scene type.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 12
+     */
+    setSpatializationSceneType(spatializationSceneType: AudioSpatializationSceneType): void;
+
+    /**
+     * Get spatialization rendering scene type.
+     * @returns { AudioSpatializationSceneType } Current spatialization rendering scene type.
+     * @throws { BusinessError } 202 - Not system App.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 12
+     */
+    getSpatializationSceneType(): AudioSpatializationSceneType;
   }
 
   /**
@@ -3976,7 +4100,7 @@ declare namespace audio {
      * @useinstead ohos.multimedia.audio.AudioRenderer#setSpeed
      */
     setRenderRate(rate: AudioRendererRate, callback: AsyncCallback<void>): void;
-    
+
     /**
      * Sets the render rate. This method uses a promise to return the result.
      * @param { AudioRendererRate } rate - Audio render rate.
@@ -4007,7 +4131,7 @@ declare namespace audio {
      * @useinstead ohos.multimedia.audio.AudioRenderer#getSpeed
      */
     getRenderRate(callback: AsyncCallback<AudioRendererRate>): void;
-    
+
     /**
      * Obtains the current render rate. This method uses a promise to return the result.
      * @returns { Promise<AudioRendererRate> } Promise used to return the audio render rate.
@@ -4078,6 +4202,14 @@ declare namespace audio {
      * @since 9
      */
     setVolume(volume: number): Promise<void>;
+
+    /**
+     * Gets volume of this stream.
+     * @returns { number } Returns one float value.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 12
+     */
+    getVolume(): number;
 
     /**
      * Changes the volume with ramp for a duration.
@@ -4372,7 +4504,14 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 8
      */
-    SOURCE_TYPE_VOICE_COMMUNICATION = 7
+    SOURCE_TYPE_VOICE_COMMUNICATION = 7,
+
+    /**
+     * Voice message source type.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 12
+     */
+    SOURCE_TYPE_VOICE_MESSAGE = 10,
   }
 
   /**
@@ -4674,6 +4813,22 @@ declare namespace audio {
     getCurrentAudioCapturerChangeInfo(): AudioCapturerChangeInfo;
 
     /**
+     * Gets overflow count.
+     * @returns { Promise<number> } - Promise used to return the result.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 12
+     */
+    getOverflowCount(): Promise<number>
+
+    /**
+     * Gets overflow count.
+     * @returns { number } Overflow count number.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 12
+     */
+    getOverflowCountSync(): number;
+
+    /**
      * Subscribes to mark reached events. When the number of frames captured reaches the value of the frame parameter,
      * the callback is invoked.
      * @param { 'markReach' } type - Type of the event to listen for. Only the markReach event is supported.
@@ -4807,6 +4962,155 @@ declare namespace audio {
      */
     off(type: 'readData', callback?: Callback<ArrayBuffer>): void;
   }
+
+  /**
+   * ASR noise suppression mode.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   * @systemapi
+   * @since 12
+   */
+  enum AsrNoiseSuppressionMode {
+    /**
+     * Bypass noise suppression.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 12
+     */
+    BYPASS = 0,
+    /**
+     * Standard noise suppression.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 12
+     */
+    STANDARD = 1,
+    /**
+     * Near field noise suppression.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 12
+     */
+    NEAR_FIELD = 2,
+    /**
+     * Far field noise suppression.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 12
+     */
+    FAR_FIELD = 3,
+  }
+
+  /**
+   * ASR AEC mode.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   * @systemapi
+   * @since 12
+   */
+  enum AsrAecMode {
+    /**
+     * Bypass AEC.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 12
+     */
+    BYPASS = 0,
+    /**
+     * Using standard AEC.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 12
+     */
+    STANDARD = 1,
+  }
+
+  /**
+   * ASR processing controller.
+   * @typedef AsrProcessingController
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   * @systemapi
+   * @since 12
+   */
+  interface AsrProcessingController {
+    /**
+     * Set ASR AEC mode.
+     * @param { AsrAecMode } mode - ASR AEC Mode.
+     * @returns { boolean } Indicates whether the mode has been successfully set.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @throws { BusinessError } 6800104 - Operation not allowed.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 12
+     */
+    setAsrAecMode(mode: AsrAecMode): boolean;
+
+    /**
+     * Get ASR AEC mode.
+     * @returns { AsrAecMode } ASR AEC Mode.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 6800104 - Operation not allowed.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 12
+     */
+    getAsrAecMode(): AsrAecMode;
+
+    /**
+     * Set ASR noise suppression mode.
+     * @param { AsrNoiseSuppressionMode } mode - ASR noise suppression mode.
+     * @returns { boolean } Indicates whether the mode has been successfully set.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @throws { BusinessError } 6800104 - Operation not allowed.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 12
+     */
+    setAsrNoiseSuppressionMode(mode: AsrNoiseSuppressionMode): boolean;
+
+    /**
+     * Get ASR noise suppression mode.
+     * @returns { AsrNoiseSuppressionMode } ASR noise suppression mode.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 6800104 - Operation not allowed.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 12
+     */
+    getAsrNoiseSuppressionMode(): AsrNoiseSuppressionMode;
+
+    /**
+     * Query whether user is whispering.
+     * @returns { boolean } whether user is whispering.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 6800104 - Operation not allowed.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 12
+     */
+    isWhispering(): boolean;
+  }
+
+  /**
+   * Create ASR processing controller on one audio capturer.
+   * @param { AudioCapturer } audioCapture - The audio capturer whose ASR processing will be controlled. The source type
+   * of this capturer must be {@link SourceType#SOURCE_TYPE_VOICE_RECOGNITION}.
+   * @returns { AsrProcessingController } ASR Processing Controller.
+   * @throws { BusinessError } 202 - Caller is not a system application.
+   * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+   * @throws { BusinessError } 6800101 - Input parameter value error.
+   * @throws { BusinessError } 6800104 - Operation not allowed. e.g. the source type of the input audio capturer is not
+   * {@link SourceType#SOURCE_TYPE_VOICE_RECOGNITION} or {@link SourceType#SOURCE_TYPE_WAKEUP}, or this audio capturer
+   * is already released.
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   * @systemapi
+   * @since 12
+   */
+  function createAsrProcessingController(audioCapturer: AudioCapturer): AsrProcessingController;
 
   /**
    * Enumerates tone types for player.
@@ -5209,6 +5513,44 @@ declare namespace audio {
      * @since 11
      */
     SPATIAL_DEVICE_TYPE_OTHERS = 5,
+  }
+
+  /**
+   * Describes a spatialization scene type group.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Spatialization
+   * @systemapi
+   * @since 12
+   */
+  enum AudioSpatializationSceneType {
+    /**
+     * Audio Spatialization Scene Type Default.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 12
+     */
+    DEFAULT = 0,
+    /**
+     * Audio Spatialization Scene Type Music.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 12
+     */
+    MUSIC = 1,
+    /**
+     * Audio Spatialization Scene Type Movie.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 12
+     */
+    MOVIE = 2,
+    /**
+     * Audio Spatialization Scene Type Audio Book.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 12
+     */
+    AUDIOBOOK = 3,
   }
 
   /**

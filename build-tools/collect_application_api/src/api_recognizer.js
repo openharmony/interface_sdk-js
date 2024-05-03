@@ -208,8 +208,9 @@ class SystemApiRecognizer {
    * @returns {ApiDeclarationInformation | undefined} apiDecInfo
    */
   recognizeApiWithNode(node, fileName, positionCallback, useDeclarations) {
+    let finallySymbol = undefined;
     if (!node) {
-      return undefined;
+      return finallySymbol;
     }
 
     try {
@@ -217,11 +218,11 @@ class SystemApiRecognizer {
       if (symbol && symbol.flags === ts.SymbolFlags.Alias) {
         symbol = this.typeChecker.getAliasedSymbol(symbol);
       }
-      return this.recognizeApiWithNodeAndSymbol(node, symbol, fileName, positionCallback, useDeclarations);
+      finallySymbol = this.recognizeApiWithNodeAndSymbol(node, symbol, fileName, positionCallback, useDeclarations);
     } catch (error) {
       Logger.error('UNKNOW NODE', error);
     }
-
+    return finallySymbol;
   }
 
   recognizeApiWithNodeAndSymbol(node, symbol, fileName, positionCallback, useDeclarations) {
@@ -300,18 +301,19 @@ class SystemApiRecognizer {
     const parameters = apiDecInfo ? apiDecInfo.apiNode.parameters : undefined;
     args.forEach((arg, index) => {
       // interface 定义作为函数入参时, 统计为API
-      if (parameters && parameters[index] && parameters[index].type) {
-        const paramType = parameters[index].type;
-        if (ts.isTypeReferenceNode(paramType)) {
-          const paramTypeApiDecInfo = this.recognizeApiWithNode(paramType.typeName, fileName, (node) => node.getStart(), true);
-          if (paramTypeApiDecInfo) {
-            this.modifyTypeReferenceSourceFileName(paramType.typeName, paramTypeApiDecInfo);
-            paramTypeApiDecInfo.setApiType('interface');
-            paramTypeApiDecInfo.setPosition(ts.getLineAndCharacterOfPosition(arg.getSourceFile(), arg.getStart()));
-          }
+      this.recognizeArgument(arg, fileName);
+      if (!(parameters && parameters[index] && parameters[index].type)) {
+        return;
+      }
+      const paramType = parameters[index].type;
+      if (ts.isTypeReferenceNode(paramType)) {
+        const paramTypeApiDecInfo = this.recognizeApiWithNode(paramType.typeName, fileName, (node) => node.getStart(), true);
+        if (paramTypeApiDecInfo) {
+          this.modifyTypeReferenceSourceFileName(paramType.typeName, paramTypeApiDecInfo);
+          paramTypeApiDecInfo.setApiType('interface');
+          paramTypeApiDecInfo.setPosition(ts.getLineAndCharacterOfPosition(arg.getSourceFile(), arg.getStart()));
         }
       }
-      this.recognizeArgument(arg, fileName);
     });
   }
 
@@ -689,21 +691,29 @@ class SystemApiRecognizer {
           return;
         }
         if (!typeSymbol && childSymbol.members) {
-          childSymbol.members.forEach((memberSymbol, memberName) => {
-            heritageMembers.set(memberName, memberSymbol);
-          });
+          this.setHeritageMembersFroMmembers(heritageMembers, childSymbol.members);
           return;
         }
         const valueDeclaration = typeSymbol.valueDeclaration;
         if (!valueDeclaration || !this.isSdkApi(valueDeclaration.getSourceFile().fileName)) {
           return;
         }
-        typeSymbol.members.forEach((memberSymbol, memberName) => {
-          heritageMembers.set(memberName, memberSymbol);
-        });
+        this.setHeritageMembersFroMmembers(heritageMembers, typeSymbol.members);
       });
     });
     return heritageMembers;
+  }
+
+  /**
+   * 搜集所有父类(属于SDK中的API)的方法和属性。
+   * 
+   * @param {Map} heritageMembers 
+   * @param {ts.NodeArray} members 
+   */
+  setHeritageMembersFroMmembers(heritageMembers, members) {
+    members.forEach((memberSymbol, memberName) => {
+      heritageMembers.set(memberName, memberSymbol);
+    });
   }
 
   /**

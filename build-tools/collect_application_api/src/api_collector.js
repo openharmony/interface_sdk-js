@@ -83,23 +83,30 @@ class ProgramFactory {
     return (moduleNames, containingFile, reusedNames, redirectedReference, options) => {
       const resolvedModules = [];
       for (const moduleName of moduleNames) {
-        const moduleLookupLocaton = ts.resolveModuleName(moduleName, containingFile, options, {
-          fileExists: (fileName) => {
-            return fileName && ts.sys.fileExists(fileName);
-          },
-          readFile: (fileName) => {
-            ts.sys.readFile(fileName);
-          },
-        });
+        const moduleLookupLocaton = ts.resolveModuleName(moduleName, containingFile, options,
+          this.moduleLookupResolutionHost());
         if (moduleLookupLocaton.resolvedModule) {
           resolvedModules.push(moduleLookupLocaton.resolvedModule);
         } else {
           const modulePath = moduleResolver.resolveModuleName(moduleName);
-          const resolved = modulePath && ts.sys.fileExists(modulePath) ? { resolvedFileName: modulePath } : undefined;
+          const resolved = modulePath && ts.sys.fileExists(modulePath) ?
+            { resolvedFileName: modulePath } :
+            undefined;
           resolvedModules.push(resolved);
         }
       }
       return resolvedModules;
+    };
+  }
+
+  moduleLookupResolutionHost() {
+    return {
+      fileExists: (fileName) => {
+        return fileName && ts.sys.fileExists(fileName);
+      },
+      readFile: (fileName) => {
+        ts.sys.readFile(fileName);
+      },
     };
   }
 }
