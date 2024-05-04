@@ -86,6 +86,14 @@ declare namespace certificateManager {
     CM_ERROR_INCORRECT_FORMAT = 17500003,
 
     /**
+     * Indicates that the count of certificates or credentials reach the max.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 12
+     */
+    CM_ERROR_MAX_CERT_COUNT_REACHED = 17500004,
+
+    /**
      * Indicates that the application is not authorized by user.
      *
      * @syscap SystemCapability.Security.CertificateManager
@@ -602,6 +610,22 @@ declare namespace certificateManager {
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11
    */
+  /**
+   * Install private application certificate.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER
+   * @param { Uint8Array } keystore - Indicates the keystore file with key pair and certificate.
+   * @param { string } keystorePwd - Indicates the password of keystore file.
+   * @param { string } certAlias - Indicates the certificate name inputted by the user.
+   * @param { AsyncCallback<CMResult> } callback - the callback of installPrivateCertificate.
+   * @throws { BusinessError } 201 - the application has no permission to call the API.
+   * @throws { BusinessError } 401 - the parameter check failed.
+   * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
+   * @throws { BusinessError } 17500003 - the keystore is not valid format or keystorePwd is not correct.
+   * @throws { BusinessError } 17500004 - the number of credentials is beyond max.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 12
+   */   
   function installPrivateCertificate(
     keystore: Uint8Array,
     keystorePwd: string,
@@ -625,6 +649,22 @@ declare namespace certificateManager {
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11
    */
+  /**
+   * Install private application certificate.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER
+   * @param { Uint8Array } keystore - Indicates the keystore file with key pair and certificate.
+   * @param { string } keystorePwd - Indicates the password of keystore file.
+   * @param { string } certAlias - Indicates the certificate name inputted by the user.
+   * @returns { Promise<CMResult> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application has no permission to call the API.
+   * @throws { BusinessError } 401 - the parameter check failed.
+   * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
+   * @throws { BusinessError } 17500003 - the keystore is not valid format or keystorePwd is not correct.
+   * @throws { BusinessError } 17500004 - the number of credentials is beyond max.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 12
+   */   
   function installPrivateCertificate(keystore: Uint8Array, keystorePwd: string, certAlias: string): Promise<CMResult>;
 
   /**
@@ -927,6 +967,47 @@ declare namespace certificateManager {
    * @since 12
    */
   function isAuthorizedApp(keyUri: string): Promise<boolean>;
+
+  /**
+   * Get a list of all user trusted CA certificates.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER
+   * @returns { Promise<CMResult> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application has no permission to call the API.
+   * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 12
+   */
+  function getAllUserTrustedCertificates(): Promise<CMResult>;
+
+  /**
+   * Get the detail of user trusted CA certificate.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER
+   * @param { string } certUri - Indicates the certificate's name.
+   * @returns { Promise<CMResult> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application has no permission to call the API.
+   * @throws { BusinessError } 401 - the parameter check failed.
+   * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
+   * @throws { BusinessError } 17500002 - the certificate do not exist.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 12
+   */
+  function getUserTrustedCertificate(certUri: string): Promise<CMResult>;
+
+  /**
+   * Get a list of all system application certificates, such as WLAN, VPN certificate.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER
+   * @returns { Promise<CMResult> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application has no permission to call the API.
+   * @throws { BusinessError } 202 - the application is not system app.
+   * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @systemapi
+   * @since 12
+   */
+  function getAllSystemAppCertificates(): Promise<CMResult>;
 }
 
 export default certificateManager;
