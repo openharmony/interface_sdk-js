@@ -1,12 +1,14 @@
 a256
 a2dpsource
 aafwk
+aabb
 abilityname
 abilityslice
 abnormally
 accelerates
 accents
 accommodates
+aces
 acmmax
 acn
 activates
@@ -167,6 +169,7 @@ crowdtest
 crowdtested
 crowdtesting
 csh
+cubemap
 cug
 cyclewindows
 daltonization
@@ -276,6 +279,7 @@ endy
 enrolled
 enrolls
 enumeratable
+equirectangular
 erasing
 eration
 errcode
@@ -313,6 +317,7 @@ foregrounding
 formatable
 formulat
 forwardmail
+fov
 freesize
 fstat
 fsync
@@ -455,6 +460,7 @@ interpolator
 interworking
 invalidates
 ipaddr
+irradiance
 isdn
 isim
 issuers
@@ -531,6 +537,7 @@ mdnserror
 mediaquery
 meid
 messageerror
+meshes
 metered
 metering
 mgf
