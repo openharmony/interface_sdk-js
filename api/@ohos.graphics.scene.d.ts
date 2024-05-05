@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Export 3D interfaces
  * @kit ArkGraphics3D
  */
 

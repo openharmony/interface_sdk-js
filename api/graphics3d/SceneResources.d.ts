@@ -18,7 +18,7 @@ import { Resource } from 'GlobalResource';
 import { Callback } from '../@ohos.base'
 
 /**
- * @file
+ * @file Defines 3D resource related interfaces
  * @kit ArkGraphics3D
  */
 

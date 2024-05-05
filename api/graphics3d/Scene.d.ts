@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Defines 3D scene related interfaces
  * @kit ArkGraphics3D
  */
 

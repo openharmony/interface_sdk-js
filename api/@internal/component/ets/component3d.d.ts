@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Defines 3D component
  * @kit ArkUI
  */
 

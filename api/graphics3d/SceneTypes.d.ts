@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Defines 3D basic types
  * @kit ArkGraphics3D
  */
 

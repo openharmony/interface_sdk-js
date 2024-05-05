@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Defines 3D post process related interfaces
  * @kit ArkGraphics3D
  */
 

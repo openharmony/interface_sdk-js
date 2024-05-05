@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Defines ark graphics 3D kit apis
  * @kit ArkGraphics3D
  */
 
