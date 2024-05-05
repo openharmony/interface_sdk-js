@@ -19921,6 +19921,36 @@ declare interface Layoutable {
    * @since 11
    */
   layout(position: Position): void,
+
+  /**
+   * Call this method to get the margin of sub component.
+   *
+   * @returns { DirectionalEdgesT<number> } the margin of sub component, unit is vp
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getMargin() : DirectionalEdgesT<number>,
+
+  /**
+   * Call this method to get the padding of sub component.
+   *
+   * @returns { DirectionalEdgesT<number> } the padding of sub component, unit is vp
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getPadding() : DirectionalEdgesT<number>,
+ 
+  /**
+   * Call this method to get the borderWidth of sub component.
+   *
+   * @returns { DirectionalEdgesT<number> } the borderWidth of sub component, unit is vp
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getBorderWidth() : DirectionalEdgesT<number>,
 }
 
 /**
@@ -19961,6 +19991,36 @@ declare interface Measurable {
    * @since 11
    */
   measure(constraint: ConstraintSizeOptions) : MeasureResult,
+
+  /**
+   * Call this method to get the margin of sub component.
+   *
+   * @returns { DirectionalEdgesT<number> } the margin of sub component, unit is vp
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getMargin() : DirectionalEdgesT<number>,
+
+  /**
+   * Call this method to get the padding of sub component.
+   *
+   * @returns { DirectionalEdgesT<number> } the padding of sub component, unit is vp
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getPadding() : DirectionalEdgesT<number>,
+
+  /**
+   * Call this method to get the borderWidth of sub component.
+   *
+   * @returns { DirectionalEdgesT<number> } the borderWidth of sub component, unit is vp
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getBorderWidth() : DirectionalEdgesT<number>,
 }
 
 /**

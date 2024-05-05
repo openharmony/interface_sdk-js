@@ -3071,6 +3071,61 @@ declare interface TouchPoint {
   y: Dimension;
 }
 
+/**
+ * Defines the DirectionalEdgesT interface.
+ *
+ * @interface DirectionalEdgesT
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @since 12
+ */
+declare interface DirectionalEdgesT<T> {
+  /**
+   * Start property.
+   *
+   * @type { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 12
+   */
+  start: T;
+
+  /**
+   * End property.
+   *
+   * @type { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 12
+   */
+  end: T;
+
+  /**
+   * Top property.
+   *
+   * @type { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 12
+   */
+  top: T;
+
+  /**
+   * Bottom property.
+   *
+   * @type { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 12
+   */
+  bottom: T;
+}
+
 declare module "GlobalResource" {
   module "GlobalResource" {
     // @ts-ignore
