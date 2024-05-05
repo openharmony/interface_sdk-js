@@ -2346,6 +2346,16 @@ declare namespace osAccount {
      * @since 11
      */
     isAuthenticated?: boolean;
+
+    /**
+     * Indicates the server config identifier for the domain to which the account belongs.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    serverConfigId?: string;
   }
 
   /**
@@ -2930,6 +2940,16 @@ declare namespace osAccount {
      * @since 10
      */
     domain?: string;
+
+    /**
+     * Indicates the server config identifier for the domain to which the account belongs.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    serverConfigId?: string;
   }
 
   /**
@@ -3464,6 +3484,113 @@ declare namespace osAccount {
      * @since 12
      */
     static isAuthenticationExpired(domainAccountInfo: DomainAccountInfo): Promise<boolean>;
+  }
+
+  /**
+   * Defines the domain server config.
+   *
+   * @typedef DomainServerConfig
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  interface DomainServerConfig {
+    /**
+     * Indicates the detail config parameters.
+     *
+     * @type { Record<string, Object> }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    parameters: Record<string, Object>;
+
+    /**
+     * Indicates the config identifier.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    id: string;
+
+    /**
+     * Indicates the domain to which the server config belongs.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    domain: string;
+  }
+
+  /**
+   * Provides abilities for managing domain server config.
+   *
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  class DomainServerConfigManager {
+    /**
+     * Adds a domain server config.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @param { Record<string, Object> } parameters - Indicates the server config parameters.
+     * @returns { Promise<DomainServerConfig> } Returns the added domain server config.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid server config parameters.
+     * @throws { BusinessError } 12300211 - Server unreachable.
+     * @static
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    static addServerConfig(parameters: Record<string, Object>): Promise<DomainServerConfig>;
+
+    /**
+     * Removes a domain server config.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @param { string } configId - Indicates the server config identifier.
+     * @returns { Promise<void> } Returns void.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300212 - Server config not found.
+     * @static
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    static removeServerConfig(configId: string): Promise<void>;
+
+    /**
+     * Gets the server config of the specified domain account.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information.
+     * @returns { Promise<DomainServerConfig> } Returns the domain server config.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300003 - Domain account not found.
+     * @static
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    static getAccountServerConfig(domainAccountInfo: DomainAccountInfo): Promise<DomainServerConfig>;
   }
 
   /**
