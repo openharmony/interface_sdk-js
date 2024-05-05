@@ -3628,6 +3628,7 @@ declare namespace util {
      * 2.Incorrect parameter types;
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     constructor(encoding?: string);
@@ -3642,6 +3643,7 @@ declare namespace util {
      * 2.Incorrect parameter types;
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     write(chunk: string | Uint8Array): string;
@@ -3656,6 +3658,7 @@ declare namespace util {
      * 2.Incorrect parameter types;
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     end(chunk?: string | Uint8Array): string;
