@@ -132,7 +132,7 @@ declare namespace hiSysEvent {
    *
    * @param {SysEventInfo} info - system event information to be written.
    * @returns {Promise<void>} - Return Promise
-   * @throws {BusinessError} 401 - Invalid argument.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws {BusinessError} 11200001 - Invalid event domain.
    * @throws {BusinessError} 11200002 - Invalid event name.
    * @throws {BusinessError} 11200003 - Abnormal environment.
@@ -152,7 +152,7 @@ declare namespace hiSysEvent {
    *
    * @param {SysEventInfo} info - system event information to be written.
    * @param {AsyncCallback<void>} callback - callback function.
-   * @throws {BusinessError} 401 - Invalid argument.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws {BusinessError} 11200001 - Invalid event domain.
    * @throws {BusinessError} 11200002 - Invalid event name.
    * @throws {BusinessError} 11200003 - Abnormal environment.
@@ -426,7 +426,7 @@ declare namespace hiSysEvent {
    * @param {Watcher} watcher watch system event
    * @throws {BusinessError} 201 - Permission denied. An attempt was made to read system event forbidden by permission: ohos.permission.READ_DFX_SYSEVENT.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Invalid argument.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws {BusinessError} 11200101 - Count of watchers is over limit.
    * @throws {BusinessError} 11200102 - Count of watch rules is over limit.
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
@@ -442,7 +442,7 @@ declare namespace hiSysEvent {
    * @param {Watcher} watcher watch system event
    * @throws {BusinessError} 201 - Permission denied. An attempt was made to read system event forbidden by permission: ohos.permission.READ_DFX_SYSEVENT.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Invalid argument.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws {BusinessError} 11200201 - The watcher does not exist.
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
@@ -459,7 +459,7 @@ declare namespace hiSysEvent {
    * @param {Querier} querier receive query result
    * @throws {BusinessError} 201 - Permission denied. An attempt was made to read system event forbidden by permission: ohos.permission.READ_DFX_SYSEVENT.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Invalid argument.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws {BusinessError} 11200301 - Count of query rules is over limit.
    * @throws {BusinessError} 11200302 - Invalid query rule.
    * @throws {BusinessError} 11200303 - Count of concurrent queriers is over limit.
@@ -479,7 +479,7 @@ declare namespace hiSysEvent {
    * @returns {number} return hiview receive task time.
    * @throws {BusinessError} 201 - Permission denied. An attempt was made to read system event forbidden by permission: ohos.permission.READ_DFX_SYSEVENT.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Invalid argument.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws {BusinessError} 11200301 - Count of query rules is over limit.
    * @throws {BusinessError} 11200302 - Invalid query rule.
    * @throws {BusinessError} 11200304 – Export frequency is over limit.
@@ -497,7 +497,7 @@ declare namespace hiSysEvent {
    * @returns {number} return hiview receive task time.
    * @throws {BusinessError} 201 - Permission denied. An attempt was made to read system event forbidden by permission: ohos.permission.READ_DFX_SYSEVENT.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Invalid argument.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws {BusinessError} 11200301 - Count of query rules is over limit.
    * @throws {BusinessError} 11200302 - Invalid query rule.
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
@@ -512,7 +512,7 @@ declare namespace hiSysEvent {
    * @permission ohos.permission.READ_DFX_SYSEVENT
    * @throws {BusinessError} 201 - Permission denied. An attempt was made to read system event forbidden by permission: ohos.permission.READ_DFX_SYSEVENT.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Invalid argument.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws {BusinessError} 11200305 – unsubscribe failed.
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
