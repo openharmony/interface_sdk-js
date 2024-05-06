@@ -21,8 +21,9 @@
 /**
  * Indicates restricted worker for run abc.
  *
- * @typedef RestrictedWorker
+ * @typedef { import('../api/@ohos.worker').default.RestrictedWorker } RestrictedWorker
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
  * @since 12
  */
 declare type RestrictedWorker = import('../api/@ohos.worker').default.RestrictedWorker;
@@ -30,8 +31,9 @@ declare type RestrictedWorker = import('../api/@ohos.worker').default.Restricted
 /**
  * Indicates error callback.
  *
- * @typedef ErrorCallback
+ * @typedef { import('../api/@ohos.base').ErrorCallback } ErrorCallback
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
  * @since 12
  */
 declare type ErrorCallback = import('../api/@ohos.base').ErrorCallback;
@@ -39,8 +41,9 @@ declare type ErrorCallback = import('../api/@ohos.base').ErrorCallback;
 /**
  * Indicates want.
  *
- * @typedef Want
+ * @typedef { import('../api/@ohos.app.ability.Want').default } Want
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
  * @since 12
  */
 declare type Want = import('../api/@ohos.app.ability.Want').default;
@@ -50,6 +53,7 @@ declare type Want = import('../api/@ohos.app.ability.Want').default;
  *
  * @interface IsolatedOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
  * @since 12
  */
 declare interface IsolatedOptions {
@@ -57,6 +61,7 @@ declare interface IsolatedOptions {
    * Indicates want of the IsolatedOptions.
    * @type { Want }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @since 12
    */
   want: Want;
@@ -64,6 +69,7 @@ declare interface IsolatedOptions {
    * Indicates restricted worker for run abc.
    * @type { RestrictedWorker } worker - worker which run abc
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @since 12
    */
   worker: RestrictedWorker;
@@ -75,6 +81,7 @@ declare interface IsolatedOptions {
  *
  * @interface IsolatedComponentInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
  * @since 12
  */
 interface IsolatedComponentInterface {
@@ -82,14 +89,13 @@ interface IsolatedComponentInterface {
    * Construct the IsolatedComponent.<br/>
    * Called when the IsolatedComponent is used.
    *
-   * @param { IsolatedOptions } [option] - Construction configuration of IsolatedComponentAttribute
+   * @param { IsolatedOptions } [options] - Construction configuration of IsolatedComponentAttribute
    * @returns { IsolatedComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @since 12
    */
-  (
-    options: IsolatedOptions
-  ): IsolatedComponentAttribute;
+  (options: IsolatedOptions): IsolatedComponentAttribute;
 }
 
 /**
@@ -97,6 +103,7 @@ interface IsolatedComponentInterface {
  *
  * @extends CommonMethod<IsolatedComponentAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
  * @since 12
  */
 declare class IsolatedComponentAttribute extends CommonMethod<IsolatedComponentAttribute> {
@@ -105,6 +112,7 @@ declare class IsolatedComponentAttribute extends CommonMethod<IsolatedComponentA
    * - called when some error occurred except disconnected from IsolatedAbility.
    * @returns { IsolatedComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @since 12
    */
   onError(
@@ -116,6 +124,7 @@ declare class IsolatedComponentAttribute extends CommonMethod<IsolatedComponentA
  * Defines IsolatedComponent Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
  * @since 12
  */
 declare const IsolatedComponent: IsolatedComponentInterface;
@@ -124,6 +133,7 @@ declare const IsolatedComponent: IsolatedComponentInterface;
  * Defines IsolatedComponent Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
  * @since 12
  */
 declare const IsolatedComponentInstance: IsolatedComponentAttribute;
