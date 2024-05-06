@@ -4485,6 +4485,8 @@ declare namespace audio {
      * Playback capture source type.
      * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
      * @since 10
+     * @deprecated since 12
+     * @useinstead OH_AVScreenCapture in native interface.
      */
     SOURCE_TYPE_PLAYBACK_CAPTURE = 2,
     /**
@@ -4564,6 +4566,8 @@ declare namespace audio {
      * Playback capture config.
      * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
      * @since 10
+     * @deprecated since 12
+     * @useinstead OH_AVScreenCapture in native interface.
      */
     playbackCaptureConfig?: AudioPlaybackCaptureConfig;
   }
@@ -4573,6 +4577,8 @@ declare namespace audio {
    * @typedef CaptureFilterOptions
    * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
    * @since 10
+   * @deprecated since 12
+   * @useinstead OH_AVScreenCapture in native interface.
    */
   interface CaptureFilterOptions {
     /**
@@ -4585,6 +4591,8 @@ declare namespace audio {
      * Filter by stream usages. But not allow to capture voice streams.
      * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
      * @since 11
+     * @deprecated since 12
+     * @useinstead OH_AVScreenCapture in native interface.
      */
     usages: Array<StreamUsage>;
   }
@@ -4594,12 +4602,16 @@ declare namespace audio {
    * @typedef AudioPlaybackCaptureConfig
    * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
    * @since 10
+   * @deprecated since 12
+   * @useinstead OH_AVScreenCapture in native interface.
    */
   interface AudioPlaybackCaptureConfig {
     /**
      * Add filter options to decide which streams to be captured.
      * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
      * @since 10
+     * @deprecated since 12
+     * @useinstead OH_AVScreenCapture in native interface.
      */
     filterOptions: CaptureFilterOptions;
   }
