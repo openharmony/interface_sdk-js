@@ -528,4 +528,13 @@ export declare struct ComposeListItem {
    * @since 11
    */
   @Prop operateItem?: OperateItem;
+
+  /**
+   * The stateEffect.
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  stateEffect?: boolean;
 }
