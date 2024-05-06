@@ -16423,6 +16423,28 @@ declare class CommonMethod<T> {
   onDisAppear(event: () => void): T;
 
   /**
+   * This callback is triggered when a component mounts to view tree.
+   *
+   * @param { Callback<void> } callback
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onAttach(callback: Callback<void>): T;
+
+  /**
+   * This callback is triggered when a component is detached from view tree.
+   *
+   * @param { Callback<void> } callback
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onDetach(callback: Callback<void>): T;
+
+  /**
    * This callback is triggered when the size or position of this component change finished.
    *
    * @param { function } event - event callback.
