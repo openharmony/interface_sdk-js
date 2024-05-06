@@ -16,6 +16,17 @@
 /// <reference path="../../component/common.d.ts" />
 
 /**
+ * function that returns a default param of AttributeUpdater.
+ *
+ * @typedef { function } Initializer<T>
+ * @returns { T }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type Initializer<T> = () => T;
+
+/**
  * Defines a modifier which can update attributes to native side.
  *
  * @implements AttributeModifier
@@ -23,7 +34,7 @@
  * @crossplatform
  * @since 12
  */
-export declare class AttributeUpdater<T> implements AttributeModifier<T> {
+export declare class AttributeUpdater<T, C = Initializer<T>> implements AttributeModifier<T> {
 
   /**
    * Defines the normal update attribute function.
@@ -54,4 +65,14 @@ export declare class AttributeUpdater<T> implements AttributeModifier<T> {
    * @since 12
    */
   get attribute(): T | undefined;
+
+  /**
+   * Used to update constructor params.
+   *
+   * @type { C }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  updateConstructorParams: C;
 }
