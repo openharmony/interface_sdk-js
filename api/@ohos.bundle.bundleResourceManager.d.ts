@@ -41,7 +41,7 @@ declare namespace bundleResourceManager {
    */
   enum ResourceFlag {
     /**
-     * Used to obtain the all resource info.
+     * Used to obtain the resource info contains label and icon.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Resource
      * @systemapi
