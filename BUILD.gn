@@ -55,6 +55,7 @@ ohos_copy("bundle_arkts") {
   outputs = [ target_out_dir + "/$target_name" ]
   module_source_dir = target_out_dir + "/$target_name"
   module_install_name = ""
+  license_file = "./LICENCE.md"
 }
 
 ohos_copy_internal("ets_internal_api") {
