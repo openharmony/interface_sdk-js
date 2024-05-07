@@ -35,6 +35,15 @@ import { PopupPlacement } from './application/AutoFillPopupConfig';
  * @StageModelOnly
  * @since 11
  */
+/**
+ * This module provides the function of auto fill manager.
+ *
+ * @namespace autoFillManager
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @stageModelOnly
+ * @atomicservice
+ * @since 12
+ */
 declare namespace autoFillManager {
   /**
    * Auto save callback.
@@ -44,6 +53,15 @@ declare namespace autoFillManager {
    * @StageModelOnly
    * @since 11
    */
+  /**
+   * Auto save callback.
+   *
+   * @interface AutoSaveCallback
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stageModelOnly
+   * @atomicservice
+   * @since 12
+   */
   export interface AutoSaveCallback {
     /**
      * Called when auto save request is successfully handled.
@@ -51,6 +69,14 @@ declare namespace autoFillManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
      * @since 11
+     */
+    /**
+     * Called when auto save request is successfully handled.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @stageModelOnly
+     * @atomicservice
+     * @since 12
      */
     onSuccess(): void;
 
@@ -60,6 +86,14 @@ declare namespace autoFillManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
      * @since 11
+     */
+    /**
+     * Called when auto save request is failed to be handled.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @stageModelOnly
+     * @atomicservice
+     * @since 12
      */
     onFailure(): void;
   }
@@ -74,6 +108,18 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @since 11
+   */
+  /**
+   * Trigger an auto save request.
+   *
+   * @param { UIContext } context - Indicates the ui context where the save operation will be performed.
+   * @param { AutoSaveCallback } [callback] - Indicates the callback that used to receive the result.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stageModelOnly
+   * @atomicservice
+   * @since 12
    */
   export function requestAutoSave(context: UIContext, callback?: AutoSaveCallback): void;
 
