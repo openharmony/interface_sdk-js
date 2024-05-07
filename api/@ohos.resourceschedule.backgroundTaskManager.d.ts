@@ -317,7 +317,7 @@ declare namespace backgroundTaskManager {
    *
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Parcel operation failed.
    * @throws { BusinessError } 9800003 - Inner transact failed.
