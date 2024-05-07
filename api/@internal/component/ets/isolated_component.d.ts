@@ -76,27 +76,16 @@ declare interface IsolatedOptions {
 }
 
 /**
- * Provide an interface for the IsolatedComponent, which is used
- * <br/>to render UI of other ABC
+ * Provide an interface for the IsolatedComponent, which is used to render UI of other ABC
  *
- * @interface IsolatedComponentInterface
+ * @typedef { function } IsolatedComponentInterface
+ * @param { IsolatedOptions } options - Construction configuration of IsolatedComponentAttribute
+ * @returns { IsolatedComponentAttribute } Attribute of IsolatedComponent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 12
  */
-interface IsolatedComponentInterface {
-  /**
-   * Construct the IsolatedComponent.<br/>
-   * Called when the IsolatedComponent is used.
-   *
-   * @param { IsolatedOptions } [options] - Construction configuration of IsolatedComponentAttribute
-   * @returns { IsolatedComponentAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 12
-   */
-  (options: IsolatedOptions): IsolatedComponentAttribute;
-}
+declare type IsolatedComponentInterface = (options: IsolatedOptions) => IsolatedComponentAttribute;
 
 /**
  * Define the attribute functions of IsolatedComponent.
