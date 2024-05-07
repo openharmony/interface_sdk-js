@@ -151,7 +151,14 @@ export declare struct TipsDialog {
    * @atomicservice
    * @since 11
    */
-  imageRes: Resource;
+  /**
+   * Sets the TipsDialog imageRes.
+   * @type { Resource | ResourceStr | PixelMap }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  imageRes: Resource | ResourceStr | PixelMap;
   /**
    * Sets the TipsDialog image size.
    * @type { SizeOptions }.
