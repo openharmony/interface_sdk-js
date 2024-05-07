@@ -2809,6 +2809,18 @@ declare class Component {
    * @since 11
    * @test
    */
+  /**
+   * Get the bounds rect of this {@link Component}.
+   *
+   * @returns { Promise<Rect> } the bounds rect object.
+   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
+   * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @test
+   */ 
   getBounds(): Promise<Rect>;
 
   /**
