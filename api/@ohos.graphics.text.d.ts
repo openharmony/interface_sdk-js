@@ -469,7 +469,7 @@ declare namespace text {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-     fontStyle?: FontStyle;
+    fontStyle?: FontStyle;
 
     /**
      * Base line of text.
