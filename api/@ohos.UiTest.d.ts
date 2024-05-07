@@ -1059,6 +1059,15 @@ declare interface Point {
  * @atomicservice
  * @since 11
  */
+/**
+ * Represents the rectangle area on the device screen.
+ *
+ * @typedef Rect 
+ * @syscap SystemCapability.Test.UiTest
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare interface Rect {
   /**
    * The x-coordinate of the top left corner of the rectangle.
@@ -1075,6 +1084,15 @@ declare interface Rect {
    * @atomicservice
    * @since 11
    */
+  /**
+   * The x-coordinate of the top left corner of the rectangle.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */ 
   readonly left: number;
   /**
    * The y-coordinate of the top left corner of the rectangle.
@@ -1090,6 +1108,15 @@ declare interface Rect {
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 11
+   */
+  /**
+   * The y-coordinate of the top left corner of the rectangle.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   readonly top: number;
   /**
@@ -1107,6 +1134,15 @@ declare interface Rect {
    * @atomicservice
    * @since 11
    */
+  /**
+   * The x-coordinate at the bottom right corner of the rectangle.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   readonly right: number;
   /**
    * The y-coordinate at the bottom right corner of the rectangle.
@@ -1122,6 +1158,15 @@ declare interface Rect {
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 11
+   */
+  /**
+   * The y-coordinate at the bottom right corner of the rectangle.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   readonly bottom: number;
 }
@@ -1515,6 +1560,14 @@ declare enum MouseButton {
  * @syscap SystemCapability.Test.UiTest
  * @atomicservice
  * @since 11
+ */
+/**
+ * Describes the attribute requirements for the target Components.
+ *
+ * @syscap SystemCapability.Test.UiTest
+ * @crossplatform
+ * @atomicservice
+ * @since 12
  */
 declare class On {
   /**
@@ -2034,6 +2087,15 @@ declare class On {
  * @syscap SystemCapability.Test.UiTest
  * @atomicservice
  * @since 11
+ * @test
+ */
+/**
+ * Represents an Component of the ohos application,user can perform operations or query attributes on it.
+ *
+ * @syscap SystemCapability.Test.UiTest
+ * @crossplatform
+ * @atomicservice
+ * @since 12
  * @test
  */
 declare class Component {
@@ -2896,6 +2958,16 @@ declare class Component {
  * @syscap SystemCapability.Test.UiTest
  * @atomicservice
  * @since 11
+ * @test
+ */
+/**
+ * The unified facade of UiTest framework,can be used to find {@link Component},trigger keyEvents,perform
+ * coordinates-based UI actions,capture screen and so on.
+ *
+ * @syscap SystemCapability.Test.UiTest
+ * @crossplatform
+ * @atomicservice
+ * @since 12
  * @test
  */
 declare class Driver {
