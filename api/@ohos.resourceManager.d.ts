@@ -4598,6 +4598,7 @@ declare namespace resourceManager {
   /**
    * Contains rawFile descriptor information.
    *
+   * @typedef {_RawFileDescriptor}
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
@@ -4621,6 +4622,7 @@ declare namespace resourceManager {
   /**
    * Contains resource descriptor information.
    *
+   * @typedef {_Resource}
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
