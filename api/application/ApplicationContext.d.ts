@@ -456,6 +456,7 @@ export default class ApplicationContext extends Context {
    * @param { Want } want - Indicates the want name of the current app, and the ability name is UIAbility.
    * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000063 - The target to restart does not belong to the current app or is not a UIAbility.
    * @throws { BusinessError } 16000064 - Restart too frequently. Try again at least 10s later.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
