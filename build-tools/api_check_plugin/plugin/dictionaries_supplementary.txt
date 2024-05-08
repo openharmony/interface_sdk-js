@@ -762,7 +762,6 @@ replacer
 reposition
 resizeable
 resmgr
-resource
 resourceschedule
 restores
 restricts
