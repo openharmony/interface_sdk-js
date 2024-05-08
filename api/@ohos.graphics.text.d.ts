@@ -464,6 +464,14 @@ declare namespace text {
     fontWeight?: FontWeight;
 
     /**
+     * Font style of text.
+     * @type { ?FontStyle } it is uint32_t type data
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    fontStyle?: FontStyle;
+
+    /**
      * Base line of text.
      * @type { ?TextBaseline } it is uint32_t type data
      * @syscap SystemCapability.Graphics.Drawing
