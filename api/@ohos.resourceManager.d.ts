@@ -2309,7 +2309,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
-     * @throws { BusinessError } 9001007 - Failed to format the resorce obtained based on the resource ID.
+     * @throws { BusinessError } 9001007 - Failed to format the resource obtained based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @since 10
@@ -2324,7 +2324,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
-     * @throws { BusinessError } 9001007 - Failed to format the resorce obtained based on the resource ID.
+     * @throws { BusinessError } 9001007 - Failed to format the resource obtained based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -2386,7 +2386,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
-     * @throws { BusinessError } 9001007 - Failed to format the resorce obtained based on the resource ID.
+     * @throws { BusinessError } 9001007 - Failed to format the resource obtained based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @crossplatform
@@ -2402,7 +2402,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
-     * @throws { BusinessError } 9001007 - Failed to format the resorce obtained based on the resource ID.
+     * @throws { BusinessError } 9001007 - Failed to format the resource obtained based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @crossplatform
@@ -2462,7 +2462,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001003 - Invalid resource name.
      * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
-     * @throws { BusinessError } 9001008 - Failed to format the resorce obtained based on the resource Name.
+     * @throws { BusinessError } 9001008 - Failed to format the resource obtained based on the resource Name.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @since 10
@@ -2477,7 +2477,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001003 - Invalid resource name.
      * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
-     * @throws { BusinessError } 9001008 - Failed to format the resorce obtained based on the resource Name.
+     * @throws { BusinessError } 9001008 - Failed to format the resource obtained based on the resource Name.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
