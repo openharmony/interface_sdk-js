@@ -627,7 +627,7 @@ declare namespace bundleManager {
      * @since 12
      */
     EMBEDDED_UI = 21,
-	
+
     /**
      * Indicates extension info with type of insight intent UI
      *
@@ -3107,7 +3107,7 @@ declare namespace bundleManager {
    * @since 12
    */
   function getDeveloperIds(appDistributionType?: number): Array<String>;
-  
+
   /**
    * Switch uninstall state of a specified application.
    *
@@ -3124,7 +3124,7 @@ declare namespace bundleManager {
    * @since 12
    */
   function switchUninstallState(bundleName: string, state: boolean): void;
-  
+
   /**
    * Obtains configuration information about an application.
    *
@@ -3283,15 +3283,6 @@ declare namespace bundleManager {
    * @since 12
    */
   export type RouterItem = _HapModuleInfo.RouterItem;
-
-  /**
-   * Obtains the data item within router item.
-   *
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 12
-   */
-  export type DataItem = _HapModuleInfo.DataItem;
 
   /**
    * Obtains configuration information about an ability.
