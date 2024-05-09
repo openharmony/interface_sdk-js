@@ -9218,8 +9218,8 @@ declare interface DragEvent {
    * Get dragData from DragEvent.
    *
    * @returns { UnifiedData } - get dragData.
-   * @throws { BusinessError } 190001 - data not found.
-   * @throws { BusinessError } 190002 - data error.
+   * @throws { BusinessError } 190001 - Data not found.
+   * @throws { BusinessError } 190002 - Data error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -9228,8 +9228,8 @@ declare interface DragEvent {
    * Get dragData from DragEvent.
    *
    * @returns { UnifiedData } - get dragData.
-   * @throws { BusinessError } 190001 - data not found.
-   * @throws { BusinessError } 190002 - data error.
+   * @throws { BusinessError } 190001 - Data not found.
+   * @throws { BusinessError } 190002 - Data error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
