@@ -2100,15 +2100,6 @@ declare namespace geoLocationManager {
      * @systemapi
      * @since 9
      */
-    /**
-     * Indicates whether it is an mock location.
-     *
-     * @type { ?Boolean }
-     * @syscap SystemCapability.Location.Location.Core
-     * @systemapi
-     * @atomicservice
-     * @since 11
-     */
     isFromMock?: Boolean;
 
     /**
