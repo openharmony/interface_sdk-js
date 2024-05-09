@@ -495,63 +495,6 @@ interface IconOptions {
 }
 
 /**
- * Defines the cursor style
- *
- * @interface CaretStyle
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the cursor style
- *
- * @interface CaretStyle
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11
- */
-interface CaretStyle {
-  /**
-   * Set the cursor width
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the cursor width
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  width?: Length,
-
-  /**
-   * Set the cursor color
-   *
-   * @type { ?ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the cursor color
-   *
-   * @type { ?ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  color?: ResourceColor,
-}
-
-/**
  * Defines the SearchButton options
  *
  * @interface SearchButtonOptions
