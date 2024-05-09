@@ -2901,7 +2901,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @throws { BusinessError } 17700303 - GetExtResource failed due to no extend resource.
+   * @throws { BusinessError } 17700303 - Failed to obtain extended resources.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12
@@ -2920,7 +2920,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700002 - The specified moduleName is not found.
-   * @throws { BusinessError } 17700304 - EnableDynamicIcon failed due to parse dynamic icon failed.
+   * @throws { BusinessError } 17700304 - Failed to enable the dynamic icon.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12
@@ -2937,7 +2937,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @throws { BusinessError } 17700305 - DisableDynamicIcon failed due to no dynamic icon.
+   * @throws { BusinessError } 17700305 - Failed to disable the dynamic icon.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12
@@ -2954,7 +2954,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @throws { BusinessError } 17700306 - No dynamic icon.
+   * @throws { BusinessError } 17700306 - Failed to obtain the dynamic icon.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12
@@ -2970,7 +2970,7 @@ declare namespace bundleManager {
    * @param { AsyncCallback<void> } callback - Indicates the callback of verifyAbc result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
-   * @throws { BusinessError } 17700201 - verifyAbc failed.
+   * @throws { BusinessError } 17700201 - Failed to verify the abc file.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 11
    */
@@ -2985,7 +2985,7 @@ declare namespace bundleManager {
    * @returns { Promise<void> } Returns verifyAbc result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
-   * @throws { BusinessError } 17700201 - verifyAbc failed.
+   * @throws { BusinessError } 17700201 - Failed to verify the abc file.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 11
    */
@@ -3028,7 +3028,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter bundleName is empty.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @throws { BusinessError } 17700053 - Not app gallery call.
+   * @throws { BusinessError } 17700053 - The caller is not AppGallery.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 11
@@ -3043,7 +3043,7 @@ declare namespace bundleManager {
    * @returns { Promise<void> } Returns deleteAbc result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
-   * @throws { BusinessError } 17700202 - deleteAbc failed.
+   * @throws { BusinessError } 17700202 - Failed to delete the abc file.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 11
    */
@@ -3118,7 +3118,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @throws { BusinessError } 17700060 - The specified application can not be uninstalled.
+   * @throws { BusinessError } 17700060 - The specified application cannot be uninstalled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12
@@ -3128,12 +3128,14 @@ declare namespace bundleManager {
   /**
    * Obtains configuration information about an application.
    *
+   * @typedef { _ApplicationInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Obtains configuration information about an application.
    *
+   * @typedef { _ApplicationInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -3143,12 +3145,14 @@ declare namespace bundleManager {
   /**
    * Indicates the metadata information about a module.
    *
+   * @typedef { _ModuleMetadata }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 10
    */
   /**
    * Indicates the metadata information about a module.
    *
+   * @typedef { _ModuleMetadata }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -3158,12 +3162,14 @@ declare namespace bundleManager {
   /**
    * Indicates the Metadata.
    *
+   * @typedef { _Metadata }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Indicates the Metadata.
    *
+   * @typedef { _Metadata }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -3173,12 +3179,14 @@ declare namespace bundleManager {
   /**
    * Obtains configuration information about a bundle.
    *
+   * @typedef { _BundleInfo.BundleInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Obtains configuration information about a bundle.
    *
+   * @typedef { _BundleInfo.BundleInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -3188,12 +3196,14 @@ declare namespace bundleManager {
   /**
    * The scene which is used.
    *
+   * @typedef { _BundleInfo.UsedScene }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * The scene which is used.
    *
+   * @typedef { _BundleInfo.UsedScene }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -3203,12 +3213,14 @@ declare namespace bundleManager {
   /**
    * Indicates the required permissions details defined in file config.json.
    *
+   * @typedef { _BundleInfo.ReqPermissionDetail }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Indicates the required permissions details defined in file config.json.
    *
+   * @typedef { _BundleInfo.ReqPermissionDetail }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -3218,12 +3230,14 @@ declare namespace bundleManager {
   /**
    * Indicates the SignatureInfo.
    *
+   * @typedef { _BundleInfo.SignatureInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Indicates the SignatureInfo.
    *
+   * @typedef { _BundleInfo.SignatureInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -3233,12 +3247,14 @@ declare namespace bundleManager {
   /**
    * Obtains configuration information about a module.
    *
+   * @typedef { _HapModuleInfo.HapModuleInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Obtains configuration information about a module.
    *
+   * @typedef { _HapModuleInfo.HapModuleInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -3247,13 +3263,15 @@ declare namespace bundleManager {
 
   /**
    * Obtains preload information about a module.
-   *
+   * 
+   * @typedef { _HapModuleInfo.PreloadItem }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Obtains preload information about a module.
    *
+   * @typedef { _HapModuleInfo.PreloadItem }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -3263,12 +3281,14 @@ declare namespace bundleManager {
   /**
    * Obtains dependency information about a module.
    *
+   * @typedef { _HapModuleInfo.Dependency }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Obtains dependency information about a module.
    *
+   * @typedef { _HapModuleInfo.Dependency }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -3278,6 +3298,7 @@ declare namespace bundleManager {
   /**
    * Obtains the router item about a module.
    *
+   * @typedef { _HapModuleInfo.RouterItem}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12
@@ -3287,12 +3308,14 @@ declare namespace bundleManager {
   /**
    * Obtains configuration information about an ability.
    *
+   * @typedef { _AbilityInfo.AbilityInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Obtains configuration information about an ability.
    *
+   * @typedef { _AbilityInfo.AbilityInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -3302,12 +3325,14 @@ declare namespace bundleManager {
   /**
    * Contains basic Ability information. Indicates the window size..
    *
+   * @typedef { _AbilityInfo.WindowSize }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Contains basic Ability information. Indicates the window size..
    *
+   * @typedef { _AbilityInfo.WindowSize }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -3316,13 +3341,15 @@ declare namespace bundleManager {
 
   /**
    * Obtains extension information about a bundle.
-   *
+   * 
+   * @typedef { _ExtensionAbilityInfo.ExtensionAbilityInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Obtains extension information about a bundle.
    *
+   * @typedef { _ExtensionAbilityInfo.ExtensionAbilityInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -3332,6 +3359,7 @@ declare namespace bundleManager {
   /**
    * Indicates the defined permission details in file config.json.
    *
+   * @typedef { _PermissionDef }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9
@@ -3341,12 +3369,14 @@ declare namespace bundleManager {
   /**
    * Contains basic Ability information, which uniquely identifies an ability.
    *
+   * @typedef { _ElementName }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Contains basic Ability information, which uniquely identifies an ability.
    *
+   * @typedef { _ElementName }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -3356,6 +3386,7 @@ declare namespace bundleManager {
   /**
    * Contains shared bundle info.
    *
+   * @typedef { _SharedBundleInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10
@@ -3365,6 +3396,7 @@ declare namespace bundleManager {
   /**
    * Obtains profile file information about a bundle.
    *
+   * @typedef { _AppProvisionInfo.AppProvisionInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10
@@ -3374,6 +3406,7 @@ declare namespace bundleManager {
   /**
    * Obtains profile file validity about a bundle.
    *
+   * @typedef { _AppProvisionInfo.Validity }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10
@@ -3383,6 +3416,7 @@ declare namespace bundleManager {
   /**
    * Obtains information about a recoverable preinstalled application.
    *
+   * @typedef { _RecoverableApplicationInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 11
