@@ -110,7 +110,8 @@ declare namespace backgroundTaskManager {
    *
    * @param { number } requestId - The identifier of the delay request.
    * @param { AsyncCallback<number> } callback - The callback of the remaining delay time.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Parcel operation failed.
    * @throws { BusinessError } 9800003 - Inner transact failed.
