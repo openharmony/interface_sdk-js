@@ -664,7 +664,7 @@ declare namespace usageStatistics {
    * @returns { number } the usage priority group of the calling application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Parcel operation failed.
