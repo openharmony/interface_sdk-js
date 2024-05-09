@@ -44,7 +44,8 @@ declare namespace errorManager {
    * @param { 'error' } type - error.
    * @param { ErrorObserver } observer - The error observer.
    * @returns { number } Returns the number code of the observer.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000003 - Id does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
@@ -55,7 +56,8 @@ declare namespace errorManager {
    * @param { 'error' } type - error.
    * @param { ErrorObserver } observer - The error observer.
    * @returns { number } Returns the number code of the observer.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000003 - Id does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
@@ -69,7 +71,8 @@ declare namespace errorManager {
    * @param { 'error' } type - error.
    * @param { number } observerId - Indicates the number code of the observer.
    * @param { AsyncCallback<void> } callback - The callback of off.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000003 - Id does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
@@ -80,7 +83,8 @@ declare namespace errorManager {
    * @param { 'error' } type - error.
    * @param { number } observerId - Indicates the number code of the observer.
    * @param { AsyncCallback<void> } callback - The callback of off.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000003 - Id does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
@@ -94,7 +98,8 @@ declare namespace errorManager {
    * @param { 'error' } type - error.
    * @param { number } observerId - Indicates the number code of the observer.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000003 - Id does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
@@ -105,7 +110,8 @@ declare namespace errorManager {
    * @param { 'error' } type - error.
    * @param { number } observerId - Indicates the number code of the observer.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000003 - Id does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
@@ -121,7 +127,8 @@ declare namespace errorManager {
    * @param { 'loopObserver' } type - loopObserver.
    * @param { number } timeout - Indicates timeout(ms) value of loop observer.
    * @param { LoopObserver } observer - The loop observer.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 12
@@ -133,7 +140,8 @@ declare namespace errorManager {
    *
    * @param { 'loopObserver' } type - loopObserver.
    * @param { LoopObserver } observer - The loop observer.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 12
@@ -145,7 +153,8 @@ declare namespace errorManager {
    *
    * @param { 'unhandledRejection' } type - 'unhandledRejection'.
    * @param { UnhandledRejectionObserver } observer - The unhandled rejection observer.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16200001 - If the caller is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
@@ -158,7 +167,8 @@ declare namespace errorManager {
    *
    * @param { 'unhandledRejection' } type - error.
    * @param { UnhandledRejectionObserver } [observer]  - the registered observer
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16200001 - If the caller is invalid.
    * @throws { BusinessError } 16300004 - If the observer does not exist
    * @syscap SystemCapability.Ability.AbilityRuntime.Core

@@ -302,6 +302,16 @@ declare namespace promptAction {
      * @since 11
      */
     color: string | Resource;
+    /**
+     * Define whether the button responds to Enter/Space key by default.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    primary?: boolean;
   }
 
   /**
@@ -1058,7 +1068,10 @@ declare namespace promptAction {
    * Displays the notification text.
    *
    * @param { ShowToastOptions } options - Options.
-   * @throws { BusinessError } 401 - if the type of message is incorrect.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - if UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -1067,7 +1080,10 @@ declare namespace promptAction {
    * Displays the notification text.
    *
    * @param { ShowToastOptions } options - Options.
-   * @throws { BusinessError } 401 - if the type of message is incorrect.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - if UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1077,7 +1093,10 @@ declare namespace promptAction {
    * Displays the notification text.
    *
    * @param { ShowToastOptions } options - Options.
-   * @throws { BusinessError } 401 - if the type of message is incorrect.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - if UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1091,7 +1110,10 @@ declare namespace promptAction {
    *
    * @param { ShowDialogOptions } options - Options.
    * @param { AsyncCallback<ShowDialogSuccessResponse> } callback - the callback of showDialog.
-   * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - if UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -1101,7 +1123,10 @@ declare namespace promptAction {
    *
    * @param { ShowDialogOptions } options - Options.
    * @param { AsyncCallback<ShowDialogSuccessResponse> } callback - the callback of showDialog.
-   * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - if UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1112,7 +1137,10 @@ declare namespace promptAction {
    *
    * @param { ShowDialogOptions } options - Options.
    * @param { AsyncCallback<ShowDialogSuccessResponse> } callback - the callback of showDialog.
-   * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - if UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1126,7 +1154,10 @@ declare namespace promptAction {
    *
    * @param { ShowDialogOptions } options - Options.
    * @returns { Promise<ShowDialogSuccessResponse> } the promise returned by the function.
-   * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - if UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -1136,7 +1167,10 @@ declare namespace promptAction {
    *
    * @param { ShowDialogOptions } options - Options.
    * @returns { Promise<ShowDialogSuccessResponse> } the promise returned by the function.
-   * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - if UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1147,7 +1181,10 @@ declare namespace promptAction {
    *
    * @param { ShowDialogOptions } options - Options.
    * @returns { Promise<ShowDialogSuccessResponse> } the promise returned by the function.
-   * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - if UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1161,7 +1198,10 @@ declare namespace promptAction {
    *
    * @param { CustomDialogOptions } options - Options.
    * @returns { Promise<number> } return the dialog id that will be used by closeCustomDialog.
-   * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - if UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1172,7 +1212,10 @@ declare namespace promptAction {
    *
    * @param { CustomDialogOptions } options - Options.
    * @returns { Promise<number> } return the dialog id that will be used by closeCustomDialog.
-   * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - if UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1185,7 +1228,10 @@ declare namespace promptAction {
    * Close the custom dialog.
    *
    * @param { number } dialogId - the dialog id that returned by openCustomDialog.
-   * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - if UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1195,7 +1241,10 @@ declare namespace promptAction {
    * Close the custom dialog.
    *
    * @param { number } dialogId - the dialog id that returned by openCustomDialog.
-   * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - if UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1209,7 +1258,10 @@ declare namespace promptAction {
    *
    * @param { ActionMenuOptions } options - Options.
    * @param { AsyncCallback<ActionMenuSuccessResponse> } callback - the callback of showActionMenu.
-   * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - if UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -1219,7 +1271,10 @@ declare namespace promptAction {
    *
    * @param { ActionMenuOptions } options - Options.
    * @param { AsyncCallback<ActionMenuSuccessResponse> } callback - the callback of showActionMenu.
-   * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - if UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1230,7 +1285,10 @@ declare namespace promptAction {
    *
    * @param { ActionMenuOptions } options - Options.
    * @param { AsyncCallback<ActionMenuSuccessResponse> } callback - the callback of showActionMenu.
-   * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - if UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1244,7 +1302,10 @@ declare namespace promptAction {
    *
    * @param { ActionMenuOptions } options - Options.
    * @returns { Promise<ActionMenuSuccessResponse> } the promise returned by the function.
-   * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - if UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -1254,7 +1315,10 @@ declare namespace promptAction {
    *
    * @param { ActionMenuOptions } options - Options.
    * @returns { Promise<ActionMenuSuccessResponse> } the promise returned by the function.
-   * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - if UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1265,7 +1329,10 @@ declare namespace promptAction {
    *
    * @param { ActionMenuOptions } options - Options.
    * @returns { Promise<ActionMenuSuccessResponse> } the promise returned by the function.
-   * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - if UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

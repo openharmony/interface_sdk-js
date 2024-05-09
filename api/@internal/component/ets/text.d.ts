@@ -893,6 +893,17 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   wordBreak(value: WordBreak): TextAttribute;
 
   /**
+   * Set the text line break strategy type.
+   *
+   * @param { LineBreakStrategy } strategy - The text line break strategy type.
+   * @returns { TextAttribute } The attribute of the text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  lineBreakStrategy(strategy: LineBreakStrategy): TextAttribute;
+
+  /**
    * Called when using the Clipboard menu
    *
    * @param { function } callback - callback of the listened event.
@@ -1061,6 +1072,17 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 12
    */
   onMarqueeStateChange(callback: Callback<MarqueeState>): TextAttribute;
+
+  /**
+   * Whether to support sensitive privacy information
+   *
+   * @param { boolean } supported - Whether to support sensitive privacy information.
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 12
+   */
+  privacySensitive(supported: boolean): TextAttribute;
 }
 
 /**

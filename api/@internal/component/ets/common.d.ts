@@ -149,6 +149,16 @@ declare interface TextDecorationOptions {
    * @since 12
    */
   color?: ResourceColor;
+
+  /**
+   * The style value of decoration.
+   *
+   * @type { ?TextDecorationStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  style?: TextDecorationStyle;
 }
 
 /**
@@ -6342,6 +6352,16 @@ declare interface PickerDialogButtonStyle {
    * @since 12
    */
   borderRadius?: Length | BorderRadiuses;
+
+  /**
+   * Define whether the button default to responding to the Enter key
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  primary?: boolean;
 }
 
 /**
@@ -8488,6 +8508,7 @@ declare interface TouchEvent extends BaseEvent {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 12
  */
 declare type SizeChangeCallback = (oldValue: SizeOptions, newValue: SizeOptions) => void;
@@ -12980,6 +13001,16 @@ declare interface MenuElement {
   icon?: ResourceStr;
 
   /**
+   * Sets the symbol of the menu element.
+   *
+   * @type { ?SymbolGlyphModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  symbolIcon?: SymbolGlyphModifier;
+
+  /**
    * If the value is true, the menu element is available and can respond to operations such as clicking.
    * If the value is false, the menu element is not available and click operations are not responded.
    *
@@ -13382,6 +13413,16 @@ declare enum MenuPolicy {
 declare type ImageModifier = import('../api/arkui/ImageModifier').ImageModifier;
 
 /**
+ * SymbolGlyphModifier
+ *
+ * @typedef {import('../api/arkui/SymbolGlyphModifier').SymbolGlyphModifier} SymbolGlyphModifier
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type SymbolGlyphModifier = import('../api/arkui/SymbolGlyphModifier').SymbolGlyphModifier;
+
+/**
  * Defines the preview options.
  *
  * @interface DragPreviewOptions
@@ -13595,6 +13636,18 @@ declare type PathShape = import('../api/@ohos.arkui.shape').PathShape;
 declare type RectShape = import('../api/@ohos.arkui.shape').RectShape;
 
 /**
+ * Defines the type that can be undefined.
+ *
+ * @typedef { T | undefined } Optional<T>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 12
+ */
+declare type Optional<T> = T | undefined;
+
+/**
  * CommonMethod.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -13732,6 +13785,18 @@ declare class CommonMethod<T> {
    * @since 12
    */
   drawModifier(modifier: DrawModifier | undefined): T;
+
+  /**
+   * Sets the custom property of the current component.
+   *
+   * @param { string } name - the name of the custom property.
+   * @param { Optional<Object> } value - the value of the custom property.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  customProperty(name: string, value: Optional<Object>): T;
 
   /**
    * Expands the safe area.
@@ -15266,7 +15331,42 @@ declare class CommonMethod<T> {
    */
   focusOnTouch(value: boolean): T;
 
-  /**git 
+  /**
+   * Set the component's focusBox style.
+   *
+   * @param { FocusBoxStyle } style
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  focusBox(style: FocusBoxStyle): T;
+
+  /**
+  * Set container as a focus group with a specific identifier.
+  *
+  * @param { string } id - focus scope identifier.
+  * @param { boolean } [isGroup] - whether this scope is a focus group, the default value is false
+  * @returns { T }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+ focusScopeId(id: string, isGroup?: boolean): T;
+
+  /**
+  * Set the focus priority of component in a specific focus scope.
+  *
+  * @param { string } scopeId
+  * @param { FocusPriority } [priority] - the default value is AUTO
+  * @returns { T }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+ focusScopePriority(scopeId: string, priority?: FocusPriority): T;
+
+  /**
    * animation
    *
    * @param { AnimateParam } value
@@ -16348,17 +16448,6 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @atomicservice
    * @since 11
-   */
-  /**
-   * This callback is triggered when the size or position of this component change finished.
-   *
-   * @param { function } event - event callback.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12
    */
   onAreaChange(event: (oldValue: Area, newValue: Area) => void): T;
 
@@ -18551,6 +18640,7 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 12
    */
   onSizeChange(event: SizeChangeCallback): T;
@@ -19841,6 +19931,36 @@ declare interface Layoutable {
    * @since 11
    */
   layout(position: Position): void,
+
+  /**
+   * Call this method to get the margin of sub component.
+   *
+   * @returns { DirectionalEdgesT<number> } the margin of sub component, unit is vp
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getMargin() : DirectionalEdgesT<number>,
+
+  /**
+   * Call this method to get the padding of sub component.
+   *
+   * @returns { DirectionalEdgesT<number> } the padding of sub component, unit is vp
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getPadding() : DirectionalEdgesT<number>,
+ 
+  /**
+   * Call this method to get the borderWidth of sub component.
+   *
+   * @returns { DirectionalEdgesT<number> } the borderWidth of sub component, unit is vp
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getBorderWidth() : DirectionalEdgesT<number>,
 }
 
 /**
@@ -19881,6 +20001,36 @@ declare interface Measurable {
    * @since 11
    */
   measure(constraint: ConstraintSizeOptions) : MeasureResult,
+
+  /**
+   * Call this method to get the margin of sub component.
+   *
+   * @returns { DirectionalEdgesT<number> } the margin of sub component, unit is vp
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getMargin() : DirectionalEdgesT<number>,
+
+  /**
+   * Call this method to get the padding of sub component.
+   *
+   * @returns { DirectionalEdgesT<number> } the padding of sub component, unit is vp
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getPadding() : DirectionalEdgesT<number>,
+
+  /**
+   * Call this method to get the borderWidth of sub component.
+   *
+   * @returns { DirectionalEdgesT<number> } the borderWidth of sub component, unit is vp
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getBorderWidth() : DirectionalEdgesT<number>,
 }
 
 /**
@@ -21075,7 +21225,10 @@ declare class ChildrenMainSize {
    *
    * @param { number } childDefaultSize - default main size, in vp. If the main axis is vertical, it indicates height.
    * If the main axis is horizontal, it indicates width.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -21087,7 +21240,10 @@ declare class ChildrenMainSize {
    *
    * @param { number } value - default main size, in vp. If the main axis is vertical, it indicates height.
    * If the main axis is horizontal, it indicates width.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -21111,7 +21267,10 @@ declare class ChildrenMainSize {
    * @param { number } start - Zero-based index at which to start changing the children main size.
    * @param { number } [deleteCount] - Indicating the number of children main size to remove from start.
    * @param { Array<number> } [childrenSize] - Add the new children main size, beginning from start.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -21126,7 +21285,10 @@ declare class ChildrenMainSize {
    *
    * @param { number } index - index of child to be updated.
    * @param { number } childSize - new section options.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -21652,25 +21814,25 @@ declare interface UIGestureEvent {
   /**
    * Add a gesture bound to the component.
    *
-   * @param { GestureHandler } gesture - gesture indicates the gesture bound to a component.
+   * @param { GestureHandler<T> } gesture - gesture indicates the gesture bound to a component.
    * @param { GesturePriority } priority - priority indicates the gesture's priority.
    * @param { GestureMask } mask - mask indicates the gesture's GestureMask value.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  addGesture(gesture: GestureHandler, priority?: GesturePriority, mask?: GestureMask): void;
+  addGesture<T>(gesture: GestureHandler<T>, priority?: GesturePriority, mask?: GestureMask): void;
 
   /**
    * Add a parallel gesture bound to the component.
    *
-   * @param { GestureHandler } gesture - gesture indicates the gesture bound to a component.
+   * @param { GestureHandler<T> } gesture - gesture indicates the gesture bound to a component.
    * @param { GestureMask } mask - mask indicates the gesture's GestureMask value.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  addParallelGesture(gesture: GestureHandler, mask?: GestureMask): void;
+  addParallelGesture<T>(gesture: GestureHandler<T>, mask?: GestureMask): void;
 
   /**
    * Remove the gesture that is bound to the component and marked as tag.

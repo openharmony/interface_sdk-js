@@ -458,7 +458,25 @@ declare namespace backup {
      * @systemapi
      * @since 10
      */
-    appendBundles(bundlesToBackup: string[]): Promise<void>;
+    /**
+     * Append new bundles and backupInfos to backup.
+     *
+     * @permission ohos.permission.BACKUP
+     * @param { string[] } bundlesToBackup Bundles to backup.
+     * @param { string[] } infos Infos to backup.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 13600001 - IPC error
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900005 - I/O error
+     * @throws { BusinessError } 13900011 - Out of memory
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 13900025 - No space left on device
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @since 12
+     */
+    appendBundles(bundlesToBackup: string[], infos?: string[]): Promise<void>;
 
     /**
      * Append new bundles to backup.

@@ -558,6 +558,14 @@ declare namespace emitter {
    * @syscap SystemCapability.Notification.Emitter
    * @since 11
    */
+  /**
+   * Describe the optional arguments of emit operation.
+   *
+   * @typedef Options
+   * @syscap SystemCapability.Notification.Emitter
+   * @atomicservice
+   * @since 12
+   */
   export interface Options {
     /**
      * Emit priority of the event. The default priority is {@link EventPriority.LOW}.

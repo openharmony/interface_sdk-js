@@ -1399,6 +1399,17 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   wordBreak(value: WordBreak): TextAreaAttribute;
 
   /**
+   * Set the text line break strategy type.
+   *
+   * @param { LineBreakStrategy } strategy - The text line break strategy type.
+   * @returns { TextAreaAttribute } The attribute of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  lineBreakStrategy(strategy: LineBreakStrategy): TextAreaAttribute;
+
+  /**
    * Define custom keyboard of the text area.
    *
    * @param { CustomBuilder } value
@@ -1424,6 +1435,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   customKeyboard(value: CustomBuilder, options?: KeyboardOptions): TextAreaAttribute;

@@ -35,7 +35,8 @@ declare namespace startupManager {
    * @param { Array<string> } startupTasks - Indicates all tasks ready to run.
    * @param { StartupConfig } [config] - Indicates the configuration of startup tasks.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 28800001 - Startup task or its dependency not found.
    * @throws { BusinessError } 28800002 - The startup tasks have circular dependencies.
@@ -62,7 +63,8 @@ declare namespace startupManager {
    *
    * @param { string } startupTask - Indicates name of specific startup task.
    * @returns { Object } The result of specific startup task.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types.
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
    * @since 12
@@ -74,7 +76,8 @@ declare namespace startupManager {
    *
    * @param { string } startupTask - Indicates name of specific startup task.
    * @returns { boolean } Whether specific startup task has already been initialized.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types.
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
    * @since 12
@@ -85,7 +88,8 @@ declare namespace startupManager {
    * Removes specific startup task result.
    *
    * @param { string } startupTask - Indicates name of specific startup task.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types.
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
    * @since 12

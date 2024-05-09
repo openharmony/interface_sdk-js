@@ -92,7 +92,8 @@ declare namespace backgroundTaskManager {
    * Cancels delayed transition to the suspended state.
    *
    * @param { number } requestId - The identifier of the delay request.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Parcel operation failed.
    * @throws { BusinessError } 9800003 - Inner transact failed.
@@ -126,7 +127,8 @@ declare namespace backgroundTaskManager {
    *
    * @param { number } requestId - The identifier of the delay request.
    * @returns { Promise<number> } The promise returns the remaining delay time.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Parcel operation failed.
    * @throws { BusinessError } 9800003 - Inner transact failed.
@@ -144,7 +146,8 @@ declare namespace backgroundTaskManager {
    * @param { string } reason - Indicates the reason for delayed transition to the suspended state.
    * @param { Callback<void> } callback - The callback delay time expired.
    * @returns { DelaySuspendInfo } Info of delay request.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br> 2. Incorrect parameters types.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Parcel operation failed.
    * @throws { BusinessError } 9800003 - Inner transact failed.
@@ -167,7 +170,8 @@ declare namespace backgroundTaskManager {
    * @param { AsyncCallback<void> } callback - The callback of the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Parcel operation failed.
    * @throws { BusinessError } 9800003 - Inner transact failed.
@@ -191,7 +195,8 @@ declare namespace backgroundTaskManager {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Parcel operation failed.
    * @throws { BusinessError } 9800003 - Inner transact failed.
@@ -214,7 +219,8 @@ declare namespace backgroundTaskManager {
    * @param { WantAgent } wantAgent - Indicates which ability to start when user click the notification bar.
    * @returns { Promise<ContinuousTaskNotification> } The The continuous task notification.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Parcel operation failed.
    * @throws { BusinessError } 9800003 - Inner transact failed.
@@ -235,7 +241,8 @@ declare namespace backgroundTaskManager {
    * @param { string[] } bgModes - Indicates which background mode to request.
    * @returns { Promise<ContinuousTaskNotification> } The continuous task notification.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Parcel operation failed.
    * @throws { BusinessError } 9800003 - Inner transact failed.
@@ -254,7 +261,7 @@ declare namespace backgroundTaskManager {
    * @param { Context } context - App running context.
    * @param { AsyncCallback<void> } callback - The callback of the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Parcel operation failed.
    * @throws { BusinessError } 9800003 - Inner transact failed.
@@ -273,7 +280,7 @@ declare namespace backgroundTaskManager {
    * @param { Context } context - App running context.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Parcel operation failed.
    * @throws { BusinessError } 9800003 - Inner transact failed.
@@ -292,7 +299,8 @@ declare namespace backgroundTaskManager {
    * @param { EfficiencyResourcesRequest } request - The request of apply or unapply efficiency resources.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Parcel operation failed.
    * @throws { BusinessError } 9800003 - Inner transact failed.
@@ -309,7 +317,7 @@ declare namespace backgroundTaskManager {
    *
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Parcel operation failed.
    * @throws { BusinessError } 9800003 - Inner transact failed.

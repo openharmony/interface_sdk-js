@@ -257,8 +257,7 @@ declare namespace url {
      * The input parameter is the URLParams object.
      *
      * @param { string[][] | Record<string, string> | string | URLParams } [init] - init init
-     * @throws { BusinessError } 401 - The type of init must be string two-dimensional array or object list
-     * or string or URLParams object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @since 9
      */
@@ -271,8 +270,7 @@ declare namespace url {
      * The input parameter is the URLParams object.
      *
      * @param { string[][] | Record<string, string> | string | URLParams } [init] - init init
-     * @throws { BusinessError } 401 - The type of init must be string two-dimensional array or object list
-     * or string or URLParams object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -286,8 +284,7 @@ declare namespace url {
      * The input parameter is the URLParams object.
      *
      * @param { string[][] | Record<string, string> | string | URLParams } [init] - init init
-     * @throws { BusinessError } 401 - The type of init must be string two-dimensional array or object list
-     * or string or URLParams object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -300,7 +297,10 @@ declare namespace url {
      *
      * @param { string } name - name name Key name of the search parameter to be inserted.
      * @param { string } value - value value Values of search parameters to be inserted.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types;
+     * 3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @since 9
      */
@@ -309,7 +309,10 @@ declare namespace url {
      *
      * @param { string } name - name name Key name of the search parameter to be inserted.
      * @param { string } value - value value Values of search parameters to be inserted.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types;
+     * 3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -319,7 +322,10 @@ declare namespace url {
      *
      * @param { string } name - name name Key name of the search parameter to be inserted.
      * @param { string } value - value value Values of search parameters to be inserted.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types;
+     * 3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -331,7 +337,10 @@ declare namespace url {
      * Deletes the given search parameter and its associated value,from the list of all search parameters.
      *
      * @param { string } name - name name Name of the key-value pair to be deleted.
-     * @throws { BusinessError } 401 - The type of name must be string.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types;
+     * 3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @since 9
      */
@@ -339,7 +348,10 @@ declare namespace url {
      * Deletes the given search parameter and its associated value,from the list of all search parameters.
      *
      * @param { string } name - name name Name of the key-value pair to be deleted.
-     * @throws { BusinessError } 401 - The type of name must be string.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types;
+     * 3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -348,7 +360,10 @@ declare namespace url {
      * Deletes the given search parameter and its associated value,from the list of all search parameters.
      *
      * @param { string } name - name name Name of the key-value pair to be deleted.
-     * @throws { BusinessError } 401 - The type of name must be string.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types;
+     * 3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -361,7 +376,10 @@ declare namespace url {
      *
      * @param { string } name - name name Specifies the name of a key value.
      * @returns { string[] } string[] Returns all key-value pairs with the specified name.
-     * @throws { BusinessError } 401 - The type of name must be string.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types;
+     * 3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @since 9
      */
@@ -370,7 +388,10 @@ declare namespace url {
      *
      * @param { string } name - name name Specifies the name of a key value.
      * @returns { string[] } string[] Returns all key-value pairs with the specified name.
-     * @throws { BusinessError } 401 - The type of name must be string.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types;
+     * 3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -380,7 +401,10 @@ declare namespace url {
      *
      * @param { string } name - name name Specifies the name of a key value.
      * @returns { string[] } string[] Returns all key-value pairs with the specified name.
-     * @throws { BusinessError } 401 - The type of name must be string.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types;
+     * 3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -423,7 +447,10 @@ declare namespace url {
      * @param { function } callbackFn - callbackFn value Current traversal key value,
 	 * key Indicates the name of the key that is traversed.
      * @param { Object } [thisArg] - thisArg thisArg to be used as this value for when callbackFn is called
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types;
+     * 3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @since 9
      */
@@ -433,7 +460,10 @@ declare namespace url {
      * @param { function } callbackFn - callbackFn value Current traversal key value,
 	 * key Indicates the name of the key that is traversed.
      * @param { Object } [thisArg] - thisArg thisArg to be used as this value for when callbackFn is called
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types;
+     * 3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -444,7 +474,10 @@ declare namespace url {
      * @param { function } callbackFn - callbackFn value Current traversal key value,
 	 * key Indicates the name of the key that is traversed.
      * @param { Object } [thisArg] - thisArg thisArg to be used as this value for when callbackFn is called
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types;
+     * 3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -457,7 +490,10 @@ declare namespace url {
      *
      * @param { string } name - name name Specifies the name of a key-value pair.
      * @returns { string | null } Returns the first value found by name. If no value is found, null is returned.
-     * @throws { BusinessError } 401 - The type of name must be string.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types;
+     * 3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @since 9
      */
@@ -466,7 +502,10 @@ declare namespace url {
      *
      * @param { string } name - name name Specifies the name of a key-value pair.
      * @returns { string | null } Returns the first value found by name. If no value is found, null is returned.
-     * @throws { BusinessError } 401 - The type of name must be string.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types;
+     * 3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -476,7 +515,10 @@ declare namespace url {
      *
      * @param { string } name - name name Specifies the name of a key-value pair.
      * @returns { string | null } Returns the first value found by name. If no value is found, null is returned.
-     * @throws { BusinessError } 401 - The type of name must be string.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types;
+     * 3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -489,7 +531,9 @@ declare namespace url {
      *
      * @param { string } name - name name Specifies the name of a key-value pair.
      * @returns { boolean } Returns a Boolean value that indicates whether a found
-     * @throws { BusinessError } 401 - The type of name must be string.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @since 9
      */
@@ -498,7 +542,9 @@ declare namespace url {
      *
      * @param { string } name - name name Specifies the name of a key-value pair.
      * @returns { boolean } Returns a Boolean value that indicates whether a found
-     * @throws { BusinessError } 401 - The type of name must be string.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -508,7 +554,9 @@ declare namespace url {
      *
      * @param { string } name - name name Specifies the name of a key-value pair.
      * @returns { boolean } Returns a Boolean value that indicates whether a found
-     * @throws { BusinessError } 401 - The type of name must be string.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -524,7 +572,10 @@ declare namespace url {
      *
      * @param { string } name - name name Key name of the parameter to be set.
      * @param { string } value - value value Indicates the parameter value to be set.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types;
+     * 3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @since 9
      */
@@ -536,7 +587,10 @@ declare namespace url {
      *
      * @param { string } name - name name Key name of the parameter to be set.
      * @param { string } value - value value Indicates the parameter value to be set.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types;
+     * 3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -549,7 +603,10 @@ declare namespace url {
      *
      * @param { string } name - name name Key name of the parameter to be set.
      * @param { string } value - value value Indicates the parameter value to be set.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types;
+     * 3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -761,7 +818,10 @@ declare namespace url {
      * If input is an absolute value, base ignores the value.
      * @param { string | URL } [base] - base base Base URL to parse if input is not absolute.
      * @returns { URL }
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types;
+     * 3.Parameter verification failed.
      * @throws { BusinessError } 10200002 - Invalid url string.
      * @syscap SystemCapability.Utils.Lang
      * @since 9
@@ -773,7 +833,10 @@ declare namespace url {
      * If input is an absolute value, base ignores the value.
      * @param { string | URL } [base] - base base Base URL to parse if input is not absolute.
      * @returns { URL }
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types;
+     * 3.Parameter verification failed.
      * @throws { BusinessError } 10200002 - Invalid url string.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -786,7 +849,10 @@ declare namespace url {
      * If input is an absolute value, base ignores the value.
      * @param { string | URL } [base] - base base Base URL to parse if input is not absolute.
      * @returns { URL }
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types;
+     * 3.Parameter verification failed.
      * @throws { BusinessError } 10200002 - Invalid url string.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform

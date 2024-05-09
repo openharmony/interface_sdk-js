@@ -128,6 +128,25 @@ type NativeMediaPlayerConfig = {
 }
 
 /**
+ * The callback of render process not responding.
+ *
+ * @typedef {function} OnRenderProcessNotRespondingCallback
+ * @param {RenderProcessNotRespondingData} data - details of onRenderProcessNotResponding.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 12
+ */
+type OnRenderProcessNotRespondingCallback = (data : RenderProcessNotRespondingData) => void;
+
+/**
+ * The callback of render process responding.
+ *
+ * @typedef {function} OnRenderProcessRespondingCallback
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 12
+ */
+type OnRenderProcessRespondingCallback = () => void;
+
+/**
  * Enum type supplied to {@link getMessageLevel} for receiving the console log level of JavaScript.
  *
  * @enum { number }
@@ -480,13 +499,13 @@ declare enum CacheMode {
   None,
 
   /**
-   * Load cache first, then online.
+   * Load online and not cache.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   /**
-   * Load cache first, then online.
+   * Load online and not cache.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -1135,6 +1154,31 @@ declare enum WebLayoutMode {
    * @since 11
    */
   FIT_CONTENT,
+}
+
+/**
+ * Enum type supplied to {@link RenderProcessNotRespondingData} when onRenderProcessNotResponding is called.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 12
+ */
+declare enum RenderProcessNotRespondingReason {
+  /**
+   * Timeout for input sent to render process.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  INPUT_TIMEOUT,
+
+  /**
+   * Timeout for navigation commit.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  NAVIGATION_COMMIT_TIMEOUT,
 }
 
 /**
@@ -4368,6 +4412,42 @@ declare interface LargestContentfulPaint {
 }
 
 /**
+ * Defines the render process not responding info.
+ *
+ * @interface RenderProcessNotRespondingData
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 12
+ */
+declare interface RenderProcessNotRespondingData {
+  /**
+   * JavaScript stack info of the webpage when render process not responding.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  jsStack: string;
+
+  /**
+   * Process id of render process not responding.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  pid: number;
+
+  /**
+   * Reason for the render process not responding.
+   *
+   * @type { RenderProcessNotRespondingReason }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  reason: RenderProcessNotRespondingReason;
+}
+
+/**
  * Defines the Web attribute functions.
  *
  * @extends CommonMethod<WebAttribute>
@@ -4592,8 +4672,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Injects the JavaScript object into window and invoke the function in window.
+   *
+   * @param { object } javaScriptProxy - The JavaScript object to be injected.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
   javaScriptProxy(javaScriptProxy: { object: object, name: string, methodList: Array<string>,
-    controller: WebController | WebviewController }): WebAttribute;
+      controller: WebController | WebviewController, asyncMethodList?: Array<string> }): WebAttribute;
 
   /**
    * Sets whether the Web should save the password.
@@ -6991,6 +7080,26 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 12
    */
    enableSmoothDragResize(mode: boolean): WebAttribute;
+
+  /**
+   * Triggered when render process not responding.
+   *
+   * @param { OnRenderProcessNotRespondingCallback } callback The triggered function when render process not responding.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+   onRenderProcessNotResponding(callback: OnRenderProcessNotRespondingCallback): WebAttribute;
+
+  /**
+   * Triggered when the unresponsive render process becomes responsive.
+   *
+   * @param { OnRenderProcessRespondingCallback } callback The triggered function when the unresponsive render process becomes responsive.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+   onRenderProcessResponding(callback: OnRenderProcessRespondingCallback): WebAttribute;
 }
 
 /**

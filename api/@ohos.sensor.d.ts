@@ -3455,6 +3455,22 @@ declare namespace sensor {
      * @since 8
      */
     intensity: number;
+
+    /**
+     * Indicates color temperature, in kelvin.
+     * @type { ?number }
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 12
+     */
+    colorTemperature?: number;
+
+    /**
+     * Indicates infrared luminance, in cd/m2.
+     * @type { ?number }
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 12
+     */
+    infraredLuminance?: number;
   }
 
   /**
