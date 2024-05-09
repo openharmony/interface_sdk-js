@@ -32,7 +32,7 @@ import { PopupPlacement } from './application/AutoFillPopupConfig';
  *
  * @namespace autoFillManager
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @StageModelOnly
+ * @stagemodelonly
  * @since 11
  */
 /**
@@ -40,7 +40,7 @@ import { PopupPlacement } from './application/AutoFillPopupConfig';
  *
  * @namespace autoFillManager
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @stageModelOnly
+ * @stagemodelonly
  * @atomicservice
  * @since 12
  */
@@ -50,7 +50,7 @@ declare namespace autoFillManager {
    *
    * @interface AutoSaveCallback
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   /**
@@ -58,7 +58,7 @@ declare namespace autoFillManager {
    *
    * @interface AutoSaveCallback
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @stageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
@@ -67,14 +67,14 @@ declare namespace autoFillManager {
      * Called when auto save request is successfully handled.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 11
      */
     /**
      * Called when auto save request is successfully handled.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @stageModelOnly
+     * @stagemodelonly
      * @atomicservice
      * @since 12
      */
@@ -84,14 +84,14 @@ declare namespace autoFillManager {
      * Called when auto save request is failed to be handled.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 11
      */
     /**
      * Called when auto save request is failed to be handled.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @stageModelOnly
+     * @stagemodelonly
      * @atomicservice
      * @since 12
      */
@@ -106,7 +106,7 @@ declare namespace autoFillManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   /**
@@ -117,7 +117,7 @@ declare namespace autoFillManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @stageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
@@ -128,8 +128,18 @@ declare namespace autoFillManager {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
+   */
+  /**
+   * The interface of view data.
+   *
+   * @typedef { _ViewData.default } ViewData
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
    */
   export type ViewData = _ViewData.default;
 
@@ -138,8 +148,18 @@ declare namespace autoFillManager {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
+   */
+  /**
+   * The interface of page node info.
+   *
+   * @typedef { _PageNodeInfo.default } PageNodeInfo
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
    */
   export type PageNodeInfo = _PageNodeInfo.default;
 
@@ -148,8 +168,17 @@ declare namespace autoFillManager {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
+   */
+  /**
+   * The enum of auto fill type.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
    */
   export { AutoFillType };
 
@@ -158,8 +187,18 @@ declare namespace autoFillManager {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
+   */
+  /**
+   * The interface of fill request.
+   *
+   * @typedef { _AutoFillRequest.FillRequest } FillRequest
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
    */
   export type FillRequest = _AutoFillRequest.FillRequest;
 
@@ -168,17 +207,29 @@ declare namespace autoFillManager {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
+   */
+  /**
+   * The interface of save request.
+   *
+   * @typedef { _AutoFillRequest.SaveRequest } SaveRequest
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
    */
   export type SaveRequest = _AutoFillRequest.SaveRequest;
 
   /**
    * The interface of update request.
    *
+   * @typedef { _AutoFillRequest.UpdateRequest } UpdateRequest
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
+   * @atomicservice
    * @since 12
    */
   export type UpdateRequest = _AutoFillRequest.UpdateRequest;
@@ -188,8 +239,18 @@ declare namespace autoFillManager {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
+   */
+  /**
+   * The interface of fill response.
+   *
+   * @typedef { _AutoFillRequest.FillResponse } FillResponse
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
    */
   export type FillResponse = _AutoFillRequest.FillResponse;
 
@@ -198,8 +259,18 @@ declare namespace autoFillManager {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
+   */
+  /**
+   * The interface of fill request callback.
+   *
+   * @typedef { _AutoFillRequest.FillRequestCallback } FillRequestCallback
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
    */
   export type FillRequestCallback = _AutoFillRequest.FillRequestCallback;
 
@@ -208,17 +279,29 @@ declare namespace autoFillManager {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
+   */
+  /**
+   * The interface of save request callback.
+   *
+   * @typedef { _AutoFillRequest.SaveRequestCallback } SaveRequestCallback
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
    */
   export type SaveRequestCallback = _AutoFillRequest.SaveRequestCallback;
 
   /**
    * Auto fill rectangle.
    *
+   * @typedef { _AutoFillRect.default } AutoFillRect
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
+   * @atomicservice
    * @since 12
    */
   export type AutoFillRect = _AutoFillRect.default;
@@ -230,6 +313,7 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
+   * @atomicservice
    * @since 12
    */
   export type AutoFillPopupConfig = _AutoFillPopupConfig.default;
@@ -241,6 +325,7 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
+   * @atomicservice
    * @since 12
    */
   export type PopupSize = _AutoFillPopupConfig.PopupSize;
@@ -251,6 +336,7 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
+   * @atomicservice
    * @since 12
    */
   export { PopupPlacement };
