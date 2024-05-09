@@ -3961,7 +3961,6 @@ declare interface WebOptions {
    *
    * @type { ?string }
    * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
    * @since 12
    */
   sharedRenderProcessToken? : string;
