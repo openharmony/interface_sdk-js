@@ -52,7 +52,9 @@ export interface SystemTonePlayer {
    * @returns { Promise<number> } Promise used to return the id of this playback.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Caller is not a system application.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                                 1.Mandatory parameters are left unspecified;
+   *                                 2.Incorrect parameter types.
    * @throws { BusinessError } 5400102 - Operation not allowed.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
@@ -65,7 +67,9 @@ export interface SystemTonePlayer {
    * @param { number } id - The Playback id to stop.
    * @returns { Promise<void> } Promise used to return result of this stop.
    * @throws { BusinessError } 202 - Caller is not a system application.
-   * @throws { BusinessError } 401 - The parameters check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                                 1.Mandatory parameters are left unspecified;
+   *                                 2.Incorrect parameter types.
    * @throws { BusinessError } 5400102 - Operation not allowed.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
