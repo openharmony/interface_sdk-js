@@ -5292,6 +5292,174 @@ declare namespace webview {
   }
 
   /**
+   * Defines the resource type of request.
+   * @enum {number}
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  enum WebResourceType {
+    /**
+     * Top level page.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    MAIN_FRAME = 0,
+
+    /**
+     * Frame or Iframe.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    SUB_FRAME = 1,
+
+    /**
+     * CSS stylesheet.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    STYLE_SHEET = 2,
+
+    /**
+     * External script.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    SCRIPT = 3,
+
+    /**
+     * Image (jpg/gif/png/etc).
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    IMAGE = 4,
+
+    /**
+     * Font.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    FONT_RESOURCE = 5,
+
+    /**
+     * Some other subresource. This is the default type if the actual type is unknown.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    SUB_RESOURCE = 6,
+
+    /**
+     * Object (or embed) tag for a plugin, or a resource that a plugin requested.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    OBJECT = 7,
+
+    /**
+     * Media resource.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    MEDIA = 8,
+
+    /**
+     * Main resource of a dedicated worker.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    WORKER = 9,
+
+    /**
+     * Main resource of a shared worker.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    SHARED_WORKER = 10,
+
+    /**
+     * Explicitly requested prefetch.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    PREFETCH = 11,
+
+    /**
+     * Favicon.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    FAVICON = 12,
+
+    /**
+     * XMLHttpRequest.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    XHR = 13,
+
+    /**
+     * Ping request for <a ping>/sendBeacon.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    PING = 14,
+
+    /**
+     * The main resource of a service worker.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    SERVICE_WORKER = 15,
+
+    /**
+     * Report of Content Security Policy violations.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    CSP_REPORT = 16,
+
+    /**
+     * Resource that a plugin requested.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    PLUGIN_RESOURCE = 17,
+
+    /**
+     * A main-frame service worker navigation preload request.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    NAVIGATION_PRELOAD_MAIN_FRAME = 19,
+
+    /**
+     * A sub-frame service worker navigation preload request.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    NAVIGATION_PRELOAD_SUB_FRAME = 20,
+  }
+
+  /**
    * Defines the Web resource request used for scheme handler.
    * 
    * @syscap SystemCapability.Web.Webview.Core
@@ -5362,6 +5530,14 @@ declare namespace webview {
      * @since 12
      */
     getHttpBodyStream(): WebHttpBodyStream | null;
+    /**
+     * Get request's resource type.
+     * 
+     * @returns { WebResourceType } Return the request's resource type.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    getRequestResourceType(): WebResourceType;
   }
 
   /**
