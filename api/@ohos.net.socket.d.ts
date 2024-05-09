@@ -2311,7 +2311,7 @@ declare namespace socket {
      * Returns an object representing a local certificate.
      * @param { AsyncCallback<X509CertRawData> } callback - the callback of getCertificate.
      * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303504 - Error looking up x509
+     * @throws { BusinessError } 2303504 - An error occurred when verifying the X.509 certificate.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 9
@@ -2320,7 +2320,7 @@ declare namespace socket {
      * Returns an object representing a local certificate.
      * @param { AsyncCallback<X509CertRawData> } callback - the callback of getCertificate.
      * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303504 - Error looking up x509
+     * @throws { BusinessError } 2303504 - An error occurred when verifying the X.509 certificate.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -2332,7 +2332,7 @@ declare namespace socket {
      * Returns an object representing a local certificate.
      * @returns { Promise<X509CertRawData> } The promise returned by the function.
      * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303504 - Error looking up x509
+     * @throws { BusinessError } 2303504 - An error occurred when verifying the X.509 certificate.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 9
@@ -2341,7 +2341,7 @@ declare namespace socket {
      * Returns an object representing a local certificate.
      * @returns { Promise<X509CertRawData> } The promise returned by the function.
      * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303504 - Error looking up x509
+     * @throws { BusinessError } 2303504 - An error occurred when verifying the X.509 certificate.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -2401,7 +2401,7 @@ declare namespace socket {
      * Server sockets or disconnected client sockets will return a value of null.
      * @param { AsyncCallback<string> } callback - the callback of getProtocol.
      * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 9
@@ -2412,7 +2412,7 @@ declare namespace socket {
      * Server sockets or disconnected client sockets will return a value of null.
      * @param { AsyncCallback<string> } callback - the callback of getProtocol.
      * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -2426,7 +2426,7 @@ declare namespace socket {
      * Server sockets or disconnected client sockets will return a value of null.
      * @returns { Promise<string> } The promise returned by the function.
      * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 9
@@ -2437,7 +2437,7 @@ declare namespace socket {
      * Server sockets or disconnected client sockets will return a value of null.
      * @returns { Promise<string> } The promise returned by the function.
      * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -2450,8 +2450,8 @@ declare namespace socket {
      * For example:{"TLS_RSA_WITH_AES_128_CBC_SHA256", "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"}
      * @param { AsyncCallback<Array<string>> } callback - the callback of getCipherSuite.
      * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303502 - Error in tls reading.
-     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
+     * @throws { BusinessError } 2303502 - An error occurred when reading data on the TLS socket.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 9
@@ -2461,8 +2461,8 @@ declare namespace socket {
      * For example:{"TLS_RSA_WITH_AES_128_CBC_SHA256", "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"}
      * @param { AsyncCallback<Array<string>> } callback - the callback of getCipherSuite.
      * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303502 - Error in tls reading.
-     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
+     * @throws { BusinessError } 2303502 - An error occurred when reading data on the TLS socket.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -2475,8 +2475,8 @@ declare namespace socket {
      * For example:{"TLS_RSA_WITH_AES_128_CBC_SHA256", "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"}
      * @returns { Promise<Array<string>> } The promise returned by the function.
      * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303502 - Error in tls reading.
-     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
+     * @throws { BusinessError } 2303502 - An error occurred when reading data on the TLS socket.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 9
@@ -2486,8 +2486,8 @@ declare namespace socket {
      * For example:{"TLS_RSA_WITH_AES_128_CBC_SHA256", "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"}
      * @returns { Promise<Array<string>> } The promise returned by the function.
      * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303502 - Error in tls reading.
-     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
+     * @throws { BusinessError } 2303502 - An error occurred when reading data on the TLS socket.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -2545,17 +2545,17 @@ declare namespace socket {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303104 - Interrupted system call.
      * @throws { BusinessError } 2303109 - Bad file number.
-     * @throws { BusinessError } 2303111 - Resource temporarily unavailable try again.
+     * @throws { BusinessError } 2303111 - Resource temporarily unavailable. Try again.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @throws { BusinessError } 2303191 - Protocol wrong type for socket.
+     * @throws { BusinessError } 2303191 - Incorrect socket protocol type.
      * @throws { BusinessError } 2303198 - Address already in use.
      * @throws { BusinessError } 2303199 - Cannot assign requested address.
      * @throws { BusinessError } 2303210 - Connection timed out.
      * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303502 - Error in tls reading.
-     * @throws { BusinessError } 2303503 - Error in tls writing
-     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
-     * @throws { BusinessError } 2303506 - Error clearing tls connection.
+     * @throws { BusinessError } 2303502 - An error occurred when reading data on the TLS socket.
+     * @throws { BusinessError } 2303503 - An error occurred when writing data on the TLS socket.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
+     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 9
@@ -2568,17 +2568,17 @@ declare namespace socket {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303104 - Interrupted system call.
      * @throws { BusinessError } 2303109 - Bad file number.
-     * @throws { BusinessError } 2303111 - Resource temporarily unavailable try again.
+     * @throws { BusinessError } 2303111 - Resource temporarily unavailable. Try again.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @throws { BusinessError } 2303191 - Protocol wrong type for socket.
+     * @throws { BusinessError } 2303191 - Incorrect socket protocol type.
      * @throws { BusinessError } 2303198 - Address already in use.
      * @throws { BusinessError } 2303199 - Cannot assign requested address.
      * @throws { BusinessError } 2303210 - Connection timed out.
      * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303502 - Error in tls reading.
-     * @throws { BusinessError } 2303503 - Error in tls writing
-     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
-     * @throws { BusinessError } 2303506 - Error clearing tls connection.
+     * @throws { BusinessError } 2303502 - An error occurred when reading data on the TLS socket.
+     * @throws { BusinessError } 2303503 - An error occurred when writing data on the TLS socket.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
+     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -2594,17 +2594,17 @@ declare namespace socket {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303104 - Interrupted system call.
      * @throws { BusinessError } 2303109 - Bad file number.
-     * @throws { BusinessError } 2303111 - Resource temporarily unavailable try again.
+     * @throws { BusinessError } 2303111 - Resource temporarily unavailable. Try again.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @throws { BusinessError } 2303191 - Protocol wrong type for socket.
+     * @throws { BusinessError } 2303191 - Incorrect socket protocol type.
      * @throws { BusinessError } 2303198 - Address already in use.
      * @throws { BusinessError } 2303199 - Cannot assign requested address.
      * @throws { BusinessError } 2303210 - Connection timed out.
      * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303502 - Error in tls reading.
-     * @throws { BusinessError } 2303503 - Error in tls writing
-     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
-     * @throws { BusinessError } 2303506 - Error clearing tls connection.
+     * @throws { BusinessError } 2303502 - An error occurred when reading data on the TLS socket.
+     * @throws { BusinessError } 2303503 - An error occurred when writing data on the TLS socket.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
+     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 9
@@ -2617,17 +2617,17 @@ declare namespace socket {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303104 - Interrupted system call.
      * @throws { BusinessError } 2303109 - Bad file number.
-     * @throws { BusinessError } 2303111 - Resource temporarily unavailable try again.
+     * @throws { BusinessError } 2303111 - Resource temporarily unavailable. Try again.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @throws { BusinessError } 2303191 - Protocol wrong type for socket.
+     * @throws { BusinessError } 2303191 - Incorrect socket protocol type.
      * @throws { BusinessError } 2303198 - Address already in use.
      * @throws { BusinessError } 2303199 - Cannot assign requested address.
      * @throws { BusinessError } 2303210 - Connection timed out.
      * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303502 - Error in tls reading.
-     * @throws { BusinessError } 2303503 - Error in tls writing
-     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
-     * @throws { BusinessError } 2303506 - Error clearing tls connection.
+     * @throws { BusinessError } 2303502 - An error occurred when reading data on the TLS socket.
+     * @throws { BusinessError } 2303503 - An error occurred when writing data on the TLS socket.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
+     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -2641,9 +2641,9 @@ declare namespace socket {
      * @param { AsyncCallback<void> } callback - the callback of send.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303503 - Error in tls writing.
-     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
-     * @throws { BusinessError } 2303506 - Error clearing tls connection.
+     * @throws { BusinessError } 2303503 - An error occurred when writing data on the TLS socket.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
+     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 9
@@ -2654,9 +2654,9 @@ declare namespace socket {
      * @param { AsyncCallback<void> } callback - the callback of send.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303503 - Error in tls writing.
-     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
-     * @throws { BusinessError } 2303506 - Error clearing tls connection.
+     * @throws { BusinessError } 2303503 - An error occurred when writing data on the TLS socket.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
+     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -2668,9 +2668,9 @@ declare namespace socket {
      * @param { AsyncCallback<void> } callback - the callback of send.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303503 - Error in tls writing.
-     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
-     * @throws { BusinessError } 2303506 - Error clearing tls connection.
+     * @throws { BusinessError } 2303503 - An error occurred when writing data on the TLS socket.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
+     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -2684,9 +2684,9 @@ declare namespace socket {
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303503 - Error in tls writing.
-     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
-     * @throws { BusinessError } 2303506 - Error clearing tls connection.
+     * @throws { BusinessError } 2303503 - An error occurred when writing data on the TLS socket.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
+     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 9
@@ -2697,9 +2697,9 @@ declare namespace socket {
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303503 - Error in tls writing.
-     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
-     * @throws { BusinessError } 2303506 - Error clearing tls connection.
+     * @throws { BusinessError } 2303503 - An error occurred when writing data on the TLS socket.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
+     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -2711,9 +2711,9 @@ declare namespace socket {
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303503 - Error in tls writing.
-     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
-     * @throws { BusinessError } 2303506 - Error clearing tls connection.
+     * @throws { BusinessError } 2303503 - An error occurred when writing data on the TLS socket.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
+     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -2726,8 +2726,8 @@ declare namespace socket {
      * @param { AsyncCallback<void> } callback - the callback of close.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
-     * @throws { BusinessError } 2303506 - Error clearing tls connection.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
+     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 9
@@ -2737,8 +2737,8 @@ declare namespace socket {
      * @param { AsyncCallback<void> } callback - the callback of close.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
-     * @throws { BusinessError } 2303506 - Error clearing tls connection.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
+     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -2751,8 +2751,8 @@ declare namespace socket {
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
-     * @throws { BusinessError } 2303506 - Error clearing tls connection.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
+     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 9
@@ -2762,8 +2762,8 @@ declare namespace socket {
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
-     * @throws { BusinessError } 2303506 - Error clearing tls connection.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
+     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -3201,7 +3201,7 @@ declare namespace socket {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2303109 - Bad file number.
-     * @throws { BusinessError } 2303111 - Resource temporarily unavailable try again.
+     * @throws { BusinessError } 2303111 - Resource temporarily unavailable. Try again.
      * @throws { BusinessError } 2303198 - Address already in use.
      * @throws { BusinessError } 2303199 - Cannot assign requested address.
      * @syscap SystemCapability.Communication.NetStack
@@ -3220,7 +3220,7 @@ declare namespace socket {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2303109 - Bad file number.
-     * @throws { BusinessError } 2303111 - Resource temporarily unavailable try again.
+     * @throws { BusinessError } 2303111 - Resource temporarily unavailable. Try again.
      * @throws { BusinessError } 2303198 - Address already in use.
      * @throws { BusinessError } 2303199 - Cannot assign requested address.
      * @syscap SystemCapability.Communication.NetStack
@@ -3343,9 +3343,9 @@ declare namespace socket {
      * @param { AsyncCallback<void> } callback - The callback of send.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303503 - Error in tls writing.
-     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
-     * @throws { BusinessError } 2303506 - Error clearing tls connection.
+     * @throws { BusinessError } 2303503 - An error occurred when writing data on the TLS socket.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
+     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
@@ -3356,9 +3356,9 @@ declare namespace socket {
      * @param { AsyncCallback<void> } callback - The callback of send.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303503 - Error in tls writing.
-     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
-     * @throws { BusinessError } 2303506 - Error clearing tls connection.
+     * @throws { BusinessError } 2303503 - An error occurred when writing data on the TLS socket.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
+     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 12
@@ -3371,9 +3371,9 @@ declare namespace socket {
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303503 - Error in tls writing.
-     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
-     * @throws { BusinessError } 2303506 - Error clearing tls connection.
+     * @throws { BusinessError } 2303503 - An error occurred when writing data on the TLS socket.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
+     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
@@ -3384,9 +3384,9 @@ declare namespace socket {
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303503 - Error in tls writing.
-     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
-     * @throws { BusinessError } 2303506 - Error clearing tls connection.
+     * @throws { BusinessError } 2303503 - An error occurred when writing data on the TLS socket.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
+     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 12
@@ -3398,8 +3398,8 @@ declare namespace socket {
      * @param { AsyncCallback<void> } callback - The callback of close.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
-     * @throws { BusinessError } 2303506 - Error clearing tls connection.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
+     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
@@ -3410,8 +3410,8 @@ declare namespace socket {
      * Closes a TLSSocket client connection.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
-     * @throws { BusinessError } 2303506 - Error clearing tls connection.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
+     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
@@ -3470,8 +3470,8 @@ declare namespace socket {
      * @param { AsyncCallback<Array<string>> } callback - The callback of getCipherSuite.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303502 - Error in tls reading.
-     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
+     * @throws { BusinessError } 2303502 - An error occurred when reading data on the TLS socket.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
@@ -3483,8 +3483,8 @@ declare namespace socket {
      * For example:{"TLS_RSA_WITH_AES_128_CBC_SHA256", "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"}
      * @returns { Promise<Array<string>> } The promise returned by the function.
      * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303502 - Error in tls reading.
-     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
+     * @throws { BusinessError } 2303502 - An error occurred when reading data on the TLS socket.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
@@ -3635,14 +3635,14 @@ declare namespace socket {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2303109 - Bad file number.
-     * @throws { BusinessError } 2303111 - Resource temporarily unavailable try again.
+     * @throws { BusinessError } 2303111 - Resource temporarily unavailable. Try again.
      * @throws { BusinessError } 2303198 - Address already in use.
      * @throws { BusinessError } 2303199 - Cannot assign requested address.
      * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303502 - Error in tls reading.
-     * @throws { BusinessError } 2303503 - Error in tls writing
-     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
-     * @throws { BusinessError } 2303506 - Error clearing tls connection.
+     * @throws { BusinessError } 2303502 - An error occurred when reading data on the TLS socket.
+     * @throws { BusinessError } 2303503 - An error occurred when writing data on the TLS socket.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
+     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
@@ -3659,14 +3659,14 @@ declare namespace socket {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2303109 - Bad file number.
-     * @throws { BusinessError } 2303111 - Resource temporarily unavailable try again.
+     * @throws { BusinessError } 2303111 - Resource temporarily unavailable. Try again.
      * @throws { BusinessError } 2303198 - Address already in use.
      * @throws { BusinessError } 2303199 - Cannot assign requested address.
      * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303502 - Error in tls reading.
-     * @throws { BusinessError } 2303503 - Error in tls writing
-     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
-     * @throws { BusinessError } 2303506 - Error clearing tls connection.
+     * @throws { BusinessError } 2303502 - An error occurred when reading data on the TLS socket.
+     * @throws { BusinessError } 2303503 - An error occurred when writing data on the TLS socket.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
+     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
@@ -3722,7 +3722,7 @@ declare namespace socket {
      * @param { AsyncCallback<X509CertRawData> } callback - The callback of getCertificate.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303504 - Error looking up x509
+     * @throws { BusinessError } 2303504 - An error occurred when verifying the X.509 certificate.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
@@ -3733,7 +3733,7 @@ declare namespace socket {
      * Returns an object representing a local certificate.
      * @returns { Promise<X509CertRawData> } The promise returned by the function.
      * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303504 - Error looking up x509
+     * @throws { BusinessError } 2303504 - An error occurred when verifying the X.509 certificate.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
@@ -3747,7 +3747,7 @@ declare namespace socket {
      * @param { AsyncCallback<string> } callback - The callback of getProtocol.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
@@ -3760,7 +3760,7 @@ declare namespace socket {
      * Server sockets or disconnected client sockets will return a value of null.
      * @returns { Promise<string> } The promise returned by the function.
      * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
