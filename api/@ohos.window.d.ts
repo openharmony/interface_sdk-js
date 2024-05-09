@@ -1610,6 +1610,7 @@ declare namespace window {
     /**
      * Indicates dialog window title when decor enabled.
      *
+     * @type { ?string }
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
