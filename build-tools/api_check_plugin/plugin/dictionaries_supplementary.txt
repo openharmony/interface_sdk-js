@@ -546,6 +546,8 @@ mgf1
 mifare
 minibar
 minimizing
+minors
+minorsmode
 mirrored
 misconfigured
 mismatches
