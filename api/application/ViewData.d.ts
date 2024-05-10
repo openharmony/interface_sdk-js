@@ -103,7 +103,7 @@ export default interface ViewData {
    * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   isUserSelected: boolean;
@@ -114,7 +114,7 @@ export default interface ViewData {
    * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   isOtherAccount: boolean;
