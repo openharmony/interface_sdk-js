@@ -68,6 +68,21 @@ declare namespace commonEventManager {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Publishes an ordered, sticky, or standard common event.
+   *
+   * @param { string } event - name of the common event.
+   * @param { AsyncCallback<void> } callback - The callback of publish.
+   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 1500004 - not System services
+   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
+   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
+   * @throws { BusinessError } 1500009 - error obtaining system parameters
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   function publish(event: string, callback: AsyncCallback<void>): void;
 
   /**
@@ -100,6 +115,23 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Publishes an ordered, sticky, or standard common event.
+   *
+   * @param { string } event - name of the common event.
+   * @param { CommonEventPublishData } options - Indicate the CommonEventPublishData containing the common event
+   *                                             content and attributes.
+   * @param { AsyncCallback<void> } callback - The callback of publish.
+   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 1500004 - not System services
+   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
+   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
+   * @throws { BusinessError } 1500009 - error obtaining system parameters
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   function publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>): void;
 
@@ -2108,6 +2140,14 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Describes the information of the subscriber
+   *
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   export type CommonEventPublishData = _CommonEventPublishData;
 }
