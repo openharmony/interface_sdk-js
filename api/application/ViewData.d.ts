@@ -96,4 +96,26 @@ export default interface ViewData {
    * @since 12
    */
   pageRect: AutoFillRect;
+
+  /**
+   * Indicates whether the content is user-selected fill-in content.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+  isUserSelected: boolean;
+
+  /**
+   * Indicates whether it is other account.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+  isOtherAccount: boolean;
 }
