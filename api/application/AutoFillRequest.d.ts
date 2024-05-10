@@ -187,7 +187,7 @@ export interface FillRequestCallback {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   onCancel(fillContent?: string): void;
