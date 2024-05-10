@@ -20352,6 +20352,17 @@ declare class CustomComponent extends CommonAttribute {
   aboutToRecycle?(): void;
 
   /**
+   * The onWillApplyTheme function is a custom hook to get active theme object from the context
+   * 
+   * @param { Theme } theme - Custom theme init params.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onWillApplyTheme?(theme: Theme): void;
+
+  /**
    * Custom component override this method to layout each of its sub components.
    *
    * @param { Array<LayoutChild> } children
