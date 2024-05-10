@@ -1354,7 +1354,8 @@ declare namespace inputMethodEngine {
      *
      * @param { string } text - the text to be previewed.
      * @param { Range } range - the range of the text to be replaced by the preview text.
-     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error.
      * @throws { BusinessError } 12800011 - text preview is not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1688,7 +1689,8 @@ declare namespace inputMethodEngine {
      *
      * @param { 'show' } type - events type.
      * @param { function } [callback] - the callback to Unregister.
-     * @throws { BusinessError } 401 -parameter error.
+     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1710,7 +1712,8 @@ declare namespace inputMethodEngine {
      *
      * @param { 'hide' } type - events type.
      * @param { function } [callback] - the callback to Unregister.
-     * @throws { BusinessError } 401 -parameter error.
+     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
