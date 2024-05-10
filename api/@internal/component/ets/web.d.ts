@@ -3954,11 +3954,11 @@ declare interface WebOptions {
   incognitoMode? : boolean;
   
   /**
-   * Sets the shared render process token of the Web.
-   * when the Web is in multilprocess mode, Web with the same
+   * Sets the shared render process token of the web.
+   * When the web is in multiprocess mode, web with the same
    * sharedRenderProcessToken will attempt to reuse the same render process.
    * The shared render process will remain active until all associated
-   * Web are destroyed.
+   * web are destroyed.
    *
    * @type { ?string }
    * @syscap SystemCapability.Web.Webview.Core
