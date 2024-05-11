@@ -7100,6 +7100,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 12
    */
    onRenderProcessResponding(callback: OnRenderProcessRespondingCallback): WebAttribute;
+
+  /**
+   * Set the custom text menu.
+   *
+   * @param { Array<ExpandedMenuItemOptions> } expandedMenuOptions - Customize text menu options.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+   selectionMenuOptions(expandedMenuOptions: Array<ExpandedMenuItemOptions>): WebAttribute;
 }
 
 /**
@@ -7206,4 +7216,42 @@ declare interface SslErrorEvent {
    * @since 12
    */
   isMainFrame: boolean;
+}
+
+/**
+ * Defines the menu item option.
+ *
+ * @interface ExpandedMenuItemOptions
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+declare interface ExpandedMenuItemOptions {
+  /**
+   * Customize what the menu displays.
+   *
+   * @type { ResourceStr }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  content: ResourceStr;
+  /**
+   * Customize the icon before the menu displays content.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  startIcon?: ResourceStr;
+  /**
+   * Get the selected text information.
+   *
+   * @type { function }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  action: (selectedText: {plainText: string}) => void;
 }
