@@ -3986,7 +3986,7 @@ declare namespace osAccount {
   /**
    * Indicates the enumeration of the authentication intent.
    *
-   * @enum { number } ResultCode
+   * @enum { number } AuthIntent
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
    * @since 12
