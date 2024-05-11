@@ -124,7 +124,7 @@ declare namespace hiSysEvent {
      * @systemapi hide for inner use
      * @since 9
      */
-    params: object;
+    params?: object;
   }
 
   /**
@@ -247,7 +247,7 @@ declare namespace hiSysEvent {
      * @systemapi hide for inner use
      * @since 9
      */
-    tag: string;
+    tag?: string;
 
     /**
      * The rule of match system event
