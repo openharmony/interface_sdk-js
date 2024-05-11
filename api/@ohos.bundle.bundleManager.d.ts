@@ -1341,7 +1341,6 @@ declare namespace bundleManager {
    *
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
    * @since 12
   */
   export enum MultiAppModeType {
@@ -1349,7 +1348,6 @@ declare namespace bundleManager {
      * Indicates multi app mode with type of unspecified
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @atomicservice
      * @since 12
      */
     UNSPECIFIED = 0,
@@ -1357,7 +1355,6 @@ declare namespace bundleManager {
      * Indicates multi app mode with type of multiInstance
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @atomicservice
      * @since 12
      */
     MULTI_INSTANCE = 1,
@@ -1365,7 +1362,6 @@ declare namespace bundleManager {
      * Indicates multi app mode with type of appClone
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @atomicservice
      * @since 12
     */
     APP_CLONE = 2,

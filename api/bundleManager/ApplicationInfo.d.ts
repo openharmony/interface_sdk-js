@@ -551,7 +551,6 @@ export interface ApplicationInfo {
    * @type { MultiAppMode }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
    * @since 12
    */
   readonly multiAppMode: MultiAppMode;
@@ -672,7 +671,6 @@ export interface PreinstalledApplicationInfo {
  *
  * @typedef MultiAppMode
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @atomicservice
  * @since 12
  */
 export interface MultiAppMode {
@@ -682,7 +680,6 @@ export interface MultiAppMode {
    * @type { bundleManager.MultiAppModeType }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
    * @since 12
    */
   readonly multiAppModeType: bundleManager.MultiAppModeType;
@@ -693,7 +690,6 @@ export interface MultiAppMode {
    * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
    * @since 12
    */
   readonly maxCount: number;
