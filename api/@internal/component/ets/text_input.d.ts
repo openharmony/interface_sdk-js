@@ -1964,7 +1964,17 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @atomicservice
    * @since 11
    */
-  showError(value?: string | undefined): TextInputAttribute;
+  /**
+   * Define the show error of the text input.
+   *
+   * @param { ResourceStr | undefined } [value]
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  showError(value?: ResourceStr | undefined): TextInputAttribute;
 
   /**
    * Define the show unit of the text input.
