@@ -500,6 +500,15 @@ declare interface AlertDialogButtonOptions {
    * @since 11
    */
   action: () => void;
+  /**
+   * Define whether the button responds to Enter/Space key by default.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+    primary?: boolean;
 }
 
 /**
