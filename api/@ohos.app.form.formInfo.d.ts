@@ -414,7 +414,7 @@ declare namespace formInfo {
      * @atomicservice
      * @since 12
      */
-    supportShapes: Array<number>;
+    supportedShapes: Array<number>;
   }
 
   /**
