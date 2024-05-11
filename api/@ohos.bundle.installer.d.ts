@@ -725,6 +725,25 @@ declare namespace installer {
     uninstallUpdates(bundleName: string, installParam?: InstallParam): Promise<void>;
 
     /**
+     * Create clone instance for an application.
+     *
+     * @permission ohos.permission.INSTALL_CLONE_BUNDLE
+     * @param { string } bundleName - Indicates the path where the HAP of the application is stored.
+     * @param { CreateAppCloneParam } [createAppCloneParam] Indicates the optional params of create clone app.
+     * @returns { Promise<number> } Return the appIndex of the clone application.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 17700001 - The specified bundleName cannot be found or the bundle is not installed by the specified user.
+     * @throws { BusinessError } 17700004 - The userId is invalid.
+     * @throws { BusinessError } 17700061 - The appIndex is not in valid range or already exists.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    createAppClone(bundleName: string, createAppCloneParam?: CreateAppCloneParam): Promise<number>;
+
+    /**
      * Destroy clone instance for an application.
      *
      * @permission ohos.permission.UNINSTALL_CLONE_BUNDLE
@@ -965,6 +984,35 @@ declare namespace installer {
      * @since 10
      */
     versionCode?: number;
+  }
+
+  /**
+   * Provides parameters required for creating clone app.
+   *
+   * @typedef CreateAppCloneParam
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  export interface CreateAppCloneParam {
+    /**
+     * Indicates the user id
+     * 
+     * @type { ?number }
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    userId?: number;
+    /**
+     * Indicates the appIndex of MultiApp
+     * 
+     * @type { ?number }
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    appIndex?: number; 
   }
 }
 
