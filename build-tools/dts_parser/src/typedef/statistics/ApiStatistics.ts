@@ -50,6 +50,8 @@ export class ApiStatisticsInfo {
   decorators: Array<string> | undefined = [];
   errorCodes: number[] = [];
   kitInfo: string = '';
+  absolutePath: string = ''; //文件绝对路径
+
   setFilePath(fileFilePath: string): ApiStatisticsInfo {
     this.filePath = fileFilePath;
     this.packageName = FunctionUtils.getPackageName(fileFilePath);
@@ -237,6 +239,15 @@ export class ApiStatisticsInfo {
 
   getKitInfo(): string {
     return this.kitInfo;
+  }
+
+  setAbsolutePath(absolutePath: string): ApiStatisticsInfo {
+    this.absolutePath = absolutePath;
+    return this;
+  }
+
+  getAbsolutePath(): string {
+    return this.absolutePath;
   }
 }
 

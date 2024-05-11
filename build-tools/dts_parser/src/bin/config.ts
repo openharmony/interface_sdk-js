@@ -21,7 +21,14 @@ import { FileUtils } from '../utils/FileUtils';
 import { LogUtil } from '../utils/logUtil';
 import { FilesMap, Parser } from '../coreImpl/parser/parser';
 import { DiffHelper } from '../coreImpl/diff/diff';
-import { BasicDiffInfo, diffTypeMap, ApiDiffType } from '../typedef/diff/ApiInfoDiff';
+import {
+  BasicDiffInfo,
+  diffTypeMap,
+  ApiDiffType,
+  DiffNumberInfo,
+  apiChangeMap,
+  isNotApiSet,
+} from '../typedef/diff/ApiInfoDiff';
 import { WriterHelper } from './writer';
 import { LocalEntry } from '../coreImpl/checker/local_entry';
 import { ApiResultMessage, ApiResultSimpleInfo } from '../typedef/checker/result_type';
@@ -29,10 +36,12 @@ import { NumberConstant } from '../utils/Constant';
 import { ApiStatisticsHelper } from '../coreImpl/statistics/Statistics';
 import { ApiStatisticsInfo, StatisticsInfoValueType } from '../typedef/statistics/ApiStatistics';
 import { SyscapProcessorHelper } from '../coreImpl/diff/syscapFieldProcessor';
-import { FunctionUtils } from '../utils/FunctionUtils';
 import { ApiCountInfo } from '../typedef/count/ApiCount';
 import { ApiCountHelper } from '../coreImpl/count/count'
 import { CommonFunctions } from '../utils/checkUtils';
+import { FunctionUtils, KitData } from '../utils/FunctionUtils';
+import { ApiType } from '../typedef/parser/ApiInfoDefination';
+
 
 /**
  * 工具名称的枚举值，用于判断执行哪个工具
@@ -162,6 +171,10 @@ export const Plugin: PluginType = {
         isRequiredOption: false,
         options: ['--changelogUrl <string>', 'changelog url', ''],
       },
+      {
+        isRequiredOption: false,
+        options: ['--all <boolean>', 'is all sheet', ''],
+      },
     ],
   },
 
@@ -192,6 +205,7 @@ export const Plugin: PluginType = {
       format: argv.format,
       changelogUrl: argv.changelogUrl,
       excel: argv.excel,
+      all: argv.all,
     };
     const methodInfos: ToolNameValueType = method(options);
 
@@ -229,7 +243,7 @@ function outputInfos(infos: ToolReturnData, options: OptionObjType, callback: To
       );
       break;
     case formatType.EXCEL:
-      WriterHelper.ExcelReporter(infos, options.output, `${options.toolName}.xlsx`, callback);
+      WriterHelper.ExcelReporter(infos, options.output, `${options.toolName}.xlsx`, callback, options);
       break;
     case formatType.CHANGELOG:
       WriterHelper.JSONReporter(String(infos[0]), options.output, `${options.toolName}.json`);
@@ -258,12 +272,12 @@ function collectApi(options: OptionObjType): ToolNameValueType {
     } else {
       allApis = Parser.parseFile(path.resolve(fileDir, '..'), fileDir);
     }
-	const statisticsInfosObject: StatisticsInfoValueType = ApiStatisticsHelper.getApiStatisticsInfos(allApis)
+	const statisticsInfosObject: StatisticsInfoValueType = ApiStatisticsHelper.getApiStatisticsInfos(allApis);
   const fileContent: string = Parser.getParseResults(allApis);
 	let data: ApiStatisticsInfo[] | string [] = [fileContent];
     if (options.format === 'excel') {
       const allApiStatisticsInfos: ApiStatisticsInfo[] | undefined = statisticsInfosObject.allApiStatisticsInfos;
-      data = statisticsInfosObject.apiStatisticsInfos
+      data = statisticsInfosObject.apiStatisticsInfos;
       if (allApiStatisticsInfos) {
         WriterHelper.ExcelReporter(
           allApiStatisticsInfos,
@@ -288,17 +302,33 @@ function collectApi(options: OptionObjType): ToolNameValueType {
   }
 }
 
-function collectApiCallback(apiData: ApiStatisticsInfo[], sheet: ExcelJS.Worksheet): void {
+function collectApiCallback(apiData: ApiStatisticsInfo[], workbook: ExcelJS.Workbook, dest?: string,
+  options?: OptionObjType): void {
+  const sheet: ExcelJS.Worksheet = workbook.addWorksheet();
   const apiRelationsSet: Set<string> = new Set();
-  const kitObject = FunctionUtils.readKitFile();
-  const subsystemMap: Map<string, string> = kitObject.subsystemMap;
-  const kitMap: Map<string, string> = kitObject.kitNameMap;
+  const kitData: KitData = FunctionUtils.readKitFile();
   sheet.name = 'JsApi';
   sheet.views = [{ xSplit: 1 }];
-  sheet.getRow(1).values = ['模块名', '类名', '方法名', '函数', '类型',
-    '起始版本', '废弃版本', 'syscap', '错误码', '是否为系统API',
-    '模型限制', '权限', '是否支持跨平台', '是否支持卡片应用', '是否为高阶API',
-    '装饰器', 'kit', '文件路径', '子系统',
+  sheet.getRow(1).values = [
+    '模块名',
+    '类名',
+    '方法名',
+    '函数',
+    '类型',
+    '起始版本',
+    '废弃版本',
+    'syscap',
+    '错误码',
+    '是否为系统API',
+    '模型限制',
+    '权限',
+    '是否支持跨平台',
+    '是否支持卡片应用',
+    '是否为高阶API',
+    '装饰器',
+    'kit',
+    '文件路径',
+    '子系统',
   ];
   let lineNumber = 2;
   apiData.forEach((apiInfo: ApiStatisticsInfo) => {
@@ -323,9 +353,84 @@ function collectApiCallback(apiData: ApiStatisticsInfo[], sheet: ExcelJS.Workshe
       apiInfo.getIsForm(),
       apiInfo.getIsAutomicService(),
       apiInfo.getDecorators()?.join(),
-      apiInfo.getKitInfo() === '' ? kitMap.get(apiInfo.getFilePath().replace(/\\/g, '/')) : apiInfo.getKitInfo(),
+      apiInfo.getKitInfo() === ''
+        ? kitData.kitNameMap.get(apiInfo.getFilePath().replace(/\\/g, '/').replace('api/', ''))
+        : apiInfo.getKitInfo(),
       apiInfo.getFilePath(),
-      subsystemMap.get(apiInfo.getFilePath().replace(/\\/g, '/')),
+      kitData.subsystemMap.get(apiInfo.getFilePath().replace(/\\/g, '/').replace('api/', '')),
+    ];
+    lineNumber++;
+    apiRelationsSet.add(apiRelations);
+  });
+
+  if (options?.all) {
+    handleCollectData(apiData, workbook);
+  }
+}
+
+/**
+ * 用于处理统计工具的数据
+ * 
+ * @param apiData 
+ * @param workbook 
+ */
+function handleCollectData(apiData: ApiStatisticsInfo[], workbook: ExcelJS.Workbook){
+  const sheet: ExcelJS.Worksheet = workbook.addWorksheet();
+  const apiRelationsSet: Set<string> = new Set();
+  const kitData: KitData = FunctionUtils.readKitFile();
+  sheet.name = 'JsApi定制版本';
+  sheet.views = [{ xSplit: 1 }];
+  sheet.getRow(1).values = [
+    '模块名',
+    '类名',
+    '方法名',
+    '函数',
+    '类型',
+    '起始版本',
+    '废弃版本',
+    'syscap',
+    '错误码',
+    '是否为系统API',
+    '模型限制',
+    '权限',
+    '是否支持跨平台',
+    '是否支持卡片应用',
+    '是否为高阶API',
+    '装饰器',
+    'kit',
+    '文件路径',
+    '子系统',
+    '接口全路径'
+  ];
+  let lineNumber = 2;
+  apiData.forEach((apiInfo: ApiStatisticsInfo) => {
+    const apiRelations: string = `${apiInfo.getHierarchicalRelations()},${apiInfo.getDefinedText()}`;
+    if (apiRelationsSet.has(apiRelations)) {
+      return;
+    }
+    sheet.getRow(lineNumber).values = [
+      apiInfo.getPackageName(),
+      apiInfo.getParentModuleName(),
+      apiInfo.getApiName(),
+      apiInfo.getDefinedText(),
+      apiInfo.getApiType(),
+      apiInfo.getSince() === '-1' ? '' : apiInfo.getSince(),
+      apiInfo.getDeprecatedVersion() === '-1' ? '' : apiInfo.getDeprecatedVersion(),
+      apiInfo.getSyscap(),
+      apiInfo.getErrorCodes().join() === '-1' ? '' : apiInfo.getErrorCodes().join(),
+      apiInfo.getApiLevel(),
+      apiInfo.getModelLimitation(),
+      apiInfo.getPermission(),
+      apiInfo.getIsCrossPlatForm(),
+      apiInfo.getIsForm(),
+      apiInfo.getIsAutomicService(),
+      apiInfo.getDecorators()?.join(),
+      apiInfo.getKitInfo() === ''
+        ? kitData.kitNameMap.get(apiInfo.getFilePath().replace(/\\/g, '/').replace('api/', ''))
+        : apiInfo.getKitInfo(),
+      apiInfo.getFilePath(),
+      kitData.subsystemMap.get(apiInfo.getFilePath().replace(/\\/g, '/').replace('api/', '')),
+      apiInfo.getHierarchicalRelations().replace(/\//g, '#').replace('api\\', ''),
     ];
     lineNumber++;
     apiRelationsSet.add(apiRelations);
@@ -356,6 +461,7 @@ function checkApi(): ToolNameValueType {
     };
   }
 }
+
 /**
  * api检查工具调用方法
  *
@@ -418,11 +524,11 @@ function diffApi(options: OptionObjType): ToolNameValueType {
     if (status.isDirectory()) {
       const oldSDKApiMap: FilesMap = Parser.parseDir(oldFileDir);
       const newSDKApiMap: FilesMap = Parser.parseDir(newFileDir);
-      data = DiffHelper.diffSDK(oldSDKApiMap, newSDKApiMap);
+      data = DiffHelper.diffSDK(oldSDKApiMap, newSDKApiMap, options.all);
     } else {
       const oldSDKApiMap: FilesMap = Parser.parseFile(path.resolve(oldFileDir, '..'), oldFileDir);
       const newSDKApiMap: FilesMap = Parser.parseFile(path.resolve(newFileDir, '..'), newFileDir);
-      data = DiffHelper.diffSDK(oldSDKApiMap, newSDKApiMap);
+      data = DiffHelper.diffSDK(oldSDKApiMap, newSDKApiMap, options.all);
     }
     let finalData: (string | BasicDiffInfo)[] = [];
     if (options.format === formatType.JSON) {
@@ -461,17 +567,21 @@ function detectionApi(options: OptionObjType): ToolNameValueType {
       allApis = Parser.parseFile(path.resolve(fileDir, '..'), fileDir);
     }
     const fileContent: string = Parser.getParseResults(allApis);
-    WriterHelper.JSONReporter(
-      fileContent,
-      path.dirname(options.output),
-      'detection.json'
-    );
+    WriterHelper.JSONReporter(fileContent, path.dirname(options.output), 'detection.json');
     let runningCommand: string = '';
 
     if (process.env.NODE_ENV === 'development') {
-      runningCommand = `python ${path.resolve(FileUtils.getBaseDirName(), '../api_label_detection/src/main.py')} -N detection -L ${options.checkLabels} -P ${path.resolve(path.dirname(options.output), 'detection.json')} -O ${path.resolve(options.output)}`;
+      runningCommand = `python ${path.resolve(
+        FileUtils.getBaseDirName(),
+        '../api_label_detection/src/main.py'
+      )} -N detection -L ${options.checkLabels} -P ${path.resolve(
+        path.dirname(options.output),
+        'detection.json'
+      )} -O ${path.resolve(options.output)}`;
     } else if (process.env.NODE_ENV === 'production') {
-      runningCommand = `${path.resolve(FileUtils.getBaseDirName(), './main.exe')} -N detection -L ${options.checkLabels} -P ${path.resolve(path.dirname(options.output), 'detection.json')} -O ${path.resolve(options.output)}`;
+      runningCommand = `${path.resolve(FileUtils.getBaseDirName(), './main.exe')} -N detection -L ${
+        options.checkLabels
+      } -P ${path.resolve(path.dirname(options.output), 'detection.json')} -O ${path.resolve(options.output)}`;
     }
     buffer = execSync(runningCommand, {
       timeout: 120000,
@@ -485,7 +595,6 @@ function detectionApi(options: OptionObjType): ToolNameValueType {
   return {
     data: [],
   };
-
 }
 
 /**
@@ -512,7 +621,7 @@ function countApi(options: OptionObjType): ToolNameValueType {
     let finalData: (string | ApiCountInfo)[] = [];
     if (options.format === formatType.JSON) {
       finalData = [JSON.stringify(apiCountInfos, null, NumberConstant.INDENT_SPACE)];
-    }else {
+    } else {
       finalData = apiCountInfos;
     }
     return {
@@ -529,7 +638,8 @@ function countApi(options: OptionObjType): ToolNameValueType {
   }
 }
 
-function countApiCallback(data: ApiCountInfo[], sheet: ExcelJS.Worksheet): void {
+function countApiCallback(data: ApiCountInfo[], workbook: ExcelJS.Workbook): void {
+  const sheet: ExcelJS.Worksheet = workbook.addWorksheet();
   sheet.name = 'api数量';
   sheet.views = [{ xSplit: 1 }];
   sheet.getRow(1).values = ['子系统', 'kit', '文件', 'api数量'];
@@ -547,26 +657,219 @@ function countApiCallback(data: ApiCountInfo[], sheet: ExcelJS.Worksheet): void 
  * diffApi工具导出excel时的回调方法
  *
  * @param {BasicDiffInfo[]} data diffApi工具获取到的数据
- * @param {ExcelJS.Worksheet} sheet ExcelJS构建的Worksheet对象
+ * @param {ExcelJS.Workbook} workbook ExcelJS构建的Workbook对象
  */
-function diffApiCallback(data: BasicDiffInfo[], sheet: ExcelJS.Worksheet, dest?: string): void {
-  sheet.name = 'api差异';
-  sheet.views = [{ xSplit: 1 }];
+function diffApiCallback(
+  data: BasicDiffInfo[],
+  workbook: ExcelJS.Workbook,
+  dest?: string,
+  options?: OptionObjType
+): void {
+  const relationsSet: Set<string> = new Set();
+  const kitData: KitData = FunctionUtils.readKitFile();
+  const sheet: ExcelJS.Worksheet = workbook.addWorksheet('api差异');
+  sheet.views = [{ xSplit: 2 }];
   sheet.getRow(1).values = ['操作标记', '差异项-旧版本', '差异项-新版本', 'd.ts文件', '归属子系统', 'kit'];
   data.forEach((diffInfo: BasicDiffInfo, index: number) => {
+    relationsSet.add(getRelation(diffInfo));
     const dtsName = diffInfo.getNewDtsName() ? diffInfo.getNewDtsName() : diffInfo.getOldDtsName();
     sheet.getRow(index + NumberConstant.LINE_IN_EXCEL).values = [
       diffTypeMap.get(diffInfo.getDiffType()),
       joinOldMessage(diffInfo),
       joinNewMessage(diffInfo),
       dtsName.replace(/\\/g, '/'),
-      SyscapProcessorHelper.matchSubsystem(diffInfo),
-      SyscapProcessorHelper.getSingleKitInfo(diffInfo)
-
+      kitData.subsystemMap.get(dtsName.replace(/\\/g, '/').replace('api/', '')),
+      SyscapProcessorHelper.getSingleKitInfo(diffInfo) === ''
+        ? kitData.kitNameMap.get(dtsName.replace(/\\/g, '/').replace('api/', ''))
+        : SyscapProcessorHelper.getSingleKitInfo(diffInfo),
     ];
   });
-
   WriterHelper.MarkdownReporter.writeInMarkdown(data, dest);
+
+  if (options?.all) {
+    addApiNumberSheet(relationsSet, workbook, data, kitData)
+  }
+
+
+}
+
+/**
+ * 添加diff工具结果的另一个sheet页，对API变更信息的次数+兼容性信息进行统计
+ * 
+ * @param relationsSet 
+ * @param workbook 
+ * @param data 
+ * @param kitData 
+ */
+function addApiNumberSheet(relationsSet: Set<string>, workbook: ExcelJS.Workbook, data: BasicDiffInfo[], kitData: KitData){
+  const numberSheet: ExcelJS.Worksheet = workbook.addWorksheet('api变更数量统计');
+  numberSheet.views = [{ xSplit: 2 }];
+  numberSheet.getRow(1).values = [
+    'api名称',
+    'kit名称',
+    '归属子系统',
+    '是否是api',
+    'api类型',
+    '操作标记',
+    '变更类型',
+    '兼容性',
+    '变更次数',
+    '差异项-旧版本',
+    '差异项-新版本',
+    '兼容性列表',
+    '全路径'
+  ];
+  let diffTypeNumberArr: DiffNumberInfo[] = [];
+  relationsSet.forEach((apiRelation: string) => {
+    let apiName: string = '';
+    const diffNumberInfo: DiffNumberInfo = new DiffNumberInfo();
+    data.forEach((diffInfo: BasicDiffInfo) => {
+      const dtsName: string = diffInfo.getNewDtsName() ? diffInfo.getNewDtsName() : diffInfo.getOldDtsName();
+      const kitName =
+        SyscapProcessorHelper.getSingleKitInfo(diffInfo) === ''
+          ? kitData.kitNameMap.get(dtsName.replace(/\\/g, '/').replace('api/', ''))
+          : SyscapProcessorHelper.getSingleKitInfo(diffInfo);
+      if (apiRelation === getRelation(diffInfo)) {
+        apiName = getDiffApiName(diffInfo);
+        diffNumberInfo
+          .setAllDiffType(diffInfo.getDiffMessage())
+          .setAllChangeType(apiChangeMap.get(diffInfo.getDiffType()))
+          .setOldDiffMessage(diffInfo.getOldDescription())
+          .setNewDiffMessage(diffInfo.getNewDescription())
+          .setAllCompatible(diffInfo.getIsCompatible())
+          .setIsApi(!isNotApiSet.has(diffInfo.getApiType()))
+          .setKitName(kitName)
+          .setSubsystem(kitData.subsystemMap.get(dtsName.replace(/\\/g, '/').replace('api/', '')))
+          .setApiName(diffInfo.getApiType() === ApiType.SOURCE_FILE ? 'SOURCEFILE' : getDiffApiName(diffInfo))
+          .setApiRelation(getRelation(diffInfo).replace(/\,/g, '#').replace('api\\', ''));
+      }
+    });
+    diffTypeNumberArr.push(diffNumberInfo);
+  });
+
+  diffTypeNumberArr = handleData(data, diffTypeNumberArr);
+  diffTypeNumberArr.forEach((diffNumberInfo: DiffNumberInfo, index: number) => {
+    numberSheet.getRow(index + NumberConstant.LINE_IN_EXCEL).values = [
+      diffNumberInfo.getApiName(),
+      diffNumberInfo.getKitName(),
+      diffNumberInfo.getSubsystem(),
+      diffNumberInfo.getIsApi(),
+      diffNumberInfo.getApiType(),
+      diffNumberInfo.getAllDiffType().join(' #&# '),
+      diffNumberInfo.getAllChangeType().join(' #&# '),
+      getCompatibleObject(diffNumberInfo),
+      calculateChangeNumber(diffNumberInfo),
+      diffNumberInfo.getOldDiffMessage().join(' #&# '),
+      diffNumberInfo.getNewDiffMessage().join(' #&# '),
+      diffNumberInfo.getAllCompatible().join(' #&# '),
+      diffNumberInfo.getApiRelation(),
+    ];
+  });
+}
+
+
+/**
+ * 用于处理diff数据的钩子函数
+ * 
+ * @param data 基础数据
+ * @param diffTypeNumberArr 处理后的数据
+ * @returns 
+ */
+function handleData(data: BasicDiffInfo[], diffTypeNumberArr: DiffNumberInfo[]): DiffNumberInfo[] {
+  return diffTypeNumberArr;
+}
+
+/**
+ * 判断API的变更集合是否兼容
+ *
+ * @param diffNumberInfo
+ * @returns
+ */
+function getCompatibleObject(diffNumberInfo: DiffNumberInfo) {
+  const compatibleInfoSet: Set<boolean> = new Set(diffNumberInfo.getAllCompatible());
+  let compatibleSign = 0;
+  let incompatibleSign = 0;
+  if (compatibleInfoSet.size === 2) {
+    compatibleSign = 1;
+    incompatibleSign = 1;
+    return `{
+      "兼容性":${compatibleSign},
+      "非兼容性":${incompatibleSign}
+    }`;
+  }
+  if (compatibleInfoSet.has(true)) {
+    compatibleSign = 1;
+    return `{
+      "兼容性":${compatibleSign},
+      "非兼容性":${incompatibleSign}
+    }`;
+  }
+
+  if (compatibleInfoSet.has(false)) {
+    incompatibleSign = 1;
+    return `{
+      "兼容性":${compatibleSign},
+      "非兼容性":${incompatibleSign}
+    }`;
+  }
+}
+
+/**
+ * 计算变更次数
+ *
+ * @param diffNumberInfo
+ * @returns
+ */
+function calculateChangeNumber(diffNumberInfo: DiffNumberInfo) {
+  const changeTypeSet: Set<string> = new Set(diffNumberInfo.getAllChangeType());
+  let newApiNumber: number = 0,
+    apiDeleteNumber = 0,
+    apiDeprecatedNumber = 0,
+    apiChangeNumber = 0,
+    apiConstrainedChange = 0,
+    apiPrototypeChange = 0;
+  if (changeTypeSet.has('API修改（原型修改）')) {
+    apiPrototypeChange++;
+  }
+  if (changeTypeSet.has('API修改（约束变化）')) {
+    apiConstrainedChange++;
+  }
+  if (changeTypeSet.has('API修改（原型修改）') || changeTypeSet.has('API修改（约束变化）')) {
+    apiChangeNumber++;
+  }
+  if (changeTypeSet.has('API废弃')) {
+    apiDeprecatedNumber++;
+  }
+  if (changeTypeSet.has('API新增')) {
+    newApiNumber++;
+  }
+  if (changeTypeSet.has('API删除')) {
+    apiDeleteNumber++;
+  }
+  return `{
+    "API新增": ${newApiNumber},
+    "API删除": ${apiDeleteNumber},
+    "API废弃": ${apiDeprecatedNumber},
+    "API修改": ${apiChangeNumber},
+    "API修改（原型修改）": ${apiPrototypeChange},
+    "API修改（约束变化）": ${apiConstrainedChange}
+    }`;
+}
+
+function getDiffApiName(diffInfo: BasicDiffInfo): string {
+  if (diffInfo.getNewApiName() !== '') {
+    return diffInfo.getNewApiName();
+  }
+  return diffInfo.getOldApiName();
+}
+
+function getRelation(diffInfo: BasicDiffInfo): string {
+  const relationsArr = diffInfo.getNewHierarchicalRelations();
+  if (relationsArr.length > 0) {
+    return relationsArr.join();
+  } else {
+    return diffInfo.getOldHierarchicalRelations().join();
+  }
 }
 
 export function joinOldMessage(diffInfo: BasicDiffInfo): string {
@@ -632,6 +935,7 @@ export type OptionObjType = {
   format: formatType;
   changelogUrl: string;
   excel: string;
+  all: boolean;
 };
 
 /**
@@ -640,7 +944,12 @@ export type OptionObjType = {
  * @param { ToolReturnData } data 工具获取到的数据
  * @param { ExcelJS.Worksheet } sheet ExcelJS构建的Worksheet对象
  */
-export type ToolNameExcelCallback = (data: ToolReturnData, sheet: ExcelJS.Worksheet, dest?: string) => void;
+export type ToolNameExcelCallback = (
+  data: ToolReturnData,
+  sheet: ExcelJS.Workbook,
+  dest?: string,
+  options?: OptionObjType
+) => void;
 
 /**
  * 各个工具调用方法返回的格式

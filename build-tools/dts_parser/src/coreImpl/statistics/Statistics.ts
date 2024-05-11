@@ -203,7 +203,8 @@ export class ApiStatisticsHelper {
       .setApiName(apiInfo.getApiName())
       .setPos(apiInfo.getPos())
       .setHierarchicalRelations(relations.join('/'))
-      .setDecorators(apiInfo.getDecorators());
+      .setDecorators(apiInfo.getDecorators())
+      .setAbsolutePath(apiInfo.getFileAbsolutePath());
     if (notJsDocApiTypes.has(apiInfo.getApiType())) {
       return apiStatisticsInfo;
     }

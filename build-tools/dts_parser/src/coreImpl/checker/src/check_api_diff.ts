@@ -58,11 +58,11 @@ export class ApiChangeCheck {
     if (status.isDirectory()) {
       const oldSDKApiMap: FilesMap = Parser.parseDir(oldFileDir);
       const newSDKApiMap: FilesMap = Parser.parseDir(newFileDir);
-      diffInfos = DiffHelper.diffSDK(oldSDKApiMap, newSDKApiMap, true);
+      diffInfos = DiffHelper.diffSDK(oldSDKApiMap, newSDKApiMap, false, true);
     } else {
       const oldSDKApiMap: FilesMap = Parser.parseFile(path.resolve(oldFileDir, '..'), oldFileDir);
       const newSDKApiMap: FilesMap = Parser.parseFile(path.resolve(newFileDir, '..'), newFileDir);
-      diffInfos = DiffHelper.diffSDK(oldSDKApiMap, newSDKApiMap, true);
+      diffInfos = DiffHelper.diffSDK(oldSDKApiMap, newSDKApiMap, false, true);
     }
     diffInfos.forEach((diffInfo: BasicDiffInfo) => {
       if (diffInfo.getIsCompatible() !== false) {
