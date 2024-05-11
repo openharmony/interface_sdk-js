@@ -499,13 +499,13 @@ declare enum CacheMode {
   None,
 
   /**
-   * Load cache first, then online.
+   * Load online and not cache.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   /**
-   * Load cache first, then online.
+   * Load online and not cache.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -4672,8 +4672,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Injects the JavaScript object into window and invoke the function in window.
+   *
+   * @param { object } javaScriptProxy - The JavaScript object to be injected.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
   javaScriptProxy(javaScriptProxy: { object: object, name: string, methodList: Array<string>,
-    controller: WebController | WebviewController }): WebAttribute;
+      controller: WebController | WebviewController, asyncMethodList?: Array<string> }): WebAttribute;
 
   /**
    * Sets whether the Web should save the password.

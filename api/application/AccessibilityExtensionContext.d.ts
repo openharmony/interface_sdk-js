@@ -36,7 +36,10 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    *
    * @param { Array<string> } targetNames The bundle names that are interested in sending the event.
    * @param { AsyncCallback<void> } callback Indicates the listener.
-   * @throws { BusinessError } 401 - Input parameter error.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types;
+   *     3.Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -47,7 +50,10 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    *
    * @param { Array<string> } targetNames The bundle names that are interested in sending the event.
    * @returns { Promise<void> }
-   * @throws { BusinessError } 401 - Input parameter error.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types;
+   *     3.Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -58,7 +64,10 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    *
    * @param { boolean } isAccessibilityFocus Indicates whether the acquired element has an accessibility focus.
    * @param { AsyncCallback<AccessibilityElement> } callback Indicates the listener.
-   * @throws { BusinessError } 401 - Input parameter error.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types;
+   *     3.Parameter verification failed.
    * @throws { BusinessError } 9300003 -  Do not have accessibility right for this operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
@@ -70,7 +79,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    *
    * @param { boolean } isAccessibilityFocus Indicates whether the acquired element has an accessibility focus.
    * @returns { Promise<AccessibilityElement> }
-   * @throws { BusinessError } 401 - Input parameter error.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes: Incorrect parameter types.
    * @throws { BusinessError } 9300003 -  Do not have accessibility right for this operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
@@ -80,7 +89,10 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
   /**
    * Get focus element.
    * @param { AsyncCallback<AccessibilityElement> } callback Indicates the listener.
-   * @throws { BusinessError } 401 - Input parameter error.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types;
+   *     3.Parameter verification failed.
    * @throws { BusinessError } 9300003 -  Do not have accessibility right for this operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
@@ -92,7 +104,10 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    *
    * @param { number } windowId Indicates the window ID.
    * @param { AsyncCallback<AccessibilityElement> } callback Indicates the listener.
-   * @throws { BusinessError } 401 - Input parameter error.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types;
+   *     3.Parameter verification failed.
    * @throws { BusinessError } 9300003 -  Do not have accessibility right for this operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
@@ -104,7 +119,9 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    *
    * @param { number } windowId Indicates the window ID.
    * @returns { Promise<AccessibilityElement> }
-   * @throws { BusinessError } 401 - Input parameter error.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *     1.Incorrect parameter types;
+   *     2.Parameter verification failed.
    * @throws { BusinessError } 9300003 -  Do not have accessibility right for this operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
@@ -114,7 +131,10 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
   /**
    * Get window root element.
    * @param { AsyncCallback<AccessibilityElement> } callback Indicates the listener.
-   * @throws { BusinessError } 401 - Input parameter error.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types;
+   *     3.Parameter verification failed.
    * @throws { BusinessError } 9300003 -  Do not have accessibility right for this operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
@@ -126,7 +146,10 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    *
    * @param { number } displayId Indicates the display ID.
    * @param { AsyncCallback<Array<AccessibilityElement>> } callback Indicates the listener.
-   * @throws { BusinessError } 401 - Input parameter error.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types;
+   *     3.Parameter verification failed.
    * @throws { BusinessError } 9300003 -  Do not have accessibility right for this operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
@@ -138,7 +161,9 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    *
    * @param { number } displayId Indicates the display ID.
    * @returns { Promise<Array<AccessibilityElement>> }
-   * @throws { BusinessError } 401 - Input parameter error.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *     1.Incorrect parameter types;
+   *     2.Parameter verification failed.
    * @throws { BusinessError } 9300003 -  Do not have accessibility right for this operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
@@ -148,7 +173,10 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
   /**
    * Get window list.
    * @param { AsyncCallback<Array<AccessibilityElement>> } callback Indicates the listener.
-   * @throws { BusinessError } 401 - Input parameter error.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types;
+   *     3.Parameter verification failed.
    * @throws { BusinessError } 9300003 -  Do not have accessibility right for this operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
@@ -160,7 +188,10 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    *
    * @param { GesturePath } gesturePath Indicates the gesture path.
    * @param { AsyncCallback<void> } callback Indicates the listener.
-   * @throws { BusinessError } 401 - Input parameter error.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types;
+   *     3.Parameter verification failed.
    * @throws { BusinessError } 9300003 -  Do not have accessibility right for this operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
@@ -174,7 +205,10 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    *
    * @param { GesturePath } gesturePath Indicates the gesture path.
    * @returns { Promise<void> }
-   * @throws { BusinessError } 401 - Input parameter error.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types;
+   *     3.Parameter verification failed.
    * @throws { BusinessError } 9300003 -  Do not have accessibility right for this operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
@@ -187,7 +221,10 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    * Inject gesture path events.
    *
    * @param { GesturePath } gesturePath Indicates the gesture path.
-   * @throws { BusinessError } 401 - Input parameter error.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types;
+   *     3.Parameter verification failed.
    * @throws { BusinessError } 9300003 -  Do not have accessibility right for this operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 10
@@ -226,7 +263,10 @@ declare interface AccessibilityElement {
    *
    * @param { T } attributeName Indicates the attribute name.
    * @param { AsyncCallback<ElementAttributeValues[T]> } callback Indicates the listener.
-   * @throws { BusinessError } 401 - Input parameter error.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types;
+   *     3.Parameter verification failed.
    * @throws { BusinessError } 9300004 - This property does not exist.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
@@ -241,7 +281,10 @@ declare interface AccessibilityElement {
    *
    * @param { T } attributeName Indicates the attribute name.
    * @returns { Promise<ElementAttributeValues[T]> }
-   * @throws { BusinessError } 401 - Input parameter error.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types;
+   *     3.Parameter verification failed.
    * @throws { BusinessError } 9300004 - This property does not exist.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
@@ -272,7 +315,10 @@ declare interface AccessibilityElement {
    * @param { string } actionName Indicates the action name.
    * @param { object } parameters Indicates the parameters needed to execute the action.
    * @param { AsyncCallback<void> } callback Indicates the listener.
-   * @throws { BusinessError } 401 - Input parameter error.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types;
+   *     3.Parameter verification failed.
    * @throws { BusinessError } 9300005 - This action is not supported.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
@@ -285,7 +331,10 @@ declare interface AccessibilityElement {
    * @param { string } actionName Indicates the action name.
    * @param { object } parameters Indicates the parameters needed to execute the action.
    * @returns { Promise<void> }
-   * @throws { BusinessError } 401 - Input parameter error.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types;
+   *     3.Parameter verification failed.
    * @throws { BusinessError } 9300005 - This action is not supported.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
@@ -297,7 +346,10 @@ declare interface AccessibilityElement {
    *
    * @param { string } actionName Indicates the action name.
    * @param { AsyncCallback<void> } callback Indicates the listener.
-   * @throws { BusinessError } 401 - Input parameter error.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types;
+   *     3.Parameter verification failed.
    * @throws { BusinessError } 9300005 - This action is not supported.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
@@ -326,7 +378,10 @@ declare interface AccessibilityElement {
    * Set the screen curtain enable or disable.
    *
    * @param { boolean } isEnable Indicates whether the screen curtain is enabled.
-   * @throws { BusinessError } 401 - Input parameter error.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types;
+   *     3.Parameter verification failed.
    * @throws { BusinessError } 9300003 -  Do not have accessibility right for this operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -340,7 +395,10 @@ declare interface AccessibilityElement {
    * @param { 'content' } type The type of query condition is content.
    * @param { string } condition Indicates the specific content to be queried.
    * @param { AsyncCallback<Array<AccessibilityElement>> } callback Indicates the listener.
-   * @throws { BusinessError } 401 - Input parameter error.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types;
+   *     3.Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -352,7 +410,10 @@ declare interface AccessibilityElement {
    * @param { 'content' } type The type of query condition is content.
    * @param { string } condition Indicates the specific content to be queried.
    * @returns { Promise<Array<AccessibilityElement>> }
-   * @throws { BusinessError } 401 - Input parameter error.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types;
+   *     3.Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -364,7 +425,10 @@ declare interface AccessibilityElement {
    * @param { 'focusType' } type The type of query condition is focus type.
    * @param { FocusType } condition Indicates the type of focus to query.
    * @param { AsyncCallback<AccessibilityElement> } callback Indicates the listener.
-   * @throws { BusinessError } 401 - Input parameter error.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types;
+   *     3.Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -376,7 +440,10 @@ declare interface AccessibilityElement {
    * @param { 'focusType' } type The type of query condition is focus type.
    * @param { FocusType } condition Indicates the type of focus to query.
    * @returns { Promise<AccessibilityElement> }
-   * @throws { BusinessError } 401 - Input parameter error.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types;
+   *     3.Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -388,7 +455,10 @@ declare interface AccessibilityElement {
    * @param { 'focusDirection' } type The type of query condition is focus direction.
    * @param { FocusDirection } condition Indicates the direction of search focus to query.
    * @param { AsyncCallback<AccessibilityElement> } callback Indicates the listener.
-   * @throws { BusinessError } 401 - Input parameter error.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types;
+   *     3.Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -400,7 +470,10 @@ declare interface AccessibilityElement {
    * @param { 'focusDirection' } type The type of query condition is focus direction.
    * @param { FocusDirection } condition Indicates the direction of search focus to query.
    * @returns { Promise<AccessibilityElement> }
-   * @throws { BusinessError } 401 - Input parameter error.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types;
+   *     3.Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -412,7 +485,10 @@ declare interface AccessibilityElement {
    * @param { 'textType' } type The type of query condition is text type.
    * @param { string } condition Indicates the specific content to be queried.
    * @returns { Promise<Array<AccessibilityElement>> }
-   * @throws { BusinessError } 401 - Input parameter error.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types;
+   *     3.Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 12
    */
@@ -424,7 +500,10 @@ declare interface AccessibilityElement {
    * @param { 'elementId' } type The type of query condition is element id.
    * @param { number } condition Indicates the specific content to be queried.
    * @returns { Promise<AccessibilityElement> }
-   * @throws { BusinessError } 401 - Input parameter error.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types;
+   *     3.Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 12
    */

@@ -239,7 +239,11 @@ def detection_label(check_labels, result_json_path, output_path):
     data = json_file_data(result_json_path)
     for key in data:   # 代表每个ts文件
         judgement_dict_data(data, key)
-    generate_excel(result_list, output_path)
+    if len(result_list) == 0:
+        print('The file check is passed.')
+    else:
+        print('File check failed,{} questions in total.Please check the table.'.format(len(result_list)))
+        generate_excel(result_list, output_path)
 
 
 def split_labels(labels: str):

@@ -60,7 +60,10 @@ declare namespace stream {
      * @param { string } [encoding] - Encoding type.
      * @param { Function } [callback] - Callback after writing.
      * @returns { boolean } Write success returns true, write failure returns false.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 401 - An input parameter is invalid.
+     * @throws { BusinessError } 10200035 - The doWrite method has not been implemented.
+     * @throws { BusinessError } 10200036 - The stream has been ended.
+     * @throws { BusinessError } 10200037 - The callback is invoked multiple times consecutively.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 12
@@ -73,7 +76,8 @@ declare namespace stream {
      * @param { string } [encoding] - Encoding type.
      * @param { Function } [callback] - Callback after writing.
      * @returns { Writable } Returns the Writable object.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 401 - An input parameter is invalid.
+     * @throws { BusinessError } 10200035 - The doWrite method has not been implemented.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 12
@@ -123,12 +127,13 @@ declare namespace stream {
      * Cancel event message.
      *
      * @param { string } event - Register Event.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @param { Callback<emitter.EventData> } callback - event callbacks.
+     * @throws { BusinessError } 401 - An input parameter is invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 12
      */
-    off(event: string): void;
+    off(event: string, callback?: Callback<emitter.EventData>): void;
     /**
      * This method is invoked by the Writable method during initialization and must not be invoked directly.
      * After the resource is initialized in the doInitialize method, the callback () method is invoked.
@@ -302,7 +307,8 @@ declare namespace stream {
      *
      * @param { number } size - Expected length of the data to be read.
      * @returns { string | null } If no data is available to read, null is returned.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 401 - An input parameter is invalid.
+     * @throws { BusinessError } 10200038 - The doRead method has not been implemented.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 12
@@ -384,12 +390,13 @@ declare namespace stream {
      * Cancel event message.
      *
      * @param { string } event - Registering Events.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @param { Callback<emitter.EventData> } callback - Event callback.
+     * @throws { BusinessError } 401 - An input parameter is invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 12
      */
-    off(event: string): void;
+    off(event: string, callback?: Callback<emitter.EventData>): void;
     /**
      * It may be implemented by child classes, and if so, will be called by the Readable class methods only.
      * It must not be called directly.
@@ -528,7 +535,10 @@ declare namespace stream {
      * @param { string } [encoding] - Encoding type.
      * @param { Function } [callback] - Callback after writing.
      * @returns { boolean } Write success returns true, write failure returns false.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 401 - An input parameter is invalid.
+     * @throws { BusinessError } 10200036 - The stream has been ended.
+     * @throws { BusinessError } 10200037 - The callback is invoked multiple times consecutively.
+     * @throws { BusinessError } 10200039 - The doTransform method has not been implemented for a class that inherits from Transform.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 12
@@ -541,7 +551,8 @@ declare namespace stream {
      * @param { string } [encoding] - Encoding type.
      * @param { Function } [callback] - Callback after writing.
      * @returns { Writable } Returns the Writable object.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 401 - An input parameter is invalid.
+     * @throws { BusinessError } 10200039 - The doTransform method has not been implemented for a class that inherits from Transform.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 12

@@ -554,14 +554,14 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
   /**
    * Set back button icon.
    *
-   * @param { ResourceStr | PixelMap } value - Indicates icon of back button.
+   * @param { ResourceStr | PixelMap | SymbolGlyphModifier } value - Indicates icon of back button.
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  backButtonIcon(value: ResourceStr | PixelMap): NavDestinationAttribute;
+  backButtonIcon(value: ResourceStr | PixelMap | SymbolGlyphModifier): NavDestinationAttribute;
   
   /**
    * NavDestination title bar's menus

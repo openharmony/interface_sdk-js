@@ -755,5 +755,30 @@ declare namespace hidebug {
    * @since 12
    */
   function stopAppTraceCapture(): void;
+
+  /**
+   * Set the resource limitation of application.Please note that this function is only valid
+   * when the developer options switch of setting is turned on.
+   * 
+   * @param { string } type - resource type. It could be pss_memory、js_heap、fd、or thread.
+   * @param { number } value - For different resource type, values could have different meaning:
+   *                           1.For pss_memory, it means the baseline PSS memory size for the application,
+   *                             system memory control will be triggered if exceed the value too much.
+   *                           2.For js_heap, it means the percentage of the used JS heap memory to the maximum limit exceed
+   *                            which heap dump will be triggered if enableDebugLog set as true, it can be set between 85 and 95.
+   *                           3.For fd, it means the maximum fd number can be opened.
+   *                           4.For thread, it means the maximum thread number can be created.
+   * @param { boolean } enableDebugLog - Whether to enable external debug log. Default is false, pls make sure set
+   *                                      it as true only in gray release because collecting debug log will cost too much cpu or memory.
+   * @throws { BusinessError } 401 - Invalid argument, Possible causes:
+   *                           1.The limit parameter is too small
+   *                           2.The parameter is not in the specified type
+   *                           3.The parameter type error or parameter order error
+   * @throws { BusinessError } 11400104 - Set limit failed due to remote exception
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @atomicservice
+   * @since 12
+   */
+  function setAppResourceLimit(type: string, value: number, enableDebugLog: boolean): void;
 }
 export default hidebug;

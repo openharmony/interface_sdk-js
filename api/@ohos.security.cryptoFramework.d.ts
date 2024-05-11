@@ -850,6 +850,21 @@ declare namespace cryptoFramework {
      * @since 12
      */
     getEncodedDer(format: string): DataBlob;
+
+    /**
+     * Encode the private key object to string in PEM format.
+     *
+     * @param { string } format - indicates the encoding format.
+     * @returns { string } the string of the key object in PEM format.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    getEncodedPem(format: string): string;
   }
 
   /**
@@ -941,6 +956,21 @@ declare namespace cryptoFramework {
      * @since 12
      */
     getEncodedDer(format: string): DataBlob;
+
+    /**
+     * Encode the public key object to string in PEM format.
+     *
+     * @param { string } format - indicates the encoding format.
+     * @returns { string } the string of the key object in PEM format.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    getEncodedPem(format: string): string;
   }
 
   /**
@@ -1530,6 +1560,38 @@ declare namespace cryptoFramework {
     convertKeySync(pubKey: DataBlob | null, priKey: DataBlob | null): KeyPair;
 
     /**
+     * Used to convert asymmetric key in PEM format to keypair object.
+     *
+     * @param { string | null } pubKey - the public key string in PEM format.
+     * @param { string | null } priKey - the private key string in PEM format.
+     * @returns { Promise<KeyPair> } return keypair.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    convertPemKey(pubKey: string | null, priKey: string | null): Promise<KeyPair>;
+
+    /**
+     * Used to convert asymmetric key in PEM format to keypair object.
+     *
+     * @param { string | null } pubKey - the public key string in PEM format.
+     * @param { string | null } priKey - the private key string in PEM format.
+     * @returns { KeyPair } return keypair.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    convertPemKeySync(pubKey: string | null, priKey: string | null): KeyPair;
+
+    /**
      * The algName of the AsyKeyGenerator.
      *
      * @type { string }
@@ -1994,6 +2056,19 @@ declare namespace cryptoFramework {
     init(key: SymKey): Promise<void>;
 
     /**
+     * Init hmac with given SymKey.
+     *
+     * @param { SymKey } key - indicates the SymKey.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    initSync(key: SymKey): void;
+
+    /**
      * Update hmac with DataBlob.
      *
      * @param { DataBlob } input - indicates the DataBlob.
@@ -2082,6 +2157,19 @@ declare namespace cryptoFramework {
     update(input: DataBlob): Promise<void>;
 
     /**
+     * Update hmac with DataBlob.
+     *
+     * @param { DataBlob } input - indicates the DataBlob.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    updateSync(input: DataBlob): void;
+
+    /**
      * Output the result of hmac calculation.
      *
      * @param { AsyncCallback<DataBlob> } callback - the callback of the doFinal function.
@@ -2144,6 +2232,21 @@ declare namespace cryptoFramework {
      * @since 12
      */
     doFinal(): Promise<DataBlob>;
+
+    /**
+     * Output the result of hmac calculation.
+     *
+     * @returns { DataBlob } the sync returned by the function.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    doFinalSync(): DataBlob;
 
     /**
      * Output the length of hmac result.
@@ -2362,6 +2465,19 @@ declare namespace cryptoFramework {
     update(input: DataBlob): Promise<void>;
 
     /**
+     * Update md with DataBlob.
+     *
+     * @param { DataBlob } input - indicates the DataBlob.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    updateSync(input: DataBlob): void;
+
+    /**
      * Output the result of md calculation.
      *
      * @param { AsyncCallback<DataBlob> } callback - the callback of the digest function.
@@ -2424,6 +2540,21 @@ declare namespace cryptoFramework {
      * @since 12
      */
     digest(): Promise<DataBlob>;
+
+    /**
+     * Output the result of md calculation.
+     *
+     * @returns { DataBlob } the sync returned by the function.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    digestSync(): DataBlob;
 
     /**
      * Output the length of md result.
@@ -3767,6 +3898,24 @@ declare namespace cryptoFramework {
     init(priKey: PriKey): Promise<void>;
 
     /**
+     * Used to init environment.
+     *
+     * @param { PriKey } priKey - the private key.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    initSync(priKey: PriKey): void;
+
+    /**
      * Used to append the message need to be signed.
      *
      * @param { DataBlob } data - the data need to be signed.
@@ -3865,6 +4014,24 @@ declare namespace cryptoFramework {
      * @since 12
      */
     update(data: DataBlob): Promise<void>;
+
+    /**
+     * Used to append the message need to be signed.
+     *
+     * @param { DataBlob } data - the data need to be signed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    updateSync(data: DataBlob): void;
 
     /**
      * Used to sign message, include the update data.
@@ -4065,6 +4232,25 @@ declare namespace cryptoFramework {
      * @since 12
      */
     sign(data: DataBlob | null): Promise<DataBlob>;
+
+    /**
+     * Used to append the message need to be signed.
+     *
+     * @param { DataBlob | null } data - the private key.
+     * @returns { DataBlob } return the signed message.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    signSync(data: DataBlob | null): DataBlob;
 
     /**
      * Set the specified parameter to the sign object.
@@ -4365,6 +4551,24 @@ declare namespace cryptoFramework {
     init(pubKey: PubKey): Promise<void>;
 
     /**
+     * Used to init environment.
+     *
+     * @param { PubKey } pubKey - the public key.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    initSync(pubKey: PubKey): void;
+
+    /**
      * Used to append the message need to be verified.
      *
      * @param { DataBlob } data - the data need to be verified.
@@ -4463,6 +4667,24 @@ declare namespace cryptoFramework {
      * @since 12
      */
     update(data: DataBlob): Promise<void>;
+
+    /**
+     * Used to append the message need to be verified.
+     *
+     * @param { DataBlob } data - the data need to be verified.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    updateSync(data: DataBlob): void;
 
     /**
      * Used to verify message, include the update data.
@@ -4675,6 +4897,26 @@ declare namespace cryptoFramework {
      * @since 12
      */
     verify(data: DataBlob | null, signatureData: DataBlob): Promise<boolean>;
+
+    /**
+     * Used to verify message, include the update data.
+     *
+     * @param { DataBlob | null } data - the data need to be verified.
+     * @param { DataBlob } signatureData - the signature data.
+     * @returns { boolean } return the verify result.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    verifySync(data: DataBlob | null, signatureData: DataBlob): boolean;
 
     /**
      * Used to recover signed data.
@@ -5113,6 +5355,26 @@ declare namespace cryptoFramework {
      * @since 12
      */
     generateSecret(priKey: PriKey, pubKey: PubKey): Promise<DataBlob>;
+
+    /**
+     * Used to generate secret.
+     *
+     * @param { PriKey } priKey - the private key.
+     * @param { PubKey } pubKey - the public key.
+     * @returns { DataBlob } the promise used to return secret.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Mandatory parameters are left unspecified;
+     *                                                     2. Incorrect parameter types;
+     *                                                     3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    generateSecretSync(priKey: PriKey, pubKey: PubKey): DataBlob;
 
     /**
      * Indicates the algorithm name.
@@ -8508,6 +8770,22 @@ declare namespace cryptoFramework {
      * @since 12
      */
     generateSecret(params: KdfSpec): Promise<DataBlob>;
+
+    /**
+     * Generate a dataBlob object of secret key.
+     *
+     * @param { KdfSpec } params - the input params of key derivation function.
+     * @returns { DataBlob } the sync used to return dataBlob.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    generateSecretSync(params: KdfSpec): DataBlob;
 
     /**
      * Indicates the algorithm name of the key derivation function.

@@ -713,7 +713,6 @@ declare namespace resourceManager {
    * @param { AsyncCallback<ResourceManager> } callback - Indicates the callback containing the ResourceManager object.
    * @syscap SystemCapability.Global.ResourceManager
    * @FAModelOnly
-   * @atomicservice
    * @since 11
    */
   export function getResourceManager(callback: AsyncCallback<ResourceManager>): void;
@@ -734,7 +733,6 @@ declare namespace resourceManager {
    * @param { AsyncCallback<ResourceManager> } callback - Indicates the callback containing the ResourceManager object.
    * @syscap SystemCapability.Global.ResourceManager
    * @FAModelOnly
-   * @atomicservice
    * @since 11
    */
   export function getResourceManager(bundleName: string, callback: AsyncCallback<ResourceManager>): void;
@@ -753,7 +751,6 @@ declare namespace resourceManager {
    * @returns { Promise<ResourceManager> } The ResourceManager object is returned in Promise mode.
    * @syscap SystemCapability.Global.ResourceManager
    * @FAModelOnly
-   * @atomicservice
    * @since 11
    */
   export function getResourceManager(): Promise<ResourceManager>;
@@ -774,7 +771,6 @@ declare namespace resourceManager {
    * @returns { Promise<ResourceManager> } The ResourceManager object is returned in Promise mode.
    * @syscap SystemCapability.Global.ResourceManager
    * @FAModelOnly
-   * @atomicservice
    * @since 11
    */
   export function getResourceManager(bundleName: string): Promise<ResourceManager>;
@@ -784,7 +780,7 @@ declare namespace resourceManager {
    * resConfig is default value(contains resLocale, screenDensityDpi, direction, etc).
    *
    * @returns { ResourceManager } The System ResourceManager object is returned.
-   * @throws { BusinessError } 9001009 - If application can't access system resource
+   * @throws { BusinessError } 9001009 - Failed to access the system resource.
    *         which is not mapped to application sandbox, This error code will be thrown.
    * @syscap SystemCapability.Global.ResourceManager
    * @since 10
@@ -794,7 +790,7 @@ declare namespace resourceManager {
    * resConfig is default value(contains resLocale, screenDensityDpi, direction, etc).
    *
    * @returns { ResourceManager } The System ResourceManager object is returned.
-   * @throws { BusinessError } 9001009 - If application can't access system resource
+   * @throws { BusinessError } 9001009 - Failed to access the system resource.
    *         which is not mapped to application sandbox, This error code will be thrown.
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
@@ -858,9 +854,9 @@ declare namespace resourceManager {
      * @param { Resource } resource - Indicates the resource object.
      * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the obtained character string.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @since 9
@@ -871,9 +867,9 @@ declare namespace resourceManager {
      * @param { Resource } resource - Indicates the resource object.
      * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the obtained character string.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @crossplatform
@@ -885,9 +881,9 @@ declare namespace resourceManager {
      * @param { Resource } resource - Indicates the resource object.
      * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the obtained character string.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @crossplatform
@@ -902,9 +898,9 @@ declare namespace resourceManager {
      * @param { Resource } resource - Indicates the resource object.
      * @returns { Promise<string> } The character string corresponding to the resource object.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @since 9
@@ -915,9 +911,9 @@ declare namespace resourceManager {
      * @param { Resource } resource - Indicates the resource object.
      * @returns { Promise<string> } The character string corresponding to the resource object.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @crossplatform
@@ -929,9 +925,9 @@ declare namespace resourceManager {
      * @param { Resource } resource - Indicates the resource object.
      * @returns { Promise<string> } The character string corresponding to the resource object.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @crossplatform
@@ -970,9 +966,9 @@ declare namespace resourceManager {
      * @param { Resource } resource - Indicates the resource object.
      * @param { _AsyncCallback<Array<string>> } callback - Indicates the asynchronous callback used to return the obtained array of character strings.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @since 9
@@ -983,9 +979,9 @@ declare namespace resourceManager {
      * @param { Resource } resource - Indicates the resource object.
      * @param { _AsyncCallback<Array<string>> } callback - Indicates the asynchronous callback used to return the obtained array of character strings.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @crossplatform
@@ -997,9 +993,9 @@ declare namespace resourceManager {
      * @param { Resource } resource - Indicates the resource object.
      * @param { _AsyncCallback<Array<string>> } callback - Indicates the asynchronous callback used to return the obtained array of character strings.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @crossplatform
@@ -1014,9 +1010,9 @@ declare namespace resourceManager {
      * @param { Resource } resource - Indicates the resource object.
      * @returns { Promise<Array<string>> } The array of character strings corresponding to the specified resource object.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @since 9
@@ -1027,9 +1023,9 @@ declare namespace resourceManager {
      * @param { Resource } resource - Indicates the resource object.
      * @returns { Promise<Array<string>> } The array of character strings corresponding to the specified resource object.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @crossplatform
@@ -1041,9 +1037,9 @@ declare namespace resourceManager {
      * @param { Resource } resource - Indicates the resource object.
      * @returns { Promise<Array<string>> } The array of character strings corresponding to the specified resource object.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @crossplatform
@@ -1082,8 +1078,8 @@ declare namespace resourceManager {
      * @param { Resource } resource - Indicates the resource object.
      * @param { _AsyncCallback<Uint8Array> } callback - Indicates the asynchronous callback used to return the obtained media file content.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @since 9
@@ -1094,8 +1090,8 @@ declare namespace resourceManager {
      * @param { Resource } resource - Indicates the resource object.
      * @param { _AsyncCallback<Uint8Array> } callback - Indicates the asynchronous callback used to return the obtained media file content.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @crossplatform
@@ -1107,8 +1103,8 @@ declare namespace resourceManager {
      * @param { Resource } resource - Indicates the resource object.
      * @param { _AsyncCallback<Uint8Array> } callback - Indicates the asynchronous callback used to return the obtained media file content.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @crossplatform
@@ -1126,8 +1122,8 @@ declare namespace resourceManager {
      * @param { _AsyncCallback<Uint8Array> } callback - Indicates the asynchronous callback used to return the obtained
      *                 specified screen density media file content.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @since 10
@@ -1141,8 +1137,8 @@ declare namespace resourceManager {
      * @param { _AsyncCallback<Uint8Array> } callback - Indicates the asynchronous callback used to return the obtained
      *                 specified screen density media file content.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @crossplatform
@@ -1157,8 +1153,8 @@ declare namespace resourceManager {
      * @param { Resource } resource - Indicates the resource object.
      * @returns { Promise<Uint8Array> } The content of the media file corresponding to the specified resource object.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @since 9
@@ -1169,8 +1165,8 @@ declare namespace resourceManager {
      * @param { Resource } resource - Indicates the resource object.
      * @returns { Promise<Uint8Array> } The content of the media file corresponding to the specified resource object.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @crossplatform
@@ -1182,8 +1178,8 @@ declare namespace resourceManager {
      * @param { Resource } resource - Indicates the resource object.
      * @returns { Promise<Uint8Array> } The content of the media file corresponding to the specified resource object.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @crossplatform
@@ -1201,8 +1197,8 @@ declare namespace resourceManager {
      * @returns { Promise<Uint8Array> } The content of the specified screen density media file corresponding to the
      *                 specified resource object.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @since 10
@@ -1216,8 +1212,8 @@ declare namespace resourceManager {
      * @returns { Promise<Uint8Array> } The content of the specified screen density media file corresponding to the
      *                 specified resource object.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @crossplatform
@@ -1258,8 +1254,8 @@ declare namespace resourceManager {
      * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the obtained Base64 code of the image
      *                 resource.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @since 9
@@ -1271,8 +1267,8 @@ declare namespace resourceManager {
      * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the obtained Base64 code of the image
      *                 resource.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @crossplatform
@@ -1285,8 +1281,8 @@ declare namespace resourceManager {
      * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the obtained Base64 code of the image
      *                 resource.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @crossplatform
@@ -1304,8 +1300,8 @@ declare namespace resourceManager {
      * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the obtained Base64 code of the
      *                 specified screen density image resource.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @since 10
@@ -1319,8 +1315,8 @@ declare namespace resourceManager {
      * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the obtained Base64 code of the
      *                 specified screen density image resource.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @crossplatform
@@ -1335,8 +1331,8 @@ declare namespace resourceManager {
      * @param { Resource } resource - Indicates the resource object.
      * @returns { Promise<string> } The Base64 code of the image resource corresponding to the specified resource object.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @since 9
@@ -1347,8 +1343,8 @@ declare namespace resourceManager {
      * @param { Resource } resource - Indicates the resource object.
      * @returns { Promise<string> } The Base64 code of the image resource corresponding to the specified resource object.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @crossplatform
@@ -1360,8 +1356,8 @@ declare namespace resourceManager {
      * @param { Resource } resource - Indicates the resource object.
      * @returns { Promise<string> } The Base64 code of the image resource corresponding to the specified resource object.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @crossplatform
@@ -1378,8 +1374,8 @@ declare namespace resourceManager {
      *                 to use the density of current system dpi.
      * @returns { Promise<string> } The Base64 code of the specified screen density image resource corresponding to the specified resource object.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @since 10
@@ -1392,8 +1388,8 @@ declare namespace resourceManager {
      *                 to use the density of current system dpi.
      * @returns { Promise<string> } The Base64 code of the specified screen density image resource corresponding to the specified resource object.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @crossplatform
@@ -1548,9 +1544,9 @@ declare namespace resourceManager {
      * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the singular-plural character
      *                 string represented by the resource object string corresponding to the specified number.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @since 9
@@ -1564,9 +1560,9 @@ declare namespace resourceManager {
      * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the singular-plural character
      *                 string represented by the resource object string corresponding to the specified number.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @crossplatform
@@ -1581,9 +1577,9 @@ declare namespace resourceManager {
      * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the singular-plural character
      *                 string represented by the resource object string corresponding to the specified number.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @crossplatform
@@ -1601,9 +1597,9 @@ declare namespace resourceManager {
      * @returns { Promise<string> } The singular-plural character string represented by the resource object string
      *         corresponding to the specified number.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @since 9
@@ -1617,9 +1613,9 @@ declare namespace resourceManager {
      * @returns { Promise<string> } The singular-plural character string represented by the resource object string
      *         corresponding to the specified number.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @crossplatform
@@ -1634,9 +1630,9 @@ declare namespace resourceManager {
      * @returns { Promise<string> } The singular-plural character string represented by the resource object string
      *         corresponding to the specified number.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @crossplatform
@@ -1723,9 +1719,9 @@ declare namespace resourceManager {
      * @param { string } resName - Indicates the resource name.
      * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the obtained character string.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
@@ -1735,9 +1731,9 @@ declare namespace resourceManager {
      * @param { string } resName - Indicates the resource name.
      * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the obtained character string.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @since 10
@@ -1748,9 +1744,9 @@ declare namespace resourceManager {
      * @param { string } resName - Indicates the resource name.
      * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the obtained character string.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -1764,9 +1760,9 @@ declare namespace resourceManager {
      * @param { string } resName - Indicates the resource name.
      * @returns { Promise<string> } The character string corresponding to the resource name.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
@@ -1776,9 +1772,9 @@ declare namespace resourceManager {
      * @param { string } resName - Indicates the resource name.
      * @returns { Promise<string> } The character string corresponding to the resource name.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @since 10
@@ -1789,9 +1785,9 @@ declare namespace resourceManager {
      * @param { string } resName - Indicates the resource name.
      * @returns { Promise<string> } The character string corresponding to the resource name.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -1805,9 +1801,9 @@ declare namespace resourceManager {
      * @param { string } resName - Indicates the resource name.
      * @param { _AsyncCallback<Array<string>> } callback - Indicates the asynchronous callback used to return the obtained array of character strings.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
@@ -1817,9 +1813,9 @@ declare namespace resourceManager {
      * @param { string } resName - Indicates the resource name.
      * @param { _AsyncCallback<Array<string>> } callback - Indicates the asynchronous callback used to return the obtained array of character strings.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @since 10
@@ -1830,9 +1826,9 @@ declare namespace resourceManager {
      * @param { string } resName - Indicates the resource name.
      * @param { _AsyncCallback<Array<string>> } callback - Indicates the asynchronous callback used to return the obtained array of character strings.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -1846,9 +1842,9 @@ declare namespace resourceManager {
      * @param { string } resName - Indicates the resource name.
      * @returns { Promise<Array<string>> } the array of character strings corresponding to the specified resource name.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
@@ -1858,9 +1854,9 @@ declare namespace resourceManager {
      * @param { string } resName - Indicates the resource name.
      * @returns { Promise<Array<string>> } the array of character strings corresponding to the specified resource name.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @since 10
@@ -1871,9 +1867,9 @@ declare namespace resourceManager {
      * @param { string } resName - Indicates the resource name.
      * @returns { Promise<Array<string>> } the array of character strings corresponding to the specified resource name.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -1887,8 +1883,8 @@ declare namespace resourceManager {
      * @param { string } resName - Indicates the resource name.
      * @param { _AsyncCallback<Uint8Array> } callback - Indicates the asynchronous callback used to return the obtained media file content.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
@@ -1898,8 +1894,8 @@ declare namespace resourceManager {
      * @param { string } resName - Indicates the resource name.
      * @param { _AsyncCallback<Uint8Array> } callback - Indicates the asynchronous callback used to return the obtained media file content.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @since 10
@@ -1910,8 +1906,8 @@ declare namespace resourceManager {
      * @param { string } resName - Indicates the resource name.
      * @param { _AsyncCallback<Uint8Array> } callback - Indicates the asynchronous callback used to return the obtained media file content.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -1928,8 +1924,8 @@ declare namespace resourceManager {
      * @param { _AsyncCallback<Uint8Array> } callback - Indicates the asynchronous callback used to return the obtained
      *                 specified screen density media file content.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 10
      */
@@ -1942,8 +1938,8 @@ declare namespace resourceManager {
      * @param { _AsyncCallback<Uint8Array> } callback - Indicates the asynchronous callback used to return the obtained
      *                 specified screen density media file content.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -1957,8 +1953,8 @@ declare namespace resourceManager {
      * @param { string } resName - Indicates the resource name.
      * @returns { Promise<Uint8Array> } The content of the media file corresponding to the specified resource name.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
@@ -1968,8 +1964,8 @@ declare namespace resourceManager {
      * @param { string } resName - Indicates the resource name.
      * @returns { Promise<Uint8Array> } The content of the media file corresponding to the specified resource name.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @since 10
@@ -1980,8 +1976,8 @@ declare namespace resourceManager {
      * @param { string } resName - Indicates the resource name.
      * @returns { Promise<Uint8Array> } The content of the media file corresponding to the specified resource name.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -1998,8 +1994,8 @@ declare namespace resourceManager {
      * @returns { Promise<Uint8Array> } The content of the specified screen density media file corresponding to the
      *                 specified resource name.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 10
      */
@@ -2012,8 +2008,8 @@ declare namespace resourceManager {
      * @returns { Promise<Uint8Array> } The content of the specified screen density media file corresponding to the
      *                 specified resource name.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -2028,8 +2024,8 @@ declare namespace resourceManager {
      * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the obtained Base64 code of the image
      *                 resource.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
@@ -2040,8 +2036,8 @@ declare namespace resourceManager {
      * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the obtained Base64 code of the image
      *                 resource.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @since 10
@@ -2053,8 +2049,8 @@ declare namespace resourceManager {
      * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the obtained Base64 code of the image
      *                 resource.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -2071,8 +2067,8 @@ declare namespace resourceManager {
      * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the obtained Base64 code of the
      *                 specified screen density image resource.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 10
      */
@@ -2085,8 +2081,8 @@ declare namespace resourceManager {
      * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the obtained Base64 code of the
      *                 specified screen density image resource.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -2100,8 +2096,8 @@ declare namespace resourceManager {
      * @param { string } resName - Indicates the resource name.
      * @returns { Promise<string> } The Base64 code of the image resource corresponding to the specified resource name.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
@@ -2111,8 +2107,8 @@ declare namespace resourceManager {
      * @param { string } resName - Indicates the resource name.
      * @returns { Promise<string> } The Base64 code of the image resource corresponding to the specified resource name.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @since 10
@@ -2123,8 +2119,8 @@ declare namespace resourceManager {
      * @param { string } resName - Indicates the resource name.
      * @returns { Promise<string> } The Base64 code of the image resource corresponding to the specified resource name.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -2140,8 +2136,8 @@ declare namespace resourceManager {
      *                 to use the density of current system dpi.
      * @returns { Promise<string> } The Base64 code of the specified screen density image resource corresponding to the specified resource name.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 10
      */
@@ -2153,8 +2149,8 @@ declare namespace resourceManager {
      *                 to use the density of current system dpi.
      * @returns { Promise<string> } The Base64 code of the specified screen density image resource corresponding to the specified resource name.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -2171,9 +2167,9 @@ declare namespace resourceManager {
      * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the singular-plural character
      *                 string represented by the name string corresponding to the specified number.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
@@ -2186,9 +2182,9 @@ declare namespace resourceManager {
      * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the singular-plural character
      *                 string represented by the name string corresponding to the specified number.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @since 10
@@ -2202,9 +2198,9 @@ declare namespace resourceManager {
      * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the singular-plural character
      *                 string represented by the name string corresponding to the specified number.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -2221,9 +2217,9 @@ declare namespace resourceManager {
      * @returns { Promise<string> } the singular-plural character string represented by the name string
      *         corresponding to the specified number.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
@@ -2236,9 +2232,9 @@ declare namespace resourceManager {
      * @returns { Promise<string> } the singular-plural character string represented by the name string
      *         corresponding to the specified number.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @since 10
@@ -2252,9 +2248,9 @@ declare namespace resourceManager {
      * @returns { Promise<string> } the singular-plural character string represented by the name string
      *         corresponding to the specified number.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -2268,9 +2264,9 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @returns { string } The character string corresponding to the resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
@@ -2280,9 +2276,9 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @returns { string } The character string corresponding to the resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @since 10
@@ -2293,9 +2289,9 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @returns { string } The character string corresponding to the resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -2310,10 +2306,10 @@ declare namespace resourceManager {
      * @param { Array<string | number> } args - Indicates the formatting string resource parameters.
      * @returns { string } The character string corresponding to the resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
-     * @throws { BusinessError } 9001007 - If the resource obtained by resId formatting error.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
+     * @throws { BusinessError } 9001007 - Failed to format the resource obtained based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @since 10
@@ -2325,10 +2321,10 @@ declare namespace resourceManager {
      * @param { Array<string | number> } args - Indicates the formatting string resource parameters.
      * @returns { string } The character string corresponding to the resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
-     * @throws { BusinessError } 9001007 - If the resource obtained by resId formatting error.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
+     * @throws { BusinessError } 9001007 - Failed to format the resource obtained based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -2342,9 +2338,9 @@ declare namespace resourceManager {
      * @param { Resource } resource - Indicates the resource object.
      * @returns { string } The character string corresponding to the resource object.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @since 9
@@ -2355,9 +2351,9 @@ declare namespace resourceManager {
      * @param { Resource } resource - Indicates the resource object.
      * @returns { string } The character string corresponding to the resource object.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @crossplatform
@@ -2369,9 +2365,9 @@ declare namespace resourceManager {
      * @param { Resource } resource - Indicates the resource object.
      * @returns { string } The character string corresponding to the resource object.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @crossplatform
@@ -2387,10 +2383,10 @@ declare namespace resourceManager {
      * @param { Array<string | number> } args - Indicates the formatting string resource parameters.
      * @returns { string } The character string corresponding to the resource object.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
-     * @throws { BusinessError } 9001007 - If the resource obtained by resId formatting error.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
+     * @throws { BusinessError } 9001007 - Failed to format the resource obtained based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @crossplatform
@@ -2403,10 +2399,10 @@ declare namespace resourceManager {
      * @param { Array<string | number> } args - Indicates the formatting string resource parameters.
      * @returns { string } The character string corresponding to the resource object.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
-     * @throws { BusinessError } 9001007 - If the resource obtained by resId formatting error.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
+     * @throws { BusinessError } 9001007 - Failed to format the resource obtained based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @crossplatform
@@ -2421,9 +2417,9 @@ declare namespace resourceManager {
      * @param { string } resName - Indicates the resource name.
      * @returns { string } The character string corresponding to the resource name.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
@@ -2433,9 +2429,9 @@ declare namespace resourceManager {
      * @param { string } resName - Indicates the resource name.
      * @returns { string } The character string corresponding to the resource name.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @since 10
@@ -2446,9 +2442,9 @@ declare namespace resourceManager {
      * @param { string } resName - Indicates the resource name.
      * @returns { string } The character string corresponding to the resource name.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -2463,10 +2459,10 @@ declare namespace resourceManager {
      * @param { Array<string | number> } args - Indicates the formatting string resource parameters.
      * @returns { string } The character string corresponding to the resource name.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
-     * @throws { BusinessError } 9001008 - If the resource obtained by resName formatting error.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
+     * @throws { BusinessError } 9001008 - Failed to format the resource obtained based on the resource Name.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @since 10
@@ -2478,10 +2474,10 @@ declare namespace resourceManager {
      * @param { Array<string | number> } args - Indicates the formatting string resource parameters.
      * @returns { string } The character string corresponding to the resource name.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
-     * @throws { BusinessError } 9001008 - If the resource obtained by resName formatting error.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
+     * @throws { BusinessError } 9001008 - Failed to format the resource obtained based on the resource Name.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -2495,9 +2491,9 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @returns { boolean } The boolean resource corresponding to the resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
@@ -2507,9 +2503,9 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @returns { boolean } The boolean resource corresponding to the resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @since 10
@@ -2520,9 +2516,9 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @returns { boolean } The boolean resource corresponding to the resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -2536,9 +2532,9 @@ declare namespace resourceManager {
      * @param { Resource } resource - Indicates the resource object.
      * @returns { boolean } The boolean resource corresponding to the resource object.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @since 9
@@ -2549,9 +2545,9 @@ declare namespace resourceManager {
      * @param { Resource } resource - Indicates the resource object.
      * @returns { boolean } The boolean resource corresponding to the resource object.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @crossplatform
@@ -2563,9 +2559,9 @@ declare namespace resourceManager {
      * @param { Resource } resource - Indicates the resource object.
      * @returns { boolean } The boolean resource corresponding to the resource object.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @crossplatform
@@ -2580,9 +2576,9 @@ declare namespace resourceManager {
      * @param { string } resName - Indicates the resource name.
      * @returns { boolean } The boolean resource corresponding to the resource name.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
@@ -2592,9 +2588,9 @@ declare namespace resourceManager {
      * @param { string } resName - Indicates the resource name.
      * @returns { boolean } The boolean resource corresponding to the resource name.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @since 10
@@ -2605,9 +2601,9 @@ declare namespace resourceManager {
      * @param { string } resName - Indicates the resource name.
      * @returns { boolean } The boolean resource corresponding to the resource name.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -2621,9 +2617,9 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @returns { number } The number resource corresponding to the resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
@@ -2633,9 +2629,9 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @returns { number } The number resource corresponding to the resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @since 10
@@ -2646,9 +2642,9 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @returns { number } The number resource corresponding to the resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -2662,9 +2658,9 @@ declare namespace resourceManager {
      * @param { Resource } resource - Indicates the resource object.
      * @returns { number } The number resource corresponding to the resource object.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @since 9
@@ -2675,9 +2671,9 @@ declare namespace resourceManager {
      * @param { Resource } resource - Indicates the resource object.
      * @returns { number } The number resource corresponding to the resource object.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @crossplatform
@@ -2689,9 +2685,9 @@ declare namespace resourceManager {
      * @param { Resource } resource - Indicates the resource object.
      * @returns { number } The number resource corresponding to the resource object.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @crossplatform
@@ -2706,9 +2702,9 @@ declare namespace resourceManager {
      * @param { string } resName - Indicates the resource name.
      * @returns { number } The number resource corresponding to the resource name.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
@@ -2718,9 +2714,9 @@ declare namespace resourceManager {
      * @param { string } resName - Indicates the resource name.
      * @returns { number } The number resource corresponding to the resource name.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @since 10
@@ -2731,9 +2727,9 @@ declare namespace resourceManager {
      * @param { string } resName - Indicates the resource name.
      * @returns { number } The number resource corresponding to the resource name.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -2770,9 +2766,9 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the obtained character string.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
@@ -2782,9 +2778,9 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the obtained character string.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @since 10
@@ -2795,9 +2791,9 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the obtained character string.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -2811,9 +2807,9 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @returns { Promise<string> } The character string corresponding to the resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
@@ -2823,9 +2819,9 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @returns { Promise<string> } The character string corresponding to the resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @since 10
@@ -2836,9 +2832,9 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @returns { Promise<string> } The character string corresponding to the resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -2852,9 +2848,9 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @param { _AsyncCallback<Array<string>> } callback - Indicates the asynchronous callback used to return the obtained array of character strings.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
@@ -2864,9 +2860,9 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @param { _AsyncCallback<Array<string>> } callback - Indicates the asynchronous callback used to return the obtained array of character strings.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @since 10
@@ -2877,9 +2873,9 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @param { _AsyncCallback<Array<string>> } callback - Indicates the asynchronous callback used to return the obtained array of character strings.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -2893,9 +2889,9 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @returns { Promise<Array<string>> } The array of character strings corresponding to the specified resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
@@ -2905,9 +2901,9 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @returns { Promise<Array<string>> } The array of character strings corresponding to the specified resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @since 10
@@ -2918,9 +2914,9 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @returns { Promise<Array<string>> } The array of character strings corresponding to the specified resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -2937,9 +2933,9 @@ declare namespace resourceManager {
      * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the singular-plural character
      *                 string represented by the ID string corresponding to the specified number.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
@@ -2952,9 +2948,9 @@ declare namespace resourceManager {
      * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the singular-plural character
      *                 string represented by the ID string corresponding to the specified number.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @since 10
@@ -2968,9 +2964,9 @@ declare namespace resourceManager {
      * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the singular-plural character
      *                 string represented by the ID string corresponding to the specified number.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -2987,9 +2983,9 @@ declare namespace resourceManager {
      * @returns { Promise<string> } The singular-plural character string represented by the ID string
      *         corresponding to the specified number.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
@@ -3002,9 +2998,9 @@ declare namespace resourceManager {
      * @returns { Promise<string> } The singular-plural character string represented by the ID string
      *         corresponding to the specified number.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @since 10
@@ -3018,9 +3014,9 @@ declare namespace resourceManager {
      * @returns { Promise<string> } The singular-plural character string represented by the ID string
      *         corresponding to the specified number.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -3034,8 +3030,8 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @param { _AsyncCallback<Uint8Array> } callback - Indicates the asynchronous callback used to return the obtained media file content.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
@@ -3045,8 +3041,8 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @param { _AsyncCallback<Uint8Array> } callback - Indicates the asynchronous callback used to return the obtained media file content.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @since 10
@@ -3057,8 +3053,8 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @param { _AsyncCallback<Uint8Array> } callback - Indicates the asynchronous callback used to return the obtained media file content.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -3075,8 +3071,8 @@ declare namespace resourceManager {
      * @param { _AsyncCallback<Uint8Array> } callback - Indicates the asynchronous callback used to return the obtained
      *                 specified screen density media file content.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 10
      */
@@ -3089,8 +3085,8 @@ declare namespace resourceManager {
      * @param { _AsyncCallback<Uint8Array> } callback - Indicates the asynchronous callback used to return the obtained
      *                 specified screen density media file content.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -3104,8 +3100,8 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @returns { Promise<Uint8Array> } The content of the media file corresponding to the specified resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
@@ -3115,8 +3111,8 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @returns { Promise<Uint8Array> } The content of the media file corresponding to the specified resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @since 10
@@ -3127,8 +3123,8 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @returns { Promise<Uint8Array> } The content of the media file corresponding to the specified resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -3144,8 +3140,8 @@ declare namespace resourceManager {
      *                 to use the density of current system dpi.
      * @returns { Promise<Uint8Array> } The content of the specified screen density media file corresponding to the specified resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 10
      */
@@ -3157,8 +3153,8 @@ declare namespace resourceManager {
      *                 to use the density of current system dpi.
      * @returns { Promise<Uint8Array> } The content of the specified screen density media file corresponding to the specified resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -3173,8 +3169,8 @@ declare namespace resourceManager {
      * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the obtained Base64 code of the image
      *                 resource.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
@@ -3185,8 +3181,8 @@ declare namespace resourceManager {
      * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the obtained Base64 code of the image
      *                 resource.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @since 10
@@ -3198,8 +3194,8 @@ declare namespace resourceManager {
      * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the obtained Base64 code of the image
      *                 resource.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -3216,8 +3212,8 @@ declare namespace resourceManager {
      * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the obtained Base64 code of the
      *                 specified screen density image resource.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 10
      */
@@ -3230,8 +3226,8 @@ declare namespace resourceManager {
      * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the obtained Base64 code of the
      *                 specified screen density image resource.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -3245,8 +3241,8 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @returns { Promise<string> } the Base64 code of the image resource corresponding to the specified resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
@@ -3256,8 +3252,8 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @returns { Promise<string> } the Base64 code of the image resource corresponding to the specified resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @since 10
@@ -3268,8 +3264,8 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @returns { Promise<string> } the Base64 code of the image resource corresponding to the specified resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -3285,8 +3281,8 @@ declare namespace resourceManager {
      *                 to use the density of current system dpi.
      * @returns { Promise<string> } the Base64 code of the specified screen density image resource corresponding to the specified resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 10
      */
@@ -3298,8 +3294,8 @@ declare namespace resourceManager {
      *                 to use the density of current system dpi.
      * @returns { Promise<string> } the Base64 code of the specified screen density image resource corresponding to the specified resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -3313,7 +3309,7 @@ declare namespace resourceManager {
      * @param { string } path - Indicates the resource relative path.
      * @param { _AsyncCallback<Uint8Array> } callback - Indicates the asynchronous callback used to return the raw file resource.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @throws { BusinessError } 9001005 - Invalid relative path.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
@@ -3323,7 +3319,7 @@ declare namespace resourceManager {
      * @param { string } path - Indicates the resource relative path.
      * @param { _AsyncCallback<Uint8Array> } callback - Indicates the asynchronous callback used to return the raw file resource.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @throws { BusinessError } 9001005 - Invalid relative path.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @since 10
@@ -3334,7 +3330,7 @@ declare namespace resourceManager {
      * @param { string } path - Indicates the resource relative path.
      * @param { _AsyncCallback<Uint8Array> } callback - Indicates the asynchronous callback used to return the raw file resource.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @throws { BusinessError } 9001005 - Invalid relative path.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -3348,7 +3344,7 @@ declare namespace resourceManager {
      * @param { string } path - Indicates the resource relative path.
      * @returns { Promise<Uint8Array> } the raw file resource corresponding to the specified resource path.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @throws { BusinessError } 9001005 - Invalid relative path.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
@@ -3358,7 +3354,7 @@ declare namespace resourceManager {
      * @param { string } path - Indicates the resource relative path.
      * @returns { Promise<Uint8Array> } the raw file resource corresponding to the specified resource path.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @throws { BusinessError } 9001005 - Invalid relative path.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @since 10
@@ -3369,7 +3365,7 @@ declare namespace resourceManager {
      * @param { string } path - Indicates the resource relative path.
      * @returns { Promise<Uint8Array> } the raw file resource corresponding to the specified resource path.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @throws { BusinessError } 9001005 - Invalid relative path.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -3383,7 +3379,7 @@ declare namespace resourceManager {
      * @param { string } path - Indicates the resource relative path.
      * @param { _AsyncCallback<RawFileDescriptor> } callback - Indicates the asynchronous callback used to return the raw file resource descriptor.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @throws { BusinessError } 9001005 - Invalid relative path.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
@@ -3393,7 +3389,7 @@ declare namespace resourceManager {
      * @param { string } path - Indicates the resource relative path.
      * @param { _AsyncCallback<RawFileDescriptor> } callback - Indicates the asynchronous callback used to return the raw file resource descriptor.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @throws { BusinessError } 9001005 - Invalid relative path.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @since 10
@@ -3404,7 +3400,7 @@ declare namespace resourceManager {
      * @param { string } path - Indicates the resource relative path.
      * @param { _AsyncCallback<RawFileDescriptor> } callback - Indicates the asynchronous callback used to return the raw file resource descriptor.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @throws { BusinessError } 9001005 - Invalid relative path.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -3418,7 +3414,7 @@ declare namespace resourceManager {
      * @param { string } path - Indicates the resource relative path.
      * @returns { Promise<RawFileDescriptor> } The raw file resource descriptor corresponding to the specified resource path.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @throws { BusinessError } 9001005 - Invalid relative path.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
@@ -3428,7 +3424,7 @@ declare namespace resourceManager {
      * @param { string } path - Indicates the resource relative path.
      * @returns { Promise<RawFileDescriptor> } The raw file resource descriptor corresponding to the specified resource path.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @throws { BusinessError } 9001005 - Invalid relative path.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @since 10
@@ -3439,7 +3435,7 @@ declare namespace resourceManager {
      * @param { string } path - Indicates the resource relative path.
      * @returns { Promise<RawFileDescriptor> } The raw file resource descriptor corresponding to the specified resource path.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @throws { BusinessError } 9001005 - Invalid relative path.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -3453,7 +3449,7 @@ declare namespace resourceManager {
      * @param { string } path - Indicates the resource relative path.
      * @param { _AsyncCallback<void> } callback - Indicates the asynchronous callback used to return result close raw file resource descriptor.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @throws { BusinessError } 9001005 - Invalid relative path.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
@@ -3463,7 +3459,7 @@ declare namespace resourceManager {
      * @param { string } path - Indicates the resource relative path.
      * @param { _AsyncCallback<void> } callback - Indicates the asynchronous callback used to return result close raw file resource descriptor.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @throws { BusinessError } 9001005 - Invalid relative path.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @since 10
@@ -3474,7 +3470,7 @@ declare namespace resourceManager {
      * @param { string } path - Indicates the resource relative path.
      * @param { _AsyncCallback<void> } callback - Indicates the asynchronous callback used to return result close raw file resource descriptor.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @throws { BusinessError } 9001005 - Invalid relative path.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -3488,7 +3484,7 @@ declare namespace resourceManager {
      * @param { string } path - Indicates the resource relative path.
      * @returns { Promise<void> } The result close raw file resource descriptor corresponding to the specified resource path.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @throws { BusinessError } 9001005 - Invalid relative path.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
@@ -3498,7 +3494,7 @@ declare namespace resourceManager {
      * @param { string } path - Indicates the resource relative path.
      * @returns { Promise<void> } The result close raw file resource descriptor corresponding to the specified resource path.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @throws { BusinessError } 9001005 - Invalid relative path.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @since 10
@@ -3509,7 +3505,7 @@ declare namespace resourceManager {
      * @param { string } path - Indicates the resource relative path.
      * @returns { Promise<void> } The result close raw file resource descriptor corresponding to the specified resource path.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @throws { BusinessError } 9001005 - Invalid relative path.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -3525,8 +3521,8 @@ declare namespace resourceManager {
      *                to use the density of current system dpi.
      * @returns { DrawableDescriptor } The DrawableDescriptor class to get drawable image.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 10
      */
@@ -3540,8 +3536,8 @@ declare namespace resourceManager {
      *             the normal media.
      * @returns { DrawableDescriptor } The DrawableDescriptor class to get drawable image.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @atomicservice
      * @since 11
@@ -3556,8 +3552,8 @@ declare namespace resourceManager {
      *             to use the density of current system dpi.
      * @returns { DrawableDescriptor } The DrawableDescriptor class to get drawable image.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 10
      */
@@ -3571,8 +3567,8 @@ declare namespace resourceManager {
      *             the normal media.
      * @returns { DrawableDescriptor } The DrawableDescriptor class to get drawable image.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @syscap SystemCapability.Global.ResourceManager
      * @atomicservice
      * @since 11
@@ -3587,8 +3583,8 @@ declare namespace resourceManager {
      *             to use the density of current system dpi.
      * @returns { DrawableDescriptor } The DrawableDescriptor class to get drawable image.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @since 10
@@ -3603,8 +3599,8 @@ declare namespace resourceManager {
      *             the normal media.
      * @returns { DrawableDescriptor } The DrawableDescriptor class to get drawable image.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @atomicservice
@@ -3618,7 +3614,7 @@ declare namespace resourceManager {
      * @param { string } path - Indicates the resource relative path.
      * @param { _AsyncCallback<Array<string>> } callback - Indicates the asynchronous callback used to return the raw file list.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @throws { BusinessError } 9001005 - Invalid relative path.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 10
      */
@@ -3628,7 +3624,7 @@ declare namespace resourceManager {
      * @param { string } path - Indicates the resource relative path.
      * @param { _AsyncCallback<Array<string>> } callback - Indicates the asynchronous callback used to return the raw file list.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @throws { BusinessError } 9001005 - Invalid relative path.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -3642,7 +3638,7 @@ declare namespace resourceManager {
      * @param { string } path - Indicates the resource relative path.
      * @returns { Promise<Array<string>> } The rawfile list corresponding to the specified resource path.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @throws { BusinessError } 9001005 - Invalid relative path.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 10
      */
@@ -3652,7 +3648,7 @@ declare namespace resourceManager {
      * @param { string } path - Indicates the resource relative path.
      * @returns { Promise<Array<string>> } The rawfile list corresponding to the specified resource path.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @throws { BusinessError } 9001005 - Invalid relative path.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -3667,9 +3663,9 @@ declare namespace resourceManager {
      * @param { _AsyncCallback<number> } callback - Indicates the asynchronous callback used to
      *     return the integer reference value representing the color data.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 10
      */
@@ -3680,9 +3676,9 @@ declare namespace resourceManager {
      * @param { _AsyncCallback<number> } callback - Indicates the asynchronous callback used to
      *     return the integer reference value representing the color data.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -3696,9 +3692,9 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @returns { Promise<number> } Indicates return the integer reference value representing the color data.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 10
      */
@@ -3708,9 +3704,9 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @returns { Promise<number> } Indicates return the integer reference value representing the color data.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -3725,9 +3721,9 @@ declare namespace resourceManager {
      * @param { _AsyncCallback<number> } callback - Indicates the asynchronous callback used to
      *     return the integer reference value representing the color data.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @since 10
@@ -3739,9 +3735,9 @@ declare namespace resourceManager {
      * @param { _AsyncCallback<number> } callback - Indicates the asynchronous callback used to
      *     return the integer reference value representing the color data.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @crossplatform
@@ -3756,9 +3752,9 @@ declare namespace resourceManager {
      * @param { Resource } resource - Indicates the resource object.
      * @returns { Promise<number> } Indicates return the integer reference value representing the color data.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @since 10
@@ -3769,9 +3765,9 @@ declare namespace resourceManager {
      * @param { Resource } resource - Indicates the resource object.
      * @returns { Promise<number> } Indicates return the integer reference value representing the color data.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @crossplatform
@@ -3787,9 +3783,9 @@ declare namespace resourceManager {
      * @param { _AsyncCallback<number> } callback - Indicates the asynchronous callback used to
      *     return the integer reference value representing the color data.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 10
      */
@@ -3800,9 +3796,9 @@ declare namespace resourceManager {
      * @param { _AsyncCallback<number> } callback - Indicates the asynchronous callback used to
      *     return the integer reference value representing the color data.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -3816,9 +3812,9 @@ declare namespace resourceManager {
      * @param { string } resName - Indicates the resource name.
      * @returns { Promise<number> } Indicates return the integer reference value representing the color data.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 10
      */
@@ -3828,9 +3824,9 @@ declare namespace resourceManager {
      * @param { string } resName - Indicates the resource name.
      * @returns { Promise<number> } Indicates return the integer reference value representing the color data.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -3844,9 +3840,9 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @returns { number } Indicates the integer reference value representing the color data.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 10
      */
@@ -3856,9 +3852,9 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @returns { number } Indicates the integer reference value representing the color data.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -3872,9 +3868,9 @@ declare namespace resourceManager {
      * @param { Resource } resource - Indicates the resource object.
      * @returns { number } Indicates the integer reference value representing the color data.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @since 10
@@ -3885,9 +3881,9 @@ declare namespace resourceManager {
      * @param { Resource } resource - Indicates the resource object.
      * @returns { number } Indicates the integer reference value representing the color data.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @crossplatform
@@ -3902,9 +3898,9 @@ declare namespace resourceManager {
      * @param { string } resName - Indicates the resource name.
      * @returns { number } Indicates the integer reference value representing the color data.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 10
      */
@@ -3914,9 +3910,9 @@ declare namespace resourceManager {
      * @param { string } resName - Indicates the resource name.
      * @returns { number } Indicates the integer reference value representing the color data.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -3929,7 +3925,7 @@ declare namespace resourceManager {
      *
      * @param { string } path - Indicates the application overlay path.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001010 - If the overlay path is invalid.
+     * @throws { BusinessError } 9001010 - Invalid overlay path.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 10
      */
@@ -3938,7 +3934,7 @@ declare namespace resourceManager {
      *
      * @param { string } path - Indicates the application overlay path.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001010 - If the overlay path is invalid.
+     * @throws { BusinessError } 9001010 - Invalid overlay path.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -3951,7 +3947,7 @@ declare namespace resourceManager {
      *
      * @param { string } path - Indicates the application overlay path.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001010 - If the overlay path is invalid.
+     * @throws { BusinessError } 9001010 - Invalid overlay path.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 10
      */
@@ -3960,7 +3956,7 @@ declare namespace resourceManager {
      *
      * @param { string } path - Indicates the application overlay path.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001010 - If the overlay path is invalid.
+     * @throws { BusinessError } 9001010 - Invalid overlay path.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -3974,7 +3970,7 @@ declare namespace resourceManager {
      * @param { string } path - Indicates the resource relative path.
      * @returns { RawFileDescriptor } The raw file resource descriptor.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @throws { BusinessError } 9001005 - Invalid relative path.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 10
      */
@@ -3984,7 +3980,7 @@ declare namespace resourceManager {
      * @param { string } path - Indicates the resource relative path.
      * @returns { RawFileDescriptor } The raw file resource descriptor.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @throws { BusinessError } 9001005 - Invalid relative path.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -3997,7 +3993,7 @@ declare namespace resourceManager {
      *
      * @param { string } path - Indicates the resource relative path.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @throws { BusinessError } 9001005 - Invalid relative path.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 10
      */
@@ -4006,7 +4002,7 @@ declare namespace resourceManager {
      *
      * @param { string } path - Indicates the resource relative path.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @throws { BusinessError } 9001005 - Invalid relative path.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -4020,7 +4016,7 @@ declare namespace resourceManager {
      * @param { string } path - Indicates the resource relative path.
      * @returns { Array<string> } The rawfile resource list.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @throws { BusinessError } 9001005 - Invalid relative path.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 10
      */
@@ -4030,7 +4026,7 @@ declare namespace resourceManager {
      * @param { string } path - Indicates the resource relative path.
      * @returns { Array<string> } The rawfile resource list.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @throws { BusinessError } 9001005 - Invalid relative path.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -4044,7 +4040,7 @@ declare namespace resourceManager {
      * @param { string } path - Indicates the resource relative path.
      * @returns { Uint8Array } the raw file resource corresponding to the specified resource path.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @throws { BusinessError } 9001005 - Invalid relative path.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 10
      */
@@ -4054,7 +4050,7 @@ declare namespace resourceManager {
      * @param { string } path - Indicates the resource relative path.
      * @returns { Uint8Array } the raw file resource corresponding to the specified resource path.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @throws { BusinessError } 9001005 - Invalid relative path.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -4070,8 +4066,8 @@ declare namespace resourceManager {
      *                to use the density of current system dpi.
      * @returns { Uint8Array } Indicates the obtained media file content.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 10
      */
@@ -4083,8 +4079,8 @@ declare namespace resourceManager {
      *                to use the density of current system dpi.
      * @returns { Uint8Array } Indicates the obtained media file content.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -4100,8 +4096,8 @@ declare namespace resourceManager {
      *                to use the density of current system dpi.
      * @returns { Uint8Array } Indicates the obtained media file content.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @since 10
@@ -4114,8 +4110,8 @@ declare namespace resourceManager {
      *                to use the density of current system dpi.
      * @returns { Uint8Array } Indicates the obtained media file content.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @crossplatform
@@ -4132,8 +4128,8 @@ declare namespace resourceManager {
      *                to use the density of current system dpi.
      * @returns { string } Indicates the obtained Base64 code of the media file.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 10
      */
@@ -4145,8 +4141,8 @@ declare namespace resourceManager {
      *                to use the density of current system dpi.
      * @returns { string } Indicates the obtained Base64 code of the media file.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -4162,8 +4158,8 @@ declare namespace resourceManager {
      *                to use the density of current system dpi.
      * @returns { string } Indicates the obtained Base64 code of the media file.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @since 10
@@ -4176,8 +4172,8 @@ declare namespace resourceManager {
      *                to use the density of current system dpi.
      * @returns { string } Indicates the obtained Base64 code of the media file.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @crossplatform
@@ -4195,9 +4191,9 @@ declare namespace resourceManager {
      * @returns { string } The singular-plural character string represented by the ID string
      *         corresponding to the specified number.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 10
      */
@@ -4210,9 +4206,9 @@ declare namespace resourceManager {
      * @returns { string } The singular-plural character string represented by the ID string
      *         corresponding to the specified number.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -4229,9 +4225,9 @@ declare namespace resourceManager {
      * @returns { string } The singular-plural character string represented by the ID string
      *         corresponding to the specified number.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @since 10
@@ -4245,9 +4241,9 @@ declare namespace resourceManager {
      * @returns { string } The singular-plural character string represented by the ID string
      *         corresponding to the specified number.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @crossplatform
@@ -4262,9 +4258,9 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @returns { Array<string> } The array of character strings corresponding to the specified resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 10
      */
@@ -4274,9 +4270,9 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @returns { Array<string> } The array of character strings corresponding to the specified resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -4290,9 +4286,9 @@ declare namespace resourceManager {
      * @param { Resource } resource - Indicates the resource object.
      * @returns { Array<string> } The array of character strings corresponding to the specified resource object.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @since 10
@@ -4303,9 +4299,9 @@ declare namespace resourceManager {
      * @param { Resource } resource - Indicates the resource object.
      * @returns { Array<string> } The array of character strings corresponding to the specified resource object.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @crossplatform
@@ -4323,9 +4319,9 @@ declare namespace resourceManager {
      * @returns { string } The singular-plural character string represented by the name string
      *         corresponding to the specified number.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 10
      */
@@ -4338,9 +4334,9 @@ declare namespace resourceManager {
      * @returns { string } The singular-plural character string represented by the name string
      *         corresponding to the specified number.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -4356,8 +4352,8 @@ declare namespace resourceManager {
      *                 to use the density of current system dpi.
      * @returns { Uint8Array } The obtained specified screen density media file content.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 10
      */
@@ -4369,8 +4365,8 @@ declare namespace resourceManager {
      *                 to use the density of current system dpi.
      * @returns { Uint8Array } The obtained specified screen density media file content.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -4386,8 +4382,8 @@ declare namespace resourceManager {
      *                 to use the density of current system dpi.
      * @returns { string } The obtained Base64 code of the specified screen density media file.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 10
      */
@@ -4399,8 +4395,8 @@ declare namespace resourceManager {
      *                 to use the density of current system dpi.
      * @returns { string } The obtained Base64 code of the specified screen density media file.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -4414,9 +4410,9 @@ declare namespace resourceManager {
      * @param { string } resName - Indicates the resource name.
      * @returns { Array<string> } the array of character strings corresponding to the specified resource name.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 10
      */
@@ -4426,9 +4422,9 @@ declare namespace resourceManager {
      * @param { string } resName - Indicates the resource name.
      * @returns { Array<string> } the array of character strings corresponding to the specified resource name.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -4492,9 +4488,9 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @returns { number } Indicates the integer reference value representing the symbol data.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -4508,9 +4504,9 @@ declare namespace resourceManager {
      * @param { Resource } resource - Indicates the resource object.
      * @returns { number } Indicates the integer reference value representing the symbol data.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
      * @crossplatform
@@ -4525,9 +4521,9 @@ declare namespace resourceManager {
      * @param { string } resName - Indicates the resource name.
      * @returns { number } Indicates the integer reference value representing the symbol data.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -4541,7 +4537,7 @@ declare namespace resourceManager {
      * @param { string } path - Indicates the rawfile resource relative path.
      * @returns { boolean } True means the file path is directory, else false.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @throws { BusinessError } 9001005 - Invalid relative path.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -4602,6 +4598,7 @@ declare namespace resourceManager {
   /**
    * Contains rawFile descriptor information.
    *
+   * @typedef {_RawFileDescriptor}
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
@@ -4625,6 +4622,7 @@ declare namespace resourceManager {
   /**
    * Contains resource descriptor information.
    *
+   * @typedef {_Resource}
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice

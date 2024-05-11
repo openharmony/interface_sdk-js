@@ -7650,6 +7650,7 @@ declare enum LocationType {
  *
  * @enum { number } access mode type
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @atomicservice
  * @since 12
  */
 declare enum AccessModeType {  
@@ -7657,6 +7658,7 @@ declare enum AccessModeType {
    * Check if the file exists.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
+   * @atomicservice
    * @since 12
    */
   EXIST = 0,
@@ -7665,6 +7667,7 @@ declare enum AccessModeType {
    * Check if the file has write permission.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
+   * @atomicservice
    * @since 12
    */
   WRITE = 2,
@@ -7673,6 +7676,7 @@ declare enum AccessModeType {
    * Check if the file has read permission.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
+   * @atomicservice
    * @since 12
    */
   READ = 4,
@@ -7681,6 +7685,7 @@ declare enum AccessModeType {
    * Check if the file has read and write permission.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
+   * @atomicservice
    * @since 12
    */
   READ_WRITE = 6,
