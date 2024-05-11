@@ -470,7 +470,7 @@ declare enum EnterKeyType {
    * @atomicservice
    * @since 11
    */
-  Go,
+  Go = 2,
 
   /**
    * Search.
@@ -493,7 +493,7 @@ declare enum EnterKeyType {
    * @atomicservice
    * @since 11
    */
-  Search,
+  Search = 3,
 
   /**
    * Send.
@@ -516,7 +516,7 @@ declare enum EnterKeyType {
    * @atomicservice
    * @since 11
    */
-  Send,
+  Send = 4,
 
   /**
    * Next.
@@ -539,7 +539,7 @@ declare enum EnterKeyType {
    * @atomicservice
    * @since 11
    */
-  Next,
+  Next = 5,
 
   /**
    * Done.
@@ -562,7 +562,7 @@ declare enum EnterKeyType {
    * @atomicservice
    * @since 11
    */
-  Done,
+  Done = 6,
 
   /**
    * Showed as 'previous' pattern.
