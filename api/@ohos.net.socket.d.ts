@@ -44,6 +44,8 @@ declare namespace socket {
    */
   /**
    * Deposit certificate
+   * @interface X509CertRawData
+   * @typedef { cert.EncodingBlob }
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @since 10
