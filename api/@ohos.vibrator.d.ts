@@ -219,6 +219,18 @@ declare namespace vibrator {
   function stopVibration(): Promise<void>;
 
   /**
+   * Stop any type of vibration.
+   *
+   * @permission ohos.permission.VIBRATE
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 14600101 - Device operation failed.
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @atomicservice
+   * @since 12
+   */
+  function stopVibrationSync(): void;
+
+  /**
    * Whether the preset vibration effect is supported.
    *
    * @param { string } effectId Indicate the specified effect of the preset, {@code EffectId}.
@@ -241,6 +253,18 @@ declare namespace vibrator {
    * @since 10
    */
   function isSupportEffect(effectId: string): Promise<boolean>;
+
+  /**
+   * Whether the preset vibration effect is supported.
+   *
+   * @param { string } effectId Indicate the specified effect of the preset, {@code EffectId}.
+   * @returns { boolean } Returns whether the effect is supported.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 14600101 - Device operation failed.
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @since 12
+   */
+  function isSupportEffectSync(effectId: string): boolean;
 
   /**
    * Stop the motor from vibrating.
@@ -267,6 +291,16 @@ declare namespace vibrator {
    * @useinstead vibrator#stopVibration
    */
   function stop(stopMode: VibratorStopMode, callback?: AsyncCallback<void>): void;
+
+  /**
+   * Whether the high-definition haptic is supported.
+   *
+   * @returns { boolean } Returns whether the high-definition haptic is supported.
+   * @throws { BusinessError } 14600101 - Device operation failed.
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @since 12
+   */
+  function isHdHapticSupported(): boolean;
 
   /**
    * Preset vibration effect string.
@@ -313,12 +347,16 @@ declare namespace vibrator {
   /**
    * The use of vibration.
    *
+   * @typedef {'unknown' | 'alarm' | 'ring' | 'notification' | 'communication' |
+   * 'touch' | 'media' | 'physicalFeedback' | 'simulateReality'}
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 9
    */
   /**
    * The use of vibration.
    *
+   * @typedef {'unknown' | 'alarm' | 'ring' | 'notification' | 'communication' |
+   * 'touch' | 'media' | 'physicalFeedback' | 'simulateReality'}
    * @syscap SystemCapability.Sensors.MiscDevice
    * @atomicservice
    * @since 11
@@ -376,20 +414,21 @@ declare namespace vibrator {
   /**
    * Describes the effect of vibration.
    *
-   * @type { VibrateTime | VibratePreset }
+   * @typedef { VibrateTime | VibratePreset }
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 9
    */
   /**
    * Describes the effect of vibration.
    *
-   * @type { VibrateTime | VibratePreset | VibrateFromFile }
+   * @typedef { VibrateTime | VibratePreset | VibrateFromFile }
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 10
    */
   /**
    * Describes the effect of vibration.
    *
+   * @typedef { VibrateTime | VibratePreset | VibrateFromFile }
    * @syscap SystemCapability.Sensors.MiscDevice
    * @atomicservice
    * @since 11

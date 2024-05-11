@@ -150,7 +150,8 @@ declare namespace abilityManager {
    * @param { AbilityForegroundStateObserver } observer - The ability foreground state observer.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -166,7 +167,8 @@ declare namespace abilityManager {
    * @param { AbilityForegroundStateObserver } [observer] - The ability foreground state observer.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -182,7 +184,8 @@ declare namespace abilityManager {
    * @param { AsyncCallback<void> } callback - The callback of updateConfiguration.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -198,7 +201,8 @@ declare namespace abilityManager {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -228,7 +232,8 @@ declare namespace abilityManager {
    * @param { AsyncCallback<Array<AbilityRunningInfo>> } callback - The callback is used to return the array of
    *                                                                AbilityRunningInfo.
    * @throws { BusinessError } 202 - Not system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -244,7 +249,8 @@ declare namespace abilityManager {
    * @param { number } upperLimit - Get the maximum limit of the number of messages.
    * @returns { Promise<Array<ExtensionRunningInfo>> } Returns the array of ExtensionRunningInfo.
    * @throws { BusinessError } 202 - Not system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -261,7 +267,8 @@ declare namespace abilityManager {
    * @param { AsyncCallback<Array<ExtensionRunningInfo>> } callback - The callback is used to return the array of
    *                                                                  ExtensionRunningInfo.
    * @throws { BusinessError } 202 - Not system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -286,7 +293,8 @@ declare namespace abilityManager {
    *
    * @param { AsyncCallback<ElementName> } callback - The callback is used to return elementName info of top ability.
    * @throws { BusinessError } 202 - Not system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -301,7 +309,8 @@ declare namespace abilityManager {
    * @param { AsyncCallback<{ [key: string]: Object }> } callback - The callback is used to return the params of sharing
    *                                                 data and result code.
    * @throws { BusinessError } 202 - Not system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -314,7 +323,8 @@ declare namespace abilityManager {
    * @param { AsyncCallback<Record<string, Object>> } callback - The callback is used to return the params of sharing
    *                                                             data and result code.
    * @throws { BusinessError } 202 - Not system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -328,7 +338,8 @@ declare namespace abilityManager {
    * @param { number } missionId - The missionId of target ability.
    * @returns { Promise<{ [key: string]: Object }> } The promise returned by the function.
    * @throws { BusinessError } 202 - Not system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -340,7 +351,8 @@ declare namespace abilityManager {
    * @param { number } missionId - The missionId of target ability.
    * @returns { Promise<Record<string, Object>> } The promise returned by the function.
    * @throws { BusinessError } 202 - Not system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -354,7 +366,8 @@ declare namespace abilityManager {
    * @param { number } requestCode - Request code defined by the user.
    * @param { AsyncCallback<void> } callback - The callback of the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -369,7 +382,8 @@ declare namespace abilityManager {
    * @param { number } requestCode - Request code defined by the user.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -385,7 +399,8 @@ declare namespace abilityManager {
    * @param { AsyncCallback<Array<AbilityStateData>> } callback - The callback is used to return the list of AbilityStateDatas.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -413,7 +428,8 @@ declare namespace abilityManager {
    * @param { Context } context - The context that initiates the query request.
    * @param { string } appId - Globally unique identifier of an application, which is allocated by the cloud.
    * @returns { Promise<boolean> } Returns the result in the form of callback.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -431,7 +447,8 @@ declare namespace abilityManager {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - Not system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -439,6 +456,23 @@ declare namespace abilityManager {
    * @since 12
    */
   function notifyDebugAssertResult(sessionId: string, status: UserStatus): Promise<void>;
+
+  /**
+   * Set the enable status for starting and stopping resident processes.
+   * The caller application can only set the resident status of the configured process.
+   *
+   * @param { string } bundleName - The bundle name of the resident process.
+   * @param { boolean } enable - Set resident process enable status.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 202 - Not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Non empty package name needs to be provided, 2.The second parameter needs to provide a Boolean type setting value.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16200006 - The caller application can only set the resident status of the configured process.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 12
+   */
+  function setResidentProcessEnabled(bundleName: string, enable: boolean): Promise<void>;
 
   /**
    * The class of an ability running information.

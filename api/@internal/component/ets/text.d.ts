@@ -88,23 +88,11 @@ interface TextInterface {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
-   /**
-   * Called when writing text.
-   *
-   * @param { string | Resource | StyledString } content
-   * @param { TextOptions } value
-   * @returns { TextAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   * @form
-   */
-   (content?: string | Resource | StyledString, value?: TextOptions): TextAttribute;
+  (content?: string | Resource, value?: TextOptions): TextAttribute;
   }
 
 /**
@@ -395,6 +383,17 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   fontWeight(value: number | FontWeight | string): TextAttribute;
 
   /**
+   * Set font line spacing.
+   *
+   * @param { LengthMetrics } value
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  lineSpacing(value: LengthMetrics): TextAttribute;
+
+  /**
    * Called when the horizontal center mode of the font is set.
    *
    * @param { TextAlign } value
@@ -632,7 +631,18 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 11
    * @form
    */
-  decoration(value: { type: TextDecorationType; color?: ResourceColor }): TextAttribute;
+  /**
+   * Called when the text decoration of the text is set.
+   *
+   * @param { DecorationStyleInterface } value
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  decoration(value: DecorationStyleInterface): TextAttribute;
 
   /**
    * Called when the distance between text fonts is set.
@@ -883,6 +893,17 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   wordBreak(value: WordBreak): TextAttribute;
 
   /**
+   * Set the text line break strategy type.
+   *
+   * @param { LineBreakStrategy } strategy - The text line break strategy type.
+   * @returns { TextAttribute } The attribute of the text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  lineBreakStrategy(strategy: LineBreakStrategy): TextAttribute;
+
+  /**
    * Called when using the Clipboard menu
    *
    * @param { function } callback - callback of the listened event.
@@ -1051,6 +1072,17 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 12
    */
   onMarqueeStateChange(callback: Callback<MarqueeState>): TextAttribute;
+
+  /**
+   * Whether to support sensitive privacy information
+   *
+   * @param { boolean } supported - Whether to support sensitive privacy information.
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 12
+   */
+  privacySensitive(supported: boolean): TextAttribute;
 }
 
 /**

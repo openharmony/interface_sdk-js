@@ -43,7 +43,7 @@ export { NodeController } from './arkui/NodeController';
  * @crossplatform
  * @since 11
  */
-export { FrameNode } from './arkui/FrameNode';
+export { FrameNode, LayoutConstraint } from './arkui/FrameNode';
 
 /**
  * Export Graphics. Defines the basic types related to the Graphics.
@@ -52,7 +52,7 @@ export { FrameNode } from './arkui/FrameNode';
  * @crossplatform
  * @since 11
  */
-export { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation, Frame, RoundRect, Circle, CommandPath, ShapeMask, BorderRadiuses, CornerRadius, Rect, Edges, edgeColors, edgeWidths, borderStyles, borderRadiuses } from './arkui/Graphics';
+export { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation, Frame, RoundRect, Circle, CommandPath, ShapeMask, BorderRadiuses, CornerRadius, Rect, Edges, edgeColors, edgeWidths, borderStyles, borderRadiuses, LengthMetricsUnit } from './arkui/Graphics';
 
 /**
  * Export Graphics. Defines the basic types related to the Graphics.
@@ -61,7 +61,7 @@ export { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4
  * @crossplatform
  * @since 12
  */
-export { LengthUnit, SizeT, LengthMetric, LengthMetrics, ColorMetrics } from './arkui/Graphics';
+export { LengthUnit, SizeT, LengthMetrics, ColorMetrics } from './arkui/Graphics';
 
 /**
  * Export RenderNode. RenderNode contains node tree operations and render property operations on node.
@@ -71,7 +71,6 @@ export { LengthUnit, SizeT, LengthMetric, LengthMetrics, ColorMetrics } from './
  * @since 11
  */
 export { RenderNode } from './arkui/RenderNode';
-
 
 /**
  * Export XComponentNode, which extends FrameNode.
@@ -83,6 +82,15 @@ export { RenderNode } from './arkui/RenderNode';
 export { XComponentNode } from './arkui/XComponentNode';
 
 /**
+ * Export Content.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export { Content } from './arkui/Content';
+
+/**
  * Export ComponentContent.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -90,3 +98,12 @@ export { XComponentNode } from './arkui/XComponentNode';
  * @since 12
  */
 export { ComponentContent } from './arkui/ComponentContent';
+
+/**
+ * Export NodeContent.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export { NodeContent } from './arkui/NodeContent';

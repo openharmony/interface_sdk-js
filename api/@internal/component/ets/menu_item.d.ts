@@ -70,6 +70,16 @@ declare interface MenuItemOptions {
   startIcon?: ResourceStr;
 
   /**
+   * Defines the start display symbol info.
+   *
+   * @type { ?SymbolGlyphModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  symbolStartIcon?: SymbolGlyphModifier;
+
+  /**
    * Defines the content string display info.
    *
    * @type { ?ResourceStr }
@@ -120,6 +130,16 @@ declare interface MenuItemOptions {
    * @since 11
    */
   endIcon?: ResourceStr;
+
+  /**
+   * Defines the end display symbol info.
+   *
+   * @type { ?SymbolGlyphModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  symbolEndIcon?: SymbolGlyphModifier;
 
   /**
    * Defines the end label info like shortcut.
@@ -318,7 +338,20 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * @atomicservice
    * @since 11
    */
-  selectIcon(value: boolean | ResourceStr): MenuItemAttribute;
+  /**
+   * Whether the relevant check icon is displayed when a menu item is selected.
+   * Use type ResourceStr or SymbolGlyphModifier to specify icon instead of the default check mark.
+   *
+   * @param { boolean | ResourceStr | SymbolGlyphModifier } value - Indicates whether to display icon when selected.
+   * <br>true: displays the default check mark when selected.
+   * <br>false: does not displays icon when selected.
+   * <br>ResourceStr or SymbolGlyphModifier: displays the specified icon when selected.
+   * @returns { MenuItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  selectIcon(value: boolean | ResourceStr | SymbolGlyphModifier): MenuItemAttribute;
 
   /**
    * Triggers a callback when a menu item is selected or unchecked.

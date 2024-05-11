@@ -33,8 +33,10 @@ declare namespace brightness {
    * Sets the screen brightness.
    *
    * @param { number } value Brightness value, ranging from 0 to 255.
+   * value parameter must be of type number.
    * @throws { BusinessError } 202 - If the system permission is denied.
-   * @throws { BusinessError } 401 - If the value is not valid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types;
    * @throws { BusinessError } 4700101 - If connecting to the service failed.
    * @syscap SystemCapability.PowerManager.DisplayPowerManager
    * @systemapi
@@ -46,11 +48,14 @@ declare namespace brightness {
    * Sets the screen brightness.
    *
    * @param { number } value - Brightness value, ranging from 0 to 255.
+   * value parameter must be of type number.
    * @param { boolean } continuous - This parameter is used in the scenario of continuous adjustment to the brightness.
    * You are advised to set this parameter to true during the continuous adjustment and
    * to false at the end of the continuous adjustment for better performance.
+   * continuous parameter must be of type boolean.
    * @throws { BusinessError } 202 - If the system permission is denied.
-   * @throws { BusinessError } 401 - If the value is not valid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types;
    * @throws { BusinessError } 4700101 - If connecting to the service failed.
    * @syscap SystemCapability.PowerManager.DisplayPowerManager
    * @systemapi

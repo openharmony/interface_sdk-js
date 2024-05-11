@@ -35,14 +35,16 @@ declare namespace accountManager {
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
    * @param { boolean } disallow - true if the user is not allowed to add local account.
    * @param { AsyncCallback<void> } callback - the callback of disallowAddLocalAccount.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
@@ -55,14 +57,16 @@ declare namespace accountManager {
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
    * @param { boolean } disallow - true if the user is not allowed to add local account.
    * @returns { Promise<void> } the promise returned by the disallowAddLocalAccount.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
@@ -75,14 +79,16 @@ declare namespace accountManager {
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { number } userId - indicates the user ID.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { number } userId - indicates the user ID. It cannot be the ID of a user that does not exist.
    * @param { boolean } disallow - true if the specific user is not allowed to add an OS account.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -95,14 +101,16 @@ declare namespace accountManager {
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { number } userId - indicates the user ID.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         If the admin is not empty, it must have the corresponding permission.
+   * @param { number } userId - indicates the user ID. It cannot be the ID of a user that does not exist.
    * @returns { boolean } true if the specific user is not allowed to add an OS account.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -115,16 +123,18 @@ declare namespace accountManager {
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { string } name - the OS account name.
-   * @param { osAccount.OsAccountType } type - the OS account type.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { string } name - the OS account name. It cannot be empty.
+   * @param { osAccount.OsAccountType } type - the OS account type. It can only be one of specified types.
    * @returns { osAccount.OsAccountInfo } information about the OS account added.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9201003 - failed to add an OS account.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -137,13 +147,15 @@ declare namespace accountManager {
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
    * @param { boolean } disallow - true if the specific account or all accounts are not allowed to add an OS account.
-   * @param { number } [accountId] - indicates the account ID.
+   * @param { number } [accountId] - indicates the account ID. It cannot be the ID of an account that does not exist.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
@@ -155,13 +167,15 @@ declare namespace accountManager {
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { number } [accountId] - indicates the account ID.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         If the admin is not empty, it must have the corresponding permission.
+   * @param { number } [accountId] - indicates the account ID. It cannot be the ID of an account that does not exist.
    * @returns { boolean } true if the specific account or all accounts are not allowed to add an OS account.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
@@ -173,15 +187,17 @@ declare namespace accountManager {
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { string } name - the OS account name.
-   * @param { osAccount.OsAccountType } type - the OS account type.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { string } name - the OS account name. It cannot be empty.
+   * @param { osAccount.OsAccountType } type - the OS account type. It can only be one of correct types.
    * @returns { Promise<osAccount.OsAccountInfo> } information about the OS account added.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9201003 - failed to add an OS account.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12

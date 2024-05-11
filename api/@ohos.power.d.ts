@@ -34,9 +34,10 @@ declare namespace power {
    *
    * @permission ohos.permission.REBOOT
    * @param { string } reason Indicates the shutdown reason.
+   * reason parameter must be of type string.
    * @throws { BusinessError } 201 - If the permission is denied.
    * @throws { BusinessError } 202 - If the system permission is denied.
-   * @throws { BusinessError } 401 - If the reason is not valid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
    * @throws { BusinessError } 4900101 - If connecting to the service failed.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
@@ -65,9 +66,10 @@ declare namespace power {
    * @permission ohos.permission.REBOOT
    * @param { string } reason Indicates the restart reason. For example, "updater" indicates entering the updater mode
    * after the restart. If the parameter is not specified, the system enters the normal mode after the restart.
+   * reason parameter must be of type string.
    * @throws { BusinessError } 201 - If the permission is denied.
    * @throws { BusinessError } 202 - If the system permission is denied.
-   * @throws { BusinessError } 401 - If the reason is not valid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
    * @throws { BusinessError } 4900101 - If connecting to the service failed.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
@@ -113,8 +115,9 @@ declare namespace power {
    * Wakes up the device to turn on the screen.
    *
    * @param { string } detail Indicates the detail information who request wakeup.
+   * detail parameter must be of type string.
    * @throws { BusinessError } 202 - If the system permission is denied.
-   * @throws { BusinessError } 401 - If the detail is not valid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
    * @throws { BusinessError } 4900101 - If connecting to the service failed.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
@@ -158,10 +161,11 @@ declare namespace power {
    *
    * @permission ohos.permission.POWER_OPTIMIZATION
    * @param { DevicePowerMode } mode Indicates power mode {@link DevicePowerMode} to set.
+   * the DevicePowerMode type is an enumeration class.
    * @param { AsyncCallback<void> } callback Indicates the callback of setting the power mode.
    * @throws { BusinessError } 201 – If the permission is denied.
    * @throws { BusinessError } 202 - If the system permission is denied.
-   * @throws { BusinessError } 401 - If mode or callback is not valid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @throws { BusinessError } 4900101 - If connecting to the service failed.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
@@ -174,10 +178,11 @@ declare namespace power {
    *
    * @permission ohos.permission.POWER_OPTIMIZATION
    * @param { DevicePowerMode } mode Indicates power mode {@link DevicePowerMode} to set.
+   * the DevicePowerMode type is an enumeration class.
    * @returns { Promise<void> }
    * @throws { BusinessError } 201 – If the permission is denied.
    * @throws { BusinessError } 202 - If the system permission is denied.
-   * @throws { BusinessError } 401 - If mode or callback is not valid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @throws { BusinessError } 4900101 - If connecting to the service failed.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi

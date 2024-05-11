@@ -2049,6 +2049,26 @@ declare namespace commonEventManager {
      * @since 12
      */
     COMMON_EVENT_DYNAMIC_ICON_CHANGED = 'usual.event.DYNAMIC_ICON_CHANGED',
+
+    /**
+     * This common event means that minors mode is enabled.
+     * This is a protected common event that can only be sent by system.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @atomicservice
+     * @since 12
+     */
+    COMMON_EVENT_MINORSMODE_ON = 'usual.event.MINORSMODE_ON',
+
+    /**
+     * This common event means that minors mode is disabled.
+     * This is a protected common event that can only be sent by system.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @atomicservice
+     * @since 12
+     */
+    COMMON_EVENT_MINORSMODE_OFF = 'usual.event.MINORSMODE_OFF',
   }
 
   /**

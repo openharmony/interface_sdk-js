@@ -488,6 +488,34 @@ declare interface TabBarIconStyle {
 }
 
 /**
+ * TabBarSymbol object.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class TabBarSymbol {
+  /**
+   * The properties of the symbol icon in the tab bar need to be unselected. 
+   *
+   * @type { SymbolGlyphModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  normal: SymbolGlyphModifier;
+
+  /**
+   * The properties of the symbol icon in the tab bar need to be selected. 
+   *
+   * @type { ?SymbolGlyphModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  selected?: SymbolGlyphModifier;
+}
+/**
  * Define SubTabBarStyle, the style is text and underline.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -756,7 +784,16 @@ declare class BottomTabBarStyle {
    * @atomicservice
    * @since 11
    */
-  constructor(icon: ResourceStr, text: ResourceStr);
+  /**
+   * constructor.
+   *
+   * @param { ResourceStr | TabBarSymbol } icon - indicates the icon of the bottom tab bar
+   * @param { ResourceStr } text - indicates the text of the bottom tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  constructor(icon: ResourceStr | TabBarSymbol, text: ResourceStr);
 
   /**
    * of.
@@ -781,7 +818,18 @@ declare class BottomTabBarStyle {
    * @atomicservice
    * @since 11
    */
-  static of(icon: ResourceStr, text: ResourceStr): BottomTabBarStyle;
+  /**
+   * of.
+   *
+   * @param { ResourceStr | TabBarSymbol } icon - indicates the icon of the bottom tab bar
+   * @param { ResourceStr } text - indicates the text of the bottom tab bar
+   * @returns { BottomTabBarStyle } the style of the bottom tab bar
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  static of(icon: ResourceStr | TabBarSymbol, text: ResourceStr): BottomTabBarStyle;
 
   /**
    * Set the label style of the indicator
@@ -823,7 +871,16 @@ declare class BottomTabBarStyle {
    * @atomicservice
    * @since 11
    */
-  padding(value: Padding | Dimension): BottomTabBarStyle;
+  /**
+   * Set the padding of the bottom tab bar
+   *
+   * @param { Padding | Dimension | LocalizedPadding } value - indicates the padding of the bottom tab bar
+   * @returns { BottomTabBarStyle } the style of the bottom tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  padding(value: Padding | Dimension | LocalizedPadding): BottomTabBarStyle;
 
   /**
    * Set the layout mode of the bottom tab bar

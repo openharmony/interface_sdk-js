@@ -32,10 +32,12 @@ declare namespace systemParameterEnhance {
   /**
    * Gets the value of the attribute with the specified key.
    *
-   * @param { string } key Key of the system attribute.
+   * @param { string } key Key of the system attribute, cannot exceed 128 characters,
+   * only allow alphanumeric, plus '.', '-', '@', ':', or '_', don't allow '..'.
    * @param { string } def Default value.
    * @returns { string } the value of the parameter.
-   * @throws { BusinessError } 401 - if type of key is not string or key is not specified.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * 2.incorrect parameter types; 3.parameter verification failed.
    * @throws { BusinessError } 14700101 - if key is not found
    * @throws { BusinessError } 14700103 - if permission denied
    * @throws { BusinessError } 14700104 - if system internal error
@@ -48,9 +50,11 @@ declare namespace systemParameterEnhance {
   /**
    * Gets the value of the attribute with the specified key.
    *
-   * @param { string } key Key of the system attribute.
+   * @param { string } key Key of the system attribute, cannot exceed 128 characters,
+   * only allow alphanumeric, plus '.', '-', '@', ':', or '_', don't allow '..'.
    * @param { AsyncCallback<string> } callback Callback function.
-   * @throws { BusinessError } 401 - if type of key is not string or key is not specified.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * 2.incorrect parameter types; 3.parameter verification failed.
    * @throws { BusinessError } 14700101 - if key is not found
    * @throws { BusinessError } 14700103 - if permission denied
    * @throws { BusinessError } 14700104 - if system internal error
@@ -63,10 +67,12 @@ declare namespace systemParameterEnhance {
   /**
    * Gets the value of the attribute with the specified key.
    *
-   * @param { string } key Key of the system attribute.
+   * @param { string } key Key of the system attribute, cannot exceed 128 characters,
+   * only allow alphanumeric, plus '.', '-', '@', ':', or '_', don't allow '..'.
    * @param { string } def Default value.
    * @param { AsyncCallback<string> } callback Callback function.
-   * @throws { BusinessError } 401 - if type of key is not string or key is not specified.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * 2.incorrect parameter types; 3.parameter verification failed.
    * @throws { BusinessError } 14700101 - if key is not found
    * @throws { BusinessError } 14700103 - if permission denied
    * @throws { BusinessError } 14700104 - if system internal error
@@ -79,10 +85,12 @@ declare namespace systemParameterEnhance {
   /**
    * Gets the value of the attribute with the specified key.
    *
-   * @param { string } key Key of the system attribute.
+   * @param { string } key Key of the system attribute, cannot exceed 128 characters,
+   * only allow alphanumeric, plus '.', '-', '@', ':', or '_', don't allow '..'.
    * @param { string } def Default value.
    * @returns { Promise<string> }, which is used to obtain the result asynchronously.
-   * @throws { BusinessError } 401 - if type of key is not string or key is not specified.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * 2.incorrect parameter types; 3.parameter verification failed.
    * @throws { BusinessError } 14700101 - if key is not found
    * @throws { BusinessError } 14700103 - if permission denied
    * @throws { BusinessError } 14700104 - if system internal error
@@ -95,9 +103,11 @@ declare namespace systemParameterEnhance {
   /**
    * Sets a value for the attribute with the specified key.
    *
-   * @param { string } key Key of the system attribute.
-   * @param { string } value System attribute value to set.
-   * @throws { BusinessError } 401 - if type of key is not string or key is not specified.
+   * @param { string } key Key of the system attribute, cannot exceed 128 characters,
+   * only allow alphanumeric, plus '.', '-', '@', ':', or '_', don't allow '..'.
+   * @param { string } value System attribute value to set, cannot exceed 96 characters.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * 2.incorrect parameter types; 3.parameter verification failed.
    * @throws { BusinessError } 14700102 - if value is invalid
    * @throws { BusinessError } 14700103 - if permission denied
    * @throws { BusinessError } 14700104 - if system internal error
@@ -110,10 +120,12 @@ declare namespace systemParameterEnhance {
   /**
    * Sets a value for the attribute with the specified key.
    *
-   * @param { string } key Key of the system attribute.
-   * @param { string } value System attribute value to set.
+   * @param { string } key Key of the system attribute, cannot exceed 128 characters,
+   * only allow alphanumeric, plus '.', '-', '@', ':', or '_', don't allow '..'.
+   * @param { string } value System attribute value to set, cannot exceed 96 characters.
    * @param { AsyncCallback<void> } callback Callback function.
-   * @throws { BusinessError } 401 - if type of key is not string or key is not specified.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * 2.incorrect parameter types; 3.parameter verification failed.
    * @throws { BusinessError } 14700102 - if value is invalid
    * @throws { BusinessError } 14700103 - if permission denied
    * @throws { BusinessError } 14700104 - if system internal error
@@ -126,10 +138,12 @@ declare namespace systemParameterEnhance {
   /**
    * Sets a value for the attribute with the specified key.
    *
-   * @param { string } key Key of the system attribute.
-   * @param { string } value Default value.
+   * @param { string } key Key of the system attribute, cannot exceed 128 characters,
+   * only allow alphanumeric, plus '.', '-', '@', ':', or '_', don't allow '..'.
+   * @param { string } value Default value, cannot exceed 96 characters.
    * @returns { Promise<void> }, which is used to obtain the result asynchronously.
-   * @throws { BusinessError } 401 - if type of key is not string or key is not specified.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * 2.incorrect parameter types; 3.parameter verification failed.
    * @throws { BusinessError } 14700102 - if value is invalid
    * @throws { BusinessError } 14700103 - if permission denied
    * @throws { BusinessError } 14700104 - if system internal error

@@ -191,6 +191,40 @@ interface Vector2 {
   y: number
 }
 
+ /**
+  * Defined a vector with two T type values.
+  *
+  * @interface Vector2T
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @atomicservice
+  * @since 12
+  */
+ interface Vector2T<T> {
+
+  /**
+   * Value for x-axis of the vector.
+   *
+   * @type { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  x: T
+
+  /**
+   * Value for y-axis of the vector.
+   *
+   * @type { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  y: T
+}
+
 /**
  * Defined a vector with three values.
  *
@@ -198,6 +232,15 @@ interface Vector2 {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
+ */
+/**
+ * Defined a vector with three values.
+ *
+ * @interface Vector3
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
  */
 interface Vector3 {
   /**
@@ -317,6 +360,15 @@ export type Offset = Vector2;
  * @since 11
  */
 export type Position = Vector2;
+
+/**
+ * PositionT info.
+ * @typedef {Vector2T<T> }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export type PositionT<T> = Vector2T<T>;
 
 /**
  * Pivot info.
@@ -621,104 +673,32 @@ export interface SizeT<T> {
 }
 
 /**
- * Defines the Length Metric.
+ * Enumerates the length metrics unit.
  *
+ * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
-declare class LengthMetric {
-  /**
-   * Constructor.
-   *
-   * @param { number } value - The value of length.
-   * @param { LengthUnit } unit - The length unit.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  constructor(value: number, unit?:LengthUnit);
+export enum LengthMetricsUnit {
 
   /**
-   * Init a lengthMetric with px unit.
+   * The default length metrics unit.
    *
-   * @param { number } value - The value of the length metric.
-   * @returns { LengthMetric } Returns the lengthMetric object with unit px.
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  static px(value: number): LengthMetric;
+  DEFAULT = 0,
 
   /**
-   * Init a lengthMetric with vp unit.
+   * The pixel length metrics unit.
    *
-   * @param { number } value - The value of the length metric.
-   * @returns { LengthMetric } - Returns the lengthMetric object with unit vp.
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  static vp(value: number): LengthMetric;
-
-  /**
-   * Init a lengthMetric with fp unit.
-   *
-   * @param { number } value - The value of the length metric.
-   * @returns { LengthMetric } Returns the lengthMetric object with unit fp.
-   * @static
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  static fp(value: number): LengthMetric;
-
-  /**
-   * Init a lengthMetric with percent unit.
-   *
-   * @param { number } value - The value of the length metric.
-   * @returns { LengthMetric } Returns the lengthMetric object with unit percent.
-   * @static
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  static percent(value: number): LengthMetric;
-
-  /**
-   * Init a lengthMetric with lpx unit.
-   *
-   * @param { number } value - The value of the length metric.
-   * @returns { LengthMetric } Returns the lengthMetric object with unit lpx.
-   * @static
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  static lpx(value: number): LengthMetric;
-  
-  /**
-   * The unit of the LengthMetric. The default value is VP.
-   *
-   * @type { LengthUnit }
-   * @default VP
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  public unit: LengthUnit;
-
-  /**
-   * The value of the LengthMetric.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  public value: number;
+  PX = 1
 }
 
 /**

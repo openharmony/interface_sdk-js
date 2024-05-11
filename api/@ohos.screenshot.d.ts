@@ -29,6 +29,13 @@ import image from './@ohos.multimedia.image';
  * @systemapi Hide this for inner system use.
  * @since 7
  */
+ /**
+ * Declares the screenshot APIs.
+ *
+ * @namespace screenshot
+ * @syscap SystemCapability.WindowManager.WindowManager.Core
+ * @since 12
+ */
 declare namespace screenshot {
   /**
    * Takes a screenshot and saves it as a PixelMap object.
@@ -37,7 +44,8 @@ declare namespace screenshot {
    * @param { ScreenshotOptions } options Screenshot options, which consist of screenRect, imageSize, and rotation. You need to set these parameters
    * @param { AsyncCallback<image.PixelMap> } callback Callback used to return a PixelMap object.
    * @throws { BusinessError } 201 - Permission verification failed.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 7
@@ -50,7 +58,8 @@ declare namespace screenshot {
    * @param { AsyncCallback<image.PixelMap> } callback - Callback used to return a PixelMap object.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -77,12 +86,50 @@ declare namespace screenshot {
    * @param { ScreenshotOptions } options Screenshot options, which consist of screenRect, imageSize, and rotation. You need to set these parameters
    * @returns { Promise<image.PixelMap> } Promise used to return a PixelMap object.
    * @throws { BusinessError } 201 - Permission verification failed.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 7
    */
   function save(options?: ScreenshotOptions): Promise<image.PixelMap>;
+
+  /**
+   * Takes a screenshot and picks it as a PickInfo object.
+   *
+   * @returns { Promise<PickInfo> } Promise used to return a PickInfo object.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 12
+   */
+  function pick(): Promise<PickInfo>;
+
+  /**
+   * Describes the region of the screen to pick info.
+   *
+   * @interface PickInfo
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 12
+   */
+  interface PickInfo {
+    /**
+     * the region of the screen to capture.
+     *
+     * @type { Rect }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 12
+     */
+    pickRect: Rect;
+
+    /**
+     * the region of the screen to capture pixelMap.
+     *
+     * @type { image.PixelMap }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 12
+     */
+    pixelMap: image.PixelMap;
+  }
 
   /**
    * Describes the region of the screen to capture.
@@ -92,6 +139,13 @@ declare namespace screenshot {
    * @systemapi Hide this for inner system use.
    * @since 7
    */
+  /**
+   * Describes the region of the screen to capture.
+   *
+   * @interface Rect
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 12
+   */
   interface Rect {
     /**
      * The X-axis coordinate of the upper left vertex of the rectangle.
@@ -100,6 +154,13 @@ declare namespace screenshot {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 7
+     */
+    /**
+     * The X-axis coordinate of the upper left vertex of the rectangle.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 12
      */
     left: number;
 
@@ -111,6 +172,13 @@ declare namespace screenshot {
      * @systemapi Hide this for inner system use.
      * @since 7
      */
+    /**
+     * The Y-axis coordinate of the upper left vertex of the rectangle.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 12
+     */
     top: number;
 
     /**
@@ -121,6 +189,13 @@ declare namespace screenshot {
      * @systemapi Hide this for inner system use.
      * @since 7
      */
+    /**
+     * Width of the rectangle.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 12
+     */
     width: number;
 
     /**
@@ -130,6 +205,13 @@ declare namespace screenshot {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 7
+     */
+    /**
+     * Height of the rectangle.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 12
      */
     height: number;
   }

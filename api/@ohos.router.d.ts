@@ -358,10 +358,13 @@ declare namespace router {
    *
    * @param { RouterOptions } options - Options.
    * @param { AsyncCallback<void> } callback - the callback of pushUrl.
-   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
-   * @throws { BusinessError } 100002 - if the uri is not exist.
-   * @throws { BusinessError } 100003 - if the pages are pushed too much.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 100002 - Uri error. The URI of the page to redirect is incorrect or does not exist
+   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
@@ -370,10 +373,13 @@ declare namespace router {
    *
    * @param { RouterOptions } options - Options.
    * @param { AsyncCallback<void> } callback - the callback of pushUrl.
-   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
-   * @throws { BusinessError } 100002 - if the uri is not exist.
-   * @throws { BusinessError } 100003 - if the pages are pushed too much.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 100002 - Uri error. The URI of the page to redirect is incorrect or does not exist
+   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -383,10 +389,13 @@ declare namespace router {
    *
    * @param { RouterOptions } options - Options.
    * @param { AsyncCallback<void> } callback - the callback of pushUrl.
-   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
-   * @throws { BusinessError } 100002 - if the uri is not exist.
-   * @throws { BusinessError } 100003 - if the pages are pushed too much.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 100002 - Uri error. The URI of the page to redirect is incorrect or does not exist
+   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -399,10 +408,13 @@ declare namespace router {
    *
    * @param { RouterOptions } options - Options.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
-   * @throws { BusinessError } 100002 - if the uri is not exist.
-   * @throws { BusinessError } 100003 - if the pages are pushed too much.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 100002 - Uri error. The URI of the page to redirect is incorrect or does not exist
+   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
@@ -411,10 +423,13 @@ declare namespace router {
    *
    * @param { RouterOptions } options - Options.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
-   * @throws { BusinessError } 100002 - if the uri is not exist.
-   * @throws { BusinessError } 100003 - if the pages are pushed too much.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 100002 - Uri error. The URI of the page to redirect is incorrect or does not exist
+   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -424,10 +439,13 @@ declare namespace router {
    *
    * @param { RouterOptions } options - Options.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
-   * @throws { BusinessError } 100002 - if the uri is not exist.
-   * @throws { BusinessError } 100003 - if the pages are pushed too much.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 100002 - Uri error. The URI of the page to redirect is incorrect or does not exist
+   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -441,10 +459,13 @@ declare namespace router {
    * @param { RouterOptions } options - Options.
    * @param { RouterMode } mode - RouterMode.
    * @param { AsyncCallback<void> } callback - the callback of pushUrl.
-   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
-   * @throws { BusinessError } 100002 - if the uri is not exist.
-   * @throws { BusinessError } 100003 - if the pages are pushed too much.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 100002 - Uri error. The URI of the page to redirect is incorrect or does not exist
+   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
@@ -454,10 +475,13 @@ declare namespace router {
    * @param { RouterOptions } options - Options.
    * @param { RouterMode } mode - RouterMode.
    * @param { AsyncCallback<void> } callback - the callback of pushUrl.
-   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
-   * @throws { BusinessError } 100002 - if the uri is not exist.
-   * @throws { BusinessError } 100003 - if the pages are pushed too much.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 100002 - Uri error. The URI of the page to redirect is incorrect or does not exist
+   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -468,10 +492,13 @@ declare namespace router {
    * @param { RouterOptions } options - Options.
    * @param { RouterMode } mode - RouterMode.
    * @param { AsyncCallback<void> } callback - the callback of pushUrl.
-   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
-   * @throws { BusinessError } 100002 - if the uri is not exist.
-   * @throws { BusinessError } 100003 - if the pages are pushed too much.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 100002 - Uri error. The URI of the page to redirect is incorrect or does not exist
+   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -485,10 +512,13 @@ declare namespace router {
    * @param { RouterOptions } options - Options.
    * @param { RouterMode } mode - RouterMode.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
-   * @throws { BusinessError } 100002 - if the uri is not exist.
-   * @throws { BusinessError } 100003 - if the pages are pushed too much.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 100002 - Uri error. The URI of the page to redirect is incorrect or does not exist
+   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
@@ -498,10 +528,13 @@ declare namespace router {
    * @param { RouterOptions } options - Options.
    * @param { RouterMode } mode - RouterMode.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
-   * @throws { BusinessError } 100002 - if the uri is not exist.
-   * @throws { BusinessError } 100003 - if the pages are pushed too much.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 100002 - Uri error. The URI of the page to redirect is incorrect or does not exist
+   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -512,10 +545,13 @@ declare namespace router {
    * @param { RouterOptions } options - Options.
    * @param { RouterMode } mode - RouterMode.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
-   * @throws { BusinessError } 100002 - if the uri is not exist.
-   * @throws { BusinessError } 100003 - if the pages are pushed too much.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 100002 - Uri error. The URI of the page to redirect is incorrect or does not exist
+   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -539,9 +575,12 @@ declare namespace router {
    *
    * @param { RouterOptions } options - Options.
    * @param { AsyncCallback<void> } callback - the callback of replaceUrl.
-   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
-   * @throws { BusinessError } 200002 - if the uri is not exist.
+   * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 9
    */
@@ -550,9 +589,12 @@ declare namespace router {
    *
    * @param { RouterOptions } options - Options.
    * @param { AsyncCallback<void> } callback - the callback of replaceUrl.
-   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
-   * @throws { BusinessError } 200002 - if the uri is not exist.
+   * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @atomicservice
    * @since 11
@@ -564,9 +606,12 @@ declare namespace router {
    *
    * @param { RouterOptions } options - Options.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
-   * @throws { BusinessError } 200002 - if the uri is not exist.
+   * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 9
    */
@@ -575,9 +620,12 @@ declare namespace router {
    *
    * @param { RouterOptions } options - Options.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
-   * @throws { BusinessError } 200002 - if the uri is not exist.
+   * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @atomicservice
    * @since 11
@@ -590,9 +638,12 @@ declare namespace router {
    * @param { RouterOptions } options - Options.
    * @param { RouterMode } mode - RouterMode.
    * @param { AsyncCallback<void> } callback - the callback of replaceUrl.
-   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
-   * @throws { BusinessError } 200002 - if the uri is not exist.
+   * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 9
    */
@@ -602,9 +653,12 @@ declare namespace router {
    * @param { RouterOptions } options - Options.
    * @param { RouterMode } mode - RouterMode.
    * @param { AsyncCallback<void> } callback - the callback of replaceUrl.
-   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
-   * @throws { BusinessError } 200002 - if the uri is not exist.
+   * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @atomicservice
    * @since 11
@@ -617,9 +671,12 @@ declare namespace router {
    * @param { RouterOptions } options - Options.
    * @param { RouterMode } mode - RouterMode.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - if can not get the delegate, only throw in standard system.
-   * @throws { BusinessError } 200002 - if the uri is not exist.
+   * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 9
    */
@@ -629,9 +686,12 @@ declare namespace router {
    * @param { RouterOptions } options - Options.
    * @param { RouterMode } mode - RouterMode.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - if can not get the delegate, only throw in standard system.
-   * @throws { BusinessError } 200002 - if the uri is not exist.
+   * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @atomicservice
    * @since 11
@@ -787,8 +847,11 @@ declare namespace router {
    * Pop up alert dialog to ask whether to back
    *
    * @param { EnableAlertOptions } options - Options.
-   * @throws { BusinessError } 401 - if the type of the parameter is not object or the type of the message is not string.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
@@ -796,8 +859,11 @@ declare namespace router {
    * Pop up alert dialog to ask whether to back
    *
    * @param { EnableAlertOptions } options - Options.
-   * @throws { BusinessError } 401 - if the type of the parameter is not object or the type of the message is not string.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -806,8 +872,11 @@ declare namespace router {
    * Pop up alert dialog to ask whether to back
    *
    * @param { EnableAlertOptions } options - Options.
-   * @throws { BusinessError } 401 - if the type of the parameter is not object or the type of the message is not string.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -932,10 +1001,13 @@ declare namespace router {
    *
    * @param { NamedRouterOptions } options - Options.
    * @param { AsyncCallback<void> } callback - the callback of pushNamedRoute.
-   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
-   * @throws { BusinessError } 100003 - if the pages are pushed too much.
-   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
+   * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -945,10 +1017,13 @@ declare namespace router {
    *
    * @param { NamedRouterOptions } options - Options.
    * @param { AsyncCallback<void> } callback - the callback of pushNamedRoute.
-   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
-   * @throws { BusinessError } 100003 - if the pages are pushed too much.
-   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
+   * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -961,10 +1036,13 @@ declare namespace router {
    *
    * @param { NamedRouterOptions } options - Options.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
-   * @throws { BusinessError } 100003 - if the pages are pushed too much.
-   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
+   * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -974,10 +1052,13 @@ declare namespace router {
    *
    * @param { NamedRouterOptions } options - Options.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
-   * @throws { BusinessError } 100003 - if the pages are pushed too much.
-   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
+   * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -991,10 +1072,13 @@ declare namespace router {
    * @param { NamedRouterOptions } options - Options.
    * @param { RouterMode } mode - RouterMode.
    * @param { AsyncCallback<void> } callback - the callback of pushNamedRoute.
-   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
-   * @throws { BusinessError } 100003 - if the pages are pushed too much.
-   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
+   * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -1005,10 +1089,13 @@ declare namespace router {
    * @param { NamedRouterOptions } options - Options.
    * @param { RouterMode } mode - RouterMode.
    * @param { AsyncCallback<void> } callback - the callback of pushNamedRoute.
-   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
-   * @throws { BusinessError } 100003 - if the pages are pushed too much.
-   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
+   * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1022,10 +1109,13 @@ declare namespace router {
    * @param { NamedRouterOptions } options - Options.
    * @param { RouterMode } mode - RouterMode.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
-   * @throws { BusinessError } 100003 - if the pages are pushed too much.
-   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
+   * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -1036,10 +1126,13 @@ declare namespace router {
    * @param { NamedRouterOptions } options - Options.
    * @param { RouterMode } mode - RouterMode.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
-   * @throws { BusinessError } 100003 - if the pages are pushed too much.
-   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
+   * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1052,9 +1145,12 @@ declare namespace router {
    *
    * @param { NamedRouterOptions } options - Options.
    * @param { AsyncCallback<void> } callback - the callback of replaceNamedRoute.
-   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
-   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -1064,9 +1160,12 @@ declare namespace router {
    *
    * @param { NamedRouterOptions } options - Options.
    * @param { AsyncCallback<void> } callback - the callback of replaceNamedRoute.
-   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
-   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1079,9 +1178,12 @@ declare namespace router {
    *
    * @param { NamedRouterOptions } options - Options.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
-   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -1091,9 +1193,12 @@ declare namespace router {
    *
    * @param { NamedRouterOptions } options - Options.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
-   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1107,9 +1212,12 @@ declare namespace router {
    * @param { NamedRouterOptions } options - Options.
    * @param { RouterMode } mode - RouterMode.
    * @param { AsyncCallback<void> } callback - the callback of replaceNamedRoute.
-   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
-   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -1120,9 +1228,12 @@ declare namespace router {
    * @param { NamedRouterOptions } options - Options.
    * @param { RouterMode } mode - RouterMode.
    * @param { AsyncCallback<void> } callback - the callback of replaceNamedRoute.
-   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
-   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1136,9 +1247,12 @@ declare namespace router {
    * @param { NamedRouterOptions } options - Options.
    * @param { RouterMode } mode - RouterMode.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - if can not get the delegate, only throw in standard system.
-   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -1149,9 +1263,12 @@ declare namespace router {
    * @param { NamedRouterOptions } options - Options.
    * @param { RouterMode } mode - RouterMode.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - if can not get the delegate, only throw in standard system.
-   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice

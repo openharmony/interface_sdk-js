@@ -85,13 +85,15 @@ declare namespace securityManager {
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
    * @returns { string } the security patch tag of the device.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -104,13 +106,15 @@ declare namespace securityManager {
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
    * @returns { DeviceEncryptionStatus } device encryption status.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -123,13 +127,16 @@ declare namespace securityManager {
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { string } item - item indicates the specific type of security policy.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { string } item - item indicates the specified security policy that needs to be obtained, including patch and encryption.
+   *                          patch means the device security patch tag, and encryption means the device encryption status.
    * @returns { string } security policy of the specific type.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
@@ -141,14 +148,16 @@ declare namespace securityManager {
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_CERTIFICATE
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { CertBlob } certificate - certificate file content and alias.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { CertBlob } certificate - certificate file content and alias. It cannot be empty or more than 40 characters.
    * @returns { Promise<string> } the promise carries the uri of the certificate used to uninstall
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9201001 - manage certificate failed
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
@@ -160,14 +169,16 @@ declare namespace securityManager {
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_CERTIFICATE
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { string } certUri - uri of the certificate.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { string } certUri - uri of the certificate. It cannot be empty or more than 64 characters.
    * @returns { Promise<void> } the promise returned by the uninstallUserCertificate.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9201001 - manage certificate failed
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
@@ -178,12 +189,14 @@ declare namespace securityManager {
    * Sets the password policy of the device.
    * 
    * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
    * @param { PasswordPolicy } policy - password policy to be set.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
@@ -194,8 +207,27 @@ declare namespace securityManager {
    * Gets the password policy of the device.
    * 
    * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
    * @returns { PasswordPolicy } policy - the password policy of the device.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function getPasswordPolicy(admin: Want): PasswordPolicy;
+
+  /**
+   * Sets the application's clipboard policy of the device.
+   * 
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { number } tokenId - tokenId indicates the token id of the application.
+   * @param { ClipboardPolicy } policy - clipboard policy to be set.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -204,7 +236,24 @@ declare namespace securityManager {
    * @stagemodelonly
    * @since 12
    */
-  function getPasswordPolicy(admin: Want): PasswordPolicy;
+  function setAppClipboardPolicy(admin: Want, tokenId: number, policy: ClipboardPolicy): void;
+
+  /**
+   * Gets the application's clipboard policy of the device.
+   * 
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { number } [tokenId] - tokenId indicates the token id of the application.
+   * @returns { string } the json string of clipboard policy for each application of the device.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function getAppClipboardPolicy(admin: Want, tokenId?: number): string;
 
   /**
    * Password policy.
@@ -244,6 +293,52 @@ declare namespace securityManager {
      * @since 12
      */
     additionalDescription?: string;
+  }
+
+  /**
+   * Clipboard policy.
+   * 
+   * @enum { number } ClipboardPolicy
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  export enum ClipboardPolicy {
+    /**
+     * Policy default
+     * 
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    DEFAULT = 0,
+
+    /**
+     * Policy indicates that the clipboard can be used on the same application
+     * 
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    IN_APP = 1,
+
+    /**
+     * Policy indicates that the clipboard can be used on the same device
+     * 
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    LOCAL_DEVICE = 2,
+
+    /**
+     * Policy indicates that the clipboard can be used across device
+     * 
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    CROSS_DEVICE = 3,
   }
 }
 

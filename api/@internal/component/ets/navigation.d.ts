@@ -518,6 +518,17 @@ declare interface NavigationMenuItem {
   icon?: string;
 
   /**
+   * The symbol of navigation menu item.
+   *
+   * @type { ?SymbolGlyphModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  symbolIcon?: SymbolGlyphModifier;
+
+  /**
    * Whether to enable this menu item.
    *
    * @type { ?boolean }
@@ -766,7 +777,10 @@ declare class NavPathStack {
    * @param { NavPathInfo } info - Indicates the route page to be pushed.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @throws { BusinessError } 100005 - Builder function not registered.
    * @throws { BusinessError } 100006 - NavDestination not found.
@@ -780,7 +794,10 @@ declare class NavPathStack {
    * @param { NavPathInfo } info - Indicates the route page to be pushed.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @throws { BusinessError } 100005 - Builder function not registered.
    * @throws { BusinessError } 100006 - NavDestination not found.
@@ -845,7 +862,10 @@ declare class NavPathStack {
    * @param { Object } param - Indicates the detailed parameter of the route page to be pushed.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @throws { BusinessError } 100005 - Builder function not registered.
    * @throws { BusinessError } 100006 - NavDestination not found.
@@ -860,7 +880,10 @@ declare class NavPathStack {
    * @param { Object } param - Indicates the detailed parameter of the route page to be pushed.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @throws { BusinessError } 100005 - Builder function not registered.
    * @throws { BusinessError } 100006 - NavDestination not found.
@@ -879,7 +902,10 @@ declare class NavPathStack {
    * @param { import('../api/@ohos.base').Callback<PopInfo> } onPop - The callback when next page returns.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @throws { BusinessError } 100005 - Builder function not registered.
    * @throws { BusinessError } 100006 - NavDestination not found.
@@ -895,7 +921,10 @@ declare class NavPathStack {
    * @param { import('../api/@ohos.base').Callback<PopInfo> } onPop - The callback when next page returns.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @throws { BusinessError } 100005 - Builder function not registered.
    * @throws { BusinessError } 100006 - NavDestination not found.
@@ -1649,6 +1678,17 @@ declare interface ToolbarItem {
   icon?: ResourceStr;
 
   /**
+   * The symbol of navigation toolbar item.
+   *
+   * @type { ?SymbolGlyphModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  symbolIcon?: SymbolGlyphModifier;
+
+  /**
    * Trigger by navigation toolbar item click.
    *
    * @type { ?function }
@@ -1704,6 +1744,17 @@ declare interface ToolbarItem {
    * @since 11
    */
   activeIcon?: ResourceStr;
+
+  /**
+   * The symbol of navigation toolbar item in active state.
+   *
+   * @type { ?SymbolGlyphModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  activeSymbolIcon?: SymbolGlyphModifier;
 }
 
 /**
@@ -1737,6 +1788,45 @@ declare interface NavigationTitleOptions {
    * @since 11
    */
   backgroundBlurStyle?: BlurStyle;
+
+  /**
+   * Set title bar style.
+   *
+   * @type { ?BarStyle }
+   * @default BarStyle.STANDARD
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  barStyle?: BarStyle;
+}
+
+/**
+ * Declare BarStyle enum.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum BarStyle {
+  /**
+   * Standard style means that the bar and content area are column layouts.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  STANDARD = 0,
+
+  /**
+   * Stack style means that the bar and content area are stack layouts.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  STACK = 1,
 }
 
 /**
@@ -1953,7 +2043,17 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @atomicservice
    * @since 11
    */
-  backButtonIcon(value: string | PixelMap | Resource): NavigationAttribute;
+  /**
+   * Sets the back button icon.
+   *
+   * @param { string | PixelMap | Resource | SymbolGlyphModifier } value
+   * @returns { NavigationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  backButtonIcon(value: string | PixelMap | Resource | SymbolGlyphModifier): NavigationAttribute;
 
   /**
    * Hide the NavBar, which includes title bar, the child of Navigation and tool bar. Supported in split mode.
@@ -2327,6 +2427,18 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @since 12
    */
   customNavContentTransition(delegate: (from: NavContentInfo, to: NavContentInfo, operation: NavigationOperation) => NavigationAnimatedTransition | undefined): NavigationAttribute;
+
+  /**
+   * Set navigation content expand types and edges.
+   *
+   * @param { Array<LayoutSafeAreaType> } [types] - Indicates the types of the safe area.
+   * @param { Array<LayoutSafeAreaEdge> } [edges] - Indicates the edges of the safe area.
+   * @returns { NavigationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  ignoreLayoutSafeArea(types?: Array<LayoutSafeAreaType>, edges?: Array<LayoutSafeAreaEdge>): NavigationAttribute;
 }
 
 /**

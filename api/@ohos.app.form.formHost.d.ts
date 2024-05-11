@@ -33,6 +33,26 @@ import formInfo from './@ohos.app.form.formInfo';
  */
 declare namespace formHost {
   /**
+   * Add a form.
+   * <p>You can use this method to create a theme form.</p>
+   *
+   * @permission ohos.permission.REQUIRE_FORM
+   * @param { Want } want - Indicates want of the form.
+   * @returns { Promise<formInfo.RunningFormInfo> } Return the form info.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16500050 - An IPC connection error happened.
+   * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+  function addForm(want: Want): Promise<formInfo.RunningFormInfo>;
+
+  /**
    * Deletes an obtained form by its ID.
    * <p>After this method is called, the form won't be available for use by the application and the Form Manager
    * Service no longer keeps the cache information about the form.</p>
@@ -1000,6 +1020,26 @@ declare namespace formHost {
     * @since 11
     */
   function clearRouterProxy(formIds: Array<string>): Promise<void>;
+
+  /**
+   * Set result of publish form.
+   *
+   * @permission ohos.permission.REQUIRE_FORM
+   * @param { string } formId - Indicates the form id.
+   * @param { formInfo.PublishFormResult } result - The result of publish form.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - caller is not system app.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16500050 - An IPC connection error happened.
+   * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @throws { BusinessError } 16501001 - The ID of the form to be operated does not exist.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+  function setPublishFormResult(formId: string, result: formInfo.PublishFormResult): void;
 
   /**
    * Set permanent dynamic ArkTS forms recyclable, they will be recycled when memory is low.

@@ -1,12 +1,14 @@
 a256
 a2dpsource
 aafwk
+aabb
 abilityname
 abilityslice
 abnormally
 accelerates
 accents
 accommodates
+aces
 acmmax
 acn
 activates
@@ -149,6 +151,7 @@ cone
 conferencing
 confpersist
 connectable
+consecutively
 contentful
 contex
 controlpanel
@@ -167,8 +170,10 @@ crowdtest
 crowdtested
 crowdtesting
 csh
+cubemap
 cug
 cyclewindows
+cyclically
 daltonization
 darkens
 darkest
@@ -182,11 +187,13 @@ dci
 ddmp
 de
 deactivated
+deactivates
 deactivation
 decodes
 decomposed
 decompression
 decompressed
+decompresses
 decompressing
 decr
 decrypts
@@ -274,6 +281,7 @@ endy
 enrolled
 enrolls
 enumeratable
+equirectangular
 erasing
 eration
 errcode
@@ -300,6 +308,7 @@ fdopen
 fileio
 fileshare
 fillets
+finer
 flac
 flashpix
 flg
@@ -310,6 +319,7 @@ foregrounding
 formatable
 formulat
 forwardmail
+fov
 freesize
 fstat
 fsync
@@ -328,6 +338,36 @@ graphicseditor
 granting
 greate
 gtc
+gunzip
+gz_headerp
+gzbuffer
+gzclearerr
+gzclose
+gzcloser
+gzclosew
+gzcompress
+gzdirect
+gzdopen
+gzeof
+gzerror
+gzflush
+gzfread
+gzfwrite
+gzgets
+gzgetc
+gzoffset
+gzopenw
+gzopen
+gzprintf
+gzputc
+gzputs
+gzread
+gzrewind
+gzseek
+gzsetparams
+gztell
+gzungetc
+gzwrite
 hailing
 handheld
 handhold
@@ -342,9 +382,11 @@ haps
 haptic
 haptics
 hce
+hcrc
 hdcp
 hdoc
 headed
+headerp
 headersreceive
 headphones
 heapsnapshot
@@ -420,6 +462,7 @@ interpolator
 interworking
 invalidates
 ipaddr
+irradiance
 isdn
 isim
 issuers
@@ -496,6 +539,7 @@ mdnserror
 mediaquery
 meid
 messageerror
+meshes
 metered
 metering
 mgf
@@ -503,6 +547,8 @@ mgf1
 mifare
 minibar
 minimizing
+minors
+minorsmode
 mirrored
 misconfigured
 mismatches
@@ -514,6 +560,7 @@ mmicode
 mnc
 moderately
 moitor
+moov
 mplink
 mschap
 msdos
@@ -539,17 +586,21 @@ neighborhoods
 netmask
 nets
 nextgroup
+nitems
 nlink
 nmea
 nnrt
+nnrtdevice
 nopadding
 mori
+no_gzcompress
 nodownload
 nofullscreen
 noremoteplayback
 normalizer
 notifies
 notifying
+nprintf
 numpad
 nvalidates
 nweb
@@ -624,6 +675,8 @@ phonemes
 phy
 pickers
 pixelmap
+pkzip
+pkzip_bug_workaround
 playpause
 playstate
 plmn
@@ -657,6 +710,7 @@ preresolve
 presentationml
 presently
 presistent
+previewed
 prevgroup
 prikey
 primaries
@@ -672,6 +726,7 @@ pss
 pssh
 puk
 pvr
+quant
 querier
 queriers
 racing
@@ -680,6 +735,7 @@ rasterizer
 rawfile
 rdb
 rdev
+reallocate
 reassociate
 rebounds
 recalculated
@@ -704,7 +760,9 @@ renderbuffertarget
 renegotiation
 repayment
 repeates
+replacer
 reposition
+rerouting
 resizeable
 resmgr
 resourceschedule
@@ -754,7 +812,6 @@ sdpi
 searchsetter
 sece
 secinfo
-securityguard
 seeked
 semicircles
 sendable
@@ -774,6 +831,7 @@ shuts
 sigalgs
 silenced
 singly
+skews
 slidable
 sliderstyle
 statvfs
@@ -803,6 +861,7 @@ spn
 spooler
 spp
 spreadsheetml
+springs
 spry
 spy
 srgb
@@ -812,6 +871,7 @@ statfs
 stopcd
 storei
 storge
+strm
 stroked
 stuffit
 subassembies
@@ -912,6 +972,7 @@ uncategorized
 uncatergorized
 unchangeable
 unclearable
+uncompress
 unconditional
 undefer
 undisturbed
@@ -967,11 +1028,13 @@ useriam
 userspace
 usim
 ussd
+utd
 utilized
 utimes
 uuids
 uwb
 uids
+unpipe
 v9
 varyings
 viewframe
@@ -979,6 +1042,7 @@ vibrates
 vibrating
 vlr
 voicemail
+voidpf
 volte
 volumemanager
 vorbis
@@ -991,6 +1055,7 @@ wallpapers
 wantagent
 wapi
 wappush
+warmup
 watchers
 waterflow
 wcdma
@@ -1014,6 +1079,7 @@ workscheduler
 woy
 wrappedvalue
 writemask
+writev
 wukong
 wvx
 wwan
@@ -1022,6 +1088,7 @@ x509
 xbitmap
 xcomponent
 xfer
+xflags
 xldpi
 xoffset
 xxldpi
@@ -1045,6 +1112,7 @@ unadjustable
 unprepare
 unchained
 sandboxes
+avscreencapture
 sar
 adapts
 followx
@@ -1060,3 +1128,4 @@ geofences
 gbk
 ocsp
 encipherment
+reconfirmed

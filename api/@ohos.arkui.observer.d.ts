@@ -61,7 +61,7 @@ declare namespace uiObserver {
    */
   export enum NavDestinationState {
     /**
-     * When the NavDestination is shown.
+     * When the NavDestination is displayed.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -69,7 +69,7 @@ declare namespace uiObserver {
      * @form
      */
     /**
-     * When the NavDestination show.
+     * When the NavDestination is displayed.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -117,6 +117,46 @@ declare namespace uiObserver {
      * @form
      */
     ON_DISAPPEAR = 3,
+
+    /**
+     * Before the NavDestination is displayed.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @since 12
+     */
+    ON_WILL_SHOW = 4,
+
+    /**
+     * Before the NavDestination is hidden.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @since 12
+     */
+    ON_WILL_HIDE = 5,
+
+    /**
+     * Before the NavDestination is appeared.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @since 12
+     */
+    ON_WILL_APPEAR = 6,
+
+    /**
+     * Before the NavDestination is disappeared.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @since 12
+     */
+    ON_WILL_DISAPPEAR = 7,
 
     /**
      * When back press event happened in NavDestination.
@@ -368,6 +408,36 @@ declare namespace uiObserver {
   }
 
   /**
+   * Navigation info.
+   * 
+   * @interface NavigationInfo
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  export interface NavigationInfo {
+    /**
+     * Navigation id.
+     * 
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    navigationId: string;
+    
+    /**
+     * Navigation path stack.
+     * 
+     * @type { NavPathStack }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    pathStack: NavPathStack;
+  }
+
+  /**
    * ScrollEvent info.
    *
    * @interface ScrollEventInfo
@@ -537,6 +607,16 @@ declare namespace uiObserver {
      * @since 12
      */
     state: RouterPageState;
+
+    /**
+     * The unique identifier of the router page.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+     pageId: string;
   }
 
   /**

@@ -20,8 +20,7 @@
 
 import { AsyncCallback, Callback } from './@ohos.base';
 import { WantAgent } from './@ohos.wantAgent';
-import { ActionButton } from './@ohos.reminderAgentManager';
-import { SlotType } from './@ohos.notificationManager';
+import { NotificationRequest } from './notification/notificationRequest';
 
 /**
  * Provides interfaces for acquiring location information, managing location switches,
@@ -1195,13 +1194,13 @@ declare namespace geoLocationManager {
     monitorTransitionEvents: Array<GeofenceTransitionEvent>;
 
     /**
-     * Indicates the geofence reminder instance to publish.
+     * Indicates the geofence notifications to publish.
      *
-     * @type { ?Array<FenceNotificationRequest> }
+     * @type { ?Array<NotificationRequest> }
      * @syscap SystemCapability.Location.Location.Geofence
      * @since 12
      */
-    notifications?: Array<FenceNotificationRequest>;
+    notifications?: Array<NotificationRequest>;
 
     /**
      * Indicates the callback for reporting the geofence transition status.
@@ -1830,159 +1829,6 @@ declare namespace geoLocationManager {
   }
 
   /**
-   * Geofence notification information.
-   *
-   * @interface FenceNotificationRequest
-   * @syscap SystemCapability.Location.Location.Geofence
-   * @since 12
-   */
-  export interface FenceNotificationRequest {
-    /**
-     * Action button displayed on the reminder notification.
-     *
-     * @type { ?[ActionButton?, ActionButton?, ActionButton?] }
-     * @syscap SystemCapability.Location.Location.Geofence
-     * @since 12
-     */
-    actionButton?: [ActionButton?, ActionButton?, ActionButton?];
-
-    /**
-     * Information about the ability that is redirected to when the notification is clicked.
-     *
-     * @type { ?WantAgent }
-     * @syscap SystemCapability.Location.Location.Geofence
-     * @since 12
-     */
-    wantAgent?: WantAgent;
-
-    /**
-     * Ringing duration.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Location.Location.Geofence
-     * @since 12
-     */
-    ringDuration?: number;
-
-    /**
-     * Number of reminder snooze times.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Location.Location.Geofence
-     * @since 12
-     */
-    snoozeTimes?: number;
-
-    /**
-     * Reminder snooze interval, in seconds.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Location.Location.Geofence
-     * @since 12
-     */
-    timeInterval?: number;
-
-    /**
-     * Geofence notification title.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Location.Location.Geofence
-     * @since 12
-     */
-    title?: string;
-
-    /**
-     * Geofence notification content.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Location.Location.Geofence
-     * @since 12
-     */
-    content?: string;
-
-    /**
-     * Content to be displayed when the reminder is expired.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Location.Location.Geofence
-     * @since 12
-     */
-    expiredContent?: string;
-
-    /**
-     * Content to be displayed when the reminder is snoozing.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Location.Location.Geofence
-     * @since 12
-     */
-    snoozeContent?: string;
-
-    /**
-     * Notification id. If there are reminders with the same ID, the later one will overwrite the earlier one.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Location.Location.Geofence
-     * @since 12
-     */
-    notificationId?: number;
-
-    /**
-     * If the same group ID is set for reminders, these reminders are canceled together.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Location.Location.Geofence
-     * @since 12
-     */
-    groupId?: string;
-
-    /**
-     * Type of the slot used by the geofence notification.
-     *
-     * @type { ?SlotType }
-     * @syscap SystemCapability.Location.Location.Geofence
-     * @since 12
-     */
-    slotType?: SlotType;
-
-    /**
-     * Whether the notification is automatically cleared.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Location.Location.Geofence
-     * @since 12
-     */
-    tapDismissed?: boolean;
-
-    /**
-     * Time when the notification is automatically cleared.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Location.Location.Geofence
-     * @since 12
-     */
-    autoDeletedTime?: number;
-
-    /**
-     * Type of the snoozeSlot used by the reminder.
-     *
-     * @type { ?SlotType }
-     * @syscap SystemCapability.Location.Location.Geofence
-     * @since 12
-     */
-    snoozeSlotType?: SlotType;
-
-    /**
-     * The directory of storing reminder announcements.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Location.Location.Geofence
-     * @since 12
-     */
-    customRingUri?: string;
-  }
-
-  /**
    * Configuring parameters in continuous location requests.
    *
    * @typedef ContinuousLocationRequest
@@ -2253,15 +2099,6 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 9
-     */
-    /**
-     * Indicates whether it is an mock location.
-     *
-     * @type { ?Boolean }
-     * @syscap SystemCapability.Location.Location.Core
-     * @systemapi
-     * @atomicservice
-     * @since 11
      */
     isFromMock?: Boolean;
 

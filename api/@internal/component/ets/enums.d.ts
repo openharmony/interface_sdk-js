@@ -8409,6 +8409,15 @@ declare enum ClickEffectLevel {
  * @atomicservice
  * @since 11
  */
+/**
+ * The type of XComponent
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare enum XComponentType {
   /**
    * Surface type. The default type is used.
@@ -8422,6 +8431,14 @@ declare enum XComponentType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Surface type. The default type is used.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   SURFACE,
 
@@ -9367,6 +9384,61 @@ declare enum MarqueeUpdateStrategy  {
    * @since 12
    */
   PRESERVE_POSITION = 1
+}
+
+/**
+ * Type of text decoration line style.
+ * 
+ * @enum {number}
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum TextDecorationStyle {
+  /**
+   * Solid line.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  SOLID = 0,
+
+  /**
+   * Double lines.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  DOUBLE = 1,
+
+  /**
+   * Dotted line.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  DOTTED = 2,
+
+  /**
+   * Dashed line.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  DASHED = 3,
+
+  /**
+   * Wavy line.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  WAVY = 4,
 }
 
 declare module 'borderStyle' {

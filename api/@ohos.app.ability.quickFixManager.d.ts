@@ -157,7 +157,8 @@ declare namespace quickFixManager {
    * @param { AsyncCallback<void> } callback - The callback of applyQuickFix.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types.
    * @throws { BusinessError } 18500002 - The specified quick fix is invalid. It may not exist or inaccessible.
    * @throws { BusinessError } 18500008 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
@@ -175,7 +176,8 @@ declare namespace quickFixManager {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types.
    * @throws { BusinessError } 18500002 - The specified quick fix is invalid. It may not exist or inaccessible.
    * @throws { BusinessError } 18500008 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
@@ -192,7 +194,8 @@ declare namespace quickFixManager {
    * @param { AsyncCallback<void> } callback - The callback of revokeQuickFix.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types.
    * @throws { BusinessError } 18500001 - The bundle is not exist or no patch has applied.
    * @throws { BusinessError } 18500009 - The application has a apply quick fix task that is being processed.
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
@@ -209,7 +212,8 @@ declare namespace quickFixManager {
    * @returns { Promise<void> }
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types.
    * @throws { BusinessError } 18500001 - The bundle is not exist or no patch has applied.
    * @throws { BusinessError } 18500009 - The application has a apply quick fix task that is being processed.
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
@@ -226,7 +230,8 @@ declare namespace quickFixManager {
    * @param { AsyncCallback<ApplicationQuickFixInfo> } callback - The callback is used to return the ApplicationQuickFixInfo.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types.
    * @throws { BusinessError } 18500001 - The specified bundleName is invalid.
    * @throws { BusinessError } 18500008 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
@@ -243,7 +248,8 @@ declare namespace quickFixManager {
    * @returns { Promise<ApplicationQuickFixInfo> } Returns the ApplicationQuickFixInfo.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types.
    * @throws { BusinessError } 18500001 - The specified bundleName is invalid.
    * @throws { BusinessError } 18500008 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix

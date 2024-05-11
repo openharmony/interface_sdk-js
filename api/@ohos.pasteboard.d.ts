@@ -21,6 +21,7 @@
 import { AsyncCallback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
 import image from './@ohos.multimedia.image';
+import unifiedDataChannel from './@ohos.data.unifiedDataChannel';
 
 /**
  * systemPasteboard
@@ -181,19 +182,23 @@ declare namespace pasteboard {
 
   /**
    * Creates a PasteData object with MIME type and value.
-   * @param { string } mimeType - indicates MIME type of value.
+   * @param { string } mimeType - indicates MIME type of value, its size cannot be greater than 1024 bytes.
    * @param { ValueType } value - indicates the content that is set to PasteData.
    * @returns { PasteData } a new PasteData object which contains mimeType and value.
-   * @throws { BusinessError } 401 - if type of mimeType is not string, or the value can not match the mimeType correctly.
+   * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified; 
+   *    2. Incorrect parameters types;
+   *    3. Parameter verification failed.
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @since 9
    */
   /**
    * Creates a PasteData object with MIME type and value.
-   * @param { string } mimeType - indicates MIME type of value.
+   * @param { string } mimeType - indicates MIME type of value, its size cannot be greater than 1024 bytes.
    * @param { ValueType } value - indicates the content that is set to PasteData.
    * @returns { PasteData } a new PasteData object which contains mimeType and value.
-   * @throws { BusinessError } 401 - if type of mimeType is not string, or the value can not match the mimeType correctly.
+   * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified; 
+   *    2. Incorrect parameters types;
+   *    3. Parameter verification failed.
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 11
@@ -246,19 +251,23 @@ declare namespace pasteboard {
 
   /**
    * Creates a record object with MIME type and value.
-   * @param { string } mimeType - indicates MIME type of value.
+   * @param { string } mimeType - indicates MIME type of value, its size cannot be greater than 1024 bytes.
    * @param { ValueType } value - content to be saved.
    * @returns { PasteDataRecord } a new PasteDataRecord object which contains mimeType and value.
-   * @throws { BusinessError } 401 - if type of mimeType is not string, or the value can not match the mimeType correctly.
+   * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+   *    2. Incorrect parameters types;
+   *    3. Parameter verification failed.
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @since 9
    */
   /**
    * Creates a record object with MIME type and value.
-   * @param { string } mimeType - indicates MIME type of value.
+   * @param { string } mimeType - indicates MIME type of value, its size cannot be greater than 1024 bytes.
    * @param { ValueType } value - content to be saved.
    * @returns { PasteDataRecord } a new PasteDataRecord object which contains mimeType and value.
-   * @throws { BusinessError } 401 - if type of mimeType is not string, or the value can not match the mimeType correctly.
+   * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+   *    2. Incorrect parameters types;
+   *    3. Parameter verification failed.
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 11
@@ -558,6 +567,7 @@ declare namespace pasteboard {
     /**
      * Converts data in PasteData to text format.
      * @param { AsyncCallback<string> } callback - the callback of convertToText.
+     * @throws { BusinessError } 401 - Possible causes: Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7
      * @deprecated since 9
@@ -662,26 +672,32 @@ declare namespace pasteboard {
 
     /**
      * Adds a record with mimeType and value to a PasteData object.
-     * @param { string } mimeType - indicates the MIME type of value.
+     * @param { string } mimeType - indicates the MIME type of value, its size cannot be greater than 1024 bytes.
      * @param { ValueType } value - content to be saved.
-     * @throws { BusinessError } 401 - if type of mimeType is not string, or the value can not match the mimeType correctly.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *    2. Incorrect parameters types; 
+     *    3. Parameter verification failed.
      * @throws { BusinessError } 12900002 - The number of record exceeds the maximum limit.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
     /**
      * Adds a record with mimeType and value to a PasteData object.
-     * @param { string } mimeType - indicates the MIME type of value.
+     * @param { string } mimeType - indicates the MIME type of value, its size cannot be greater than 1024 bytes.
      * @param { ValueType } value - content to be saved.
-     * @throws { BusinessError } 401 - if type of mimeType is not string, or the value can not match the mimeType correctly.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *    2. Incorrect parameters types;
+     *    3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 10
      */
     /**
      * Adds a record with mimeType and value to a PasteData object.
-     * @param { string } mimeType - indicates the MIME type of value.
+     * @param { string } mimeType - indicates the MIME type of value, its size cannot be greater than 1024 bytes.
      * @param { ValueType } value - content to be saved.
-     * @throws { BusinessError } 401 - if type of mimeType is not string, or the value can not match the mimeType correctly.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *    2. Incorrect parameters types;
+     *    3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11
@@ -811,14 +827,16 @@ declare namespace pasteboard {
     /**
      * Sets PasteDataProperty to a PasteData object, Modifying shareOption is supported only.
      * @param { PasteDataProperty } property - save property to PasteData object.
-     * @throws { BusinessError } 401 - if type of property is not PasteDataProperty.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *    2. Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
     /**
      * Sets PasteDataProperty to a PasteData object, Modifying shareOption is supported only.
      * @param { PasteDataProperty } property - save property to PasteData object.
-     * @throws { BusinessError } 401 - if type of property is not PasteDataProperty.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *    2. Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11
@@ -829,6 +847,8 @@ declare namespace pasteboard {
      * Gets record by index in PasteData.
      * @param { number } index - indicates the record index in PasteData.
      * @returns { PasteDataRecord } the record in PasteData with index.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *    2. Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7
      * @deprecated since 9
@@ -840,7 +860,8 @@ declare namespace pasteboard {
      * Gets record by index in PasteData.
      * @param { number } index - indicates the record index in PasteData.
      * @returns { PasteDataRecord } the record in PasteData with index.
-     * @throws { BusinessError } 401 - if type of index is not number.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *    2. Incorrect parameters types.
      * @throws { BusinessError } 12900001 - The index is out of the record.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
@@ -849,7 +870,8 @@ declare namespace pasteboard {
      * Gets record by index in PasteData.
      * @param { number } index - indicates the record index in PasteData.
      * @returns { PasteDataRecord } the record in PasteData with index.
-     * @throws { BusinessError } 401 - if type of index is not number.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *    2. Incorrect parameters types.
      * @throws { BusinessError } 12900001 - The index is out of the record.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
@@ -891,6 +913,8 @@ declare namespace pasteboard {
      * Checks whether there is a specified MIME type of data in DataProperty.
      * @param { string } mimeType - indicates to query data type.
      * @returns { boolean } if having mimeType in PasteData returns true, else returns false.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *    2. Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7
      * @deprecated since 9
@@ -902,7 +926,8 @@ declare namespace pasteboard {
      * Checks whether there is a specified MIME type of data in DataProperty.
      * @param { string } mimeType - indicates to query data type.
      * @returns { boolean } if having mimeType in PasteData returns true, else returns false.
-     * @throws { BusinessError } 401 - if type of path is not string.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *    2. Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
@@ -910,7 +935,8 @@ declare namespace pasteboard {
      * Checks whether there is a specified MIME type of data in DataProperty.
      * @param { string } mimeType - indicates to query data type.
      * @returns { boolean } if having mimeType in PasteData returns true, else returns false.
-     * @throws { BusinessError } 401 - if type of path is not string.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *    2. Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11
@@ -921,6 +947,8 @@ declare namespace pasteboard {
      * Removes a Record based on a specified index.
      * @param { number } index - indicates the record index in PasteData.
      * @returns { boolean } The query returns True on success, or False on failure.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *    2. Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7
      * @deprecated since 9
@@ -931,7 +959,8 @@ declare namespace pasteboard {
     /**
      * Removes a Record based on a specified index.
      * @param { number } index - indicates the record index in PasteData.
-     * @throws { BusinessError } 401 - if type of index is not number.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *    2. Incorrect parameters types.
      * @throws { BusinessError } 12900001 - The index is out of the record.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
@@ -939,7 +968,8 @@ declare namespace pasteboard {
     /**
      * Removes a Record based on a specified index.
      * @param { number } index - indicates the record index in PasteData.
-     * @throws { BusinessError } 401 - if type of index is not number.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *    2. Incorrect parameters types.
      * @throws { BusinessError } 12900001 - The index is out of the record.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
@@ -963,7 +993,8 @@ declare namespace pasteboard {
      * Replaces a specified record with a new one.
      * @param { number } index - indicates the record index in PasteData.
      * @param { PasteDataRecord } record - the content of a new record.
-     * @throws { BusinessError } 401 - if type of index is not number or type of record is not PasteDataRecord.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *    2. Incorrect parameters types.
      * @throws { BusinessError } 12900001 - The index is out of the record.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
@@ -972,7 +1003,8 @@ declare namespace pasteboard {
      * Replaces a specified record with a new one.
      * @param { number } index - indicates the record index in PasteData.
      * @param { PasteDataRecord } record - the content of a new record.
-     * @throws { BusinessError } 401 - if type of index is not number or type of record is not PasteDataRecord.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *    2. Incorrect parameters types.
      * @throws { BusinessError } 12900001 - The index is out of the record.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
@@ -999,7 +1031,8 @@ declare namespace pasteboard {
      * Callback invoked when pasteboard content changes.
      * @param { 'update' } type - indicates pasteboard content changed.
      * @param { function } callback - the callback to add.
-     * @throws { BusinessError } 401 - if type is not string or callback is not () => void.
+     * @throws { BusinessError }  401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *    2. Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7
      */
@@ -1010,7 +1043,8 @@ declare namespace pasteboard {
      * @param { 'update' } type - indicates pasteboard content changed.
      * @param { function } [callback] - the callback to remove. If this parameter is not filled in, it indicates that all
      * callbacks for this application will be cleared. Otherwise, it indicates that the specified callback will be cleared.
-     * @throws { BusinessError } 401 - if type is not string or callback is not () => void.
+     * @throws { BusinessError }  401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *    2. Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7
      */
@@ -1040,7 +1074,8 @@ declare namespace pasteboard {
      * Checks whether there is a specified MIME type of data in Data.
      * @param { string } mimeType - indicates to query data type.
      * @returns { boolean } if having mimeType in PasteData returns true, else returns false.
-     * @throws { BusinessError } 401 - if type is not string.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *    2. Incorrect parameters types.
      * @throws { BusinessError } 12900005 - Request time out.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
@@ -1051,6 +1086,8 @@ declare namespace pasteboard {
     /**
      * Clears the pasteboard.
      * @param { AsyncCallback<void> } callback - the callback of clearData.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *    2. Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7
      * @deprecated since 9
@@ -1071,14 +1108,16 @@ declare namespace pasteboard {
     /**
      * Clears the pasteboard.
      * @param { AsyncCallback<void> } callback - the callback of clearData.
-     * @throws { BusinessError } 401 - if callback is not AsyncCallback<void>.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *    2. Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
     /**
      * Clears the pasteboard.
      * @param { AsyncCallback<void> } callback - the callback of clearData.
-     * @throws { BusinessError } 401 - if callback is not AsyncCallback<void>.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *    2. Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11
@@ -1112,6 +1151,8 @@ declare namespace pasteboard {
     /**
      * Gets pastedata from the system pasteboard.
      * @param { AsyncCallback<PasteData> } callback - the callback of getData.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *    2. Incorrect  parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 6
      * @deprecated since 9
@@ -1132,7 +1173,8 @@ declare namespace pasteboard {
     /**
      * Gets pastedata from the system pasteboard.
      * @param { AsyncCallback<PasteData> } callback - the callback of getData.
-     * @throws { BusinessError } 401 - if type of callback is not AsyncCallback<PasteData>.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *    2. Incorrect  parameters types.
      * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
@@ -1140,7 +1182,8 @@ declare namespace pasteboard {
     /**
      * Gets pastedata from the system pasteboard.
      * @param { AsyncCallback<PasteData> } callback - the callback of getData.
-     * @throws { BusinessError } 401 - if type of callback is not AsyncCallback<PasteData>.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *    2. Incorrect  parameters types.
      * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
@@ -1151,7 +1194,8 @@ declare namespace pasteboard {
      * @permission ohos.permission.READ_PASTEBOARD
      * @param { AsyncCallback<PasteData> } callback - the callback of getData.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - if type of callback is not AsyncCallback<PasteData>.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *    2. Incorrect  parameters types.
      * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
@@ -1209,6 +1253,8 @@ declare namespace pasteboard {
     /**
      * Checks whether there is content in the pasteboard.
      * @param { AsyncCallback<boolean> } callback - the callback of setPasteData.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *    2. Incorrect  parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7
      * @deprecated since 9
@@ -1229,14 +1275,16 @@ declare namespace pasteboard {
     /**
      * Checks whether there is content in the system pasteboard.
      * @param { AsyncCallback<boolean> } callback - the callback of hasData.
-     * @throws { BusinessError } 401 - if type of callback is not AsyncCallback<boolean>.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *    2. Incorrect  parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
     /**
      * Checks whether there is content in the system pasteboard.
      * @param { AsyncCallback<boolean> } callback - the callback of hasData.
-     * @throws { BusinessError } 401 - if type of callback is not AsyncCallback<boolean>.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *    2. Incorrect  parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11
@@ -1272,6 +1320,8 @@ declare namespace pasteboard {
      * Writes PasteData to the pasteboard.
      * @param { PasteData } data - PasteData will be written to the clipboard
      * @param { AsyncCallback<void> } callback - the callback of setPasteData.
+     * @throws { BusinessError } 401 - Possible causes: 1.  Mandatory parameters are left unspecified;
+     *    2. Incorrect  parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 6
      * @deprecated since 9
@@ -1294,7 +1344,8 @@ declare namespace pasteboard {
      * Writes PasteData to the system pasteboard.
      * @param { PasteData } data - PasteData will be written to the clipboard
      * @param { AsyncCallback<void> } callback - the callback of setData.
-     * @throws { BusinessError } 401 - if type of data is not PasteData or type of callback is not AsyncCallback<void>.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+     *    2. Incorrect parameters types.
      * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
      * @throws { BusinessError } 12900004 - Replication is prohibited.
      * @syscap SystemCapability.MiscServices.Pasteboard
@@ -1304,7 +1355,8 @@ declare namespace pasteboard {
      * Writes PasteData to the system pasteboard.
      * @param { PasteData } data - PasteData will be written to the clipboard
      * @param { AsyncCallback<void> } callback - the callback of setData.
-     * @throws { BusinessError } 401 - if type of data is not PasteData or type of callback is not AsyncCallback<void>.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *    2. Incorrect parameters types.
      * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
      * @throws { BusinessError } 12900004 - Replication is prohibited.
      * @syscap SystemCapability.MiscServices.Pasteboard
@@ -1317,7 +1369,8 @@ declare namespace pasteboard {
      * Writes PasteData to the system pasteboard.
      * @param { PasteData } data - PasteData will be written to the clipboard.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - if type of data is not PasteData.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *    2. Incorrect  parameters types.
      * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
      * @throws { BusinessError } 12900004 - Replication is prohibited.
      * @syscap SystemCapability.MiscServices.Pasteboard
@@ -1327,7 +1380,8 @@ declare namespace pasteboard {
      * Writes PasteData to the system pasteboard.
      * @param { PasteData } data - PasteData will be written to the clipboard.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - if type of data is not PasteData.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *    2. Incorrect  parameters types.
      * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
      * @throws { BusinessError } 12900004 - Replication is prohibited.
      * @syscap SystemCapability.MiscServices.Pasteboard
@@ -1339,13 +1393,64 @@ declare namespace pasteboard {
     /**
      * Writes PasteData to the system pasteboard.
      * @param { PasteData } data - PasteData will be written to the clipboard.
-     * @throws { BusinessError } 401 - if type of data is not PasteData.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *    2. Incorrect parameters types.
      * @throws { BusinessError } 12900005 - Request time out.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11
      */
     setDataSync(data: PasteData): void;
+
+    /**
+     * Gets unified data from the system pasteboard.
+     * @permission ohos.permission.READ_PASTEBOARD
+     * @returns { Promise<unifiedDataChannel.UnifiedData> } the promise returned by the getData.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 12
+     */
+    getUnifiedData(): Promise<unifiedDataChannel.UnifiedData>;
+
+    /**
+     * Gets unified data from the system pasteboard.
+     * @permission ohos.permission.READ_PASTEBOARD
+     * @returns { unifiedDataChannel.UnifiedData }  a new UnifiedData.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 12900005 - Request time out.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 12
+     */
+    getUnifiedDataSync(): unifiedDataChannel.UnifiedData;
+
+    /**
+     * Writes unified data to the system pasteboard.
+     * @param { unifiedDataChannel.UnifiedData } data - Unified data will be written to the pasteboard.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *    2. Incorrect  parameters types.
+     * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
+     * @throws { BusinessError } 12900004 - Replication is prohibited.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 12
+     */
+    setUnifiedData(data: unifiedDataChannel.UnifiedData): Promise<void>;
+
+    /**
+     * Writes unified data to the system pasteboard.
+     * @param { unifiedDataChannel.UnifiedData } data - Unified data will be written to the pasteboard.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *    2. Incorrect  parameters types.
+     * @throws { BusinessError } 12900005 - Request time out.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 12
+     */
+    setUnifiedDataSync(data: unifiedDataChannel.UnifiedData): void;
   }
 }
 

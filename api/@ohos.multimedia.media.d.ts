@@ -120,7 +120,8 @@ declare namespace media {
    * @param { string } url : The location for the media source.
    * @param { Record<string, string> } headers : Headers attached to network request while player request data.
    * @returns { MediaSource } MediaSource instance if the operation is successful; returns null otherwise.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 5400101 - No memory.
    * @syscap SystemCapability.Multimedia.Media.Core
    * @since 12
@@ -213,7 +214,8 @@ declare namespace media {
    * @param {number} sessionId The AVScreenCapture server session ID.
    * @param {string} choice Content chosen by user.
    * @returns { Promise<void> } Promise used to return the result.
-   * @throws { BusinessError } 401 - Input parameter invalid. Return by promise.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
    * @systemapi
@@ -419,6 +421,13 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 11
      */
+    /**
+     * The metadata to retrieve the information about the album title
+     * of the media source. This field is readonly in current version.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 12
+     */
     album?: string;
 
     /**
@@ -427,6 +436,13 @@ declare namespace media {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 11
+     */
+    /**
+     * The metadata to retrieve the information about the performer or
+     * artist associated with the media source. This field is readonly in current version.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 12
      */
     albumArtist?: string;
 
@@ -437,6 +453,13 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 11
      */
+    /**
+     * The metadata to retrieve the information about the artist of
+     * the media source. This field is readonly in current version.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 12
+     */
     artist?: string;
 
     /**
@@ -445,6 +468,13 @@ declare namespace media {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 11
+     */
+    /**
+     * The metadata to retrieve the information about the author of
+     * the media source. This field is readonly in current version.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 12
      */
     author?: string;
 
@@ -455,6 +485,13 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 11
      */
+    /**
+     * The metadata to retrieve the information about the created time of
+     * the media source. This field is readonly in current version.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 12
+     */
     dateTime?: string;
 
     /**
@@ -463,6 +500,13 @@ declare namespace media {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 11
+     */
+    /**
+     * The metadata to retrieve the information about the created or modified time
+     * with the specific date format of the media source. This field is readonly in current version.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 12
      */
     dateTimeFormat?: string;
 
@@ -473,6 +517,13 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 11
      */
+    /**
+     * The metadata to retrieve the information about the composer of
+     * the media source. This field is readonly in current version.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 12
+     */
     composer?: string;
 
     /**
@@ -480,6 +531,12 @@ declare namespace media {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 11
+     */
+    /**
+     * The metadata to retrieve the playback duration of the media source. This field is readonly in current version.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 12
      */
     duration?: string;
 
@@ -498,6 +555,12 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 11
      */
+    /**
+     * If this value exists the media contains audio content. This field is readonly in current version.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 12
+     */
     hasAudio?: string;
 
     /**
@@ -505,6 +568,12 @@ declare namespace media {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 11
+     */
+    /**
+     * If this value exists the media contains video content. This field is readonly in current version.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 12
      */
     hasVideo?: string;
 
@@ -515,6 +584,13 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 11
      */
+    /**
+     * The metadata to retrieve the mime type of the media source. Some
+     * example mime types include: "video/mp4", "audio/mp4", "audio/amr-wb". This field is readonly in current version.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 12
+     */
     mimeType?: string;
 
     /**
@@ -524,6 +600,13 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 11
      */
+    /**
+     * The metadata to retrieve the number of tracks, such as audio, video,
+     * text, in the media source, such as a mp4 or 3gpp file. This field is readonly in current version.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 12
+     */
     trackCount?: string;
 
     /**
@@ -531,6 +614,12 @@ declare namespace media {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 11
+     */
+    /**
+     * It is the audio sample rate, if available. This field is readonly in current version.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 12
      */
     sampleRate?: string;
 
@@ -540,6 +629,12 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 11
      */
+    /**
+     * The metadata to retrieve the media source title. This field is readonly in current version.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 12
+     */
     title?: string;
 
     /**
@@ -548,6 +643,12 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 11
      */
+    /**
+     * If the media contains video, this key retrieves its height. This field is readonly in current version.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 12
+     */
     videoHeight?: string;
 
     /**
@@ -555,6 +656,12 @@ declare namespace media {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 11
+     */
+    /**
+     * If the media contains video, this key retrieves its width. This field is readonly in current version.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 12
      */
     videoWidth?: string;
 
@@ -575,6 +682,22 @@ declare namespace media {
      * @since 12
      */
     hdrType?: HdrType;
+
+    /**
+     * The geographical location info of the video.
+     * @type { ?Location }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 12
+     */
+    location?: Location;
+
+    /**
+     * Custom parameter key-value map read from moov.meta.list.
+     * @type { ?Record<string, string> }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 12
+     */
+    customInfo?: Record<string, string>;
   }
 
   /**
@@ -1233,11 +1356,34 @@ declare namespace media {
     getTrackDescription(): Promise<Array<MediaDescription>>;
 
     /**
+     * Select specific track to play.
+     * @param { number } index : Track index returned by getTrackDescription#MD_KEY_TRACK_INDEX
+     * @returns { Promise<void> } A Promise instance used to return when select track completed.
+     * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 12
+     */
+    selectTrack(index: number): Promise<void>;
+
+    /**
+     * Deselect specific track to play.
+     * @param { number } index : Track index returned by getTrackDescription#MD_KEY_TRACK_INDEX
+     * @returns { Promise<void> } A Promise instance used to return when deselect track completed.
+     * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 12
+     */
+    deselectTrack(index: number): Promise<void>;
+
+    /**
      * Set MediaSource to AVPlayer, this interface is exclusive with fd/url/dataSrc assign.
      * @param { MediaSource } src : MediaSource instance to be set to the avplayer instance.
      * @param { PlaybackStrategy } strategy : Play strategy of the media source.
      * @returns { Promise<void> } A Promise instance used to return when setMediaSource completed.
-     * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 12
@@ -1403,7 +1549,8 @@ declare namespace media {
      * Set decryption session to codec module.
      * @param { drm.MediaKeySession } mediaKeySession - Handle of MediaKeySession to decrypt encrypted media.
      * @param { boolean } secureVideoPath - Secure video path required or not.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 11
      */
@@ -1700,7 +1847,8 @@ declare namespace media {
      * @param { 'error' } type - Type of the playback error event to listen for.
      * @param { ErrorCallback } callback - Callback used to listen for the playback error event.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 5400101 - No memory.
      * @throws { BusinessError } 5400102 - Operation not allowed.
@@ -1733,7 +1881,8 @@ declare namespace media {
      * The event is triggered when output device change for this stream.
      * @param { 'audioOutputDeviceChangeWithInfo' } type - Type of the event to listen for.
      * @param { Callback<audio.AudioStreamDeviceChangeInfo> } callback - Callback used to listen device change event.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 11
      */
@@ -1743,7 +1892,8 @@ declare namespace media {
      * Unsubscribes output device change event callback.
      * @param { 'audioOutputDeviceChangeWithInfo' } type - Type of the event to listen for.
      * @param { Callback<audio.AudioStreamDeviceChangeInfo> } callback - Callback used to listen device change event.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 11
      */
@@ -2320,7 +2470,8 @@ declare namespace media {
      * @param { AVRecorderConfig } config - Recording parameters.
      * @param { AsyncCallback<void> } callback - A callback instance used to return when prepare completed.
      * @throws { BusinessError } 201 - Permission denied. Return by callback.
-     * @throws { BusinessError } 401 - The parameter check failed. Return by callback.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
@@ -2346,7 +2497,8 @@ declare namespace media {
      * @param { AVRecorderConfig } config - Recording parameters.
      * @returns { Promise<void> } A Promise instance used to return when prepare completed.
      * @throws { BusinessError } 201 - Permission denied. Return by promise.
-     * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
@@ -2403,7 +2555,8 @@ declare namespace media {
      * Update the video orientation before recorder start.
      * @param { number } rotation: Rotation angle, should be [0, 90, 180, 270]. 
      * @returns { Promise<void> } A Promise instance used to return when the function is finished.
-     * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
@@ -2665,7 +2818,8 @@ declare namespace media {
      * Listens for recording audioCapturerChange events.
      * @param { 'audioCapturerChange' } type - Type of the audioCapturerChange event to listen for.
      * @param { Callback<audio.AudioCapturerChangeInfo> } callback - Callback used to listen device change event.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11
      */
@@ -2730,7 +2884,8 @@ declare namespace media {
      * @param { 'error' } type - Type of the recording error event to listen for.
      * @param { ErrorCallback } callback - Callback used to listen for the recorder error event.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 5400101 - No memory.
      * @throws { BusinessError } 5400102 - Operation not allowed.
@@ -3125,7 +3280,8 @@ declare namespace media {
      * @param { VideoRecorderConfig } config - Recording parameters.
      * @param { AsyncCallback<void> } callback - A callback instance used to return when prepare completed.
      * @throws { BusinessError } 201 - Permission denied. Return by callback.
-     * @throws { BusinessError } 401 - The parameter check failed. Return by callback.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
@@ -3139,7 +3295,8 @@ declare namespace media {
      * @param { VideoRecorderConfig } config - Recording parameters.
      * @returns { Promise<void> } A Promise instance used to return when prepare completed.
      * @throws { BusinessError } 201 - Permission denied. Return by promise.
-     * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
@@ -4540,14 +4697,25 @@ declare namespace media {
      * the range of rotation angle should be {0, 90, 180, 270}, default is 0.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9
+     * @deprecated since 12
+     * @useinstead ohos.multimedia.media/media.AVMetadata#videoOrientation
      */
     rotation?: number;
     /**
      * Geographical location information.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9
+     * @deprecated since 12
+     * @useinstead ohos.multimedia.media/media.AVMetadata#location
      */
     location?: Location;
+    /**
+     * Set global metadata info. Details see @AVMetadata
+     * @type { ?AVMetadata }
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 12
+     */
+    metadata?: AVMetadata;
   }
 
   /**
@@ -4875,7 +5043,8 @@ declare namespace media {
      * Init AVScreenCaptureRecorder.
      * @param { AVScreenCaptureRecordConfig } config - AVScreenCaptureRecorder config.
      * @returns { Promise<void> } A Promise instance used to return when init completed.
-     * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture

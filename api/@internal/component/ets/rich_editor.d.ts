@@ -205,43 +205,6 @@ declare enum RichEditorResponseType {
 }
 
 /**
- * Define the menu pop-up policy
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 12
- */
-declare enum MenuPolicy {
-  /**
-   * Default value. The default logic of whether to pop up a menu depends on the scene.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  DEFAULT = 0,
-
-  /**
-   * Never pop up menu.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  NEVER = 1,
-
-  /**
-   * Always pop up menu.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  ALWAYS = 2,
-}
-
-/**
  * Defines the span position.
  *
  * @interface RichEditorSpanPosition
@@ -1917,26 +1880,6 @@ declare interface KeyboardOptions {
 }
 
 /**
- * Defines the selection options of RichEditor.
- *
- * @interface SelectionOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 12
- */
-declare interface SelectionOptions {
-  /**
-   * Menu pop-up policy.
-   *
-   * @type { ?MenuPolicy }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  menuPolicy?: MenuPolicy;
-}
-
-/**
  * Defines the image span options of RichEditor.
  *
  * @interface RichEditorImageSpanOptions
@@ -2053,6 +1996,7 @@ declare interface RichEditorBuilderSpanOptions {
  * @interface PlaceholderStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface PlaceholderStyle {
@@ -2501,17 +2445,17 @@ declare interface RichEditorDeleteValue {
  */
 declare interface RichEditorChangeValue {
   /**
-   * Spans to be replaced.
+   * Range of content that will be replaced.
    *
-   * @type { Array<RichEditorTextSpanResult> }
+   * @type { TextRange }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  originalSpans: Array<RichEditorTextSpanResult>;
+  rangeBefore: TextRange;
 
   /**
-   * Spans to replace.
+   * Text spans to replace.
    *
    * @type { Array<RichEditorTextSpanResult> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2519,6 +2463,26 @@ declare interface RichEditorChangeValue {
    * @since 12
    */
   replacedSpans: Array<RichEditorTextSpanResult>;
+
+  /**
+   * Image spans to replace.
+   *
+   * @type { Array<RichEditorImageSpanResult> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  replacedImageSpans: Array<RichEditorImageSpanResult>;
+
+  /**
+   * Symbol spans to replace.
+   *
+   * @type { Array<RichEditorTextSpanResult> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  replacedSymbolSpans: Array<RichEditorTextSpanResult>;
 }
 
 /**
@@ -3279,6 +3243,7 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @returns { RichEditorAttribute } The attribute of the rich editor.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   placeholder(value: ResourceStr, style?: PlaceholderStyle): RichEditorAttribute;
@@ -3352,13 +3317,13 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   /**
    * Called after text changed.
    *
-   * @param { Callback<Array<RichEditorTextSpanResult>> } callback - The triggered function after text content is about to change.
+   * @param { OnDidChangeCallback } callback - The triggered function after content changed.
    * @returns { RichEditorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  onDidChange(callback: Callback<Array<RichEditorTextSpanResult>>) : RichEditorAttribute;
+  onDidChange(callback: OnDidChangeCallback) : RichEditorAttribute;
 
   /**
     * Called before the cut event.
