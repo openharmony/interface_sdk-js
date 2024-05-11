@@ -43,6 +43,7 @@
 /// <reference path="./ellipse.d.ts" />
 /// <reference path="./enums.d.ts" />
 /// <reference path="./flex.d.ts" />
+/// <reference path="./focus.d.ts" />
 /// <reference path="./folder_stack.d.ts" />
 /// <reference path="./for_each.d.ts" />
 /// <reference path="./form_component.d.ts" />
