@@ -139,6 +139,17 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      */
     onStop(callback: MovingPhotoViewEventCallback): MovingPhotoViewAttribute;
     /**
+     * Called when the video playback paused.
+     *
+     * @param { MovingPhotoViewEventCallback } callback
+     * @returns { MovingPhotoViewAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    onPause(callback: MovingPhotoViewEventCallback): MovingPhotoViewAttribute;
+    /**
      * Called when the video playback ends.
      *
      * @param { MovingPhotoViewEventCallback } callback
