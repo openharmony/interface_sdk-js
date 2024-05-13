@@ -77,6 +77,17 @@ export default class AbilityLifecycleCallback {
   onAbilityCreate(ability: UIAbility): void;
 
   /**
+   * Called back before an ability is started for initialization.
+   *
+   * @param { UIAbility } ability - Indicates the ability to register for listening.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+  onAbilityWillCreate?(ability: UIAbility): void;
+
+  /**
    * Called back when a window stage is created.
    *
    * @param { UIAbility } ability - Indicates the ability to register for listening.
@@ -107,6 +118,18 @@ export default class AbilityLifecycleCallback {
    * @since 11
    */
   onWindowStageCreate(ability: UIAbility, windowStage: window.WindowStage): void;
+
+  /**
+   * Called back before a window stage is created.
+   *
+   * @param { UIAbility } ability - Indicates the ability to register for listening.
+   * @param { window.WindowStage } windowStage - window stage to create
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+  onWindowStageWillCreate?(ability: UIAbility, windowStage: window.WindowStage): void;
 
   /**
    * Called back before the UIAbility will called onNewWant.
@@ -205,6 +228,18 @@ export default class AbilityLifecycleCallback {
   onWindowStageDestroy(ability: UIAbility, windowStage: window.WindowStage): void;
 
   /**
+   * Called back before a window stage is destroyed.
+   *
+   * @param { UIAbility } ability - Indicates the ability to register for listening.
+   * @param { window.WindowStage } windowStage - window stage to destroy
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+  onWindowStageWillDestroy?(ability: UIAbility, windowStage: window.WindowStage): void;
+
+  /**
    * Called back when an ability is destroyed.
    *
    * @param { UIAbility } ability - Indicates the ability to register for listening.
@@ -232,6 +267,17 @@ export default class AbilityLifecycleCallback {
    * @since 11
    */
   onAbilityDestroy(ability: UIAbility): void;
+
+  /**
+   * Called back before an ability is destroyed.
+   *
+   * @param { UIAbility } ability - Indicates the ability to register for listening.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+  onAbilityWillDestroy?(ability: UIAbility): void;
 
   /**
    * Called back when the state of an ability changes to foreground.
@@ -263,6 +309,17 @@ export default class AbilityLifecycleCallback {
   onAbilityForeground(ability: UIAbility): void;
 
   /**
+   * Called back before the state of an ability changes to foreground.
+   *
+   * @param { UIAbility } ability - Indicates the ability to register for listening.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+  onAbilityWillForeground?(ability: UIAbility): void;
+
+  /**
    * Called back when the state of an ability changes to background.
    *
    * @param { UIAbility } ability - Indicates the ability to register for listening.
@@ -290,6 +347,17 @@ export default class AbilityLifecycleCallback {
    * @since 11
    */
   onAbilityBackground(ability: UIAbility): void;
+
+  /**
+   * Called back before the state of an ability changes to background.
+   *
+   * @param { UIAbility } ability - Indicates the ability to register for listening.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+  onAbilityWillBackground?(ability: UIAbility): void;
 
   /**
    * Called back when an ability prepares to continue.
