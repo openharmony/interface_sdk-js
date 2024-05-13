@@ -767,7 +767,7 @@ declare namespace hiAppEvent {
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                           1.The limit parameter is too small;
      *                           2.The parameter type error.
-     * @throws { BusinessError } 11104001 - Invalid row value.
+     * @throws { BusinessError } 11104001 - Invalid size value.
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 12
