@@ -983,7 +983,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    */
   /**
    * Enable image dragging.
-   * Default value is false.
+   * Default value is true.
    *
    * @param { boolean } value
    * @returns { ImageAttribute }
