@@ -2337,21 +2337,6 @@ declare namespace zlib {
     gzprintf(format: string, ...args: Array<string | number>): Promise<number>;
 
     /**
-     * Open gzip compressed file with wide character path name and mode.
-     *
-     * @param { string } widePath - A wide character path name.
-     * @param { string } mode - Specify the file opening method.
-     * @returns { Promise<void> }
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800010 - System architecture error, compiling with _WIN32.
-     * @syscap SystemCapability.BundleManager.Zlib
-     * @atomicservice
-     * @since 12
-     */
-    gzopenw(widePath: string, mode: string): Promise<void>;
-
-    /**
      * Return the current compressed (actual) read or write offset of file.
      *
      * @returns { Promise<number> } Return the current compressed (actual) read or write offset of file.
