@@ -919,6 +919,22 @@ declare namespace text {
      * @since 12
      */
     getTextLines(): Array<TextLine>;
+
+    /**
+     * Returns the visible text on the line (excluding a possible ellipsis).
+     * @returns { Range } The range of text.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    getActualTextRange(): Range;
+
+    /**
+     * Returns the array of line metrics for a line of text.
+     * @returns { Array<LineMetrics> } Array of line metrics.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    getLineMetrics(): Array<LineMetrics>;
   }
 
   /**
@@ -1217,6 +1233,308 @@ declare namespace text {
      * @since 12
      */
     paint(canvas: drawing.Canvas, x: number, y: number): void;
+  }
+
+  /**
+   * The metrics of an Font.
+   * @typedef FontMetrics
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  interface FontMetrics {
+    /**
+     * Indicating which metrics are valid.
+     * @type { ?FontMetricsFlags }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    flags?: FontMetricsFlags;
+
+    /**
+     * Greatest extent above origin of any glyph bounding box, typically negative; deprecated with variable fonts.
+     * @type { ?number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    top?: number;
+
+    /**
+     * Distance to reserve above baseline, typically negative.
+     * @type { ?number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    ascent?: number;
+
+    /**
+     * Distance to reserve below baseline, typically positive.
+     * @type { ?number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    descent?: number;
+
+    /**
+     * Greatest extent below origin of any glyph bounding box, typically positive; deprecated with variable fonts.
+     * @type { ?number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    bottom?: number;
+
+    /**
+     * Distance to add between lines, typically positive or zero.
+     * @type { ?number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    leading?: number;
+
+    /**
+     * Average character width, zero if unknown.
+     * @type { ?number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    avgCharWidth?: number;
+
+    /**
+     * Maximum character width, zero if unknown.
+     * @type { ?number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    maxCharWidth?: number;
+
+    /**
+     * Greatest extent to left of origin of any glyph bounding box, typically negative; deprecated with variable fonts.
+     * @type { ?number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    xMin?: number;
+
+    /**
+     * Greatest extent to right of origin of any glyph bounding box, typically positive; deprecated with variable fonts.
+     * @type { ?number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    xMax?: number;
+
+    /**
+     * Height of lower-case 'x', zero if unknown, typically negative.
+     * @type { ?number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    xHeight?: number;
+
+    /**
+     * Height of an upper-case letter, zero if unknown, typically negative.
+     * @type { ?number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    capHeight?: number;
+
+    /**
+     * Underline thickness.
+     * @type { ?number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    underlineThickness?: number;
+
+    /**
+     * Distance from baseline to top of stroke, typically positive.
+     * @type { ?number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    underlinePosition?: number;
+
+    /**
+     * Strikeout thickness.
+     * @type { ?number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    strikeoutThickness?: number;
+
+    /**
+     * Distance from baseline to bottom of stroke, typically negative.
+     * @type { ?number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    strikeoutPosition?: number;
+  }
+
+  /**
+   * Indicate when certain metrics are valid; the underline or strikeout metrics may be valid and zero.
+   * Fonts with embedded bitmaps may not have valid underline or strikeout metrics.
+   * @enum { number }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  enum FontMetricsFlags {
+    /**
+     * Set if underlineThickness of FontMetrics is valid.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    UNDERLINE_THICKNESS_IS_VALID = 1 << 0,
+
+    /**
+     * Set if underlinePosition of FontMetrics is valid.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    UNDERLINE_POSITION_IS_VALID  = 1 << 1,
+
+    /**
+     * Set if strikeoutThickness of FontMetrics is valid.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    STRIKEOUT_THICKNESS_IS_VALID = 1 << 2,
+
+    /**
+     * Set if strikeoutPosition of FontMetrics is valid.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    STRIKEOUT_POSITION_IS_VALID  = 1 << 3,
+
+    /**
+     * set if top, bottom, xMin, xMax of FontMetrics invalid.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    BOUNDS_INVALID               = 1 << 4,
+  }
+
+  /**
+   * Describes the layout information and metrics for a continuous piece of text (a run) in a line of text.
+   * @typedef RunMetrics
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  interface RunMetrics {
+    /**
+     * The metrics of an Font.
+     * @type { ?TextStyle }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    textStyle?: TextStyle;
+
+    /**
+     * Describes text style.
+     * @type { ?FontMetrics }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    fontMetrics: FontMetrics;
+  }
+
+  /**
+   * Describes the metric information for a line of text in a text layout.
+   * @typedef LineMetrics
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  interface LineMetrics {
+    /**
+     * The indexes in the text buffer the line begins.
+     * @type { ?number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    startIndex?: number;
+
+    /**
+     * The indexes in the text buffer the line ends.
+     * @type { ?number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    endIndex?: number;
+
+    /**
+     * The height of the text rise, the distance from the baseline to the top of the character.
+     * @type { ?number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    ascent?: number;
+
+    /**
+     * The height of the text drop, the distance from the baseline to the bottom of the characte.
+     * @type { ?number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    descent?: number;
+
+    /**
+     * The height of the current line is `round(ascent + descent)`.
+     * @type { ?number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    height?: number;
+
+    /**
+     * Width of the line.
+     * @type { ?number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    width?: number;
+
+    /**
+     * The left edge of the line. The right edge can be obtained with `left + width`.
+     * @type { ?number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    left?: number;
+
+    /**
+     * The y position of the baseline for this line from the top of the paragraph.
+     * @type { ?number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    baseline?: number;
+
+    /**
+     * Zero indexed line number.
+     * @type { ?number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    lineNumber?: number;
+
+    /**
+     * Height from the top.
+     * @type { ?number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    topHeight?: number;
+
+    /**
+     * Mapping between text index ranges and the FontMetrics associated with
+     * them. The first run will be keyed under start_index. The metrics here.
+     * are before layout and are the base values we calculate from.
+     * @type { ?Map<number, RunMetrics> }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    runMetrics?: Map<number, RunMetrics>;
   }
 }
 
