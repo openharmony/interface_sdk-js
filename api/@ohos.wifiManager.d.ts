@@ -231,7 +231,7 @@ declare namespace wifiManager {
    * @param { boolean } isScanAlwaysAllowed - true for allow trigger scan, otherwise don't allow trigger scan when Wi-Fi is disabled.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -261,7 +261,8 @@ declare namespace wifiManager {
    * @returns { Promise<number> } Returns {@code networkId} if the configuration is added; returns {@code -1} otherwise.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -277,7 +278,8 @@ declare namespace wifiManager {
    * @param { AsyncCallback<number> } callback - Indicates call back of addDeviceConfig.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -294,7 +296,8 @@ declare namespace wifiManager {
   * @param { WifiDeviceConfig } config - candidate config.
   * @returns { Promise<number> } Returns {@code networkId} if the configuration is added; returns {@code -1} otherwise.
   * @throws {BusinessError} 201 - Permission denied.
-  * @throws {BusinessError} 401 - Invalid parameters.
+  * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+  *     2. Incorrect parameter types. 3.Parameter verification failed.
   * @throws {BusinessError} 801 - Capability not supported.
   * @throws {BusinessError} 2501000 - Operation failed.
   * @syscap SystemCapability.Communication.WiFi.STA
@@ -309,7 +312,8 @@ declare namespace wifiManager {
   * @param { WifiDeviceConfig } config - candidate config.
   * @returns { Promise<number> } Returns {@code networkId} if the configuration is added; returns {@code -1} otherwise.
   * @throws {BusinessError} 201 - Permission denied.
-  * @throws {BusinessError} 401 - Invalid parameters.
+  * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+  *     2. Incorrect parameter types. 3.Parameter verification failed.
   * @throws {BusinessError} 801 - Capability not supported.
   * @throws {BusinessError} 2501000 - Operation failed.
   * @syscap SystemCapability.Communication.WiFi.STA
@@ -326,7 +330,8 @@ declare namespace wifiManager {
   * @param { WifiDeviceConfig } config - candidate config.
   * @param { AsyncCallback<number> } callback - Indicates call back of addCandidateConfig.
   * @throws {BusinessError} 201 - Permission denied.
-  * @throws {BusinessError} 401 - Invalid parameters.
+  * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+  *     2. Incorrect parameter types. 3.Parameter verification failed.
   * @throws {BusinessError} 801 - Capability not supported.
   * @throws {BusinessError} 2501000 - Operation failed.
   * @syscap SystemCapability.Communication.WiFi.STA
@@ -341,7 +346,8 @@ declare namespace wifiManager {
    * @param { number } networkId - Network ID which will be removed.
    * @returns { Promise<void> } Return results.
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -355,7 +361,8 @@ declare namespace wifiManager {
    * @param { number } networkId - Network ID which will be removed.
    * @returns { Promise<void> } Return results.
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -371,7 +378,8 @@ declare namespace wifiManager {
    * @param { number } networkId - Network ID which will be removed.
    * @param { AsyncCallback<void> } callback - Indicates call back of removeCandidateConfig.
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -420,9 +428,10 @@ declare namespace wifiManager {
    * Connect to a specified candidate hotspot by networkId, only the configuration which is added by ourself
    * is allowed to be connected. This method connect to a configuration at a time.
    * @permission ohos.permission.SET_WIFI_INFO
-   * @param { number } networkId - Network ID which will be connected.
+   * @param { number } networkId - Network ID which will be connected. The value of networkId cannot be less than 0.
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @throws {BusinessError} 2501001 - Wifi is closed.
@@ -434,9 +443,10 @@ declare namespace wifiManager {
    * Connect to a specified candidate hotspot by networkId, only the configuration which is added by ourself
    * is allowed to be connected. This method connect to a configuration at a time.
    * @permission ohos.permission.SET_WIFI_INFO
-   * @param { number } networkId - Network ID which will be connected.
+   * @param { number } networkId - Network ID which will be connected. The value of networkId cannot be less than 0.
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @throws {BusinessError} 2501001 - Wifi is closed.
@@ -449,10 +459,11 @@ declare namespace wifiManager {
   /**
    * Connect to Wi-Fi hotspot by networkId.
    * @permission ohos.permission.MANAGE_WIFI_CONNECTION
-   * @param { number } networkId - ID of the connected network.
+   * @param { number } networkId - ID of the connected network. The value of networkId cannot be less than 0.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @throws {BusinessError} 2501001 - Wifi is closed.
@@ -469,7 +480,8 @@ declare namespace wifiManager {
    * @param { WifiDeviceConfig } config - Indicates the device configuration for connection to the Wi-Fi hotspot.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @throws {BusinessError} 2501001 - Wifi is closed.
@@ -499,7 +511,8 @@ declare namespace wifiManager {
    * @param { number } band - Indicates the Wi-Fi frequency band.
    * @returns { number } Returns Wi-Fi signal level ranging from 0 to 4.
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -611,7 +624,8 @@ declare namespace wifiManager {
    * @param { number } featureId Indicates the ID of the feature.
    * @returns { boolean } Returns {@code true} if this device supports the specified feature, returns {@code false} otherwise.
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2401000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.Core
@@ -735,7 +749,8 @@ declare namespace wifiManager {
    *     returns {@code -1} if the specified Wi-Fi configuration is not contained in the list.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -748,10 +763,11 @@ declare namespace wifiManager {
    * Disable the specified DeviceConfig by networkId.
    * The disabled DeviceConfig will not be associated with again.
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
-   * @param { number } netId Identifies the network to disable.
+   * @param { number } netId Identifies the network to disable. The value of networkId cannot be less than 0.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -779,10 +795,11 @@ declare namespace wifiManager {
    * If the Wi-Fi DeviceConfig is being connected, the connection will be interrupted.
    * The application can only delete Wi-Fi DeviceConfig it has created.
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
-   * @param { number } id - Indicate the ID of the Wi-Fi DeviceConfig.
+   * @param { number } id - Indicate the ID of the Wi-Fi DeviceConfig. The value of networkId cannot be less than 0.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types. 3.Parameter verification failed. 
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -949,7 +966,8 @@ declare namespace wifiManager {
    *     If {@code securityType} is not {@code open}, {@code preSharedKey} must be available and correct.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Incorrect parameter types.
+   *     2.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2601000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
@@ -1006,7 +1024,8 @@ declare namespace wifiManager {
    * @param { StationInfo } stationInfo - station which will be added in the block list.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1.Incorrect parameter types.
+   *     2.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2601000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
@@ -1021,7 +1040,8 @@ declare namespace wifiManager {
    * @param { StationInfo } stationInfo - station which will be deleted in the block list.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1.Incorrect parameter types.
+   *     2.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2601000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
@@ -1036,7 +1056,7 @@ declare namespace wifiManager {
    * @returns { Array<StationInfo> } stations in the block list.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2601000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
@@ -1214,7 +1234,8 @@ declare namespace wifiManager {
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { WifiP2PConfig } config - Indicates the configuration for a group.
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1.Incorrect parameter types.
+   *     2.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
@@ -1249,7 +1270,8 @@ declare namespace wifiManager {
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { WifiP2PConfig } config - Indicates the configuration for connecting to a specific group.
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1.Incorrect parameter types.
+   *     2.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
@@ -1305,7 +1327,7 @@ declare namespace wifiManager {
    * @param { number } netId - Indicates the network ID of the group to be deleted.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1.Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
@@ -1372,7 +1394,8 @@ declare namespace wifiManager {
    * @param { string } devName - Indicate the name to be set.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
@@ -1387,7 +1410,8 @@ declare namespace wifiManager {
    * @param { 'wifiStateChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 0: inactive, 1: active, 2: activating, 3: de-activating
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -1400,7 +1424,8 @@ declare namespace wifiManager {
    * @param { 'wifiStateChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 0: inactive, 1: active, 2: activating, 3: de-activating
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -1418,7 +1443,8 @@ declare namespace wifiManager {
    * @param { 'wifiStateChange' } type - event name.
    * @param { Callback<number> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -1433,7 +1459,8 @@ declare namespace wifiManager {
    * @param { 'wifiStateChange' } type - event name.
    * @param { Callback<number> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -1449,7 +1476,8 @@ declare namespace wifiManager {
    * @param { 'wifiConnectionChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 0: disconnected, 1: connected
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -1462,7 +1490,8 @@ declare namespace wifiManager {
    * @param { 'wifiConnectionChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 0: disconnected, 1: connected
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -1479,7 +1508,8 @@ declare namespace wifiManager {
    * @param { 'wifiConnectionChange' } type - event name.
    * @param { Callback<number> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -1493,7 +1523,8 @@ declare namespace wifiManager {
    * @param { 'wifiConnectionChange' } type - event name.
    * @param { Callback<number> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -1509,7 +1540,8 @@ declare namespace wifiManager {
    * @param { 'wifiScanStateChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 0: scan fail, 1: scan success
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -1522,7 +1554,8 @@ declare namespace wifiManager {
    * @param { 'wifiScanStateChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 0: scan fail, 1: scan success
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -1538,7 +1571,8 @@ declare namespace wifiManager {
    * @param { 'wifiScanStateChange' } type - event name.
    * @param { Callback<number> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -1552,7 +1586,8 @@ declare namespace wifiManager {
    * @param { 'wifiScanStateChange' } type - event name.
    * @param { Callback<number> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -1567,7 +1602,8 @@ declare namespace wifiManager {
    * @param { 'wifiRssiChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -1582,7 +1618,8 @@ declare namespace wifiManager {
    * @param { 'wifiRssiChange' } type - event name.
    * @param { Callback<number> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -1597,7 +1634,8 @@ declare namespace wifiManager {
    * @param { Callback<number> } callback - the callback of on, 1: stream down, 2: stream up, 3: stream bidirectional
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -1614,7 +1652,8 @@ declare namespace wifiManager {
    * @param { Callback<number> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -1630,7 +1669,8 @@ declare namespace wifiManager {
    * @param { Callback<number> } callback - the callback of on, 0: config is added, 1: config is changed, 2: config is removed.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -1646,7 +1686,8 @@ declare namespace wifiManager {
    * @param { Callback<number> } callback - the callback of off, 0: config is added, 1: config is changed, 2: config is removed.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -1662,7 +1703,8 @@ declare namespace wifiManager {
    * @param { Callback<number> } callback - the callback of on, 0: inactive, 1: active, 2: activating, 3: de-activating
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2601000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
@@ -1678,7 +1720,8 @@ declare namespace wifiManager {
    * @param { Callback<number> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2601000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
@@ -1693,7 +1736,8 @@ declare namespace wifiManager {
    * @param { Callback<StationInfo> } callback - the callback of on
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2601000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
@@ -1710,7 +1754,8 @@ declare namespace wifiManager {
    * @param { Callback<StationInfo> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2601000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
@@ -1726,7 +1771,8 @@ declare namespace wifiManager {
    * @param { Callback<StationInfo> } callback - the callback of on
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2601000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
@@ -1743,7 +1789,8 @@ declare namespace wifiManager {
    * @param { Callback<StationInfo> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2601000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
@@ -1758,7 +1805,8 @@ declare namespace wifiManager {
    * @param { 'p2pStateChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 1: idle, 2: starting, 3:started, 4: closing, 5: closed
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
@@ -1772,7 +1820,8 @@ declare namespace wifiManager {
    * @param { 'p2pStateChange' } type - event name.
    * @param { Callback<number> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
@@ -1786,7 +1835,8 @@ declare namespace wifiManager {
    * @param { 'p2pConnectionChange' } type - event name.
    * @param { Callback<WifiP2pLinkedInfo> } callback - the callback of on
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
@@ -1800,7 +1850,8 @@ declare namespace wifiManager {
    * @param { 'p2pConnectionChange' } type - event name.
    * @param { Callback<WifiP2pLinkedInfo> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
@@ -1814,7 +1865,8 @@ declare namespace wifiManager {
    * @param { 'p2pDeviceChange' } type - event name.
    * @param { Callback<WifiP2pDevice> } callback - the callback of on
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
@@ -1826,7 +1878,8 @@ declare namespace wifiManager {
    * @param { 'p2pDeviceChange' } type - event name.
    * @param { Callback<WifiP2pDevice> } callback - the callback of on
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
@@ -1840,7 +1893,8 @@ declare namespace wifiManager {
    * @param { 'p2pDeviceChange' } type - event name.
    * @param { Callback<WifiP2pDevice> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
@@ -1851,7 +1905,8 @@ declare namespace wifiManager {
    * @param { 'p2pDeviceChange' } type - event name.
    * @param { Callback<WifiP2pDevice> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
@@ -1865,7 +1920,8 @@ declare namespace wifiManager {
    * @param { 'p2pPeerDeviceChange' } type - event name.
    * @param { Callback<WifiP2pDevice[]> } callback - the callback of on
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
@@ -1877,7 +1933,8 @@ declare namespace wifiManager {
    * @param { 'p2pPeerDeviceChange' } type - event name.
    * @param { Callback<WifiP2pDevice[]> } callback - the callback of on
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
@@ -1891,7 +1948,8 @@ declare namespace wifiManager {
    * @param { 'p2pPeerDeviceChange' } type - event name.
    * @param { Callback<WifiP2pDevice[]> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
@@ -1902,7 +1960,8 @@ declare namespace wifiManager {
    * @param { 'p2pPeerDeviceChange' } type - event name.
    * @param { Callback<WifiP2pDevice[]> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
@@ -1916,7 +1975,8 @@ declare namespace wifiManager {
    * @param { 'p2pPersistentGroupChange' } type - event name.
    * @param { Callback<void> } callback - the callback of on
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
@@ -1930,7 +1990,8 @@ declare namespace wifiManager {
    * @param { 'p2pPersistentGroupChange' } type - event name.
    * @param { Callback<void> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
@@ -1944,7 +2005,8 @@ declare namespace wifiManager {
    * @param { 'p2pDiscoveryChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
@@ -1958,7 +2020,8 @@ declare namespace wifiManager {
    * @param { 'p2pDiscoveryChange' } type - event name.
    * @param { Callback<number> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
