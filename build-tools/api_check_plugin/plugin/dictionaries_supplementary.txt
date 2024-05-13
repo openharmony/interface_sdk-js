@@ -1129,3 +1129,5 @@ gbk
 ocsp
 encipherment
 reconfirmed
+euc
+
