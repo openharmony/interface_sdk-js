@@ -222,8 +222,8 @@ declare namespace installer {
      * @throws { BusinessError } 17700052 - Failed to install the HAP because debug bundle cannot be installed under non-developer mode.
      * @throws { BusinessError } 17700054 - Failed to install the HAP because the HAP requests wrong permissions.
      * @throws { BusinessError } 17700058 - Failed to install the HAP because the device has been controlled.
-     * @throws { BusinessError } 17700066 - Failed to install the HAP because install of the native package failed.
-     * @throws { BusinessError } 17700068 - Failed to install the HAP because the extract of the native package failed.
+     * @throws { BusinessError } 17700066 - Failed to install the HAP because install the native package failed.
+     * @throws { BusinessError } 17700068 - Failed to install the HAP because extract the native package failed.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12
@@ -368,8 +368,8 @@ declare namespace installer {
      * @throws { BusinessError } 17700052 - Failed to install the HAP because debug bundle cannot be installed under non-developer mode.
      * @throws { BusinessError } 17700054 - Failed to install the HAP because the HAP requests wrong permissions.
      * @throws { BusinessError } 17700058 - Failed to install the HAP because the device has been controlled.
-     * @throws { BusinessError } 17700066 - Failed to install the HAP because install of the native package failed.
-     * @throws { BusinessError } 17700068 - Failed to install the HAP because the extract of the native package failed.
+     * @throws { BusinessError } 17700066 - Failed to install the HAP because install the native package failed.
+     * @throws { BusinessError } 17700068 - Failed to install the HAP because extract the native package failed.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12
@@ -526,8 +526,8 @@ declare namespace installer {
      * @throws { BusinessError } 17700052 - Failed to install the HAP because debug bundle cannot be installed under non-developer mode.
      * @throws { BusinessError } 17700054 - Failed to install the HAP because the HAP requests wrong permissions.
      * @throws { BusinessError } 17700058 - Failed to install the HAP because the device has been controlled.
-     * @throws { BusinessError } 17700066 - Failed to install the HAP because install of the native package failed.
-     * @throws { BusinessError } 17700068 - Failed to install the HAP because the extract of the native package failed.
+     * @throws { BusinessError } 17700066 - Failed to install the HAP because install the native package failed.
+     * @throws { BusinessError } 17700068 - Failed to install the HAP because extract the native package failed.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12
@@ -569,7 +569,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700020 - The specified bundle is pre-installed bundle which cannot be uninstalled.
      * @throws { BusinessError } 17700040 - The specified bundle is a shared bundle which cannot be uninstalled.
      * @throws { BusinessError } 17700045 - Failed to uninstall because enterprise device management disallow uninstall.
-     * @throws { BusinessError } 17700067 - Failed to uninstall because uninstall of the native package failed.
+     * @throws { BusinessError } 17700067 - Failed to uninstall because uninstall the native package failed.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -591,7 +591,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700020 - The specified bundle is pre-installed bundle which cannot be uninstalled.
      * @throws { BusinessError } 17700040 - The specified bundle is a shared bundle which cannot be uninstalled.
      * @throws { BusinessError } 17700045 - Failed to uninstall because enterprise device management disallow uninstall.
-     * @throws { BusinessError } 17700067 - Failed to uninstall because uninstall of the native package failed.
+     * @throws { BusinessError } 17700067 - Failed to uninstall because uninstall the native package failed.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -662,7 +662,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700020 - The specified bundle is pre-installed bundle which cannot be uninstalled.
      * @throws { BusinessError } 17700037 - The version of shared bundle is dependent on other applications.
      * @throws { BusinessError } 17700038 - The specified shared bundle does not exist.
-     * @throws { BusinessError } 17700067 - Failed to uninstall because uninstall of the native package failed.
+     * @throws { BusinessError } 17700067 - Failed to uninstall because uninstall the native package failed.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10
@@ -681,7 +681,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700020 - The specified bundle is pre-installed bundle which cannot be uninstalled.
      * @throws { BusinessError } 17700037 - The version of shared bundle is dependent on other applications.
      * @throws { BusinessError } 17700038 - The specified shared bundle does not exist.
-     * @throws { BusinessError } 17700067 - Failed to uninstall because uninstall of the native package failed.
+     * @throws { BusinessError } 17700067 - Failed to uninstall because uninstall the native package failed.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10
