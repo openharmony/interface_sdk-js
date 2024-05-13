@@ -980,6 +980,7 @@ unduck
 unducked
 unequal
 unfiltered
+unfocusable
 unfocused
 unhealthy
 unhold
