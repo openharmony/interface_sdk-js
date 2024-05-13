@@ -1325,6 +1325,90 @@ declare namespace formInfo {
   }
 
   /**
+   * The result of publish form.
+   *
+   * @typedef PublishFormResult
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+  interface PublishFormResult {
+    /**
+     * The error code.
+     *
+     * @type { PublishFormErrorCode }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    code: PublishFormErrorCode;
+
+    /**
+     * The message.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    message: string;
+  }
+
+  /**
+   * The error code of publish form.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+  enum PublishFormErrorCode {
+    /**
+     * Publish form success.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    SUCCESS,
+
+    /**
+     * Host has no space to publish form.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    NO_SPACE,
+
+    /**
+     * Check param failed.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    PARAM_ERROR,
+
+    /**
+     * Internal error occurs during form processing.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    INTERNAL_ERROR,
+  }
+
+  /**
    * Information about a running form.
    *
    * @typedef FormProviderFilter

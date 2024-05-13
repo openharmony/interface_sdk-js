@@ -101,7 +101,8 @@ export interface Caller {
    * @param { string } method - The notification event string listened to by the callee.
    * @param { rpc.Parcelable } data - Notification data to the callee.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types.
    * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
    * @throws { BusinessError } 16200002 - Callee invalid. The callee does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -117,7 +118,8 @@ export interface Caller {
    * @param { string } method - The notification event string listened to by the callee.
    * @param { rpc.Parcelable } data - Notification data to the callee.
    * @returns { Promise<rpc.MessageSequence> } Returns the callee's notification result data.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types.
    * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
    * @throws { BusinessError } 16200002 - Callee invalid. The callee does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -142,7 +144,8 @@ export interface Caller {
    * Register death listener notification callback.
    *
    * @param { OnReleaseCallback } callback - Register a callback function for listening for notifications.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types.
    * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
@@ -154,7 +157,8 @@ export interface Caller {
    * Register state changed listener notification callback of remote ability.
    *
    * @param { OnRemoteStateChangeCallback } callback - Register a callback function for listening for notifications.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types.
    * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
@@ -167,7 +171,8 @@ export interface Caller {
    *
    * @param { 'release' } type - release.
    * @param { OnReleaseCallback } callback - Register a callback function for listening for notifications.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
@@ -180,7 +185,8 @@ export interface Caller {
    *
    * @param { 'release' } type - release.
    * @param { OnReleaseCallback } callback - Unregister a callback function for listening for notifications.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @since 9
@@ -191,7 +197,8 @@ export interface Caller {
    * Unregister all death listener notification callback.
    *
    * @param { 'release' } type - release.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @since 9
@@ -213,7 +220,8 @@ export interface Callee {
    *
    * @param { string } method - A string registered to listen for notification events.
    * @param { CalleeCallback } callback - Register a callback function that listens for notification events.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16200004 - Method registered. The method has registered.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -226,7 +234,8 @@ export interface Callee {
    * Unregister data listener callback.
    *
    * @param { string } method - A string registered to listen for notification events.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16200005 - Method not registered. The method has not registered.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore

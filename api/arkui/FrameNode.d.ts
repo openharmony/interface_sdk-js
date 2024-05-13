@@ -26,6 +26,47 @@ import { CommonAttribute } from 'commonAttribute';
 import { DrawContext } from './Graphics';
 
 /**
+ * Layout constraint, include the max size, the min size and the reference size for children to calculate percent.
+ *
+ * @interface LayoutConstraint
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface LayoutConstraint {
+  /**
+   * MaxSize
+   *
+   * @type { Size }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  maxSize: Size;
+  
+  /**
+   * MinSize
+   *
+   * @type { Size }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  minSize: Size;
+  
+  /**
+   * PercentReference, if the size unit of the child nodes is percentage, then they use PercentReference to calculate
+   * the px size.
+   *
+   * @type { Size }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  percentReference: Size;
+}
+
+/**
  * Defines FrameNode.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -203,16 +244,6 @@ export class FrameNode {
    * @since 12
    */
   dispose(): void;
-
-  /**
-   * Get the position of the node relative to its screen.
-   *
-   * @returns { Position } - Returns position of the node relative to its screen.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  getPositionToScreen(): Position;
 
   /**
    * Get the position of the node relative to window.
@@ -415,6 +446,81 @@ export class FrameNode {
    * @since 12
    */
   onDraw?(context: DrawContext): void;
+
+  /**
+   * Method to measure the FrameNode and its content to determine the measured size. Use this method to override the
+   * default measure method when measuring the FrameNode.
+   *
+   * @param { LayoutConstraint } constraint - The layout constraint of the node, will be used when executed measure
+   * method.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onMeasure(constraint: LayoutConstraint): void;
+
+  /**
+   * Method to assign a position to the FrameNode and each of its children. Use this method to override the
+   * default layout method.
+   *
+   * @param { Position } position - The position of the node, will be used when executed layout method.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onLayout(position: Position): void;
+
+  /**
+   * Set the size of the FrameNode after measure, with unit PX.
+   *
+   * @param { Size } size - The size of the FrameNode after measure.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setMeasuredSize(size: Size): void;
+
+  /**
+   * Set the position to the parent of the FrameNode after layout, with unit PX.
+   *
+   * @param { Position } position - The position to the parent of the FrameNode after layout.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setLayoutPosition(position: Position): void;
+
+  /**
+   * This is called to find out how big the FrameNode should be. The parent node supplies constraint information. The
+   * actual measurement work of the FrameNode is performed in onMeasure or the default measure method.
+   *
+   * @param { LayoutConstraint } constraint - The layout constraint of the node, supplied by the parent node.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  measure(constraint: LayoutConstraint): void;
+
+  /**
+   * This is called to assign position to the FrameNode and all of its descendants. The position is used to init
+   * the position of the frameNode, and the actual layout work of FrameNode is performed in onLayout or the default
+   * layout method.
+   *
+   * @param { Position } position - The position of the node, will be used when executed the layout method.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  layout(position: Position): void;
+
+  /**
+   * Mark the frame node as need layout.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setNeedsLayout(): void;
 
   /**
    * Invalidate the RenderNode in the FrameNode, which will cause a re-render of the RenderNode.

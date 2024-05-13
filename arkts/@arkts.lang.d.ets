@@ -29,7 +29,7 @@
  */
 declare namespace lang {
   /**
-   * Base interface for all Sendable classes/interfaces
+   * Base interface for all Sendable classes/interfaces.
    * 
    * @interface ISendable
    * @syscap SystemCapability.Utils.Lang

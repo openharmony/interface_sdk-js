@@ -165,7 +165,9 @@ declare namespace systemSoundManager {
      * @param { RingtoneType } type - Ringtone type to set.
      * @returns { Promise<void> } Promise used to return the set uri result.
      * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 401 - The parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *         1.Mandatory parameters are left unspecified;
+     *         2.Incorrect parameter types.
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
@@ -205,7 +207,9 @@ declare namespace systemSoundManager {
      * @param { RingtoneType } type - Ringtone type to get.
      * @returns { Promise<string> } Promise used to return the ringtone uri maintained in system.
      * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 401 - The parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
@@ -245,7 +249,9 @@ declare namespace systemSoundManager {
      * @param { RingtoneType } type - Ringtone type to get.
      * @returns { Promise<RingtonePlayer> } Promise used to return a ringtone player instance.
      * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 401 - The parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
      * @since 11
@@ -259,7 +265,9 @@ declare namespace systemSoundManager {
      * @param { SystemToneType } type - System tone type to set.
      * @returns { Promise<void> } Promise used to return the result of set system tone uri.
      * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 401 - The parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
@@ -273,7 +281,9 @@ declare namespace systemSoundManager {
      * @param { SystemToneType } type - System tone type to get.
      * @returns { Promise<string> } Promise used to return the system tone maintained in system.
      * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 401 - The parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
@@ -287,7 +297,9 @@ declare namespace systemSoundManager {
      * @param { SystemToneType } type - System tone type to get.
      * @returns { Promise<SystemTonePlayer> } Promise used to return the SystemTonePlayer.
      * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 401 - The parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
      * @since 11
@@ -297,6 +309,7 @@ declare namespace systemSoundManager {
 
   /**
    * Ringtone player object.
+   * @typedef { _RingtonePlayer } RingtonePlayer
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10
@@ -305,6 +318,7 @@ declare namespace systemSoundManager {
 
   /**
    * SystemTone player object.
+   * @typedef { _SystemTonePlayer } SystemTonePlayer
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 11
@@ -313,6 +327,7 @@ declare namespace systemSoundManager {
 
   /**
    * Interface for ringtone options.
+   * @typedef { _RingtoneOptions } RingtoneOptions
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10
@@ -321,6 +336,7 @@ declare namespace systemSoundManager {
 
   /**
    * System tone options.
+   * @typedef { _SystemToneOptions } SystemToneOptions
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 11

@@ -1506,6 +1506,18 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
   style(value: Style): ProgressAttribute<Type>;
 
   /**
+   * Sets if mark to privacy sensitive.
+   *
+   * @param { Optional<boolean> } isPrivacySensitiveMode - indicates if mark to privacy sensitive.
+   * @returns { ProgressAttribute<Type> } the attribute of the progress.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 12
+   */
+    privacySensitive(isPrivacySensitiveMode: Optional<boolean>): ProgressAttribute<Type>;
+
+  /**
    * Set the contentModifier of progress.
    *
    * @param { ContentModifier<ProgressConfiguration> } modifier - The contentModifier of progress.

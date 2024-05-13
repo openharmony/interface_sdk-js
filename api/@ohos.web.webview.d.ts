@@ -3350,7 +3350,25 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
-    registerJavaScriptProxy(object: object, name: string, methodList: Array<string>): void;
+    /**
+     * Registers the JavaScript object and method list.
+     *
+     * @param { object } object - Application side JavaScript objects participating in registration.
+     * @param { string } name - The name of the registered object, which is consistent with the
+     *                          object name called in the window.
+     * @param { Array<string> } methodList - The method of the application side JavaScript object participating
+     *                                       in the registration.
+     * @param { Array<string> } [asyncMethodList] - The async method of the application side JavaScript object 
+     *                                            participating in the registration.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    registerJavaScriptProxy(object: object, name: string, methodList: Array<string>,
+        asyncMethodList?: Array<string>): void;
 
     /**
      * Deletes a registered JavaScript object with given name.

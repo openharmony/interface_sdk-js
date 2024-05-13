@@ -554,14 +554,14 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
   /**
    * Set back button icon.
    *
-   * @param { ResourceStr | PixelMap } value - Indicates icon of back button.
+   * @param { ResourceStr | PixelMap | SymbolGlyphModifier } value - Indicates icon of back button.
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  backButtonIcon(value: ResourceStr | PixelMap): NavDestinationAttribute;
+  backButtonIcon(value: ResourceStr | PixelMap | SymbolGlyphModifier): NavDestinationAttribute;
   
   /**
    * NavDestination title bar's menus
@@ -630,6 +630,18 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @since 12
    */
   onWillHide(callback: Callback<void>): NavDestinationAttribute;
+
+  /**
+   * Set navdestination content expand types and edges.
+   *
+   * @param { Array<LayoutSafeAreaType> } [types] - Indicates the types of the safe area.
+   * @param { Array<LayoutSafeAreaEdge> } [edges] - Indicates the edges of the safe area.
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  ignoreLayoutSafeArea(types?: Array<LayoutSafeAreaType>, edges?: Array<LayoutSafeAreaEdge>): NavDestinationAttribute;
 }
 
 /**

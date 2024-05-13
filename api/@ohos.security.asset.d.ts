@@ -32,22 +32,22 @@ declare namespace asset {
    *
    * @param { AssetMap } attributes - a map object containing attributes of the Asset to be added.
    * @returns { Promise<void> } the promise object returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - The caller doesn't have the permission.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 
    * 2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 24000001 - Service unavailable.
-   * @throws { BusinessError } 24000003 - Data already exists.
-   * @throws { BusinessError } 24000005 - Device status mismatch.
-   * @throws { BusinessError } 24000006 - Out of memory.
-   * @throws { BusinessError } 24000007 - Data corrupted.
-   * @throws { BusinessError } 24000008 - Database operation failed.
-   * @throws { BusinessError } 24000009 - Key management service is abnormal.
-   * @throws { BusinessError } 24000010 - IPC communication is abnormal.
-   * @throws { BusinessError } 24000011 - Bundle framework is abnormal.
-   * @throws { BusinessError } 24000012 - Account manager is abnormal.
-   * @throws { BusinessError } 24000013 - Access token manager is abnormal.
-   * @throws { BusinessError } 24000014 - File operation failed.
-   * @throws { BusinessError } 24000015 - Get system time failed.
+   * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
+   * @throws { BusinessError } 24000003 - The asset already exists.
+   * @throws { BusinessError } 24000005 - The screen lock status does not match.
+   * @throws { BusinessError } 24000006 - Insufficient memory.
+   * @throws { BusinessError } 24000007 - The asset is corrupted.
+   * @throws { BusinessError } 24000008 - The database operation failed.
+   * @throws { BusinessError } 24000009 - The cryptography operation failed.
+   * @throws { BusinessError } 24000010 - IPC failed.
+   * @throws { BusinessError } 24000011 - Calling the Bundle Manager service failed.
+   * @throws { BusinessError } 24000012 - Calling the OS Account service failed.
+   * @throws { BusinessError } 24000013 - Calling the Access Token service failed.
+   * @throws { BusinessError } 24000014 - The file operation failed.
+   * @throws { BusinessError } 24000015 - Getting the system time failed.
    * @syscap SystemCapability.Security.Asset
    * @since 11
    */
@@ -60,23 +60,23 @@ declare namespace asset {
    * @param { number } userId - the user identifier to add an Asset. The user identifier cannot be lower than 100.
    * @param { AssetMap } attributes - a map object containing attributes of the Asset to be added.
    * @returns { Promise<void> } the promise object returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - The caller doesn't have the permission.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 
    * 2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 24000001 - Service unavailable.
-   * @throws { BusinessError } 24000003 - Data already exists.
-   * @throws { BusinessError } 24000005 - Device status mismatch.
-   * @throws { BusinessError } 24000006 - Out of memory.
-   * @throws { BusinessError } 24000007 - Data corrupted.
-   * @throws { BusinessError } 24000008 - Database operation failed.
-   * @throws { BusinessError } 24000009 - Key management service is abnormal.
-   * @throws { BusinessError } 24000010 - IPC communication is abnormal.
-   * @throws { BusinessError } 24000011 - Bundle framework is abnormal.
-   * @throws { BusinessError } 24000012 - Account manager is abnormal.
-   * @throws { BusinessError } 24000013 - Access token manager is abnormal.
-   * @throws { BusinessError } 24000014 - File operation failed.
-   * @throws { BusinessError } 24000015 - Get system time failed.
+   * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
+   * @throws { BusinessError } 24000003 - The asset already exists.
+   * @throws { BusinessError } 24000005 - The screen lock status does not match.
+   * @throws { BusinessError } 24000006 - Insufficient memory.
+   * @throws { BusinessError } 24000007 - The asset is corrupted.
+   * @throws { BusinessError } 24000008 - The database operation failed.
+   * @throws { BusinessError } 24000009 - The cryptography operation failed.
+   * @throws { BusinessError } 24000010 - IPC failed.
+   * @throws { BusinessError } 24000011 - Calling the Bundle Manager service failed.
+   * @throws { BusinessError } 24000012 - Calling the OS Account service failed.
+   * @throws { BusinessError } 24000013 - Calling the Access Token service failed.
+   * @throws { BusinessError } 24000014 - The file operation failed.
+   * @throws { BusinessError } 24000015 - Getting the system time failed.
    * @syscap SystemCapability.Security.Asset
    * @systemapi
    * @since 12
@@ -87,22 +87,22 @@ declare namespace asset {
    * Add an Asset.
    *
    * @param { AssetMap } attributes - a map object containing attributes of the Asset to be added.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - The caller doesn't have the permission.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 
    * 2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 24000001 - Service unavailable.
-   * @throws { BusinessError } 24000003 - Data already exists.
-   * @throws { BusinessError } 24000005 - Device status mismatch.
-   * @throws { BusinessError } 24000006 - Out of memory.
-   * @throws { BusinessError } 24000007 - Data corrupted.
-   * @throws { BusinessError } 24000008 - Database operation failed.
-   * @throws { BusinessError } 24000009 - Key management service is abnormal.
-   * @throws { BusinessError } 24000010 - IPC communication is abnormal.
-   * @throws { BusinessError } 24000011 - Bundle framework is abnormal.
-   * @throws { BusinessError } 24000012 - Account manager is abnormal.
-   * @throws { BusinessError } 24000013 - Access token manager is abnormal.
-   * @throws { BusinessError } 24000014 - File operation failed.
-   * @throws { BusinessError } 24000015 - Get system time failed.
+   * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
+   * @throws { BusinessError } 24000003 - The asset already exists.
+   * @throws { BusinessError } 24000005 - The screen lock status does not match.
+   * @throws { BusinessError } 24000006 - Insufficient memory.
+   * @throws { BusinessError } 24000007 - The asset is corrupted.
+   * @throws { BusinessError } 24000008 - The database operation failed.
+   * @throws { BusinessError } 24000009 - The cryptography operation failed.
+   * @throws { BusinessError } 24000010 - IPC failed.
+   * @throws { BusinessError } 24000011 - Calling the Bundle Manager service failed.
+   * @throws { BusinessError } 24000012 - Calling the OS Account service failed.
+   * @throws { BusinessError } 24000013 - Calling the Access Token service failed.
+   * @throws { BusinessError } 24000014 - The file operation failed.
+   * @throws { BusinessError } 24000015 - Getting the system time failed.
    * @syscap SystemCapability.Security.Asset
    * @since 12
    */
@@ -115,15 +115,15 @@ declare namespace asset {
    * @returns { Promise<void> } the promise object returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter 
    * verification failed.
-   * @throws { BusinessError } 24000001 - Service unavailable.
-   * @throws { BusinessError } 24000002 - Data not found.
-   * @throws { BusinessError } 24000006 - Out of memory.
-   * @throws { BusinessError } 24000007 - Data corrupted.
-   * @throws { BusinessError } 24000008 - Database operation failed.
-   * @throws { BusinessError } 24000010 - IPC communication is abnormal.
-   * @throws { BusinessError } 24000011 - Bundle framework is abnormal.
-   * @throws { BusinessError } 24000012 - Account manager is abnormal.
-   * @throws { BusinessError } 24000013 - Access token manager is abnormal.
+   * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
+   * @throws { BusinessError } 24000002 - The asset is not found.
+   * @throws { BusinessError } 24000006 - Insufficient memory.
+   * @throws { BusinessError } 24000007 - The asset is corrupted.
+   * @throws { BusinessError } 24000008 - The database operation failed.
+   * @throws { BusinessError } 24000010 - IPC failed.
+   * @throws { BusinessError } 24000011 - Calling the Bundle Manager service failed.
+   * @throws { BusinessError } 24000012 - Calling the OS Account service failed.
+   * @throws { BusinessError } 24000013 - Calling the Access Token service failed.
    * @syscap SystemCapability.Security.Asset
    * @since 11
    */
@@ -137,19 +137,19 @@ declare namespace asset {
    * than 100.
    * @param { AssetMap } query - a map object containing attributes of the Asset to be removed.
    * @returns { Promise<void> } the promise object returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - The caller doesn't have the permission.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter 
    * verification failed.
-   * @throws { BusinessError } 24000001 - Service unavailable.
-   * @throws { BusinessError } 24000002 - Data not found.
-   * @throws { BusinessError } 24000006 - Out of memory.
-   * @throws { BusinessError } 24000007 - Data corrupted.
-   * @throws { BusinessError } 24000008 - Database operation failed.
-   * @throws { BusinessError } 24000010 - IPC communication is abnormal.
-   * @throws { BusinessError } 24000011 - Bundle framework is abnormal.
-   * @throws { BusinessError } 24000012 - Account manager is abnormal.
-   * @throws { BusinessError } 24000013 - Access token manager is abnormal.
+   * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
+   * @throws { BusinessError } 24000002 - The asset is not found.
+   * @throws { BusinessError } 24000006 - Insufficient memory.
+   * @throws { BusinessError } 24000007 - The asset is corrupted.
+   * @throws { BusinessError } 24000008 - The database operation failed.
+   * @throws { BusinessError } 24000010 - IPC failed.
+   * @throws { BusinessError } 24000011 - Calling the Bundle Manager service failed.
+   * @throws { BusinessError } 24000012 - Calling the OS Account service failed.
+   * @throws { BusinessError } 24000013 - Calling the Access Token service failed.
    * @syscap SystemCapability.Security.Asset
    * @systemapi
    * @since 12
@@ -162,15 +162,15 @@ declare namespace asset {
    * @param { AssetMap } query - a map object containing attributes of the Asset to be removed.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter 
    * verification failed.
-   * @throws { BusinessError } 24000001 - Service unavailable.
-   * @throws { BusinessError } 24000002 - Data not found.
-   * @throws { BusinessError } 24000006 - Out of memory.
-   * @throws { BusinessError } 24000007 - Data corrupted.
-   * @throws { BusinessError } 24000008 - Database operation failed.
-   * @throws { BusinessError } 24000010 - IPC communication is abnormal.
-   * @throws { BusinessError } 24000011 - Bundle framework is abnormal.
-   * @throws { BusinessError } 24000012 - Account manager is abnormal.
-   * @throws { BusinessError } 24000013 - Access token manager is abnormal.
+   * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
+   * @throws { BusinessError } 24000002 - The asset is not found.
+   * @throws { BusinessError } 24000006 - Insufficient memory.
+   * @throws { BusinessError } 24000007 - The asset is corrupted.
+   * @throws { BusinessError } 24000008 - The database operation failed.
+   * @throws { BusinessError } 24000010 - IPC failed.
+   * @throws { BusinessError } 24000011 - Calling the Bundle Manager service failed.
+   * @throws { BusinessError } 24000012 - Calling the OS Account service failed.
+   * @throws { BusinessError } 24000013 - Calling the Access Token service failed.
    * @syscap SystemCapability.Security.Asset
    * @since 12
    */
@@ -184,18 +184,18 @@ declare namespace asset {
    * @returns { Promise<void> } the promise object returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 
    * 2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 24000001 - Service unavailable.
-   * @throws { BusinessError } 24000002 - Data not found.
-   * @throws { BusinessError } 24000005 - Device status mismatch.
-   * @throws { BusinessError } 24000006 - Out of memory.
-   * @throws { BusinessError } 24000007 - Data corrupted.
-   * @throws { BusinessError } 24000008 - Database operation failed.
-   * @throws { BusinessError } 24000009 - Key management service is abnormal.
-   * @throws { BusinessError } 24000010 - IPC communication is abnormal.
-   * @throws { BusinessError } 24000011 - Bundle framework is abnormal.
-   * @throws { BusinessError } 24000012 - Account manager is abnormal.
-   * @throws { BusinessError } 24000013 - Access token manager is abnormal.
-   * @throws { BusinessError } 24000015 - Get system time failed.
+   * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
+   * @throws { BusinessError } 24000002 - The asset is not found.
+   * @throws { BusinessError } 24000005 - The screen lock status does not match.
+   * @throws { BusinessError } 24000006 - Insufficient memory.
+   * @throws { BusinessError } 24000007 - The asset is corrupted.
+   * @throws { BusinessError } 24000008 - The database operation failed.
+   * @throws { BusinessError } 24000009 - The cryptography operation failed.
+   * @throws { BusinessError } 24000010 - IPC failed.
+   * @throws { BusinessError } 24000011 - Calling the Bundle Manager service failed.
+   * @throws { BusinessError } 24000012 - Calling the OS Account service failed.
+   * @throws { BusinessError } 24000013 - Calling the Access Token service failed.
+   * @throws { BusinessError } 24000015 - Getting the system time failed.
    * @syscap SystemCapability.Security.Asset
    * @since 11
    */
@@ -209,22 +209,21 @@ declare namespace asset {
    * @param { AssetMap } query - a map object containing attributes of the Asset to be updated.
    * @param { AssetMap } attributesToUpdate - a map object containing attributes with new values.
    * @returns { Promise<void> } the promise object returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - The caller doesn't have the permission.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 
-   * 2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 24000001 - Service unavailable.
-   * @throws { BusinessError } 24000002 - Data not found.
-   * @throws { BusinessError } 24000005 - Device status mismatch.
-   * @throws { BusinessError } 24000006 - Out of memory.
-   * @throws { BusinessError } 24000007 - Data corrupted.
-   * @throws { BusinessError } 24000008 - Database operation failed.
-   * @throws { BusinessError } 24000009 - Key management service is abnormal.
-   * @throws { BusinessError } 24000010 - IPC communication is abnormal.
-   * @throws { BusinessError } 24000011 - Bundle framework is abnormal.
-   * @throws { BusinessError } 24000012 - Account manager is abnormal.
-   * @throws { BusinessError } 24000013 - Access token manager is abnormal.
-   * @throws { BusinessError } 24000015 - Get system time failed.
+   * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
+   * @throws { BusinessError } 24000002 - The asset is not found.
+   * @throws { BusinessError } 24000005 - The screen lock status does not match.
+   * @throws { BusinessError } 24000006 - Insufficient memory.
+   * @throws { BusinessError } 24000007 - The asset is corrupted.
+   * @throws { BusinessError } 24000008 - The database operation failed.
+   * @throws { BusinessError } 24000009 - The cryptography operation failed.
+   * @throws { BusinessError } 24000010 - IPC failed.
+   * @throws { BusinessError } 24000011 - Calling the Bundle Manager service failed.
+   * @throws { BusinessError } 24000012 - Calling the OS Account service failed.
+   * @throws { BusinessError } 24000013 - Calling the Access Token service failed.
+   * @throws { BusinessError } 24000015 - Getting the system time failed.
    * @syscap SystemCapability.Security.Asset
    * @systemapi
    * @since 12
@@ -238,18 +237,18 @@ declare namespace asset {
    * @param { AssetMap } attributesToUpdate - a map object containing attributes with new values.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 
    * 2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 24000001 - Service unavailable.
-   * @throws { BusinessError } 24000002 - Data not found.
-   * @throws { BusinessError } 24000005 - Device status mismatch.
-   * @throws { BusinessError } 24000006 - Out of memory.
-   * @throws { BusinessError } 24000007 - Data corrupted.
-   * @throws { BusinessError } 24000008 - Database operation failed.
-   * @throws { BusinessError } 24000009 - Key management service is abnormal.
-   * @throws { BusinessError } 24000010 - IPC communication is abnormal.
-   * @throws { BusinessError } 24000011 - Bundle framework is abnormal.
-   * @throws { BusinessError } 24000012 - Account manager is abnormal.
-   * @throws { BusinessError } 24000013 - Access token manager is abnormal.
-   * @throws { BusinessError } 24000015 - Get system time failed.
+   * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
+   * @throws { BusinessError } 24000002 - The asset is not found.
+   * @throws { BusinessError } 24000005 - The screen lock status does not match.
+   * @throws { BusinessError } 24000006 - Insufficient memory.
+   * @throws { BusinessError } 24000007 - The asset is corrupted.
+   * @throws { BusinessError } 24000008 - The database operation failed.
+   * @throws { BusinessError } 24000009 - The cryptography operation failed.
+   * @throws { BusinessError } 24000010 - IPC failed.
+   * @throws { BusinessError } 24000011 - Calling the Bundle Manager service failed.
+   * @throws { BusinessError } 24000012 - Calling the OS Account service failed.
+   * @throws { BusinessError } 24000013 - Calling the Access Token service failed.
+   * @throws { BusinessError } 24000015 - Getting the system time failed.
    * @syscap SystemCapability.Security.Asset
    * @since 12
    */
@@ -262,26 +261,26 @@ declare namespace asset {
    * @returns { Promise<Uint8Array> } the promise object returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter 
    * verification failed.
-   * @throws { BusinessError } 24000001 - Service unavailable.
-   * @throws { BusinessError } 24000002 - Data not found.
-   * @throws { BusinessError } 24000005 - Device status mismatch.
-   * @throws { BusinessError } 24000006 - Out of memory.
-   * @throws { BusinessError } 24000007 - Data corrupted.
-   * @throws { BusinessError } 24000008 - Database operation failed.
-   * @throws { BusinessError } 24000009 - Key management service is abnormal.
-   * @throws { BusinessError } 24000010 - IPC communication is abnormal.
-   * @throws { BusinessError } 24000011 - Bundle framework is abnormal.
-   * @throws { BusinessError } 24000012 - Account manager is abnormal.
-   * @throws { BusinessError } 24000013 - Access token manager is abnormal.
-   * @throws { BusinessError } 24000016 - Capacity exceeds the limit.
-   * @throws { BusinessError } 24000017 - Capability not supported.
+   * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
+   * @throws { BusinessError } 24000002 - The asset is not found.
+   * @throws { BusinessError } 24000005 - The screen lock status does not match.
+   * @throws { BusinessError } 24000006 - Insufficient memory.
+   * @throws { BusinessError } 24000007 - The asset is corrupted.
+   * @throws { BusinessError } 24000008 - The database operation failed.
+   * @throws { BusinessError } 24000009 - The cryptography operation failed.
+   * @throws { BusinessError } 24000010 - IPC failed.
+   * @throws { BusinessError } 24000011 - Calling the Bundle Manager service failed.
+   * @throws { BusinessError } 24000012 - Calling the OS Account service failed.
+   * @throws { BusinessError } 24000013 - Calling the Access Token service failed.
+   * @throws { BusinessError } 24000016 - The cache exceeds the limit.
+   * @throws { BusinessError } 24000017 - The capability is not supported.
    * @syscap SystemCapability.Security.Asset
    * @since 11
    */
   function preQuery(query: AssetMap): Promise<Uint8Array>;
 
   /**
-   * Preprocessing (e.g. get challenge) for querying one or more Assets 
+   * Preprocessing (e.g. get challenge) for querying one or more Assets
    * that require user authentication in a specific user space.
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
@@ -289,23 +288,23 @@ declare namespace asset {
    * lower than 100.
    * @param { AssetMap } query - a map object containing attributes of the Asset to be queried.
    * @returns { Promise<Uint8Array> } the promise object returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - The caller doesn't have the permission.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter 
    * verification failed.
-   * @throws { BusinessError } 24000001 - Service unavailable.
-   * @throws { BusinessError } 24000002 - Data not found.
-   * @throws { BusinessError } 24000005 - Device status mismatch.
-   * @throws { BusinessError } 24000006 - Out of memory.
-   * @throws { BusinessError } 24000007 - Data corrupted.
-   * @throws { BusinessError } 24000008 - Database operation failed.
-   * @throws { BusinessError } 24000009 - Key management service is abnormal.
-   * @throws { BusinessError } 24000010 - IPC communication is abnormal.
-   * @throws { BusinessError } 24000011 - Bundle framework is abnormal.
-   * @throws { BusinessError } 24000012 - Account manager is abnormal.
-   * @throws { BusinessError } 24000013 - Access token manager is abnormal.
-   * @throws { BusinessError } 24000016 - Capacity exceeds the limit.
-   * @throws { BusinessError } 24000017 - Capability not supported.
+   * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
+   * @throws { BusinessError } 24000002 - The asset is not found.
+   * @throws { BusinessError } 24000005 - The screen lock status does not match.
+   * @throws { BusinessError } 24000006 - Insufficient memory.
+   * @throws { BusinessError } 24000007 - The asset is corrupted.
+   * @throws { BusinessError } 24000008 - The database operation failed.
+   * @throws { BusinessError } 24000009 - The cryptography operation failed.
+   * @throws { BusinessError } 24000010 - IPC failed.
+   * @throws { BusinessError } 24000011 - Calling the Bundle Manager service failed.
+   * @throws { BusinessError } 24000012 - Calling the OS Account service failed.
+   * @throws { BusinessError } 24000013 - Calling the Access Token service failed.
+   * @throws { BusinessError } 24000016 - The cache exceeds the limit.
+   * @throws { BusinessError } 24000017 - The capability is not supported.
    * @syscap SystemCapability.Security.Asset
    * @systemapi
    * @since 12
@@ -319,19 +318,19 @@ declare namespace asset {
    * @returns { Uint8Array } the challenge value to be used when {@link querySync} is called.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter 
    * verification failed.
-   * @throws { BusinessError } 24000001 - Service unavailable.
-   * @throws { BusinessError } 24000002 - Data not found.
-   * @throws { BusinessError } 24000005 - Device status mismatch.
-   * @throws { BusinessError } 24000006 - Out of memory.
-   * @throws { BusinessError } 24000007 - Data corrupted.
-   * @throws { BusinessError } 24000008 - Database operation failed.
-   * @throws { BusinessError } 24000009 - Key management service is abnormal.
-   * @throws { BusinessError } 24000010 - IPC communication is abnormal.
-   * @throws { BusinessError } 24000011 - Bundle framework is abnormal.
-   * @throws { BusinessError } 24000012 - Account manager is abnormal.
-   * @throws { BusinessError } 24000013 - Access token manager is abnormal.
-   * @throws { BusinessError } 24000016 - Capacity exceeds the limit.
-   * @throws { BusinessError } 24000017 - Capability not supported.
+   * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
+   * @throws { BusinessError } 24000002 - The asset is not found.
+   * @throws { BusinessError } 24000005 - The screen lock status does not match.
+   * @throws { BusinessError } 24000006 - Insufficient memory.
+   * @throws { BusinessError } 24000007 - The asset is corrupted.
+   * @throws { BusinessError } 24000008 - The database operation failed.
+   * @throws { BusinessError } 24000009 - The cryptography operation failed.
+   * @throws { BusinessError } 24000010 - IPC failed.
+   * @throws { BusinessError } 24000011 - Calling the Bundle Manager service failed.
+   * @throws { BusinessError } 24000012 - Calling the OS Account service failed.
+   * @throws { BusinessError } 24000013 - Calling the Access Token service failed.
+   * @throws { BusinessError } 24000016 - The cache exceeds the limit.
+   * @throws { BusinessError } 24000017 - The capability is not supported.
    * @syscap SystemCapability.Security.Asset
    * @since 12
    */
@@ -344,19 +343,19 @@ declare namespace asset {
    * @returns { Promise<Array<AssetMap>> } the promise object returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter 
    * verification failed.
-   * @throws { BusinessError } 24000001 - Service unavailable.
-   * @throws { BusinessError } 24000002 - Data not found.
+   * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
+   * @throws { BusinessError } 24000002 - The asset is not found.
    * @throws { BusinessError } 24000004 - Access denied.
-   * @throws { BusinessError } 24000005 - Device status mismatch.
-   * @throws { BusinessError } 24000006 - Out of memory.
-   * @throws { BusinessError } 24000007 - Data corrupted.
-   * @throws { BusinessError } 24000008 - Database operation failed.
-   * @throws { BusinessError } 24000009 - Key management service is abnormal.
-   * @throws { BusinessError } 24000010 - IPC communication is abnormal.
-   * @throws { BusinessError } 24000011 - Bundle framework is abnormal.
-   * @throws { BusinessError } 24000012 - Account manager is abnormal.
-   * @throws { BusinessError } 24000013 - Access token manager is abnormal.
-   * @throws { BusinessError } 24000017 - Capability not supported.
+   * @throws { BusinessError } 24000005 - The screen lock status does not match.
+   * @throws { BusinessError } 24000006 - Insufficient memory.
+   * @throws { BusinessError } 24000007 - The asset is corrupted.
+   * @throws { BusinessError } 24000008 - The database operation failed.
+   * @throws { BusinessError } 24000009 - The cryptography operation failed.
+   * @throws { BusinessError } 24000010 - IPC failed.
+   * @throws { BusinessError } 24000011 - Calling the Bundle Manager service failed.
+   * @throws { BusinessError } 24000012 - Calling the OS Account service failed.
+   * @throws { BusinessError } 24000013 - Calling the Access Token service failed.
+   * @throws { BusinessError } 24000017 - The capability is not supported.
    * @syscap SystemCapability.Security.Asset
    * @since 11
    */
@@ -370,23 +369,23 @@ declare namespace asset {
    * than 100.
    * @param { AssetMap } query - a map object containing attributes of the Asset to be queried.
    * @returns { Promise<Array<AssetMap>> } the promise object returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - The caller doesn't have the permission.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter 
    * verification failed.
-   * @throws { BusinessError } 24000001 - Service unavailable.
-   * @throws { BusinessError } 24000002 - Data not found.
+   * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
+   * @throws { BusinessError } 24000002 - The asset is not found.
    * @throws { BusinessError } 24000004 - Access denied.
-   * @throws { BusinessError } 24000005 - Device status mismatch.
-   * @throws { BusinessError } 24000006 - Out of memory.
-   * @throws { BusinessError } 24000007 - Data corrupted.
-   * @throws { BusinessError } 24000008 - Database operation failed.
-   * @throws { BusinessError } 24000009 - Key management service is abnormal.
-   * @throws { BusinessError } 24000010 - IPC communication is abnormal.
-   * @throws { BusinessError } 24000011 - Bundle framework is abnormal.
-   * @throws { BusinessError } 24000012 - Account manager is abnormal.
-   * @throws { BusinessError } 24000013 - Access token manager is abnormal.
-   * @throws { BusinessError } 24000017 - Capability not supported.
+   * @throws { BusinessError } 24000005 - The screen lock status does not match.
+   * @throws { BusinessError } 24000006 - Insufficient memory.
+   * @throws { BusinessError } 24000007 - The asset is corrupted.
+   * @throws { BusinessError } 24000008 - The database operation failed.
+   * @throws { BusinessError } 24000009 - The cryptography operation failed.
+   * @throws { BusinessError } 24000010 - IPC failed.
+   * @throws { BusinessError } 24000011 - Calling the Bundle Manager service failed.
+   * @throws { BusinessError } 24000012 - Calling the OS Account service failed.
+   * @throws { BusinessError } 24000013 - Calling the Access Token service failed.
+   * @throws { BusinessError } 24000017 - The capability is not supported.
    * @syscap SystemCapability.Security.Asset
    * @systemapi
    * @since 12
@@ -400,19 +399,19 @@ declare namespace asset {
    * @returns { Array<AssetMap> } the query result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter 
    * verification failed.
-   * @throws { BusinessError } 24000001 - Service unavailable.
-   * @throws { BusinessError } 24000002 - Data not found.
+   * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
+   * @throws { BusinessError } 24000002 - The asset is not found.
    * @throws { BusinessError } 24000004 - Access denied.
-   * @throws { BusinessError } 24000005 - Device status mismatch.
-   * @throws { BusinessError } 24000006 - Out of memory.
-   * @throws { BusinessError } 24000007 - Data corrupted.
-   * @throws { BusinessError } 24000008 - Database operation failed.
-   * @throws { BusinessError } 24000009 - Key management service is abnormal.
-   * @throws { BusinessError } 24000010 - IPC communication is abnormal.
-   * @throws { BusinessError } 24000011 - Bundle framework is abnormal.
-   * @throws { BusinessError } 24000012 - Account manager is abnormal.
-   * @throws { BusinessError } 24000013 - Access token manager is abnormal.
-   * @throws { BusinessError } 24000017 - Capability not supported.
+   * @throws { BusinessError } 24000005 - The screen lock status does not match.
+   * @throws { BusinessError } 24000006 - Insufficient memory.
+   * @throws { BusinessError } 24000007 - The asset is corrupted.
+   * @throws { BusinessError } 24000008 - The database operation failed.
+   * @throws { BusinessError } 24000009 - The cryptography operation failed.
+   * @throws { BusinessError } 24000010 - IPC failed.
+   * @throws { BusinessError } 24000011 - Calling the Bundle Manager service failed.
+   * @throws { BusinessError } 24000012 - Calling the OS Account service failed.
+   * @throws { BusinessError } 24000013 - Calling the Access Token service failed.
+   * @throws { BusinessError } 24000017 - The capability is not supported.
    * @syscap SystemCapability.Security.Asset
    * @since 12
    */
@@ -425,19 +424,19 @@ declare namespace asset {
    * @returns { Promise<void> } the promise object returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 
    * 2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 24000001 - Service unavailable.
-   * @throws { BusinessError } 24000006 - Out of memory.
-   * @throws { BusinessError } 24000010 - IPC communication is abnormal.
-   * @throws { BusinessError } 24000011 - Bundle framework is abnormal.
-   * @throws { BusinessError } 24000012 - Account manager is abnormal.
-   * @throws { BusinessError } 24000013 - Access token manager is abnormal.
+   * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
+   * @throws { BusinessError } 24000006 - Insufficient memory.
+   * @throws { BusinessError } 24000010 - IPC failed.
+   * @throws { BusinessError } 24000011 - Calling the Bundle Manager service failed.
+   * @throws { BusinessError } 24000012 - Calling the OS Account service failed.
+   * @throws { BusinessError } 24000013 - Calling the Access Token service failed.
    * @syscap SystemCapability.Security.Asset
    * @since 11
    */
   function postQuery(handle: AssetMap): Promise<void>;
 
   /**
-   * Post-processing (e.g. release cached resource) for querying multiple Assets that require user authentication in a 
+   * Post-processing (e.g. release cached resource) for querying multiple Assets that require user authentication in a
    * specific user space.
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
@@ -445,16 +444,16 @@ declare namespace asset {
    * lower than 100.
    * @param { AssetMap } handle - a map object containing the handle returned by {@link preQueryAsUser}.
    * @returns { Promise<void> } the promise object returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - The caller doesn't have the permission.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 
    * 2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 24000001 - Service unavailable.
-   * @throws { BusinessError } 24000006 - Out of memory.
-   * @throws { BusinessError } 24000010 - IPC communication is abnormal.
-   * @throws { BusinessError } 24000011 - Bundle framework is abnormal.
-   * @throws { BusinessError } 24000012 - Account manager is abnormal.
-   * @throws { BusinessError } 24000013 - Access token manager is abnormal.
+   * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
+   * @throws { BusinessError } 24000006 - Insufficient memory.
+   * @throws { BusinessError } 24000010 - IPC failed.
+   * @throws { BusinessError } 24000011 - Calling the Bundle Manager service failed.
+   * @throws { BusinessError } 24000012 - Calling the OS Account service failed.
+   * @throws { BusinessError } 24000013 - Calling the Access Token service failed.
    * @syscap SystemCapability.Security.Asset
    * @systemapi
    * @since 12
@@ -467,12 +466,12 @@ declare namespace asset {
    * @param { AssetMap } handle - a map object containing the handle returned by {@link preQuerySync}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 
    * 2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 24000001 - Service unavailable.
-   * @throws { BusinessError } 24000006 - Out of memory.
-   * @throws { BusinessError } 24000010 - IPC communication is abnormal.
-   * @throws { BusinessError } 24000011 - Bundle framework is abnormal.
-   * @throws { BusinessError } 24000012 - Account manager is abnormal.
-   * @throws { BusinessError } 24000013 - Access token manager is abnormal.
+   * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
+   * @throws { BusinessError } 24000006 - Insufficient memory.
+   * @throws { BusinessError } 24000010 - IPC failed.
+   * @throws { BusinessError } 24000011 - Calling the Bundle Manager service failed.
+   * @throws { BusinessError } 24000012 - Calling the OS Account service failed.
+   * @throws { BusinessError } 24000013 - Calling the Access Token service failed.
    * @syscap SystemCapability.Security.Asset
    * @since 12
    */
@@ -481,6 +480,7 @@ declare namespace asset {
   /**
    * A Map type containing tag-value pairs that describe the attributes of an Asset.
    *
+   * @typedef { Map<Tag, Value> }
    * @syscap SystemCapability.Security.Asset
    * @since 11
    */
@@ -489,6 +489,7 @@ declare namespace asset {
   /**
    * A type that indicates the secret or attribute value of an Asset tag.
    *
+   * @typedef { boolean | number | Uint8Array }
    * @syscap SystemCapability.Security.Asset
    * @since 11
    */
@@ -918,7 +919,7 @@ declare namespace asset {
    */
   enum ErrorCode {
     /**
-     * The error code indicates that the caller doesn't have the permission.
+     * The error code indicates that The caller doesn't have the permission.
      *
      * @syscap SystemCapability.Security.Asset
      * @since 11
@@ -932,42 +933,42 @@ declare namespace asset {
      */
     NOT_SYSTEM_APPLICATION = 202,
     /**
-     * The error code indicates that the argument is invalid.
+     * The error code indicates that The argument is invalid.
      *
      * @syscap SystemCapability.Security.Asset
      * @since 11
      */
     INVALID_ARGUMENT = 401,
     /**
-     * The error code indicates that the ASSET Service is unavailable.
+     * The error code indicates that the ASSET service is unavailable.
      *
      * @syscap SystemCapability.Security.Asset
      * @since 11
      */
     SERVICE_UNAVAILABLE = 24000001,
     /**
-     * The error code indicates that the queried Asset can not be found.
+     * The error code indicates that the asset is not found.
      *
      * @syscap SystemCapability.Security.Asset
      * @since 11
      */
     NOT_FOUND = 24000002,
     /**
-     * The error code indicates that the Asset already exists.
+     * The error code indicates that the asset already exists.
      *
      * @syscap SystemCapability.Security.Asset
      * @since 11
      */
     DUPLICATED = 24000003,
     /**
-     * The error code indicates that the access to Asset is denied.
+     * The error code indicates that access to the asset is denied.
      *
      * @syscap SystemCapability.Security.Asset
      * @since 11
      */
     ACCESS_DENIED = 24000004,
     /**
-     * The error code indicates that the screen lock status mismatches.
+     * The error code indicates that the screen lock status does not match.
      *
      * @syscap SystemCapability.Security.Asset
      * @since 11
@@ -981,63 +982,63 @@ declare namespace asset {
      */
     OUT_OF_MEMORY = 24000006,
     /**
-     * The error code indicates that the Asset is corrupted.
+     * The error code indicates that the asset is corrupted.
      *
      * @syscap SystemCapability.Security.Asset
      * @since 11
      */
     DATA_CORRUPTED = 24000007,
     /**
-     * The error code indicates that the database operation is failed.
+     * The error code indicates that the The database operation failed.
      *
      * @syscap SystemCapability.Security.Asset
      * @since 11
      */
     DATABASE_ERROR = 24000008,
     /**
-     * The error code indicates that the cryptography operation is failed.
+     * The error code indicates that the cryptography operation failed.
      *
      * @syscap SystemCapability.Security.Asset
      * @since 11
      */
     CRYPTO_ERROR = 24000009,
     /**
-     * The error code indicates that the ipc communication is failed.
+     * The error code indicates that the ipc failed.
      *
      * @syscap SystemCapability.Security.Asset
      * @since 11
      */
     IPC_ERROR = 24000010,
     /**
-     * The error code indicates that the operation of calling Bundle Manager Service is failed.
+     * The error code indicates that calling the Bundle Manager service failed.
      *
      * @syscap SystemCapability.Security.Asset
      * @since 11
      */
     BMS_ERROR = 24000011,
     /**
-     * The error code indicates that the operation of calling OS Account Service is failed.
+     * The error code indicates that calling the OS Account service failed.
      *
      * @syscap SystemCapability.Security.Asset
      * @since 11
      */
     ACCOUNT_ERROR = 24000012,
     /**
-     * The error code indicates that the operation of calling Access Token Service is failed.
+     * The error code indicates that calling the Access Token service failed.
      *
      * @syscap SystemCapability.Security.Asset
      * @since 11
      */
     ACCESS_TOKEN_ERROR = 24000013,
     /**
-     * The error code indicates that the operation of file is failed.
+     * The error code indicates that the The file operation failed.
      *
      * @syscap SystemCapability.Security.Asset
      * @since 11
      */
     FILE_OPERATION_ERROR = 24000014,
     /**
-     * The error code indicates that the operation of getting system time is failed.
+     * The error code indicates that getting the system time failed.
      *
      * @syscap SystemCapability.Security.Asset
      * @since 11

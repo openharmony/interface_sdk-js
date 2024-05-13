@@ -937,11 +937,12 @@ declare namespace appManager {
   /**
    * The class of an ability first frame state data.
    *
+   * @typedef { _AbilityFirstFrameStateData.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 12
    */
-  export type AbilityFirstFrameStateData = _AbilityStateData.default;
+  export type AbilityFirstFrameStateData = _AbilityFirstFrameStateData.default;
 }
 
 export default appManager;

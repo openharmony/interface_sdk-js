@@ -65,7 +65,10 @@ declare class StyledString {
      * @param { number } length - the length of the subStyledString's characters.
      * @param { StyledStringKey } [styledKey] - the specified type.
      * @returns { Array<SpanStyle> }
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
@@ -89,7 +92,10 @@ declare class StyledString {
      * @param { number } start - the start position of the subStyledString.
      * @param { number } [length] - the length of the subStyledString's characters.
      * @returns { StyledString }
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
@@ -614,18 +620,6 @@ declare class ParagraphStyle {
     readonly textIndent?: number;
 
     /**
-     * Get the line height of the StyledString.
-     * The unit is vp.
-     *
-     * @type { ?number } - the line height of the StyledString or undefined
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 12
-     */
-    readonly lineHeight?: number;
-
-    /**
      * Get the maximum number of lines of the StyledString.
      *
      * @type { ?number } - the maximum number of the StyledString or undefined
@@ -700,16 +694,6 @@ declare interface ParagraphStyleInterface {
     textIndent?: LengthMetrics;
 
     /**
-     * Set the line height.
-     *
-     * @type { ?LengthMetrics }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 12
-     */
-    lineHeight?: LengthMetrics;
-
-    /**
      * The maximum number of lines of content.
      *
      * @type { ?number }
@@ -749,15 +733,50 @@ declare interface ParagraphStyleInterface {
      */
     leadingMargin?: LengthMetrics | LeadingMarginPlaceholder;
 }
+
 /**
- * Defines the Span Type.
+ * Defines LineHeightStyle.
  *
- * @typedef { TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle | TextShadowStyle | GestureStyle | ImageAttachment | ParagraphStyle | CustomSpan } StyledStringValue
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
-declare type StyledStringValue = TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle | TextShadowStyle | GestureStyle | ImageAttachment | ParagraphStyle | CustomSpan;
+declare class LineHeightStyle {
+   
+    /**
+     * constructor.
+     *
+     * @param { LengthMetrics } lineHeight - line height value.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    constructor(lineHeight: LengthMetrics);
+
+    /**
+     * Get the lineHeight value of the StyledString.
+     * The unit is vp.
+     * 
+     * @type { number } - the lineHeight value of the StyledString
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    readonly lineHeight: number;
+}
+
+/**
+ * Defines the Span Type.
+ *
+ * @typedef { TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle | TextShadowStyle | 
+ * GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | CustomSpan } StyledStringValue
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type StyledStringValue = TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle | TextShadowStyle | 
+GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | CustomSpan;
 
 /**
  * MutableStyledString
@@ -774,7 +793,10 @@ declare class MutableStyledString extends StyledString {
      * @param { number } start - the start position of the replacedString.
      * @param { number } length - the length of the replacedString's characters.
      * @param { string } other - must be unicode string.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
@@ -786,7 +808,10 @@ declare class MutableStyledString extends StyledString {
     *
     * @param { number } start - the start position of the insertedString.
     * @param { string } other - must be unicode string.
-    * @throws { BusinessError } 401 - The parameter check failed.
+    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+    * <br> 1. Mandatory parameters are left unspecified.
+    * <br> 2. Incorrect parameters types.
+    * <br> 3. Parameter verification failed.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @since 12
@@ -798,7 +823,10 @@ declare class MutableStyledString extends StyledString {
     *
     * @param { number } start - the start position of the removedString.
     * @param { number } length - the length of the removedString's characters.
-    * @throws { BusinessError } 401 - The parameter check failed.
+    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+    * <br> 1. Mandatory parameters are left unspecified.
+    * <br> 2. Incorrect parameters types.
+    * <br> 3. Parameter verification failed.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @since 12
@@ -809,7 +837,10 @@ declare class MutableStyledString extends StyledString {
      * Replace the specified range string attribute.
      *
      * @param { SpanStyle } spanStyle - the SpanStyle Object.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
@@ -833,7 +864,10 @@ declare class MutableStyledString extends StyledString {
      * @param { number } start - the start position of the removedAttributeStyledString.
      * @param { number } length - the length of the removedAttributeStyledString's characters.
      * @param { StyledStringKey } styledKey - the specified attribute type's key.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
@@ -845,7 +879,10 @@ declare class MutableStyledString extends StyledString {
      *
      * @param { number } start - the start position of the attributeRemovedStyledString's characters.
      * @param { number } length - the length of the attributeRemovedStyledString's characters.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
@@ -867,7 +904,10 @@ declare class MutableStyledString extends StyledString {
      * @param { number } start - the start position of the replacedStyledString.
      * @param { number } length - the length of the replacedStyledString's characters.
      * @param { StyledString } other - new StyledString.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
@@ -879,7 +919,10 @@ declare class MutableStyledString extends StyledString {
      *
      * @param { number } start - the start position of the insertedStyledString.
      * @param { StyledString } other - new StyledString.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
@@ -951,6 +994,15 @@ declare enum StyledStringKey {
       * @since 12
       */
      TEXT_SHADOW = 4,
+
+     /**
+      * The key of LineHeightStyle.
+      *
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @crossplatform
+      * @since 12
+      */
+     LINE_HEIGHT = 5,
 
     /**
      * The key of GestureStyle.
@@ -1300,5 +1352,5 @@ declare abstract class CustomSpan {
      * @crossplatform
      * @since 12
      */
-    abstract onDraw(context: DrawContext,  drawInfo: CustomSpanDrawInfo): void;
+    abstract onDraw(context: DrawContext, drawInfo: CustomSpanDrawInfo): void;
 }

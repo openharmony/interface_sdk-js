@@ -46,20 +46,22 @@ def process_method_type(dict_data: dict, label='default') -> list:
 
 
 def judgment_is_default(dict_data: dict, label) -> list:
-    result_data = []
+    result_data_total = []
     if 'default' == label:
-        result_data = default_processing_label(dict_data)
+        result_data_total = default_processing_label(dict_data)
     else:
         if 'Method' == dict_data['apiType']:
             for label_element in label:
                 change_label = label_comparison_dist[label_element]
                 result_data = process_method_tag(dict_data, change_label)
+                result_data_total.extend(result_data)
         else:
             for label_element in label:
                 change_label = label_comparison_dist[label_element]
                 result_data = process_tag(dict_data, change_label)
+                result_data_total.extend(result_data)
 
-    return result_data
+    return result_data_total
 
 
 def process_method_tag(dict_data: dict, label):
@@ -160,6 +162,10 @@ def process_tag(dict_data: dict, label):
     missing_tag_data_list = []
     if 'childApis' not in dict_data:
         return missing_tag_data_list
+    # 处理property
+    for child_data in dict_data['childApis']:
+        result_list = process_child_quote_of_three(child_data, label)
+        missing_tag_data_list.extend(result_list)
     # 节点没有jsDocInfos
     if 'jsDocInfos' not in dict_data:
         error_result = process_no_js_info(dict_data, label)
@@ -170,6 +176,79 @@ def process_tag(dict_data: dict, label):
         missing_tag_data_list.append(message_obj)
 
     return missing_tag_data_list
+
+
+def process_child_quote_of_three(child_data, label):
+    missing_tag_data_list = []
+    if 'jsDocInfos' not in child_data:
+        return missing_tag_data_list
+    child_info = get_js_doc_info(child_data['jsDocInfos'])
+    if not child_info:
+        return missing_tag_data_list
+    if 'typeLocations' in child_data and child_data['typeLocations']:
+        process_key = 'typeLocations'
+        result_list_of_type = process_reference_type_child(child_data, child_info, label, process_key)
+        missing_tag_data_list.extend(result_list_of_type)
+    if 'objLocations' in child_data and child_data['objLocations']:
+        process_key = 'objLocations'
+        result_list_of_obj = process_reference_type_child(child_data, child_info, label, process_key)
+        missing_tag_data_list.extend(result_list_of_obj)
+
+    return missing_tag_data_list
+
+
+def process_reference_type_child(child_data, current_info, label, process_key):
+    missing_tag_message_list = []
+    new_label = label.replace('is', '')
+    for refer_info in child_data[process_key]:
+        error_result = {}
+        if label in current_info and label in refer_info:
+            # property有，引用没
+            if current_info[label] and (not refer_info[label]):
+                error_result = reference_obj_or_type(process_key, new_label, 1)
+                error_result.setdefault('error_quote_name', refer_info.get('typeName'))
+            # property没，引用有
+            elif (not current_info[label]) and refer_info[label]:
+                error_result = reference_obj_or_type(process_key, new_label, 0)
+                message_obj = get_message_obj(child_data, error_result)
+                missing_tag_message_list.append(message_obj)
+                break
+
+        if error_result:
+            message_obj = get_message_obj(child_data, error_result)
+            missing_tag_message_list.append(message_obj)
+
+    return missing_tag_message_list
+
+
+def reference_obj_or_type(process_key, new_label, key_num):
+    error_result = {}
+    error_type = ''
+    error_message = ''
+    if 'typeLocations' == process_key:
+        # property有，引用没
+        if 1 == key_num:
+            error_type = ErrorType.PROPERTY_REFERENCE_NO_TAG.value
+            error_message = ErrorMessage.PROPERTY_HAVE_REFERENCE_NO.value.replace('&', new_label)
+        # property没，引用有
+        elif 0 == key_num:
+            error_type = ErrorType.PROPERTY_NO_TAG.value
+            error_message = ErrorMessage.REFERENCE_HAVE_PROPERTY_NO.value.replace('&', new_label)
+
+    elif 'objLocations' == process_key:
+        # property有，引用对象没
+        if 1 == key_num:
+            error_type = ErrorType.PROPERTY_REFERENCE_OBJ_NO_TAG.value
+            error_message = ErrorMessage.PROPERTY_HAVE_REFERENCE_OBJ_NO.value.replace('&', new_label)
+        # property没，引用对象有
+        elif 0 == key_num:
+            error_type = ErrorType.PROPERTY_NO_TAG.value
+            error_message = ErrorMessage.REFERENCE_OBJ_HAVE_PROPERTY_NO.value.replace('&', new_label)
+
+    error_result.setdefault('error_type', error_type)
+    error_result.setdefault('error_message', error_message)
+
+    return error_result
 
 
 def process_no_js_info(dict_data: dict, label):
@@ -251,9 +330,13 @@ def get_message_obj(dict_data: dict, error_result: dict, in_or_out=None) -> Outp
         defined_text = in_or_out['definedText']
     else:
         defined_text = dict_data['definedText']
+    if error_result.get('error_quote_name'):
+        error_message = '({});{}'.format(error_result.get('error_quote_name'),
+                                         error_result['error_message'])
+    else:
+        error_message = error_result['error_message']
     message_obj = Output(dict_data['filePath'], error_result['error_type'], defined_text,
-                         get_position_information(dict_data['pos']),
-                         error_result['error_message'])
+                         get_position_information(dict_data['pos']), error_message)
     return message_obj
 
 

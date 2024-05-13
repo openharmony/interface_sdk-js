@@ -4117,6 +4117,7 @@ declare namespace request {
      *
      * @interface HttpResponse
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @atomicservice
      * @since 12
      */
     interface HttpResponse {
@@ -4126,6 +4127,7 @@ declare namespace request {
        * @type { string }
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
        * @since 12
        */
       readonly version: string,
@@ -4135,6 +4137,7 @@ declare namespace request {
        * @type { number }
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
        * @since 12
        */
       readonly statusCode: number,
@@ -4144,6 +4147,7 @@ declare namespace request {
        * @type { string }
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
        * @since 12
        */
       readonly reason: string,
@@ -4153,6 +4157,7 @@ declare namespace request {
        * @type { Map<string, Array<string>> }
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
        * @since 12
        */
       readonly headers: Map<string, Array<string>>,
@@ -4421,6 +4426,7 @@ declare namespace request {
        * @param { 'response' } event - event types.
        * @param { Callback<HttpResponse> } callback - callback function with an `HttpResponse` argument.
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
        * @since 12
        */
       on(event: 'response', callback: Callback<HttpResponse>): void;
@@ -4430,6 +4436,7 @@ declare namespace request {
        * @param { 'response' } event - event types.
        * @param { Callback<HttpResponse> } callback - callback function with an `HttpResponse` argument.
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
        * @since 12
        */
       off(event: 'response', callback?: Callback<HttpResponse>): void;

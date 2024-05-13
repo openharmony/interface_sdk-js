@@ -147,7 +147,9 @@ declare class HashMap<K, V> {
    *
    * @param { HashMap<K, V> } map - map map the Map object to add members
    * @throws { BusinessError } 10200011 - The setAll method cannot be bound.
-   * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @throws { BusinessError } 401 -  Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    */
@@ -156,7 +158,9 @@ declare class HashMap<K, V> {
    *
    * @param { HashMap<K, V> } map - map map the Map object to add members
    * @throws { BusinessError } 10200011 - The setAll method cannot be bound.
-   * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @throws { BusinessError } 401 -  Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -169,7 +173,8 @@ declare class HashMap<K, V> {
    * @param { V } value - value value Added or updated value
    * @returns { Object } the map object after set
    * @throws { BusinessError } 10200011 - The set method cannot be bound.
-   * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    */
@@ -180,7 +185,8 @@ declare class HashMap<K, V> {
    * @param { V } value - value value Added or updated value
    * @returns { Object } the map object after set
    * @throws { BusinessError } 10200011 - The set method cannot be bound.
-   * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -291,7 +297,9 @@ declare class HashMap<K, V> {
    * thisArg (Optional) The value to be used as this value for when callbackFn is called.
    * If thisArg is omitted, undefined is used as the this value.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
-   * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    */
@@ -306,7 +314,9 @@ declare class HashMap<K, V> {
    * thisArg (Optional) The value to be used as this value for when callbackFn is called.
    * If thisArg is omitted, undefined is used as the this value.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
-   * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10

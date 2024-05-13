@@ -470,7 +470,7 @@ declare enum EnterKeyType {
    * @atomicservice
    * @since 11
    */
-  Go,
+  Go = 2,
 
   /**
    * Search.
@@ -493,7 +493,7 @@ declare enum EnterKeyType {
    * @atomicservice
    * @since 11
    */
-  Search,
+  Search = 3,
 
   /**
    * Send.
@@ -516,7 +516,7 @@ declare enum EnterKeyType {
    * @atomicservice
    * @since 11
    */
-  Send,
+  Send = 4,
 
   /**
    * Next.
@@ -539,7 +539,7 @@ declare enum EnterKeyType {
    * @atomicservice
    * @since 11
    */
-  Next,
+  Next = 5,
 
   /**
    * Done.
@@ -562,7 +562,7 @@ declare enum EnterKeyType {
    * @atomicservice
    * @since 11
    */
-  Done,
+  Done = 6,
 
   /**
    * Showed as 'previous' pattern.
@@ -1030,44 +1030,6 @@ interface TextInputInterface {
    * @since 11
    */
   (value?: TextInputOptions): TextInputAttribute;
-}
-
-/**
- * CaretStyle object.
- *
- * @interface CaretStyle
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * CaretStyle object.
- *
- * @interface CaretStyle
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11
- */
-interface CaretStyle {
-  /**
-   * Define the cursor width of CaretStyle.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Define the cursor width of CaretStyle.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  width?: Length;
 }
 
 /**
@@ -2164,6 +2126,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   customKeyboard(value: CustomBuilder, options?: KeyboardOptions): TextInputAttribute;

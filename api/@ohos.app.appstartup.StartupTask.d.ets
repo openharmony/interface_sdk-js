@@ -27,6 +27,7 @@ import AbilityStageContext from './application/AbilityStageContext';
  * @stagemodelonly
  * @since 12
  */
+@Sendable
 export default class StartupTask {
   /**
    * Called when specific dependent task complete.

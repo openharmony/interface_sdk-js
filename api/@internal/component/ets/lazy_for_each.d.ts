@@ -758,6 +758,17 @@ declare interface IDataSource {
 }
 
 /**
+ * declare ForEachAttribute
+ *
+ * @extends DynamicNode<LazyForEachAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare class LazyForEachAttribute extends DynamicNode<LazyForEachAttribute> {
+}
+/**
  * Lazy loading.
  *
  * @interface LazyForEachInterface
@@ -815,11 +826,23 @@ interface LazyForEachInterface {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Enter the value to obtain the LazyForEach.
+   *
+   * @param { IDataSource } dataSource
+   * @param { function } itemGenerator
+   * @param { function } keyGenerator
+   * @returns { LazyForEachAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   (
     dataSource: IDataSource,
     itemGenerator: (item: any, index: number) => void,
     keyGenerator?: (item: any, index: number) => string,
-  ): LazyForEachInterface;
+  ): LazyForEachAttribute;
 }
 
 /**
