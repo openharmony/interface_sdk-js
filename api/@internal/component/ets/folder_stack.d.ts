@@ -21,11 +21,11 @@
 /**
  * Import the WindowStatusType type object for onHoverStatusChange.
  *
- * @typedef {import('../api/@ohos.window').WindowStatusType} WindowStatusType
+ * @typedef {import('../api/@ohos.window').default.WindowStatusType} WindowStatusType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 12
  */
-declare type WindowStatusType = import('../api/@ohos.window').WindowStatusType;
+declare type WindowStatusType = import('../api/@ohos.window').default.WindowStatusType;
 
 /**
  * Provides ports for stacking containers.
