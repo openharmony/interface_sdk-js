@@ -21272,7 +21272,7 @@ declare type OnScrollCallback = (scrollOffset: number, scrollState: ScrollState)
  * @crossplatform
  * @since 12
  */
-declare type OnMoveHandler = (from: number, to: number) => void
+declare type OnMoveHandler = (from: number, to: number) => void;
 
 /**
  * Define DynamicNode.
@@ -21291,7 +21291,7 @@ declare class DynamicNode<T> {
    * @crossplatform
    * @since 12
    */
-  onMove(handler: Optional<OnMoveHandler>): T
+  onMove(handler: Optional<OnMoveHandler>): T;
 }
 
 declare module "SpecialEvent" {
