@@ -236,7 +236,7 @@ declare namespace sensor {
    * @param { Callback<ColorResponse> } callback - callback color data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @systemapi
@@ -248,7 +248,7 @@ declare namespace sensor {
    * @param { Callback<ColorResponse> } callback - callback color data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
    * @syscap SystemCapability.Sensors.Sensor
@@ -263,7 +263,7 @@ declare namespace sensor {
    * @param { Callback<SarResponse> } callback - callback sar data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @systemapi
@@ -275,7 +275,7 @@ declare namespace sensor {
    * @param { Callback<SarResponse> } callback - callback sar data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
    * @syscap SystemCapability.Sensors.Sensor
@@ -292,7 +292,7 @@ declare namespace sensor {
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -305,7 +305,7 @@ declare namespace sensor {
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @atomicservice
@@ -322,7 +322,7 @@ declare namespace sensor {
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -336,7 +336,7 @@ declare namespace sensor {
    * @param { Callback<LightResponse> } callback - callback ambient data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -349,7 +349,7 @@ declare namespace sensor {
    * @param { Callback<AmbientTemperatureResponse> } callback - callback temperature data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -363,7 +363,7 @@ declare namespace sensor {
    * @param { Callback<BarometerResponse> } callback - callback barometer data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -376,7 +376,7 @@ declare namespace sensor {
    * @param { Callback<GravityResponse> } callback - callback gravity data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -392,7 +392,7 @@ declare namespace sensor {
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -405,7 +405,7 @@ declare namespace sensor {
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @atomicservice
@@ -422,7 +422,7 @@ declare namespace sensor {
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -436,7 +436,7 @@ declare namespace sensor {
    * @param { Callback<HallResponse> } callback - callback uncalibrated gyroscope data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -451,7 +451,7 @@ declare namespace sensor {
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -465,7 +465,7 @@ declare namespace sensor {
    * @param { Callback<HumidityResponse> } callback - callback humidity data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -481,7 +481,7 @@ declare namespace sensor {
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -495,7 +495,7 @@ declare namespace sensor {
    * @param { Callback<MagneticFieldResponse> } callback - callback magnetic field data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -510,7 +510,7 @@ declare namespace sensor {
    * @param { Callback<MagneticFieldUncalibratedResponse> } callback - callback uncalibrated magnetic field data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -524,7 +524,7 @@ declare namespace sensor {
    * @param { Callback<OrientationResponse> } callback - callback orientation data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -535,7 +535,7 @@ declare namespace sensor {
    * @param { Callback<OrientationResponse> } callback - callback orientation data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @atomicservice
@@ -552,7 +552,7 @@ declare namespace sensor {
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -567,7 +567,7 @@ declare namespace sensor {
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -581,7 +581,7 @@ declare namespace sensor {
    * @param { Callback<ProximityResponse> } callback - callback proximity data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -594,7 +594,7 @@ declare namespace sensor {
    * @param { Callback<RotationVectorResponse> } callback - callback rotation vector data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -608,7 +608,7 @@ declare namespace sensor {
    * @param { Callback<SignificantMotionResponse> } callback - callback significant motion data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -622,7 +622,7 @@ declare namespace sensor {
    * @param { Callback<WearDetectionResponse> } callback - callback wear detection data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -637,7 +637,7 @@ declare namespace sensor {
    * @param { Callback<AccelerometerResponse> } callback - callback accelerometer data.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -651,7 +651,7 @@ declare namespace sensor {
    * @param { Callback<AccelerometerUncalibratedResponse> } callback - callback uncalibrated accelerometer data.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -663,7 +663,7 @@ declare namespace sensor {
    * @param { SensorId.AMBIENT_LIGHT } type - Indicate the sensor type to listen for, {@code SensorId.AMBIENT_LIGHT}.
    * @param { Callback<LightResponse> } callback - callback ambient data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -675,7 +675,7 @@ declare namespace sensor {
    * @param { SensorId.AMBIENT_TEMPERATURE } type - Indicate the sensor type to listen for, {@code SensorId.AMBIENT_TEMPERATURE}.
    * @param { Callback<AmbientTemperatureResponse> } callback - callback temperature data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -687,7 +687,7 @@ declare namespace sensor {
    * @param { SensorId.BAROMETER } type - Indicate the sensor type to listen for, {@code SensorId.BAROMETER}.
    * @param { Callback<BarometerResponse> } callback - callback barometer data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -699,7 +699,7 @@ declare namespace sensor {
    * @param { SensorId.GRAVITY } type - Indicate the sensor type to listen for, {@code SensorId.GRAVITY}.
    * @param { Callback<GravityResponse> } callback - callback gravity data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -713,7 +713,7 @@ declare namespace sensor {
    * @param { Callback<GyroscopeResponse> } callback - callback gyroscope data.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -727,7 +727,7 @@ declare namespace sensor {
    * @param { Callback<GyroscopeUncalibratedResponse> } callback - callback uncalibrated gyroscope data.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -739,7 +739,7 @@ declare namespace sensor {
    * @param { SensorId.HALL } type - Indicate the sensor type to listen for, {@code SensorId.HALL}.
    * @param { Callback<HallResponse> } callback - callback uncalibrated gyroscope data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -753,7 +753,7 @@ declare namespace sensor {
    * @param { Callback<HeartRateResponse> } callback - callback heart rate data.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -765,7 +765,7 @@ declare namespace sensor {
    * @param { SensorId.HUMIDITY } type - Indicate the sensor type to listen for, {@code SensorId.HUMIDITY}.
    * @param { Callback<HumidityResponse> } callback - callback humidity data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -779,7 +779,7 @@ declare namespace sensor {
    * @param { Callback<LinearAccelerometerResponse> } callback - callback linear acceleration data.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -791,7 +791,7 @@ declare namespace sensor {
    * @param { SensorId.MAGNETIC_FIELD } type - Indicate the sensor type to listen for, {@code SensorId.MAGNETIC_FIELD}.
    * @param { Callback<MagneticFieldResponse> } callback - callback magnetic field data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -804,7 +804,7 @@ declare namespace sensor {
    *        {@code SensorId.MAGNETIC_FIELD_UNCALIBRATED}.
    * @param { Callback<MagneticFieldUncalibratedResponse> } callback - callback uncalibrated magnetic field data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -816,7 +816,7 @@ declare namespace sensor {
    * @param { SensorId.ORIENTATION } type - Indicate the sensor type to listen for, {@code SensorId.ORIENTATION}.
    * @param { Callback<OrientationResponse> } callback - callback orientation data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -830,7 +830,7 @@ declare namespace sensor {
    * @param { Callback<PedometerResponse> } callback - callback pedometer data.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -844,7 +844,7 @@ declare namespace sensor {
    * @param { Callback<PedometerDetectionResponse> } callback - callback pedometer detection data.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -856,7 +856,7 @@ declare namespace sensor {
    * @param { SensorId.PROXIMITY } type - Indicate the sensor type to listen for, {@code SensorId.PROXIMITY}.
    * @param { Callback<ProximityResponse> } callback - callback proximity data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -868,7 +868,7 @@ declare namespace sensor {
    * @param { SensorId.ROTATION_VECTOR } type - Indicate the sensor type to listen for, {@code SensorId.ROTATION_VECTOR}.
    * @param { Callback<RotationVectorResponse> } callback - callback rotation vector data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -880,7 +880,7 @@ declare namespace sensor {
    * @param { SensorId.SIGNIFICANT_MOTION } type - Indicate the sensor type to listen for, {@code SensorId.SIGNIFICANT_MOTION}.
    * @param { Callback<SignificantMotionResponse> } callback - callback significant motion data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -892,7 +892,7 @@ declare namespace sensor {
    * @param { SensorId.WEAR_DETECTION } type - Indicate the sensor type to listen for, {@code SensorId.WEAR_DETECTION}.
    * @param { Callback<WearDetectionResponse> } callback - callback wear detection data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    *
    * @syscap SystemCapability.Sensors.Sensor
@@ -905,7 +905,7 @@ declare namespace sensor {
    * @param { SensorId.COLOR } type - Indicate the sensor type to listen for, {@code SensorId.COLOR}.
    * @param { Callback<ColorResponse> } callback - callback color data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
    * @systemapi
    * @since 10
@@ -915,7 +915,7 @@ declare namespace sensor {
    * @param { SensorId.COLOR } type - Indicate the sensor type to listen for, {@code SensorId.COLOR}.
    * @param { Callback<ColorResponse> } callback - callback color data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
    * @syscap SystemCapability.Sensors.Sensor
    * @systemapi
@@ -928,7 +928,7 @@ declare namespace sensor {
    * @param { SensorId.SAR } type - Indicate the sensor type to listen for, {@code SensorId.SAR}.
    * @param { Callback<SarResponse> } callback - callback sar data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
    * @systemapi
    * @since 10
@@ -938,7 +938,7 @@ declare namespace sensor {
    * @param { SensorId.SAR } type - Indicate the sensor type to listen for, {@code SensorId.SAR}.
    * @param { Callback<SarResponse> } callback - callback sar data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
    * @syscap SystemCapability.Sensors.Sensor
    * @systemapi
@@ -953,7 +953,7 @@ declare namespace sensor {
    * @param { Callback<AccelerometerResponse> } callback - callback accelerometer data.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -964,7 +964,7 @@ declare namespace sensor {
    * @param { Callback<AccelerometerResponse> } callback - callback accelerometer data.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
    * @atomicservice
    * @since 11
@@ -979,7 +979,7 @@ declare namespace sensor {
    * @param { Callback<AccelerometerUncalibratedResponse> } callback - callback uncalibrated accelerometer data.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -990,7 +990,7 @@ declare namespace sensor {
    * @param { SensorId.AMBIENT_LIGHT } type - Indicate the sensor type to listen for, {@code SensorId.AMBIENT_LIGHT}.
    * @param { Callback<LightResponse> } callback - callback ambient data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -1001,7 +1001,7 @@ declare namespace sensor {
    * @param { SensorId.AMBIENT_TEMPERATURE } type - Indicate the sensor type to listen for, {@code SensorId.AMBIENT_TEMPERATURE}.
    * @param { Callback<AmbientTemperatureResponse> } callback - callback temperature data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -1012,7 +1012,7 @@ declare namespace sensor {
    * @param { SensorId.BAROMETER } type - Indicate the sensor type to listen for, {@code SensorId.BAROMETER}.
    * @param { Callback<BarometerResponse> } callback - callback barometer data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -1023,7 +1023,7 @@ declare namespace sensor {
    * @param { SensorId.GRAVITY } type - Indicate the sensor type to listen for, {@code SensorId.GRAVITY}.
    * @param { Callback<GravityResponse> } callback - callback gravity data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -1036,7 +1036,7 @@ declare namespace sensor {
    * @param { Callback<GyroscopeResponse> } callback - callback gyroscope data.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -1047,7 +1047,7 @@ declare namespace sensor {
    * @param { Callback<GyroscopeResponse> } callback - callback gyroscope data.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
    * @atomicservice
    * @since 11
@@ -1061,7 +1061,7 @@ declare namespace sensor {
    * @param { Callback<GyroscopeUncalibratedResponse> } callback - callback uncalibrated gyroscope data.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -1072,7 +1072,7 @@ declare namespace sensor {
    * @param { SensorId.HALL } type - Indicate the sensor type to listen for, {@code SensorId.HALL}.
    * @param { Callback<HallResponse> } callback - callback uncalibrated gyroscope data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -1085,7 +1085,7 @@ declare namespace sensor {
    * @param { Callback<HeartRateResponse> } callback - callback heart rate data.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -1096,7 +1096,7 @@ declare namespace sensor {
    * @param { SensorId.HUMIDITY } type - Indicate the sensor type to listen for, {@code SensorId.HUMIDITY}.
    * @param { Callback<HumidityResponse> } callback - callback humidity data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -1109,7 +1109,7 @@ declare namespace sensor {
    * @param { Callback<LinearAccelerometerResponse> } callback - callback linear acceleration data.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -1120,7 +1120,7 @@ declare namespace sensor {
    * @param { SensorId.MAGNETIC_FIELD } type - Indicate the sensor type to listen for, {@code SensorId.MAGNETIC_FIELD}.
    * @param { Callback<MagneticFieldResponse> } callback - callback magnetic field data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -1132,7 +1132,7 @@ declare namespace sensor {
    *        {@code SensorId.MAGNETIC_FIELD_UNCALIBRATED}.
    * @param { Callback<MagneticFieldUncalibratedResponse> } callback - callback uncalibrated magnetic field data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -1143,7 +1143,7 @@ declare namespace sensor {
    * @param { SensorId.ORIENTATION } type - Indicate the sensor type to listen for, {@code SensorId.ORIENTATION}.
    * @param { Callback<OrientationResponse> } callback - callback orientation data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -1152,7 +1152,7 @@ declare namespace sensor {
    * @param { SensorId.ORIENTATION } type - Indicate the sensor type to listen for, {@code SensorId.ORIENTATION}.
    * @param { Callback<OrientationResponse> } callback - callback orientation data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
    * @atomicservice
    * @since 11
@@ -1166,7 +1166,7 @@ declare namespace sensor {
    * @param { Callback<PedometerResponse> } callback - callback pedometer data.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -1179,7 +1179,7 @@ declare namespace sensor {
    * @param { Callback<PedometerDetectionResponse> } callback - callback pedometer detection data.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -1190,7 +1190,7 @@ declare namespace sensor {
    * @param { SensorId.PROXIMITY } type - Indicate the sensor type to listen for, {@code SensorId.PROXIMITY}.
    * @param { Callback<ProximityResponse> } callback - callback proximity data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -1201,7 +1201,7 @@ declare namespace sensor {
    * @param { SensorId.ROTATION_VECTOR } type - Indicate the sensor type to listen for, {@code SensorId.ROTATION_VECTOR}.
    * @param { Callback<RotationVectorResponse> } callback - callback rotation vector data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -1212,7 +1212,7 @@ declare namespace sensor {
    * @param { SensorId.SIGNIFICANT_MOTION } type - Indicate the sensor type to listen for, {@code SensorId.SIGNIFICANT_MOTION}.
    * @param { Callback<SignificantMotionResponse> } callback - callback significant motion data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -1223,7 +1223,7 @@ declare namespace sensor {
    * @param { SensorId.WEAR_DETECTION } type - Indicate the sensor type to listen for, {@code SensorId.WEAR_DETECTION}.
    * @param { Callback<WearDetectionResponse> } callback - callback wear detection data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -2144,7 +2144,7 @@ declare namespace sensor {
    * @param { SensorId } type - Indicate the sensor type, {@code SensorId}.
    * @param { AsyncCallback<Sensor> } callback - callback sensor info.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -2154,7 +2154,7 @@ declare namespace sensor {
    * @param { SensorId } type - Indicate the sensor type, {@code SensorId}.
    * @param { AsyncCallback<Sensor> } callback - callback sensor info.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @throws { BusinessError } 14500102 - The sensor is not supported by the device.
    * @syscap SystemCapability.Sensors.Sensor
@@ -2167,7 +2167,7 @@ declare namespace sensor {
    * @param { SensorId } type - Indicate the sensor type, {@code SensorId}.
    * @returns { Promise<Sensor> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -2177,7 +2177,7 @@ declare namespace sensor {
    * @param { SensorId } type - Indicate the sensor type, {@code SensorId}.
    * @returns { Promise<Sensor> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @throws { BusinessError } 14500102 - The sensor is not supported by the device.
    * @syscap SystemCapability.Sensors.Sensor
@@ -2190,7 +2190,7 @@ declare namespace sensor {
    * @param { SensorId } type - Indicate the sensor type, {@code SensorId}.
    * @returns { Sensor } Returns sensor information.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @throws { BusinessError } 14500102 - The sensor is not supported by the device.
    * @syscap SystemCapability.Sensors.Sensor
@@ -2202,7 +2202,7 @@ declare namespace sensor {
    * Obtains all sensor information on the device.
    * @param { AsyncCallback<Array<Sensor>> } callback - callback sensor list.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -2213,7 +2213,7 @@ declare namespace sensor {
    * Obtains all sensor information on the device.
    * @returns { Promise<Array<Sensor>> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -2358,7 +2358,7 @@ declare namespace sensor {
    * in milliseconds since the Unix epoch.
    * @param { AsyncCallback<GeomagneticResponse> } callback - callback geomagnetic field.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -2372,7 +2372,7 @@ declare namespace sensor {
    * in milliseconds since the Unix epoch.
    * @returns { Promise<GeomagneticResponse> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -2409,7 +2409,7 @@ declare namespace sensor {
    * @param { number } currentPressure - currentPressure Indicates the atmospheric pressure measured by the barometer, in hPa.
    * @param { AsyncCallback<number> } callback - callback device altitude.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -2422,7 +2422,7 @@ declare namespace sensor {
    * @param { number } currentPressure - currentPressure Indicates the atmospheric pressure measured by the barometer, in hPa.
    * @returns { Promise<number> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -2456,7 +2456,7 @@ declare namespace sensor {
    * @param { Array<number> } inclinationMatrix - Indicates the inclination matrix.
    * @param { AsyncCallback<number> } callback - callback inclination in radians.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -2468,7 +2468,7 @@ declare namespace sensor {
    * @param { Array<number> } inclinationMatrix - Indicates the inclination matrix.
    * @returns { Promise<number> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -2506,7 +2506,7 @@ declare namespace sensor {
    * @param { Array<number> } preRotationMatrix - preRotationMatrix Indicates the current rotation matrix.
    * @param { AsyncCallback<Array<number>> } callback - callback angle variation.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -2520,7 +2520,7 @@ declare namespace sensor {
    * @param { Array<number> } preRotationMatrix - preRotationMatrix Indicates the current rotation matrix.
    * @returns { Promise<Array<number>> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -2554,7 +2554,7 @@ declare namespace sensor {
    * @param { Array<number> } rotationVector - rotationVector Indicates the rotation vector.
    * @param { AsyncCallback<Array<number>> } callback - callback rotation matrix.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -2566,7 +2566,7 @@ declare namespace sensor {
    * @param { Array<number> } rotationVector - rotationVector Indicates the rotation vector.
    * @returns { Promise<Array<number>> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -2626,7 +2626,7 @@ declare namespace sensor {
    * @param { CoordinatesOptions } coordinates - coordinates Indicates coordinate system guidance, {@code CoordinatesOptions}.
    * @param { AsyncCallback<Array<number>> } callback - callback rotation matrix.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -2640,7 +2640,7 @@ declare namespace sensor {
    * @param { CoordinatesOptions } coordinates - coordinates Indicates coordinate system guidance, {@code CoordinatesOptions}.
    * @returns { Promise<Array<number>> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -2674,7 +2674,7 @@ declare namespace sensor {
    * @param { Array<number> } rotationVector - rotationVector Indicates the rotation vector.
    * @param { AsyncCallback<Array<number>> } callback - callback a normalized quaternion.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -2686,7 +2686,7 @@ declare namespace sensor {
    * @param { Array<number> } rotationVector - rotationVector Indicates the rotation vector.
    * @returns { Promise<Array<number>> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -2720,7 +2720,7 @@ declare namespace sensor {
    * @param { Array<number> } rotationMatrix - rotationMatrix Indicates the rotation matrix.
    * @param { AsyncCallback<Array<number>> } callback - callback the angle of rotation around the z, x, y axis.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -2732,7 +2732,7 @@ declare namespace sensor {
    * @param { Array<number> } rotationMatrix - rotationMatrix Indicates the rotation matrix.
    * @returns { Promise<Array<number>> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -2793,7 +2793,7 @@ declare namespace sensor {
    * @param { Array<number> } geomagnetic - geomagnetic Indicates the geomagnetic vector.
    * @param { AsyncCallback<RotationMatrixResponse> } callback - callback rotation matrix and inclination matrix.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -2806,7 +2806,7 @@ declare namespace sensor {
    * @param { Array<number> } geomagnetic - geomagnetic Indicates the geomagnetic vector.
    * @returns { Promise<RotationMatrixResponse> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
