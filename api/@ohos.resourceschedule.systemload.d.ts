@@ -112,7 +112,7 @@ declare namespace systemLoad {
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Callback parameter error;
      * <br> 2. Unregister type has not register; 3. Parameter verification failed.
      * @syscap SystemCapability.ResourceSchedule.SystemLoad
-     * @since 12sss
+     * @since 12
      */
     function off(type: 'systemLoadChange', callback?: Callback<SystemLoadLevel>): void;
 
