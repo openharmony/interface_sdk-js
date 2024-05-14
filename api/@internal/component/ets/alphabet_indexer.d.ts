@@ -843,7 +843,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 12
    */
-  enableHapticFeedback(enable: boolean): AlphabetIndexerAttribute;
+  enableHapticFeedback(value: boolean): AlphabetIndexerAttribute;
 }
 
 /**
