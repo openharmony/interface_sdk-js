@@ -593,7 +593,7 @@ declare namespace advertising {
    * Get message body for ad requesting.
    * @param { AdRequestParams[] } adParams - Indicates the parameters in the request.
    * @param { AdOptions } adOptions - Indicates the ad options.
-   * @returns { string } Ad request message body.
+   * @returns { Promise<string> } The promise of ad request message body.
    * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: 1. Mandatory parameters are left unspecified.
    * @throws { BusinessError } 21800001 - System internal error.
    * @syscap SystemCapability.Advertising.Ads
