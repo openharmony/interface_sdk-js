@@ -480,21 +480,23 @@ declare namespace advertising {
 
   /**
    * Show the reward and interstitial ad.
-   * @param { Advertisement } ad - Indicates the advertisement content information.
-   * @param { AdDisplayOptions } options - Indicates interaction option object use to show the ad.
+   * @param { Advertisement } ad - Indicates the advertisement content information. ad is required.
+   * @param { AdDisplayOptions } options - Indicates interaction option object use to show the ad. options is required.
    * @param { common.UIAbilityContext } context - Indicates the ui ability context of the media application.
    * @throws { BusinessError } 21800001 - System internal error.
    * @throws { BusinessError } 21800004 - Failed to display the ad.
+   * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: 1. Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Advertising.Ads
    * @since 11
    */
   /**
    * Show the reward and interstitial ad.
-   * @param { Advertisement } ad - Indicates the advertisement content information.
-   * @param { AdDisplayOptions } options - Indicates interaction option object use to show the ad.
+   * @param { Advertisement } ad - Indicates the advertisement content information. ad is required.
+   * @param { AdDisplayOptions } options - Indicates interaction option object use to show the ad. options is required.
    * @param { common.UIAbilityContext } context - Indicates the ui ability context of the media application.
    * @throws { BusinessError } 21800001 - System internal error.
    * @throws { BusinessError } 21800004 - Failed to display the ad.
+   * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: 1. Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Advertising.Ads
    * @atomicservice
    * @since 12
@@ -534,8 +536,8 @@ declare namespace advertising {
      * adParam.adType must be number and valid. adParam.adWidth and adParam.adHeight must be number and greater than zero
      * @param { AdOptions } adOptions - Indicates the ad options.
      * @param { AdLoadListener } listener - Indicates the listener to be registered that use to load ad.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed
+     * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * 2. Incorrect parameter types. 3.Parameter verification failed
      * @throws { BusinessError } 21800001 - System internal error.
      * @throws { BusinessError } 21800003 - Failed to load the ad request.
      * @syscap SystemCapability.Advertising.Ads
@@ -547,8 +549,8 @@ declare namespace advertising {
      * adParam.adType must be number and valid. adParam.adWidth and adParam.adHeight must be number and greater than zero
      * @param { AdOptions } adOptions - Indicates the ad options.
      * @param { AdLoadListener } listener - Indicates the listener to be registered that use to load ad.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed
+     * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * 2. Incorrect parameter types. 3.Parameter verification failed
      * @throws { BusinessError } 21800001 - System internal error.
      * @throws { BusinessError } 21800003 - Failed to load the ad request.
      * @syscap SystemCapability.Advertising.Ads
