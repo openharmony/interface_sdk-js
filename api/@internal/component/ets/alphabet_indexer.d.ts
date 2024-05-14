@@ -834,6 +834,16 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @since 12
    */
   popupTitleBackground(value: ResourceColor): AlphabetIndexerAttribute;
+
+  /**
+   * Enable or disable haptic feedback.
+   *
+   * @param { boolean } enable - Default value is true, set false to disable haptic feedback.
+   * @returns { AlphabetIndexerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  enableHapticFeedback(enable: boolean): AlphabetIndexerAttribute;
 }
 
 /**
