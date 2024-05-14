@@ -898,7 +898,7 @@ declare namespace asset {
    */
   enum ErrorCode {
     /**
-     * The error code indicates that The caller doesn't have the permission.
+     * The error code indicates that the caller doesn't have the permission.
      *
      * @syscap SystemCapability.Security.Asset
      * @since 11
@@ -912,7 +912,7 @@ declare namespace asset {
      */
     NOT_SYSTEM_APPLICATION = 202,
     /**
-     * The error code indicates that The argument is invalid.
+     * The error code indicates that the argument is invalid.
      *
      * @syscap SystemCapability.Security.Asset
      * @since 11
@@ -968,7 +968,7 @@ declare namespace asset {
      */
     DATA_CORRUPTED = 24000007,
     /**
-     * The error code indicates that the The database operation failed.
+     * The error code indicates that the database operation failed.
      *
      * @syscap SystemCapability.Security.Asset
      * @since 11
@@ -1010,7 +1010,7 @@ declare namespace asset {
      */
     ACCESS_TOKEN_ERROR = 24000013,
     /**
-     * The error code indicates that the The file operation failed.
+     * The error code indicates that the file operation failed.
      *
      * @syscap SystemCapability.Security.Asset
      * @since 11
