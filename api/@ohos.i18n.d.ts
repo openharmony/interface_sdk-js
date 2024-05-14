@@ -142,7 +142,7 @@ declare namespace i18n {
      * @param { boolean } [sentenceCase] - Specifies whether the country or region name is displayed in sentence case.
      * @returns { string } the country or region name localized for display on a given locale.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 890001 - param value not valid. Possible causes: Parameter verification failed.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 10
@@ -182,7 +182,7 @@ declare namespace i18n {
      * @param { boolean } [sentenceCase] - Specifies whether the language name is displayed in sentence case.
      * @returns { string } the language name localized for display on a given locale.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 890001 - param value not valid. Possible causes: Parameter verification failed.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
@@ -205,7 +205,7 @@ declare namespace i18n {
      * @param { string } language - The language used to get the list of regions. It must be a valid language.
      * @returns { Array<string> } all countries or regions supported by the system in the language.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 890001 - param value not valid. Possible causes: Parameter verification failed.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
@@ -218,7 +218,7 @@ declare namespace i18n {
      * @param { string } [region] - The region code. It must be a valid region.
      * @returns { boolean } whether the current language or region is recommended.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 890001 - param value not valid. Possible causes: Parameter verification failed.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
@@ -258,7 +258,7 @@ declare namespace i18n {
      * @param { string } language - The language to be used. It must be a valid language.
      * @throws { BusinessError } 201 - the application does not have permission to call this function
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 890001 - param value not valid. Possible causes: Parameter verification failed.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -289,7 +289,7 @@ declare namespace i18n {
      * @param { string } region - The region to be used. It must be a valid region.
      * @throws { BusinessError } 201 - the application does not have permission to call this function
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 890001 - param value not valid. Possible causes: Parameter verification failed.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -329,7 +329,7 @@ declare namespace i18n {
      * @param { string } locale - The locale to be used. It must be a valid locale.
      * @throws { BusinessError } 201 - the application does not have permission to call this function
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 890001 - param value not valid. Possible causes: Parameter verification failed.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -369,7 +369,7 @@ declare namespace i18n {
      * @param { boolean } option - represent the boolean to be set.
      * @throws { BusinessError } 201 - the application does not have permission to call this function
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 890001 - param value not valid. Possible causes: Parameter verification failed.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -384,7 +384,7 @@ declare namespace i18n {
      * @param { number } [index] - the position of preferred language list to be inserted.
      * @throws { BusinessError } 201 - the application does not have permission to call this function
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 890001 - param value not valid. Possible causes: Parameter verification failed.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -398,7 +398,7 @@ declare namespace i18n {
      * @param { number } index - the position of removed language in preferred language list.
      * @throws { BusinessError } 201 - the application does not have permission to call this function
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 890001 - param value not valid. Possible causes: Parameter verification failed.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -428,7 +428,7 @@ declare namespace i18n {
      *
      * @param { string } language - the language to be set. It must be a valid language.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 890001 - param value not valid. Possible causes: Parameter verification failed.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @since 11
      */
@@ -450,7 +450,7 @@ declare namespace i18n {
      * @param { boolean } flag - a boolean variable represents whether to use local digit
      * @throws { BusinessError } 201 - the application does not have permission to call this function
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 890001 - param value not valid. Possible causes: Parameter verification failed.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -550,7 +550,7 @@ declare namespace i18n {
      * @param { string } [locale] - specified the locale. Use current app locale by default. It must be a valid locale.
      * @returns { string } the string of time period name. The return value may be empty string
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 890001 - param value not valid. Possible causes: Parameter verification failed.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @since 11
      */
@@ -564,7 +564,7 @@ declare namespace i18n {
      * @returns { string } the string of the best matched locale name. 
      * The return value may be empty string due to none is matched.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 890001 - param value not valid. Possible causes: Parameter verification failed.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @static
      * @syscap SystemCapability.Global.I18n
      * @since 12
@@ -577,7 +577,7 @@ declare namespace i18n {
      * @param { string } locale - the origin locale or language code. It must be a valid locale.
      * @returns { string } 3 letter language code. 
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 890001 - param value not valid. Possible causes: Parameter verification failed.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @static
      * @syscap SystemCapability.Global.I18n
      * @since 12
@@ -590,7 +590,7 @@ declare namespace i18n {
      * @param { string } locale - the origin locale or region code. It must be a valid locale.
      * @returns { string } 3 letter region code. 
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 890001 - param value not valid. Possible causes: Parameter verification failed.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @static
      * @syscap SystemCapability.Global.I18n
      * @since 12
@@ -1010,7 +1010,7 @@ declare namespace i18n {
      *  day_of_week_in_month, hour, hour_of_day, minute, second, millisecond
      * @param { number } amount - the amount of date or time to be added to the field.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 890001 - param value not valid. Possible causes: Parameter verification failed.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 11
@@ -1742,7 +1742,7 @@ declare namespace i18n {
      * @param { number } latitude value
      * @returns { Array<TimeZone> } Returns a TimeZone array from the specified longitude and latitude.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 890001 - param value not valid. Possible causes: Parameter verification failed.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @since 10
      */
@@ -2072,7 +2072,7 @@ declare namespace i18n {
      * @param { SortOptions } options - Sort options for locale item.
      * @returns { Array<LocaleItem> } Locale Informations sorted for specified options.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 890001 - param value not valid. Possible causes: Parameter verification failed.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -2086,7 +2086,7 @@ declare namespace i18n {
      * @param { SortOptions } options - Sort options for locale item.
      * @returns { Array<LocaleItem> } Locale Informations sorted for specified options.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 890001 - param value not valid. Possible causes: Parameter verification failed.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -2197,7 +2197,7 @@ declare namespace i18n {
      *
      * @param { String } icsPath - the path of the iCalendar format file to create HolidayManager object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 890001 - param value not valid. Possible causes: Parameter verification failed.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @since 11
      */
@@ -2222,7 +2222,7 @@ declare namespace i18n {
      *  the current year is used.
      * @returns { Array<HolidayInfoItem> } holiday information array for one year.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 890001 - param value not valid. Possible causes: Parameter verification failed.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @since 11
      */
@@ -2277,7 +2277,7 @@ declare namespace i18n {
      *
      * @param { string } [locale] - specified the locale. Use current app locale by default. It must be a valid locale.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 890001 - param value not valid. Possible causes: Parameter verification failed.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @since 11
      */
