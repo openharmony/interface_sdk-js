@@ -483,9 +483,9 @@ declare namespace advertising {
    * @param { Advertisement } ad - Indicates the advertisement content information. ad is required.
    * @param { AdDisplayOptions } options - Indicates interaction option object use to show the ad. options is required.
    * @param { common.UIAbilityContext } context - Indicates the ui ability context of the media application.
+   * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: 1. Mandatory parameters are left unspecified.
    * @throws { BusinessError } 21800001 - System internal error.
    * @throws { BusinessError } 21800004 - Failed to display the ad.
-   * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: 1. Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Advertising.Ads
    * @since 11
    */
@@ -494,9 +494,9 @@ declare namespace advertising {
    * @param { Advertisement } ad - Indicates the advertisement content information. ad is required.
    * @param { AdDisplayOptions } options - Indicates interaction option object use to show the ad. options is required.
    * @param { common.UIAbilityContext } context - Indicates the ui ability context of the media application.
+   * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: 1. Mandatory parameters are left unspecified.
    * @throws { BusinessError } 21800001 - System internal error.
    * @throws { BusinessError } 21800004 - Failed to display the ad.
-   * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: 1. Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Advertising.Ads
    * @atomicservice
    * @since 12
