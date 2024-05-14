@@ -838,7 +838,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
   /**
    * Enable or disable haptic feedback.
    *
-   * @param { boolean } enable - Default value is true, set false to disable haptic feedback.
+   * @param { boolean } value - Default value is true, set false to disable haptic feedback.
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 12
