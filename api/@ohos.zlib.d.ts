@@ -1474,22 +1474,6 @@ declare namespace zlib {
     inflateValidate(strm: ZStream, check: number): Promise<ReturnStatus>;
 
     /**
-     * Used to modify the sane flag in the structure.
-     *
-     * @param { ZStream } strm - Object to structure z_stream.
-     * @param { number } subvert - Whether to subvert the internal sane logo.
-     * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - ZStream error.
-     * @throws { BusinessError } 17800005 - Data error.
-     * @syscap SystemCapability.BundleManager.Zlib
-     * @atomicservice
-     * @since 12
-     */
-    inflateUndermine(strm: ZStream, subvert: number): Promise<ReturnStatus>;
-
-    /**
      * Find a synchronization point for the current decompressed stream.
      *
      * @param { ZStream } strm - Object to structure z_stream.
