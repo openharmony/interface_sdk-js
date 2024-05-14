@@ -33,16 +33,6 @@ import { lang, collections } from '@kit.ArkTS';
  */
 declare namespace sendablePreferences {
   /**
-   * Type of a value, which can be a number, string, boolean, bigint, or serializable object.
-   *
-   * @typedef { lang.ISendable }
-   * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-   * @atomicservice
-   * @since 12
-   */
-  type ValueType = lang.ISendable;
-
-  /**
    * Maximum length of a key.
    *
    * @constant
@@ -219,12 +209,12 @@ declare namespace sendablePreferences {
   interface Preferences extends lang.ISendable {
     /**
      * Obtains the value of a preferences instance.
-     * <p>If the value is {@code null} or not in the ValueType format, the default value is returned.
+     * <p>If the value is {@code null} or not in the lang.ISendable format, the default value is returned.
      *
      * @param { string } key - Indicates the key of the preferences. It cannot be {@code null} or empty.
      *        <tt>MAX_KEY_LENGTH</tt>.
-     * @param { ValueType } defValue - Indicates the default value to return.
-     * @returns { Promise<ValueType> } Promise used to return the result. If a value matching the specified key 
+     * @param { lang.ISendable } defValue - Indicates the default value to return.
+     * @returns { Promise<lang.ISendable> } Promise used to return the result. If a value matching the specified key 
      * is found, the value is returned. Otherwise, the default value is returned.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *                                                                   2. Incorrect parameter types;
@@ -234,16 +224,16 @@ declare namespace sendablePreferences {
      * @atomicservice
      * @since 12
      */
-    get(key: string, defValue: ValueType): Promise<ValueType>;
+    get(key: string, defValue: lang.ISendable): Promise<lang.ISendable>;
 
     /**
      * Obtains the value of a preferences instance. This API returns the result synchronously.
-     * <p>If the value is {@code null} or not in the ValueType format, the default value is returned.
+     * <p>If the value is {@code null} or not in the lang.ISendable format, the default value is returned.
      *
      * @param { string } key - Indicates the key of the preferences. It cannot be {@code null} or empty.
      *         <tt>MAX_KEY_LENGTH</tt>.
-     * @param { ValueType } defValue - Indicates the default value to return.
-     * @returns { ValueType } If a value matching the specified key is found, the value is returned. Otherwise,
+     * @param { lang.ISendable } defValue - Indicates the default value to return.
+     * @returns { lang.ISendable } If a value matching the specified key is found, the value is returned. Otherwise,
      * the default value is returned.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *                                                                   2. Incorrect parameter types;
@@ -251,9 +241,9 @@ declare namespace sendablePreferences {
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
-     * @since 11
+     * @since 12
      */
-    getSync(key: string, defValue: ValueType): ValueType;
+    getSync(key: string, defValue: lang.ISendable): lang.ISendable;
 
     /**
      * Obtains all the keys and values of a preferences instance in an object.
@@ -313,12 +303,12 @@ declare namespace sendablePreferences {
     hasSync(key: string): boolean;
 
     /**
-     * Sets an {@link ValueType} value for the key in the {@link Preferences} object.
+     * Sets an lang.ISendable value for the key in the {@link Preferences} object.
      * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the file.
      *
      * @param { string } key - Indicates the key of the preferences to set. It cannot be {@code null} or empty.
      *        <tt>MAX_KEY_LENGTH</tt>.
-     * @param { ValueType } value - Indicates the value of the preferences.
+     * @param { lang.ISendable } value - Indicates the value of the preferences.
      *        <tt>MAX_VALUE_LENGTH</tt>.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -329,16 +319,16 @@ declare namespace sendablePreferences {
      * @atomicservice
      * @since 12
      */
-    put(key: string, value: ValueType): Promise<void>;
+    put(key: string, value: lang.ISendable): Promise<void>;
 
     /**
-     * Sets an {@link ValueType} value for the key in the {@link Preferences} object.
+     * Sets an lang.ISendable value for the key in the {@link Preferences} object.
      * This API returns the result synchronously. 
      * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the file.
      *
      * @param { string } key - Indicates the key of the preferences to set. It cannot be {@code null} or empty.
      *        <tt>MAX_KEY_LENGTH</tt>.
-     * @param { ValueType } value - Indicates the value of the preferences.
+     * @param { lang.ISendable } value - Indicates the value of the preferences.
      *        <tt>MAX_VALUE_LENGTH</tt>.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *                                                                   2. Incorrect parameter types;
@@ -348,7 +338,7 @@ declare namespace sendablePreferences {
      * @atomicservice
      * @since 12
      */
-    putSync(key: string, value: ValueType): void;
+    putSync(key: string, value: lang.ISendable): void;
 
     /**
      * Deletes the preferences with a specified key from the {@link Preferences} object.
@@ -455,7 +445,7 @@ declare namespace sendablePreferences {
      *
      * @param { 'dataChange' } type - Indicates the type of the event to observe.
      * @param { Array<string> } keys - Indicates one or more keys to listen for.
-     * @param { Callback<Record<string, ValueType>> } callback - Indicates the callback used to return the data change.
+     * @param { Callback<lang.ISendable> } callback - Indicates the callback used to return the data change.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *                                                                   2. Incorrect parameter types;
      *                                                                   3. Parameter verification failed.
@@ -501,7 +491,7 @@ declare namespace sendablePreferences {
      *
      * @param { 'dataChange' } type - Indicates the event type.
      * @param { Array<string> } keys - Indicates the data whose changes are not observed.
-     * @param { Callback<Record<string, ValueType>> } callback - Indicates the callback to unregister.
+     * @param { Callback<lang.ISendable> } callback - Indicates the callback to unregister.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *                                                                   2. Incorrect parameter types;
      *                                                                   3. Parameter verification failed.
