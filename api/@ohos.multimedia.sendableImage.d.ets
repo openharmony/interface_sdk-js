@@ -18,12 +18,13 @@
  * @kit ImageKit
  */
 
-import { AsyncCallback } from './@ohos.base';
 import type colorSpaceManager from './@ohos.graphics.colorSpaceManager';
 import type image from './@ohos.multimedia.image';
 import type resourceManager from './@ohos.resourceManager';
-import { lang } from '@kit.ArkTS';
-/**
+import type rpc from './@ohos.rpc';
+import lang from '../arkts/@arkts.lang';
+import collections from '../arkts/@arkts.collections';
+ /**
  * This module provides the capability of image codec and access
  * @namespace sendableImage
  * @syscap SystemCapability.Multimedia.Image.Core
@@ -33,149 +34,75 @@ import { lang } from '@kit.ArkTS';
  * @since 12
  */
 declare namespace sendableImage {
+
+  type ISendable = lang.ISendable;
+
   /**
-   * Create SendablePixelMap by data buffer.
+   * Create PixelMap by data buffer.
    *
    * @param { ArrayBuffer } colors The image color buffer.
-   * @param { InitializationOptions } options Initialization options for SendablePixelMap.
-   * @param { AsyncCallback<SendablePixelMap> } callback Callback used to return the SendablePixelMap object.
+   * @param { InitializationOptions } options Initialization options for PixelMap.
+   * @returns { Promise<PixelMap> } A Promise instance used to return the PixelMap object.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
    * @since 12
    */
-  function createSendablePixelMap(colors: ArrayBuffer, options: image.InitializationOptions, callback: AsyncCallback<SendablePixelMap>): void;
+  function createPixelMap(colors: ArrayBuffer, options: image.InitializationOptions): Promise<PixelMap>;
 
   /**
-   * Create SendablePixelMap by data buffer.
+   * Create PixelMap by data buffer.
    *
    * @param { ArrayBuffer } colors The image color buffer.
-   * @param { InitializationOptions } options Initialization options for SendablePixelMap.
-   * @returns { Promise<SendablePixelMap> } A Promise instance used to return the SendablePixelMap object.
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @since 12
-   */
-  function createSendablePixelMap(colors: ArrayBuffer, options: image.InitializationOptions): Promise<SendablePixelMap>;
-
-  /**
-   * Create SendablePixelMap by data buffer.
-   *
-   * @param { ArrayBuffer } colors The image color buffer.
-   * @param { InitializationOptions } options Initialization options for SendablePixelMap.
-   * @returns { SendablePixelMap } Returns the instance if the operation is successful;Otherwise, return undefined.
+   * @param { InitializationOptions } options Initialization options for PixelMap.
+   * @returns { PixelMap } Returns the instance if the operation is successful;Otherwise, return undefined.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types. 3.Parameter verification failed.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
    * @since 12
    */
-  function createSendablePixelMapSync(colors: ArrayBuffer, options: image.InitializationOptions): SendablePixelMap;
+  function createPixelMapSync(colors: ArrayBuffer, options: image.InitializationOptions): PixelMap;
 
   /**
-   * Create an empty SendablePixelMap.
+   * Creates a PixelMap object based on MessageSequence parameter.
    *
-   * @param { InitializationOptions } options Initialization options for SendablePixelMap.
-   * @returns { SendablePixelMap } Returns the instance if the operation is successful;Otherwise, return undefined.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types. 3.Parameter verification failed.
+   * @param { rpc.MessageSequence } sequence - rpc.MessageSequence parameter.
+   * @returns { PixelMap } Returns the instance if the operation is successful.
+   * Otherwise, an exception will be thrown.
+   * @throws { BusinessError } 62980096 - Operation failed.
+   * @throws { BusinessError } 62980097 - IPC error.
+   * @throws { BusinessError } 62980115 - Invalid input parameter.
+   * @throws { BusinessError } 62980105 - Failed to get the data.
+   * @throws { BusinessError } 62980177 - Abnormal API environment.
+   * @throws { BusinessError } 62980178 - Failed to create the PixelMap.
+   * @throws { BusinessError } 62980179 - Abnormal buffer size.
+   * @throws { BusinessError } 62980180 - FD mapping failed.
+   * @throws { BusinessError } 62980246 - Failed to read the PixelMap.
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
    * @since 12
    */
-  function createSendablePixelMapSync(options: image.InitializationOptions): SendablePixelMap;
+  function createPixelMapFromParcel(sequence: rpc.MessageSequence): PixelMap;
 
   /**
-   * Transforms SendablePixelMap from unpremultiplied alpha format to premultiplied alpha format.
-   *
-   * @param { SendablePixelMap } src The source SendablePixelMap.
-   * @param { SendablePixelMap } dst The destination SendablePixelMap.
-   * @param { AsyncCallback<void> } callback Callback used to return the operation result.
-   * If the operation fails, an error message is returned.
-   * @throws { BusinessError } 62980103 - The image data is not supported.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types. 3.Parameter verification failed.
-   * @throws { BusinessError } 62980246 - Failed to read the SendablePixelMap.
-   * @throws { BusinessError } 62980248 - SendablePixelMap not allow modify.
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @since 12
-   */
-  function createPremultipliedSendablePixelMap(src: SendablePixelMap, dst: SendablePixelMap, callback: AsyncCallback<void>): void;
-
-  /**
-   * Transforms SendablePixelMap from premultiplied alpha format to unpremultiplied alpha format.
-   *
-   * @param { SendablePixelMap } src The source SendablePixelMap.
-   * @param { SendablePixelMap } dst The destination SendablePixelMap.
-   * @returns { Promise<void> } A Promise instance used to return the operation result.
-   * If the operation fails, an error message is returned.
-   * @throws { BusinessError } 62980103 - The image data is not supported.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types. 3.Parameter verification failed.
-   * @throws { BusinessError } 62980246 - Failed to read the SendablePixelMap.
-   * @throws { BusinessError } 62980248 - SendablePixelMap not allow modify.
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @since 12
-   */
-  function createPremultipliedSendablePixelMap(src: SendablePixelMap, dst: SendablePixelMap): Promise<void>;
-
-  /**
-   * Transforms SendablePixelMap from premultiplied alpha format to unpremultiplied alpha format.
-   *
-   * @param { SendablePixelMap } src The source SendablePixelMap.
-   * @param { SendablePixelMap } dst The destination SendablePixelMap.
-   * @param { AsyncCallback<void> } callback Callback used to return the operation result.
-   * If the operation fails, an error message is returned.
-   * @throws { BusinessError } 62980103 - The image data is not supported.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types. 3.Parameter verification failed.
-   * @throws { BusinessError } 62980246 - Failed to read the SendablePixelMap.
-   * @throws { BusinessError } 62980248 - SendablePixelMap not allow modify.
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @since 12
-   */
-  function createUnpremultipliedSendablePixelMap(src: SendablePixelMap, dst: SendablePixelMap, callback: AsyncCallback<void>): void;
-
-  /**
-   * Transforms SendablePixelMap from premultiplied alpha format to unpremultiplied alpha format.
-   *
-   * @param { SendablePixelMap } src The source SendablePixelMap.
-   * @param { SendablePixelMap } dst The destination SendablePixelMap.
-   * @returns { Promise<void> } A Promise instance used to return the operation result.
-   * If the operation fails, an error message is returned.
-   * @throws { BusinessError } 62980103 - The image data is not supported.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types. 3.Parameter verification failed.
-   * @throws { BusinessError } 62980246 - Failed to read the SendablePixelMap.
-   * @throws { BusinessError } 62980248 - SendablePixelMap not allow modify.
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @since 12
-   */
-  function createUnpremultipliedSendablePixelMap(src: SendablePixelMap, dst: SendablePixelMap): Promise<void>;
-
-  /**
-   * Creates a SendablePixelMap object from surface id.
+   * Creates a PixelMap object from surface id.
    *
    * @param { string } surfaceId - surface id.
    * @param { Region } region - The region to surface.
-   * @returns { Promise<SendablePixelMap> } Returns the instance if the operation is successful.
+   * @returns { Promise<PixelMap> } Returns the instance if the operation is successful.
    * Otherwise, an exception will be thrown.
    * @throws { BusinessError } 62980115 - If the image parameter invalid.
    * @throws { BusinessError } 62980105 - Failed to get the data.
-   * @throws { BusinessError } 62980178 - Failed to create the SendablePixelMap.
+   * @throws { BusinessError } 62980178 - Failed to create the PixelMap.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 12
    */
-  function createSendablePixelMapFromSurface(surfaceId: string, region: image.Region): Promise<SendablePixelMap>;
+  function createPixelMapFromSurface(surfaceId: string, region: image.Region): Promise<PixelMap>;
 
   /**
-   * Creates a SendablePixelMap from PixelMap.
+   * Creates a sendable image PixelMap from image PixelMap.
    *
    * @param { image.PixelMap } pixelmap - the src pixelmap.
-   * @returns { SendablePixelMap } Returns the instance if the operation is successful.
+   * @returns { PixelMap } Returns the instance if the operation is successful.
    * Otherwise, an exception will be thrown.
    * @throws { BusinessError } 401 - If the image parameter invalid. Possible causes:
    * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. 3.Parameter verification failed.
@@ -183,23 +110,35 @@ declare namespace sendableImage {
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 12
    */
-  function convertFromPixelMap(pixelmap: image.PixelMap): SendablePixelMap;
-
-  type ISendable = lang.ISendable;
+  function convertFromPixelMap(pixelmap: image.PixelMap): PixelMap;
 
   /**
-   * SendablePixelMap instance.
+   * Creates a image PixelMap from sendable image PixelMap.
    *
-   * @typedef SendablePixelMap
+   * @param { PixelMap } pixelmap - the src pixelmap.
+   * @returns { image.PixelMap } Returns the instance if the operation is successful.
+   * Otherwise, an exception will be thrown.
+   * @throws { BusinessError } 401 - If the image parameter invalid. Possible causes:
+   * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. 3.Parameter verification failed.
+   * @throws { BusinessError } 62980104 - Failed to initialize the internal object.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 12
+   */
+  function convertToPixelMap(pixelmap: PixelMap): image.PixelMap;
+
+  /**
+   * Sendable PixelMap instance.
+   *
+   * @typedef PixelMap
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
    * @form
    * @atomicservice
    * @since 12
    */
-  interface SendablePixelMap extends ISendable {
+  interface PixelMap extends ISendable {
     /**
-     * Whether the image sendable pixelmap can be edited.
+     * Whether the image pixelmap can be edited.
      *
      * @type { boolean }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -211,10 +150,10 @@ declare namespace sendableImage {
     readonly isEditable: boolean;
 
     /**
-     * Reads image sendable pixelmap data and writes the data to an ArrayBuffer. This method uses
+     * Reads image pixelmap data and writes the data to an ArrayBuffer. This method uses
      * a promise to return the result.
      *
-     * @param { ArrayBuffer } dst A buffer to which the image sendable pixelmap data will be written.
+     * @param { ArrayBuffer } dst A buffer to which the image pixelmap data will be written.
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -226,24 +165,9 @@ declare namespace sendableImage {
     readPixelsToBuffer(dst: ArrayBuffer): Promise<void>;
 
     /**
-     * Reads image sendable pixelmap data and writes the data to an ArrayBuffer. This method uses
-     * a callback to return the result.
+     * Reads image pixelmap data and writes the data to an ArrayBuffer.
      *
-     * @param { ArrayBuffer } dst A buffer to which the image sendable pixelmap data will be written.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result.
-     * If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12
-     */
-    readPixelsToBuffer(dst: ArrayBuffer, callback: AsyncCallback<void>): void;
-
-    /**
-     * Reads image sendable pixelmap data and writes the data to an ArrayBuffer.
-     *
-     * @param { ArrayBuffer } dst A buffer to which the image sendable pixelmap data will be written.
+     * @param { ArrayBuffer } dst A buffer to which the image pixelmap data will be written.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
@@ -256,9 +180,9 @@ declare namespace sendableImage {
     readPixelsToBufferSync(dst: ArrayBuffer): void;
 
     /**
-     * Reads image sendable pixelmap data in an area. This method uses a promise to return the data read.
+     * Reads image pixelmap data in an area. This method uses a promise to return the data read.
      *
-     * @param { PositionArea } area Area from which the image sendable pixelmap data will be read.
+     * @param { PositionArea } area Area from which the image pixelmap data will be read.
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -270,23 +194,9 @@ declare namespace sendableImage {
     readPixels(area: image.PositionArea): Promise<void>;
 
     /**
-     * Reads image sendable pixelmap data in an area. This method uses a callback to return the data read.
+     * Reads image pixelmap data in an area.
      *
-     * @param { PositionArea } area Area from which the image sendable pixelmap data will be read.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result.
-     * If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12
-     */
-    readPixels(area: image.PositionArea, callback: AsyncCallback<void>): void;
-
-    /**
-     * Reads image sendable pixelmap data in an area.
-     *
-     * @param { PositionArea } area Area from which the image sendable pixelmap data will be read.
+     * @param { PositionArea } area Area from which the image pixelmap data will be read.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
@@ -298,10 +208,10 @@ declare namespace sendableImage {
     readPixelsSync(area: image.PositionArea): void;
 
     /**
-     * Writes image sendable pixelmap data to the specified area. This method uses a promise to return
+     * Writes image pixelmap data to the specified area. This method uses a promise to return
      * the operation result.
      *
-     * @param { PositionArea } area Area to which the image sendable pixelmap data will be written.
+     * @param { PositionArea } area Area to which the image pixelmap data will be written.
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -313,24 +223,9 @@ declare namespace sendableImage {
     writePixels(area: image.PositionArea): Promise<void>;
 
     /**
-     * Writes image sendable pixelmap data to the specified area. This method uses a callback to return
-     * the operation result.
+     * Writes image pixelmap data to the specified area.
      *
-     * @param { PositionArea } area Area to which the image sendable pixelmap data will be written.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result.
-     * If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12
-     */
-    writePixels(area: image.PositionArea, callback: AsyncCallback<void>): void;
-
-    /**
-     * Writes image sendable pixelmap data to the specified area.
-     *
-     * @param { PositionArea } area Area to which the image sendable pixelmap data will be written.
+     * @param { PositionArea } area Area to which the image pixelmap data will be written.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
@@ -343,7 +238,7 @@ declare namespace sendableImage {
     writePixelsSync(area: image.PositionArea): void;
 
     /**
-     * Reads image data in an ArrayBuffer and writes the data to a SendablePixelMap object. This method
+     * Reads image data in an ArrayBuffer and writes the data to a PixelMap object. This method
      * uses a promise to return the result.
      *
      * @param { ArrayBuffer } src A buffer from which the image data will be read.
@@ -358,22 +253,7 @@ declare namespace sendableImage {
     writeBufferToPixels(src: ArrayBuffer): Promise<void>;
 
     /**
-     * Reads image data in an ArrayBuffer and writes the data to a SendablePixelMap object. This method
-     * uses a callback to return the result.
-     *
-     * @param { ArrayBuffer } src A buffer from which the image data will be read.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result.
-     * If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12
-     */
-    writeBufferToPixels(src: ArrayBuffer, callback: AsyncCallback<void>): void;
-
-    /**
-     * Reads image data in an ArrayBuffer and writes the data to a SendablePixelMap object.
+     * Reads image data in an ArrayBuffer and writes the data to a PixelMap object.
      *
      * @param { ArrayBuffer } src A buffer from which the image data will be read.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
@@ -387,9 +267,9 @@ declare namespace sendableImage {
     writeBufferToPixelsSync(src: ArrayBuffer): void;
 
     /**
-     * Obtains sendable pixelmap information about this image. This method uses a promise to return the information.
+     * Obtains pixelmap information about this image. This method uses a promise to return the information.
      *
-     * @returns { Promise<ImageInfo> } A Promise instance used to return the image sendable pixelmap information.
+     * @returns { Promise<ImageInfo> } A Promise instance used to return the image pixelmap information.
      * If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -398,19 +278,6 @@ declare namespace sendableImage {
      * @since 12
      */
     getImageInfo(): Promise<image.ImageInfo>;
-
-    /**
-     * Obtains sendable pixelmap information about this image. This method uses a callback to return the information.
-     *
-     * @param { AsyncCallback<ImageInfo> } callback Callback used to return the image sendable pixelmap information.
-     * If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12
-     */
-    getImageInfo(callback: AsyncCallback<image.ImageInfo>): void;
 
     /**
      * Get image information from image source.
@@ -426,7 +293,7 @@ declare namespace sendableImage {
     getImageInfoSync(): image.ImageInfo;
 
     /**
-     * Obtains the number of bytes in each line of the image sendable pixelmap.
+     * Obtains the number of bytes in each line of the image pixelmap.
      *
      * @returns { number } Number of bytes in each line.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -438,7 +305,7 @@ declare namespace sendableImage {
     getBytesNumberPerRow(): number;
 
     /**
-     * Obtains the total number of bytes of the image sendable pixelmap.
+     * Obtains the total number of bytes of the image pixelmap.
      *
      * @returns { number } Total number of bytes.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -450,7 +317,7 @@ declare namespace sendableImage {
     getPixelBytesNumber(): number;
 
     /**
-     * Obtains the density of the image sendable pixelmap.
+     * Obtains the density of the image pixelmap.
      *
      * @returns { number } The number of density.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -462,21 +329,7 @@ declare namespace sendableImage {
     getDensity(): number;
 
     /**
-     * Set the transparent rate of sendable pixelmap. This method uses a callback to return the operation result.
-     *
-     * @param { number } rate The value of transparent rate.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result.
-     * If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12
-     */
-    opacity(rate: number, callback: AsyncCallback<void>): void;
-
-    /**
-     * Set the transparent rate of sendable pixelmap. This method uses a promise to return the result.
+     * Set the transparent rate of pixelmap. This method uses a promise to return the result.
      *
      * @param { number } rate The value of transparent rate.
      * @returns { Promise<void> } A Promise instance used to return the operation result.
@@ -490,7 +343,7 @@ declare namespace sendableImage {
     opacity(rate: number): Promise<void>;
 
     /**
-     * Set the transparent rate of sendable pixelmap.
+     * Set the transparent rate of pixelmap.
      *
      * @param { number } rate The value of transparent rate.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
@@ -504,9 +357,9 @@ declare namespace sendableImage {
     opacitySync(rate: number): void;
 
     /**
-     * Obtains new sendable pixelmap with alpha information. This method uses a promise to return the information.
+     * Obtains new pixelmap with alpha information. This method uses a promise to return the information.
      *
-     * @returns { Promise<SendablePixelMap> } A Promise instance used to return the new image sendable pixelmap.
+     * @returns { Promise<PixelMap> } A Promise instance used to return the new image pixelmap.
      * If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -514,25 +367,12 @@ declare namespace sendableImage {
      * @atomicservice
      * @since 12
      */
-    createAlphaPixelmap(): Promise<SendablePixelMap>;
+    createAlphaPixelmap(): Promise<PixelMap>;
 
     /**
-     * Obtains new sendable pixelmap with alpha information. This method uses a callback to return the information.
+     * Obtains new pixelmap with alpha information.
      *
-     * @param { AsyncCallback<SendablePixelMap> } callback Callback used to return the new image sendable pixelmap.
-     * If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12
-     */
-    createAlphaPixelmap(callback: AsyncCallback<SendablePixelMap>): void;
-
-    /**
-     * Obtains new sendable pixelmap with alpha information.
-     *
-     * @returns { SendablePixelMap } return the new image sendable pixelmap. 
+     * @returns { PixelMap } return the new image pixelmap. 
      * If the operation fails, an error message is returned.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
@@ -541,22 +381,7 @@ declare namespace sendableImage {
      * @atomicservice
      * @since 12
      */
-    createAlphaPixelmapSync(): SendablePixelMap;
-
-    /**
-     * Image zoom in width and height. This method uses a callback to return the operation result.
-     *
-     * @param { number } x The zoom value of width.
-     * @param { number } y The zoom value of height.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result.
-     * If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12
-     */
-    scale(x: number, y: number, callback: AsyncCallback<void>): void;
+    createAlphaPixelmapSync(): PixelMap;
 
     /**
      * Image zoom in width and height. This method uses a promise to return the result.
@@ -589,21 +414,6 @@ declare namespace sendableImage {
     scaleSync(x: number, y: number): void;
 
     /**
-     * Image position transformation. This method uses a callback to return the operation result.
-     *
-     * @param { number } x The position value of width.
-     * @param { number } y The position value of height.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result.
-     * If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12
-     */
-    translate(x: number, y: number, callback: AsyncCallback<void>): void;
-
-    /**
      * Image position transformation. This method uses a promise to return the result.
      *
      * @param { number } x The position value of width.
@@ -634,20 +444,6 @@ declare namespace sendableImage {
     translateSync(x: number, y: number): void;
 
     /**
-     * Image rotation. This method uses a callback to return the operation result.
-     *
-     * @param { number } angle The rotation angle.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result.
-     * If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12
-     */
-    rotate(angle: number, callback: AsyncCallback<void>): void;
-
-    /**
      * Image rotation. This method uses a promise to return the result.
      *
      * @param { number } angle The rotation angle.
@@ -674,21 +470,6 @@ declare namespace sendableImage {
      * @since 12
      */
     rotateSync(angle: number): void;
-
-    /**
-     * Image flipping. This method uses a callback to return the operation result.
-     *
-     * @param { boolean } horizontal Is flip in horizontal.
-     * @param { boolean } vertical Is flip in vertical.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result.
-     * If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12
-     */
-    flip(horizontal: boolean, vertical: boolean, callback: AsyncCallback<void>): void;
 
     /**
      * Image flipping. This method uses a promise to return the result.
@@ -721,20 +502,6 @@ declare namespace sendableImage {
     flipSync(horizontal: boolean, vertical: boolean): void;
 
     /**
-     * Crop the image. This method uses a callback to return the operation result.
-     *
-     * @param { Region } region The region to crop.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result.
-     * If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12
-     */
-    crop(region: image.Region, callback: AsyncCallback<void>): void;
-
-    /**
      * Crop the image. This method uses a promise to return the result.
      *
      * @param { Region } region The region to crop.
@@ -763,7 +530,7 @@ declare namespace sendableImage {
     cropSync(region: image.Region): void;
 
     /**
-     * Get color space of sendable pixelmap.
+     * Get color space of pixelmap.
      *
      * @returns { colorSpaceManager.ColorSpaceManager } If the operation fails, an error message is returned.
      * @throws { BusinessError } 62980101 - If the image data abnormal.
@@ -771,25 +538,24 @@ declare namespace sendableImage {
      * @throws { BusinessError } 62980115 - If the image parameter invalid.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform  
-     * @since 11
+     * @since 12
      */
     getColorSpace(): colorSpaceManager.ColorSpaceManager;
 
     /**
-     * Set color space of sendable pixelmap.
+     * Set color space of pixelmap.
      * 
-     * This method is only used to set the colorspace property of SendablePixelMap,
+     * This method is only used to set the colorspace property of PixelMap,
      * while all pixel data remains the same after calling this method.
      * If you want to change colorspace for all pixels, use method
-     * {@Link #applyColorSpace(colorSpaceManager.ColorSpaceManager)} or
-     * {@Link #applyColorSpace(colorSpaceManager.ColorSpaceManager, AsyncCallback<void>)}.
+     * {@Link #applyColorSpace(colorSpaceManager.ColorSpaceManager)}.
      *
-     * @param { colorSpaceManager.ColorSpaceManager } colorSpace The color space for sendable pixelmap.
+     * @param { colorSpaceManager.ColorSpaceManager } colorSpace The color space for pixelmap.
      * @throws { BusinessError } 62980111 - If the operation invalid.
      * @throws { BusinessError } 62980115 - If the image parameter invalid.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform 
-     * @since 11
+     * @since 12
      */
     setColorSpace(colorSpace: colorSpaceManager.ColorSpaceManager): void;
 
@@ -799,43 +565,20 @@ declare namespace sendableImage {
      * @type { boolean }
      * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 11
+     * @since 12
      */
     readonly isStrideAlignment: boolean;
 
-     /**
-     * Apply color space of sendable pixelmap, the pixels will be changed by input color space.
-     * This method uses a callback to return the operation result.
-     * 
-     * This method is used to change color space of SendablePixelMap.
-     * Pixel data will be changed by calling this method.
-     * If you want to set the colorspace property of SendablePixelMap only,
-     * use method {@Link #setColorSpace(colorSpaceManager.ColorSpaceManager)}.
-     *
-     * @param { colorSpaceManager.ColorSpaceManager } targetColorSpace - The color space for sendable pixelmap.
-     * @param { AsyncCallback<void> } callback - Callback used to return the operation result.
-     * If the operation fails, an error message is returned.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 62980104 - Failed to initialize the internal object.
-     * @throws { BusinessError } 62980108 - Failed to convert the color space.
-     * @throws { BusinessError } 62980115 - Invalid image parameter.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 11
-     */
-    applyColorSpace(targetColorSpace: colorSpaceManager.ColorSpaceManager, callback: AsyncCallback<void>): void;
-
     /**
-     * Apply color space of sendable pixelmap, the pixels will be changed by input color space.
+     * Apply color space of pixelmap, the pixels will be changed by input color space.
      * This method uses a promise to return the result.
      * 
-     * This method is used to change color space of SendablePixelMap.
+     * This method is used to change color space of PixelMap.
      * Pixel data will be changed by calling this method.
-     * If you want to set the colorspace property of SendablePixelMap only,
+     * If you want to set the colorspace property of PixelMap only,
      * use method {@Link #setColorSpace(colorSpaceManager.ColorSpaceManager)}.
      *
-     * @param { colorSpaceManager.ColorSpaceManager } targetColorSpace - The color space for sendable pixelmap.
+     * @param { colorSpaceManager.ColorSpaceManager } targetColorSpace - The color space for pixelmap.
      * @returns { Promise<void> } A Promise instance used to return the operation result. 
      * If the operation fails, an error message is returned.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
@@ -845,25 +588,12 @@ declare namespace sendableImage {
      * @throws { BusinessError } 62980115 - Invalid image parameter.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 11
+     * @since 12
      */
     applyColorSpace(targetColorSpace: colorSpaceManager.ColorSpaceManager): Promise<void>;
 
     /**
-     * Releases this SendablePixelMap object. This method uses a callback to return the result.
-     *
-     * @param { AsyncCallback<void> } callback Callback invoked for instance release. 
-     * If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12
-     */
-    release(callback: AsyncCallback<void>): void;
-
-    /**
-     * Releases this SendablePixelMap object. This method uses a promise to return the result.
+     * Releases this PixelMap object. This method uses a promise to return the result.
      *
      * @returns { Promise<void> } A Promise instance used to return the instance release result. 
      * If the operation fails, an error message is returned.
@@ -874,7 +604,31 @@ declare namespace sendableImage {
      * @since 12
      */
     release(): Promise<void>;
+
+    /**
+     * Marshalling PixelMap and write into MessageSequence.
+     *
+     * @param { rpc.MessageSequence } sequence rpc.MessageSequence parameter.
+     * @throws { BusinessError } 62980115 - Invalid image parameter.
+     * @throws { BusinessError } 62980097 - IPC error.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    marshalling(sequence: rpc.MessageSequence): void;
+
+    /**
+     * Creates a PixelMap object based on MessageSequence parameter.
+     *
+     * @param { rpc.MessageSequence } sequence rpc.MessageSequence parameter.
+     * @returns { Promise<PixelMap> } A Promise instance used to return the PixelMap object.
+     * @throws { BusinessError } 62980115 - Invalid image parameter.
+     * @throws { BusinessError } 62980097 - IPC error.
+     * @throws { BusinessError } 62980096 - The operation failed.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    unmarshalling(sequence: rpc.MessageSequence): Promise<PixelMap>;
   }
 }
 
-export default SendableImage;
+export default sendableImage;
