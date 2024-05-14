@@ -8557,6 +8557,79 @@ declare enum NestedScrollMode {
 }
 
 /**
+ * The possible source of scroll event
+ * @enum { number } ScrollSource
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum ScrollSource {
+  /**
+   * Drag events.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  DRAG = 0,
+
+  /**
+   * Fling after the drag has ended with velocity.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  FLING,
+
+  /**
+   * Over scroll with EdgeEffect.Spring.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  EDGE_EFFECT,
+
+  /**
+   * Other user input except drag, such as mouse wheel, key event.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  OTHER_USER_INPUT,
+
+  /**
+   * Drag events of scroll bar.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  SCROLL_BAR,
+
+  /**
+   * Fling after the drag on scroll bar has ended with velocity.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  SCROLL_BAR_FLING,
+
+  /**
+   * Member methods of Scroller without animation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  SCROLLER,
+
+  /**
+   * Member methods of Scroller with animation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  SCROLLER_ANIMATION,
+}
+
+/**
  * Enum of RenderFit
  * 
  * @enum { number } RenderFit

@@ -21169,15 +21169,13 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   /**
    * Called when the scrollable will scroll.
    *
-   * @param { OnScrollCallback } handler - callback of scrollable,
-   * scrollOffset is offset this frame will scroll, which may or may not be reached.
-   * scrollState is current scroll state.
+   * @param { Optional<OnWillScrollCallback> } handler - callback of scrollable.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  onWillScroll(handler: OnScrollCallback): T;
+  onWillScroll(handler: Optional<OnWillScrollCallback>): T;
 
   /**
    * Called when the scrollable did scroll.
@@ -21254,8 +21252,44 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
 }
 
 /**
-  * on scroll callback using in scrollable onWillScroll and onDidScroll.
+ * The actual offset by which the scrollable scrolls.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class ScrollResult {
+  /**
+   * Actual offset by which the scrollable scrolls in vp.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  offsetRemain: number;
+}
+
+/**
+ * Called before scroll to allow developer to control real offset the Scrollable can scroll.
+ *
+ * @typedef { function } OnWillScrollCallback
+ * @param { number } scrollOffset - offset this frame will scroll, which may or may not be reached.
+ * @param { ScrollState } scrollState - current scroll state.
+ * @param { ScrollSource } scrollSource - source of current scroll.
+ * @returns { void | ScrollResult } the remain offset for the scrollable, 
+ *     same as scrollOffset when no ScrollResult is returned.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type OnWillScrollCallback = 
+(scrollOffset: number, scrollState: ScrollState, scrollSource: ScrollSource) => void | ScrollResult;
+
+/**
+  * On scroll callback using in scrollable onDidScroll.
   *
+  * @typedef { function } OnScrollCallback
+  * @param { number } scrollOffset - offset this frame did scroll.
+  * @param { ScrollState } scrollState - current scroll state.
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @since 12
