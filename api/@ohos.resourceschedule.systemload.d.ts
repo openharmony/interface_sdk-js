@@ -98,7 +98,8 @@ declare namespace systemLoad {
      * Register system load callback for perception system load change
      * @param { 'systemLoadChange' } type system load change type.
      * @param { Callback<SystemLoadLevel> } callback Asynchronous callback interface.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Callback parameter error;
+   * <br> 2. Register a exist callback type; 3. Parameter verification failed.
      * @syscap SystemCapability.ResourceSchedule.SystemLoad
      * @since 12
      */
@@ -108,7 +109,8 @@ declare namespace systemLoad {
      * Unregister system load callback for perception system load change
      * @param { 'systemLoadChange' } type system load change type.
      * @param { Callback<SystemLoadLevel> } callback Asynchronous callback interface.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Callback parameter error;
+   * <br> 2. Unregister type has not register; 3. Parameter verification failed.
      * @syscap SystemCapability.ResourceSchedule.SystemLoad
      * @since 12
      */
