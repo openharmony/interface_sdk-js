@@ -597,7 +597,6 @@ declare namespace advertising {
    * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: 1. Mandatory parameters are left unspecified.
    * @throws { BusinessError } 21800001 - System internal error.
    * @syscap SystemCapability.Advertising.Ads
-   * @atomicservice
    * @since 12
    */
    function getAdRequestBody(adParams: AdRequestParams[], adOptions: AdOptions): Promise<string>;
@@ -611,7 +610,6 @@ declare namespace advertising {
    * @throws { BusinessError } 21800001 - System internal error.
    * @throws { BusinessError } 21800005 - Failed to parse the ad response.
    * @syscap SystemCapability.Advertising.Ads
-   * @atomicservice
    * @since 12
    */
   function parseAdResponse(adResponse: string, listener: MultiSlotsAdLoadListener, context: common.UIAbilityContext): void;
