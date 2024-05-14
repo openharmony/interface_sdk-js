@@ -17,7 +17,7 @@
  * @file Provides the capability to load and display advertisements
  * @kit AdsKit
  */
-
+import type web_webview from './@ohos.web.webview';
 import type common from './@ohos.app.ability.common';
 import type { Advertisement as _Advertisement } from './advertising/advertisement';
 
@@ -588,6 +588,45 @@ declare namespace advertising {
      */
     loadAdWithMultiSlots(adParams: AdRequestParams[], adOptions: AdOptions, listener: MultiSlotsAdLoadListener): void;
   }
+
+  /**
+   * Get message body for ad requesting.
+   * @param { AdRequestParams[] } adParams - Indicates the parameters in the request.
+   * @param { AdOptions } adOptions - Indicates the ad options.
+   * @returns { string } Ad request message body.
+   * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 21800001 - System internal error.
+   * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice
+   * @since 12
+   */
+   function getAdRequestBody(adParams: AdRequestParams[], adOptions: AdOptions): Promise<string>;
+
+  /**
+   * Pass ad response message and parse into advertisements.
+   * @param { string } adResponse - Indicate the ad response message.
+   * @param { MultiSlotsAdLoadListener } listener - Indicates the listener to be registered that use to load ad.
+   * @param { common.UIAbilityContext } context - Indicates the ui ability context of the media application.
+   * @throws { BusinessError } 401 - Invalid input parameter.Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 21800001 - System internal error.
+   * @throws { BusinessError } 21800005 - Failed to parse the ad response.
+   * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice
+   * @since 12
+   */
+  function parseAdResponse(adResponse: string, listener: MultiSlotsAdLoadListener, context: common.UIAbilityContext): void;
+
+  /**
+   * Register ad javascript proxy interface into webview in order to enable web Ad.
+   * @param { web_webview.WebviewController } controller - Indicates webview controller to register ad javascript proxy interface.
+   * @param { common.UIAbilityContext } context - Indicates the ui ability context of the media application.
+   * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 21800001 - System internal error.
+   * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice
+   * @since 12
+   */
+  function registerWebAdInterface(controller: web_webview.WebviewController, context: common.UIAbilityContext): void;
 }
 
 export default advertising;
