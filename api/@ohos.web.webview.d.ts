@@ -19,7 +19,6 @@
  */
 
 /// <reference path="../component/units.d.ts" />
-/// <reference path="./@ohos.web.netErrorList.d.ts" />
 
 import { AsyncCallback, BusinessError } from './@ohos.base';
 import { Callback } from './@ohos.base';
@@ -28,6 +27,7 @@ import cert from './@ohos.security.cert';
 import image from './@ohos.multimedia.image';
 import type print from './@ohos.print';
 import './@internal/component/ets/units';
+import { WebNetErrorList } from './@ohos.web.netErrorList';
 
 /**
  * This module provides the capability to manage web modules.
@@ -77,6 +77,15 @@ declare namespace webview {
    * @crossplatform
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Defines the Web's request/response header.
+   *
+   * @typedef WebHeader
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   interface WebHeader {
     /**
@@ -398,6 +407,14 @@ declare namespace webview {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Defines the hit test value, related to {@link getHitTestValue} method.
+   *
+   * @typedef HitTestValue
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
   interface HitTestValue {
 
     /**
@@ -445,6 +462,14 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Defines the configuration of web custom scheme, related to {@link customizeSchemes} method.
+   *
+   * @typedef WebCustomScheme
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
    */
   interface WebCustomScheme {
 
@@ -569,6 +594,14 @@ declare namespace webview {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Provides basic information of web storage.
+   *
+   * @typedef WebStorageOrigin
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
   interface WebStorageOrigin {
     /**
      * Url source.
@@ -617,7 +650,7 @@ declare namespace webview {
   /**
    * Defines the Web's request info.
    *
-   * @interface RequestInfo
+   * @typedef RequestInfo
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
@@ -1901,6 +1934,14 @@ declare namespace webview {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Define html web message port.
+   * @typedef WebMessagePort
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   interface WebMessagePort {
     /**
      * The flag indicates whether more formats are supported than string and array buffers.
@@ -2024,6 +2065,14 @@ declare namespace webview {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Provides information for history item in BackForwardList.
+   * @typedef HistoryItem
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   interface HistoryItem {
     /**
      * Pixelmap of icon.
@@ -2095,6 +2144,14 @@ declare namespace webview {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Provides back and forward history list information method. related to {@link HistoryItem}.
+   * @typedef BackForwardList
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   interface BackForwardList {
     /**
      * Current index in BackForwardList.
@@ -2150,7 +2207,7 @@ declare namespace webview {
   /**
    * Defines the snapshot info.
    *
-   * @interface SnapshotInfo
+   * @typedef SnapshotInfo
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
@@ -2180,7 +2237,7 @@ declare namespace webview {
   /**
    * Defines the snapshot result.
    *
-   * @interface SnapshotResult
+   * @typedef SnapshotResult
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
@@ -2463,7 +2520,7 @@ declare namespace webview {
 
   /**
    * Options of generating code cache
-   * @interface CacheOptions
+   * @typedef CacheOptions
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12
    */
@@ -5921,7 +5978,7 @@ declare namespace webview {
    * The native media player status handler.
    * Apps should use this class to handle native media player's status.
    *
-   * @interface NativeMediaPlayerHandler
+   * @typedef NativeMediaPlayerHandler
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
@@ -6093,7 +6150,7 @@ declare namespace webview {
    * Apps should implements this interface, and pass an instance to web core.
    * Then web core can control native media player by this bridge.
    *
-   * @interface NativeMediaPlayerBridge
+   * @typedef NativeMediaPlayerBridge
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
@@ -6282,6 +6339,48 @@ declare namespace webview {
   }
 
   /**
+   * Rectangle definition.
+   *
+   * @typedef RectEvent
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  interface RectEvent {
+    /**
+     * X coordinator of top left point.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    x: number;
+    /**
+     * Y coordinator of top left point.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    y: number;
+    /**
+     * Width of this rectangle.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    width: number;
+    /**
+     * Height of this rectangle.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    height: number;
+  }
+
+  /**
    * Surface information.
    *
    * @syscap SystemCapability.Web.Webview.Core
@@ -6299,10 +6398,11 @@ declare namespace webview {
 
     /**
      * Surface rect info.
+     * @type { RectEvent }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12
      */
-    rect: {x: number, y: number, width: number, height: number};
+    rect: RectEvent;
   }
 
   /**
@@ -6339,7 +6439,7 @@ declare namespace webview {
   /**
    * Media information.
    *
-   * @interface MediaInfo
+   * @typedef MediaInfo
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
