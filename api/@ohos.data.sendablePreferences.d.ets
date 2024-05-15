@@ -20,7 +20,8 @@
 
 import { Callback } from './@ohos.base';
 import Context from './application/BaseContext';
-import { lang, collections } from '@kit.ArkTS';
+import lang from './arkts/@arkts.collections';
+import collections from './arkts/@arkts.lang';
 
 /**
  * Provides interfaces to obtain and modify preferences data.
