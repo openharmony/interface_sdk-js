@@ -533,11 +533,11 @@ declare namespace advertising {
     /**
      * Load ad.
      * @param { AdRequestParams } adParam - Indicates the parameters in the request. adParam.adId is required.
-     * adParam.adType must be number and valid. adParam.adWidth and adParam.adHeight must be number and greater than zero
+     * <br>adParam.adType must be number and valid. adParam.adWidth and adParam.adHeight must be number and greater than zero
      * @param { AdOptions } adOptions - Indicates the ad options.
      * @param { AdLoadListener } listener - Indicates the listener to be registered that use to load ad.
      * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * 2. Incorrect parameter types. 3.Parameter verification failed
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed
      * @throws { BusinessError } 21800001 - System internal error.
      * @throws { BusinessError } 21800003 - Failed to load the ad request.
      * @syscap SystemCapability.Advertising.Ads
@@ -546,11 +546,11 @@ declare namespace advertising {
     /**
      * Load ad.
      * @param { AdRequestParams } adParam - Indicates the parameters in the request. adParam.adId is required.
-     * adParam.adType must be number and valid. adParam.adWidth and adParam.adHeight must be number and greater than zero
+     * <br>adParam.adType must be number and valid. adParam.adWidth and adParam.adHeight must be number and greater than zero
      * @param { AdOptions } adOptions - Indicates the ad options.
      * @param { AdLoadListener } listener - Indicates the listener to be registered that use to load ad.
      * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * 2. Incorrect parameter types. 3.Parameter verification failed
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed
      * @throws { BusinessError } 21800001 - System internal error.
      * @throws { BusinessError } 21800003 - Failed to load the ad request.
      * @syscap SystemCapability.Advertising.Ads
@@ -562,11 +562,11 @@ declare namespace advertising {
     /**
      * Load ad with multi-slots.
      * @param { AdRequestParams[] } adParams - Indicates the parameters in the request. adParam.adId is required.
-     * adParam.adType must be number and valid. adParam.adWidth and adParam.adHeight must be number and greater than zero
+     * <br>adParam.adType must be number and valid. adParam.adWidth and adParam.adHeight must be number and greater than zero
      * @param { AdOptions } adOptions - Indicates the ad options.
      * @param { MultiSlotsAdLoadListener } listener - Indicates the listener to be registered that use to load ad.
      * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * 2. Incorrect parameter types. 3.Parameter verification failed
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed
      * @throws { BusinessError } 21800001 - System internal error.
      * @throws { BusinessError } 21800003 - Failed to load the ad request.
      * @syscap SystemCapability.Advertising.Ads
@@ -575,11 +575,11 @@ declare namespace advertising {
     /**
      * Load ad with multi-slots.
      * @param { AdRequestParams[] } adParams - Indicates the parameters in the request. adParam.adId is required.
-     * adParam.adType must be number and valid. adParam.adWidth,adParam.adHeight must be number and greater than zero
+     * <br>adParam.adType must be number and valid. adParam.adWidth,adParam.adHeight must be number and greater than zero
      * @param { AdOptions } adOptions - Indicates the ad options.
      * @param { MultiSlotsAdLoadListener } listener - Indicates the listener to be registered that use to load ad.
      * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * 2. Incorrect parameter types. 3.Parameter verification failed
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed
      * @throws { BusinessError } 21800001 - System internal error.
      * @throws { BusinessError } 21800003 - Failed to load the ad request.
      * @syscap SystemCapability.Advertising.Ads
