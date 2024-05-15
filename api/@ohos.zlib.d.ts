@@ -1226,7 +1226,7 @@ declare namespace zlib {
      * @param { ArrayBuffer } buf - Calculate checksum data buffer.
      * @returns { Promise<number> } Return the updated checksum.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1241,7 +1241,7 @@ declare namespace zlib {
      * @param { number } len2 - The length of the data block associated with the second Adler32 checksum.
      * @returns { Promise<number> } Returns the Adler-32 checksum.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1255,7 +1255,7 @@ declare namespace zlib {
      * @param { ArrayBuffer } buf - Calculate checksum data buffer.
      * @returns { Promise<number> } Return the updated CRC-32.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1270,7 +1270,7 @@ declare namespace zlib {
      * @param { number } len2 - The length of the data block associated with the second CRC-32 checksum.
      * @returns { Promise<number> } Returns the CRC-32 check value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1284,7 +1284,7 @@ declare namespace zlib {
      * @param { ArrayBuffer } buf - Calculate checksum data buffer.
      * @returns { Promise<number> } Return the updated CRC-64.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
