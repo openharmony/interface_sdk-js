@@ -21,6 +21,7 @@
 /// <reference path="../component/units.d.ts" />
 
 import { ResourceStr } from 'GlobalResource';
+import { TextModifier, ImageModifier } from './@ohos.arkui.modifier';
 
 /**
  * Declare enum IconType
@@ -291,6 +292,14 @@ export declare class ContentItem {
    * @since 11
    */
   icon?: ResourceStr;
+  
+  /**
+   * Image modifier for icon.
+   * @type { ImageModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  iconModifier?: ImageModifier;
 
   /**
    * Sets the primaryText.
@@ -306,6 +315,14 @@ export declare class ContentItem {
    * @since 11
    */
   primaryText?: ResourceStr;
+  
+  /**
+   * Text modifier for primaryText.
+   * @type { TextModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  primaryTextModifier?: TextModifier;
 
   /**
    * Sets the secondaryText.
@@ -321,6 +338,14 @@ export declare class ContentItem {
    * @since 11
    */
   secondaryText?: ResourceStr;
+  
+  /**
+   * Text modifier for secondaryText.
+   * @type { TextModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  secondaryTextModifier?: TextModifier;
 
   /**
    * Sets the description.
@@ -336,6 +361,14 @@ export declare class ContentItem {
    * @since 11
    */
   description?: ResourceStr;
+  
+  /**
+   * Text modifier for description.
+   * @type { TextModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  descriptionModifier?: TextModifier;
 }
 
 /**
@@ -528,4 +561,20 @@ export declare struct ComposeListItem {
    * @since 11
    */
   @Prop operateItem?: OperateItem;
+  
+  /**
+   * Sets the compose item margin.
+   * @type { ?Margin }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  composeItemMargin?: Margin;
+  
+  /**
+   * Sets the compose item padding.
+   * @type { ?Padding }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  composeItemPadding?: Padding;
 }
