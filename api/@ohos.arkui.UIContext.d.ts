@@ -2045,6 +2045,25 @@ export class ContextMenuController {
 }
 
 /**
+ * Class FrameCallback
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export abstract class FrameCallback {
+  /**
+   * Call when a new display frame is being rendered.
+   * 
+   * @param { number } frameTimeInNano - The frame time in nanoseconds.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  abstract onFrame(frameTimeInNano: number): void;
+}
+
+/**
  * The base context of an ability or an application. It allows access to
  * application-specific resources.
  *
@@ -2698,6 +2717,25 @@ export class UIContext {
    * @since 12
    */
   getWindowName(): string | undefined;
+
+  /**
+   * Post a frame callback to run on the next frame.
+   *
+   * @param { FrameCallback } frameCallback - The frame callback to run on the next frame.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  postFrameCallback(frameCallback: FrameCallback): void;
+
+  /**
+   * Post a frame callback to run on the next frame after the specified delay.
+   *
+   * @param { FrameCallback } frameCallback - The frame callback to run on the next frame.
+   * @param { number } delayTime - The delay time in milliseconds,
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  postDelayedFrameCallback(frameCallback: FrameCallback, delayTime: number): void;
 }
 
 /**
