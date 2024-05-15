@@ -18,7 +18,8 @@
  * @kit LocalizationKit
  */
 
-import { lang, collections } from '@kit.ArkTS';
+import lang from '../../arkts/@arkts.lang';
+import collections from '../../arkts/@arkts.collections';
 
 /**
  * Contains sendable resource descriptor information.
