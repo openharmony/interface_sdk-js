@@ -762,8 +762,6 @@ repayment
 repeates
 replacer
 reposition
-request
-requestInStream
 rerouting
 resizeable
 resmgr
