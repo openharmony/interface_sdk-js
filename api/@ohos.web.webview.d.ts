@@ -5538,6 +5538,14 @@ declare namespace webview {
      * @since 12
      */
     getRequestResourceType(): WebResourceType;
+    /**
+     * Gets the URL of frame which trigger this request.
+     *
+     * @returns { string } Return the URL of frame which trigger this request.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    getFrameUrl(): string;
   }
 
   /**
