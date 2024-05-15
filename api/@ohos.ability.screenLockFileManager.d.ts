@@ -122,7 +122,7 @@ declare namespace screenLockFileManager {
    * @returns { AccessStatus } Returns acquire the access result.
    * @throws { BusinessError } 201 - Permission verification failed, usually returned by VerifyAccessToken.
    * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameter is left unspecified. 2. Incorrect parameter types.
    * @throws { BusinessError } 801 - The specified SystemCapability name was not found.
    * @throws { BusinessError } 29300001 - Invalid parameter.
    * @throws { BusinessError } 29300002 - The system ability work abnormally.
@@ -155,7 +155,7 @@ declare namespace screenLockFileManager {
    * @returns { ReleaseStatus } Returns release the access result.
    * @throws { BusinessError } 201 - Permission verification failed, usually returned by VerifyAccessToken.
    * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameter is left unspecified. 2. Incorrect parameter types.
    * @throws { BusinessError } 801 - The specified SystemCapability name was not found.
    * @throws { BusinessError } 29300001 - Invalid parameter.
    * @throws { BusinessError } 29300002 - The system ability work abnormally.
