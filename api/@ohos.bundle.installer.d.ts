@@ -543,9 +543,9 @@ declare namespace installer {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700001 - The specified bundle name is not found.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
-     * @throws { BusinessError } 17700020 - The specified bundle is pre-installed bundle which cannot be uninstalled.
-     * @throws { BusinessError } 17700040 - The specified bundle is a shared bundle which cannot be uninstalled.
-     * @throws { BusinessError } 17700045 - Failed to uninstall because enterprise device management disallow uninstall.
+     * @throws { BusinessError } 17700020 - The specified bundle is a pre-installed bundle and cannot be uninstalled.
+     * @throws { BusinessError } 17700040 - The specified bundle is a shared bundle and cannot be uninstalled.
+     * @throws { BusinessError } 17700045 - Failed to uninstall the HAP because uninstall is not allowed by the enterprise device management.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -557,15 +557,15 @@ declare namespace installer {
      * @param { string } bundleName - Indicates the bundle name of the application to be uninstalled.
      * @param { InstallParam } installParam - Indicates other parameters required for the uninstall.
      * @param { AsyncCallback<void> } callback - The callback of uninstalling application result.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.UNINSTALL_BUNDLE'.
+     * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700001 - The specified bundle name is not found.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @throws { BusinessError } 17700020 - The specified bundle is a pre-installed bundle and cannot be uninstalled.
      * @throws { BusinessError } 17700040 - The specified bundle is a shared bundle and cannot be uninstalled.
      * @throws { BusinessError } 17700045 - Failed to uninstall the HAP because uninstall is not allowed by the enterprise device management.
-     * @throws { BusinessError } 17700067 - Failed to uninstall the HAP because uninstall the native package failed.
+     * @throws { BusinessError } 17700067 - Failed to uninstall the HAP because uninstalling the native package failed.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12
@@ -582,9 +582,9 @@ declare namespace installer {
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700001 - The specified bundle name is not found.
-     * @throws { BusinessError } 17700020 - The specified bundle is pre-installed bundle which cannot be uninstalled.
-     * @throws { BusinessError } 17700040 - The specified bundle is a shared bundle which cannot be uninstalled.
-     * @throws { BusinessError } 17700045 - Failed to uninstall because enterprise device management disallow uninstall.
+     * @throws { BusinessError } 17700020 - The specified bundle is a pre-installed bundle and cannot be uninstalled.
+     * @throws { BusinessError } 17700040 - The specified bundle is a shared bundle and cannot be uninstalled.
+     * @throws { BusinessError } 17700045 - Failed to uninstall the HAP because uninstall is not allowed by the enterprise device management.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -595,14 +595,14 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
      * @param { string } bundleName - Indicates the bundle name of the application to be uninstalled.
      * @param { AsyncCallback<void> } callback - The callback of uninstalling application result.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.UNINSTALL_BUNDLE'.
+     * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700001 - The specified bundle name is not found.
      * @throws { BusinessError } 17700020 - The specified bundle is a pre-installed bundle and cannot be uninstalled.
      * @throws { BusinessError } 17700040 - The specified bundle is a shared bundle and cannot be uninstalled.
-     * @throws { BusinessError } 17700045 - Failed to uninstall the HAP because enterprise device management disallow uninstall.
-     * @throws { BusinessError } 17700067 - Failed to uninstall the HAP because uninstall the native package failed.
+     * @throws { BusinessError } 17700045 - Failed to uninstall the HAP because uninstall is not allowed by the enterprise device management.
+     * @throws { BusinessError } 17700067 - Failed to uninstall the HAP because uninstalling the native package failed.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12
@@ -621,9 +621,9 @@ declare namespace installer {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700001 - The specified bundle name is not found.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
-     * @throws { BusinessError } 17700020 - The specified bundle is pre-installed bundle which cannot be uninstalled.
-     * @throws { BusinessError } 17700040 - The specified bundle is a shared bundle which cannot be uninstalled.
-     * @throws { BusinessError } 17700045 - Failed to uninstall because enterprise device management disallow uninstall.
+     * @throws { BusinessError } 17700020 - The specified bundle is a pre-installed bundle and cannot be uninstalled.
+     * @throws { BusinessError } 17700040 - The specified bundle is a shared bundle and cannot be uninstalled.
+     * @throws { BusinessError } 17700045 - Failed to uninstall the HAP because uninstall is not allowed by the enterprise device management.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -635,15 +635,15 @@ declare namespace installer {
      * @param { string } bundleName - Indicates the bundle name of the application to be uninstalled.
      * @param { InstallParam } installParam - Indicates other parameters required for the uninstall.
      * @returns { Promise<void> }
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.UNINSTALL_BUNDLE'.
+     * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700001 - The specified bundle name is not found.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @throws { BusinessError } 17700020 - The specified bundle is a pre-installed bundle and cannot be uninstalled.
      * @throws { BusinessError } 17700040 - The specified bundle is a shared bundle and cannot be uninstalled.
-     * @throws { BusinessError } 17700045 - Failed to uninstall the HAP because enterprise device management disallow uninstall.
-     * @throws { BusinessError } 17700067 - Failed to uninstall the HAP because uninstall the native package failed.
+     * @throws { BusinessError } 17700045 - Failed to uninstall the HAP because uninstall is not allowed by the enterprise device management.
+     * @throws { BusinessError } 17700067 - Failed to uninstall the HAP because uninstalling the native package failed.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12
@@ -711,29 +711,12 @@ declare namespace installer {
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.UNINSTALL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
-     * @throws { BusinessError } 17700020 - The specified bundle is pre-installed bundle which cannot be uninstalled.
+     * @throws { BusinessError } 17700020 - The specified bundle is a pre-installed bundle and cannot be uninstalled.
      * @throws { BusinessError } 17700037 - The version of shared bundle is dependent on other applications.
      * @throws { BusinessError } 17700038 - The specified shared bundle does not exist.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10
-     */
-     /**
-     * Uninstall a shared bundle.
-     *
-     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
-     * @param { UninstallParam } uninstallParam - Indicates parameters required for the uninstall.
-     * @param { AsyncCallback<void> } callback - The callback of uninstalling shared bundle result.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
-     * @throws { BusinessError } 17700020 - The specified bundle is a pre-installed bundle and cannot be uninstalled.
-     * @throws { BusinessError } 17700037 - The version of shared bundle is dependent on other applications.
-     * @throws { BusinessError } 17700038 - The specified shared bundle does not exist.
-     * @throws { BusinessError } 17700067 - Failed to uninstall the HAP because uninstall the native package failed.
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @systemapi
-     * @since 12
      */
     uninstall(uninstallParam: UninstallParam, callback: AsyncCallback<void>): void;
 
@@ -746,29 +729,12 @@ declare namespace installer {
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.UNINSTALL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
-     * @throws { BusinessError } 17700020 - The specified bundle is pre-installed bundle which cannot be uninstalled.
+     * @throws { BusinessError } 17700020 - The specified bundle is a pre-installed bundle and cannot be uninstalled.
      * @throws { BusinessError } 17700037 - The version of shared bundle is dependent on other applications.
      * @throws { BusinessError } 17700038 - The specified shared bundle does not exist.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10
-     */
-    /**
-     * Uninstall a shared bundle.
-     *
-     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
-     * @param { UninstallParam } uninstallParam - Indicates parameters required for the uninstall.
-     * @returns { Promise<void> }
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
-     * @throws { BusinessError } 17700020 - The specified bundle is a pre-installed bundle and cannot be uninstalled.
-     * @throws { BusinessError } 17700037 - The version of shared bundle is dependent on other applications.
-     * @throws { BusinessError } 17700038 - The specified shared bundle does not exist.
-     * @throws { BusinessError } 17700067 - Failed to uninstall the HAP because uninstall the native package failed.
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @systemapi
-     * @since 12
      */
     uninstall(uninstallParam: UninstallParam): Promise<void>;
 
