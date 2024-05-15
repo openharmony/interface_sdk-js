@@ -65,6 +65,7 @@ declare namespace systemDateTime {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types;
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
+   * @deprecated since 12
    */
   function getCurrentTime(isNano: boolean, callback: AsyncCallback<number>): void;
 
@@ -75,6 +76,7 @@ declare namespace systemDateTime {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types;
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
+   * @deprecated since 12
    */
   function getCurrentTime(callback: AsyncCallback<number>): void;
 
@@ -86,6 +88,7 @@ declare namespace systemDateTime {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types;
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
+   * @deprecated since 12
    */
   function getCurrentTime(isNano?: boolean): Promise<number>;
 
@@ -107,6 +110,7 @@ declare namespace systemDateTime {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types;
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
+   * @deprecated since 12
    */
   function getRealActiveTime(isNano: boolean, callback: AsyncCallback<number>): void;
 
@@ -117,6 +121,7 @@ declare namespace systemDateTime {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types;
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
+   * @deprecated since 12
    */
   function getRealActiveTime(callback: AsyncCallback<number>): void;
 
@@ -128,6 +133,7 @@ declare namespace systemDateTime {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types;
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
+   * @deprecated since 12
    */
   function getRealActiveTime(isNano?: boolean): Promise<number>;
 
@@ -139,6 +145,7 @@ declare namespace systemDateTime {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types;
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
+   * @deprecated since 12
    */
   function getRealTime(isNano: boolean, callback: AsyncCallback<number>): void;
 
@@ -149,6 +156,7 @@ declare namespace systemDateTime {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types;
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
+   * @deprecated since 12
    */
   function getRealTime(callback: AsyncCallback<number>): void;
 
@@ -160,6 +168,7 @@ declare namespace systemDateTime {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types;
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
+   * @deprecated since 12
    */
   function getRealTime(isNano?: boolean): Promise<number>;
 
