@@ -18,8 +18,6 @@
  * @kit ArkGraphics2D
  */
 
-import { AsyncCallback } from './@ohos.base';
-
 /**
  * Color space manager.
  *
