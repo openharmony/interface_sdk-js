@@ -294,14 +294,6 @@ export declare class ContentItem {
   icon?: ResourceStr;
   
   /**
-   * Image modifier for icon.
-   * @type { ImageModifier }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 12
-   */
-  iconModifier?: ImageModifier;
-
-  /**
    * Sets the primaryText.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -316,14 +308,6 @@ export declare class ContentItem {
    */
   primaryText?: ResourceStr;
   
-  /**
-   * Text modifier for primaryText.
-   * @type { TextModifier }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 12
-   */
-  primaryTextModifier?: TextModifier;
-
   /**
    * Sets the secondaryText.
    * @type { ?ResourceStr }
@@ -340,14 +324,6 @@ export declare class ContentItem {
   secondaryText?: ResourceStr;
   
   /**
-   * Text modifier for secondaryText.
-   * @type { TextModifier }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 12
-   */
-  secondaryTextModifier?: TextModifier;
-
-  /**
    * Sets the description.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -361,6 +337,30 @@ export declare class ContentItem {
    * @since 11
    */
   description?: ResourceStr;
+  
+  /**
+   * Image modifier for icon.
+   * @type { ImageModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  iconModifier?: ImageModifier;
+  
+  /**
+   * Text modifier for primaryText.
+   * @type { TextModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  primaryTextModifier?: TextModifier;
+  
+  /**
+   * Text modifier for secondaryText.
+   * @type { TextModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  secondaryTextModifier?: TextModifier;
   
   /**
    * Text modifier for description.
