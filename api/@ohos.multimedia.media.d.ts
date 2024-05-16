@@ -2050,9 +2050,9 @@ declare namespace media {
      * Set Media Mime Type to help player handle extended Media source.
      * @since 12
      * @syscap SystemCapability.Multimedia.Core
-     * @param mimeType for MediaSource define. see @ AVMIMETypes.
+     * @param mimeType for MediaSource define. see @ AVMimeTypes.
      */
-    setMimeType(MIMEType:AVMIMETypes):void;
+    setMimeType(MIMEType:AVMimeTypes):void;
   }
 
   /**
@@ -2060,7 +2060,7 @@ declare namespace media {
    * @since 12
    * @syscap SystemCapability.Multimedia.Core
    */
-  enum AVMIMETypes {
+  enum AVMimeTypes {
     /**
      * Indicate current file is index file for hls Media.
      * @since 12
