@@ -2046,10 +2046,26 @@ declare namespace media {
    * @since 12
    */
   interface MediaSource {
+    /**
+     * Set Media Mime Type to help player handle extended Media source.
+     * @since 12
+     * @syscap SystemCapability.Multimedia.Core
+     * @param mimeType for MediaSource define. see @ AVMIMETypes.
+     */
     setMimeType(MIMEType:AVMIMETypes):void;
   }
 
+  /**
+   * Emumerates Media Mime types, used for MediaSource define;
+   * @since 12
+   * @syscap SystemCapability.Multimedia.Core
+   */
   enum AVMIMETypes {
+    /**
+     * Indicate current file is index file for hls Media.
+     * @since 12
+     * @syscap SystemCapability.Multimedia.Core
+     */
     APPLICATION_M3U8 = 'application/m3u8'
   }
   /**
