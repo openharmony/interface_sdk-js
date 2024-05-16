@@ -139,11 +139,11 @@ declare namespace hiSysEvent {
    * @throws {BusinessError} 11200001 - Invalid event domain.
    * @throws {BusinessError} 11200002 - Invalid event name.
    * @throws {BusinessError} 11200003 - Abnormal environment.
-   * @throws {BusinessError} 11200004 - Length of the event is over limit.
+   * @throws {BusinessError} 11200004 - The event length exceeds the limit.
    * @throws {BusinessError} 11200051 - Invalid event parameter.
-   * @throws {BusinessError} 11200052 - Size of the event parameter of the string type is over limit.
-   * @throws {BusinessError} 11200053 - Count of event parameters is over limit.
-   * @throws {BusinessError} 11200054 - Count of event parameter of the array type is over limit.
+   * @throws {BusinessError} 11200052 - The size of the event parameter of the string type exceeds the limit.
+   * @throws {BusinessError} 11200053 - The number of event parameters exceeds the limit.
+   * @throws {BusinessError} 11200054 - The number of event parameters of the array type exceeds the limit.
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 9
@@ -162,11 +162,11 @@ declare namespace hiSysEvent {
    * @throws {BusinessError} 11200001 - Invalid event domain.
    * @throws {BusinessError} 11200002 - Invalid event name.
    * @throws {BusinessError} 11200003 - Abnormal environment.
-   * @throws {BusinessError} 11200004 - Length of the event is over limit.
+   * @throws {BusinessError} 11200004 - The event length exceeds the limit.
    * @throws {BusinessError} 11200051 - Invalid event parameter.
-   * @throws {BusinessError} 11200052 - Size of the event parameter of the string type is over limit.
-   * @throws {BusinessError} 11200053 - Count of event parameters is over limit.
-   * @throws {BusinessError} 11200054 - Count of event parameter of the array type is over limit.
+   * @throws {BusinessError} 11200052 - The size of the event parameter of the string type exceeds the limit.
+   * @throws {BusinessError} 11200053 - The number of event parameters exceeds the limit.
+   * @throws {BusinessError} 11200054 - The number of event parameters of the array type exceeds the limit.
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 9
@@ -436,8 +436,8 @@ declare namespace hiSysEvent {
    *                         1. Mandatory parameters are left unspecified.
    *                         2. Incorrect parameter types.
    *                         3. Parameter verification failed.
-   * @throws {BusinessError} 11200101 - Count of watchers is over limit.
-   * @throws {BusinessError} 11200102 - Count of watch rules is over limit.
+   * @throws {BusinessError} 11200101 - The number of watchers exceeds the limit.
+   * @throws {BusinessError} 11200102 - The number of watch rules exceeds the limit.
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 9
@@ -475,10 +475,10 @@ declare namespace hiSysEvent {
    *                         1. Mandatory parameters are left unspecified.
    *                         2. Incorrect parameter types.
    *                         3. Parameter verification failed.
-   * @throws {BusinessError} 11200301 - Count of query rules is over limit.
+   * @throws {BusinessError} 11200301 - The number of query rules exceeds the limit.
    * @throws {BusinessError} 11200302 - Invalid query rule.
-   * @throws {BusinessError} 11200303 - Count of concurrent queriers is over limit.
-   * @throws {BusinessError} 11200304 - Query frequency is over limit.
+   * @throws {BusinessError} 11200303 - The number of concurrent queriers exceeds the limit.
+   * @throws {BusinessError} 11200304 - The query frequency exceeds the limit.
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 9
@@ -498,9 +498,9 @@ declare namespace hiSysEvent {
    *                         1. Mandatory parameters are left unspecified.
    *                         2. Incorrect parameter types.
    *                         3. Parameter verification failed.
-   * @throws {BusinessError} 11200301 - Count of query rules is over limit.
+   * @throws {BusinessError} 11200301 - The number of query rules exceeds the limit.
    * @throws {BusinessError} 11200302 - Invalid query rule.
-   * @throws {BusinessError} 11200304 – Export frequency is over limit.
+   * @throws {BusinessError} 11200304 – The query frequency exceeds the limit.
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 10
@@ -519,7 +519,7 @@ declare namespace hiSysEvent {
    *                         1. Mandatory parameters are left unspecified.
    *                         2. Incorrect parameter types.
    *                         3. Parameter verification failed.
-   * @throws {BusinessError} 11200301 - Count of query rules is over limit.
+   * @throws {BusinessError} 11200301 - The number of query rules exceeds the limit.
    * @throws {BusinessError} 11200302 - Invalid query rule.
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
@@ -537,7 +537,7 @@ declare namespace hiSysEvent {
    *                         1. Mandatory parameters are left unspecified.
    *                         2. Incorrect parameter types.
    *                         3. Parameter verification failed.
-   * @throws {BusinessError} 11200305 – unsubscribe failed.
+   * @throws {BusinessError} 11200305 – Failed to unsubscribe.
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 10
