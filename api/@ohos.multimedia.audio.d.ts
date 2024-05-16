@@ -4462,6 +4462,26 @@ declare namespace audio {
     setChannelBlendMode(mode: ChannelBlendMode): void;
 
     /**
+     * Sets silent and mix with other stream for this stream.
+     * @param { boolean } on - Whether play silent and mix with other streams.
+     *     true: set the silent mode and mix with other streams.
+     *     false: unset the silent mode, current stream will trigger the audio focus internally.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 12
+     */
+    setSilentModeAndMixWithOthers(on: boolean): void;
+
+    /**
+     * Gets silent and mix with other stream status for this stream.
+     * @returns { boolean } Returns silent and mix with other stream status.
+     *     true: current stream is in the silent mode and mix with other streams.
+     *     false: current stream in in the normal playback mode
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 12
+     */
+    getSilentModeAndMixWithOthers(): boolean;
+
+    /**
      * Listens for audio interrupt events. This method uses a callback to get interrupt events. The interrupt event is
      * triggered when audio playback is interrupted.
      * @param { 'audioInterrupt' } type - Type of the event to listen for. Only the audioInterrupt event is supported.
