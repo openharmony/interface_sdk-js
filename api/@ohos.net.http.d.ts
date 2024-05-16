@@ -777,7 +777,7 @@ declare namespace http {
      * @throws { BusinessError } 2300063 - Maximum file size exceeded.
      * @throws { BusinessError } 2300070 - Remote disk full.
      * @throws { BusinessError } 2300073 - Remote file already exists.
-     * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is unaccessible.
+     * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
      * @throws { BusinessError } 2300999 - Unknown error.
@@ -816,7 +816,7 @@ declare namespace http {
      * @throws { BusinessError } 2300063 - Maximum file size exceeded.
      * @throws { BusinessError } 2300070 - Remote disk full.
      * @throws { BusinessError } 2300073 - Remote file already exists.
-     * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is unaccessible.
+     * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
      * @throws { BusinessError } 2300999 - Unknown error.
@@ -856,7 +856,7 @@ declare namespace http {
      * @throws { BusinessError } 2300063 - Maximum file size exceeded.
      * @throws { BusinessError } 2300070 - Remote disk full.
      * @throws { BusinessError } 2300073 - Remote file already exists.
-     * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is unaccessible.
+     * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
      * @throws { BusinessError } 2300999 - Unknown error.
@@ -900,7 +900,7 @@ declare namespace http {
      * @throws { BusinessError } 2300063 - Maximum file size exceeded.
      * @throws { BusinessError } 2300070 - Remote disk full.
      * @throws { BusinessError } 2300073 - Remote file already exists.
-     * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is unaccessible.
+     * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
      * @throws { BusinessError } 2300999 - Unknown error.
@@ -940,7 +940,7 @@ declare namespace http {
      * @throws { BusinessError } 2300063 - Maximum file size exceeded.
      * @throws { BusinessError } 2300070 - Remote disk full.
      * @throws { BusinessError } 2300073 - Remote file already exists.
-     * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is unaccessible.
+     * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
      * @throws { BusinessError } 2300999 - Unknown error.
@@ -981,7 +981,7 @@ declare namespace http {
      * @throws { BusinessError } 2300063 - Maximum file size exceeded.
      * @throws { BusinessError } 2300070 - Remote disk full.
      * @throws { BusinessError } 2300073 - Remote file already exists.
-     * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is unaccessible.
+     * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
      * @throws { BusinessError } 2300999 - Unknown error.
@@ -1025,7 +1025,7 @@ declare namespace http {
      * @throws { BusinessError } 2300063 - Maximum file size exceeded.
      * @throws { BusinessError } 2300070 - Remote disk full.
      * @throws { BusinessError } 2300073 - Remote file already exists.
-     * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is unaccessible.
+     * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
      * @throws { BusinessError } 2300999 - Unknown error.
@@ -1065,7 +1065,7 @@ declare namespace http {
      * @throws { BusinessError } 2300063 - Maximum file size exceeded.
      * @throws { BusinessError } 2300070 - Remote disk full.
      * @throws { BusinessError } 2300073 - Remote file already exists.
-     * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is unaccessible.
+     * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
      * @throws { BusinessError } 2300999 - Unknown error.
@@ -1106,7 +1106,7 @@ declare namespace http {
      * @throws { BusinessError } 2300063 - Maximum file size exceeded.
      * @throws { BusinessError } 2300070 - Remote disk full.
      * @throws { BusinessError } 2300073 - Remote file already exists.
-     * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is unaccessible.
+     * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
      * @throws { BusinessError } 2300999 - Unknown error.
@@ -1150,7 +1150,7 @@ declare namespace http {
      * @throws { BusinessError } 2300063 - Maximum file size exceeded.
      * @throws { BusinessError } 2300070 - Remote disk full.
      * @throws { BusinessError } 2300073 - Remote file already exists.
-     * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is unaccessible.
+     * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
      * @throws { BusinessError } 2300999 - Unknown error.
@@ -1192,7 +1192,7 @@ declare namespace http {
      * @throws { BusinessError } 2300063 - Maximum file size exceeded.
      * @throws { BusinessError } 2300070 - Remote disk full.
      * @throws { BusinessError } 2300073 - Remote file already exists.
-     * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is unaccessible.
+     * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
      * @throws { BusinessError } 2300999 - Unknown error.
@@ -1234,7 +1234,7 @@ declare namespace http {
      * @throws { BusinessError } 2300063 - Maximum file size exceeded.
      * @throws { BusinessError } 2300070 - Remote disk full.
      * @throws { BusinessError } 2300073 - Remote file already exists.
-     * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is unaccessible.
+     * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
      * @throws { BusinessError } 2300999 - Unknown error.
