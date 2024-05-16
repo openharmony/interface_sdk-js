@@ -2046,12 +2046,11 @@ declare namespace media {
    * @since 12
    */
   interface MediaSource {
-    setMimeType(MIMEType:String|AVMIMETypes):void;
+    setMimeType(MIMEType:AVMIMETypes):void;
   }
 
   enum AVMIMETypes {
-    APPLICATION_M3U8 = 'application/m3u8',
-    APPLICATION_DASH = 'application/dash'
+    APPLICATION_M3U8 = 'application/m3u8'
   }
   /**
    * Provides preferred playback settings for player.
