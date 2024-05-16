@@ -34,7 +34,7 @@ declare namespace asset {
    * @returns { Promise<void> } the promise object returned by the function.
    * @throws { BusinessError } 201 - The caller doesn't have the permission.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
    * @throws { BusinessError } 24000003 - The asset already exists.
    * @throws { BusinessError } 24000005 - The screen lock status does not match.
@@ -63,7 +63,7 @@ declare namespace asset {
    * @throws { BusinessError } 201 - The caller doesn't have the permission.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
    * @throws { BusinessError } 24000003 - The asset already exists.
    * @throws { BusinessError } 24000005 - The screen lock status does not match.
@@ -89,7 +89,7 @@ declare namespace asset {
    * @param { AssetMap } attributes - a map object containing attributes of the Asset to be added.
    * @throws { BusinessError } 201 - The caller doesn't have the permission.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
    * @throws { BusinessError } 24000003 - The asset already exists.
    * @throws { BusinessError } 24000005 - The screen lock status does not match.
@@ -114,7 +114,7 @@ declare namespace asset {
    * @param { AssetMap } query - a map object containing attributes of the Asset to be removed.
    * @returns { Promise<void> } the promise object returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter
-   * verification failed.
+   *     verification failed.
    * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
    * @throws { BusinessError } 24000002 - The asset is not found.
    * @throws { BusinessError } 24000006 - Insufficient memory.
@@ -134,13 +134,13 @@ declare namespace asset {
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { number } userId - the user identifier to remove one or more Assets. The user identifier cannot be lower
-   * than 100.
+   *     than 100.
    * @param { AssetMap } query - a map object containing attributes of the Asset to be removed.
    * @returns { Promise<void> } the promise object returned by the function.
    * @throws { BusinessError } 201 - The caller doesn't have the permission.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter
-   * verification failed.
+   *     verification failed.
    * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
    * @throws { BusinessError } 24000002 - The asset is not found.
    * @throws { BusinessError } 24000006 - Insufficient memory.
@@ -161,7 +161,7 @@ declare namespace asset {
    *
    * @param { AssetMap } query - a map object containing attributes of the Asset to be removed.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter
-   * verification failed.
+   *     verification failed.
    * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
    * @throws { BusinessError } 24000002 - The asset is not found.
    * @throws { BusinessError } 24000006 - Insufficient memory.
@@ -183,7 +183,7 @@ declare namespace asset {
    * @param { AssetMap } attributesToUpdate - a map object containing attributes with new values.
    * @returns { Promise<void> } the promise object returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
    * @throws { BusinessError } 24000002 - The asset is not found.
    * @throws { BusinessError } 24000005 - The screen lock status does not match.
@@ -212,7 +212,7 @@ declare namespace asset {
    * @throws { BusinessError } 201 - The caller doesn't have the permission.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
    * @throws { BusinessError } 24000002 - The asset is not found.
    * @throws { BusinessError } 24000005 - The screen lock status does not match.
@@ -237,7 +237,7 @@ declare namespace asset {
    * @param { AssetMap } query - a map object containing attributes of the Asset to be updated.
    * @param { AssetMap } attributesToUpdate - a map object containing attributes with new values.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
    * @throws { BusinessError } 24000002 - The asset is not found.
    * @throws { BusinessError } 24000005 - The screen lock status does not match.
@@ -261,7 +261,7 @@ declare namespace asset {
    * @param { AssetMap } query - a map object containing attributes of the Asset to be queried.
    * @returns { Promise<Uint8Array> } the promise object returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter
-   * verification failed.
+   *     verification failed.
    * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
    * @throws { BusinessError } 24000002 - The asset is not found.
    * @throws { BusinessError } 24000005 - The screen lock status does not match.
@@ -286,13 +286,13 @@ declare namespace asset {
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { number } userId - the user identifier to pre-query one or more Assets. The user identifier cannot be
-   * lower than 100.
+   *     lower than 100.
    * @param { AssetMap } query - a map object containing attributes of the Asset to be queried.
    * @returns { Promise<Uint8Array> } the promise object returned by the function.
    * @throws { BusinessError } 201 - The caller doesn't have the permission.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter
-   * verification failed.
+   *     verification failed.
    * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
    * @throws { BusinessError } 24000002 - The asset is not found.
    * @throws { BusinessError } 24000005 - The screen lock status does not match.
@@ -318,7 +318,7 @@ declare namespace asset {
    * @param { AssetMap } query - a map object containing attributes of the Asset to be queried.
    * @returns { Uint8Array } the challenge value to be used when {@link querySync} is called.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter
-   * verification failed.
+   *     verification failed.
    * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
    * @throws { BusinessError } 24000002 - The asset is not found.
    * @throws { BusinessError } 24000005 - The screen lock status does not match.
@@ -343,7 +343,7 @@ declare namespace asset {
    * @param { AssetMap } query - a map object containing attributes of the Asset to be queried.
    * @returns { Promise<Array<AssetMap>> } the promise object returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter
-   * verification failed.
+   *     verification failed.
    * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
    * @throws { BusinessError } 24000002 - The asset is not found.
    * @throws { BusinessError } 24000004 - Access denied.
@@ -367,13 +367,13 @@ declare namespace asset {
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { number } userId - the user identifier to query one or more Assets. The user identifier cannot be lower
-   * than 100.
+   *     than 100.
    * @param { AssetMap } query - a map object containing attributes of the Asset to be queried.
    * @returns { Promise<Array<AssetMap>> } the promise object returned by the function.
    * @throws { BusinessError } 201 - The caller doesn't have the permission.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter
-   * verification failed.
+   *     verification failed.
    * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
    * @throws { BusinessError } 24000002 - The asset is not found.
    * @throws { BusinessError } 24000004 - Access denied.
@@ -399,7 +399,7 @@ declare namespace asset {
    * @param { AssetMap } query - a map object containing attributes of the Asset to be queried.
    * @returns { Array<AssetMap> } the query result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter
-   * verification failed.
+   *     verification failed.
    * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
    * @throws { BusinessError } 24000002 - The asset is not found.
    * @throws { BusinessError } 24000004 - Access denied.
@@ -424,7 +424,7 @@ declare namespace asset {
    * @param { AssetMap } handle - a map object containing the handle returned by {@link preQuery}.
    * @returns { Promise<void> } the promise object returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
    * @throws { BusinessError } 24000006 - Insufficient memory.
    * @throws { BusinessError } 24000010 - IPC failed.
@@ -442,13 +442,13 @@ declare namespace asset {
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { number } userId - the user identifier to post-query one or more Assets. The user identifier cannot be
-   * lower than 100.
+   *     lower than 100.
    * @param { AssetMap } handle - a map object containing the handle returned by {@link preQueryAsUser}.
    * @returns { Promise<void> } the promise object returned by the function.
    * @throws { BusinessError } 201 - The caller doesn't have the permission.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
    * @throws { BusinessError } 24000006 - Insufficient memory.
    * @throws { BusinessError } 24000010 - IPC failed.
@@ -466,7 +466,7 @@ declare namespace asset {
    *
    * @param { AssetMap } handle - a map object containing the handle returned by {@link preQuerySync}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
    * @throws { BusinessError } 24000006 - Insufficient memory.
    * @throws { BusinessError } 24000010 - IPC failed.
