@@ -20,7 +20,8 @@
 
 import { Callback } from './@ohos.base';
 import Context from './application/BaseContext';
-import { lang, collections } from '@kit.ArkTS';
+import lang from './arkts/@arkts.collections';
+import collections from './arkts/@arkts.lang';
 
 /**
  * Provides interfaces to obtain and modify preferences data.
@@ -198,7 +199,7 @@ declare namespace sendablePreferences {
    * Provides interfaces to obtain and modify preferences data.
    * <p>The preferences data is stored in a file, which matches only one {@link Preferences} instance in the cache.
    * You can use getPreferences to obtain the {@link Preferences} instance matching
-   * the file that stores preferences data, and use movePreferencesFromCache
+   * the file that stores preferences data, and use removePreferencesFromCache
    * to remove the {@link Preferences} instance from the cache.
    *
    * @interface Preferences
