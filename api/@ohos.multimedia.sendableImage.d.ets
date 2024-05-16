@@ -29,7 +29,6 @@ import collections from '../arkts/@arkts.collections';
  * @namespace sendableImage
  * @syscap SystemCapability.Multimedia.Image.Core
  * @crossplatform
- * @form
  * @atomicservice
  * @since 12
  */
@@ -132,7 +131,6 @@ declare namespace sendableImage {
    * @typedef PixelMap
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
-   * @form
    * @atomicservice
    * @since 12
    */
@@ -143,7 +141,6 @@ declare namespace sendableImage {
      * @type { boolean }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @form
      * @atomicservice
      * @since 12
      */
@@ -158,7 +155,6 @@ declare namespace sendableImage {
      * If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @form
      * @atomicservice
      * @since 12
      */
@@ -173,7 +169,6 @@ declare namespace sendableImage {
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @form
      * @atomicservice
      * @since 12
      */
@@ -187,7 +182,6 @@ declare namespace sendableImage {
      * If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @form
      * @atomicservice
      * @since 12
      */
@@ -216,7 +210,6 @@ declare namespace sendableImage {
      * If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @form
      * @atomicservice
      * @since 12
      */
@@ -231,7 +224,6 @@ declare namespace sendableImage {
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @form
      * @atomicservice
      * @since 12
      */
@@ -246,7 +238,6 @@ declare namespace sendableImage {
      * If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @form
      * @atomicservice
      * @since 12
      */
@@ -273,7 +264,6 @@ declare namespace sendableImage {
      * If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @form
      * @atomicservice
      * @since 12
      */
@@ -286,7 +276,6 @@ declare namespace sendableImage {
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @form
      * @atomicservice
      * @since 12
      */
@@ -298,7 +287,6 @@ declare namespace sendableImage {
      * @returns { number } Number of bytes in each line.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @form
      * @atomicservice
      * @since 12
      */
@@ -310,7 +298,6 @@ declare namespace sendableImage {
      * @returns { number } Total number of bytes.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @form
      * @atomicservice
      * @since 12
      */
@@ -322,7 +309,6 @@ declare namespace sendableImage {
      * @returns { number } The number of density.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @form
      * @atomicservice
      * @since 12
      */
@@ -336,7 +322,6 @@ declare namespace sendableImage {
      * If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @form
      * @atomicservice
      * @since 12
      */
@@ -363,7 +348,6 @@ declare namespace sendableImage {
      * If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @form
      * @atomicservice
      * @since 12
      */
@@ -392,7 +376,6 @@ declare namespace sendableImage {
      * If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @form
      * @atomicservice
      * @since 12
      */
@@ -422,7 +405,6 @@ declare namespace sendableImage {
      * If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @form
      * @atomicservice
      * @since 12
      */
@@ -451,7 +433,6 @@ declare namespace sendableImage {
      * If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @form
      * @atomicservice
      * @since 12
      */
@@ -480,7 +461,6 @@ declare namespace sendableImage {
      * If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @form
      * @atomicservice
      * @since 12
      */
@@ -509,7 +489,6 @@ declare namespace sendableImage {
      * If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @form
      * @atomicservice
      * @since 12
      */
@@ -599,7 +578,6 @@ declare namespace sendableImage {
      * If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @form
      * @atomicservice
      * @since 12
      */
