@@ -115,7 +115,8 @@
     "API_DOC_GLOBAL_01": "JSDoc tag validity verification failed. Please confirm if the [file] tag is missing.",
     "API_DOC_GLOBAL_02": "JSDoc tag validity verification failed. Please confirm if the [kit] tag is missing.",
     "API_DOC_JSDOC_01": "Jsdoc needs to be added to the current API.",
-    "API_DOC_JSDOC_02": "JSDoc tag validity verification failed. Please confirm if the [since] tag is missing.JSDoc tag validity verification failed. Please confirm if the [syscap] tag is missing."
+    "API_DOC_JSDOC_02": "JSDoc tag validity verification failed. Please confirm if the [since] tag is missing.JSDoc tag validity verification failed. Please confirm if the [syscap] tag is missing.",
+    "API_DOC_JSDOC_03": "Jsdoc has chinese"
   },
   "DEFINE": {
     "API_DEFINE_UNALLOWABLE_01": "Illegal [any] keyword used in the API.",
