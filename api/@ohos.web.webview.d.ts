@@ -1649,7 +1649,7 @@ declare namespace webview {
     /**
      * Get the string value of the web message.
      * @returns { string } - Returns data of string type
-     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
@@ -1657,7 +1657,7 @@ declare namespace webview {
     /**
      * Get the string value of the web message.
      * @returns { string } - Returns data of string type
-     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -1668,7 +1668,7 @@ declare namespace webview {
     /**
      * Get the number value of the web message.
      * @returns { number } - Returns data of number type
-     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
@@ -1676,7 +1676,7 @@ declare namespace webview {
     /**
      * Get the number value of the web message.
      * @returns { number } - Returns data of number type
-     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -1687,7 +1687,7 @@ declare namespace webview {
     /**
      * Get the boolean value of the web message.
      * @returns { boolean } - Returns data of Boolean type
-     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
@@ -1695,7 +1695,7 @@ declare namespace webview {
     /**
      * Get the boolean value of the web message.
      * @returns { boolean } - Returns data of Boolean type
-     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -1706,7 +1706,7 @@ declare namespace webview {
     /**
      * Get the array buffer value of the web message.
      * @returns { ArrayBuffer } - Returns data of ArrayBuffer type
-     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
@@ -1714,7 +1714,7 @@ declare namespace webview {
     /**
      * Get the array buffer value of the web message.
      * @returns { ArrayBuffer } - Returns data of ArrayBuffer type
-     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -1725,7 +1725,7 @@ declare namespace webview {
     /**
      * Get the array value of the web message.
      * @returns { Array<string | number | boolean> } - Returns data of Array type
-     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
@@ -1733,7 +1733,7 @@ declare namespace webview {
     /**
      * Get the array value of the web message.
      * @returns { Array<string | number | boolean> } - Returns data of Array type
-     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -1744,7 +1744,7 @@ declare namespace webview {
     /**
      * Get the error value of the web message.
      * @returns { Error } - Returns data of Error type
-     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
@@ -1752,7 +1752,7 @@ declare namespace webview {
     /**
      * Get the error value of the web message.
      * @returns { Error } - Returns data of Error type
-     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -1764,7 +1764,7 @@ declare namespace webview {
      * Set the type of the web message.
      * @param { WebMessageType } type - set WebMessageType type data
      * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
@@ -1773,7 +1773,7 @@ declare namespace webview {
      * Set the type of the web message.
      * @param { WebMessageType } type - set WebMessageType type data
      * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -1785,7 +1785,7 @@ declare namespace webview {
      * Set the string value of the web message.
      * @param { string } message - set string type data
      * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
@@ -1794,7 +1794,7 @@ declare namespace webview {
      * Set the string value of the web message.
      * @param { string } message - set string type data
      * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -1806,7 +1806,7 @@ declare namespace webview {
      * Set the number value of the web message.
      * @param { number } message - set number type data
      * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
@@ -1815,7 +1815,7 @@ declare namespace webview {
      * Set the number value of the web message.
      * @param { number } message - set number type data
      * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -1827,7 +1827,7 @@ declare namespace webview {
      * Set the boolean value of the web message.
      * @param { boolean } message - set boolean type data
      * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
@@ -1836,7 +1836,7 @@ declare namespace webview {
      * Set the boolean value of the web message.
      * @param { boolean } message - set boolean type data
      * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -1848,7 +1848,7 @@ declare namespace webview {
      * Set the array buffer value of the web message.
      * @param { ArrayBuffer } message - set ArrayBuffer type data
      * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
@@ -1857,7 +1857,7 @@ declare namespace webview {
      * Set the array buffer value of the web message.
      * @param { ArrayBuffer } message - set ArrayBuffer type data
      * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -1869,7 +1869,7 @@ declare namespace webview {
      * Set the array value of the web message.
      * @param { Array<string | number | boolean> } message - set Array type data
      * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
      */
@@ -1877,7 +1877,7 @@ declare namespace webview {
      * Set the array value of the web message.
      * @param { Array<string | number | boolean> } message - set Array type data
      * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -1888,7 +1888,7 @@ declare namespace webview {
      * Set the error value of the web message.
      * @param { Error } message - set Error type data
      * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
@@ -1897,7 +1897,7 @@ declare namespace webview {
      * Set the error value of the web message.
      * @param { Error } message - set Error type data
      * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -1976,7 +1976,7 @@ declare namespace webview {
      * Post a message to other port.
      * @param { WebMessage } message - Message to send.
      * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100010 - Can not post message using this port.
+     * @throws { BusinessError } 17100010 - Failed to post messages through the port.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      */
@@ -1984,7 +1984,7 @@ declare namespace webview {
      * Post a message to other port.
      * @param { WebMessage } message - Message to send.
      * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100010 - Can not post message using this port.
+     * @throws { BusinessError } 17100010 - Failed to post messages through the port.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
@@ -1996,7 +1996,7 @@ declare namespace webview {
      * Receive message from other port.
      * @param { function } callback - Callback function for receiving messages.
      * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100006 - Can not register message event using this port.
+     * @throws { BusinessError } 17100006 - Failed to register a message event for the port.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      */
@@ -2004,7 +2004,7 @@ declare namespace webview {
      * Receive message from other port.
      * @param { function } callback - Callback function for receiving messages.
      * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100006 - Can not register message event using this port.
+     * @throws { BusinessError } 17100006 - Failed to register a message event for the port.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
@@ -2016,7 +2016,7 @@ declare namespace webview {
      * Post a message to other port.
      * @param { WebMessageExt } message - Message to send.
      * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100010 - Can not post message using this port.
+     * @throws { BusinessError } 17100010 - Failed to post messages through the port.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
      */
@@ -2024,7 +2024,7 @@ declare namespace webview {
      * Post a message to other port.
      * @param { WebMessageExt } message - Message to send.
      * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100010 - Can not post message using this port.
+     * @throws { BusinessError } 17100010 - Failed to post messages through the port.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -2035,7 +2035,7 @@ declare namespace webview {
      * Receive message from other port.
      * @param { function } callback - Callback function for receiving messages.
      * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100006 - Can not register message event using this port.
+     * @throws { BusinessError } 17100006 - Failed to register a message event for the port.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
      */
@@ -2043,7 +2043,7 @@ declare namespace webview {
      * Receive message from other port.
      * @param { function } callback - Callback function for receiving messages.
      * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100006 - Can not register message event using this port.
+     * @throws { BusinessError } 17100006 - Failed to register a message event for the port.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -2406,14 +2406,14 @@ declare namespace webview {
     /**
      * Get the string value of the JavaScript code execution result.
      * @returns { string } - Returns data of string type
-     * @throws { BusinessError } 17100014 - The type does not match with the value of the result.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
      */
     /**
      * Get the string value of the JavaScript code execution result.
      * @returns { string } - Returns data of string type
-     * @throws { BusinessError } 17100014 - The type does not match with the value of the result.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -2423,14 +2423,14 @@ declare namespace webview {
     /**
      * Get the number value of the JavaScript code execution result.
      * @returns { number } - Returns data of number type
-     * @throws { BusinessError } 17100014 - The type does not match with the value of the result.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
      */
     /**
      * Get the number value of the JavaScript code execution result.
      * @returns { number } - Returns data of number type
-     * @throws { BusinessError } 17100014 - The type does not match with the value of the result.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -2440,14 +2440,14 @@ declare namespace webview {
     /**
      * Get the boolean value of the JavaScript code execution result.
      * @returns { boolean } - Returns data of Boolean type
-     * @throws { BusinessError } 17100014 - The type does not match with the value of the result.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
      */
     /**
      * Get the boolean value of the JavaScript code execution result.
      * @returns { boolean } - Returns data of Boolean type
-     * @throws { BusinessError } 17100014 - The type does not match with the value of the result.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -2457,14 +2457,14 @@ declare namespace webview {
     /**
      * Get the array buffer value of the JavaScript code execution result.
      * @returns { ArrayBuffer } - Returns data of ArrayBuffer
-     * @throws { BusinessError } 17100014 - The type does not match with the value of the result.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
      */
     /**
      * Get the array buffer value of the JavaScript code execution result.
      * @returns { ArrayBuffer } - Returns data of ArrayBuffer
-     * @throws { BusinessError } 17100014 - The type does not match with the value of the result.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -2474,14 +2474,14 @@ declare namespace webview {
     /**
      * Get the array value of the the JavaScript code execution result.
      * @returns { Array<string | number | boolean> } - Returns data of Array type
-     * @throws { BusinessError } 17100014 - The type does not match with the value of the result.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
      */
     /**
      * Get the array value of the the JavaScript code execution result.
      * @returns { Array<string | number | boolean> } - Returns data of Array type
-     * @throws { BusinessError } 17100014 - The type does not match with the value of the result.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -3094,7 +3094,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100004 - Function not enable.
+     * @throws { BusinessError } 17100004 - Function not enabled.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      */
@@ -3105,7 +3105,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100004 - Function not enable.
+     * @throws { BusinessError } 17100004 - Function not enabled.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
@@ -3118,7 +3118,7 @@ declare namespace webview {
      *
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100004 - Function not enable.
+     * @throws { BusinessError } 17100004 - Function not enabled.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      */
@@ -3127,7 +3127,7 @@ declare namespace webview {
      *
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100004 - Function not enable.
+     * @throws { BusinessError } 17100004 - Function not enabled.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -3139,7 +3139,7 @@ declare namespace webview {
      *
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100004 - Function not enable.
+     * @throws { BusinessError } 17100004 - Function not enabled.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      */
@@ -3148,7 +3148,7 @@ declare namespace webview {
      *
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100004 - Function not enable.
+     * @throws { BusinessError } 17100004 - Function not enabled.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -3434,7 +3434,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100008 - Cannot delete JavaScriptProxy.
+     * @throws { BusinessError } 17100008 - Failed to delete JavaScriptProxy because it does not exist.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      */
@@ -3445,7 +3445,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100008 - Cannot delete JavaScriptProxy.
+     * @throws { BusinessError } 17100008 - Failed to delete JavaScriptProxy because it does not exist.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -4063,7 +4063,7 @@ declare namespace webview {
      * Register Web custom schemes.
      * @param { Array<WebCustomScheme> } schemes - Configuration of web custom scheme.
      * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100020 - Register custom schemes failed. 
+     * @throws { BusinessError } 17100020 - Failed to register custom schemes.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5142,7 +5142,7 @@ declare namespace webview {
 
     /**
      * Pause the web download.
-     * @throws { BusinessError } 17100019 - The download has not been started yet.
+     * @throws { BusinessError } 17100019 - The download task is not started yet.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -5153,7 +5153,7 @@ declare namespace webview {
      * Resume the web download.
      * Use WebDownloadManager.resumeDownload to resume deserialized downloads.
      * WebDownloadItem.resume is only used to resume the currently paused download.
-     * @throws { BusinessError } 17100016 - The download is not paused.
+     * @throws { BusinessError } 17100016 - The download task is not paused.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -5282,7 +5282,7 @@ declare namespace webview {
      * Initialize data stream.
      * 
      * @returns { Promise<void> } The promise of data stream is initialized.
-     * @throws { BusinessError } 17100022 - The http body stream init failed.
+     * @throws { BusinessError } 17100022 - Failed to initialize the HTTP body stream.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5764,7 +5764,7 @@ declare namespace webview {
      * 
      * @param { WebSchemeHandlerResponse } response - Set response header to intercept.
      * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100021 - Resource handler is invalid.
+     * @throws { BusinessError } 17100021 - The resource handler is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5775,7 +5775,7 @@ declare namespace webview {
      * 
      * @param { ArrayBuffer } data - Set response body to intercept.
      * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100021 - Resource handler is invalid.
+     * @throws { BusinessError } 17100021 - The resource handler is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5784,7 +5784,7 @@ declare namespace webview {
     /**
      * Notify that this request should be finished and there is no more data available.
      * 
-     * @throws { BusinessError } 17100021 - Resource handler is invalid.
+     * @throws { BusinessError } 17100021 - The resource handler is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5795,7 +5795,7 @@ declare namespace webview {
      * 
      * @param { WebNetErrorList } code - Set response error code to intercept.
      * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100021 - Resource handler is invalid.
+     * @throws { BusinessError } 17100021 - The resource handler is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
