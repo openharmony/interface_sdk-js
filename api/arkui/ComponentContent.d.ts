@@ -67,4 +67,23 @@ export class ComponentContent<T extends Object> extends Content{
    * @since 12
    */
   update(args: T): void;
+
+  /**
+   * Reuse the ComponentContent based on the provided parameters.
+   *
+   * @param { Object } [param] - Parameters for reusing ComponentContent.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  reuse(param?: Object): void;
+
+  /**
+   * Recycle the ComponentContent.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  recycle(): void;
 }
