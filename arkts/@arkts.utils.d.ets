@@ -400,7 +400,7 @@ declare namespace utils {
     /**
      * Converts an ArkTS value to a JavaScript Object Notation (JSON) string.
      *
-     * @param { ISendable } value - The value to stringify.
+     * @param { ISendable | null | undefined } value - The value to stringify.
      * @returns { string } The JSON string representation of the value.
      * @throws { BusinessError } 401 - Parameter error. Invalid ArkTS value.
      * @syscap SystemCapability.Utils.Lang
@@ -408,7 +408,7 @@ declare namespace utils {
      * @atomicservice
      * @since 12
      */
-    function stringify(value: ISendable): string;
+    function stringify(value: ISendable | null | undefined): string;
   }
 }
 export default utils;
