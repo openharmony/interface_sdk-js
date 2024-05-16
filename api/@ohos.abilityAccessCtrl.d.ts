@@ -224,7 +224,7 @@ declare namespace abilityAccessCtrl {
      * <br> The context must belong to the Stage model and only supports UIAbilityContext and UIExtensionContext.
      * @param { Array<Permissions> } permissionList - Indicates the list of permissions to be requested. This parameter cannot be null or empty.
      * @param { AsyncCallback<PermissionRequestResult> } requestCallback Callback for the result from requesting permissions.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12100001 - Invalid Parameter. The context is invalid when it does not belong to the application itself.
      * @syscap SystemCapability.Security.AccessToken
      * @stagemodelonly
