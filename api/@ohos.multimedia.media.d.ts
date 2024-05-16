@@ -2052,7 +2052,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Core
      * @param mimeType for MediaSource define. see @ AVMimeTypes.
      */
-    setMimeType(MIMEType:AVMimeTypes):void;
+    setMimeType(mimeType:AVMimeTypes):void;
   }
 
   /**
