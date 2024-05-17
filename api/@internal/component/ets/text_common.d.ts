@@ -179,6 +179,104 @@ declare interface TextRange {
 }
 
 /**
+ * Defines the inserted text value info.
+ *
+ * @interface InsertValue
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface InsertValue {
+  /**
+   * The location info where the value will be inserted.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  insertOffset: number;
+
+  /**
+   * The inserted value.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  insertValue: string;
+}
+
+/**
+ * Defines delete text direction.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum TextDeleteDirection {
+  /**
+   * Delete backward.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  BACKWARD = 0,
+
+  /**
+   * Delete forward.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  FORWARD = 1,
+}
+
+/**
+ * Provides an interface for deleting value from text.
+ *
+ * @interface DeleteValue
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface DeleteValue {
+  /**
+   * The location info where the value will be deleted.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  deleteOffset: number;
+
+  /**
+   * The deleted direction.
+   *
+   * @type { TextDeleteDirection }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  direction: TextDeleteDirection;
+
+  /**
+   * The deleted value.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  deleteValue: string;
+}
+
+/**
  * Callback after content changed.
  * 
  * @typedef { function } OnDidChangeCallback
