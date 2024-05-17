@@ -18386,6 +18386,17 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Sets accessibilityGroup
+   *
+   * @param { boolean } value - set group with accessibility
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
   accessibilityGroup(value: boolean): T;
 
   /**
@@ -18407,6 +18418,17 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Sets accessibilityText
+   *
+   * @param { string } value - set accessibility text
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
   accessibilityText(value: string): T;
 
   /**
@@ -18416,6 +18438,7 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
    */
@@ -18440,6 +18463,17 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Sets accessibilityDescription
+   *
+   * @param { string } value - set description of accessibility
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
   accessibilityDescription(value: string): T;
 
   /**
@@ -18461,6 +18495,17 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Sets accessibilityLevel
+   *
+   * @param { string } value - set accessibility level
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
   accessibilityLevel(value: string): T;
 
   /**
@@ -18472,6 +18517,17 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Sets accessibilityVirtualNode
+   *
+   * @param { CustomBuilder } builder - set virtual node of accessibility
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
    */
   accessibilityVirtualNode(builder: CustomBuilder): T;
 
