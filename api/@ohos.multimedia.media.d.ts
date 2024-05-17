@@ -2056,7 +2056,7 @@ declare namespace media {
   }
 
   /**
-   * Emumerates Media Mime types, used for MediaSource define;
+   * Enumerates Media Mime types, used for MediaSource define;
    * @enum { string }
    * @syscap SystemCapability.Multimedia.Core
    * @since 12
