@@ -4360,7 +4360,7 @@ declare namespace collections {
      *                                    1.Mandatory parameters are left unspecified.
      *                                    2.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
-     * @throws { BusinessError } 10200011 - The setBitByRange method cannot be bound.
+     * @throws { BusinessError } 10200011 - The setBitsByRange method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -4448,7 +4448,7 @@ declare namespace collections {
      *                                    1.Mandatory parameters are left unspecified.
      *                                    2.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
-     * @throws { BusinessError } 10200011 - The getFirstIndexOfBit method cannot be bound.
+     * @throws { BusinessError } 10200011 - The getIndexOf method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -4468,7 +4468,7 @@ declare namespace collections {
      *                                    1.Mandatory parameters are left unspecified.
      *                                    2.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
-     * @throws { BusinessError } 10200011 - The getLastIndexOfBit method cannot be bound.
+     * @throws { BusinessError } 10200011 - The getLastIndexOf method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -4484,7 +4484,7 @@ declare namespace collections {
      *                                    1.Mandatory parameters are left unspecified.
      *                                    2.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of index is out of range.
-     * @throws { BusinessError } 10200011 - The removeByIndex method cannot be bound.
+     * @throws { BusinessError } 10200011 - The flipBitByIndex method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -4501,7 +4501,7 @@ declare namespace collections {
      *                                    1.Mandatory parameters are left unspecified.
      *                                    2.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
-     * @throws { BusinessError } 10200011 - The removeByRange method cannot be bound.
+     * @throws { BusinessError } 10200011 - The flipBitsByRange method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -4513,7 +4513,7 @@ declare namespace collections {
      * Returns an iterable of values in the bit vector
      *
      * @returns { IterableIterator<number> }  A new iterable iterator object.
-     * @throws { BusinessError } 10200011 - The method cannot be bound.
+     * @throws { BusinessError } 10200011 - The values method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -4521,6 +4521,15 @@ declare namespace collections {
      * @since 12
      */
     values(): IterableIterator<number>;
+    /**
+     * Returns the item at that index.
+     * 
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    [index: number]: number;
   }
 }
 
