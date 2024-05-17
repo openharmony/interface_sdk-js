@@ -195,7 +195,9 @@ declare namespace systemSoundManager {
      * Sets title of tone.
      * @param { string } title - Title of tone.
      * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 401 - The parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
      * @since 12
@@ -216,7 +218,9 @@ declare namespace systemSoundManager {
      * Sets file name of tone.
      * @param { string } name - file name.
      * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 401 - The parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
      * @since 12
@@ -249,7 +253,9 @@ declare namespace systemSoundManager {
      * {@link TONE_CATEGORY_TEXT_MESSAGE}, {@link TONE_CATEGORY_NOTIFICATION}, {@link TONE_CATEGORY_ALARM}.
      * In addition, this parameter can be result of OR logical operator of these constants.
      * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 401 - The parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
      * @since 12
@@ -570,7 +576,9 @@ declare namespace systemSoundManager {
      * @param { string } uri - Alarm tone uri.
      * @returns { Promise<void> } Promise used to return result of set alarm tone.
      * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 401 - The parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 5400103 - I/O error.
      * @throws { BusinessError } 20700001 - Tone type mismatch, e.g. tone of input uri is not an alarm tone.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
@@ -651,7 +659,9 @@ declare namespace systemSoundManager {
      * @returns { Promise<string> } Tone uri after adding into ringtone library.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 401 - The parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 5400102 - Operation is not allowed, e.g. ringtone to add is not customized.
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
@@ -673,7 +683,9 @@ declare namespace systemSoundManager {
      * @returns { Promise<string> } Tone uri after adding into ringtone library.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 401 - The parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 5400102 - Operation is not allowed, e.g. ringtone to add is not customized.
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
@@ -691,7 +703,9 @@ declare namespace systemSoundManager {
      * @returns { Promise<void> } Promise used to return removing result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 401 - The parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 5400102 - Operation is not allowed, e.g. ringtone of this uri is not customized.
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
