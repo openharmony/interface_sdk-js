@@ -118,7 +118,7 @@ declare namespace collections {
    */
   interface ConcatArray<T> extends ISendable {
     /**
-     * Gets the length of the ArkTS ConcatArray. This is a number one higher than the highest index in the ArkTS array.
+     * Gets the length of the ArkTS ConcatArray. This is a number one higher than the highest index in the array.
      * 
      * @type { number }
      * @readonly
@@ -160,7 +160,7 @@ declare namespace collections {
     slice(start?: number, end?: number): ConcatArray<T>;
   }
   /**
-   * Array is a data structure that is implemented based on array. 
+   * Array is a data structure that stores a collection of elements. 
    * If multiple threads access a Array instance concurrently, 
    * and at least one of the threads modifies the array structurally,
    * it must be synchronized externally.
@@ -172,7 +172,7 @@ declare namespace collections {
    * @since 12
    */
   @Sendable
-  class Array<T> implements ConcatArray<T>{
+  class Array<T> implements ConcatArray<T> {
     /**
      * Gets the length of the ArkTS array. This is a number one higher than the highest index in the ArkTS array.
      * 
