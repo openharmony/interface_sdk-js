@@ -189,7 +189,7 @@ declare namespace systemSoundManager {
   /**
    * Array of tone attributes.
    *
-   * @typedef ToneAttrsArray
+   * @typedef {Array<ToneAttrs>} ToneAttrsArray
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 12
@@ -306,7 +306,9 @@ declare namespace systemSoundManager {
      * @param { RingtoneType } type - Ringtone type to get.
      * @returns { Promise<ToneAttrs> } Promise used to return attributes of the default ringtone.
      * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 401 - The parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
@@ -320,7 +322,9 @@ declare namespace systemSoundManager {
      * @param { RingtoneType } type - Ringtone type to get.
      * @returns { Promise<ToneAttrsArray> } Promise used to return attribute list of ringtone.
      * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 401 - The parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
@@ -409,7 +413,9 @@ declare namespace systemSoundManager {
      * @param { SystemToneType } type - system tone type to get.
      * @returns { Promise<ToneAttrs> } Promise used to return attributes of the default system tone.
      * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 401 - The parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
@@ -423,7 +429,9 @@ declare namespace systemSoundManager {
      * @param { SystemToneType } type - System tone type to get.
      * @returns { Promise<ToneAttrsArray> } Promise used to return attribute list of system tone.
      * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 401 - The parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
@@ -452,7 +460,9 @@ declare namespace systemSoundManager {
      * @param { BaseContext } context - Current application context.
      * @returns { Promise<ToneAttrs> } Promise used to return attributes of the default alarm tone.
      * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 401 - The parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
@@ -466,7 +476,9 @@ declare namespace systemSoundManager {
      * @param { BaseContext } context - Current application context.
      * @returns { Promise<string> } Promise used to return uri of current alarm tone.
      * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 401 - The parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
@@ -479,7 +491,9 @@ declare namespace systemSoundManager {
      * @param { BaseContext } context - Current application context.
      * @returns { Promise<ToneAttrsArray> } Promise used to return attribute list of system tone.
      * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 401 - The parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
@@ -493,7 +507,9 @@ declare namespace systemSoundManager {
      * @param { string } uri - Uri of alarm tone to open.
      * @returns { Promise<number> } Promise used to return fd.
      * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 401 - The parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 5400103 - I/O error.
      * @throws { BusinessError } 20700001 - Tone type mismatch, e.g. tone of uri is notification instead of alarm.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
@@ -507,7 +523,9 @@ declare namespace systemSoundManager {
      * @param { number } fd - File descriptor to close.
      * @returns { Promise<void> } Promise used to return the result of close fd.
      * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 401 - The parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
