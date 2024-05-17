@@ -316,7 +316,16 @@ declare enum SliderInteraction {
    * @crossplatform
    * @since 12
    */
-  SLIDE_ONLY
+  SLIDE_ONLY,
+
+  /**
+   * Allow user to slide the block and click track to move the block, but click value only change when touch up.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  SLIDE_AND_CLICK_UP = 2
 }
 
 /**
