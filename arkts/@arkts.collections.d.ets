@@ -4299,6 +4299,260 @@ declare namespace collections {
      */
     [index: number]: number;
   }
+  /**
+   * An ordered collections of bit values, which are either 0 or 1.
+   * If multiple threads access a BitVector instance concurrently, 
+   * and at least one of the threads modifies the array structurally,
+   * it must be synchronized externally. 
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  @Sendable
+  class BitVector {
+    /**
+     * A constructor used to create a BitVector object.
+     *
+     * @param { number } length - The length of BitVector object.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    constructor(length: number);
+    /**
+     * Gets the element number of the BitVector. This is a number one higher than the highest index in the bit vector.
+     * It can be changed by resize().
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @readonly
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    readonly length: number;
+    /**
+     * Appends the bit element to the end of this bit vector.
+     *
+     * @param { number } element - Element to be appended to this bit vector (0 means 0, else means 1).
+     * @returns { boolean } The boolean type, returns true if the addition is successful, and returns false if it fails.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200011 - The push method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    push(element: number): boolean;
+    /**
+     * Retrieves and removes the bit element to the end of this bit vector.
+     *
+     * @returns { number } The boolean type, if the bit push successfully, return true, else return false.
+     * @throws { BusinessError } 10200011 - The pop method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    pop(): number;
+    /**
+     * Check if bit vector contains a particular bit element.
+     *
+     * @param { number } element - Element to be contained (0 means 0, else means 1).
+     * @param { number } fromIndex - The starting position of the index, containing the value at that index position.
+     * @param { number } toIndex - The end of the index, excluding the value at that index.
+     * @returns { boolean } The boolean type, if bit vector contains the specified element, return true,
+                            else return false.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
+     * @throws { BusinessError } 10200011 - The has method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    has(element: number, fromIndex: number, toIndex: number): boolean;
+    /**
+     * Sets a range of bits in a bit vector to a particular element.
+     *
+     * @param { number } element - Element to be set (0 means 0, else means 1).
+     * @param { number } fromIndex - The starting position of the index, containing the value at that index position.
+     * @param { number } toIndex - The end of the index, excluding the value at that index.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
+     * @throws { BusinessError } 10200011 - The setBitByRange method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    setBitsByRange(element: number, fromIndex: number, toIndex: number): void;
+    /**
+     * Sets all of bits in a bit vector to a particular element.
+     *
+     * @param { number } element - Element to be set (0 means 0, else means 1).
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200011 - The setAllBits method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    setAllBits(element: number): void;
+    /**
+     * Returns the bit values in a range of indices in a bit vector.
+     *
+     * @param { number } fromIndex - The starting position of the index, containing the value at that index position.
+     * @param { number } toIndex - The end of the index, excluding the value at that index.
+     * @returns { BitVector } The BitVector type, returns the bit values in a range of indices in a bit vector.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
+     * @throws { BusinessError } 10200011 - The getBitsByRange method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    getBitsByRange(fromIndex: number, toIndex: number): BitVector;
+    /**
+     * Resize the bitVector's length.
+     *
+     * @param { number } size - The new size for bitVector. If count is greater than the current size of bitVector,
+     * the additional bit elements are set to 0.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200011 - The resize method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    resize(size: number): void;
+    /**
+     * Counts the number of times a certain bit element occurs within a range of bits in a bit vector.
+     *
+     * @param { number } element - Element to be counted (0 means 0, else means 1).
+     * @param { number } fromIndex - The starting position of the index, containing the value at that index position.
+     * @param { number } toIndex - The end of the index, excluding the value at that index.
+     * @returns { number } The number type, return the number of times a certain bit element
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
+     * @throws { BusinessError } 10200011 - The getBitCountByRange method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    getBitCountByRange(element: number, fromIndex: number, toIndex: number): number;
+    /**
+     * Locates the first occurrence of a certain bit value within a range of bits in a bit vector.
+     *
+     * @param { number } element - Element to be Located (0 means 0, else means 1).
+     * @param { number } fromIndex - The starting position of the index, containing the value at that index position.
+     * @param { number } toIndex - The end of the index, excluding the value at that index.
+     * @returns { number } The number type, return the first index of specified bit within a range,
+     * or -1 if this range of the bitVector does not contain the element.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
+     * @throws { BusinessError } 10200011 - The getFirstIndexOfBit method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    getIndexOf(element: number, fromIndex: number, toIndex: number): number;
+    /**
+     * Locates the last occurrence of a certain bit value within a range of bits in a bit vector.
+     *
+     * @param { number } element - Element to be Located (0 means 0, else means 1).
+     * @param { number } fromIndex - The starting position of the index, containing the value at that index position.
+     * @param { number } toIndex - The end of the index, excluding the value at that index.
+     * @returns { number } The number type, return the last index of specified bit within a range,
+     * or -1 if this range of the bitVector does not contain the element.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
+     * @throws { BusinessError } 10200011 - The getLastIndexOfBit method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    getLastIndexOf(element: number, fromIndex: number, toIndex: number): number;
+    /**
+     * Flips the bit value by index in a bit vector.(Flip 0 to 1, flip 1 to 0)
+     *
+     * @param { number } index - The index in the bit vector.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200001 - The value of index is out of range.
+     * @throws { BusinessError } 10200011 - The removeByIndex method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    flipBitByIndex(index: number): void;
+    /**
+     * Flips a range of bit values in a bit vector.(Flip 0 to 1, flip 1 to 0).
+     *
+     * @param { number } fromIndex - The starting position of the index, containing the value at that index position.
+     * @param { number } toIndex - The end of the index, excluding the value at that index.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
+     * @throws { BusinessError } 10200011 - The removeByRange method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    flipBitsByRange(fromIndex: number, toIndex: number): void;
+    /**
+     * Returns an iterable of values in the bit vector
+     *
+     * @returns { IterableIterator<number> }  A new iterable iterator object.
+     * @throws { BusinessError } 10200011 - The method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    values(): IterableIterator<number>;
+  }
 }
 
 export default collections;

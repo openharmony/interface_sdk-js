@@ -3155,6 +3155,62 @@ declare namespace bundleManager {
    * @since 12
    */
   function switchUninstallState(bundleName: string, state: boolean): void;
+  
+  /**
+   * Get the BundleInfo of the specified MultiIsolation App.
+   * 
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - Indicates the application bundle name to be queried. 
+   * @param { number } appIndex - Indicates the index of clone app.
+   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
+   * @param { number } [userId] - Indicates the user ID, If the user id is not specified, the current user id is used by default.
+   * @returns { Promise<BundleInfo> } Returns A BundleInfo Of MultiApp Mode.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700061 - AppIndex not in valid range.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  function getAppCloneBundleInfo(bundleName: string, appIndex: number, bundleFlags: number, userId?: number): Promise<BundleInfo>;
+
+  /**
+   * Get all BundleInfo of clone app.
+   * 
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - Indicates the application bundle name to be queried.
+   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
+   * @param { number } [userId] - Indicates the user ID, If the user id is not specified, the current user id is used by default.
+   * @returns { Promise<Array<BundleInfo>> } Returns BundleInfo Arrays Of MultiApp Mode.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  function getAllAppCloneBundleInfo(bundleName: string, bundleFlags: number, userId?: number): Promise<Array<BundleInfo>>;
+
+  /**
+   * Obtains AppCloneIdentity contains bundleName and appIndex by the given uid.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { number } uid - Indicates the UID of an application.
+   * @returns { Promise<AppCloneIdentity> } Returns the clone Identity contains bundleName and appIndex.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 17700021 - The uid is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  function getAppCloneIdentity(uid: number): Promise<AppCloneIdentity>;
 
   /**
    * Obtains configuration information about an application.
@@ -3274,6 +3330,15 @@ declare namespace bundleManager {
    * @since 11
    */
   export type SignatureInfo = _BundleInfo.SignatureInfo;
+
+  /**
+   * AppCloneIdentity Contain BundleName and appIndex.
+   *
+   * @typedef { _BundleInfo.AppCloneIdentity }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 12
+   */
+  export type AppCloneIdentity = _BundleInfo.AppCloneIdentity;
 
   /**
    * Obtains configuration information about a module.

@@ -82,7 +82,7 @@ declare interface UIExtensionOptions {
    * Set UIExtensionComponent Content Dpi Follow Strategy.
    *
    * @type { ?DpiFollowStrategy }
-   * @default DpiFollowStrategy.FOLLOW_HOST_DPI
+   * @default DpiFollowStrategy.FOLLOW_UI_EXTENSION_ABILITY_DPI
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 12

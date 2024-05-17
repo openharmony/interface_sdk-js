@@ -642,7 +642,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
   onWillHide(callback: Callback<void>): NavDestinationAttribute;
 
   /**
-   * Set navdestination content expand types and edges.
+   * Set navDestination content expand types and edges.
    *
    * @param { Array<LayoutSafeAreaType> } [types] - Indicates the types of the safe area.
    * @param { Array<LayoutSafeAreaEdge> } [edges] - Indicates the edges of the safe area.
