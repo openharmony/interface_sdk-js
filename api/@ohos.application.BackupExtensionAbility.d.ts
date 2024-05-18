@@ -102,8 +102,8 @@ export default class BackupExtensionAbility {
   * Developer could override this method to restore.
   *
   * @param { BundleVersion } bundleVersion Bundle version to be restore.
-  * @param { string | Promise<string> } restoreInfo RestoreInfo to be restore, support promise
-  * @returns { string } Return restore result.
+  * @param { string } restoreInfo RestoreInfo to be restore.
+  * @returns { string | Promise<string> } Return restore result, support promise.
   * @syscap SystemCapability.FileManagement.StorageService.Backup
   * @systemapi
   * @StageModelOnly
