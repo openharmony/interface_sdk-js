@@ -18,6 +18,8 @@
  * @kit ArkTS
  */
 
+import lang from './@arkts.lang'
+
 /**
  * ArkTS collections.
  *
@@ -96,18 +98,81 @@ declare namespace collections {
    */
   type TypedArrayCompareFn<ElementType> = (first: ElementType, second: ElementType) => number;
   /**
-   * Array is a data structure that is implemented based on array. 
+   * Redefines ISendable for convenience.
+   *
+   * @typedef { lang.ISendable } ISendable
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  type ISendable = lang.ISendable;
+  /**
+   * Represents an array-like object that can be concatenated.
+   * 
+   * @interface ConcatArray
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  interface ConcatArray<T> extends ISendable {
+    /**
+     * Gets the length of the ArkTS ConcatArray. This is a number one higher than the highest index in the array.
+     * 
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    readonly length: number;
+    /**
+     * Adds all the elements of an ArkTS ConcatArray into a string, separated by the specified separator string.
+     * 
+     * @param { string } [separator] - A string used to separate one element of the array from
+     *     the next in the resulting string. If omitted, the array elements are separated with a comma.
+     * @returns { string } A string with all array elements joined.
+     *     If ConcatArray.length is 0, the empty string is returned.
+     * @throws { BusinessError } 401 - Parameter error. Invalid separator.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    join(separator?: string): string;
+    /**
+     * Returns a copy of a section of an ArkTS ConcatArray.
+     *
+     * @param { number } [start] - The beginning index of the specified portion of the array.
+     *     If start is undefined, then the slice begins at index 0.
+     * @param { number } [end] - The end index of the specified portion of the array.
+     *     This is exclusive of the element at the index 'end'.
+     *     If end is undefined, then the slice extends to the end of the array.
+     * @returns { ConcatArray<T> } A new ConcatArray containing the extracted elements.
+     * @throws { BusinessError } 401 - Parameter error. Invalid `start` or `end` parameters.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    slice(start?: number, end?: number): ConcatArray<T>;
+  }
+  /**
+   * Array is a data structure that stores a collection of elements. 
    * If multiple threads access a Array instance concurrently, 
    * and at least one of the threads modifies the array structurally,
    * it must be synchronized externally.
    * 
+   * @implements ConcatArray<T>
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 12
    */
   @Sendable
-  class Array<T> {
+  class Array<T> implements ConcatArray<T> {
     /**
      * Gets the length of the ArkTS array. This is a number one higher than the highest index in the ArkTS array.
      * 
@@ -123,7 +188,6 @@ declare namespace collections {
      * Creates an ArkTS Array with arrayLength elements initialized to initialValue.
      *
      * @param { number } arrayLength - The length of the array.
-     * @returns { Array<T> } A new Array instance
      * @param { T } initialValue - Element initial value that will be filled into the Array.
      * @returns { Array<T> } A new Array instance
      * @throws { BusinessError } 401 - Parameter error.
@@ -548,6 +612,20 @@ declare namespace collections {
      * @since 12
      */
     [index: number]: T;
+    /**
+     * Concatenates two or more arrays.
+     *
+     * @param { ConcatArray<T>[] } items - The arrays to concatenate.
+     * @returns { Array<T> } A new array containing the elements of the concatenated arrays.
+     * @throws { BusinessError } 401 - Parameter error. Not a valid array.
+     * @throws { BusinessError } 10200011 - The concat method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    concat(...items: ConcatArray<T>[]): Array<T>;
   }
   
   /**
