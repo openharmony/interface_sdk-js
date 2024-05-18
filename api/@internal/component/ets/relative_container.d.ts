@@ -205,6 +205,57 @@ declare enum BarrierDirection {
 }
 
 /**
+ * Specifies the localized direction value of Barrier.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare enum LocalizedBarrierDirection {
+  /**
+   * Localized barrier will be positioned to the far start of all referenced components.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  START = 0,
+
+  /**
+   * Localized barrier will be positioned to the far end of all referenced components.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  END = 1,
+
+  /**
+   * Localized barrier will be positioned to the top of all referenced components.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  TOP = 2,
+
+  /**
+   * Localized barrier will be positioned to the bottom of all referenced components.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  BOTTOM = 3,
+}
+
+/**
  * Specifies the BarrierStyle of relative container
  *
  * @interface BarrierStyle
@@ -240,6 +291,50 @@ declare interface BarrierStyle {
    * Specifies the referencedId of barrier
    *
    * @type {Array<string>}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  referencedId : Array<string>;
+}
+
+/**
+ * Specifies the Localized BarrierStyle of relative container
+ *
+ * @interface LocalizedBarrierStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare interface LocalizedBarrierStyle {
+  /**
+   * Specifies the id of localized barrier
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  id : string;
+
+  /**
+   * Specifies the localized barrier direction of barrier
+   *
+   * @type { LocalizedBarrierDirection }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  localizedDirection : LocalizedBarrierDirection;
+
+  /**
+   * Specifies the referencedId of localized barrier
+   *
+   * @type { Array<string> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -293,6 +388,18 @@ declare class RelativeContainerAttribute extends CommonMethod<RelativeContainerA
    * @since 12
    */
   barrier(value: Array<BarrierStyle>): RelativeContainerAttribute;
+
+  /**
+   * Specifies barriers of relativeContainer
+   *
+   * @param { Array<LocalizedBarrierStyle> } barrierStyle
+   * @returns { RelativeContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  barrier(barrierStyle: Array<LocalizedBarrierStyle>): RelativeContainerAttribute;
 }
 
 /**

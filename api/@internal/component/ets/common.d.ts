@@ -3209,6 +3209,161 @@ declare interface AlignRuleOption {
 }
 
 /**
+ * Defines the localized horizontal align param of relative container.
+ *
+ * @interface LocalizedHorizontalAlignParam
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare interface LocalizedHorizontalAlignParam {
+  /**
+   * The anchor of localized align param.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */  
+  anchor: string;
+
+  /**
+   * The align of localized align param.
+   *
+   * @type { HorizontalAlign }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */    
+  align: HorizontalAlign;
+}
+
+/**
+ * Defines the localized vertical align param of relative container.
+ *
+ * @interface LocalizedVerticalAlignParam
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare interface LocalizedVerticalAlignParam {
+  /**
+   * The anchor of localized align param.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */  
+  anchor: string;
+
+  /**
+   * The align of localized align param.
+   *
+   * @type { VerticalAlign }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */    
+  align: VerticalAlign;
+}
+
+/**
+ * Defines the Localized align rule options of relative container.
+ *
+ * @interface LocalizedAlignRuleOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare interface LocalizedAlignRuleOptions {
+  /**
+   * The param of start align.
+   *
+   * @type { ?LocalizedHorizontalAlignParam }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  start?: LocalizedHorizontalAlignParam;
+
+  /**
+   * The param of end align.
+   *
+   * @type { ?LocalizedHorizontalAlignParam }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  end?: LocalizedHorizontalAlignParam;
+
+  /**
+   * The param of middle align.
+   *
+   * @type { ?LocalizedHorizontalAlignParam }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  middle?: LocalizedHorizontalAlignParam;
+
+  /**
+   * The param of top align.
+   *
+   * @type { ?LocalizedVerticalAlignParam }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  top?: LocalizedVerticalAlignParam;
+
+  /**
+   * The param of bottom align.
+   *
+   * @type { ?LocalizedVerticalAlignParam }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  bottom?: LocalizedVerticalAlignParam;
+
+  /**
+   * The param of center align.
+   *
+   * @type { ?LocalizedVerticalAlignParam }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  center?: LocalizedVerticalAlignParam;
+
+  /**
+   * Defines the bias ratio in horizontal and vertical direction.
+   *
+   * @type { ?Bias }
+   * @default {horizontal:0.5,vertical:0.5}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  bias?: Bias;
+}
+
+/**
  * Defines the style of the chain in relative container.
  *
  * @enum { number }
@@ -17198,6 +17353,19 @@ declare class CommonMethod<T> {
    * @form
    */
   alignRules(value: AlignRuleOption): T;
+
+  /**
+   * Specifies the localized alignRules of relative container
+   *
+   * @param { LocalizedAlignRuleOptions } alignRule
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  alignRules(alignRule: LocalizedAlignRuleOptions): T;
 
   /**
    * Specifies the direction and style of chain in relative container
