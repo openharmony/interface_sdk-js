@@ -344,7 +344,7 @@ export declare class ContentItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 12
    */
-  iconModifier?: ImageModifier;
+  iconImageModifier?: ImageModifier;
   
   /**
    * Text modifier for primaryText.
