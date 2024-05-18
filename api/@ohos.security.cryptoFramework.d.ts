@@ -1191,6 +1191,7 @@ declare namespace cryptoFramework {
      * @param { DataBlob } seed - indicates the seed DataBlob.
      * @throws { BusinessError } 17620001 - memory error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
