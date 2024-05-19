@@ -296,7 +296,8 @@ declare namespace cooperate {
    * Prepares for screen hopping.
    *
    * @param { AsyncCallback<void> } callback Asynchronous callback used to return the operation result.
-   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -309,7 +310,8 @@ declare namespace cooperate {
    * Prepares for screen hopping.
    *
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -326,7 +328,7 @@ declare namespace cooperate {
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - Not system application.
    * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types.3.Parameter verification failed.
+   * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11
@@ -340,7 +342,8 @@ declare namespace cooperate {
    * @returns { Promise<void> } the promise returned by the function.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - Not system application.
-   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11
@@ -351,7 +354,8 @@ declare namespace cooperate {
    * Cancels the preparation for screen hopping.
    *
    * @param { AsyncCallback<void> } callback Asynchronous callback used to return the operation result.
-   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -364,7 +368,8 @@ declare namespace cooperate {
    * Cancels the preparation for screen hopping.
    *
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -381,7 +386,7 @@ declare namespace cooperate {
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - Not system application.
    * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types.3.Parameter verification failed.
+   * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11
@@ -407,7 +412,8 @@ declare namespace cooperate {
    * @param { string } targetNetworkId Descriptor of the target device for screen hopping.
    * @param { number } inputDeviceId Identifier of the input device for screen hopping.
    * @param { AsyncCallback<void> } callback Asynchronous callback used to return the operation result.
-   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @throws {BusinessError} 20900001 - Operation failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
@@ -423,7 +429,8 @@ declare namespace cooperate {
    * @param { string } targetNetworkId Descriptor of the target device for screen hopping.
    * @param { number }inputDeviceId Identifier of the input device for screen hopping.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @throws {BusinessError} 20900001 - Operation failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
@@ -443,7 +450,7 @@ declare namespace cooperate {
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - Not system application.
    * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types.3.Parameter verification failed.
+   * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @throws {BusinessError} 20900001 - Operation failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
@@ -461,7 +468,7 @@ declare namespace cooperate {
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - Not system application.
    * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types.3.Parameter verification failed.
+   * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @throws {BusinessError} 20900001 - Operation failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
@@ -474,7 +481,8 @@ declare namespace cooperate {
    *
    * @param { boolean } isUnchained Whether the cross-device link is unchained.
    * @param { AsyncCallback<void> } callback Asynchronous callback used to return the operation result.
-   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -505,7 +513,7 @@ declare namespace cooperate {
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - Not system application.
    * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types.3.Parameter verification failed.
+   * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11
@@ -531,7 +539,8 @@ declare namespace cooperate {
    *
    * @param { string } networkId Descriptor of the target device for screen hopping.
    * @param { AsyncCallback<boolean> } callback Asynchronous callback used to return the screen hopping status.
-   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -546,7 +555,8 @@ declare namespace cooperate {
    * @param { string } networkId Descriptor of the target device for screen hopping.
    * @returns { Promise<boolean> } Returns {@code true} the screen hopping status;
    *                               returns {@code false} otherwise.
-   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -565,7 +575,7 @@ declare namespace cooperate {
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - Not system application.
    * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types.3.Parameter verification failed.
+   * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11
@@ -582,7 +592,7 @@ declare namespace cooperate {
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - Not system application.
    * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types.3.Parameter verification failed.
+   * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11
@@ -594,8 +604,9 @@ declare namespace cooperate {
    *
    * @param { 'cooperate' } type Change type.
    * @param { Callback<{ networkId: string, msg: CooperateMsg }> } callback Asynchronous callback used to
-   * return the screen hopping status change event.
-   * @throws {BusinessError} 401 - Parameter error.
+   * <br>return the screen hopping status change event.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -609,8 +620,9 @@ declare namespace cooperate {
    *
    * @param { 'cooperate' } type Change type.
    * @param { Callback<void> } callback Callback for which listening
-   * is disabled. If this parameter is not specified, listening will be disabled for all registered callbacks.
-   * @throws {BusinessError} 401 - Parameter error.
+   * <br>is disabled. If this parameter is not specified, listening will be disabled for all registered callbacks.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -625,11 +637,11 @@ declare namespace cooperate {
    * @permission ohos.permission.COOPERATE_MANAGER
    * @param { 'cooperateMessage' } type - Change type.
    * @param { Callback<CooperateMessage> } callback - Asynchronous callback used to
-   * return the screen hopping status change event.
+   * <br>return the screen hopping status change event.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - Not system application.
    * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types.3.Parameter verification failed.
+   * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11
@@ -642,11 +654,11 @@ declare namespace cooperate {
    * @permission ohos.permission.COOPERATE_MANAGER
    * @param { 'cooperateMessage' } type - Change type.
    * @param { Callback<CooperateMessage> } [callback] - Callback for which listening
-   * is disabled. If this parameter is not specified, listening will be disabled for all registered callbacks.
+   * <br>is disabled. If this parameter is not specified, listening will be disabled for all registered callbacks.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - Not system application.
    * @throws {BusinessError} 401 - Parameter error. Possible causes:1.Incorrect parameter types.2.Parameter 
-   * verification failed.
+   * <br>verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11
@@ -663,7 +675,7 @@ declare namespace cooperate {
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - Not system application.
    * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types.3.Parameter verification failed.
+   * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 12
@@ -677,11 +689,11 @@ declare namespace cooperate {
    * @param { 'cooperateMouse' } type - Event type, which is **cooperateMouse**.
    * @param { string } networkId - Specified device.
    * @param { Callback<MouseLocation> } [callback] - Callback for receiving reported events.
-   * If no callback is specified, listening will be disabled for all **cooperateMouse** events of the device specified by **networkId**.
+   * <br>If no callback is specified, listening will be disabled for all **cooperateMouse** events of the device specified by **networkId**.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - Not system application.
    * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types.3.Parameter verification failed.
+   * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 12

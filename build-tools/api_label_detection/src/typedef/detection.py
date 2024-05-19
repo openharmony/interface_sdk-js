@@ -44,6 +44,10 @@ class ErrorMessage(enum.Enum):
     METHOD_HAVE_OUTPUT_PARAM_NO = 'functions have [&] label, but the return value do not have [&] label'
     METHOD_HAVE_PARAM_OBJ_NO = 'functions have [&] label, but the argument anonymous object do not have [&] label'
     METHOD_HAVE_RETURN_OBJ_NO = 'functions have [&] label, but the return anonymous objects do not have [&] label'
+    PROPERTY_HAVE_REFERENCE_NO = 'property have [&] label, but the reference of property do not have [&] label'
+    REFERENCE_HAVE_PROPERTY_NO = 'reference of property have [&] label, but the property do not have [&] label'
+    PROPERTY_HAVE_REFERENCE_OBJ_NO = 'property have [&] label, but the reference_obj of property do not have [&] label'
+    REFERENCE_OBJ_HAVE_PROPERTY_NO = 'reference_obj of property have [&] label, but the property do not have [&] label'
 
 
 class ErrorType(enum.Enum):
@@ -57,3 +61,6 @@ class ErrorType(enum.Enum):
     RETURN_NO_TAG = 'return_missing_label'
     PARAM_OBJ_NO_TAG = 'param_anonymous_object_missing_label'
     RETURN_OBJ_NO_TAG = 'return_anonymous_object_missing_label'
+    PROPERTY_NO_TAG = 'property_missing_label'
+    PROPERTY_REFERENCE_NO_TAG = 'property_of_reference_missing_label'
+    PROPERTY_REFERENCE_OBJ_NO_TAG = 'property_of_reference_obj_missing_label'

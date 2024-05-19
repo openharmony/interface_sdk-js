@@ -173,6 +173,7 @@ csh
 cubemap
 cug
 cyclewindows
+cyclically
 daltonization
 darkens
 darkest
@@ -546,6 +547,8 @@ mgf1
 mifare
 minibar
 minimizing
+minors
+minorsmode
 mirrored
 misconfigured
 mismatches
@@ -759,6 +762,7 @@ repayment
 repeates
 replacer
 reposition
+rerouting
 resizeable
 resmgr
 resourceschedule
@@ -976,6 +980,7 @@ unduck
 unducked
 unequal
 unfiltered
+unfocusable
 unfocused
 unhealthy
 unhold
@@ -1102,6 +1107,7 @@ aec
 zoomreset
 zooms
 zpass
+tones
 commonevent
 clouddata
 unadjustable
@@ -1125,3 +1131,4 @@ gbk
 ocsp
 encipherment
 reconfirmed
+subresource

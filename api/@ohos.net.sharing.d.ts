@@ -42,7 +42,7 @@ declare namespace sharing {
    * returns {@code false} otherwise.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2200002 - Failed to connect to the service.
    * @throws { BusinessError } 2200003 - System internal error.
    * @throws { BusinessError } 2202011 - Cannot get network sharing configuration.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
@@ -57,7 +57,7 @@ declare namespace sharing {
    * @returns { Promise<boolean> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2200002 - Failed to connect to the service.
    * @throws { BusinessError } 2200003 - System internal error.
    * @throws { BusinessError } 2202011 - Cannot get network sharing configuration.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
@@ -73,7 +73,7 @@ declare namespace sharing {
    * returns {@code false} otherwise.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2200002 - Failed to connect to the service.
    * @throws { BusinessError } 2200003 - System internal error.
    * @throws { BusinessError } 2202011 - Cannot get network sharing configuration.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
@@ -88,7 +88,7 @@ declare namespace sharing {
    * @returns { Promise<boolean> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2200002 - Failed to connect to the service.
    * @throws { BusinessError } 2200003 - System internal error.
    * @throws { BusinessError } 2202011 - Cannot get network sharing configuration.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
@@ -106,12 +106,12 @@ declare namespace sharing {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2200001 - Invalid parameter value.
-   * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2200002 - Failed to connect to the service.
    * @throws { BusinessError } 2200003 - System internal error.
    * @throws { BusinessError } 2202004 - Try to share an unavailable iface.
    * @throws { BusinessError } 2202005 - WiFi sharing failed.
    * @throws { BusinessError } 2202006 - Bluetooth sharing failed.
-   * @throws { BusinessError } 2202009 - Network share enable forwarding error.
+   * @throws { BusinessError } 2202009 - Failed to enable forwarding for network sharing.
    * @throws { BusinessError } 2202011 - Cannot get network sharing configuration.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
@@ -128,12 +128,12 @@ declare namespace sharing {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2200001 - Invalid parameter value.
-   * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2200002 - Failed to connect to the service.
    * @throws { BusinessError } 2200003 - System internal error.
    * @throws { BusinessError } 2202004 - Try to share an unavailable iface.
    * @throws { BusinessError } 2202005 - WiFi sharing failed.
    * @throws { BusinessError } 2202006 - Bluetooth sharing failed.
-   * @throws { BusinessError } 2202009 - Network share enable forwarding error.
+   * @throws { BusinessError } 2202009 - Failed to enable forwarding for network sharing.
    * @throws { BusinessError } 2202011 - Cannot get network sharing configuration.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
@@ -150,7 +150,7 @@ declare namespace sharing {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2200001 - Invalid parameter value.
-   * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2200002 - Failed to connect to the service.
    * @throws { BusinessError } 2200003 - System internal error.
    * @throws { BusinessError } 2202004 - Try to share an unavailable iface.
    * @throws { BusinessError } 2202005 - WiFi sharing failed.
@@ -171,7 +171,7 @@ declare namespace sharing {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2200001 - Invalid parameter value.
-   * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2200002 - Failed to connect to the service.
    * @throws { BusinessError } 2200003 - System internal error.
    * @throws { BusinessError } 2202004 - Try to share an unavailable iface.
    * @throws { BusinessError } 2202005 - WiFi sharing failed.
@@ -190,7 +190,7 @@ declare namespace sharing {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2200002 - Failed to connect to the service.
    * @throws { BusinessError } 2200003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
@@ -205,7 +205,7 @@ declare namespace sharing {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2200002 - Failed to connect to the service.
    * @throws { BusinessError } 2200003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
@@ -220,7 +220,7 @@ declare namespace sharing {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2200002 - Failed to connect to the service.
    * @throws { BusinessError } 2200003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
@@ -235,7 +235,7 @@ declare namespace sharing {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2200002 - Failed to connect to the service.
    * @throws { BusinessError } 2200003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
@@ -250,7 +250,7 @@ declare namespace sharing {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2200002 - Failed to connect to the service.
    * @throws { BusinessError } 2200003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
@@ -265,7 +265,7 @@ declare namespace sharing {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2200002 - Failed to connect to the service.
    * @throws { BusinessError } 2200003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
@@ -282,7 +282,7 @@ declare namespace sharing {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2200001 - Invalid parameter value.
-   * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2200002 - Failed to connect to the service.
    * @throws { BusinessError } 2200003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
@@ -299,7 +299,7 @@ declare namespace sharing {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2200001 - Invalid parameter value.
-   * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2200002 - Failed to connect to the service.
    * @throws { BusinessError } 2200003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
@@ -316,7 +316,7 @@ declare namespace sharing {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2200001 - Invalid parameter value.
-   * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2200002 - Failed to connect to the service.
    * @throws { BusinessError } 2200003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
@@ -333,7 +333,7 @@ declare namespace sharing {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2200001 - Invalid parameter value.
-   * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2200002 - Failed to connect to the service.
    * @throws { BusinessError } 2200003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
@@ -350,7 +350,7 @@ declare namespace sharing {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2200001 - Invalid parameter value.
-   * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2200002 - Failed to connect to the service.
    * @throws { BusinessError } 2200003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
@@ -367,7 +367,7 @@ declare namespace sharing {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2200001 - Invalid parameter value.
-   * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2200002 - Failed to connect to the service.
    * @throws { BusinessError } 2200003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.

@@ -52,6 +52,13 @@ declare namespace http {
    * @atomicservice
    * @since 11
    */
+  /**
+   * @typedef { connection.HttpProxy }
+   * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   type HttpProxy = connection.HttpProxy;
 
   /**
@@ -324,6 +331,15 @@ declare namespace http {
      * @atomicservice
      * @since 11
      */
+    /**
+     * If this parameter is set as type of boolean, the system will use default proxy or not use proxy.
+     * If this parameter is set as type of HttpProxy, the system will use the specified HttpProxy.
+     * @type { ?(boolean | HttpProxy) }
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     usingProxy?: boolean | HttpProxy;
 
     /**
@@ -339,6 +355,14 @@ declare namespace http {
      * @atomicservice
      * @since 11
      */
+    /**
+     * If this parameter is set, the system will use ca path specified by user, or else use preset ca by the system.
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     caPath?: string;
 
     /**
@@ -348,6 +372,15 @@ declare namespace http {
      * @type {?number}
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
+     */
+    /**
+     * Used to set to uploading or downloading the start bytes. The default value is 0.
+     * HTTP standard (RFC 7233 section 3.1) allows servers to ignore range requests.
+     * For HTTP PUT uploads this option should not be used, since it may conflict with other options.
+     * @type {?number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 12
      */
     resumeFrom?: number;
 
@@ -359,6 +392,15 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
+    /**
+     * Used to set to uploading or downloading the end bytes. Translate to the end if not set.
+     * HTTP standard (RFC 7233 section 3.1) allows servers to ignore range requests.
+     * For HTTP PUT uploads this option should not be used, since it may conflict with other options.
+     * @type {?number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 12
+     */
     resumeTo?: number;
 
     /**
@@ -366,6 +408,13 @@ declare namespace http {
      * @type {?ClientCert}
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
+     */
+    /**
+     * Support the application to pass in client certificates, allowing the server to verify the client's identity.
+     * @type {?ClientCert}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 12
      */
     clientCert?: ClientCert;
 
@@ -377,6 +426,15 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
+    /**
+     * If this parameter is set, incoming DNS resolution server URL for the DoH server to use for name resolving.
+     * The parameter must be URL-encoded in the following format: "https://host:port/path".
+     * It MUST specify an HTTPS URL.
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 12
+     */
     dnsOverHttps?: string;
 
     /**
@@ -387,6 +445,15 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
+    /**
+     * If this parameter is set, use the specified DNS server for DNS resolution.
+     * Multiple DNS resolution servers can be set up, with a maximum of 3 servers.
+     * Only take the first three if there are more than three.
+     * @type {?Array<string>}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 12
+     */
     dnsServers?: Array<string>;
 
     /**
@@ -395,6 +462,14 @@ declare namespace http {
      * @type {?number}
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
+     */
+    /**
+     * The maximum limit of the response body. The default value is 5 * 1024 * 1024, in Byte.
+     * The maximum value is 100 * 1024 *1024, in Byte.
+     * @type {?number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 12
      */
     maxLimit?: number;
 
@@ -406,6 +481,15 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
+    /**
+     * The data fields which is supported by the HTTP protocol to post
+     * forms and by the SMTP and IMAP protocols to provide
+     * the email data to send/upload.
+     * @type {?Array<MultiFormData>}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 12
+     */
     multiFormDataList?: Array<MultiFormData>;
   }
 
@@ -415,12 +499,26 @@ declare namespace http {
    * @syscap SystemCapability.Communication.NetStack
    * @since 11
    */
+  /**
+   * Represents the properties of a form object.
+   * @interface MultiFormData
+   * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
+   * @since 12
+   */
   export interface MultiFormData {
     /**
      * MIME name for the data field.
      * @type {string}
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
+     */
+    /**
+     * MIME name for the data field.
+     * @type {string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 12
      */
     name: string;
 
@@ -430,6 +528,13 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
+    /**
+     * Content type of the data field.
+     * @type {string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 12
+     */
     contentType: string;
 
     /**
@@ -438,6 +543,13 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
+    /**
+     * Remote file name for the data field.
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 12
+     */
     remoteFileName?: string;
 
     /**
@@ -445,6 +557,13 @@ declare namespace http {
      * @type {?(string | Object | ArrayBuffer)}
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
+     */
+    /**
+     * This parameter sets a mime part's body content from memory data.
+     * @type {?(string | Object | ArrayBuffer)}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 12
      */
     data?: string | Object | ArrayBuffer;
 
@@ -457,6 +576,16 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
+    /**
+     * This parameter sets a mime part's body content from the file's contents.
+     * This is an alternative to curl_mime_data for setting data to a mime part.
+     * If data is empty, filePath must be set.
+     * If data has a value, filePath does not take effect.
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 12
+     */
     filePath?: string;
   }
 
@@ -466,11 +595,24 @@ declare namespace http {
    * @syscap SystemCapability.Communication.NetStack
    * @since 11
    */
+  /**
+   * Enum for certificate types
+   * @enum {string}
+   * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
+   * @since 12
+   */
   export enum CertType {
     /**
      * PEM format certificate
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
+     */
+    /**
+     * PEM format certificate
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 12
      */
     PEM = 'PEM',
 
@@ -479,12 +621,24 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
+    /**
+     * DER format certificate
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 12
+     */
     DER = 'DER',
 
     /**
      * P12 format certificate
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
+     */
+    /**
+     * P12 format certificate
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 12
      */
     P12 = 'P12'
   }
@@ -496,12 +650,27 @@ declare namespace http {
    * @syscap SystemCapability.Communication.NetStack
    * @since 11
    */
+  /**
+   * The clientCert field of the client certificate, which includes 4 attributes:
+   * client certificate (cert), client certificate type (certType), certificate private key (key), and passphrase (keyPassword).
+   * @interface ClientCert
+   * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
+   * @since 12
+   */
   export interface ClientCert {
     /**
      * The path to the client certificate file.
      * @type {string}
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
+     */
+    /**
+     * The path to the client certificate file.
+     * @type {string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 12
      */
     certPath: string;
 
@@ -511,6 +680,13 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
+    /**
+     * The type of the client certificate.
+     * @type {?CertType}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 12
+     */
     certType?: CertType;
 
     /**
@@ -519,6 +695,13 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
+    /**
+     * The path of the client certificate private key file.
+     * @type {string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 12
+     */
     keyPath: string;
 
     /**
@@ -526,6 +709,13 @@ declare namespace http {
      * @type {?string}
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
+     */
+    /**
+     * Password required to use the client certificate private key.
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 12
      */
     keyPassword?: string;
   }
@@ -563,34 +753,34 @@ declare namespace http {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300001 - Unsupported protocol.
-     * @throws { BusinessError } 2300003 - URL using bad/illegal format or missing URL.
-     * @throws { BusinessError } 2300005 - Couldn't resolve proxy name.
-     * @throws { BusinessError } 2300006 - Couldn't resolve host name.
-     * @throws { BusinessError } 2300007 - Couldn't connect to server.
-     * @throws { BusinessError } 2300008 - Weird server reply.
-     * @throws { BusinessError } 2300009 - Access denied to remote resource.
+     * @throws { BusinessError } 2300003 - Invalid URL format or missing URL.
+     * @throws { BusinessError } 2300005 - Failed to resolve the proxy name.
+     * @throws { BusinessError } 2300006 - Failed to resolve the host name.
+     * @throws { BusinessError } 2300007 - Failed to connect to the server.
+     * @throws { BusinessError } 2300008 - Invalid server response.
+     * @throws { BusinessError } 2300009 - Access to the remote resource denied.
      * @throws { BusinessError } 2300016 - Error in the HTTP2 framing layer.
      * @throws { BusinessError } 2300018 - Transferred a partial file.
-     * @throws { BusinessError } 2300023 - Failed writing received data to disk/application.
+     * @throws { BusinessError } 2300023 - Failed to write the received data to the disk or application.
      * @throws { BusinessError } 2300025 - Upload failed.
-     * @throws { BusinessError } 2300026 - Failed to open/read local data from file/application.
+     * @throws { BusinessError } 2300026 - Failed to open or read local data from the file or application.
      * @throws { BusinessError } 2300027 - Out of memory.
-     * @throws { BusinessError } 2300028 - Timeout was reached.
-     * @throws { BusinessError } 2300047 - Number of redirects hit maximum amount.
-     * @throws { BusinessError } 2300052 - Server returned nothing (no headers, no data).
-     * @throws { BusinessError } 2300055 - Failed sending data to the peer.
-     * @throws { BusinessError } 2300056 - Failure when receiving data from the peer.
-     * @throws { BusinessError } 2300058 - Problem with the local SSL certificate.
-     * @throws { BusinessError } 2300059 - Couldn't use specified SSL cipher.
-     * @throws { BusinessError } 2300060 - SSL peer certificate or SSH remote key was not OK.
-     * @throws { BusinessError } 2300061 - Unrecognized or bad HTTP Content or Transfer-Encoding.
+     * @throws { BusinessError } 2300028 - Operation timeout.
+     * @throws { BusinessError } 2300047 - The number of redirections reaches the maximum allowed.
+     * @throws { BusinessError } 2300052 - The server returned nothing (no header or data).
+     * @throws { BusinessError } 2300055 - Failed to send data to the peer.
+     * @throws { BusinessError } 2300056 - Failed to receive data from the peer.
+     * @throws { BusinessError } 2300058 - Local SSL certificate error.
+     * @throws { BusinessError } 2300059 - The specified SSL cipher cannot be used.
+     * @throws { BusinessError } 2300060 - Invalid SSL peer certificate or SSH remote key.
+     * @throws { BusinessError } 2300061 - Invalid HTTP encoding format.
      * @throws { BusinessError } 2300063 - Maximum file size exceeded.
-     * @throws { BusinessError } 2300070 - Disk full or allocation exceeded.
+     * @throws { BusinessError } 2300070 - Remote disk full.
      * @throws { BusinessError } 2300073 - Remote file already exists.
-     * @throws { BusinessError } 2300077 - Problem with the SSL CA cert (path? access rights?).
+     * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
-     * @throws { BusinessError } 2300094 - An authentication function returned an error.
-     * @throws { BusinessError } 2300999 - Unknown Other Error.
+     * @throws { BusinessError } 2300094 - Authentication error.
+     * @throws { BusinessError } 2300999 - Unknown error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 6
      */
@@ -602,34 +792,34 @@ declare namespace http {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300001 - Unsupported protocol.
-     * @throws { BusinessError } 2300003 - URL using bad/illegal format or missing URL.
-     * @throws { BusinessError } 2300005 - Couldn't resolve proxy name.
-     * @throws { BusinessError } 2300006 - Couldn't resolve host name.
-     * @throws { BusinessError } 2300007 - Couldn't connect to server.
-     * @throws { BusinessError } 2300008 - Weird server reply.
-     * @throws { BusinessError } 2300009 - Access denied to remote resource.
+     * @throws { BusinessError } 2300003 - Invalid URL format or missing URL.
+     * @throws { BusinessError } 2300005 - Failed to resolve the proxy name.
+     * @throws { BusinessError } 2300006 - Failed to resolve the host name.
+     * @throws { BusinessError } 2300007 - Failed to connect to the server.
+     * @throws { BusinessError } 2300008 - Invalid server response.
+     * @throws { BusinessError } 2300009 - Access to the remote resource denied.
      * @throws { BusinessError } 2300016 - Error in the HTTP2 framing layer.
      * @throws { BusinessError } 2300018 - Transferred a partial file.
-     * @throws { BusinessError } 2300023 - Failed writing received data to disk/application.
+     * @throws { BusinessError } 2300023 - Failed to write the received data to the disk or application.
      * @throws { BusinessError } 2300025 - Upload failed.
-     * @throws { BusinessError } 2300026 - Failed to open/read local data from file/application.
+     * @throws { BusinessError } 2300026 - Failed to open or read local data from the file or application.
      * @throws { BusinessError } 2300027 - Out of memory.
-     * @throws { BusinessError } 2300028 - Timeout was reached.
-     * @throws { BusinessError } 2300047 - Number of redirects hit maximum amount.
-     * @throws { BusinessError } 2300052 - Server returned nothing (no headers, no data).
-     * @throws { BusinessError } 2300055 - Failed sending data to the peer.
-     * @throws { BusinessError } 2300056 - Failure when receiving data from the peer.
-     * @throws { BusinessError } 2300058 - Problem with the local SSL certificate.
-     * @throws { BusinessError } 2300059 - Couldn't use specified SSL cipher.
-     * @throws { BusinessError } 2300060 - SSL peer certificate or SSH remote key was not OK.
-     * @throws { BusinessError } 2300061 - Unrecognized or bad HTTP Content or Transfer-Encoding.
+     * @throws { BusinessError } 2300028 - Operation timeout.
+     * @throws { BusinessError } 2300047 - The number of redirections reaches the maximum allowed.
+     * @throws { BusinessError } 2300052 - The server returned nothing (no header or data).
+     * @throws { BusinessError } 2300055 - Failed to send data to the peer.
+     * @throws { BusinessError } 2300056 - Failed to receive data from the peer.
+     * @throws { BusinessError } 2300058 - Local SSL certificate error.
+     * @throws { BusinessError } 2300059 - The specified SSL cipher cannot be used.
+     * @throws { BusinessError } 2300060 - Invalid SSL peer certificate or SSH remote key.
+     * @throws { BusinessError } 2300061 - Invalid HTTP encoding format.
      * @throws { BusinessError } 2300063 - Maximum file size exceeded.
-     * @throws { BusinessError } 2300070 - Disk full or allocation exceeded.
+     * @throws { BusinessError } 2300070 - Remote disk full.
      * @throws { BusinessError } 2300073 - Remote file already exists.
-     * @throws { BusinessError } 2300077 - Problem with the SSL CA cert (path? access rights?).
+     * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
-     * @throws { BusinessError } 2300094 - An authentication function returned an error.
-     * @throws { BusinessError } 2300999 - Unknown Other Error.
+     * @throws { BusinessError } 2300094 - Authentication error.
+     * @throws { BusinessError } 2300999 - Unknown error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
@@ -642,34 +832,34 @@ declare namespace http {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300001 - Unsupported protocol.
-     * @throws { BusinessError } 2300003 - URL using bad/illegal format or missing URL.
-     * @throws { BusinessError } 2300005 - Couldn't resolve proxy name.
-     * @throws { BusinessError } 2300006 - Couldn't resolve host name.
-     * @throws { BusinessError } 2300007 - Couldn't connect to server.
-     * @throws { BusinessError } 2300008 - Weird server reply.
-     * @throws { BusinessError } 2300009 - Access denied to remote resource.
+     * @throws { BusinessError } 2300003 - Invalid URL format or missing URL.
+     * @throws { BusinessError } 2300005 - Failed to resolve the proxy name.
+     * @throws { BusinessError } 2300006 - Failed to resolve the host name.
+     * @throws { BusinessError } 2300007 - Failed to connect to the server.
+     * @throws { BusinessError } 2300008 - Invalid server response.
+     * @throws { BusinessError } 2300009 - Access to the remote resource denied.
      * @throws { BusinessError } 2300016 - Error in the HTTP2 framing layer.
      * @throws { BusinessError } 2300018 - Transferred a partial file.
-     * @throws { BusinessError } 2300023 - Failed writing received data to disk/application.
+     * @throws { BusinessError } 2300023 - Failed to write the received data to the disk or application.
      * @throws { BusinessError } 2300025 - Upload failed.
-     * @throws { BusinessError } 2300026 - Failed to open/read local data from file/application.
+     * @throws { BusinessError } 2300026 - Failed to open or read local data from the file or application.
      * @throws { BusinessError } 2300027 - Out of memory.
-     * @throws { BusinessError } 2300028 - Timeout was reached.
-     * @throws { BusinessError } 2300047 - Number of redirects hit maximum amount.
-     * @throws { BusinessError } 2300052 - Server returned nothing (no headers, no data).
-     * @throws { BusinessError } 2300055 - Failed sending data to the peer.
-     * @throws { BusinessError } 2300056 - Failure when receiving data from the peer.
-     * @throws { BusinessError } 2300058 - Problem with the local SSL certificate.
-     * @throws { BusinessError } 2300059 - Couldn't use specified SSL cipher.
-     * @throws { BusinessError } 2300060 - SSL peer certificate or SSH remote key was not OK.
-     * @throws { BusinessError } 2300061 - Unrecognized or bad HTTP Content or Transfer-Encoding.
+     * @throws { BusinessError } 2300028 - Operation timeout.
+     * @throws { BusinessError } 2300047 - The number of redirections reaches the maximum allowed.
+     * @throws { BusinessError } 2300052 - The server returned nothing (no header or data).
+     * @throws { BusinessError } 2300055 - Failed to send data to the peer.
+     * @throws { BusinessError } 2300056 - Failed to receive data from the peer.
+     * @throws { BusinessError } 2300058 - Local SSL certificate error.
+     * @throws { BusinessError } 2300059 - The specified SSL cipher cannot be used.
+     * @throws { BusinessError } 2300060 - Invalid SSL peer certificate or SSH remote key.
+     * @throws { BusinessError } 2300061 - Invalid HTTP encoding format.
      * @throws { BusinessError } 2300063 - Maximum file size exceeded.
-     * @throws { BusinessError } 2300070 - Disk full or allocation exceeded.
+     * @throws { BusinessError } 2300070 - Remote disk full.
      * @throws { BusinessError } 2300073 - Remote file already exists.
-     * @throws { BusinessError } 2300077 - Problem with the SSL CA cert (path? access rights?).
+     * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
-     * @throws { BusinessError } 2300094 - An authentication function returned an error.
-     * @throws { BusinessError } 2300999 - Unknown Other Error.
+     * @throws { BusinessError } 2300094 - Authentication error.
+     * @throws { BusinessError } 2300999 - Unknown error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
@@ -686,34 +876,34 @@ declare namespace http {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300001 - Unsupported protocol.
-     * @throws { BusinessError } 2300003 - URL using bad/illegal format or missing URL.
-     * @throws { BusinessError } 2300005 - Couldn't resolve proxy name.
-     * @throws { BusinessError } 2300006 - Couldn't resolve host name.
-     * @throws { BusinessError } 2300007 - Couldn't connect to server.
-     * @throws { BusinessError } 2300008 - Weird server reply.
-     * @throws { BusinessError } 2300009 - Access denied to remote resource.
+     * @throws { BusinessError } 2300003 - Invalid URL format or missing URL.
+     * @throws { BusinessError } 2300005 - Failed to resolve the proxy name.
+     * @throws { BusinessError } 2300006 - Failed to resolve the host name.
+     * @throws { BusinessError } 2300007 - Failed to connect to the server.
+     * @throws { BusinessError } 2300008 - Invalid server response.
+     * @throws { BusinessError } 2300009 - Access to the remote resource denied.
      * @throws { BusinessError } 2300016 - Error in the HTTP2 framing layer.
      * @throws { BusinessError } 2300018 - Transferred a partial file.
-     * @throws { BusinessError } 2300023 - Failed writing received data to disk/application.
+     * @throws { BusinessError } 2300023 - Failed to write the received data to the disk or application.
      * @throws { BusinessError } 2300025 - Upload failed.
-     * @throws { BusinessError } 2300026 - Failed to open/read local data from file/application.
+     * @throws { BusinessError } 2300026 - Failed to open or read local data from the file or application.
      * @throws { BusinessError } 2300027 - Out of memory.
-     * @throws { BusinessError } 2300028 - Timeout was reached.
-     * @throws { BusinessError } 2300047 - Number of redirects hit maximum amount.
-     * @throws { BusinessError } 2300052 - Server returned nothing (no headers, no data).
-     * @throws { BusinessError } 2300055 - Failed sending data to the peer.
-     * @throws { BusinessError } 2300056 - Failure when receiving data from the peer.
-     * @throws { BusinessError } 2300058 - Problem with the local SSL certificate.
-     * @throws { BusinessError } 2300059 - Couldn't use specified SSL cipher.
-     * @throws { BusinessError } 2300060 - SSL peer certificate or SSH remote key was not OK.
-     * @throws { BusinessError } 2300061 - Unrecognized or bad HTTP Content or Transfer-Encoding.
+     * @throws { BusinessError } 2300028 - Operation timeout.
+     * @throws { BusinessError } 2300047 - The number of redirections reaches the maximum allowed.
+     * @throws { BusinessError } 2300052 - The server returned nothing (no header or data).
+     * @throws { BusinessError } 2300055 - Failed to send data to the peer.
+     * @throws { BusinessError } 2300056 - Failed to receive data from the peer.
+     * @throws { BusinessError } 2300058 - Local SSL certificate error.
+     * @throws { BusinessError } 2300059 - The specified SSL cipher cannot be used.
+     * @throws { BusinessError } 2300060 - Invalid SSL peer certificate or SSH remote key.
+     * @throws { BusinessError } 2300061 - Invalid HTTP encoding format.
      * @throws { BusinessError } 2300063 - Maximum file size exceeded.
-     * @throws { BusinessError } 2300070 - Disk full or allocation exceeded.
+     * @throws { BusinessError } 2300070 - Remote disk full.
      * @throws { BusinessError } 2300073 - Remote file already exists.
-     * @throws { BusinessError } 2300077 - Problem with the SSL CA cert (path? access rights?).
+     * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
-     * @throws { BusinessError } 2300094 - An authentication function returned an error.
-     * @throws { BusinessError } 2300999 - Unknown Other Error.
+     * @throws { BusinessError } 2300094 - Authentication error.
+     * @throws { BusinessError } 2300999 - Unknown error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 6
      */
@@ -726,34 +916,34 @@ declare namespace http {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300001 - Unsupported protocol.
-     * @throws { BusinessError } 2300003 - URL using bad/illegal format or missing URL.
-     * @throws { BusinessError } 2300005 - Couldn't resolve proxy name.
-     * @throws { BusinessError } 2300006 - Couldn't resolve host name.
-     * @throws { BusinessError } 2300007 - Couldn't connect to server.
-     * @throws { BusinessError } 2300008 - Weird server reply.
-     * @throws { BusinessError } 2300009 - Access denied to remote resource.
+     * @throws { BusinessError } 2300003 - Invalid URL format or missing URL.
+     * @throws { BusinessError } 2300005 - Failed to resolve the proxy name.
+     * @throws { BusinessError } 2300006 - Failed to resolve the host name.
+     * @throws { BusinessError } 2300007 - Failed to connect to the server.
+     * @throws { BusinessError } 2300008 - Invalid server response.
+     * @throws { BusinessError } 2300009 - Access to the remote resource denied.
      * @throws { BusinessError } 2300016 - Error in the HTTP2 framing layer.
      * @throws { BusinessError } 2300018 - Transferred a partial file.
-     * @throws { BusinessError } 2300023 - Failed writing received data to disk/application.
+     * @throws { BusinessError } 2300023 - Failed to write the received data to the disk or application.
      * @throws { BusinessError } 2300025 - Upload failed.
-     * @throws { BusinessError } 2300026 - Failed to open/read local data from file/application.
+     * @throws { BusinessError } 2300026 - Failed to open or read local data from the file or application.
      * @throws { BusinessError } 2300027 - Out of memory.
-     * @throws { BusinessError } 2300028 - Timeout was reached.
-     * @throws { BusinessError } 2300047 - Number of redirects hit maximum amount.
-     * @throws { BusinessError } 2300052 - Server returned nothing (no headers, no data).
-     * @throws { BusinessError } 2300055 - Failed sending data to the peer.
-     * @throws { BusinessError } 2300056 - Failure when receiving data from the peer.
-     * @throws { BusinessError } 2300058 - Problem with the local SSL certificate.
-     * @throws { BusinessError } 2300059 - Couldn't use specified SSL cipher.
-     * @throws { BusinessError } 2300060 - SSL peer certificate or SSH remote key was not OK.
-     * @throws { BusinessError } 2300061 - Unrecognized or bad HTTP Content or Transfer-Encoding.
+     * @throws { BusinessError } 2300028 - Operation timeout.
+     * @throws { BusinessError } 2300047 - The number of redirections reaches the maximum allowed.
+     * @throws { BusinessError } 2300052 - The server returned nothing (no header or data).
+     * @throws { BusinessError } 2300055 - Failed to send data to the peer.
+     * @throws { BusinessError } 2300056 - Failed to receive data from the peer.
+     * @throws { BusinessError } 2300058 - Local SSL certificate error.
+     * @throws { BusinessError } 2300059 - The specified SSL cipher cannot be used.
+     * @throws { BusinessError } 2300060 - Invalid SSL peer certificate or SSH remote key.
+     * @throws { BusinessError } 2300061 - Invalid HTTP encoding format.
      * @throws { BusinessError } 2300063 - Maximum file size exceeded.
-     * @throws { BusinessError } 2300070 - Disk full or allocation exceeded.
+     * @throws { BusinessError } 2300070 - Remote disk full.
      * @throws { BusinessError } 2300073 - Remote file already exists.
-     * @throws { BusinessError } 2300077 - Problem with the SSL CA cert (path? access rights?).
+     * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
-     * @throws { BusinessError } 2300094 - An authentication function returned an error.
-     * @throws { BusinessError } 2300999 - Unknown Other Error.
+     * @throws { BusinessError } 2300094 - Authentication error.
+     * @throws { BusinessError } 2300999 - Unknown error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
@@ -767,34 +957,34 @@ declare namespace http {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300001 - Unsupported protocol.
-     * @throws { BusinessError } 2300003 - URL using bad/illegal format or missing URL.
-     * @throws { BusinessError } 2300005 - Couldn't resolve proxy name.
-     * @throws { BusinessError } 2300006 - Couldn't resolve host name.
-     * @throws { BusinessError } 2300007 - Couldn't connect to server.
-     * @throws { BusinessError } 2300008 - Weird server reply.
-     * @throws { BusinessError } 2300009 - Access denied to remote resource.
+     * @throws { BusinessError } 2300003 - Invalid URL format or missing URL.
+     * @throws { BusinessError } 2300005 - Failed to resolve the proxy name.
+     * @throws { BusinessError } 2300006 - Failed to resolve the host name.
+     * @throws { BusinessError } 2300007 - Failed to connect to the server.
+     * @throws { BusinessError } 2300008 - Invalid server response.
+     * @throws { BusinessError } 2300009 - Access to the remote resource denied.
      * @throws { BusinessError } 2300016 - Error in the HTTP2 framing layer.
      * @throws { BusinessError } 2300018 - Transferred a partial file.
-     * @throws { BusinessError } 2300023 - Failed writing received data to disk/application.
+     * @throws { BusinessError } 2300023 - Failed to write the received data to the disk or application.
      * @throws { BusinessError } 2300025 - Upload failed.
-     * @throws { BusinessError } 2300026 - Failed to open/read local data from file/application.
+     * @throws { BusinessError } 2300026 - Failed to open or read local data from the file or application.
      * @throws { BusinessError } 2300027 - Out of memory.
-     * @throws { BusinessError } 2300028 - Timeout was reached.
-     * @throws { BusinessError } 2300047 - Number of redirects hit maximum amount.
-     * @throws { BusinessError } 2300052 - Server returned nothing (no headers, no data).
-     * @throws { BusinessError } 2300055 - Failed sending data to the peer.
-     * @throws { BusinessError } 2300056 - Failure when receiving data from the peer.
-     * @throws { BusinessError } 2300058 - Problem with the local SSL certificate.
-     * @throws { BusinessError } 2300059 - Couldn't use specified SSL cipher.
-     * @throws { BusinessError } 2300060 - SSL peer certificate or SSH remote key was not OK.
-     * @throws { BusinessError } 2300061 - Unrecognized or bad HTTP Content or Transfer-Encoding.
+     * @throws { BusinessError } 2300028 - Operation timeout.
+     * @throws { BusinessError } 2300047 - The number of redirections reaches the maximum allowed.
+     * @throws { BusinessError } 2300052 - The server returned nothing (no header or data).
+     * @throws { BusinessError } 2300055 - Failed to send data to the peer.
+     * @throws { BusinessError } 2300056 - Failed to receive data from the peer.
+     * @throws { BusinessError } 2300058 - Local SSL certificate error.
+     * @throws { BusinessError } 2300059 - The specified SSL cipher cannot be used.
+     * @throws { BusinessError } 2300060 - Invalid SSL peer certificate or SSH remote key.
+     * @throws { BusinessError } 2300061 - Invalid HTTP encoding format.
      * @throws { BusinessError } 2300063 - Maximum file size exceeded.
-     * @throws { BusinessError } 2300070 - Disk full or allocation exceeded.
+     * @throws { BusinessError } 2300070 - Remote disk full.
      * @throws { BusinessError } 2300073 - Remote file already exists.
-     * @throws { BusinessError } 2300077 - Problem with the SSL CA cert (path? access rights?).
+     * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
-     * @throws { BusinessError } 2300094 - An authentication function returned an error.
-     * @throws { BusinessError } 2300999 - Unknown Other Error.
+     * @throws { BusinessError } 2300094 - Authentication error.
+     * @throws { BusinessError } 2300999 - Unknown error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
@@ -811,34 +1001,34 @@ declare namespace http {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300001 - Unsupported protocol.
-     * @throws { BusinessError } 2300003 - URL using bad/illegal format or missing URL.
-     * @throws { BusinessError } 2300005 - Couldn't resolve proxy name.
-     * @throws { BusinessError } 2300006 - Couldn't resolve host name.
-     * @throws { BusinessError } 2300007 - Couldn't connect to server.
-     * @throws { BusinessError } 2300008 - Weird server reply.
-     * @throws { BusinessError } 2300009 - Access denied to remote resource.
+     * @throws { BusinessError } 2300003 - Invalid URL format or missing URL.
+     * @throws { BusinessError } 2300005 - Failed to resolve the proxy name.
+     * @throws { BusinessError } 2300006 - Failed to resolve the host name.
+     * @throws { BusinessError } 2300007 - Failed to connect to the server.
+     * @throws { BusinessError } 2300008 - Invalid server response.
+     * @throws { BusinessError } 2300009 - Access to the remote resource denied.
      * @throws { BusinessError } 2300016 - Error in the HTTP2 framing layer.
      * @throws { BusinessError } 2300018 - Transferred a partial file.
-     * @throws { BusinessError } 2300023 - Failed writing received data to disk/application.
+     * @throws { BusinessError } 2300023 - Failed to write the received data to the disk or application.
      * @throws { BusinessError } 2300025 - Upload failed.
-     * @throws { BusinessError } 2300026 - Failed to open/read local data from file/application.
+     * @throws { BusinessError } 2300026 - Failed to open or read local data from the file or application.
      * @throws { BusinessError } 2300027 - Out of memory.
-     * @throws { BusinessError } 2300028 - Timeout was reached.
-     * @throws { BusinessError } 2300047 - Number of redirects hit maximum amount.
-     * @throws { BusinessError } 2300052 - Server returned nothing (no headers, no data).
-     * @throws { BusinessError } 2300055 - Failed sending data to the peer.
-     * @throws { BusinessError } 2300056 - Failure when receiving data from the peer.
-     * @throws { BusinessError } 2300058 - Problem with the local SSL certificate.
-     * @throws { BusinessError } 2300059 - Couldn't use specified SSL cipher.
-     * @throws { BusinessError } 2300060 - SSL peer certificate or SSH remote key was not OK.
-     * @throws { BusinessError } 2300061 - Unrecognized or bad HTTP Content or Transfer-Encoding.
+     * @throws { BusinessError } 2300028 - Operation timeout.
+     * @throws { BusinessError } 2300047 - The number of redirections reaches the maximum allowed.
+     * @throws { BusinessError } 2300052 - The server returned nothing (no header or data).
+     * @throws { BusinessError } 2300055 - Failed to send data to the peer.
+     * @throws { BusinessError } 2300056 - Failed to receive data from the peer.
+     * @throws { BusinessError } 2300058 - Local SSL certificate error.
+     * @throws { BusinessError } 2300059 - The specified SSL cipher cannot be used.
+     * @throws { BusinessError } 2300060 - Invalid SSL peer certificate or SSH remote key.
+     * @throws { BusinessError } 2300061 - Invalid HTTP encoding format.
      * @throws { BusinessError } 2300063 - Maximum file size exceeded.
-     * @throws { BusinessError } 2300070 - Disk full or allocation exceeded.
+     * @throws { BusinessError } 2300070 - Remote disk full.
      * @throws { BusinessError } 2300073 - Remote file already exists.
-     * @throws { BusinessError } 2300077 - Problem with the SSL CA cert (path? access rights?).
+     * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
-     * @throws { BusinessError } 2300094 - An authentication function returned an error.
-     * @throws { BusinessError } 2300999 - Unknown Other Error.
+     * @throws { BusinessError } 2300094 - Authentication error.
+     * @throws { BusinessError } 2300999 - Unknown error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 6
      */
@@ -851,34 +1041,34 @@ declare namespace http {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300001 - Unsupported protocol.
-     * @throws { BusinessError } 2300003 - URL using bad/illegal format or missing URL.
-     * @throws { BusinessError } 2300005 - Couldn't resolve proxy name.
-     * @throws { BusinessError } 2300006 - Couldn't resolve host name.
-     * @throws { BusinessError } 2300007 - Couldn't connect to server.
-     * @throws { BusinessError } 2300008 - Weird server reply.
-     * @throws { BusinessError } 2300009 - Access denied to remote resource.
+     * @throws { BusinessError } 2300003 - Invalid URL format or missing URL.
+     * @throws { BusinessError } 2300005 - Failed to resolve the proxy name.
+     * @throws { BusinessError } 2300006 - Failed to resolve the host name.
+     * @throws { BusinessError } 2300007 - Failed to connect to the server.
+     * @throws { BusinessError } 2300008 - Invalid server response.
+     * @throws { BusinessError } 2300009 - Access to the remote resource denied.
      * @throws { BusinessError } 2300016 - Error in the HTTP2 framing layer.
      * @throws { BusinessError } 2300018 - Transferred a partial file.
-     * @throws { BusinessError } 2300023 - Failed writing received data to disk/application.
+     * @throws { BusinessError } 2300023 - Failed to write the received data to the disk or application.
      * @throws { BusinessError } 2300025 - Upload failed.
-     * @throws { BusinessError } 2300026 - Failed to open/read local data from file/application.
+     * @throws { BusinessError } 2300026 - Failed to open or read local data from the file or application.
      * @throws { BusinessError } 2300027 - Out of memory.
-     * @throws { BusinessError } 2300028 - Timeout was reached.
-     * @throws { BusinessError } 2300047 - Number of redirects hit maximum amount.
-     * @throws { BusinessError } 2300052 - Server returned nothing (no headers, no data).
-     * @throws { BusinessError } 2300055 - Failed sending data to the peer.
-     * @throws { BusinessError } 2300056 - Failure when receiving data from the peer.
-     * @throws { BusinessError } 2300058 - Problem with the local SSL certificate.
-     * @throws { BusinessError } 2300059 - Couldn't use specified SSL cipher.
-     * @throws { BusinessError } 2300060 - SSL peer certificate or SSH remote key was not OK.
-     * @throws { BusinessError } 2300061 - Unrecognized or bad HTTP Content or Transfer-Encoding.
+     * @throws { BusinessError } 2300028 - Operation timeout.
+     * @throws { BusinessError } 2300047 - The number of redirections reaches the maximum allowed.
+     * @throws { BusinessError } 2300052 - The server returned nothing (no header or data).
+     * @throws { BusinessError } 2300055 - Failed to send data to the peer.
+     * @throws { BusinessError } 2300056 - Failed to receive data from the peer.
+     * @throws { BusinessError } 2300058 - Local SSL certificate error.
+     * @throws { BusinessError } 2300059 - The specified SSL cipher cannot be used.
+     * @throws { BusinessError } 2300060 - Invalid SSL peer certificate or SSH remote key.
+     * @throws { BusinessError } 2300061 - Invalid HTTP encoding format.
      * @throws { BusinessError } 2300063 - Maximum file size exceeded.
-     * @throws { BusinessError } 2300070 - Disk full or allocation exceeded.
+     * @throws { BusinessError } 2300070 - Remote disk full.
      * @throws { BusinessError } 2300073 - Remote file already exists.
-     * @throws { BusinessError } 2300077 - Problem with the SSL CA cert (path? access rights?).
+     * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
-     * @throws { BusinessError } 2300094 - An authentication function returned an error.
-     * @throws { BusinessError } 2300999 - Unknown Other Error.
+     * @throws { BusinessError } 2300094 - Authentication error.
+     * @throws { BusinessError } 2300999 - Unknown error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
@@ -892,34 +1082,34 @@ declare namespace http {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300001 - Unsupported protocol.
-     * @throws { BusinessError } 2300003 - URL using bad/illegal format or missing URL.
-     * @throws { BusinessError } 2300005 - Couldn't resolve proxy name.
-     * @throws { BusinessError } 2300006 - Couldn't resolve host name.
-     * @throws { BusinessError } 2300007 - Couldn't connect to server.
-     * @throws { BusinessError } 2300008 - Weird server reply.
-     * @throws { BusinessError } 2300009 - Access denied to remote resource.
+     * @throws { BusinessError } 2300003 - Invalid URL format or missing URL.
+     * @throws { BusinessError } 2300005 - Failed to resolve the proxy name.
+     * @throws { BusinessError } 2300006 - Failed to resolve the host name.
+     * @throws { BusinessError } 2300007 - Failed to connect to the server.
+     * @throws { BusinessError } 2300008 - Invalid server response.
+     * @throws { BusinessError } 2300009 - Access to the remote resource denied.
      * @throws { BusinessError } 2300016 - Error in the HTTP2 framing layer.
      * @throws { BusinessError } 2300018 - Transferred a partial file.
-     * @throws { BusinessError } 2300023 - Failed writing received data to disk/application.
+     * @throws { BusinessError } 2300023 - Failed to write the received data to the disk or application.
      * @throws { BusinessError } 2300025 - Upload failed.
-     * @throws { BusinessError } 2300026 - Failed to open/read local data from file/application.
+     * @throws { BusinessError } 2300026 - Failed to open or read local data from the file or application.
      * @throws { BusinessError } 2300027 - Out of memory.
-     * @throws { BusinessError } 2300028 - Timeout was reached.
-     * @throws { BusinessError } 2300047 - Number of redirects hit maximum amount.
-     * @throws { BusinessError } 2300052 - Server returned nothing (no headers, no data).
-     * @throws { BusinessError } 2300055 - Failed sending data to the peer.
-     * @throws { BusinessError } 2300056 - Failure when receiving data from the peer.
-     * @throws { BusinessError } 2300058 - Problem with the local SSL certificate.
-     * @throws { BusinessError } 2300059 - Couldn't use specified SSL cipher.
-     * @throws { BusinessError } 2300060 - SSL peer certificate or SSH remote key was not OK.
-     * @throws { BusinessError } 2300061 - Unrecognized or bad HTTP Content or Transfer-Encoding.
+     * @throws { BusinessError } 2300028 - Operation timeout.
+     * @throws { BusinessError } 2300047 - The number of redirections reaches the maximum allowed.
+     * @throws { BusinessError } 2300052 - The server returned nothing (no header or data).
+     * @throws { BusinessError } 2300055 - Failed to send data to the peer.
+     * @throws { BusinessError } 2300056 - Failed to receive data from the peer.
+     * @throws { BusinessError } 2300058 - Local SSL certificate error.
+     * @throws { BusinessError } 2300059 - The specified SSL cipher cannot be used.
+     * @throws { BusinessError } 2300060 - Invalid SSL peer certificate or SSH remote key.
+     * @throws { BusinessError } 2300061 - Invalid HTTP encoding format.
      * @throws { BusinessError } 2300063 - Maximum file size exceeded.
-     * @throws { BusinessError } 2300070 - Disk full or allocation exceeded.
+     * @throws { BusinessError } 2300070 - Remote disk full.
      * @throws { BusinessError } 2300073 - Remote file already exists.
-     * @throws { BusinessError } 2300077 - Problem with the SSL CA cert (path? access rights?).
+     * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
-     * @throws { BusinessError } 2300094 - An authentication function returned an error.
-     * @throws { BusinessError } 2300999 - Unknown Other Error.
+     * @throws { BusinessError } 2300094 - Authentication error.
+     * @throws { BusinessError } 2300999 - Unknown error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
@@ -936,34 +1126,34 @@ declare namespace http {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300001 - Unsupported protocol.
-     * @throws { BusinessError } 2300003 - URL using bad/illegal format or missing URL.
-     * @throws { BusinessError } 2300005 - Couldn't resolve proxy name.
-     * @throws { BusinessError } 2300006 - Couldn't resolve host name.
-     * @throws { BusinessError } 2300007 - Couldn't connect to server.
-     * @throws { BusinessError } 2300008 - Weird server reply.
-     * @throws { BusinessError } 2300009 - Access denied to remote resource.
+     * @throws { BusinessError } 2300003 - Invalid URL format or missing URL.
+     * @throws { BusinessError } 2300005 - Failed to resolve the proxy name.
+     * @throws { BusinessError } 2300006 - Failed to resolve the host name.
+     * @throws { BusinessError } 2300007 - Failed to connect to the server.
+     * @throws { BusinessError } 2300008 - Invalid server response.
+     * @throws { BusinessError } 2300009 - Access to the remote resource denied.
      * @throws { BusinessError } 2300016 - Error in the HTTP2 framing layer.
      * @throws { BusinessError } 2300018 - Transferred a partial file.
-     * @throws { BusinessError } 2300023 - Failed writing received data to disk/application.
+     * @throws { BusinessError } 2300023 - Failed to write the received data to the disk or application.
      * @throws { BusinessError } 2300025 - Upload failed.
-     * @throws { BusinessError } 2300026 - Failed to open/read local data from file/application.
+     * @throws { BusinessError } 2300026 - Failed to open or read local data from the file or application.
      * @throws { BusinessError } 2300027 - Out of memory.
-     * @throws { BusinessError } 2300028 - Timeout was reached.
-     * @throws { BusinessError } 2300047 - Number of redirects hit maximum amount.
-     * @throws { BusinessError } 2300052 - Server returned nothing (no headers, no data).
-     * @throws { BusinessError } 2300055 - Failed sending data to the peer.
-     * @throws { BusinessError } 2300056 - Failure when receiving data from the peer.
-     * @throws { BusinessError } 2300058 - Problem with the local SSL certificate.
-     * @throws { BusinessError } 2300059 - Couldn't use specified SSL cipher.
-     * @throws { BusinessError } 2300060 - SSL peer certificate or SSH remote key was not OK.
-     * @throws { BusinessError } 2300061 - Unrecognized or bad HTTP Content or Transfer-Encoding.
+     * @throws { BusinessError } 2300028 - Operation timeout.
+     * @throws { BusinessError } 2300047 - The number of redirections reaches the maximum allowed.
+     * @throws { BusinessError } 2300052 - The server returned nothing (no header or data).
+     * @throws { BusinessError } 2300055 - Failed to send data to the peer.
+     * @throws { BusinessError } 2300056 - Failed to receive data from the peer.
+     * @throws { BusinessError } 2300058 - Local SSL certificate error.
+     * @throws { BusinessError } 2300059 - The specified SSL cipher cannot be used.
+     * @throws { BusinessError } 2300060 - Invalid SSL peer certificate or SSH remote key.
+     * @throws { BusinessError } 2300061 - Invalid HTTP encoding format.
      * @throws { BusinessError } 2300063 - Maximum file size exceeded.
-     * @throws { BusinessError } 2300070 - Disk full or allocation exceeded.
+     * @throws { BusinessError } 2300070 - Remote disk full.
      * @throws { BusinessError } 2300073 - Remote file already exists.
-     * @throws { BusinessError } 2300077 - Problem with the SSL CA cert (path? access rights?).
+     * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
-     * @throws { BusinessError } 2300094 - An authentication function returned an error.
-     * @throws { BusinessError } 2300999 - Unknown Other Error.
+     * @throws { BusinessError } 2300094 - Authentication error.
+     * @throws { BusinessError } 2300999 - Unknown error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
@@ -978,34 +1168,34 @@ declare namespace http {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300001 - Unsupported protocol.
-     * @throws { BusinessError } 2300003 - URL using bad/illegal format or missing URL.
-     * @throws { BusinessError } 2300005 - Couldn't resolve proxy name.
-     * @throws { BusinessError } 2300006 - Couldn't resolve host name.
-     * @throws { BusinessError } 2300007 - Couldn't connect to server.
-     * @throws { BusinessError } 2300008 - Weird server reply.
-     * @throws { BusinessError } 2300009 - Access denied to remote resource.
+     * @throws { BusinessError } 2300003 - Invalid URL format or missing URL.
+     * @throws { BusinessError } 2300005 - Failed to resolve the proxy name.
+     * @throws { BusinessError } 2300006 - Failed to resolve the host name.
+     * @throws { BusinessError } 2300007 - Failed to connect to the server.
+     * @throws { BusinessError } 2300008 - Invalid server response.
+     * @throws { BusinessError } 2300009 - Access to the remote resource denied.
      * @throws { BusinessError } 2300016 - Error in the HTTP2 framing layer.
      * @throws { BusinessError } 2300018 - Transferred a partial file.
-     * @throws { BusinessError } 2300023 - Failed writing received data to disk/application.
+     * @throws { BusinessError } 2300023 - Failed to write the received data to the disk or application.
      * @throws { BusinessError } 2300025 - Upload failed.
-     * @throws { BusinessError } 2300026 - Failed to open/read local data from file/application.
+     * @throws { BusinessError } 2300026 - Failed to open or read local data from the file or application.
      * @throws { BusinessError } 2300027 - Out of memory.
-     * @throws { BusinessError } 2300028 - Timeout was reached.
-     * @throws { BusinessError } 2300047 - Number of redirects hit maximum amount.
-     * @throws { BusinessError } 2300052 - Server returned nothing (no headers, no data).
-     * @throws { BusinessError } 2300055 - Failed sending data to the peer.
-     * @throws { BusinessError } 2300056 - Failure when receiving data from the peer.
-     * @throws { BusinessError } 2300058 - Problem with the local SSL certificate.
-     * @throws { BusinessError } 2300059 - Couldn't use specified SSL cipher.
-     * @throws { BusinessError } 2300060 - SSL peer certificate or SSH remote key was not OK.
-     * @throws { BusinessError } 2300061 - Unrecognized or bad HTTP Content or Transfer-Encoding.
+     * @throws { BusinessError } 2300028 - Operation timeout.
+     * @throws { BusinessError } 2300047 - The number of redirections reaches the maximum allowed.
+     * @throws { BusinessError } 2300052 - The server returned nothing (no header or data).
+     * @throws { BusinessError } 2300055 - Failed to send data to the peer.
+     * @throws { BusinessError } 2300056 - Failed to receive data from the peer.
+     * @throws { BusinessError } 2300058 - Local SSL certificate error.
+     * @throws { BusinessError } 2300059 - The specified SSL cipher cannot be used.
+     * @throws { BusinessError } 2300060 - Invalid SSL peer certificate or SSH remote key.
+     * @throws { BusinessError } 2300061 - Invalid HTTP encoding format.
      * @throws { BusinessError } 2300063 - Maximum file size exceeded.
-     * @throws { BusinessError } 2300070 - Disk full or allocation exceeded.
+     * @throws { BusinessError } 2300070 - Remote disk full.
      * @throws { BusinessError } 2300073 - Remote file already exists.
-     * @throws { BusinessError } 2300077 - Problem with the SSL CA cert (path? access rights?).
+     * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
-     * @throws { BusinessError } 2300094 - An authentication function returned an error.
-     * @throws { BusinessError } 2300999 - Unknown Other Error.
+     * @throws { BusinessError } 2300094 - Authentication error.
+     * @throws { BusinessError } 2300999 - Unknown error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
@@ -1020,34 +1210,34 @@ declare namespace http {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300001 - Unsupported protocol.
-     * @throws { BusinessError } 2300003 - URL using bad/illegal format or missing URL.
-     * @throws { BusinessError } 2300005 - Couldn't resolve proxy name.
-     * @throws { BusinessError } 2300006 - Couldn't resolve host name.
-     * @throws { BusinessError } 2300007 - Couldn't connect to server.
-     * @throws { BusinessError } 2300008 - Weird server reply.
-     * @throws { BusinessError } 2300009 - Access denied to remote resource.
+     * @throws { BusinessError } 2300003 - Invalid URL format or missing URL.
+     * @throws { BusinessError } 2300005 - Failed to resolve the proxy name.
+     * @throws { BusinessError } 2300006 - Failed to resolve the host name.
+     * @throws { BusinessError } 2300007 - Failed to connect to the server.
+     * @throws { BusinessError } 2300008 - Invalid server response.
+     * @throws { BusinessError } 2300009 - Access to the remote resource denied.
      * @throws { BusinessError } 2300016 - Error in the HTTP2 framing layer.
      * @throws { BusinessError } 2300018 - Transferred a partial file.
-     * @throws { BusinessError } 2300023 - Failed writing received data to disk/application.
+     * @throws { BusinessError } 2300023 - Failed to write the received data to the disk or application.
      * @throws { BusinessError } 2300025 - Upload failed.
-     * @throws { BusinessError } 2300026 - Failed to open/read local data from file/application.
+     * @throws { BusinessError } 2300026 - Failed to open or read local data from the file or application.
      * @throws { BusinessError } 2300027 - Out of memory.
-     * @throws { BusinessError } 2300028 - Timeout was reached.
-     * @throws { BusinessError } 2300047 - Number of redirects hit maximum amount.
-     * @throws { BusinessError } 2300052 - Server returned nothing (no headers, no data).
-     * @throws { BusinessError } 2300055 - Failed sending data to the peer.
-     * @throws { BusinessError } 2300056 - Failure when receiving data from the peer.
-     * @throws { BusinessError } 2300058 - Problem with the local SSL certificate.
-     * @throws { BusinessError } 2300059 - Couldn't use specified SSL cipher.
-     * @throws { BusinessError } 2300060 - SSL peer certificate or SSH remote key was not OK.
-     * @throws { BusinessError } 2300061 - Unrecognized or bad HTTP Content or Transfer-Encoding.
+     * @throws { BusinessError } 2300028 - Operation timeout.
+     * @throws { BusinessError } 2300047 - The number of redirections reaches the maximum allowed.
+     * @throws { BusinessError } 2300052 - The server returned nothing (no header or data).
+     * @throws { BusinessError } 2300055 - Failed to send data to the peer.
+     * @throws { BusinessError } 2300056 - Failed to receive data from the peer.
+     * @throws { BusinessError } 2300058 - Local SSL certificate error.
+     * @throws { BusinessError } 2300059 - The specified SSL cipher cannot be used.
+     * @throws { BusinessError } 2300060 - Invalid SSL peer certificate or SSH remote key.
+     * @throws { BusinessError } 2300061 - Invalid HTTP encoding format.
      * @throws { BusinessError } 2300063 - Maximum file size exceeded.
-     * @throws { BusinessError } 2300070 - Disk full or allocation exceeded.
+     * @throws { BusinessError } 2300070 - Remote disk full.
      * @throws { BusinessError } 2300073 - Remote file already exists.
-     * @throws { BusinessError } 2300077 - Problem with the SSL CA cert (path? access rights?).
+     * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
-     * @throws { BusinessError } 2300094 - An authentication function returned an error.
-     * @throws { BusinessError } 2300999 - Unknown Other Error.
+     * @throws { BusinessError } 2300094 - Authentication error.
+     * @throws { BusinessError } 2300999 - Unknown error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
@@ -1214,6 +1404,14 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
+    /**
+     * Registers an observer for progress of receiving HTTP Response data events.
+     * @param { 'dataReceiveProgress' } type - Indicates Event name.
+     * @param { Callback<DataReceiveProgressInfo> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 12
+     */
     on(type: 'dataReceiveProgress', callback: Callback<DataReceiveProgressInfo>): void;
 
     /**
@@ -1230,6 +1428,14 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
+    /**
+     * Unregisters an observer for progress of receiving HTTP Response data events.
+     * @param { 'dataReceiveProgress' } type - Indicates Event name.
+     * @param { Callback<DataReceiveProgressInfo> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 12
+     */
     off(type: 'dataReceiveProgress', callback?: Callback<DataReceiveProgressInfo>): void;
 
     /**
@@ -1239,6 +1445,14 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
+    /**
+     * Registers an observer for progress of sendSize HTTP Response data events.
+     * @param { 'dataSendProgress' } type - Indicates Event name.
+     * @param { Callback<DataSendProgressInfo> } callback - the callback of on.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 12
+     */
     on(type: 'dataSendProgress', callback: Callback<DataSendProgressInfo>): void
 
     /**
@@ -1247,6 +1461,14 @@ declare namespace http {
      * @param { Callback<DataSendProgressInfo> } [callback] - the callback of off.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
+     */
+    /**
+     * Unregisters an observer for progress of sendSize HTTP Response data events.
+     * @param { 'dataSendProgress' } type - Indicates Event name.
+     * @param { Callback<DataSendProgressInfo> } [callback] - the callback of off.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 12
      */
     off(type: 'dataSendProgress', callback?: Callback<DataSendProgressInfo>): void
   }
@@ -2242,6 +2464,14 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
+    /**
+     * Protocol http3 for https only.
+     * Cause error if using http only or not supporting http3 on this device.
+     * Fallback to http2 or http1.1 if needed.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 12
+     */
     HTTP3
   }
 
@@ -2480,6 +2710,13 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
+    /**
+     * The time taken of various stages of HTTP request.
+     * @type {PerformanceTiming}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 12
+     */
     performanceTiming: PerformanceTiming;
   }
 
@@ -2489,12 +2726,26 @@ declare namespace http {
    * @syscap SystemCapability.Communication.NetStack
    * @since 11
    */
+  /**
+   * Counting the time taken of various stages of HTTP request.
+   * @interface PerformanceTiming
+   * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
+   * @since 12
+   */
   export interface PerformanceTiming {
     /**
      * Time taken from startup to DNS resolution completion, in milliseconds.
      * @type {number}
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
+     */
+    /**
+     * Time taken from startup to DNS resolution completion, in milliseconds.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 12
      */
     dnsTiming: number;
 
@@ -2504,6 +2755,13 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
+    /**
+     * Time taken from startup to TCP connection completion, in milliseconds.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 12
+     */
     tcpTiming: number;
 
     /**
@@ -2511,6 +2769,13 @@ declare namespace http {
      * @type {number}
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
+     */
+    /**
+     * Time taken from startup to TLS connection completion, in milliseconds.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 12
      */
     tlsTiming: number;
 
@@ -2520,6 +2785,13 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
+    /**
+     * Time taken from startup to start sending the first byte, in milliseconds.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 12
+     */
     firstSendTiming: number;
 
     /**
@@ -2527,6 +2799,13 @@ declare namespace http {
      * @type {number}
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
+     */
+    /**
+     * Time taken from startup to receiving the first byte, in milliseconds.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 12
      */
     firstReceiveTiming: number;
 
@@ -2536,6 +2815,13 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
+    /**
+     * Time taken from startup to the completion of the request, in milliseconds.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 12
+     */
     totalFinishTiming: number;
 
     /**
@@ -2543,6 +2829,13 @@ declare namespace http {
      * @type {number}
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
+     */
+    /**
+     * Time taken from startup to completion of all redirection steps, in milliseconds.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 12
      */
     redirectTiming: number;
 
@@ -2552,6 +2845,13 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
+    /**
+     * Time taken from HTTP request to header completion, in milliseconds.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 12
+     */
     responseHeaderTiming: number;
 
     /**
@@ -2560,6 +2860,13 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
+    /**
+     * Time taken from HTTP Request to body completion, in milliseconds.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 12
+     */
     responseBodyTiming: number;
 
     /**
@@ -2567,6 +2874,13 @@ declare namespace http {
      * @type {number}
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
+     */
+    /**
+     * Time taken from HTTP Request to callback to the application, in milliseconds.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 12
      */
     totalTiming: number;
   }
@@ -2577,6 +2891,13 @@ declare namespace http {
    * @syscap SystemCapability.Communication.NetStack
    * @since 11
    */
+  /**
+   * This interface is used to obtain the progress information of file upload or download.
+   * @interface DataReceiveProgressInfo
+   * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
+   * @since 12
+   */
   export interface DataReceiveProgressInfo {
     /**
      * Number of data bytes received.
@@ -2584,12 +2905,26 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
+    /**
+     * Number of data bytes received.
+     * @type { number }
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 12
+     */
     receiveSize: number;
     /**
      * Total number of bytes to receive.
      * @type { number }
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
+     */
+    /**
+     * Total number of bytes to receive.
+     * @type { number }
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 12
      */
     totalSize: number;
   }
@@ -2600,6 +2935,13 @@ declare namespace http {
    * @syscap SystemCapability.Communication.NetStack
    * @since 11
    */
+  /**
+   * This interface is used to monitor the progress of sending data.
+   * @interface DataSendProgressInfo
+   * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
+   * @since 12
+   */
   export interface DataSendProgressInfo {
     /**
      * Used to specify the data size to be sent.
@@ -2607,12 +2949,26 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
+    /**
+     * Used to specify the data size to be sent.
+     * @type { number }
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 12
+     */
     sendSize: number;
     /**
      * Total number of bytes to receive.
      * @type { number }
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
+     */
+    /**
+     * Total number of bytes to receive.
+     * @type { number }
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 12
      */
     totalSize: number;
   }

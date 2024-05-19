@@ -113,9 +113,12 @@ declare namespace fileIo {
   export { Stream };
   export { Watcher };
   export { WhenceType };
+  export { connectDfs };
+  export { disconnectDfs };
   export type { Progress };
   export type { CopyOptions };
   export type { ProgressListener };
+  export type { DfsListeners };
 
   /**
    * Mode Indicates the open flags.
@@ -746,7 +749,8 @@ declare function closeSync(file: number | File): void;
  * @param { string } destUri - dest uri.
  * @param { CopyOptions } [options] - options.
  * @returns { Promise<void> } The promise returned by the function.
- * @throws { BusinessError } 401 - Parameter error.
+ * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+ * <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -782,7 +786,8 @@ declare function copy(srcUri: string, destUri: string, options?: CopyOptions): P
  * @param { string } srcUri - src uri.
  * @param { string } destUri - dest uri.
  * @param { AsyncCallback<void> } callback - Return the callback function.
- * @throws { BusinessError } 401 - Parameter error.
+ * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+ * <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -819,7 +824,8 @@ declare function copy(srcUri: string, destUri: string, callback: AsyncCallback<v
  * @param { string } destUri - dest uri.
  * @param { CopyOptions } options - options.
  * @param { AsyncCallback<void> } callback - Return the callback function.
- * @throws { BusinessError } 401 - Parameter error.
+ * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+ * <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -5741,6 +5747,33 @@ declare function writeSync(
 ): number;
 
 /**
+ * Connect Distributed File System.
+ *
+ * @param { string } networkId - The networkId of device.
+ * @param { DfsListeners } listeners - The listeners of Distributed File System.
+ * @returns { Promise<void> } The promise returned by the function.
+ * @throws { BusinessError } 201 - Permission denied.
+ * @throws { BusinessError } 401 - The parameter check failed.
+ * @throws { BusinessError } 13900045 - Connection failed.
+ * @throws { BusinessError } 13900046 - Software caused connection abort.
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 12
+ */
+declare function connectDfs(networkId: string, listeners: DfsListeners): Promise<void>;
+
+/**
+ * Disconnect Distributed File System.
+ *
+ * @param { string } networkId - The networkId of device.
+ * @returns { Promise<void> } The promise returned by the function.
+ * @throws { BusinessError } 201 - Permission denied.
+ * @throws { BusinessError } 401 - The parameter check failed.
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 12
+ */
+declare function disconnectDfs(networkId: string): Promise<void>;
+
+/**
  * Progress data of copyFile
  *
  * @typedef Progress
@@ -7585,6 +7618,25 @@ export interface ListFileOptions {
    * @since 11
    */
   filter?: Filter;
+}
+
+/**
+ * The listeners of Distributed File System.
+ *
+ * @typedef DfsListeners
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 12
+ */
+interface DfsListeners {
+  /**
+   * The Listener of Distributed File System status
+   *
+   * @param { string } networkId - The networkId of device.
+   * @param { number } status - The status code of Distributed File System.
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 12
+   */
+  onStatus(networkId: string, status: number): void;
 }
 
 /**

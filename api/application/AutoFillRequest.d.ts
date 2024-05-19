@@ -178,7 +178,19 @@ export interface FillRequestCallback {
    * @StageModelOnly
    * @since 11
    */
-  onCancel(): void;
+  /**
+   * Notification system that filling has been cancelled.
+   *
+   * @param { string } [fillContent] - Indicates the content to be filled in.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Incorrect parameter types.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+  onCancel(fillContent?: string): void;
 
   /**
    * autofill popup config.

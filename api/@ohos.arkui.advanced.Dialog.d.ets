@@ -21,6 +21,7 @@
 /// <reference path="../component/units.d.ts" />
 
 import { ResourceStr } from 'GlobalResource';
+import { Theme, CustomTheme } from '@ohos.arkui.theme';
 
 /**
  * Declare ButtonOptions
@@ -278,6 +279,16 @@ export declare struct TipsDialog {
    * @since 11
    */
   secondaryButton?: ButtonOptions;
+  /**
+   * Custom Theme.
+   *
+   * @type { ?(Theme | CustomTheme) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  theme?: Theme | CustomTheme;
 }
 
 /**
@@ -377,6 +388,16 @@ export declare struct SelectDialog {
    * @since 11
    */
   radioContent: Array<SheetInfo>;
+  /**
+   * Custom Theme.
+   *
+   * @type { ?(Theme | CustomTheme) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  theme?: Theme | CustomTheme;
 }
 
 /**
@@ -490,6 +511,16 @@ export declare struct ConfirmDialog {
    * @since 11
    */
   secondaryButton?: ButtonOptions;
+  /**
+   * Custom Theme.
+   *
+   * @type { ?(Theme | CustomTheme) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  theme?: Theme | CustomTheme;
 }
 
 /**
@@ -577,6 +608,16 @@ export declare struct AlertDialog {
    * @since 11
    */
   secondaryButton?: ButtonOptions;
+  /**
+   * Custom Theme.
+   *
+   * @type { ?(Theme | CustomTheme) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  theme?: Theme | CustomTheme;
 }
 
 /**
@@ -620,6 +661,16 @@ export declare struct LoadingDialog {
    * @since 11
    */
   content?: ResourceStr;
+  /**
+   * Custom Theme.
+   *
+   * @type { ?(Theme | CustomTheme) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  theme?: Theme | CustomTheme;
 }
 
 /**
@@ -678,4 +729,14 @@ export declare struct CustomContentDialog {
    * @since 12
    */
   buttons?: ButtonOptions[];
+  /**
+   * Custom Theme.
+   *
+   * @type { ?(Theme | CustomTheme) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  theme?: Theme | CustomTheme;
 }

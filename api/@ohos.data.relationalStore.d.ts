@@ -3037,7 +3037,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -3100,7 +3100,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -3149,7 +3149,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -3208,7 +3208,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -3257,7 +3257,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -3291,7 +3291,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -3350,7 +3350,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -3409,7 +3409,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -3442,7 +3442,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -3504,7 +3504,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -3555,7 +3555,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -3622,7 +3622,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -3673,7 +3673,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -3708,7 +3708,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -3782,7 +3782,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -3862,7 +3862,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -3919,7 +3919,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -3975,7 +3975,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -4007,7 +4007,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -4074,7 +4074,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -4143,7 +4143,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -4187,7 +4187,7 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -4229,7 +4229,7 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -4271,7 +4271,7 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -4306,7 +4306,7 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
@@ -4344,7 +4344,7 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
@@ -4387,7 +4387,7 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
@@ -4422,7 +4422,7 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -4450,7 +4450,7 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -4492,7 +4492,7 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -4534,7 +4534,7 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -4551,7 +4551,7 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -4587,7 +4587,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -4636,7 +4636,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -4690,7 +4690,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -4733,7 +4733,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -4784,7 +4784,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -4832,7 +4832,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -4879,7 +4879,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -4928,7 +4928,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -4973,7 +4973,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -5033,7 +5033,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -5076,7 +5076,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 14800000 - Inner error.+
+     * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -5093,7 +5093,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -5127,7 +5127,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -5161,7 +5161,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -5193,7 +5193,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -5240,7 +5240,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -5271,7 +5271,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -5314,7 +5314,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -5345,7 +5345,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -5387,7 +5387,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -5417,7 +5417,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -5470,7 +5470,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800010 - Invalid database path.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -5524,7 +5524,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -5578,7 +5578,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -5632,7 +5632,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -6638,7 +6638,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800018 - No data meets the condition.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
@@ -6670,7 +6670,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800018 - No data meets the condition.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
@@ -6703,7 +6703,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
