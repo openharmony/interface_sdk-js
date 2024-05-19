@@ -243,7 +243,7 @@ export declare struct TipsDialog {
    * @atomicservice
    * @since 11
    */
-  @Prop isChecked?: boolean;
+@Prop isChecked?: boolean;
   /**
    * Sets the TipsDialog CheckBox Callback.
    * @type { ?(isChecked: boolean) => void }.
@@ -482,7 +482,7 @@ export declare struct ConfirmDialog {
    * @atomicservice
    * @since 11
    */
-  @Prop isChecked?: boolean;
+@Prop isChecked?: boolean;
   /**
    * Sets the ConfirmDialog primary button.
    * @type { ?ButtonOptions }.
@@ -521,6 +521,13 @@ export declare struct ConfirmDialog {
    * @since 12
    */
   theme?: Theme | CustomTheme;
+  /**
+   * Sets the ConfirmDialog CheckBox Callback.
+   * @type { ?(isChecked: boolean) => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  checkAction?: (isChecked: boolean) => void;
 }
 
 /**
@@ -712,7 +719,7 @@ export declare struct CustomContentDialog {
    * @crossplatform
    * @since 12
    */
-  @BuilderParam contentBuilder: () => void;
+@BuilderParam contentBuilder: () => void;
   /**
    * Sets the CustomContentDialog content area padding.
    * @type { ?Padding }
