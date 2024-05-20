@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,7 +18,7 @@
  * @kit SecurityGuardKit
  */
 
-import type { Callback } from "./@ohos.base";
+import type { Callback } from '@ohos.base';
 
 /**
  * Provides security event management and security model management.
@@ -71,7 +71,7 @@ declare namespace securityGuard {
     content: string;
     
     /**
-     * The event timestamp, format is YYYYMMDDHHMMSS
+     * The event timestamp, format is YYYYMMDDHHMMSS.
      *
      * @type { ?string }
      * @syscap SystemCapability.Security.SecurityGuard
@@ -90,8 +90,8 @@ declare namespace securityGuard {
    * @throws { BusinessError } 202 - non-system application uses the system API.
    * @throws { BusinessError } 401 - invalid parameters.
    * Possible causes: 
-   * 1. Mandatory parameters are left unspecified; 
-   * 2. Incorrect parameter types; 
+   * 1. Mandatory parameters are left unspecified. 
+   * 2. Incorrect parameter types. 
    * 3. Parameter verification failed.
    * @syscap SystemCapability.Security.SecurityGuard
    * @systemapi Hide this for inner system use.
@@ -193,8 +193,8 @@ declare namespace securityGuard {
    * @throws { BusinessError } 202 - non-system application uses the system API.
    * @throws { BusinessError } 401 - invalid parameters.
    * Possible causes: 
-   * 1. Mandatory parameters are left unspecified; 
-   * 2. Incorrect parameter types; 
+   * 1. Mandatory parameters are left unspecified. 
+   * 2. Incorrect parameter types. 
    * 3. Parameter verification failed.
    * @syscap SystemCapability.Security.SecurityGuard
    * @systemapi Hide this for inner system use.
@@ -241,8 +241,8 @@ declare namespace securityGuard {
    * @throws { BusinessError } 202 - non-system application uses the system API.
    * @throws { BusinessError } 401 - invalid parameters.
    * Possible causes: 
-   * 1. Mandatory parameters are left unspecified; 
-   * 2. Incorrect parameter types; 
+   * 1. Mandatory parameters are left unspecified. 
+   * 2. Incorrect parameter types. 
    * 3. Parameter verification failed.
    * @syscap SystemCapability.Security.SecurityGuard
    * @systemapi Hide this for inner system use.
@@ -259,8 +259,8 @@ declare namespace securityGuard {
    * @throws { BusinessError } 202 - non-system application uses the system API.
    * @throws { BusinessError } 401 - invalid parameters.
    * Possible causes: 
-   * 1. Mandatory parameters are left unspecified; 
-   * 2. Incorrect parameter types; 
+   * 1. Mandatory parameters are left unspecified. 
+   * 2. Incorrect parameter types. 
    * 3. Parameter verification failed.
    * @syscap SystemCapability.Security.SecurityGuard
    * @systemapi Hide this for inner system use.
@@ -328,8 +328,8 @@ declare namespace securityGuard {
    * @throws { BusinessError } 202 - non-system application uses the system API.
    * @throws { BusinessError } 401 - invalid parameters.
    * Possible causes: 
-   * 1. Mandatory parameters are left unspecified; 
-   * 2. Incorrect parameter types; 
+   * 1. Mandatory parameters are left unspecified. 
+   * 2. Incorrect parameter types. 
    * 3. Parameter verification failed.
    * @syscap SystemCapability.Security.SecurityGuard
    * @systemapi Hide this for inner system use.
@@ -347,7 +347,7 @@ declare namespace securityGuard {
    */
   interface SecurityEventInfo {
     /**
-     * The security event ids.
+     * The security event id.
      *
      * @type { number }
      * @syscap SystemCapability.Security.SecurityGuard
@@ -362,14 +362,14 @@ declare namespace securityGuard {
    *
    * @permission ohos.permission.securityguard.REQUEST_SECURITY_EVENT_INFO
    * @param { 'securityEventOccur' } type
-   * @param { SecurityEventInfo } securityEventInfo -  Indicates the subscribe event information.
+   * @param { SecurityEventInfo } securityEventInfo -  Indicates the subscribed event information.
    * @param { Callback<SecurityEvent> } callback -  Indicates the listener when the security event occurs. 
    * @throws { BusinessError } 201 - check permission fail.
    * @throws { BusinessError } 202 - non-system application uses the system API.
    * @throws { BusinessError } 401 - invalid parameters.
    * Possible causes: 
-   * 1. Mandatory parameters are left unspecified; 
-   * 2. Incorrect parameter types; 
+   * 1. Mandatory parameters are left unspecified. 
+   * 2. Incorrect parameter types. 
    * 3. Parameter verification failed.
    * @syscap SystemCapability.Security.SecurityGuard
    * @systemapi Hide this for inner system use.
@@ -382,14 +382,14 @@ declare namespace securityGuard {
    *
    * @permission ohos.permission.securityguard.REQUEST_SECURITY_EVENT_INFO
    * @param { 'securityEventOccur' } type
-   * @param { SecurityEventInfo } securityEventInfo -  Indicates the subscribe event information.
+   * @param { SecurityEventInfo } securityEventInfo -  Indicates the subscribed event information.
    * @param { Callback<SecurityEvent> } callback -  Indicates the listener when the security event occurs. 
    * @throws { BusinessError } 201 - check permission fail.
    * @throws { BusinessError } 202 - non-system application uses the system API.
    * @throws { BusinessError } 401 - invalid parameters.
    * Possible causes: 
-   * 1. Mandatory parameters are left unspecified; 
-   * 2. Incorrect parameter types; 
+   * 1. Mandatory parameters are left unspecified. 
+   * 2. Incorrect parameter types. 
    * 3. Parameter verification failed.
    * @syscap SystemCapability.Security.SecurityGuard
    * @systemapi Hide this for inner system use.
