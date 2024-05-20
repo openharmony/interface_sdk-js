@@ -12142,6 +12142,16 @@ interface ContextMenuAnimationOptions {
    * @since 12
    */
   transition?: TransitionEffect;
+
+  /**
+   * Sets the scale start and end animator of the image displayed before the custom builder preview is displayed.
+   *
+   * @type { ?AnimationRange<number> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  hoverScale?: AnimationRange<number>;
 }
 
 /**
