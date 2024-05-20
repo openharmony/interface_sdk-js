@@ -2526,7 +2526,7 @@ declare namespace webview {
    */
   interface OfflineResourceMap {
     /**
-     * Url list of resource.
+     * Url list of resource. Url of urlList must be HTTP/HTTPS protocol and no longer than 2048.
      *
      * @type { Array<string> }
      * @syscap SystemCapability.Web.Webview.Core
@@ -2535,7 +2535,7 @@ declare namespace webview {
     urlList: Array<string>,
 
     /**
-     * Arraybuffer of resource.
+     * Arraybuffer of resource. Size must less than 10Mb and cannot be empty.
      * 
      * @type { Uint8Array }
      * @syscap SystemCapability.Web.Webview.Core
@@ -4554,12 +4554,15 @@ declare namespace webview {
      * You can prefetch no more than 6 resources. If you want to prefetch the seventh resource, you can clear one of
      * the prefetched resources that you won't use any more. Otherwise the oldest resource you prefetched will be
      * cleared.
-     * @param { RequestInfo } request - The information of the request.
+     * @param { RequestInfo } request - The information of the request. 
      * @param { Array<WebHeader> } [additionalHeaders] - Additional HTTP request header of the request.
      * @param { string } [cacheKey] - The key for memory cache. Default value is the url of the request.
+     *    Only support number and letters.
      * @param { number } [cacheValidTime] - The valid time of the cache for request, ranges greater than 0.
-     *                                      The unit is second. Default value is 300s.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     *    The unit is second. Default value is 300s. 
+     *    The value of cacheValidTime must between 1 and 2147483647.
+     * @throws { BusinessError } 401 - Invalid input parameter.Possible causes: 1. Mandatory parameters are left unspecified.
+     *    2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 17100002 - Invalid url.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -4571,6 +4574,7 @@ declare namespace webview {
     /**
     * Clear the resource that you prefetch to the memory cache using API{@link prefetchResource}.
     * @param { Array<string> } cacheKeyList - The keys for memory cache.
+    *    The key in cacheKeyList only support number and letters.
     * @syscap SystemCapability.Web.Webview.Core
     * @atomicservice
     * @since 12
@@ -4612,14 +4616,16 @@ declare namespace webview {
 
     /**
      * Compile javascript and generate code cache.
-     * @param { string } url - Url of the javascript.
-     * @param { string | Uint8Array } script - javascript source code.
-     * @param { CacheOptions } cacheOptions - generate code cache option.
-     * @returns { Promise<number> } - the promise returned by the function.
-     *                                0 means generate code cache successfully, -1 means internal error.
+     * @param { string } url - Url of the javascript. Only support HTTP/HTTPS protocol and length no longer than 2048.
+     * @param { string | Uint8Array } script - Javascript source code. script must not be empty.
+     * @param { CacheOptions } cacheOptions - Generate code cache option.
+     * @returns { Promise<number> } - The promise returned by the function.
+     *    0 means generate code cache successfully, -1 means internal error.
      * @throws { BusinessError } 401 - Invalid input parameter.
+     *    Possible causes: 1. Mandatory parameters are left unspecified.
+     *    2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *    The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12
      */
@@ -4662,7 +4668,8 @@ declare namespace webview {
     /**
      * Inject offline resources into cache.
      *
-     * @param { Array<OfflineResourceMap> } resourceMaps - array of offline resource info maps.
+     * @param { Array<OfflineResourceMap> } resourceMaps - Array of offline resource info maps.
+     *    The count of array must between 1 and 30.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12
      */
