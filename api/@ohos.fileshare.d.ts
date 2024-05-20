@@ -167,7 +167,8 @@ declare namespace fileShare {
    * @param { AsyncCallback<void> } callback
    * @throws { BusinessError } 201 - Permission verification failed
    * @throws { BusinessError } 202 - The caller is not a system application
-   * @throws { BusinessError } 401 - The input parameter is invalid
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 143000001 - IPC error
    * @syscap SystemCapability.FileManagement.AppFileService
    * @systemapi
@@ -190,7 +191,8 @@ declare namespace fileShare {
    * @returns { Promise<void> } no callback return Promise otherwise return void
    * @throws { BusinessError } 201 - Permission verification failed
    * @throws { BusinessError } 202 - The caller is not a system application
-   * @throws { BusinessError } 401 - The input parameter is invalid
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 143000001 - IPC error
    * @syscap SystemCapability.FileManagement.AppFileService
    * @systemapi
@@ -205,7 +207,8 @@ declare namespace fileShare {
    * @param { Array<PolicyInfo> } policies - Policy information to grant permission on URIs.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900001 - Operation not permitted.
    * @throws { BusinessError } 13900042 - Unknown error
@@ -221,7 +224,8 @@ declare namespace fileShare {
    * @param { Array<PolicyInfo> } policies - Policy information to grant permission on URIs.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900001 - Operation not permitted.
    * @throws { BusinessError } 13900042 - Unknown error
@@ -237,7 +241,8 @@ declare namespace fileShare {
    * @param { Array<PolicyInfo> } policies - Policy information to grant permission on URIs.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900001 - Operation not permitted.
    * @throws { BusinessError } 13900042 - Unknown error
@@ -253,7 +258,8 @@ declare namespace fileShare {
    * @param { Array<PolicyInfo> } policies - Policy information to grant permission on URIs.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900001 - Operation not permitted.
    * @throws { BusinessError } 13900042 - Unknown error
@@ -269,7 +275,8 @@ declare namespace fileShare {
    * @param { Array<PolicyInfo> } policies - Policy information to grant permission on URIs.
    * @returns { Promise<Array<boolean>> } Returns the persistent state of uri permissions.
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
