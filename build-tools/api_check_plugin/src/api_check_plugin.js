@@ -55,6 +55,7 @@ function getMdFiles(url, isTestCase) {
   });
   return mdFiles;
 }
+exports.getMdFiles = getMdFiles;
 
 function tsTransform(uFiles, callback) {
   uFiles.forEach((filePath, index) => {
