@@ -123,6 +123,7 @@
     "SystemCapability.Global.I18n",
     "SystemCapability.Global.ResourceManager",
     "SystemCapability.Customization.ConfigPolicy",
+    "SystemCapability.Customization.CustomConfig",
     "SystemCapability.Customization.EnterpriseDeviceManager",
     "SystemCapability.BarrierFree.Accessibility.Core",
     "SystemCapability.BarrierFree.Accessibility.Vision",
