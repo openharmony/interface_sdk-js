@@ -154,7 +154,7 @@ export declare struct TipsDialog {
    */
   /**
    * Sets the TipsDialog imageRes.
-   * @type { ResourceStr | PixelMap }.
+   * @type { ResourceStr | PixelMap }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
