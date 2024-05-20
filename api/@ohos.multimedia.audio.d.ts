@@ -3945,6 +3945,41 @@ declare namespace audio {
   }
 
   /**
+   * Enumerates callback result.
+   * @enum {number}
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @since 12
+   */
+  enum AudioDataCallbackResult {
+    /**
+     * Indicates data of this callback is invalid.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 12
+     */
+    INVALID = -1,
+
+    /**
+     * Indicates data of this callback is valid.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 12
+     */
+    VALID = 0,
+  }
+
+  /**
+   * Type definition of callback function for audio renderer write data.
+   *
+   * @typedef {function} AudioRendererWriteDataCallback
+   * @param {ArrayBuffer} data - audio data array buffer.
+   * @returns {AudioDataCallbackResult | void} result of callback or void. If void or AudioDataCallbackResult.VALID is
+   * returned, it indicates the data is valid and will be played. If AudioDataCallbackResult.INVALID is returned, it
+   * indicates the data is will not be played.
+   * @syscap SystemCapability.Multimedia.Audio.Renderer
+   * @since 12
+   */
+  type AudioRendererWriteDataCallback = (data: ArrayBuffer) => AudioDataCallbackResult | void;
+
+  /**
    * Provides audio playback APIs.
    * @typedef AudioRenderer
    * @syscap SystemCapability.Multimedia.Audio.Renderer
@@ -4586,7 +4621,19 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 11
      */
-    on(type: 'writeData', callback: Callback<ArrayBuffer>): void;
+    /**
+     * Subscribes audio data callback.
+     * The event is triggered when audio buffer is available for writing more data.
+     * @param { 'writeData' } type - Type of the event to listen for.
+     * @param { AudioRendererWriteDataCallback } callback - Audio renderer write data callback.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 12
+     */
+    on(type: 'writeData', callback: AudioRendererWriteDataCallback): void;
 
     /**
      * Unsubscribes audio data callback.
@@ -4599,7 +4646,18 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 11
      */
-    off(type: 'writeData', callback?: Callback<ArrayBuffer>): void;
+    /**
+     * Unsubscribes audio data callback.
+     * @param { 'writeData' } type - Type of the event to listen for.
+     * @param { AudioRendererWriteDataCallback } callback - Audio renderer write data callback.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 12
+     */
+    off(type: 'writeData', callback?: AudioRendererWriteDataCallback): void;
   }
 
   /**
