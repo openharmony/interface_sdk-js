@@ -154,7 +154,7 @@ declare namespace dragController {
      * trigger drag action
      *
      * @returns { Promise<void> } A Promise can indicate the start result.
-     * @throws { BusinessError } 100001 - if some internal handling failed.
+     * @throws { BusinessError } 100001 - Internal handing failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11
      */
@@ -162,7 +162,7 @@ declare namespace dragController {
      * trigger drag action
      *
      * @returns { Promise<void> } A Promise can indicate the start result.
-     * @throws { BusinessError } 100001 - if some internal handling failed.
+     * @throws { BusinessError } 100001 - Internal handing failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 12
@@ -373,7 +373,7 @@ declare namespace dragController {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if some internal handling failed.
+   * @throws { BusinessError } 100001 - Internal handing failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -390,7 +390,7 @@ declare namespace dragController {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if some internal handling failed.
+   * @throws { BusinessError } 100001 - Internal handing failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -409,7 +409,7 @@ declare namespace dragController {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if some internal handling failed.
+   * @throws { BusinessError } 100001 - Internal handing failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
@@ -424,7 +424,7 @@ declare namespace dragController {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if some internal handling failed.
+   * @throws { BusinessError } 100001 - Internal handing failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
