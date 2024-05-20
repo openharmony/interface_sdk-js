@@ -464,6 +464,14 @@ declare namespace text {
     fontWeight?: FontWeight;
 
     /**
+     * Font style of text.
+     * @type { ?FontStyle } it is uint32_t type data
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    fontStyle?: FontStyle;
+
+    /**
      * Base line of text.
      * @type { ?TextBaseline } it is uint32_t type data
      * @syscap SystemCapability.Graphics.Drawing
@@ -559,6 +567,14 @@ declare namespace text {
    * @since 12
    */
   class FontCollection {
+    /**
+     * Get global FontCollection instance of the application.
+     * @returns { FontCollection } The FontCollection object.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    static getGlobalInstance(): FontCollection;
+
     /**
      * Load font.
      * @param { string } name - the font name.

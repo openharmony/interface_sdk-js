@@ -99,7 +99,8 @@ declare namespace configPolicy {
    *
    * @param { string } relPath - the relative path of the config file.
    * @param { AsyncCallback<string> } callback - contains the path of the highest priority config file.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -112,7 +113,8 @@ declare namespace configPolicy {
    * @param { string } relPath - the relative path of the config file.
    * @param { FollowXMode } followMode - the follow mode.
    * @param { AsyncCallback<string> } callback - contains the path of the highest priority config file.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
    * @since 11
@@ -124,9 +126,10 @@ declare namespace configPolicy {
    *
    * @param { string } relPath - the relative path of the config file.
    * @param { FollowXMode } followMode - the follow mode.
-   * @param { string } extra - set follow rule add path.
+   * @param { string } extra - set follow rule add path, only valid when followMode is USER_DEFINED.
    * @param { AsyncCallback<string> } callback - contains the path of the highest priority config file.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
    * @since 11
@@ -138,7 +141,8 @@ declare namespace configPolicy {
    *
    * @param { string } relPath - the relative path of the config file.
    * @returns { Promise<string> } the promise returns the path of the highest priority config file.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -150,9 +154,10 @@ declare namespace configPolicy {
    *
    * @param { string } relPath - the relative path of the config file.
    * @param { FollowXMode } followMode - the follow mode.
-   * @param { string } extra - set follow rule add path.
+   * @param { string } extra - set follow rule add path, must be set when followMode is USER_DEFINED.
    * @returns { Promise<string> } the promise returns the path of the highest priority config file.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
    * @since 11
@@ -164,9 +169,10 @@ declare namespace configPolicy {
    *
    * @param { string } relPath - the relative path of the config file.
    * @param { FollowXMode } followMode - the follow mode.
-   * @param { string } extra - set follow rule add path.
+   * @param { string } extra - set follow rule add path, must be set when followMode is USER_DEFINED.
    * @returns { string } the path of the highest priority config file.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
    * @since 11
@@ -178,7 +184,8 @@ declare namespace configPolicy {
    *
    * @param { string } relPath - the relative path of the config file.
    * @param { AsyncCallback<Array<string>> } callback - contains paths of config files.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -191,7 +198,8 @@ declare namespace configPolicy {
    * @param { string } relPath - the relative path of the config file.
    * @param { FollowXMode } followMode - the follow mode.
    * @param { AsyncCallback<Array<string>> } callback - contains paths of config files.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
    * @since 11
@@ -203,9 +211,10 @@ declare namespace configPolicy {
    *
    * @param { string } relPath - the relative path of the config file.
    * @param { FollowXMode } followMode - the follow mode.
-   * @param { string } extra - set follow rule add path.
+   * @param { string } extra - set follow rule add path, only valid when followMode is USER_DEFINED.
    * @param { AsyncCallback<Array<string>> } callback - contains paths of config files.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
    * @since 11
@@ -217,7 +226,8 @@ declare namespace configPolicy {
    *
    * @param { string } relPath - the relative path of the config file.
    * @returns { Promise<Array<string>> } the promise returns paths of config files.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -229,9 +239,10 @@ declare namespace configPolicy {
    *
    * @param { string } relPath - the relative path of the config file.
    * @param { FollowXMode } followMode - the follow mode.
-   * @param { string } extra - set follow rule add path.
+   * @param { string } extra - set follow rule add path, must be set when followMode is USER_DEFINED.
    * @returns { Promise<Array<string>> } the promise returns paths of config files.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
    * @since 11
@@ -243,9 +254,10 @@ declare namespace configPolicy {
    *
    * @param { string } relPath - the relative path of the config file.
    * @param { FollowXMode } followMode - the follow mode.
-   * @param { string } extra - set follow rule add path.
+   * @param { string } extra - set follow rule add path, must be set when followMode is USER_DEFINED.
    * @returns { Array<string> } the paths of config files.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
    * @since 11
@@ -256,7 +268,8 @@ declare namespace configPolicy {
    * Gets the config directory in the device architecture, ordered by priority from low to high.
    *
    * @param { AsyncCallback<Array<string>> } callback - contains paths of config directories.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
    * @since 8

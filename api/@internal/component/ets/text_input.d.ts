@@ -470,7 +470,7 @@ declare enum EnterKeyType {
    * @atomicservice
    * @since 11
    */
-  Go,
+  Go = 2,
 
   /**
    * Search.
@@ -493,7 +493,7 @@ declare enum EnterKeyType {
    * @atomicservice
    * @since 11
    */
-  Search,
+  Search = 3,
 
   /**
    * Send.
@@ -516,7 +516,7 @@ declare enum EnterKeyType {
    * @atomicservice
    * @since 11
    */
-  Send,
+  Send = 4,
 
   /**
    * Next.
@@ -539,7 +539,7 @@ declare enum EnterKeyType {
    * @atomicservice
    * @since 11
    */
-  Next,
+  Next = 5,
 
   /**
    * Done.
@@ -562,7 +562,7 @@ declare enum EnterKeyType {
    * @atomicservice
    * @since 11
    */
-  Done,
+  Done = 6,
 
   /**
    * Showed as 'previous' pattern.
@@ -1030,44 +1030,6 @@ interface TextInputInterface {
    * @since 11
    */
   (value?: TextInputOptions): TextInputAttribute;
-}
-
-/**
- * CaretStyle object.
- *
- * @interface CaretStyle
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * CaretStyle object.
- *
- * @interface CaretStyle
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11
- */
-interface CaretStyle {
-  /**
-   * Define the cursor width of CaretStyle.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Define the cursor width of CaretStyle.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  width?: Length;
 }
 
 /**
@@ -2364,6 +2326,50 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 12
    */
   onSecurityStateChange(callback: Callback<boolean>): TextInputAttribute;
+
+  /**
+   * Get text value information when about to input.
+   *
+   * @param { Callback<InsertValue, boolean> } callback - The triggered function when text content is about to insert.
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onWillInsert(callback: Callback<InsertValue, boolean>): TextInputAttribute;
+
+  /**
+   * Get text value information when completed input.
+   *
+   * @param { Callback<InsertValue> } callback - The triggered function when text content has been inserted.
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onDidInsert(callback: Callback<InsertValue>): TextInputAttribute;
+
+  /**
+   * Get text value information when about to delete.
+   *
+   * @param { Callback<DeleteValue, boolean> } callback - The triggered function when text content is about to delete.
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onWillDelete(callback: Callback<DeleteValue, boolean>): TextInputAttribute;
+
+  /**
+   * Get text value information when the deletion has been completed
+   *
+   * @param { Callback<DeleteValue> } callback - The triggered function when text content has been deleted.
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onDidDelete(callback: Callback<DeleteValue>): TextInputAttribute;
 }
 
 /**

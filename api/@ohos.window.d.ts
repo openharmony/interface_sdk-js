@@ -1597,6 +1597,24 @@ declare namespace window {
      * @since 9
      */
     parentId?: number;
+
+    /**
+     * Indicates whether enable window decor, only support dialog, The default value is false.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    decorEnabled?: boolean;
+
+    /**
+     * Indicates dialog window title when decor enabled.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    title?: string;
   }
 
   /**

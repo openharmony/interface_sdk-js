@@ -313,6 +313,7 @@ declare namespace photoAccessHelper {
    *
    * @enum { number } RecommendationType
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
    * @since 11
    */
   enum RecommendationType {
@@ -395,7 +396,16 @@ declare namespace photoAccessHelper {
      * @atomicservice
      * @since 12
      */
-    DRIVING_LICENSE = 9
+    DRIVING_LICENSE = 9,
+
+    /**
+     * FEATURED_SINGLE_PORTRAIT indicates that featured single portrait photos can be recommended
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    FEATURED_SINGLE_PORTRAIT = 10
   }
 
   /**
@@ -639,6 +649,25 @@ declare namespace photoAccessHelper {
       fileUri: string,
       dataHandler: MediaAssetDataHandler<boolean>
     ): Promise<string>;
+
+    /**
+     * Load moving photo
+     *
+     * @param { Context } context - Hap context information
+     * @param { string } imageFileUri - image file uri of the moving photo to be loaded
+     * @param { string } videoFileUri - video file uri of the moving photo to be loaded
+     * @returns { Promise<MovingPhoto> } Returns moving photo
+     * @throws { BusinessError } 401 - Invalid parameter
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    static loadMovingPhoto(
+      context: Context,
+      imageFileUri: string,
+      videoFileUri: string
+    ): Promise<MovingPhoto>;
   }
 
   /**
@@ -655,6 +684,14 @@ declare namespace photoAccessHelper {
    * @interface PhotoAsset
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 10
+   */
+  /**
+   * Defines the photo asset
+   *
+   * @interface PhotoAsset
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 11
    */
   interface PhotoAsset {
     /**
@@ -1967,6 +2004,14 @@ declare namespace photoAccessHelper {
      * @since 11
      */
     PORTRAIT,
+    /**
+     * Group photo album
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    GROUP_PHOTO,
     /**
      * Highlight album
      *
@@ -4190,6 +4235,18 @@ declare namespace photoAccessHelper {
      * @since 11
      */
     placeBefore(album: Album): void;
+
+    /**
+     * Dismiss group photo album.
+     *
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    dismiss(): void;
   }
 
   /**

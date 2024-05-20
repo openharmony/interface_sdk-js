@@ -544,6 +544,26 @@ export interface ApplicationInfo {
    * @since 12
    */
   readonly nativeLibraryPath: string;
+
+  /**
+   * Indicates the MultiAppMode object of the bundle
+   *
+   * @type { MultiAppMode }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 12
+   */
+  readonly multiAppMode: MultiAppMode;
+
+  /**
+   * Indicates the index of the bundle
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 12
+   */
+  readonly appIndex: number;
 }
 
 /**
@@ -654,4 +674,33 @@ export interface PreinstalledApplicationInfo {
    * @since 12
    */
   readonly labelId: number;
+}
+
+/**
+ * Indicates MultiAppMode
+ *
+ * @typedef MultiAppMode
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @since 12
+ */
+export interface MultiAppMode {
+  /**
+   * Indicates the multiAppModeType of the bundle
+   *
+   * @type { bundleManager.MultiAppModeType }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 12
+   */
+  readonly multiAppModeType: bundleManager.MultiAppModeType;
+
+  /**
+   * Indicates the max count of the bundle
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 12
+   */
+  readonly maxCount: number;
 }

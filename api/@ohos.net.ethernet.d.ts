@@ -43,7 +43,7 @@ declare namespace ethernet {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2200001 - Invalid parameter value.
-   * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2200002 - Failed to connect to the service.
    * @throws { BusinessError } 2200003 - System internal error.
    * @throws { BusinessError } 2201005 - Device information does not exist.
    * @syscap SystemCapability.Communication.NetManager.Ethernet
@@ -61,7 +61,7 @@ declare namespace ethernet {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2200001 - Invalid parameter value.
-   * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2200002 - Failed to connect to the service.
    * @throws { BusinessError } 2200003 - System internal error.
    * @throws { BusinessError } 2201005 - Device information does not exist.
    * @syscap SystemCapability.Communication.NetManager.Ethernet
@@ -80,7 +80,7 @@ declare namespace ethernet {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2200001 - Invalid parameter value.
-   * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2200002 - Failed to connect to the service.
    * @throws { BusinessError } 2200003 - System internal error.
    * @throws { BusinessError } 2201004 - Invalid Ethernet profile.
    * @throws { BusinessError } 2201005 - Device information does not exist.
@@ -102,7 +102,7 @@ declare namespace ethernet {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2200001 - Invalid parameter value.
-   * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2200002 - Failed to connect to the service.
    * @throws { BusinessError } 2200003 - System internal error.
    * @throws { BusinessError } 2201004 - Invalid Ethernet profile.
    * @throws { BusinessError } 2201005 - Device information does not exist.
@@ -123,7 +123,7 @@ declare namespace ethernet {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2200001 - Invalid parameter value.
-   * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2200002 - Failed to connect to the service.
    * @throws { BusinessError } 2200003 - System internal error.
    * @throws { BusinessError } 2201005 - Device information does not exist.
    * @syscap SystemCapability.Communication.NetManager.Ethernet
@@ -141,7 +141,7 @@ declare namespace ethernet {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2200001 - Invalid parameter value.
-   * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2200002 - Failed to connect to the service.
    * @throws { BusinessError } 2200003 - System internal error.
    * @throws { BusinessError } 2201005 - Device information does not exist.
    * @syscap SystemCapability.Communication.NetManager.Ethernet
@@ -156,7 +156,7 @@ declare namespace ethernet {
    * @param { AsyncCallback<Array<string>> } callback - the callback of getAllActiveIfaces.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2200002 - Failed to connect to the service.
    * @throws { BusinessError } 2200003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Ethernet
    * @systemapi Hide this for inner system use.
@@ -170,7 +170,7 @@ declare namespace ethernet {
    * @returns { Promise<Array<string>> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2200002 - Failed to connect to the service.
    * @throws { BusinessError } 2200003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Ethernet
    * @systemapi Hide this for inner system use.

@@ -54,6 +54,17 @@ export interface Skill {
      * @since 12
      */
     readonly uris: Array<SkillUri>;
+
+    /**
+     * Indicates the domainVerify of the skill
+     *
+     * @type { boolean }
+     * @readonly
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @atomicservice
+     * @since 12
+     */
+    readonly domainVerify: boolean;
 }
   
 /**
