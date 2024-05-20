@@ -7398,7 +7398,7 @@ declare interface BaseEvent {
    * @crossplatform
    * @since 12
    */
-  getModifierKeyState(keys: Array<string>): boolean;
+  getModifierKeyState?(keys: Array<string>): boolean;
 }
 
 /**
@@ -9433,7 +9433,7 @@ declare interface DragEvent {
    * @crossplatform
    * @since 12
    */
-  getModifierKeyState(keys: Array<string>): boolean;
+  getModifierKeyState?(keys: Array<string>): boolean;
 }
 
 /**
@@ -9716,7 +9716,7 @@ declare interface KeyEvent {
    * @crossplatform
    * @since 12
    */
-  getModifierKeyState(keys: Array<string>): boolean;
+  getModifierKeyState?(keys: Array<string>): boolean;
 }
 
 /**
