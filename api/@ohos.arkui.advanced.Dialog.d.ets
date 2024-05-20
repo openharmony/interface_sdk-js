@@ -154,12 +154,12 @@ export declare struct TipsDialog {
    */
   /**
    * Sets the TipsDialog imageRes.
-   * @type { Resource | ResourceStr | PixelMap }.
+   * @type { ResourceStr | PixelMap }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
    */
-  imageRes: Resource | ResourceStr | PixelMap;
+  imageRes: ResourceStr | PixelMap;
   /**
    * Sets the TipsDialog image size.
    * @type { SizeOptions }.
@@ -523,11 +523,11 @@ export declare struct ConfirmDialog {
   theme?: Theme | CustomTheme;
   /**
    * Sets the ConfirmDialog CheckBox Callback.
-   * @type { ?(isChecked: boolean) => void }.
+   * @type { ?Callback<boolean, void> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 12
    */
-  checkAction?: (isChecked: boolean) => void;
+  checkAction?: Callback<boolean, void>;
 }
 
 /**
