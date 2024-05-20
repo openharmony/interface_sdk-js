@@ -121,6 +121,7 @@
     "SystemCapability.Security.Huks.Extension",
     "SystemCapability.Security.Asset",
     "SystemCapability.Security.AccessToken",
+    "SystemCapability.Security.SecurityGuard",
     "SystemCapability.Security.ScreenLockFileManager",
     "SystemCapability.Account.OsAccount",
     "SystemCapability.Account.AppAccount",

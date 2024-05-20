@@ -812,6 +812,7 @@ sdpi
 searchsetter
 sece
 secinfo
+securityguard
 seeked
 semicircles
 sendable
