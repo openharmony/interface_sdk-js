@@ -363,7 +363,7 @@ declare namespace securityGuard {
    * @permission ohos.permission.securityguard.REQUEST_SECURITY_EVENT_INFO
    * @param {'securityEventOccur'} type
    * @param { SecurityEventInfo } securityEventInfo - Indicates the subscribed event information.
-   * @param { Callback<SecurityEvent> } callback - Indicates the listener when the security event occurs. 
+   * @param { Callback<SecurityEvent> } callback - Indicates the listener when the security event occurs.
    * @throws { BusinessError } 201 - check permission fail.
    * @throws { BusinessError } 202 - non-system application uses the system API.
    * @throws { BusinessError } 401 - invalid parameters. 
@@ -383,7 +383,7 @@ declare namespace securityGuard {
    * @permission ohos.permission.securityguard.REQUEST_SECURITY_EVENT_INFO
    * @param {'securityEventOccur'} type
    * @param { SecurityEventInfo } securityEventInfo - Indicates the subscribed event information.
-   * @param { Callback<SecurityEvent> } callback - Indicates the listener when the security event occurs. 
+   * @param { Callback<SecurityEvent> } callback - Indicates the listener when the security event occurs.
    * @throws { BusinessError } 201 - check permission fail.
    * @throws { BusinessError } 202 - non-system application uses the system API.
    * @throws { BusinessError } 401 - invalid parameters. 
