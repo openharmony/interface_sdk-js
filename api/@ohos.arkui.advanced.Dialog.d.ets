@@ -523,7 +523,7 @@ export declare struct ConfirmDialog {
   theme?: Theme | CustomTheme;
   /**
    * Sets the ConfirmDialog CheckBox Callback.
-   * @type { ?Callback<boolean> }.
+   * @type { ?Callback<boolean> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 12
    */
