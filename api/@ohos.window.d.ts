@@ -5844,6 +5844,9 @@ declare namespace window {
    *
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @atomicservice
    * @since 12
    */
   enum WindowStageAttribute {
@@ -5851,6 +5854,9 @@ declare namespace window {
      * System windowStage.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @atomicservice
      * @since 12
      */
     SYSTEM_WINDOW_STAGE,
@@ -5859,6 +5865,9 @@ declare namespace window {
      * Sub windowStage.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @atomicservice
      * @since 12
      */
     SUB_WINDOW_STAGE
@@ -5869,6 +5878,9 @@ declare namespace window {
    *
    * @interface WindowStageConfig
    * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @atomicservice
    * @since 12
    */
   interface WindowStageConfig {
@@ -5877,6 +5889,9 @@ declare namespace window {
      *
      * @type { WindowStageAttribute }
      * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @atomicservice
      * @since 12
      */
     windowStageAttribute: WindowStageAttribute;
@@ -5886,6 +5901,9 @@ declare namespace window {
      *
      * @type { Rect }
      * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @atomicservice
      * @since 12
      */
     windowStageRect: Rect;
@@ -5895,6 +5913,9 @@ declare namespace window {
      *
      * @type { SubWindowOptions }
      * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @atomicservice
      * @since 12
      */
     subWindowOptions?: SubWindowOptions;
