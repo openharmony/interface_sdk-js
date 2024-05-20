@@ -681,7 +681,7 @@ declare namespace photoAccessHelper {
   /**
    * Indicates the type of photo asset member.
    *
-   * @typedef { number | string | boolean} MemberType
+   * @typedef { number | string | boolean } MemberType
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 10
    */
