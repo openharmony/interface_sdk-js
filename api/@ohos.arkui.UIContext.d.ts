@@ -1821,7 +1821,7 @@ export class DragController {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Internal handing failed.
+   * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
@@ -1835,7 +1835,7 @@ export class DragController {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Internal handing failed.
+   * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
@@ -1853,7 +1853,7 @@ export class DragController {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Internal handing failed.
+   * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
@@ -1866,7 +1866,7 @@ export class DragController {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Internal handing failed.
+   * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
@@ -1884,7 +1884,7 @@ export class DragController {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Internal handing failed.
+   * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
@@ -1897,7 +1897,7 @@ export class DragController {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Internal handing failed.
+   * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
