@@ -503,4 +503,17 @@ export default class ApplicationContext extends Context {
    * @since 12
    */
   setSupportedProcessCache(isSupported : boolean): void;
+
+  /**
+   * Get current app clone index.
+   *
+   * @returns { number } Returns the app clone index for current app.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000071 - The MultiAppMode is not {@link APP_CLONE}.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+  getCurrentAppCloneIndex(): number;
 }
