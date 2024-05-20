@@ -106,22 +106,13 @@ declare namespace systemManager {
     UPDATE_TO_SPECIFIC_VERSION = 2,
 
     /**
-     * Force immediate update policy
-     *
-     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @stagemodelonly
-     * @since 12
-     */
-    FORCE_IMMEDIATE_UPDATE = 3,
-
-    /**
      * Update within a specified time window
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
      */
-    WINDOWS = 4,
+    WINDOWS = 3,
 
     /**
      * Delay the update for a period of time
@@ -130,7 +121,7 @@ declare namespace systemManager {
      * @stagemodelonly
      * @since 12
      */
-    POSTPONE = 5
+    POSTPONE = 4
   }
 
   /**
@@ -201,6 +192,280 @@ declare namespace systemManager {
      * @since 12
      */
     installEndTime?: number;
+  }
+
+  /**
+   * The device system upgrade package info.
+   *
+   * @typedef UpgradePackageInfo
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  export interface UpgradePackageInfo {
+    /**
+     * The version of system upgrade package.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    version: string;
+
+    /**
+     * The detail of system upgrade packages.
+     *
+     * @type { Array<Package> }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    packages: Array<Package>;
+
+    /**
+     * The description of system upgrade package.
+     *
+     * @type { ?PackageDescription }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    description?: PackageDescription;
+  }
+
+  /**
+   * The detail of system upgrade package.
+   *
+   * @typedef Package
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  interface Package {
+    /**
+     * The type of system upgrade package.
+     *
+     * @type { PackageType }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    type: PackageType;
+
+    /**
+     * The path of system upgrade package.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    path: string;
+
+    /**
+     * The file descriptor of system upgrade package.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    fd?: number;
+  }
+
+  /**
+   * Enum for system upgrade package.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  enum PackageType {
+    /**
+     * FIRMWARE
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    FIRMWARE = 1
+  }
+
+  /**
+   * The description of system upgrade package.
+   *
+   * @typedef PackageDescription
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  interface PackageDescription {
+    /**
+     * The custom notification of system upgrade package.
+     *
+     * @type { ?NotifyDescription }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    notify?: NotifyDescription;
+  }
+
+  /**
+   * The custom notification of system upgrade package.
+   *
+   * @typedef NotifyDescription
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  interface NotifyDescription {
+    /**
+     * The custom notification tips of system upgrade package.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    installTips?: string;
+
+    /**
+     * The custom notification tips detail of system upgrade package.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    installTipsDetail?: string;
+  }
+
+  /**
+   * The result of system upgrade.
+   *
+   * @typedef UpgradeResult
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  interface UpgradeResult {
+    /**
+     * The current version of the system.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    version: string;
+
+    /**
+     * The upgrade status of the system.
+     *
+     * @type { UpgradeStatus }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    status: UpgradeStatus;
+
+    /**
+     * The upgrade error message of the system.
+     *
+     * @type { ErrorInfo }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    errorInfo: ErrorInfo;
+  }
+
+  /**
+   * Enum for system upgrade status.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  enum UpgradeStatus {
+    /**
+     * The specified version system update package does not exist.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    NO_UPGRADE_PACKAGE = -4,
+
+    /**
+     * The system update package waiting for installation.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    UPGRADE_WAITING = -3,
+
+    /**
+     * The system is updating.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    UPGRADING = -2,
+
+    /**
+     * The system upgrade failed.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    UPGRADE_FAILURE = -1,
+
+    /**
+     * The system upgrade successful.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    UPGRADE_SUCCESS = 0
+  }
+
+  /**
+   * The upgrade error information of the system.
+   *
+   * @typedef ErrorInfo
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  interface ErrorInfo {
+    /**
+     * The upgrade error code of the system.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    code: number;
+
+    /**
+     * The upgrade error message of the system.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    message: string;
   }
 
   /**
@@ -278,6 +543,43 @@ declare namespace systemManager {
    * @since 12
    */
   function getOtaUpdatePolicy(admin: Want): OtaUpdatePolicy;
+
+  /**
+   * Notifies the system of update packages information.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { UpgradePackageInfo } packageInfo - packageInfo indicates the information of system upgrade package.
+   * @returns { Promise<void> } the promise returned by the notifyUpdatePackages.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9201004 - the update packages do not exist or analyzing failed.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function notifyUpdatePackages(admin: Want, packageInfo: UpgradePackageInfo): Promise<void>;
+
+  /**
+   * Gets the result of system upgrade.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } version - version indicates the version of upgrade.
+   * @returns { Promise<UpgradeResult> } the promise returned by the getUpgradeResult.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function getUpgradeResult(admin: Want, version: string): Promise<UpgradeResult>;
 }
 
 export default systemManager;
