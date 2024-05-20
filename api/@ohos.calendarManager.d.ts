@@ -231,6 +231,17 @@ declare namespace calendarManager {
      * @since 10
      */
     getAllCalendars(callback: AsyncCallback<Calendar[]>): void;
+
+    /**
+     * Create a single event,invoking this interface will open the event creation page.
+     *
+     * @param { Event } event - Indicates the information about a single event.
+     * @returns { Promise<number> } the promise with event id.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 12
+     */
+    editEvent(event: Event): Promise<number>;
   }
 
   /**
@@ -727,6 +738,15 @@ declare namespace calendarManager {
      * @since 11
      */
     service?: EventService;
+
+    /**
+     * Unique identifier of the event
+     * @type { ?string }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 12
+     */
+    identifier?: string;
   }
 
   /**
@@ -988,6 +1008,33 @@ declare namespace calendarManager {
      * @since 11
      */
     expire?: number;
+
+    /**
+     * Repetition count of recurrence event.
+     * @type { ?number }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 12
+     */
+    count?: number;
+
+    /**
+     * Repeat interval of recurrence event.
+     * @type { ?number }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 12
+     */
+    interval?: number;
+
+    /**
+     * Excluded dates of recurrence event.
+     * @type { ?number[] }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 12
+     */
+    excludedDates?: number[];
   }
 
   /**
@@ -1100,6 +1147,40 @@ declare namespace calendarManager {
      * @since 11
      */
     email: string;
+
+    /**
+     * Role of the Attendee.
+     * @type { ?AttendeeRole }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 12
+     */
+    role?: AttendeeRole;
+  }
+
+  /**
+   * Enum for the attendee role
+   * @enum { string }
+   * @syscap SystemCapability.Applications.CalendarData
+   * @atomicservice
+   * @since 12
+   */
+  export enum AttendeeRole {
+    /**
+     * The organizer of a meeting.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 12
+     */
+    ORGANIZER = 'organizer',
+
+    /**
+     * The participant of a meeting.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 12
+     */
+    PARTICIPANT = 'participant'
   }
 
   /**

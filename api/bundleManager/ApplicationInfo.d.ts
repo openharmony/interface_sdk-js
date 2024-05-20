@@ -554,6 +554,16 @@ export interface ApplicationInfo {
    * @since 12
    */
   readonly multiAppMode: MultiAppMode;
+
+  /**
+   * Indicates the index of the bundle
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 12
+   */
+  readonly appIndex: number;
 }
 
 /**

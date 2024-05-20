@@ -396,7 +396,16 @@ declare namespace photoAccessHelper {
      * @atomicservice
      * @since 12
      */
-    DRIVING_LICENSE = 9
+    DRIVING_LICENSE = 9,
+
+    /**
+     * FEATURED_SINGLE_PORTRAIT indicates that featured single portrait photos can be recommended
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    FEATURED_SINGLE_PORTRAIT = 10
   }
 
   /**
@@ -1995,6 +2004,14 @@ declare namespace photoAccessHelper {
      * @since 11
      */
     PORTRAIT,
+    /**
+     * Group photo album
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    GROUP_PHOTO,
     /**
      * Highlight album
      *
@@ -4218,6 +4235,18 @@ declare namespace photoAccessHelper {
      * @since 11
      */
     placeBefore(album: Album): void;
+
+    /**
+     * Dismiss group photo album.
+     *
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    dismiss(): void;
   }
 
   /**

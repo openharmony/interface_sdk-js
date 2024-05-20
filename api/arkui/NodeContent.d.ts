@@ -38,4 +38,24 @@ export class NodeContent extends Content{
    * @since 12
    */
   constructor();
+
+  /**
+   * Add FrameNode to NodeContent based on parameters.
+   * 
+   * @param { FrameNode } node - Newly added FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  addFrameNode(node: FrameNode): void;
+
+  /**
+   * Delete FrameNode based on the NodeContent parameter.
+   * 
+   * @param { FrameNode } node - FrameNode deleted.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  removeFrameNode(node: FrameNode): void;
 }

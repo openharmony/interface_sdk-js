@@ -68,7 +68,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    *     1.Mandatory parameters are left unspecified;
    *     2.Incorrect parameter types;
    *     3.Parameter verification failed.
-   * @throws { BusinessError } 9300003 -  Do not have accessibility right for this operation.
+   * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -79,8 +79,11 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    *
    * @param { boolean } isAccessibilityFocus Indicates whether the acquired element has an accessibility focus.
    * @returns { Promise<AccessibilityElement> }
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes: Incorrect parameter types.
-   * @throws { BusinessError } 9300003 -  Do not have accessibility right for this operation.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types;
+   *     3.Parameter verification failed.
+   * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -93,7 +96,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    *     1.Mandatory parameters are left unspecified;
    *     2.Incorrect parameter types;
    *     3.Parameter verification failed.
-   * @throws { BusinessError } 9300003 -  Do not have accessibility right for this operation.
+   * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -108,7 +111,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    *     1.Mandatory parameters are left unspecified;
    *     2.Incorrect parameter types;
    *     3.Parameter verification failed.
-   * @throws { BusinessError } 9300003 -  Do not have accessibility right for this operation.
+   * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -120,9 +123,10 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    * @param { number } windowId Indicates the window ID.
    * @returns { Promise<AccessibilityElement> }
    * @throws { BusinessError } 401 - Input parameter error. Possible causes:
-   *     1.Incorrect parameter types;
-   *     2.Parameter verification failed.
-   * @throws { BusinessError } 9300003 -  Do not have accessibility right for this operation.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types;
+   *     3.Parameter verification failed.
+   * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -135,7 +139,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    *     1.Mandatory parameters are left unspecified;
    *     2.Incorrect parameter types;
    *     3.Parameter verification failed.
-   * @throws { BusinessError } 9300003 -  Do not have accessibility right for this operation.
+   * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -150,7 +154,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    *     1.Mandatory parameters are left unspecified;
    *     2.Incorrect parameter types;
    *     3.Parameter verification failed.
-   * @throws { BusinessError } 9300003 -  Do not have accessibility right for this operation.
+   * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -164,7 +168,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 401 - Input parameter error. Possible causes:
    *     1.Incorrect parameter types;
    *     2.Parameter verification failed.
-   * @throws { BusinessError } 9300003 -  Do not have accessibility right for this operation.
+   * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -177,7 +181,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    *     1.Mandatory parameters are left unspecified;
    *     2.Incorrect parameter types;
    *     3.Parameter verification failed.
-   * @throws { BusinessError } 9300003 -  Do not have accessibility right for this operation.
+   * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -192,7 +196,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    *     1.Mandatory parameters are left unspecified;
    *     2.Incorrect parameter types;
    *     3.Parameter verification failed.
-   * @throws { BusinessError } 9300003 -  Do not have accessibility right for this operation.
+   * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    * @deprecated since 10
@@ -209,7 +213,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    *     1.Mandatory parameters are left unspecified;
    *     2.Incorrect parameter types;
    *     3.Parameter verification failed.
-   * @throws { BusinessError } 9300003 -  Do not have accessibility right for this operation.
+   * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    * @deprecated since 10
@@ -225,7 +229,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    *     1.Mandatory parameters are left unspecified;
    *     2.Incorrect parameter types;
    *     3.Parameter verification failed.
-   * @throws { BusinessError } 9300003 -  Do not have accessibility right for this operation.
+   * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 10
    */
@@ -382,7 +386,7 @@ declare interface AccessibilityElement {
    *     1.Mandatory parameters are left unspecified;
    *     2.Incorrect parameter types;
    *     3.Parameter verification failed.
-   * @throws { BusinessError } 9300003 -  Do not have accessibility right for this operation.
+   * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 12

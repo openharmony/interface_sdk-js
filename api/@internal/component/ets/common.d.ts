@@ -7398,7 +7398,7 @@ declare interface BaseEvent {
    * @crossplatform
    * @since 12
    */
-  getModifierKeyState(keys: Array<string>): boolean;
+  getModifierKeyState?(keys: Array<string>): boolean;
 }
 
 /**
@@ -9433,7 +9433,7 @@ declare interface DragEvent {
    * @crossplatform
    * @since 12
    */
-  getModifierKeyState(keys: Array<string>): boolean;
+  getModifierKeyState?(keys: Array<string>): boolean;
 }
 
 /**
@@ -9716,7 +9716,7 @@ declare interface KeyEvent {
    * @crossplatform
    * @since 12
    */
-  getModifierKeyState(keys: Array<string>): boolean;
+  getModifierKeyState?(keys: Array<string>): boolean;
 }
 
 /**
@@ -12142,6 +12142,16 @@ interface ContextMenuAnimationOptions {
    * @since 12
    */
   transition?: TransitionEffect;
+
+  /**
+   * Sets the scale start and end animator of the image displayed before the custom builder preview is displayed.
+   *
+   * @type { ?AnimationRange<number> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  hoverScale?: AnimationRange<number>;
 }
 
 /**
@@ -18268,7 +18278,19 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  bindContentCover(isShow: boolean, builder: CustomBuilder, type?: ModalTransition): T;
+  /**
+   * Bind content cover
+   *
+   * @param { Optional<boolean> } isShow - true means display content, false means hide content.
+   * @param { CustomBuilder } builder - the content to be displayed.
+   * @param { ModalTransition } [type] - transition type.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  bindContentCover(isShow: Optional<boolean>, builder: CustomBuilder, type?: ModalTransition): T;
 
   /**
    * Bind content cover
@@ -18293,7 +18315,19 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  bindContentCover(isShow: boolean, builder: CustomBuilder, options?: ContentCoverOptions): T;
+  /**
+   * Bind content cover
+   *
+   * @param { Optional<boolean> } isShow - true means display content, false means hide content.
+   * @param { CustomBuilder } builder - the content to be displayed.
+   * @param { ContentCoverOptions } [options] - options of content cover.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  bindContentCover(isShow: Optional<boolean>, builder: CustomBuilder, options?: ContentCoverOptions): T;
 
   /**
    * Bind sheet
@@ -18318,7 +18352,19 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  bindSheet(isShow: boolean, builder: CustomBuilder, options?: SheetOptions): T;
+  /**
+   * Bind sheet
+   *
+   * @param { Optional<boolean> } isShow - true means display sheet, false means hide sheet.
+   * @param { CustomBuilder } builder - the sheet to be displayed.
+   * @param { SheetOptions } [options] - options of sheet.
+   * @returns { T } - template type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  bindSheet(isShow: Optional<boolean>, builder: CustomBuilder, options?: SheetOptions): T;
 
   /**
    * Sets styles for component state.
@@ -21169,15 +21215,13 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   /**
    * Called when the scrollable will scroll.
    *
-   * @param { OnScrollCallback } handler - callback of scrollable,
-   * scrollOffset is offset this frame will scroll, which may or may not be reached.
-   * scrollState is current scroll state.
+   * @param { Optional<OnWillScrollCallback> } handler - callback of scrollable.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  onWillScroll(handler: OnScrollCallback): T;
+  onWillScroll(handler: Optional<OnWillScrollCallback>): T;
 
   /**
    * Called when the scrollable did scroll.
@@ -21254,8 +21298,44 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
 }
 
 /**
-  * on scroll callback using in scrollable onWillScroll and onDidScroll.
+ * The actual offset by which the scrollable scrolls.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class ScrollResult {
+  /**
+   * Actual offset by which the scrollable scrolls in vp.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  offsetRemain: number;
+}
+
+/**
+ * Called before scroll to allow developer to control real offset the Scrollable can scroll.
+ *
+ * @typedef { function } OnWillScrollCallback
+ * @param { number } scrollOffset - offset this frame will scroll, which may or may not be reached.
+ * @param { ScrollState } scrollState - current scroll state.
+ * @param { ScrollSource } scrollSource - source of current scroll.
+ * @returns { void | ScrollResult } the remain offset for the scrollable, 
+ *     same as scrollOffset when no ScrollResult is returned.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type OnWillScrollCallback = 
+(scrollOffset: number, scrollState: ScrollState, scrollSource: ScrollSource) => void | ScrollResult;
+
+/**
+  * On scroll callback using in scrollable onDidScroll.
   *
+  * @typedef { function } OnScrollCallback
+  * @param { number } scrollOffset - offset this frame did scroll.
+  * @param { ScrollState } scrollState - current scroll state.
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @since 12
@@ -21272,7 +21352,7 @@ declare type OnScrollCallback = (scrollOffset: number, scrollState: ScrollState)
  * @crossplatform
  * @since 12
  */
-declare type OnMoveHandler = (from: number, to: number) => void
+declare type OnMoveHandler = (from: number, to: number) => void;
 
 /**
  * Define DynamicNode.
@@ -21291,7 +21371,7 @@ declare class DynamicNode<T> {
    * @crossplatform
    * @since 12
    */
-  onMove(handler: Optional<OnMoveHandler>): T
+  onMove(handler: Optional<OnMoveHandler>): T;
 }
 
 declare module "SpecialEvent" {

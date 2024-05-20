@@ -115,7 +115,7 @@ declare namespace unifiedDataChannel {
      * @atomicservice
      * @since 12
      */
-    timestamp?: Date;
+    readonly timestamp?: Date;
     /**
      * Indicates the scope of clipboard data which can be used.
      * If it is not set or is incorrectly set, The default value is CrossDevice.

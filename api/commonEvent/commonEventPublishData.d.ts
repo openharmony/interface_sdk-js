@@ -33,6 +33,15 @@
  * @atomicservice
  * @since 11
  */
+/**
+ * containing the common event content and attributes
+ *
+ * @typedef CommonEventPublishData
+ * @syscap SystemCapability.Notification.CommonEvent
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 export interface CommonEventPublishData {
   /**
    * bundle name
@@ -84,6 +93,15 @@ export interface CommonEventPublishData {
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11
+   */
+  /**
+   * The custom result data of the common event.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   data?: string;
 
