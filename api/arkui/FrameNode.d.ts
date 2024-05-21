@@ -439,7 +439,7 @@ export class FrameNode {
   get commonAttribute(): CommonAttribute;
 
   /**
-   * Draw Method. Executed when the associated RenderNode in the current FrameNode is onDraw.
+   * Draw Method. Executed when the current FrameNode is rendering its content.
    *
    * @param { DrawContext } context - The DrawContext will be used when executed draw method.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
