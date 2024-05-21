@@ -2440,7 +2440,7 @@ declare namespace camera {
   /**
    * Secure camera session object.
    *
-   * @interface Secure Camera Session
+   * @interface SecureSession
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 12
    */
@@ -2448,10 +2448,10 @@ declare namespace camera {
     /**
      * Add Secure output for camera.
      *
-     * @param { CameraOutput } cameraOutput - Specify the output as a secure flow.
+     * @param { PreviewOutput } previewOutput - Specify the output as a secure flow.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400102 - Operation not allowed.
-     * @throws { BusinessError } 7400102 - Operation not allowed.
+     * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 12
      */
@@ -2463,7 +2463,7 @@ declare namespace camera {
      * @param { 'error' } type - Event type.
      * @param { ErrorCallback } callback - Callback used to get the capture session errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since 12
      */
     on(type: 'error', callback: ErrorCallback): void;
 
@@ -2473,7 +2473,7 @@ declare namespace camera {
      * @param { 'error' } type - Event type.
      * @param { ErrorCallback } callback - Callback used to get the capture session errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since 12
      */
     off(type: 'error', callback?: ErrorCallback): void;
 
@@ -2483,7 +2483,7 @@ declare namespace camera {
      * @param { 'focusStateChange' } type - Event type.
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since 12
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
 
@@ -2493,7 +2493,7 @@ declare namespace camera {
      * @param { 'focusStateChange' } type - Event type.
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since 12
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
   }
