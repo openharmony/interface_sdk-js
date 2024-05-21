@@ -583,6 +583,7 @@ declare namespace adminManager {
    * Get the super administrator of device.
    *
    * @returns { Promise<Want> } promise contained the want indicates the super administrator of the device.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
