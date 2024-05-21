@@ -22,6 +22,7 @@ import { ErrorCallback, AsyncCallback } from './@ohos.base';
 import type Context from './application/BaseContext';
 import image from './@ohos.multimedia.image';
 import type colorSpaceManager from './@ohos.graphics.colorSpaceManager';
+import photoAccessHelper from './@ohos.file.photoAccessHelper';
 
 /**
  * @namespace camera
@@ -4795,6 +4796,26 @@ declare namespace camera {
     off(type: 'deferredPhotoProxyAvailable', callback?: AsyncCallback<DeferredPhotoProxy>): void;
 
     /**
+     * Subscribes photo asset event callback.
+     *
+     * @param { 'photoAssetAvailable' } type - Event type.
+     * @param { AsyncCallback<photoAccessHelper.PhotoAsset> } callback - Callback used to get the asset.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
+    on(type: 'photoAssetAvailable', callback: AsyncCallback<photoAccessHelper.PhotoAsset>): void;
+
+    /**
+     * Unsubscribes photo asset event callback.
+     *
+     * @param { 'photoAssetAvailable' } type - Event type.
+     * @param { AsyncCallback<photoAccessHelper.PhotoAsset> } callback - Callback used to get the asset.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
+     off(type: 'photoAssetAvailable', callback?: AsyncCallback<photoAccessHelper.PhotoAsset>): void;
+
+    /**
      * Check whether to support mirror photo.
      *
      * @returns { boolean } Is the mirror supported.
@@ -5042,6 +5063,29 @@ declare namespace camera {
      * @since 10
      */
     off(type: 'quickThumbnail', callback?: AsyncCallback<image.PixelMap>): void;
+
+    /**
+     * Confirm if moving photo supported.
+     *
+     * @returns { boolean } TRUE if the moving photo is supported.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
+    isMovingPhotoSupported(): boolean;
+
+    /**
+     * Enable moving photo.
+     *
+     * @permission ohos.permission.MICROPHONE
+     * @param { boolean } enabled - Target state for moving photo.
+     * @throws { BusinessError } 201 - permission denied.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
+    enableMovingPhoto(enabled: boolean): void;
   }
 
   /**
