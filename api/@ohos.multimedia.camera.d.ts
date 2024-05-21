@@ -3237,6 +3237,103 @@ declare namespace camera {
   }
 
   /**
+   * Enum for feature type used in scene detection.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 12
+   */
+  enum SceneFeatureType {
+    /**
+     * Feature for boost moon capture.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    MOON_CAPTURE_BOOST = 0
+  }
+
+  /**
+   * Feature Detection Result.
+   *
+   * @typedef SceneFeatureDetectionResult
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 12
+   */
+  interface SceneFeatureDetectionResult {
+    /**
+     * Detected feature type.
+     *
+     * @type { SceneFeatureType }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    readonly featureType: SceneFeatureType;
+
+    /**
+     * Check whether feature is detected.
+     *
+     * @type { boolean }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    readonly detected: boolean;
+  }
+
+  /**
+   * Scene detection query.
+   *
+   * @interface SceneDetectionQuery
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 12
+   */
+  interface SceneDetectionQuery {
+    /**
+     * Check whether specified feature is supported.
+     *
+     * @param { SceneFeatureType } type - Specified feature type.
+     * @returns { boolean } - Is specified feature supported.
+     * @throws { BusinessError } 202 - Not System Application, only throw in session usage.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    isSceneFeatureSupported(type: SceneFeatureType): boolean;
+  }
+
+  /**
+   * Scene detection.
+   *
+   * @interface SceneDetection
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 12
+   */
+  interface SceneDetection extends SceneDetectionQuery {
+    /**
+     * Enable specified feature.
+     *
+     * @param { SceneFeatureType } type - Specified feature type.
+     * @param { boolean } enabled - Target feature status.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    enableSceneFeature(type: SceneFeatureType, enabled: boolean): void;
+  }
+
+  /**
    * Photo session object for system hap.
    *
    * @interface PhotoSessionForSys
@@ -3244,7 +3341,7 @@ declare namespace camera {
    * @systemapi
    * @since 11
    */
-  interface PhotoSessionForSys extends PhotoSession, Beauty, ColorEffect, ColorManagement, Macro {
+  interface PhotoSessionForSys extends PhotoSession, Beauty, ColorEffect, ColorManagement, Macro, SceneDetection {
   }
 
   /**
@@ -3338,6 +3435,32 @@ declare namespace camera {
      * @since 11
      */
     off(type: 'macroStatusChanged', callback?: AsyncCallback<boolean>): void;
+
+    /**
+     * Subscribes to feature detection results.
+     *
+     * @param { 'featureDetection' } type - Event type.
+     * @param { SceneFeatureType } featureType - Feature type.
+     * @param { AsyncCallback<SceneFeatureDetectionResult> } callback - Callback used to get the detection result.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    on(type: 'featureDetection', featureType: SceneFeatureType, callback: AsyncCallback<SceneFeatureDetectionResult>): void;
+
+    /**
+     * Unsubscribes from feature detection result.
+     *
+     * @param { 'featureDetection' } type - Event type.
+     * @param { SceneFeatureType } featureType - Feature type.
+     * @param { AsyncCallback<SceneFeatureDetectionResult> } callback - Callback used to get the detection result.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    off(type: 'featureDetection', featureType: SceneFeatureType, callback?: AsyncCallback<SceneFeatureDetectionResult>): void;
   }
 
   /**
