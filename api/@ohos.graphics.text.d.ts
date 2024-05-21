@@ -922,11 +922,13 @@ declare namespace text {
 
     /**
      * Returns the visible text on the line (excluding a possible ellipsis).
+     * @param { number } lineNumber - a line number
+     * @param { boolean } includeSpaces - indicates if the whitespaces should be included
      * @returns { Range } The range of text.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    getActualTextRange(): Range;
+    getActualTextRange(lineNumber: number, includeSpaces: boolean): Range;
 
     /**
      * Returns the array of line metrics for a line of text.
@@ -935,6 +937,15 @@ declare namespace text {
      * @since 12
      */
     getLineMetrics(): Array<LineMetrics>;
+
+    /**
+     * Returns line metrics info for the line.
+     * @param { number } lineNumber - a line number
+     * @returns { LineMetrics } line metrics.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    getLineMetrics(lineNumber: number): LineMetrics;
   }
 
   /**
@@ -1436,7 +1447,7 @@ declare namespace text {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    fontMetrics: FontMetrics;
+    fontMetrics?: FontMetrics;
   }
 
   /**
