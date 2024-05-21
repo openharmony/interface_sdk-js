@@ -116,7 +116,7 @@ declare namespace bundleResourceManager {
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @throws { BusinessError } 17700061 - AppIndex not in valid range.
+   * @throws { BusinessError } 17700061 - AppIndex not in valid range or not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 12
@@ -152,7 +152,7 @@ declare namespace bundleResourceManager {
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @throws { BusinessError } 17700061 - AppIndex not in valid range.
+   * @throws { BusinessError } 17700061 - AppIndex not in valid range or not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 12
@@ -222,6 +222,7 @@ declare namespace bundleResourceManager {
   /**
    * Obtains resource info of a bundle.
    *
+   * @typedef { _BundleResourceInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 11
@@ -231,6 +232,7 @@ declare namespace bundleResourceManager {
   /**
    * Obtains resource info of a ability.
    *
+   * @typedef { _LauncherAbilityResourceInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 11
