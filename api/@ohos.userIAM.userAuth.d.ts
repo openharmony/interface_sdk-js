@@ -941,7 +941,7 @@ declare namespace userAuth {
    * @throws { BusinessError } 12500005 - The authentication type is not supported.
    * @throws { BusinessError } 12500006 - The authentication trust level is not supported.
    * @throws { BusinessError } 12500010 - The type of credential has not been enrolled.
-   * @throws { BusinessError } 12500013 - Indicates that current operation failed because of PIN expired.
+   * @throws { BusinessError } 12500013 - Operation failed because of PIN expired.
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @since 12
    */
@@ -1278,14 +1278,14 @@ declare namespace userAuth {
      * @throws { BusinessError } 401 - Incorrect parameters.
      * @throws { BusinessError } 12500001 - Authentication failed.
      * @throws { BusinessError } 12500002 - General operation error.
-     * @throws { BusinessError } 12500003 - The operation is canceled.
-     * @throws { BusinessError } 12500004 - The operation is time-out.
+     * @throws { BusinessError } 12500003 - Authentication canceled.
+     * @throws { BusinessError } 12500004 - Authentication timeout.
      * @throws { BusinessError } 12500005 - The authentication type is not supported.
      * @throws { BusinessError } 12500006 - The authentication trust level is not supported.
-     * @throws { BusinessError } 12500007 - The authentication task is busy.
-     * @throws { BusinessError } 12500009 - The authenticator is locked.
+     * @throws { BusinessError } 12500007 - Authentication service is busy.
+     * @throws { BusinessError } 12500009 - Authentication is locked out.
      * @throws { BusinessError } 12500010 - The type of credential has not been enrolled.
-     * @throws { BusinessError } 12500011 - The authentication is canceled from widget's navigation button.
+     * @throws { BusinessError } 12500011 - Switched to the custom authentication process.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 10
      */
@@ -1297,15 +1297,15 @@ declare namespace userAuth {
      * @throws { BusinessError } 401 - Incorrect parameters.
      * @throws { BusinessError } 12500001 - Authentication failed.
      * @throws { BusinessError } 12500002 - General operation error.
-     * @throws { BusinessError } 12500003 - The operation is canceled.
-     * @throws { BusinessError } 12500004 - The operation is time-out.
+     * @throws { BusinessError } 12500003 - Authentication canceled.
+     * @throws { BusinessError } 12500004 - Authentication timeout.
      * @throws { BusinessError } 12500005 - The authentication type is not supported.
      * @throws { BusinessError } 12500006 - The authentication trust level is not supported.
-     * @throws { BusinessError } 12500007 - The authentication task is busy.
-     * @throws { BusinessError } 12500009 - The authenticator is locked.
+     * @throws { BusinessError } 12500007 - Authentication service is busy.
+     * @throws { BusinessError } 12500009 - Authentication is locked out.
      * @throws { BusinessError } 12500010 - The type of credential has not been enrolled.
-     * @throws { BusinessError } 12500011 - The authentication is canceled from widget's navigation button.
-     * @throws { BusinessError } 12500013 - Indicates that current authentication failed because of PIN expired.
+     * @throws { BusinessError } 12500011 - Switched to the custom authentication process.
+     * @throws { BusinessError } 12500013 - Operation failed because of PIN expired.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 12
      */
