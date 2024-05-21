@@ -35,6 +35,15 @@ import { AsyncCallback, Callback } from './@ohos.base';
  * @atomicservice
  * @since 11
  */
+/**
+ * Provide the capabilities to use different pickers.
+ *
+ * @namespace picker
+ * @syscap SystemCapability.FileManagement.UserFileService
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare namespace picker {
   /**
    * PhotoViewMIMETypes represents the type of media resource that photo picker selects.
@@ -324,6 +333,7 @@ declare namespace picker {
    *
    * @enum { number } DocumentSelectMode
    * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
+   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -338,6 +348,7 @@ declare namespace picker {
      * Indicates that only files are allowed to be selected.
      *
      * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
+     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -353,6 +364,7 @@ declare namespace picker {
      * Indicates that only folders are allowed to be selected.
      *
      * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
+     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -412,6 +424,7 @@ declare namespace picker {
    * DocumentSelectOptions Object.
    *
    * @syscap SystemCapability.FileManagement.UserFileService
+   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -428,6 +441,7 @@ declare namespace picker {
      *
      * @type { ?string }
      * @syscap SystemCapability.FileManagement.UserFileService
+     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -445,6 +459,7 @@ declare namespace picker {
      *
      * @type { ?Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileService
+     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -462,6 +477,7 @@ declare namespace picker {
      *
      * @type { ?number }
      * @syscap SystemCapability.FileManagement.UserFileService
+     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -479,6 +495,7 @@ declare namespace picker {
      *
      * @type { ?DocumentSelectMode }
      * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
+     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -507,6 +524,7 @@ declare namespace picker {
    * DocumentSaveOptions Object
    *
    * @syscap SystemCapability.FileManagement.UserFileService
+   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -523,6 +541,7 @@ declare namespace picker {
      *
      * @type { ?Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileService
+     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -540,6 +559,7 @@ declare namespace picker {
      *
      * @type { ?string }
      * @syscap SystemCapability.FileManagement.UserFileService
+     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -582,6 +602,7 @@ declare namespace picker {
    * DocumentViewPicker Object
    *
    * @syscap SystemCapability.FileManagement.UserFileService
+   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -600,6 +621,7 @@ declare namespace picker {
      * @param { DocumentSelectOptions } option - represents the options provided in select mode.
      * @returns { Promise<Array<string>> } Returns the uris for the selected files.
      * @syscap SystemCapability.FileManagement.UserFileService
+     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -619,6 +641,7 @@ declare namespace picker {
      * @param { DocumentSelectOptions } option - represents the options provided in select mode.
      * @param { AsyncCallback<Array<string>> } callback - callback
      * @syscap SystemCapability.FileManagement.UserFileService
+     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -636,6 +659,7 @@ declare namespace picker {
      *
      * @param { AsyncCallback<Array<string>> } callback - callback
      * @syscap SystemCapability.FileManagement.UserFileService
+     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -655,6 +679,7 @@ declare namespace picker {
      * @param { DocumentSaveOptions } option - represents the options provided in save mode.
      * @returns { Promise<Array<string>> } Returns the uris for the saved files.
      * @syscap SystemCapability.FileManagement.UserFileService
+     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -674,6 +699,7 @@ declare namespace picker {
      * @param { DocumentSaveOptions } option - represents the options provided in save mode.
      * @param { AsyncCallback<Array<string>> } callback - callback
      * @syscap SystemCapability.FileManagement.UserFileService
+     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -691,6 +717,7 @@ declare namespace picker {
      *
      * @param { AsyncCallback<Array<string>> } callback - callback
      * @syscap SystemCapability.FileManagement.UserFileService
+     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -715,6 +742,7 @@ declare namespace picker {
        *
        * @type { ?number }
        * @syscap SystemCapability.FileManagement.UserFileService
+       * @crossplatform
        * @atomicservice
        * @since 12
        */
@@ -735,6 +763,14 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 9
      */
+    /**
+     * The names of the files to be saved.
+     *
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @crossplatform
+     * @since 12
+     */
     newFileNames?: Array<string>;
   }
 
@@ -753,6 +789,15 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 9
      */
+    /**
+     * Pull up the audio picker based on the selection mode.
+     *
+     * @param { AudioSelectOptions } option - represents the options provided in select mode.
+     * @returns { Promise<Array<string>> } Returns the uris for the selected files.
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @crossplatform
+     * @since 12
+     */
     select(option?: AudioSelectOptions): Promise<Array<string>>;
 
     /**
@@ -763,6 +808,15 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 9
      */
+    /**
+     * Pull up the audio picker based on the selection mode.
+     *
+     * @param { AudioSelectOptions } option - represents the options provided in select mode.
+     * @param { AsyncCallback<Array<string>> } callback - callback
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @crossplatform
+     * @since 12
+     */
     select(option: AudioSelectOptions, callback: AsyncCallback<Array<string>>): void;
 
     /**
@@ -771,6 +825,14 @@ declare namespace picker {
      * @param { AsyncCallback<Array<string>> } callback - callback
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 9
+     */
+    /**
+     * Pull up the audio picker based on the selection mode.
+     *
+     * @param { AsyncCallback<Array<string>> } callback - callback
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @crossplatform
+     * @since 12
      */
     select(callback: AsyncCallback<Array<string>>): void;
 
@@ -782,6 +844,15 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 9
      */
+    /**
+     * Pull up the audio picker based on the save mode.
+     *
+     * @param { AudioSaveOptions } option - represents the options provided in save mode.
+     * @returns { Promise<Array<string>> } Returns the uris for the saved files.
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @crossplatform
+     * @since 12
+     */
     save(option?: AudioSaveOptions): Promise<Array<string>>;
 
     /**
@@ -792,6 +863,15 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 9
      */
+    /**
+     * Pull up the audio picker based on the save mode.
+     *
+     * @param { AudioSaveOptions } option - represents the options provided in save mode.
+     * @param { AsyncCallback<Array<string>> } callback - callback
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @crossplatform
+     * @since 12
+     */
     save(option: AudioSaveOptions, callback: AsyncCallback<Array<string>>): void;
 
     /**
@@ -800,6 +880,14 @@ declare namespace picker {
      * @param { AsyncCallback<Array<string>> } callback - callback
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 9
+     */
+    /**
+     * Pull up the audio picker based on the save mode.
+     *
+     * @param { AsyncCallback<Array<string>> } callback - callback
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @crossplatform
+     * @since 12
      */
     save(callback: AsyncCallback<Array<string>>): void;
   }
