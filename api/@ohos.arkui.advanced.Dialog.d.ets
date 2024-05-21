@@ -527,7 +527,7 @@ export declare struct ConfirmDialog {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 12
    */
-  checkAction?: Callback<boolean>;
+  onChecked?: Callback<boolean>;
 }
 
 /**
