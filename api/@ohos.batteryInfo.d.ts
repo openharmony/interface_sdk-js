@@ -207,8 +207,7 @@ declare namespace batteryInfo {
    *
    * @constant
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
-   * @systemapi
-   * @since 9
+   * @since 12
    */
   const nowCurrent: number;
 
