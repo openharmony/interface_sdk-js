@@ -290,7 +290,7 @@ export declare struct TipsDialog {
    */
   theme?: Theme | CustomTheme;
   /**
-   * Dark Light Mode.
+   * Sets the TipsDialog dark or light Mode.
    *
    * @type { ?ThemeColorMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -416,7 +416,7 @@ export declare struct SelectDialog {
    */
   theme?: Theme | CustomTheme;
   /**
-   * Dark Light Mode.
+   * Sets the SelectDialog dark or light Mode.
    *
    * @type { ?ThemeColorMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -549,7 +549,7 @@ export declare struct ConfirmDialog {
    */
   theme?: Theme | CustomTheme;
   /**
-   * Dark Light Mode.
+   * Sets the ConfirmDialog dark or light Mode.
    *
    * @type { ?ThemeColorMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -663,7 +663,7 @@ export declare struct AlertDialog {
    */
   theme?: Theme | CustomTheme;
   /**
-   * Dark Light Mode.
+   * Sets the AlertDialog dark or light Mode.
    *
    * @type { ?ThemeColorMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -726,7 +726,7 @@ export declare struct LoadingDialog {
    */
   theme?: Theme | CustomTheme;
   /**
-   * Dark Light Mode.
+   * Sets the LoadingDialog dark or light Mode.
    *
    * @type { ?ThemeColorMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -804,7 +804,7 @@ export declare struct CustomContentDialog {
    */
   theme?: Theme | CustomTheme;
   /**
-   * Dark Light Mode.
+   * Sets the CustomContentDialog dark or light Mode.
    *
    * @type { ?ThemeColorMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -817,7 +817,7 @@ export declare struct CustomContentDialog {
 
 /**
  * Declare struct PopupDialog
- *
+ * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
@@ -826,7 +826,7 @@ export declare struct CustomContentDialog {
 export declare struct PopupDialog {
   /**
    * Sets the PopupDialog Visible Status.
-   *
+   * 
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -836,7 +836,7 @@ export declare struct PopupDialog {
   show: boolean;
   /**
    * Sets the PopupDialog options.
-   *
+   * 
    * @type { PopupDialogOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -846,7 +846,7 @@ export declare struct PopupDialog {
   popup: PopupDialogOptions;
   /**
    * Sets the targetBuilder content.
-   *
+   * 
    * @type { Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -857,7 +857,7 @@ export declare struct PopupDialog {
 
 /**
  * Defines PopupDialog Options
- *
+ * 
  * @interface PopupDialogOptions
  * @extends CustomPopupOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
