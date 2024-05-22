@@ -149,7 +149,7 @@ export enum ErrorMessage {
   ERROR_CHANGES_JSDOC_NUMBER = 'Forbid changes: API changes must add a new section of JSDoc.',
   ERROR_NO_JSDOC = 'Jsdoc needs to be added to the current API.',
   ERROR_NO_JSDOC_TAG = 'add  tags to the Jsdoc.',
-  ERROR_HAS_CHINESE= 'Jsdoc has chinese',
+  ERROR_HAS_CHINESE= 'Jsdoc has chinese.',
 
 }
 

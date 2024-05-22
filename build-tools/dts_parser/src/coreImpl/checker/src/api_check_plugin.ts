@@ -128,7 +128,7 @@ export class Check {
       const orderCheckResult: ErrorTagFormat = OrderCheck.orderCheck(singleApi, apiJsdoc);
       // api naming check
       const namingCheckResult: ErrorTagFormat = ApiNamingCheck.namingCheck(singleApi);
-
+      // check jsdoc chinese
       const chineseCheckResult: ErrorTagFormat = ChineseCheck.checkChinese(apiJsdoc);
       // tags name check
       const tagNamseCheckResult: ErrorTagFormat = TagNameCheck.tagNameCheck(apiJsdoc);
