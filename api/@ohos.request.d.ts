@@ -4542,6 +4542,21 @@ declare namespace request {
        * @atomicservice
        * @since 11
        */
+      /**
+       * Starts the task. The following tasks can be started:
+       * 1. Tasks just created.
+       * 2. Download tasks that are stopped or become FAILED.
+       *
+       * @permission ohos.permission.INTERNET
+       * @param { AsyncCallback<void> } callback callback function with a boolean argument indicating the calling result.
+       * @throws { BusinessError } 201 - Permission denied.
+       * @throws { BusinessError } 13400003 - task service ability error.
+       * @throws { BusinessError } 21900007 - task state error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
+       * @atomicservice
+       * @since 12
+       */
       start(callback: AsyncCallback<void>): void;
       /**
        * Starts the task.
@@ -4566,6 +4581,21 @@ declare namespace request {
        * @crossplatform
        * @atomicservice
        * @since 11
+       */
+      /**
+       * Starts the task. The following tasks can be started:
+       * 1. Tasks just created.
+       * 2. Download tasks that are stopped or become FAILED.
+       *
+       * @permission ohos.permission.INTERNET
+       * @returns { Promise<void> } the promise returned by the function.
+       * @throws { BusinessError } 201 - Permission denied.
+       * @throws { BusinessError } 13400003 - task service ability error.
+       * @throws { BusinessError } 21900007 - task state error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
+       * @atomicservice
+       * @since 12
        */
       start(): Promise<void>;
       /**
