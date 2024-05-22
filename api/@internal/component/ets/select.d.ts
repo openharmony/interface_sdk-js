@@ -94,6 +94,16 @@ declare interface SelectOption {
    * @since 11
    */
   icon?: ResourceStr;
+
+  /**
+   * Indicates the symbol icon of this menu item.
+   *
+   * @type { ?SymbolGlyphModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  symbolIcon?: SymbolGlyphModifier;
 }
 
 /**
@@ -791,6 +801,16 @@ declare interface MenuItemConfiguration extends CommonConfiguration<MenuItemConf
    * @since 12
    */
   icon?: ResourceStr;
+
+  /**
+   * Indicates the symbol icon of this menu item.
+   *
+   * @type { ?SymbolGlyphModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  symbolIcon?: SymbolGlyphModifier;
 
   /**
    * Indicates whether this menu item is selected or not.

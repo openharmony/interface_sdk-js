@@ -809,6 +809,7 @@ screensaver
 scrolldown
 scrollup
 sdpi
+sdr
 searchsetter
 sece
 secinfo
@@ -1132,3 +1133,5 @@ ocsp
 encipherment
 reconfirmed
 subresource
+euc
+

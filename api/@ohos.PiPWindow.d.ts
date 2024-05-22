@@ -44,8 +44,10 @@ declare namespace PiPWindow {
    * the context and componentController in config should not be null. If templateType is specified, make sure
    * it's type of PiPTemplateType. If controlGroups is specified, make sure it correspond to the templateType.
    * @returns { Promise<PiPController> } - The promise returned by the function
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. 3.Parameter verification failed
-   * @throws { BusinessError } 801 - Capability not supported
+   * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified. 
+   *                                                                2. Incorrect parameter types. 
+   *                                                                3. Parameter verification failed
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @syscap SystemCapability.Window.SessionManager
    * @since 11
    */
@@ -392,10 +394,10 @@ declare namespace PiPWindow {
     /**
      * Start picture-in-picture
      * @returns { Promise<void> } - The promise returned by the function
-     * @throws { BusinessError } 1300012 - If PiP window state is abnormal.
-     * @throws { BusinessError } 1300013 - Create PiP window failed.
-     * @throws { BusinessError } 1300014 - Error when load PiP window content or show PiP window
-     * @throws { BusinessError } 1300015 - If window has created
+     * @throws { BusinessError } 1300012 - The PiP window state is abnormal.
+     * @throws { BusinessError } 1300013 - Failed to create the PiP window.
+     * @throws { BusinessError } 1300014 - PiP internal error.
+     * @throws { BusinessError } 1300015 - Repeated PiP operation.
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
@@ -404,9 +406,9 @@ declare namespace PiPWindow {
     /**
      * Stop picture-in-picture.
      * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 1300011 - Stop PiP window failed.
-     * @throws { BusinessError } 1300012 - If PiP window state is abnormal.
-     * @throws { BusinessError } 1300015 - If window is stopping
+     * @throws { BusinessError } 1300011 - Failed to destroy the PiP window.
+     * @throws { BusinessError } 1300012 - The PiP window state is abnormal.
+     * @throws { BusinessError } 1300015 - Repeated PiP operation.
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
@@ -424,7 +426,8 @@ declare namespace PiPWindow {
      * Update source content size to adjust PiP window aspect ratio.
      * @param { number } width - Indicate the width of the content. The width can consist of only digits and above 0.
      * @param { number } height - Indicate the height of the content. The height can consist of only digits and above 0.
-     * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified. 
+     *                                                                2. Incorrect parameter types.
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
