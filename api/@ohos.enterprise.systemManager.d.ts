@@ -106,22 +106,13 @@ declare namespace systemManager {
     UPDATE_TO_SPECIFIC_VERSION = 2,
 
     /**
-     * Force immediate update policy
-     *
-     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @stagemodelonly
-     * @since 12
-     */
-    FORCE_IMMEDIATE_UPDATE = 3,
-
-    /**
      * Update within a specified time window
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
      */
-    WINDOWS = 4,
+    WINDOWS = 3,
 
     /**
      * Delay the update for a period of time
@@ -130,7 +121,7 @@ declare namespace systemManager {
      * @stagemodelonly
      * @since 12
      */
-    POSTPONE = 5
+    POSTPONE = 4
   }
 
   /**

@@ -209,7 +209,7 @@ declare namespace securityManager {
    * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *                         The admin must have the corresponding permission.
-   * @returns { PasswordPolicy } policy - the password policy of the device.
+   * @returns { PasswordPolicy } the password policy of the device.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
