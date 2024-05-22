@@ -2498,6 +2498,17 @@ declare interface NavigationAnimatedTransition {
   timeout?: number;
 
   /**
+   * Indicates whether it is an interactive transition.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  isInteractive?: boolean;
+
+  /**
    * Configure the animations associated with custom transition.
    *
    * @type { function }
@@ -2574,6 +2585,17 @@ declare interface NavigationTransitionProxy {
   to: NavContentInfo;
 
   /**
+   * Indicates whether it is an interactive transition.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  isInteractive?: boolean;
+
+  /**
    * Notification system transition animation completed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2589,6 +2611,15 @@ declare interface NavigationTransitionProxy {
    * @since 12
    */
   finishTransition(): void;
+
+  /**
+   * Notification system transition animation canceled.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  cancelTransition?(): void;
 }
 
 /**
@@ -2665,6 +2696,16 @@ declare interface NavContentInfo {
    * @since 12
    */
   mode?: NavDestinationMode;
+
+  /**
+   * Navigation content param.
+   *
+   * @type { ?Object }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  param?: Object;
 }
 
 /**
