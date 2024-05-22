@@ -290,7 +290,7 @@ export declare struct TipsDialog {
    */
   theme?: Theme | CustomTheme;
   /**
-   * Sets the ConfirmDialog CheckBox Callback.
+   * Sets the TipsDialog CheckBox Callback.
    * @type { ?Callback<boolean> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 12
