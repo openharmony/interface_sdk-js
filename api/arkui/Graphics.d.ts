@@ -803,108 +803,113 @@ declare class LengthMetrics {
 }
 
 /**
-* Defines the ColorMetrics class.
-* 
-* @syscap SystemCapability.ArkUI.ArkUI.Full
-* @crossplatform
-* @since 12
-*/
+ * Defines the ColorMetrics class.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
 declare class ColorMetrics {
   /**
-  * Instantiate the ColorMetrics class using color number 
-  * 
-  * @param { number } value - color number
-  * @returns { ColorMetrics } ColorMetrics class
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @since 12
-  */
+   * Instantiate the ColorMetrics class using color number
+   *
+   * @param { number } value - color number
+   * @returns { ColorMetrics } ColorMetrics class
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
   static numeric(value: number): ColorMetrics;
 
   /**
-  * Instantiate the ColorMetrics class using color rgb
-  * 
-  * @param { number } red - red value of rgba
-  * @param { number } green - green value of rgba
-  * @param { number } blue - blue value of rgba
-  * @param { number } alpha - opacity value of rgba
-  * @returns { ColorMetrics } ColorMetrics class
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @since 12
-  */
+   * Instantiate the ColorMetrics class using color rgb
+   *
+   * @param { number } red - red value of rgba
+   * @param { number } green - green value of rgba
+   * @param { number } blue - blue value of rgba
+   * @param { number } alpha - opacity value of rgba
+   * @returns { ColorMetrics } ColorMetrics class
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
   static rgba(red: number, green: number, blue: number, alpha?: number): ColorMetrics;
 
   /**
-  * Instantiate the ColorMetrics class using ResourceColor
-  * 
-  * @param { ResourceColor } color - resource color
-  * @returns { ColorMetrics } ColorMetrics class
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @since 12
-  */
+   * Instantiate the ColorMetrics class using ResourceColor
+   *
+   * @param { ResourceColor } color - resource color
+   * @returns { ColorMetrics } ColorMetrics class
+   * @throws { BusinessError } 180003 - Failed to obtain the color resource.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause:
+   * 1. The type of the input color parameter is not ResourceColor.
+   * 2. The format of the input color string is not RGB or RGBA.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
   static resourceColor(color: ResourceColor): ColorMetrics;
 	
   /**
-  * blend color
-  * 
-  * @param { ColorMetrics } overlayColor - overlay color
-  * @returns { ColorMetrics } ColorMetrics class
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @since 12
-  */
+   * blend color
+   *
+   * @param { ColorMetrics } overlayColor - overlay color
+   * @returns { ColorMetrics } ColorMetrics class
+   * @throws { BusinessError } 401 - Parameter error. The type of the input parameter is not ColorMetrics.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
   blendColor(overlayColor: ColorMetrics): ColorMetrics;
 	
   /**
-  * Get color of the ColorMetrics.
-  * 
-  * @returns { string } The color of the ColorMetrics.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @since 12
-  */
+   * Get color of the ColorMetrics.
+   *
+   * @returns { string } The color of the ColorMetrics.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
    get color(): string;
 
   /**
-  * Get red value of the ColorMetrics.
-  * 
-  * @returns { number } The red value of the ColorMetrics.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @since 12
-  */
+   * Get red value of the ColorMetrics.
+   *
+   * @returns { number } The red value of the ColorMetrics.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
    get red(): number;
 
   /**
-  * Get green value of the ColorMetrics.
-  * 
-  * @returns { number } The green value of the ColorMetrics.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @since 12
-  */
+   * Get green value of the ColorMetrics.
+   *
+   * @returns { number } The green value of the ColorMetrics.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
   get green(): number;
 
   /**
-  * Get blue value of the ColorMetrics.
-  * 
-  * @returns { number } The blue value of the ColorMetrics.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @since 12
-  */
+   * Get blue value of the ColorMetrics.
+   *
+   * @returns { number } The blue value of the ColorMetrics.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
   get blue(): number;
 
   /**
-  * Get opacity value of the ColorMetrics.
-  * 
-  * @returns { number } The opacity value of the ColorMetrics.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @since 12
-  */
+   * Get opacity value of the ColorMetrics.
+   *
+   * @returns { number } The opacity value of the ColorMetrics.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
   get alpha(): number;
 }
 
