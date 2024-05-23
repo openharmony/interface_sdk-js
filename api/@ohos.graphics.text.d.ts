@@ -568,6 +568,14 @@ declare namespace text {
    */
   class FontCollection {
     /**
+     * Get global FontCollection instance of the application.
+     * @returns { FontCollection } The FontCollection object.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    static getGlobalInstance(): FontCollection;
+
+    /**
      * Load font.
      * @param { string } name - the font name.
      * @param { string | Resource } path - the path of the font file.

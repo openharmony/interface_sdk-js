@@ -809,6 +809,7 @@ screensaver
 scrolldown
 scrollup
 sdpi
+sdr
 searchsetter
 sece
 secinfo
@@ -980,6 +981,7 @@ unduck
 unducked
 unequal
 unfiltered
+unfocusable
 unfocused
 unhealthy
 unhold
@@ -1106,6 +1108,7 @@ aec
 zoomreset
 zooms
 zpass
+tones
 commonevent
 clouddata
 unadjustable
@@ -1129,3 +1132,6 @@ gbk
 ocsp
 encipherment
 reconfirmed
+subresource
+euc
+

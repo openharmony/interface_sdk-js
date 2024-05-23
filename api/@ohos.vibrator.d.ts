@@ -96,7 +96,8 @@ declare namespace vibrator {
    * @param { VibrateAttribute } attribute - Indicate vibrate attribute, {@code VibrateAttribute}.
    * @param { AsyncCallback<void> } callback - The callback of startVibration.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 14600101 - Device operation failed.
    * @syscap SystemCapability.Sensors.MiscDevice
@@ -110,7 +111,8 @@ declare namespace vibrator {
    * @param { VibrateAttribute } attribute - Indicate vibrate attribute, {@code VibrateAttribute}
    * @param { AsyncCallback<void> } callback - The callback of startVibration
    * @throws { BusinessError } 201 - Permission denied
-   * @throws { BusinessError } 401 - Parameter error
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported
    * @throws { BusinessError } 14600101 - Device operation failed
    * @syscap SystemCapability.Sensors.MiscDevice
@@ -127,7 +129,8 @@ declare namespace vibrator {
    * @param { VibrateAttribute } attribute - Indicate vibrate attribute, {@code VibrateAttribute}.
    * @returns { Promise<void> } Promise used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 14600101 - Device operation failed.
    * @syscap SystemCapability.Sensors.MiscDevice
@@ -141,7 +144,8 @@ declare namespace vibrator {
    * @param { VibrateAttribute } attribute - Indicate vibrate attribute, {@code VibrateAttribute}.
    * @returns { Promise<void> } Promise used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 14600101 - Device operation failed.
    * @syscap SystemCapability.Sensors.MiscDevice
@@ -157,7 +161,8 @@ declare namespace vibrator {
    * @param { VibratorStopMode } stopMode - Indicate the stop mode in which the motor vibrates, {@code VibratorStopMode}.
    * @returns { Promise<void> } Promise used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 9
    */
@@ -170,7 +175,8 @@ declare namespace vibrator {
    * @param { VibratorStopMode } stopMode - Indicate the stop mode in which the motor vibrates, {@code VibratorStopMode}.
    * @param { AsyncCallback<void> } callback - The callback of stopVibration.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 9
    */
@@ -236,7 +242,8 @@ declare namespace vibrator {
    * @param { string } effectId Indicate the specified effect of the preset, {@code EffectId}.
    * @param { AsyncCallback<boolean> } callback The callback of isSupportEffect.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 10
    */
@@ -248,7 +255,8 @@ declare namespace vibrator {
    * @param { string } effectId Indicate the specified effect of the preset, {@code EffectId}.
    * @returns { Promise<boolean> } Promise used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 10
    */
@@ -259,7 +267,8 @@ declare namespace vibrator {
    *
    * @param { string } effectId Indicate the specified effect of the preset, {@code EffectId}.
    * @returns { boolean } Returns whether the effect is supported.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14600101 - Device operation failed.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 12

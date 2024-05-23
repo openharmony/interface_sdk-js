@@ -33,7 +33,7 @@ declare namespace installer {
    * Obtains the interface used to install bundle.
    *
    * @param { AsyncCallback<BundleInstaller> } callback - The callback of BundleInstaller object.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
@@ -45,7 +45,7 @@ declare namespace installer {
    * Obtains the interface used to install bundle.
    *
    * @returns { Promise<BundleInstaller> } BundleInstaller object.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9
@@ -56,7 +56,7 @@ declare namespace installer {
    * Obtains the interface used to install bundle.
    *
    * @returns { BundleInstaller } BundleInstaller object.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10
@@ -198,7 +198,7 @@ declare namespace installer {
      * @param { AsyncCallback<void> } callback - The callback of installing HAPs result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
      * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
-     * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter hapFiles is needed for code signature; 4. The size of specifiedDistributionType is greater than 128; 5. The size of additionalInfo is greater than 3000.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
@@ -222,6 +222,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700052 - Failed to install the HAP because debug bundle cannot be installed under non-developer mode.
      * @throws { BusinessError } 17700054 - Failed to install the HAP because the HAP requests wrong permissions.
      * @throws { BusinessError } 17700058 - Failed to install the HAP because the device has been controlled.
+     * @throws { BusinessError } 17700066 - Failed to install the HAP because installing the native package failed.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12
@@ -343,7 +344,7 @@ declare namespace installer {
      * @param { AsyncCallback<void> } callback - The callback of installing HAPs result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
      * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
-     * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
      * @throws { BusinessError } 17700011 - Failed to install the HAP because the HAP signature fails to be verified.
@@ -366,6 +367,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700052 - Failed to install the HAP because debug bundle cannot be installed under non-developer mode.
      * @throws { BusinessError } 17700054 - Failed to install the HAP because the HAP requests wrong permissions.
      * @throws { BusinessError } 17700058 - Failed to install the HAP because the device has been controlled.
+     * @throws { BusinessError } 17700066 - Failed to install the HAP because installing the native package failed.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12
@@ -498,7 +500,7 @@ declare namespace installer {
      * @returns { Promise<void> }
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
      * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
-     * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter hapFiles is needed for code signature; 4. The size of specifiedDistributionType is greater than 128; 5. The size of additionalInfo is greater than 3000.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
@@ -522,6 +524,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700052 - Failed to install the HAP because debug bundle cannot be installed under non-developer mode.
      * @throws { BusinessError } 17700054 - Failed to install the HAP because the HAP requests wrong permissions.
      * @throws { BusinessError } 17700058 - Failed to install the HAP because the device has been controlled.
+     * @throws { BusinessError } 17700066 - Failed to install the HAP because installing the native package failed.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12
@@ -547,6 +550,26 @@ declare namespace installer {
      * @systemapi
      * @since 9
      */
+    /**
+     * Uninstall an application.
+     *
+     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
+     * @param { string } bundleName - Indicates the bundle name of the application to be uninstalled.
+     * @param { InstallParam } installParam - Indicates other parameters required for the uninstall.
+     * @param { AsyncCallback<void> } callback - The callback of uninstalling application result.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 17700001 - The specified bundle name is not found.
+     * @throws { BusinessError } 17700004 - The specified user ID is not found.
+     * @throws { BusinessError } 17700020 - The specified bundle is a pre-installed bundle and cannot be uninstalled.
+     * @throws { BusinessError } 17700040 - The specified bundle is a shared bundle and cannot be uninstalled.
+     * @throws { BusinessError } 17700045 - Failed to uninstall the HAP because uninstall is not allowed by the enterprise device management.
+     * @throws { BusinessError } 17700067 - Failed to uninstall the HAP because uninstalling the native package failed.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
     uninstall(bundleName: string, installParam: InstallParam, callback: AsyncCallback<void>): void;
 
     /**
@@ -565,6 +588,24 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
+     */
+    /**
+     * Uninstall an application.
+     *
+     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
+     * @param { string } bundleName - Indicates the bundle name of the application to be uninstalled.
+     * @param { AsyncCallback<void> } callback - The callback of uninstalling application result.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 17700001 - The specified bundle name is not found.
+     * @throws { BusinessError } 17700020 - The specified bundle is a pre-installed bundle and cannot be uninstalled.
+     * @throws { BusinessError } 17700040 - The specified bundle is a shared bundle and cannot be uninstalled.
+     * @throws { BusinessError } 17700045 - Failed to uninstall the HAP because uninstall is not allowed by the enterprise device management.
+     * @throws { BusinessError } 17700067 - Failed to uninstall the HAP because uninstalling the native package failed.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
      */
     uninstall(bundleName: string, callback: AsyncCallback<void>): void;
 
@@ -587,6 +628,26 @@ declare namespace installer {
      * @systemapi
      * @since 9
      */
+     /**
+     * Uninstall an application.
+     *
+     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
+     * @param { string } bundleName - Indicates the bundle name of the application to be uninstalled.
+     * @param { InstallParam } installParam - Indicates other parameters required for the uninstall.
+     * @returns { Promise<void> }
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 17700001 - The specified bundle name is not found.
+     * @throws { BusinessError } 17700004 - The specified user ID is not found.
+     * @throws { BusinessError } 17700020 - The specified bundle is a pre-installed bundle and cannot be uninstalled.
+     * @throws { BusinessError } 17700040 - The specified bundle is a shared bundle and cannot be uninstalled.
+     * @throws { BusinessError } 17700045 - Failed to uninstall the HAP because uninstall is not allowed by the enterprise device management.
+     * @throws { BusinessError } 17700067 - Failed to uninstall the HAP because uninstalling the native package failed.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
     uninstall(bundleName: string, installParam?: InstallParam): Promise<void>;
 
     /**
@@ -597,7 +658,7 @@ declare namespace installer {
      * @param { InstallParam } installParam - Indicates other parameters required for the recover.
      * @param { AsyncCallback<void> } callback - The callback of recovering application result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.RECOVER_BUNDLE'.
-     * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700001 - The specified bundle name is not found.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
@@ -614,7 +675,7 @@ declare namespace installer {
      * @param { string } bundleName - Indicates the bundle name of the application to be recovered.
      * @param { AsyncCallback<void> } callback - The callback of recovering application result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.RECOVER_BUNDLE'.
-     * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700001 - The specified bundle name is not found.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -631,7 +692,7 @@ declare namespace installer {
      * @param { InstallParam } installParam - Indicates other parameters required for the recover.
      * @returns { Promise<void> }
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.RECOVER_BUNDLE'.
-     * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700001 - The specified bundle name is not found.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
@@ -647,10 +708,10 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
      * @param { UninstallParam } uninstallParam - Indicates parameters required for the uninstall.
      * @param { AsyncCallback<void> } callback - The callback of uninstalling shared bundle result.
-     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.UNINSTALL_BUNDLE'.
-     * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
-     * @throws { BusinessError } 17700020 - The specified bundle is pre-installed bundle which cannot be uninstalled.
+     * @throws { BusinessError } 17700020 - The specified bundle is a pre-installed bundle and cannot be uninstalled.
      * @throws { BusinessError } 17700037 - The version of shared bundle is dependent on other applications.
      * @throws { BusinessError } 17700038 - The specified shared bundle does not exist.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -665,10 +726,10 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
      * @param { UninstallParam } uninstallParam - Indicates parameters required for the uninstall.
      * @returns { Promise<void> }
-     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.UNINSTALL_BUNDLE'.
-     * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
-     * @throws { BusinessError } 17700020 - The specified bundle is pre-installed bundle which cannot be uninstalled.
+     * @throws { BusinessError } 17700020 - The specified bundle is a pre-installed bundle and cannot be uninstalled.
      * @throws { BusinessError } 17700037 - The version of shared bundle is dependent on other applications.
      * @throws { BusinessError } 17700038 - The specified shared bundle does not exist.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -685,7 +746,7 @@ declare namespace installer {
      * @param { InstallParam } installParam - Indicates other parameters required for the installation.
      * @param { AsyncCallback<void> } callback - Indicates the callback used to return the HAP installation result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_SELF_BUNDLE'.
-     * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter hapFiles is needed for code signature;
      * 4. The size of specifiedDistributionType is greater than 128; 5. The size of additionalInfo is greater than 3000.
@@ -721,7 +782,7 @@ declare namespace installer {
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { AsyncCallback<void> } callback - Indicates the callback used to return the HAP installation result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_SELF_BUNDLE'.
-     * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
      * @throws { BusinessError } 17700011 - Failed to install the HAP because the HAP signature fails to be verified.
@@ -755,7 +816,7 @@ declare namespace installer {
      * @param { InstallParam } installParam - Indicates other parameters required for the installation.
      * @returns { Promise<void> }
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_SELF_BUNDLE'.
-     * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter hapFiles is needed for code signature;
      * 4. The size of specifiedDistributionType is greater than 128; 5. The size of additionalInfo is greater than 3000.
@@ -792,7 +853,7 @@ declare namespace installer {
    * @param { Array<string> } filePaths - Indicates the file path for extend resources.
    * @returns { Promise<void> } Returns addExtResource result.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700301 - AddExtResource failed due to parse file failed.
@@ -810,7 +871,7 @@ declare namespace installer {
   * @param { Array<string> } moduleName - Indicates the moduleNames for extend resources.
   * @returns { Promise<void> } Returns removeExtResource result.
   * @throws { BusinessError } 201 - Permission denied.
-  * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+  * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
   * @throws { BusinessError } 17700302 - RemoveExtResource failed due to module does not exist.
@@ -827,8 +888,8 @@ declare namespace installer {
      * @param { string } bundleName - Indicates the bundle name of the application to be uninstalled updates.
      * @param { InstallParam } installParam - Indicates other parameters required for the uninstall.
      * @returns { Promise<void> }
-     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.UNINSTALL_BUNDLE'.
-     * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700001 - The specified bundle name is not found.
      * @throws { BusinessError } 17700045 - Failed to uninstall because enterprise device management disallow uninstall.
@@ -847,7 +908,7 @@ declare namespace installer {
      * @param { CreateAppCloneParam } [createAppCloneParam] Indicates the optional params of create clone app.
      * @returns { Promise<number> } Return the appIndex of the clone application.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700001 - The specified bundleName cannot be found or the bundle is not installed by the specified user.
      * @throws { BusinessError } 17700004 - The userId is invalid.
@@ -867,7 +928,7 @@ declare namespace installer {
      * @param { number } [userId] - userId Indicates the user ID.
      * @returns { Promise<void> }
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.UNINSTALL_CLONE_BUNDLE'.
-     * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700001 - The specified bundleName cannot be found or the bundle is not installed by the specified user.
      * @throws { BusinessError } 17700004 - The userId is invalid.

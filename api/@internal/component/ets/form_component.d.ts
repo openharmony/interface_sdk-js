@@ -122,6 +122,34 @@ declare enum FormRenderingMode {
 }
 
 /**
+ * Defines the FormShape enum.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 12
+ */
+declare enum FormShape {
+    /**
+     * The rect shape.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 12
+     */
+    RECT = 1,
+
+    /**
+     * The circle shape.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 12
+     */
+    CIRCLE,
+}
+
+/**
  * Defines the FormInfo.
  *
  * @interface FormInfo
@@ -219,6 +247,16 @@ declare interface FormInfo {
    * @since 12
    */
   renderingMode?: FormRenderingMode;
+
+  /**
+   * The shape of the form.
+   *
+   * @type { ?FormShape }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 12
+   */
+  shape?: FormShape;
 }
 
 /**
