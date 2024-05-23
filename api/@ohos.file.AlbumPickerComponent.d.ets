@@ -66,7 +66,7 @@ export declare class AlbumPickerOptions {
    * @atomicservice
    * @since 12
    */
-  public themeColorMode?: PickerColorMode;
+  themeColorMode?: PickerColorMode;
 }
 
 
@@ -86,5 +86,5 @@ export declare class AlbumInfo {
    * @atomicservice
    * @since 12
    */
-  public uri?: string;
+  uri?: string;
 }
