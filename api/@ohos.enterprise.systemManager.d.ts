@@ -195,16 +195,16 @@ declare namespace systemManager {
   }
 
   /**
-   * The device system upgrade package info.
+   * The device system update package info.
    *
-   * @typedef UpgradePackageInfo
+   * @typedef UpdatePackageInfo
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
    */
-  export interface UpgradePackageInfo {
+  export interface UpdatePackageInfo {
     /**
-     * The version of system upgrade package.
+     * The version of system update package.
      *
      * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -214,7 +214,7 @@ declare namespace systemManager {
     version: string;
 
     /**
-     * The detail of system upgrade packages.
+     * The detail of system update packages.
      *
      * @type { Array<Package> }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -224,7 +224,7 @@ declare namespace systemManager {
     packages: Array<Package>;
 
     /**
-     * The description of system upgrade package.
+     * The description of system update package.
      *
      * @type { ?PackageDescription }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -235,7 +235,7 @@ declare namespace systemManager {
   }
 
   /**
-   * The detail of system upgrade package.
+   * The detail of system update package.
    *
    * @typedef Package
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -244,7 +244,7 @@ declare namespace systemManager {
    */
   interface Package {
     /**
-     * The type of system upgrade package.
+     * The type of system update package.
      *
      * @type { PackageType }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -254,7 +254,7 @@ declare namespace systemManager {
     type: PackageType;
 
     /**
-     * The path of system upgrade package.
+     * The path of system update package.
      *
      * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -264,7 +264,7 @@ declare namespace systemManager {
     path: string;
 
     /**
-     * The file descriptor of system upgrade package.
+     * The file descriptor of system update package.
      *
      * @type { ?number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -275,7 +275,7 @@ declare namespace systemManager {
   }
 
   /**
-   * Enum for system upgrade package.
+   * Enum for system update package.
    *
    * @enum { number }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -294,7 +294,7 @@ declare namespace systemManager {
   }
 
   /**
-   * The description of system upgrade package.
+   * The description of system update package.
    *
    * @typedef PackageDescription
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -303,7 +303,7 @@ declare namespace systemManager {
    */
   interface PackageDescription {
     /**
-     * The custom notification of system upgrade package.
+     * The custom notification of system update package.
      *
      * @type { ?NotifyDescription }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -314,7 +314,7 @@ declare namespace systemManager {
   }
 
   /**
-   * The custom notification of system upgrade package.
+   * The custom notification of system update package.
    *
    * @typedef NotifyDescription
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -323,7 +323,7 @@ declare namespace systemManager {
    */
   interface NotifyDescription {
     /**
-     * The custom notification tips of system upgrade package.
+     * The custom notification tips of system update package.
      *
      * @type { ?string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -333,7 +333,7 @@ declare namespace systemManager {
     installTips?: string;
 
     /**
-     * The custom notification tips detail of system upgrade package.
+     * The custom notification tips detail of system update package.
      *
      * @type { ?string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -344,14 +344,14 @@ declare namespace systemManager {
   }
 
   /**
-   * The result of system upgrade.
+   * The result of system update.
    *
-   * @typedef UpgradeResult
+   * @typedef UpdateResult
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
    */
-  interface UpgradeResult {
+  interface UpdateResult {
     /**
      * The current version of the system.
      *
@@ -363,17 +363,17 @@ declare namespace systemManager {
     version: string;
 
     /**
-     * The upgrade status of the system.
+     * The update status of the system.
      *
-     * @type { UpgradeStatus }
+     * @type { UpdateStatus }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
      */
-    status: UpgradeStatus;
+    status: UpdateStatus;
 
     /**
-     * The upgrade error message of the system.
+     * The update error message of the system.
      *
      * @type { ErrorInfo }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -384,14 +384,14 @@ declare namespace systemManager {
   }
 
   /**
-   * Enum for system upgrade status.
+   * Enum for system update status.
    *
    * @enum { number }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
    */
-  enum UpgradeStatus {
+  enum UpdateStatus {
     /**
      * The specified version system update package does not exist.
      *
@@ -399,7 +399,7 @@ declare namespace systemManager {
      * @stagemodelonly
      * @since 12
      */
-    NO_UPGRADE_PACKAGE = -4,
+    NO_UPDATE_PACKAGE = -4,
 
     /**
      * The system update package waiting for installation.
@@ -408,7 +408,7 @@ declare namespace systemManager {
      * @stagemodelonly
      * @since 12
      */
-    UPGRADE_WAITING = -3,
+    UPDATE_WAITING = -3,
 
     /**
      * The system is updating.
@@ -417,29 +417,29 @@ declare namespace systemManager {
      * @stagemodelonly
      * @since 12
      */
-    UPGRADING = -2,
+    UPDATING = -2,
 
     /**
-     * The system upgrade failed.
+     * The system update failed.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
      */
-    UPGRADE_FAILURE = -1,
+    UPDATE_FAILURE = -1,
 
     /**
-     * The system upgrade successful.
+     * The system update successful.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
      */
-    UPGRADE_SUCCESS = 0
+    UPDATE_SUCCESS = 0
   }
 
   /**
-   * The upgrade error information of the system.
+   * The update error information of the system.
    *
    * @typedef ErrorInfo
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -448,7 +448,7 @@ declare namespace systemManager {
    */
   interface ErrorInfo {
     /**
-     * The upgrade error code of the system.
+     * The update error code of the system.
      *
      * @type { number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -458,7 +458,7 @@ declare namespace systemManager {
     code: number;
 
     /**
-     * The upgrade error message of the system.
+     * The update error message of the system.
      *
      * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -476,9 +476,9 @@ declare namespace systemManager {
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *                         The admin must have the corresponding permission.
    * @param { string } server - the address of NTP server.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -495,9 +495,9 @@ declare namespace systemManager {
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *                         The admin must have the corresponding permission.
    * @returns { string } the address of NTP server.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -514,9 +514,9 @@ declare namespace systemManager {
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *                         The admin must have the corresponding permission.
    * @param { OtaUpdatePolicy } policy - OTA update policy.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -533,9 +533,9 @@ declare namespace systemManager {
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *                         The admin must have the corresponding permission.
    * @returns { OtaUpdatePolicy } OTA update policy.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -550,36 +550,38 @@ declare namespace systemManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
    * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { UpgradePackageInfo } packageInfo - packageInfo indicates the information of system upgrade package.
+   * @param { UpdatePackageInfo } packageInfo - packageInfo indicates the information of system update package.
    * @returns { Promise<void> } the promise returned by the notifyUpdatePackages.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9201004 - the update packages do not exist or analyzing failed.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9201004 - The update packages do not exist or analyzing failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
    */
-  function notifyUpdatePackages(admin: Want, packageInfo: UpgradePackageInfo): Promise<void>;
+  function notifyUpdatePackages(admin: Want, packageInfo: UpdatePackageInfo): Promise<void>;
 
   /**
-   * Gets the result of system upgrade.
+   * Gets the result of system update.
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
    * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { string } version - version indicates the version of upgrade.
-   * @returns { Promise<UpgradeResult> } the promise returned by the getUpgradeResult.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @param { string } version - version indicates the version of update.
+   * @returns { Promise<UpdateResult> } the promise returned by the getUpdateResult.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
    */
-  function getUpgradeResult(admin: Want, version: string): Promise<UpgradeResult>;
+  function getUpdateResult(admin: Want, version: string): Promise<UpdateResult>;
 }
 
 export default systemManager;

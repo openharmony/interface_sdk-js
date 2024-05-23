@@ -413,6 +413,16 @@ export interface PopupOptions {
    * @since 12
    */
   buttons?: [PopupButtonOptions?, PopupButtonOptions?];
+
+  /**
+   * Indicates the attribute of the current popup direction.
+   *
+   * @type { ?Direction }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+   direction?: Direction;
 }
 
 /**

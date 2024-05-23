@@ -470,7 +470,8 @@ declare namespace connection {
   function setDevicePinCode(deviceId: string, code: string): Promise<void>;
 
   /**
-   * Sets the Bluetooth friendly name of a device.
+   * Sets the Bluetooth friendly name of a device. It is used only by system applications for security.
+   * If a non-system application invokes the interface, exception 801 is thrown.
    *
    * @permission ohos.permission.ACCESS_BLUETOOTH
    * @param { string } name - Indicates a valid Bluetooth name.
@@ -482,6 +483,7 @@ declare namespace connection {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 10
+   * @deprecated since 12
    */
   function setLocalName(name: string): void;
 

@@ -78,7 +78,7 @@ declare namespace calendarManager {
      * @param { CalendarAccount } calendarAccount - calendar account to create calendar
      * @returns { Promise<Calendar> } the promise with calendar corresponding to account
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
@@ -92,7 +92,7 @@ declare namespace calendarManager {
      * @param { CalendarAccount } calendarAccount - calendar account to create calendar
      * @param { AsyncCallback<Calendar> } callback - the callback of createCalendar
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
@@ -106,7 +106,7 @@ declare namespace calendarManager {
      * @param { Calendar } calendar - calendar to be deleted
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
@@ -120,7 +120,7 @@ declare namespace calendarManager {
      * @param { Calendar } calendar - calendar to be deleted
      * @param { AsyncCallback<void> } callback - the callback of deleteCalendar
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
@@ -134,7 +134,7 @@ declare namespace calendarManager {
      * @param { CalendarAccount } calendarAccount - specify calendar account to retrieve
      * @returns { Promise<Calendar> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
@@ -146,7 +146,7 @@ declare namespace calendarManager {
      * @param { CalendarAccount } calendarAccount - specify calendar account to retrieve
      * @returns { Promise<Calendar> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
@@ -161,7 +161,7 @@ declare namespace calendarManager {
      * @param { CalendarAccount } calendarAccount - specify calendar account to retrieve
      * @param { AsyncCallback<Calendar> } callback - the callback of getCalendar
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
@@ -173,7 +173,7 @@ declare namespace calendarManager {
      * @param { CalendarAccount } calendarAccount - specify calendar account to retrieve
      * @param { AsyncCallback<Calendar> } callback - the callback of getCalendar
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
@@ -187,7 +187,7 @@ declare namespace calendarManager {
      * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
      * @param { AsyncCallback<Calendar> } callback - the callback of getCalendar with default calendar instance
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
@@ -198,7 +198,7 @@ declare namespace calendarManager {
      * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
      * @param { AsyncCallback<Calendar> } callback - the callback of getCalendar with default calendar instance
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
@@ -212,7 +212,7 @@ declare namespace calendarManager {
      * @permission ohos.permission.READ_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR
      * @returns { Promise<Calendar[]> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
@@ -225,7 +225,7 @@ declare namespace calendarManager {
      * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
      * @param {AsyncCallback<Calendar[]>} callback - the callback of getAllCalendars
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
