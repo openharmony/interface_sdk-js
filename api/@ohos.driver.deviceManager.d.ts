@@ -51,7 +51,7 @@ declare namespace deviceManager {
    * success.
    * @param { AsyncCallback<{deviceId: number, remote: rpc.IRemoteObject}> } callback - Indicates the bind result
    * including device ID and remote object.
-   * @throws { BusinessError } 401 - Parameter error. Possible casues: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * 3.Parameter verification failed.
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
@@ -69,7 +69,7 @@ declare namespace deviceManager {
    * success.
    * @param { AsyncCallback<RemoteDeviceDriver> } callback - Indicates the bind result including device ID and
    * remote object.
-   * @throws { BusinessError } 401 - Parameter error. Possible casues: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * 3.Parameter verification failed.
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
@@ -87,7 +87,7 @@ declare namespace deviceManager {
    * success.
    * @returns { Promise<{deviceId: number, remote: rpc.IRemoteObject}> } Indicates the bind result including device
    * ID and remote object.
-   * @throws { BusinessError } 401 - Parameter error. Possible casues: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * 3.Parameter verification failed.
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
@@ -104,7 +104,7 @@ declare namespace deviceManager {
    * @param { AsyncCallback<number> } onDisconnect - Callback is invoked when device is disconnected after bind
    * success.
    * @returns { Promise<RemoteDeviceDriver> } Indicates the bind result including device ID and remote object.
-   * @throws { BusinessError } 401 - Parameter error. Possible casues: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * 3.Parameter verification failed.
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
@@ -118,7 +118,7 @@ declare namespace deviceManager {
    * @permission ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
    * @param { number } deviceId - Device id on the device list returned by queryDevices().
    * @param { AsyncCallback<number> } callback - Indicates the unbind result invoked when unbind is finished.
-   * @throws { BusinessError } 401 - Parameter error. Possible casues: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 10
@@ -131,7 +131,7 @@ declare namespace deviceManager {
    * @permission ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
    * @param { number } deviceId - Device id on the device list returned by queryDevices().
    * @returns { Promise<number> } - Indicates the unbind result invoked when unbind is finished.
-  * @throws { BusinessError } 401 - Parameter error. Possible casues: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+  * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * 3.Parameter verification failed.
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
@@ -147,7 +147,7 @@ declare namespace deviceManager {
    * @returns { Array<Readonly<DeviceInfo>> } Device information obtained.
    * @throws { BusinessError } 201 - The permission check failed.
    * @throws { BusinessError } 202 - Permission denied. A non-system application cannot call a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible casues: 1.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
    * @throws { BusinessError } 26300001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @systemapi
@@ -163,7 +163,7 @@ declare namespace deviceManager {
    * @returns { Array<Readonly<DriverInfo>> } Driver information obtained.
    * @throws { BusinessError } 201 - The permission check failed.
    * @throws { BusinessError } 202 - Permission denied. A non-system application cannot call a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible casues: 1.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
    * @throws { BusinessError } 26300001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @systemapi
