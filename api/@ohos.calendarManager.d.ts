@@ -211,6 +211,7 @@ declare namespace calendarManager {
      *
      * @permission ohos.permission.READ_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR
      * @returns { Promise<Calendar[]> } the promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Applications.CalendarData
