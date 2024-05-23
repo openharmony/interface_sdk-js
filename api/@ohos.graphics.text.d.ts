@@ -1302,7 +1302,7 @@ declare namespace text {
     ascent?: number;
 
     /**
-     * The height of the text drop, the distance from the baseline to the bottom of the characte.
+     * The height of the text drop, the distance from the baseline to the bottom of the character.
      * @type { ?number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
