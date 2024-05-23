@@ -112,8 +112,6 @@ declare namespace collections {
    * 
    * @interface ConcatArray
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
    * @since 12
    */
   interface ConcatArray<T> extends ISendable {
@@ -123,8 +121,6 @@ declare namespace collections {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
      * @since 12
      */
     readonly length: number;
@@ -137,8 +133,6 @@ declare namespace collections {
      *     If ConcatArray.length is 0, the empty string is returned.
      * @throws { BusinessError } 401 - Parameter error. Invalid separator.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
      * @since 12
      */
     join(separator?: string): string;
@@ -153,8 +147,6 @@ declare namespace collections {
      * @returns { ConcatArray<T> } A new ConcatArray containing the extracted elements.
      * @throws { BusinessError } 401 - Parameter error. Invalid `start` or `end` parameters.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
      * @since 12
      */
     slice(start?: number, end?: number): ConcatArray<T>;
@@ -621,8 +613,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The concat method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
      * @since 12
      */
     concat(...items: ConcatArray<T>[]): Array<T>;
