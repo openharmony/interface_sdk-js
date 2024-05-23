@@ -20,7 +20,7 @@
 
 
 
-import { ResourceStr } from 'GlobalResource';
+
 
 /**
  * Defines text only item of SegmentButton.

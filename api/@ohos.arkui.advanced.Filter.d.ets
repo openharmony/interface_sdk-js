@@ -20,7 +20,7 @@
 
 
 
-import { ResourceStr } from 'GlobalResource';
+
 
 /**
  * Declare FilterType

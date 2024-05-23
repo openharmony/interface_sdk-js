@@ -20,7 +20,7 @@
 
 
 
-import { ResourceStr } from 'GlobalResource';
+
 
 /**
  * Declare SplitLayout.The SplitLayout is used for upper and lower graphic layouts.

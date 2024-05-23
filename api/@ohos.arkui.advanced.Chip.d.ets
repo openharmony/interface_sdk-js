@@ -20,7 +20,7 @@
 
 
 
-import { ResourceStr } from 'GlobalResource';
+
 import { SymbolGlyphModifier } from './@ohos.arkui.modifier';
 
 /**

@@ -20,7 +20,7 @@
 
 
 
-import { ResourceStr } from 'GlobalResource';
+
 import { Theme, CustomTheme } from '@ohos.arkui.theme';
 
 /**

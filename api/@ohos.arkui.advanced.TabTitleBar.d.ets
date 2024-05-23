@@ -20,7 +20,7 @@
 
 
 
-import { ResourceStr } from 'GlobalResource';
+
 
 /**
  * Declaration of the menu item on the right side.
