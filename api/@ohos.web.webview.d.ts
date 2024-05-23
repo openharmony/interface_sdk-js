@@ -1186,7 +1186,8 @@ declare namespace webview {
      * @param { boolean } incognito - {@code true} gets all cookies for the given URL
      *                                in incognito mode; {@code false} otherwise.
      * @returns { string } - The cookie value for the given URL.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100002 - Invalid url.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -1199,7 +1200,8 @@ declare namespace webview {
      *
      * @param { string } url - The URL for which the cookies are requested.
      * @returns { Promise<string> } - A promise resolved after the cookies of given URL have been gotten.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100002 - Invalid url.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
@@ -1213,7 +1215,8 @@ declare namespace webview {
      *
      * @param { string } url - The URL for which the cookies are requested.
      * @param { AsyncCallback<string> } callback - Called after the cookies of given URL have been gotten.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100002 - Invalid url.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
@@ -1227,7 +1230,8 @@ declare namespace webview {
      *
      * @param { string } url - The URL for which the cookie is to be set.
      * @param { string } value - The cookie as a string, using the format of the 'Set-Cookie' HTTP response header.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100002 - Invalid url.
      * @throws { BusinessError } 17100005 - Invalid cookie value.
      * @syscap SystemCapability.Web.Webview.Core
@@ -1244,7 +1248,8 @@ declare namespace webview {
      * @param { string } value - The cookie as a string, using the format of the 'Set-Cookie' HTTP response header.
      * @param { boolean } incognito - {@code true} set a single cookie (key-value pair) for the given URL
      *                                in incognito mode; {@code false} otherwise.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100002 - Invalid url.
      * @throws { BusinessError } 17100005 - Invalid cookie value.
      * @syscap SystemCapability.Web.Webview.Core
@@ -1259,7 +1264,8 @@ declare namespace webview {
      * @param { string } url - The URL for which the cookie is to be set.
      * @param { string } value - The cookie as a string, using the format of the 'Set-Cookie' HTTP response header.
      * @returns { Promise<void> } - A promise resolved after the cookies of given URL have been set.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100002 - Invalid url.
      * @throws { BusinessError } 17100005 - Invalid cookie value.
      * @syscap SystemCapability.Web.Webview.Core
@@ -1275,7 +1281,8 @@ declare namespace webview {
      * @param { string } url - The URL for which the cookie is to be set.
      * @param { string } value - The cookie as a string, using the format of the 'Set-Cookie' HTTP response header.
      * @param { AsyncCallback<void> } callback - Called after the cookies have been set.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100002 - Invalid url.
      * @throws { BusinessError } 17100005 - Invalid cookie value.
      * @syscap SystemCapability.Web.Webview.Core
@@ -1437,7 +1444,7 @@ declare namespace webview {
     /**
      * Remove all cookies Asynchronously.
      * @returns { Promise<void> } - A promise resolved after the cookies have been deleted.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
@@ -1448,7 +1455,8 @@ declare namespace webview {
     /**
      * Remove all cookies Asynchronously.
      * @param { AsyncCallback<void> } callback - Called after the cookies have been deleted.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
@@ -1476,7 +1484,7 @@ declare namespace webview {
     /**
      * Delete the session cookies Asynchronously.
      * @returns { Promise<void> } - A promise resolved after the cookies have been deleted.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -1486,8 +1494,8 @@ declare namespace webview {
     /**
      * Delete the session cookies Asynchronously.
      * @param { AsyncCallback<void> } callback - Called after the cookies have been deleted.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -2195,7 +2203,8 @@ declare namespace webview {
      *
      * @param { number } index Index of back forward list entry.
      * @returns { HistoryItem } HistoryItem at given index in back forward list.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
@@ -3736,7 +3745,8 @@ declare namespace webview {
      * @param { boolean } top - Whether to jump to the top of the page, if set to false,
      *                          the page content will scroll up half the size of the viewframe,
      *                          and when set to true, it will jump to the top of the page.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -3763,7 +3773,8 @@ declare namespace webview {
      * @param { boolean } bottom - Whether to jump to the top of the page, if set to false,
      *                             the page content will scroll up half the size of the viewframe,
      *                             and when set to true, it will jump to the top of the page.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -3824,7 +3835,8 @@ declare namespace webview {
      * Put network state for web. Which is used to set window.navigator.onLine property in
      * JavaScript.
      * @param { boolean } enable - Whether enable window.navigator.onLine.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -3847,7 +3859,7 @@ declare namespace webview {
      * Query if current document has image.
      *
      * @returns { Promise<boolean> } A promise resolved after query image has finished.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -3870,7 +3882,8 @@ declare namespace webview {
      * Query if current document has image.
      *
      * @param { AsyncCallback<boolean> } callback - Called after query image has finished.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -3917,7 +3930,8 @@ declare namespace webview {
      *
      * @param { boolean } clearRom - Remove cache in both rom and ram if true. Otherwise only clear cache
      *                               in ram.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -4062,7 +4076,8 @@ declare namespace webview {
     /**
      * Register Web custom schemes.
      * @param { Array<WebCustomScheme> } schemes - Configuration of web custom scheme.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100020 - Failed to register custom schemes.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -4189,7 +4204,8 @@ declare namespace webview {
     /**
      * Set custom user agent.
      * @param { string } userAgent - User custom agent information.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -4258,7 +4274,8 @@ declare namespace webview {
      *
      * @param { string } url - Request the URL use "POST" method.
      * @param { ArrayBuffer } postData - This data will passed to "POST" request.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @throws { BusinessError } 17100002 - Invalid url.
@@ -4481,7 +4498,7 @@ declare namespace webview {
      * 
      * @param { string } scheme - String value for url scheme.
      * @param { WebSchemeHandler } handler - Web scheme handler.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -4504,7 +4521,7 @@ declare namespace webview {
      * Set web scheme handler for specific scheme. This is used for service worker.
      * @param { string } scheme - String value for url scheme.
      * @param { WebSchemeHandler } handler - Web scheme handler.
-     * @throws { BusinessError } 401 - Invalid input parameter. 
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5304,7 +5321,8 @@ declare namespace webview {
      * 
      * @param { number } size - Read size.
      * @returns { Promise<ArrayBuffer> } Read array buffer of result.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5636,7 +5654,7 @@ declare namespace webview {
      * Set the resolved URL after redirects or changed as a result of HSTS.
      * 
      * @param { string } url - Set response url for redirects.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5654,7 +5672,8 @@ declare namespace webview {
     /**
      * Set net error code.
      * @param { WebNetErrorList } code - Set net error code.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5673,7 +5692,7 @@ declare namespace webview {
      * Set http status code.
      * 
      * @param { number } code - Http status code.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5692,7 +5711,7 @@ declare namespace webview {
      * Set status text.
      * 
      * @param { string } text - Status text.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5711,7 +5730,7 @@ declare namespace webview {
      * Set mime type.
      * 
      * @param { string } type - Mime type.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5730,7 +5749,7 @@ declare namespace webview {
      * Set the response encoding.
      * 
      * @param { string } type - Encoding.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5751,7 +5770,8 @@ declare namespace webview {
      * @param { string } name - Header name.
      * @param { string } value - Header value.
      * @param { boolean } name - Whether to overwrite.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5782,7 +5802,7 @@ declare namespace webview {
      * Pass response headers to intercepted requests.
      * 
      * @param { WebSchemeHandlerResponse } response - Set response header to intercept.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * @throws { BusinessError } 17100021 - The resource handler is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -5793,7 +5813,7 @@ declare namespace webview {
      * Pass response body data to intercepted requests.
      * 
      * @param { ArrayBuffer } data - Set response body to intercept.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * @throws { BusinessError } 17100021 - The resource handler is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -5813,7 +5833,7 @@ declare namespace webview {
      * Notify that this request should be failed.
      * 
      * @param { WebNetErrorList } code - Set response error code to intercept.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @throws { BusinessError } 17100021 - The resource handler is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -5835,7 +5855,8 @@ declare namespace webview {
      * 
      * @param { function } callback - Callback of handling the request. If callback return false,
      *                                it means no interception.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
