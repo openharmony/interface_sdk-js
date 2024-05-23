@@ -407,6 +407,7 @@ declare namespace commonEventManager {
   export enum Support {
     /**
      * This commonEvent means when the device is booted or system upgrade completed, and only be sent by system.
+     * This API can be called only by system applications.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9
