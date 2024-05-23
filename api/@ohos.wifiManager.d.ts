@@ -335,6 +335,7 @@ declare namespace wifiManager {
   * @throws {BusinessError} 801 - Capability not supported.
   * @throws {BusinessError} 2501000 - Operation failed.
   * @syscap SystemCapability.Communication.WiFi.STA
+  * @atomicservice
   * @since 9
   */
   function addCandidateConfig(config: WifiDeviceConfig, callback: AsyncCallback<number>): void;
@@ -383,6 +384,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
+   * @atomicservice
    * @since 9
    */
   function removeCandidateConfig(networkId: number, callback: AsyncCallback<void>): void;
@@ -2033,12 +2035,14 @@ declare namespace wifiManager {
    * Wi-Fi device address( mac / bssid ) type.
    * @enum { number }
    * @syscap SystemCapability.Communication.WiFi.Core
+   * atomicservice
    * @since 10
    */
   enum DeviceAddressType {
     /**
      * random device address
      * @syscap SystemCapability.Communication.WiFi.Core
+     * atomicservice
      * @since 10
      */
     RANDOM_DEVICE_ADDRESS,
@@ -2046,6 +2050,7 @@ declare namespace wifiManager {
     /**
      * real device address
      * @syscap SystemCapability.Communication.WiFi.Core
+     * atomicservice
      * @since 10
      */
     REAL_DEVICE_ADDRESS,
