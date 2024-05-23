@@ -5429,6 +5429,18 @@ declare namespace cert {
      * @since 12
      */
     options?: Array<RevocationCheckOptions>;
+
+    /**
+     * The digest used to generate the ocsp cert id.
+     *
+     * @type { ?string }
+     * @default SHA256
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    ocspDigest?: string;
   }
 
   /**
