@@ -141,6 +141,7 @@ declare namespace deviceManager {
    * @param { number } deviceId - ID of device to query.
    * @returns { Array<Readonly<DeviceInfo>> } Device information obtained.
    * @throws { BusinessError } 201 - The permission check failed.
+   * @throws { BusinessError } 202 - Permission denied. A non-system application cannot call a system API.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 26300001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
@@ -156,6 +157,7 @@ declare namespace deviceManager {
    * @param { string } driverUid - Unique identifier of driver query.
    * @returns { Array<Readonly<DriverInfo>> } Driver information obtained.
    * @throws { BusinessError } 201 - The permission check failed.
+   * @throws { BusinessError } 202 - Permission denied. A non-system application cannot call a system API.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 26300001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
