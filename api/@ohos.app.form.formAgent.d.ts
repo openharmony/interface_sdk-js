@@ -59,7 +59,7 @@ declare namespace formAgent {
    * @throws { BusinessError } 16500050 - An IPC connection error happened.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
-   * @throws { BusinessError } 16501008 - Waiting for the form addition to the desktop timeout.
+   * @throws { BusinessError } 16501008 - Waiting for the form addition to the desktop timed out.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 12
@@ -94,7 +94,7 @@ declare namespace formAgent {
    * @throws { BusinessError } 16500050 - An IPC connection error happened.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
-   * @throws { BusinessError } 16501008 - Waiting for the form addition to the desktop timeout.
+   * @throws { BusinessError } 16501008 - Waiting for the form addition to the desktop timed out.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 12
