@@ -18,8 +18,7 @@
  * @kit ArkUI
  */
 
-/// <reference path="../../component/common.d.ts" />
-/// <reference path="../../component/alphabet_indexer.d.ts" />
+
 
 /**
  * Defines AlphabetIndexer Modifier

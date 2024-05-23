@@ -752,10 +752,3 @@ declare class ActionSheet {
    */
   static show(value: ActionSheetOptions);
 }
-
-declare module "actionSheetParam" {
-  module "actionSheetParam" {
-    // @ts-ignore
-    export { ActionSheetOptions };
-  }
-}

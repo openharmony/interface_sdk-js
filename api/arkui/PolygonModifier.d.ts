@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-/// <reference path="../../component/common.d.ts" />
-/// <reference path="../../component/polygon.d.ts" />
+
+
 
 /**
  * Defines Polygon Modifier

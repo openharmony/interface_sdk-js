@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-/// <reference path="../../component/common.d.ts" />
-/// <reference path="../../component/stepper_item.d.ts" />
+
+
 
 /**
  * Defines StepperItem Modifier

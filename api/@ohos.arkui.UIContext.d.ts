@@ -18,13 +18,6 @@
  * @kit ArkUI
  */
 
-/// <reference path="../component/common.d.ts" />
-/// <reference path="../component/enums.d.ts" />
-/// <reference path="../component/action_sheet.d.ts" />
-/// <reference path="../component/alert_dialog.d.ts" />
-/// <reference path="../component/date_picker.d.ts" />
-/// <reference path="../component/time_picker.d.ts" />
-/// <reference path="../component/text_picker.d.ts" />
 
 import font from './@ohos.font';
 import mediaQuery from './@ohos.mediaquery';
@@ -36,21 +29,10 @@ import type componentUtils from './@ohos.arkui.componentUtils';
 import { ComponentContent, FrameNode } from './@ohos.arkui.node';
 import type { AnimatorOptions, AnimatorResult } from './@ohos.animator';
 import type { Callback, AsyncCallback } from './@ohos.base';
-import type { Color, FontStyle, Nullable } from 'CommonEnums';
-import type { AnimateParam, KeyframeAnimateParam, KeyframeState } from 'AnimateToParam';
-import { ActionSheetOptions } from 'actionSheetParam';
-import { AlertDialogParamWithConfirm, AlertDialogParamWithButtons, DialogAlignment, DialogButtonDirection, AlertDialogParamWithOptions } from 'AlertDialogParam';
-import { DatePickerDialogOptions } from 'DatePickerDialogParam';
-import { TimePickerDialogOptions } from 'TimePickerDialogParam';
-import { TextPickerDialogOptions } from 'textPickerDialogParam';
-import type { CustomBuilder, DragItemInfo, DragEvent } from 'DragControllerParam';
 import { MeasureOptions } from './@ohos.measure';
 import type dragController from './@ohos.arkui.dragController';
 import image from './@ohos.multimedia.image';
-import { LocalStorage } from 'StateManagement';
 import type common from './@ohos.app.ability.common';
-import { GestureEvent } from 'GestureEventModule';
-import { ClickEvent } from 'ClickEventModule';
 import type pointer from './@ohos.multimodalInput.pointer';
 
 /**

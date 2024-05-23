@@ -18,11 +18,10 @@
  * @kit ArkWeb
  */
 
-/// <reference path="../component/units.d.ts" />
+
 
 import { AsyncCallback, BusinessError } from './@ohos.base';
 import { Callback } from './@ohos.base';
-import { Resource } from 'GlobalResource';
 import cert from './@ohos.security.cert';
 import image from './@ohos.multimedia.image';
 import type print from './@ohos.print';

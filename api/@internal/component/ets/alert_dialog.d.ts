@@ -1674,9 +1674,3 @@ declare class AlertDialog {
   static show(value: AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions);
 }
 
-declare module "AlertDialogParam" {
-  module "AlertDialogParam" {
-    // @ts-ignore
-    export { AlertDialogParamWithConfirm, AlertDialogParamWithButtons, DialogAlignment, DialogButtonDirection, AlertDialogParamWithOptions };
-  }
-}

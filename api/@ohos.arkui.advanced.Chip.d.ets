@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 
-/// <reference path="../component/units.d.ts" />
+
 
 import { ResourceStr } from 'GlobalResource';
 import { SymbolGlyphModifier } from './@ohos.arkui.modifier';

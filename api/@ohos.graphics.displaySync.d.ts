@@ -18,9 +18,8 @@
  * @kit ArkGraphics2D
  */
 
-/// <reference path="../component/common.d.ts" />
 
-import type { ExpectedFrameRateRange } from 'ExpectedFrameRateRange';
+
 import type { Callback } from './@ohos.base';
 
 /**

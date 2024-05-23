@@ -3175,17 +3175,3 @@ declare interface DividerStyleOptions {
    */
   endMargin?: LengthMetrics;
 }
-
-declare module "GlobalResource" {
-  module "GlobalResource" {
-    // @ts-ignore
-    export type { Resource, ResourceStr };
-  }
-}
-
-declare module 'DragControllerUnitParam' {
-  module 'DragControllerUnitParam' {
-    // @ts-ignore
-    export type {ResourceColor, TouchPoint };
-  }
-}
