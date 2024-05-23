@@ -780,6 +780,7 @@ declare namespace osAccount {
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @syscap SystemCapability.Account.OsAccount
+     * This API can be called only by system applications.
      * @since 9
      */
     getOsAccountCount(callback: AsyncCallback<number>): void;
@@ -794,6 +795,7 @@ declare namespace osAccount {
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @syscap SystemCapability.Account.OsAccount
+     * This API can be called only by system applications.
      * @since 9
      */
     getOsAccountCount(): Promise<number>;
@@ -948,6 +950,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid domainInfo.
      * @syscap SystemCapability.Account.OsAccount
+     * This API can be called only by system applications.
      * @since 9
      */
     getOsAccountLocalIdForDomain(domainInfo: DomainAccountInfo, callback: AsyncCallback<number>): void;
@@ -964,6 +967,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid domainInfo.
      * @syscap SystemCapability.Account.OsAccount
+     * This API can be called only by system applications.
      * @since 9
      */
     getOsAccountLocalIdForDomain(domainInfo: DomainAccountInfo): Promise<number>;
