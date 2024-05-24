@@ -5767,9 +5767,9 @@ declare function connectDfs(networkId: string, listeners: DfsListeners): Promise
  *
  * @param { string } networkId - The networkId of device.
  * @returns { Promise<void> } The promise returned by the function.
- * @throws { BusinessError } 201 - Permission denied.Possible causes:1.Mandatory parameters are left unspecified;
+ * @throws { BusinessError } 201 - Permission denied.
+ * @throws { BusinessError } 401 - The parameter check failed.Possible causes:1.Mandatory parameters are left unspecified;
  * <br>2.Incorrect parameter types.
- * @throws { BusinessError } 401 - The parameter check failed.
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
  */
