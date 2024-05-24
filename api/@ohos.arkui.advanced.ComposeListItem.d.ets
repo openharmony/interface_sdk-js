@@ -563,12 +563,12 @@ export declare struct ComposeListItem {
   @Prop operateItem?: OperateItem;
   
   /**
-   * Sets the compose item's margin.
-   * @type { ?Margin }
+   * Sets the compose item's space.
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 12
    */
-  composeItemMargin?: Margin;
+  itemSpace?: number;
   
   /**
    * Sets the compose item's padding.
