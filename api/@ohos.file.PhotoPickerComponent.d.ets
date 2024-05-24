@@ -144,12 +144,12 @@ export declare class PickerController {
   /**
    * Set max select count to picker component, include max_total_count, max_photo_count and max_video_count.
    *
-   * @param { MaxSelectCountData } data - max select count data
+   * @param { MaxSelected } data - max select count data
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 12
    */
-  setMaxSelectCount(data: MaxSelectCountData): void;
+  setMaxSelected(data: MaxSelected): void;
 }
 
 /**
@@ -191,14 +191,14 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
   isRepeatSelectSupported?: boolean;
 
   /**
-   * Support to set checkBox text color
+   * Support to set checkbox text color
    *
    * @type { ?string }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 12
    */
-  checkBoxTextColor?: string;
+  checkboxTextColor?: string;
 
   /**
    * Support to set photo browser background color mode
@@ -213,12 +213,12 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
   /**
    * Support to set max select number remind mode.
    *
-   * @type { ?RemindMode }
+   * @type { ?ReminderMode }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 12
    */
-  maxSelectNumberRemindMode?: RemindMode;
+  maxSelectedReminderMode?: ReminderMode;
 
   /**
    * Support to set display orientation
@@ -270,7 +270,7 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
  */
 export declare class ItemInfo {
   /**
-   * itemType. include click camera item and click thumbnail item
+   * itemType. include CAMERA and THUMBNAIL.
    *
    * @type { ?ItemType }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -349,24 +349,24 @@ export declare class ItemInfo {
  */
 export declare class PhotoBrowserInfo {
   /**
-   * AnimateParams. include duration and curve
+   * AnimatorParams. include duration and curve
    *
-   * @type { ?AnimateParams }
+   * @type { ?AnimatorParams }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 12
    */
-  animateParams?: AnimateParams;
+  animatorParams?: AnimatorParams;
 }
 
 /**
- * AnimateParams
+ * AnimatorParams
  *
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
  * @since 12
  */
-export declare class AnimateParams {
+export declare class AnimatorParams {
   /**
    * Animate duration
    *
@@ -389,13 +389,13 @@ export declare class AnimateParams {
 }
 
 /**
- * MaxSelectCountData
+ * MaxSelected
  *
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
  * @since 12
  */
-export declare class MaxSelectCountData {
+export declare class MaxSelected {
   /**
    * data. support to set max_total_count, max_photo_count and max_video_count.
    *
@@ -464,7 +464,7 @@ export declare enum ItemType {
 }
 
 /**
- * ClickType. include SELECT and DESELECT
+ * ClickType. include SELECTED and DESELECTED
  *
  * @enum { number } ClickType
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -473,22 +473,22 @@ export declare enum ItemType {
  */
 export declare enum ClickType {
   /**
-   * SELECT. click to select photos or videos, if click camera item, the clickType is SELECT.
+   * SELECTED. click to select photos or videos, if click camera item, the clickType is SELECTED.
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 12
    */
-  SELECT = 0,
+  SELECTED = 0,
 
   /**
-   * DESELECT. click to deselect photos or videos
+   * DESELECTED. click to deselect photos or videos
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 12
    */
-  DESELECT = 1
+  DESELECTED = 1
 }
 
 /**
@@ -585,14 +585,14 @@ export declare enum PickerColorMode {
 }
 
 /**
- * RemindMode, include NONE, TOAST and MASK
+ * ReminderMode, include NONE, TOAST and MASK
  *
- * @enum { number } RemindMode
+ * @enum { number } ReminderMode
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
  * @since 12
  */
-export declare enum RemindMode {
+export declare enum ReminderMode {
   /**
    * NONE. no need to remind
    *
