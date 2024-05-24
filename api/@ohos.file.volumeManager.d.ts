@@ -100,6 +100,16 @@ declare namespace volumeManager {
      * @since 9
      */
     path: string;
+
+    /**
+     * The file system type of the volume.
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @since 12
+     */
+    fsType: string;
   }
   /**
    * Get All Volumes
