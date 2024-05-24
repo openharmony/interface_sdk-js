@@ -881,14 +881,14 @@ declare namespace drawing {
     UNDERLINE_POSITION_VALID  = 1 << 1,
 
     /**
-     * Set if strikeoutThickness of FontMetrics is valid.
+     * Set if strikethroughThickness of FontMetrics is valid.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     STRIKETHROUGH_THICKNESS_VALID = 1 << 2,
 
     /**
-     * Set if strikeoutPosition of FontMetrics is valid.
+     * Set if strikethroughPosition of FontMetrics is valid.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -1017,7 +1017,7 @@ declare namespace drawing {
      underlinePosition: number;
  
      /**
-      * Strikeout thickness.
+      * Strikethrough thickness.
       * @type { number }
       * @syscap SystemCapability.Graphics.Drawing
       * @since 12
