@@ -144,12 +144,12 @@ export declare class PickerController {
   /**
    * Set max select count to picker component, include max_total_count, max_photo_count and max_video_count.
    *
-   * @param { MaxSelected } data - max select count data
+   * @param { MaxSelected } maxSelected - max select count data
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 12
    */
-  setMaxSelected(data: MaxSelected): void;
+  setMaxSelected(maxSelected: MaxSelected): void;
 }
 
 /**
