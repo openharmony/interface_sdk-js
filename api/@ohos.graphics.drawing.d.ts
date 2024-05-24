@@ -911,11 +911,11 @@ declare namespace drawing {
   interface FontMetrics {
     /**
      * Indicating which metrics are valid.
-     * @type { FontMetricsFlags }
+     * @type { ?FontMetricsFlags }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    flags: FontMetricsFlags;
+    flags?: FontMetricsFlags;
 
     /**
      * Maximum range above the glyph bounding box.
@@ -954,83 +954,83 @@ declare namespace drawing {
     leading: number;
     /**
      * Average character width, zero if unknown.
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-     avgCharWidth: number;
+     avgCharWidth?: number;
 
      /**
       * Maximum character width, zero if unknown.
-      * @type { number }
+      * @type { ?number }
       * @syscap SystemCapability.Graphics.Drawing
       * @since 12
       */
-     maxCharWidth: number;
+     maxCharWidth?: number;
  
      /**
       * Greatest extent to left of origin of any glyph bounding box, typically negative; deprecated with variable fonts.
-      * @type { number }
+      * @type { ?number }
       * @syscap SystemCapability.Graphics.Drawing
       * @since 12
       */
-     xMin: number;
+     xMin?: number;
  
      /**
       * Greatest extent to right of origin of any glyph bounding box, typically positive; deprecated with variable fonts.
-      * @type { number }
+      * @type { ?number }
       * @syscap SystemCapability.Graphics.Drawing
       * @since 12
       */
-     xMax: number;
+     xMax?: number;
  
      /**
       * Height of lower-case 'x', zero if unknown, typically negative.
-      * @type { number }
+      * @type { ?number }
       * @syscap SystemCapability.Graphics.Drawing
       * @since 12
       */
-     xHeight: number;
+     xHeight?: number;
  
      /**
       * Height of an upper-case letter, zero if unknown, typically negative.
-      * @type { number }
+      * @type { ?number }
       * @syscap SystemCapability.Graphics.Drawing
       * @since 12
       */
-     capHeight: number;
+     capHeight?: number;
  
      /**
       * Underline thickness.
-      * @type { number }
+      * @type { ?number }
       * @syscap SystemCapability.Graphics.Drawing
       * @since 12
       */
-     underlineThickness: number;
+     underlineThickness?: number;
  
      /**
       * Distance from baseline to top of stroke, typically positive.
-      * @type { number }
+      * @type { ?number }
       * @syscap SystemCapability.Graphics.Drawing
       * @since 12
       */
-     underlinePosition: number;
+     underlinePosition?: number;
  
      /**
       * Strikethrough thickness.
-      * @type { number }
+      * @type { ?number }
       * @syscap SystemCapability.Graphics.Drawing
       * @since 12
       */
-     strikethroughThickness: number;
+     strikethroughThickness?: number;
  
      /**
       * Distance from baseline to bottom of stroke, typically negative.
-      * @type { number }
+      * @type { ?number }
       * @syscap SystemCapability.Graphics.Drawing
       * @since 12
       */
-     strikethroughPosition: number;
+     strikethroughPosition?: number;
   }
 
   /**
