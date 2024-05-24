@@ -175,6 +175,268 @@ declare namespace vpn {
      * @since 10
      */
     destroy(): Promise<void>;
+
+    /**
+     * Subscribes to vpn state changes.
+     * @permission ohos.permission.MANAGE_VPN
+     * @param { 'connect' } type - Indicates vpn connect state changes.
+     * @param { AsyncCallback<VpnConnectState> } callback - The callback of the vpn connect state.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications use system APIs.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2200001 - Invalid parameter value.
+     * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+     * @throws { BusinessError } 2200003 - System internal error.
+     * @throws { BusinessError } 2203001 - VPN creation denied. Check the user type.
+     * @throws { BusinessError } 2203002 - VPN already exists.
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    on(type: 'connect', callback: Callback<VpnConnectState>): void;
+
+    /**
+     * Subscribes to vpn state changes.
+     * @permission ohos.permission.MANAGE_VPN
+     * @param { 'connect' } type - Indicates vpn connect state changes.
+     * @returns { Promise<VpnConnectState> } The promise returned by the vpn connect state.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications use system APIs.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2200001 - Invalid parameter value.
+     * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+     * @throws { BusinessError } 2200003 - System internal error.
+     * @throws { BusinessError } 2203001 - VPN creation denied. Check the user type.
+     * @throws { BusinessError } 2203002 - VPN already exists.
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    on(type: 'connect'): Promise<VpnConnectState>;
+
+    /**
+     * Unsubscribes from vpn state changes.
+     * @permission ohos.permission.MANAGE_VPN
+     * @param { 'connect' } type - Indicates vpn connect state changes.
+     * @param { AsyncCallback<VpnConnectState> } callback - The callback of the vpn connect state.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications use system APIs.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2200001 - Invalid parameter value.
+     * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+     * @throws { BusinessError } 2200003 - System internal error.
+     * @throws { BusinessError } 2203001 - VPN creation denied. Check the user type.
+     * @throws { BusinessError } 2203002 - VPN already exists.
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    off(type: 'connect', callback: Callback<VpnConnectState>): void;
+
+    /**
+     * Unsubscribes from vpn state changes.
+     * @permission ohos.permission.MANAGE_VPN
+     * @param { 'connect' } type - Indicates vpn connect state changes.
+     * @returns { Promise<VpnConnectState> } The promise returned by the vpn connect state.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications use system APIs.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2200001 - Invalid parameter value.
+     * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+     * @throws { BusinessError } 2200003 - System internal error.
+     * @throws { BusinessError } 2203001 - VPN creation denied. Check the user type.
+     * @throws { BusinessError } 2203002 - VPN already exists.
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    off(type: 'connect'): Promise<VpnConnectState>;
+
+    /**
+     * save the VPN config.
+     * @permission ohos.permission.MANAGE_VPN
+     * @param { SystemVpnConfig } config - Indicates the {@link SystemVpnConfig} configuration of the VPN network.
+     * @param { AsyncCallback<void> } callback - The callback of the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications use system APIs.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2200001 - Invalid parameter value.
+     * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+     * @throws { BusinessError } 2200003 - System internal error.
+     * @throws { BusinessError } 2203001 - VPN creation denied. Check the user type.
+     * @throws { BusinessError } 2203002 - VPN already exists.
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    saveSystemVpn(config: SystemVpnConfig, callback: AsyncCallback<void>): void;
+ 
+    /**
+     * save the VPN config.
+     * @permission ohos.permission.MANAGE_VPN
+     * @param { SystemVpnConfig } config - Indicates the {@link SystemVpnConfig} configuration of the VPN network.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications use system APIs.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2200001 - Invalid parameter value.
+     * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+     * @throws { BusinessError } 2200003 - System internal error.
+     * @throws { BusinessError } 2203001 - VPN creation denied. Check the user type.
+     * @throws { BusinessError } 2203002 - VPN already exists.
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    saveSystemVpn(config: SystemVpnConfig): Promise<void>;
+	
+    /**
+     * delete the VPN config.
+     * @permission ohos.permission.MANAGE_VPN
+     * @param { string } vpnUuid - Indicates the uuid of the VPN network.
+     * @param { AsyncCallback<void> } callback - The callback of the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications use system APIs.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2200001 - Invalid parameter value.
+     * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+     * @throws { BusinessError } 2200003 - System internal error.
+     * @throws { BusinessError } 2203001 - VPN creation denied. Check the user type.
+     * @throws { BusinessError } 2203002 - VPN already exists.
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    deleteSystemVpn(vpnUuid: string, callback: AsyncCallback<void>): void;
+ 
+    /**
+     * delete the VPN config.
+     * @permission ohos.permission.MANAGE_VPN
+     * @param { string } vpnUuid - Indicates the uuid of the VPN network.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications use system APIs.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2200001 - Invalid parameter value.
+     * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+     * @throws { BusinessError } 2200003 - System internal error.
+     * @throws { BusinessError } 2203001 - VPN creation denied. Check the user type.
+     * @throws { BusinessError } 2203002 - VPN already exists.
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    deleteSystemVpn(vpnUuid: string): Promise<void>;
+
+    /**
+     * get the VPN config list.
+     * @permission ohos.permission.MANAGE_VPN
+     * @param { AsyncCallback<Array<SystemVpnConfig>> } callback - The callback of the all VPN network.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications use system APIs.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2200001 - Invalid parameter value.
+     * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+     * @throws { BusinessError } 2200003 - System internal error.
+     * @throws { BusinessError } 2203001 - VPN creation denied. Check the user type.
+     * @throws { BusinessError } 2203002 - VPN already exists.
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    getSystemVpnList(callback: AsyncCallback<Array<SystemVpnConfig>>): void;
+
+    /**
+     * get the VPN config list.
+     * @permission ohos.permission.MANAGE_VPN
+     * @returns { Promise<void> } The promise returned by the all VPN network..
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications use system APIs.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2200001 - Invalid parameter value.
+     * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+     * @throws { BusinessError } 2200003 - System internal error.
+     * @throws { BusinessError } 2203001 - VPN creation denied. Check the user type.
+     * @throws { BusinessError } 2203002 - VPN already exists.
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    getSystemVpnList(): Promise<Array<SystemVpnConfig>>;
+
+    /**
+     * get the VPN config.
+     * @permission ohos.permission.MANAGE_VPN
+     * @param { string } vpnUuid - Indicates the uuid of the VPN network.
+     * @param { AsyncCallback<SystemVpnConfig> } callback - The callback of the VPN network.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications use system APIs.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2200001 - Invalid parameter value.
+     * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+     * @throws { BusinessError } 2200003 - System internal error.
+     * @throws { BusinessError } 2203001 - VPN creation denied. Check the user type.
+     * @throws { BusinessError } 2203002 - VPN already exists.
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    getSystemVpn(vpnUuid: string, callback: AsyncCallback<SystemVpnConfig>): void;
+
+    /**
+     * get the VPN config.
+     * @permission ohos.permission.MANAGE_VPN
+     * @param { string } vpnUuid - Indicates the uuid of the VPN network.
+     * @returns { Promise<SystemVpnConfig> } The promise returned by the VPN network.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications use system APIs.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2200001 - Invalid parameter value.
+     * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+     * @throws { BusinessError } 2200003 - System internal error.
+     * @throws { BusinessError } 2203001 - VPN creation denied. Check the user type.
+     * @throws { BusinessError } 2203002 - VPN already exists.
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    getSystemVpn(vpnUuid: string): Promise<SystemVpnConfig>;
+
+    /**
+     * get the connected VPN config.
+     * @permission ohos.permission.MANAGE_VPN
+     * @param { AsyncCallback<SystemVpnConfig> } callback - The callback of the connected VPN network.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications use system APIs.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2200001 - Invalid parameter value.
+     * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+     * @throws { BusinessError } 2200003 - System internal error.
+     * @throws { BusinessError } 2203001 - VPN creation denied. Check the user type.
+     * @throws { BusinessError } 2203002 - VPN already exists.
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    getConnectedSystemVpn(callback: AsyncCallback<SystemVpnConfig>): void;
+
+    /**
+     * get the connected VPN config.
+     * @permission ohos.permission.MANAGE_VPN
+     * @returns { Promise<SystemVpnConfig> } The promise returned by the connected VPN network.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications use system APIs.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2200001 - Invalid parameter value.
+     * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+     * @throws { BusinessError } 2200003 - System internal error.
+     * @throws { BusinessError } 2203001 - VPN creation denied. Check the user type.
+     * @throws { BusinessError } 2203002 - VPN already exists.
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    getConnectedSystemVpn(): Promise<SystemVpnConfig>;
   }
 
   /**
@@ -185,6 +447,24 @@ declare namespace vpn {
    * @since 10
    */
   export interface VpnConfig {
+    /**
+     * The uuid_ of the VPN network.
+     * @type {string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    uuid_?: string;
+	
+	/**
+     * The type of the VPN network.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    vpnType_?: number;
+	
     /**
      * The array of addresses for VPN interface.
      * @type {Array<LinkAddress>}
