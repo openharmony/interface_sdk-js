@@ -248,7 +248,7 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
    * @atomicservice
    * @since 12
    */
-  maxPhotoSelected?: number;
+  maxPhotoSelectNumber?: number;
 
   /**
    * Support to set max video select number
@@ -258,7 +258,7 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
    * @atomicservice
    * @since 12
    */
-  maxVideoSelected?: number;
+  maxVideoSelectNumber?: number;
 }
 
 /**
