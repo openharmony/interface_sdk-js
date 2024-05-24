@@ -3748,15 +3748,7 @@ declare namespace avSession {
      * @atomicservice
      * @since 12
      */
-    extras?: {
-      /**
-       * Current custom media packets
-       * @syscap SystemCapability.Multimedia.AVSession.Core
-       * @atomicservice
-       * @since 12
-       */
-      [key: string]: Object
-    };
+    extras?: {[key: string]: Object};
   }
 
   /**
