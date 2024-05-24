@@ -872,6 +872,7 @@ statfs
 stopcd
 storei
 storge
+strikethrough
 strm
 stroked
 stuffit

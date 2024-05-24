@@ -949,11 +949,11 @@ declare namespace text {
     /**
      * Returns line metrics info for the line.
      * @param { number } lineNumber - a line number
-     * @returns { LineMetrics } line metrics.
+     * @returns { LineMetrics | undefined } line metrics.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    getLineMetrics(lineNumber: number): LineMetrics;
+    getLineMetrics(lineNumber: number): LineMetrics | undefined;
   }
 
   /**
