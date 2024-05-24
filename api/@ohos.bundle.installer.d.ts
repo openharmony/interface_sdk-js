@@ -907,7 +907,7 @@ declare namespace installer {
      * @param { string } bundleName - Indicates the path where the HAP of the application is stored.
      * @param { CreateAppCloneParam } [createAppCloneParam] Indicates the optional params of create clone app.
      * @returns { Promise<number> } Return the appIndex of the clone application.
-     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_CLONE_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700001 - The specified bundleName cannot be found or the bundle is not installed by the specified user.
