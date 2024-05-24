@@ -5801,6 +5801,37 @@ interface Progress {
 }
 
 /**
+ * Task signal.
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 12
+ */
+export class TaskSignal {
+  /**
+   * Cancel the copy task in progress.
+   *
+   * @throws { BusinessError } 13900010 - Try again
+   * @throws { BusinessError } 13900012 - Permission denied by the file system
+   * @throws { BusinessError } 13900043 - No task can be canceled.
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 12
+   */
+  cancel(): void;
+
+  /**
+   * Subscribe the cancel event of current task.
+   *
+   * @returns { Promise<string> } Return the result of the cancel event.
+   * @throws { BusinessError } 13900004 - Interrupted system call
+   * @throws { BusinessError } 13900008 - Bad file descriptor
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 12
+   */
+  onCancel(): Promise<string>;
+}
+
+/**
  * Get options of copy
  *
  * @typedef CopyOptions
@@ -5816,6 +5847,14 @@ interface CopyOptions {
    * @since 11
    */
   progressListener?: ProgressListener;
+  /**
+   * Cancel signal of copy.
+   *
+   * @type { ?TaskSignal }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 12
+   */
+  copySignal?: TaskSignal;
 }
 
 /**
