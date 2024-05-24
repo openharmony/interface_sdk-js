@@ -2047,6 +2047,25 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
    * @param { string } bundleName - Indicates the bundle name of the application.
+   * @param { number } appIndex - Indicates the index of clone app.
+   * @param { boolean } isEnabled - The value true means to enable it, and the value false means to disable it.
+   * @returns { Promise<void> } set app enabled result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700061 - AppIndex not in valid range.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  function setApplicationEnabled(bundleName: string, appIndex: number, isEnabled: boolean): Promise<void>;
+
+  /**
+   * Sets whether to enable a specified application.
+   *
+   * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
+   * @param { string } bundleName - Indicates the bundle name of the application.
    * @param { boolean } isEnabled - The value true means to enable it, and the value false means to disable it.
    * @param { AsyncCallback<void> } callback - The callback of setting app enabled result.
    * @throws { BusinessError } 201 - Permission denied.
@@ -2091,6 +2110,26 @@ declare namespace bundleManager {
    * @since 10
    */
   function setApplicationEnabledSync(bundleName: string, isEnabled: boolean): void;
+
+  /**
+   * Sets whether to enable a specified ability.
+   *
+   * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
+   * @param { AbilityInfo } info - Indicates information about the ability to set.
+   * @param { number } appIndex - Indicates the index of clone app.
+   * @param { boolean } isEnabled - The value true means to enable it, and the value false means to disable it.
+   * @returns { Promise<void> } set ability enabled result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700003 - The specified abilityInfo is not found.
+   * @throws { BusinessError } 17700061 - AppIndex not in valid range.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  function setAbilityEnabled(info: AbilityInfo, appIndex: number, isEnabled: boolean): Promise<void>;
 
   /**
    * Sets whether to enable a specified ability.
@@ -2149,6 +2188,22 @@ declare namespace bundleManager {
    * Checks whether a specified application is enabled.
    *
    * @param { string } bundleName - Indicates the bundle name of the application.
+   * @param { number } appIndex - Indicates the index of clone app.
+   * @returns { Promise<boolean> } Returns true if the application is enabled; returns false otherwise.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700061 - AppIndex not in valid range.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  function isApplicationEnabled(bundleName: string, appIndex: number): Promise<boolean>;
+
+  /**
+   * Checks whether a specified application is enabled.
+   *
+   * @param { string } bundleName - Indicates the bundle name of the application.
    * @param { AsyncCallback<boolean> } callback - The callback of checking application enabled result. The result is true if enabled, false otherwise.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -2186,6 +2241,23 @@ declare namespace bundleManager {
    * @since 10
    */
   function isApplicationEnabledSync(bundleName: string): boolean;
+
+  /**
+   * Checks whether a specified ability is enabled.
+   *
+   * @param { AbilityInfo } info - Indicates information about the ability to check.
+   * @param { number } appIndex - Indicates the index of clone app.
+   * @returns { Promise<boolean> } Returns true if the ability is enabled; returns false otherwise.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700003 - The specified abilityName is not found.
+   * @throws { BusinessError } 17700061 - AppIndex not in valid range.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  function isAbilityEnabled(info: AbilityInfo, appIndex: number): Promise<boolean>;
 
   /**
    * Checks whether a specified ability is enabled.
@@ -3359,7 +3431,7 @@ declare namespace bundleManager {
 
   /**
    * Obtains preload information about a module.
-   * 
+   *
    * @typedef { _HapModuleInfo.PreloadItem }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
@@ -3437,7 +3509,7 @@ declare namespace bundleManager {
 
   /**
    * Obtains extension information about a bundle.
-   * 
+   *
    * @typedef { _ExtensionAbilityInfo.ExtensionAbilityInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
