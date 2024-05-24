@@ -564,11 +564,11 @@ export declare struct ComposeListItem {
   
   /**
    * Sets the compose item's space.
-   * @type { ?number }
+   * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 12
    */
-  itemSpace?: number;
+  itemSpace?: number | string;
   
   /**
    * Sets the compose item's padding.
