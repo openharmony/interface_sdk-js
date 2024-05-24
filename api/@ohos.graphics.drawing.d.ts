@@ -871,28 +871,28 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    UNDERLINE_THICKNESS_IS_VALID = 1 << 0,
+    UNDERLINE_THICKNESS_VALID = 1 << 0,
 
     /**
      * Set if underlinePosition of FontMetrics is valid.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    UNDERLINE_POSITION_IS_VALID  = 1 << 1,
+    UNDERLINE_POSITION_VALID  = 1 << 1,
 
     /**
      * Set if strikeoutThickness of FontMetrics is valid.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    STRIKEOUT_THICKNESS_IS_VALID = 1 << 2,
+    STRIKETHROUGH_THICKNESS_VALID = 1 << 2,
 
     /**
      * Set if strikeoutPosition of FontMetrics is valid.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    STRIKEOUT_POSITION_IS_VALID  = 1 << 3,
+    STRIKETHROUGH_POSITION_VALID  = 1 << 3,
 
     /**
      * set if top, bottom, xMin, xMax of FontMetrics invalid.
@@ -1022,7 +1022,7 @@ declare namespace drawing {
       * @syscap SystemCapability.Graphics.Drawing
       * @since 12
       */
-     strikeoutThickness: number;
+     strikethroughThickness: number;
  
      /**
       * Distance from baseline to bottom of stroke, typically negative.
@@ -1030,7 +1030,7 @@ declare namespace drawing {
       * @syscap SystemCapability.Graphics.Drawing
       * @since 12
       */
-     strikeoutPosition: number;
+     strikethroughPosition: number;
   }
 
   /**
