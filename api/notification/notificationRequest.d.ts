@@ -36,6 +36,14 @@ import type { BundleOption } from './NotificationCommonDef';
  * @syscap SystemCapability.Notification.Notification
  * @since 7
  */
+/**
+ * Defines a NotificationRequest instance.
+ *
+ * @typedef NotificationRequest
+ * @syscap SystemCapability.Notification.Notification
+ * @crossplatform
+ * @since 12
+ */
 export interface NotificationRequest {
   /**
    * Notification content.
@@ -43,6 +51,14 @@ export interface NotificationRequest {
    * @type { NotificationContent }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
+   */
+  /**
+   * Notification content.
+   *
+   * @type { NotificationContent }
+   * @syscap SystemCapability.Notification.Notification
+   * @crossplatform
+   * @since 12
    */
   content: NotificationContent;
 
@@ -52,6 +68,14 @@ export interface NotificationRequest {
    * @type { ?number }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
+   */
+  /**
+   * Notification ID.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Notification.Notification
+   * @crossplatform
+   * @since 12
    */
   id?: number;
 
@@ -91,6 +115,14 @@ export interface NotificationRequest {
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
+  /**
+   * Whether the notification is an ongoing notification.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.Notification.Notification
+   * @crossplatform
+   * @since 12
+   */
   isOngoing?: boolean;
 
   /**
@@ -109,6 +141,14 @@ export interface NotificationRequest {
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
+  /**
+   * Time when the notification is sent.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Notification.Notification
+   * @crossplatform
+   * @since 12
+   */
   deliveryTime?: number;
 
   /**
@@ -118,6 +158,14 @@ export interface NotificationRequest {
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
+  /**
+   * Whether the notification is automatically cleared.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.Notification.Notification
+   * @crossplatform
+   * @since 12
+   */
   tapDismissed?: boolean;
 
   /**
@@ -126,6 +174,14 @@ export interface NotificationRequest {
    * @type { ?number }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
+   */
+  /**
+   * Time when the notification is automatically cleared.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Notification.Notification
+   * @crossplatform
+   * @since 12
    */
   autoDeletedTime?: number;
 
@@ -171,6 +227,14 @@ export interface NotificationRequest {
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
+   */
+  /**
+   * Whether the notification triggers an alert only once.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.Notification.Notification
+   * @crossplatform
+   * @since 12
    */
   isAlertOnce?: boolean;
 
@@ -226,6 +290,14 @@ export interface NotificationRequest {
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
+  /**
+   * Whether to display the time when the notification is delivered.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.Notification.Notification
+   * @crossplatform
+   * @since 12
+   */
   showDeliveryTime?: boolean;
 
   /**
@@ -271,6 +343,14 @@ export interface NotificationRequest {
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
    * @since 8
+   */
+  /**
+   * The group information for this notification.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Notification.Notification
+   * @crossplatform
+   * @since 12
    */
   groupName?: string;
 
@@ -437,6 +517,14 @@ export interface NotificationRequest {
    * @type { ?number }
    * @syscap SystemCapability.Notification.Notification
    * @since 9
+   */
+  /**
+   * Number of notifications displayed on the app icon.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Notification.Notification
+   * @crossplatform
+   * @since 12
    */
   badgeNumber?: number;
 
