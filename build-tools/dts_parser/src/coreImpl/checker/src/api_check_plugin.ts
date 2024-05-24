@@ -41,6 +41,7 @@ import { EventMethodChecker } from './event_method_check';
 import { EventMethodData } from '../../../typedef/checker/event_method_check_interface';
 import { ApiChangeCheck } from './check_api_diff';
 import { TagInheritCheck } from './tag_inherit_check';
+import { ChineseCheck } from "./check_chinese";
 
 export class Check {
   /**
@@ -127,6 +128,8 @@ export class Check {
       const orderCheckResult: ErrorTagFormat = OrderCheck.orderCheck(singleApi, apiJsdoc);
       // api naming check
       const namingCheckResult: ErrorTagFormat = ApiNamingCheck.namingCheck(singleApi);
+      // check jsdoc chinese
+      const chineseCheckResult: ErrorTagFormat = ChineseCheck.checkChinese(apiJsdoc);
       // tags name check
       const tagNamseCheckResult: ErrorTagFormat = TagNameCheck.tagNameCheck(apiJsdoc);
       // tags inherit check
@@ -201,6 +204,22 @@ export class Check {
           namingCheckResult.errorInfo,
           compositiveResult,
           compositiveLocalResult
+        );
+      }
+      if (!chineseCheckResult.state) {
+        AddErrorLogs.addAPICheckErrorLogs(
+            ErrorID.JSDOC_HAS_CHINESE,
+            ErrorLevel.MIDDLE,
+            singleApi.getFilePath(),
+            singleApi.getPos(),
+            ErrorType.JSDOC_HAS_CHINESE,
+            LogType.LOG_JSDOC,
+            toNumber(apiJsdoc.since),
+            singleApi.getApiName(),
+            singleApi.getDefinedText(),
+            chineseCheckResult.errorInfo,
+            compositiveResult,
+            compositiveLocalResult
         );
       }
       if (!tagInheritCheckResult.state) {

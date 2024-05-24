@@ -75,7 +75,10 @@ declare namespace logLibrary {
    * @returns { LogEntry[] } Return LogEntry[]
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api
-   * @throws { BusinessError } 401 - Invalid argument
+   * @throws { BusinessError } 401 - Invalid argument. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * <br>3. Parameter verification failed.
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
    * @systemapi
    * @since 10
@@ -92,7 +95,10 @@ declare namespace logLibrary {
    * @returns { Promise<void> } Return Promise
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api
-   * @throws { BusinessError } 401 - Invalid argument
+   * @throws { BusinessError } 401 - Invalid argument. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * <br>3. Parameter verification failed.
    * @throws { BusinessError } 21300001 - Source file does not exists
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
    * @systemapi
@@ -110,7 +116,10 @@ declare namespace logLibrary {
    * @param { AsyncCallback<void> } callback - After finish copy log will callback
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api
-   * @throws { BusinessError } 401 - Invalid argument
+   * @throws { BusinessError } 401 - Invalid argument. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * <br>3. Parameter verification failed.
    * @throws { BusinessError } 21300001 - Source file does not exists
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
    * @systemapi
@@ -128,7 +137,10 @@ declare namespace logLibrary {
    * @returns { Promise<void> } Return Promise
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api
-   * @throws { BusinessError } 401 - Invalid argument
+   * @throws { BusinessError } 401 - Invalid argument. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * <br>3. Parameter verification failed.
    * @throws { BusinessError } 21300001 - Source file does not exists
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
    * @systemapi
@@ -146,7 +158,10 @@ declare namespace logLibrary {
    * @param { AsyncCallback<void> } callback - After finish move log will callback
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api
-   * @throws { BusinessError } 401 - Invalid argument
+   * @throws { BusinessError } 401 - Invalid argument. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * <br>3. Parameter verification failed.
    * @throws { BusinessError } 21300001 - Source file does not exists
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
    * @systemapi
@@ -162,7 +177,10 @@ declare namespace logLibrary {
    * @param { string } logName - Log name
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api
-   * @throws { BusinessError } 401 - Invalid argument
+   * @throws { BusinessError } 401 - Invalid argument. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * <br>3. Parameter verification failed.
    * @throws { BusinessError } 21300001 - Source file does not exists
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
    * @systemapi

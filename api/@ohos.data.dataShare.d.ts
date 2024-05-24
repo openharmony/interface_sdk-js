@@ -137,7 +137,7 @@ declare namespace dataShare {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
    *         2. Incorrect parameters types.
-   * @throws { BusinessError } 15700011 - The uri is not exist.
+   * @throws { BusinessError } 15700011 - The URI is not exist.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
    * @stagemodelonly
@@ -153,7 +153,7 @@ declare namespace dataShare {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
    *         2. Incorrect parameters types.
-   * @throws { BusinessError } 15700011 - The uri is not exist.
+   * @throws { BusinessError } 15700011 - The URI is not exist.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
    * @stagemodelonly
@@ -622,7 +622,7 @@ declare namespace dataShare {
      * @param { Template } template - The template to add.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
-     * @throws { BusinessError } 15700011 - The uri is not exist.
+     * @throws { BusinessError } 15700011 - The URI is not exist.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -636,7 +636,7 @@ declare namespace dataShare {
      * @param { Template } template - The template to add.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
-     * @throws { BusinessError } 15700011 - The uri is not exist.
+     * @throws { BusinessError } 15700011 - The URI is not exist.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -653,7 +653,7 @@ declare namespace dataShare {
      * @param { string } subscriberId - The subscribe id.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
-     * @throws { BusinessError } 15700011 - The uri is not exist.
+     * @throws { BusinessError } 15700011 - The URI is not exist.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -666,7 +666,7 @@ declare namespace dataShare {
      * @param { string } subscriberId - The subscribe id.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
-     * @throws { BusinessError } 15700011 - The uri is not exist.
+     * @throws { BusinessError } 15700011 - The URI is not exist.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer

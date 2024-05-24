@@ -7569,17 +7569,9 @@ declare enum CopyOptions {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 11
-   * @form
-   */
-  /**
-   * Share in cross Device
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   * @form
+   * @deprecated since 12
    */
   CROSS_DEVICE = 3,
 }
@@ -8409,6 +8401,15 @@ declare enum ClickEffectLevel {
  * @atomicservice
  * @since 11
  */
+/**
+ * The type of XComponent
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare enum XComponentType {
   /**
    * Surface type. The default type is used.
@@ -8422,6 +8423,14 @@ declare enum XComponentType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Surface type. The default type is used.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   SURFACE,
 
@@ -8545,6 +8554,79 @@ declare enum NestedScrollMode {
    * @since 11
    */
   PARALLEL,
+}
+
+/**
+ * The possible source of scroll event
+ * @enum { number } ScrollSource
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum ScrollSource {
+  /**
+   * Drag events.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  DRAG = 0,
+
+  /**
+   * Fling after the drag has ended with velocity.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  FLING,
+
+  /**
+   * Over scroll with EdgeEffect.Spring.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  EDGE_EFFECT,
+
+  /**
+   * Other user input except drag, such as mouse wheel, key event.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  OTHER_USER_INPUT,
+
+  /**
+   * Drag events of scroll bar.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  SCROLL_BAR,
+
+  /**
+   * Fling after the drag on scroll bar has ended with velocity.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  SCROLL_BAR_FLING,
+
+  /**
+   * Member methods of Scroller without animation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  SCROLLER,
+
+  /**
+   * Member methods of Scroller with animation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  SCROLLER_ANIMATION,
 }
 
 /**

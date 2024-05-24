@@ -173,7 +173,8 @@ declare namespace workScheduler {
    * <p> and complies with the rules of work scheduler manager. </p>
    *
    * @param { WorkInfo } work - The info of work.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Parcel operation failed.
    * @throws { BusinessError } 9700003 - System service operation failed.
@@ -190,7 +191,8 @@ declare namespace workScheduler {
    *
    * @param { WorkInfo } work - The info of work.
    * @param { boolean } needCancel - True if need to be canceled after being stopped, otherwise false.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Parcel operation failed.
    * @throws { BusinessError } 9700003 - System service operation failed.
@@ -206,7 +208,7 @@ declare namespace workScheduler {
    *
    * @param { number } workId - The id of work.
    * @param { AsyncCallback<WorkInfo> } callback - The callback of the function.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Parcel operation failed.
    * @throws { BusinessError } 9700003 - System service operation failed.
@@ -222,7 +224,7 @@ declare namespace workScheduler {
    *
    * @param { number } workId - The id of work.
    * @returns { Promise<WorkInfo> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Parcel operation failed.
    * @throws { BusinessError } 9700003 - System service operation failed.
@@ -238,7 +240,8 @@ declare namespace workScheduler {
    *
    * @param { AsyncCallback<void> } callback - The callback of the function.
    * @returns { Array<WorkInfo> } the work info list.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br> 2. Incorrect parameters types.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Parcel operation failed.
    * @throws { BusinessError } 9700003 - System service operation failed.
@@ -253,7 +256,8 @@ declare namespace workScheduler {
    * Get all works of the calling application.
    *
    * @param { AsyncCallback<Array<WorkInfo>> } callback - The callback of the function.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br> 2. Incorrect parameters types.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Parcel operation failed.
    * @throws { BusinessError } 9700003 - System service operation failed.
@@ -267,7 +271,8 @@ declare namespace workScheduler {
    * Get all works of the calling application.
    *
    * @returns { Promise<Array<WorkInfo>> } The work info list.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br> 2. Incorrect parameters types.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Parcel operation failed.
    * @throws { BusinessError } 9700003 - System service operation failed.
@@ -280,7 +285,8 @@ declare namespace workScheduler {
   /**
    * Stop all and clear all works of the calling application.
    *
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br> 2. Incorrect parameters types.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Parcel operation failed.
    * @throws { BusinessError } 9700003 - System service operation failed.
@@ -296,7 +302,7 @@ declare namespace workScheduler {
    * @param { number } workId - The id of work.
    * @param { AsyncCallback<void> } callback - The callback of the function.
    * @returns { boolean } true if last work running is timeout, otherwise false.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Parcel operation failed.
    * @throws { BusinessError } 9700003 - System service operation failed.
@@ -313,7 +319,7 @@ declare namespace workScheduler {
    *
    * @param { number } workId - The id of work.
    * @param { AsyncCallback<boolean> } callback - The callback of the function.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Parcel operation failed.
    * @throws { BusinessError } 9700003 - System service operation failed.
@@ -329,7 +335,7 @@ declare namespace workScheduler {
    *
    * @param { number } workId - The id of work.
    * @returns { Promise<boolean> } True if last work running is timeout, otherwise false.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Parcel operation failed.
    * @throws { BusinessError } 9700003 - System service operation failed.

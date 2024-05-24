@@ -1356,6 +1356,28 @@ declare namespace media {
     getTrackDescription(): Promise<Array<MediaDescription>>;
 
     /**
+     * Select specific track to play.
+     * @param { number } index : Track index returned by getTrackDescription#MD_KEY_TRACK_INDEX
+     * @returns { Promise<void> } A Promise instance used to return when select track completed.
+     * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 12
+     */
+    selectTrack(index: number): Promise<void>;
+
+    /**
+     * Deselect specific track to play.
+     * @param { number } index : Track index returned by getTrackDescription#MD_KEY_TRACK_INDEX
+     * @returns { Promise<void> } A Promise instance used to return when deselect track completed.
+     * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 12
+     */
+    deselectTrack(index: number): Promise<void>;
+
+    /**
      * Set MediaSource to AVPlayer, this interface is exclusive with fd/url/dataSrc assign.
      * @param { MediaSource } src : MediaSource instance to be set to the avplayer instance.
      * @param { PlaybackStrategy } strategy : Play strategy of the media source.
@@ -2024,8 +2046,29 @@ declare namespace media {
    * @since 12
    */
   interface MediaSource {
+    /**
+     * Set Media Mime Type to help player handle extended Media source.
+     * @param { AVMimeTypes } mimeType - for MediaSource define. see @ AVMimeTypes.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
+    setMimeType(mimeType: AVMimeTypes): void;
   }
 
+  /**
+   * Enumerates Media Mime types, used for MediaSource define;
+   * @enum { string }
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @since 12
+   */
+  enum AVMimeTypes {
+    /**
+     * Indicate current file is index file for hls Media.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
+    APPLICATION_M3U8 = 'application/m3u8',
+  }
   /**
    * Provides preferred playback settings for player.
    *
@@ -3514,6 +3557,18 @@ declare namespace media {
      * @since 12
      */
     SPEED_FORWARD_1_50_X = 6,
+    /**
+     * playback at 0.25x normal speed
+     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+     * @since 12
+     */
+    SPEED_FORWARD_0_25_X = 8,
+    /**
+     * playback at 0.125x normal speed
+     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+     * @since 12
+     */
+    SPEED_FORWARD_0_125_X = 9,
   }
 
   /**

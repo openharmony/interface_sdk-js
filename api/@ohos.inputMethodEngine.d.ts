@@ -1354,7 +1354,8 @@ declare namespace inputMethodEngine {
      *
      * @param { string } text - the text to be previewed.
      * @param { Range } range - the range of the text to be replaced by the preview text.
-     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error.
      * @throws { BusinessError } 12800011 - text preview is not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1688,7 +1689,8 @@ declare namespace inputMethodEngine {
      *
      * @param { 'show' } type - events type.
      * @param { function } [callback] - the callback to Unregister.
-     * @throws { BusinessError } 401 -parameter error.
+     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1710,7 +1712,8 @@ declare namespace inputMethodEngine {
      *
      * @param { 'hide' } type - events type.
      * @param { function } [callback] - the callback to Unregister.
-     * @throws { BusinessError } 401 -parameter error.
+     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1742,6 +1745,42 @@ declare namespace inputMethodEngine {
      * @since 11
      */
     setPrivacyMode(isPrivacyMode: boolean): void;
+
+    /**
+     * Adjust the rect of soft keyboard panel for landscape and portrait orientations.
+     * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED and FLG_FLOATING.</p>
+     *
+     * @param { PanelFlag } flag - panel flag.
+     * @param { PanelRect } rect - panel rect.
+     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     *         1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 12800013 - window manager service error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    adjustPanelRect(flag: PanelFlag, rect: PanelRect): void;
+
+    /**
+     * Subscribe 'sizeChange' event.
+     * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED and FLG_FLOATING.</p>
+     *
+     * @param { 'sizeChange' } type - the type of subscribe event.
+     * @param { Callback<window.Size> } callback - the callback of on('sizeChange').
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    on(type: 'sizeChange', callback: Callback<window.Size>): void;
+
+    /**
+     * Unsubscribe 'sizeChange' event.
+     * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED and FLG_FLOATING.</p>
+     *
+     * @param { 'sizeChange' } type - the type of unsubscribe event.
+     * @param { Callback<window.Size> } [callback] - optional, the callback of off('sizeChange').
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    off(type: 'sizeChange', callback?: Callback<window.Size>): void;
   }
 
   /**
@@ -2059,6 +2098,33 @@ declare namespace inputMethodEngine {
      * @since 12
      */
     status: window.WindowStatusType;
+  }
+
+  /**
+   * Panel Rect.
+   *
+   * @interface PanelRect
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 12
+   */
+  export interface PanelRect {
+    /**
+     * Panel rect in landscape orientation.
+     *
+     * @type { window.Rect }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    landscapeRect: window.Rect;
+
+    /**
+     * Panel rect in portrait orientation.
+     *
+     * @type { window.Rect }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    portraitRect: window.Rect;
   }
 }
 

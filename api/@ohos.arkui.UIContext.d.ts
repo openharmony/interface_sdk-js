@@ -33,7 +33,7 @@ import type observer from './@ohos.arkui.observer';
 import promptAction from './@ohos.promptAction';
 import router from './@ohos.router';
 import type componentUtils from './@ohos.arkui.componentUtils';
-import { ComponentContent } from './@ohos.arkui.node';
+import { ComponentContent, FrameNode } from './@ohos.arkui.node';
 import type { AnimatorOptions, AnimatorResult } from './@ohos.animator';
 import type { Callback, AsyncCallback } from './@ohos.base';
 import type { Color, FontStyle, Nullable } from 'CommonEnums';
@@ -218,9 +218,9 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
-   * @throws { BusinessError } 100002 - if the uri is not exist.
-   * @throws { BusinessError } 100003 - if the pages are pushed too much.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 100002 - Uri error. The URI of the page to redirect is incorrect or does not exist
+   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -234,9 +234,9 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
-   * @throws { BusinessError } 100002 - if the uri is not exist.
-   * @throws { BusinessError } 100003 - if the pages are pushed too much.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 100002 - Uri error. The URI of the page to redirect is incorrect or does not exist
+   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -253,9 +253,9 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
-   * @throws { BusinessError } 100002 - if the uri is not exist.
-   * @throws { BusinessError } 100003 - if the pages are pushed too much.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 100002 - Uri error. The URI of the page to redirect is incorrect or does not exist
+   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -269,9 +269,9 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
-   * @throws { BusinessError } 100002 - if the uri is not exist.
-   * @throws { BusinessError } 100003 - if the pages are pushed too much.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 100002 - Uri error. The URI of the page to redirect is incorrect or does not exist
+   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -289,9 +289,9 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
-   * @throws { BusinessError } 100002 - if the uri is not exist.
-   * @throws { BusinessError } 100003 - if the pages are pushed too much.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 100002 - Uri error. The URI of the page to redirect is incorrect or does not exist
+   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -306,9 +306,9 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
-   * @throws { BusinessError } 100002 - if the uri is not exist.
-   * @throws { BusinessError } 100003 - if the pages are pushed too much.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 100002 - Uri error. The URI of the page to redirect is incorrect or does not exist
+   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -326,9 +326,9 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
-   * @throws { BusinessError } 100002 - if the uri is not exist.
-   * @throws { BusinessError } 100003 - if the pages are pushed too much.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 100002 - Uri error. The URI of the page to redirect is incorrect or does not exist
+   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -343,9 +343,9 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
-   * @throws { BusinessError } 100002 - if the uri is not exist.
-   * @throws { BusinessError } 100003 - if the pages are pushed too much.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 100002 - Uri error. The URI of the page to redirect is incorrect or does not exist
+   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -362,8 +362,8 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
-   * @throws { BusinessError } 200002 - if the uri is not exist.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
+   * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -377,8 +377,8 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
-   * @throws { BusinessError } 200002 - if the uri is not exist.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
+   * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -395,8 +395,8 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
-   * @throws { BusinessError } 200002 - if the uri is not exist.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
+   * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -410,8 +410,8 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
-   * @throws { BusinessError } 200002 - if the uri is not exist.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
+   * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -429,8 +429,8 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
-   * @throws { BusinessError } 200002 - if the uri is not exist.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
+   * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -445,8 +445,8 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
-   * @throws { BusinessError } 200002 - if the uri is not exist.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
+   * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -464,8 +464,8 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if can not get the delegate, only throw in standard system.
-   * @throws { BusinessError } 200002 - if the uri is not exist.
+   * @throws { BusinessError } 100001 - Failed to get the delegate. This error code is thrown only in the standard system.
+   * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -480,8 +480,8 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if can not get the delegate, only throw in standard system.
-   * @throws { BusinessError } 200002 - if the uri is not exist.
+   * @throws { BusinessError } 100001 - Failed to get the delegate. This error code is thrown only in the standard system.
+   * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -604,7 +604,7 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -617,7 +617,7 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -669,9 +669,9 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
-   * @throws { BusinessError } 100003 - if the pages are pushed too much.
-   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
+   * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -684,9 +684,9 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
-   * @throws { BusinessError } 100003 - if the pages are pushed too much.
-   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
+   * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -702,9 +702,9 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
-   * @throws { BusinessError } 100003 - if the pages are pushed too much.
-   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
+   * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -717,9 +717,9 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
-   * @throws { BusinessError } 100003 - if the pages are pushed too much.
-   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
+   * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -736,9 +736,9 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
-   * @throws { BusinessError } 100003 - if the pages are pushed too much.
-   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
+   * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -752,9 +752,9 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
-   * @throws { BusinessError } 100003 - if the pages are pushed too much.
-   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
+   * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -771,9 +771,9 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
-   * @throws { BusinessError } 100003 - if the pages are pushed too much.
-   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
+   * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -787,9 +787,9 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
-   * @throws { BusinessError } 100003 - if the pages are pushed too much.
-   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
+   * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -805,8 +805,8 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
-   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
+   * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -819,8 +819,8 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
-   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
+   * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -836,8 +836,8 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
-   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
+   * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -847,8 +847,8 @@ export class Router {
    * @param { router.NamedRouterOptions } options - Options.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
-   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
-   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
+   * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -865,8 +865,8 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
-   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
+   * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -877,8 +877,8 @@ export class Router {
    * @param { router.RouterMode } mode - RouterMode.
    * @param { AsyncCallback<void> } callback - the callback of replaceNamedRoute.
    * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
-   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
-   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
+   * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -895,8 +895,8 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if can not get the delegate, only throw in standard system.
-   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @throws { BusinessError } 100001 - Failed to get the delegate. This error code is thrown only in the standard system.
+   * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -910,8 +910,8 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if can not get the delegate, only throw in standard system.
-   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @throws { BusinessError } 100001 - Failed to get the delegate. This error code is thrown only in the standard system.
+   * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -944,7 +944,7 @@ export class PromptAction {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -957,7 +957,7 @@ export class PromptAction {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -974,7 +974,7 @@ export class PromptAction {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -988,7 +988,7 @@ export class PromptAction {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1005,7 +1005,7 @@ export class PromptAction {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -1019,7 +1019,7 @@ export class PromptAction {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1036,7 +1036,7 @@ export class PromptAction {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -1054,7 +1054,7 @@ export class PromptAction {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1071,7 +1071,7 @@ export class PromptAction {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -1085,7 +1085,7 @@ export class PromptAction {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1104,7 +1104,7 @@ export class PromptAction {
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 103301 - the ComponentContent is incorrect.
-   * @throws { BusinessError } 103302 - the ComponentContent has already been opened.
+   * @throws { BusinessError } 103302 - Dialog content already exists.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -1821,7 +1821,7 @@ export class DragController {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if some internal handling failed.
+   * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
@@ -1835,7 +1835,7 @@ export class DragController {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if some internal handling failed.
+   * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
@@ -1853,7 +1853,7 @@ export class DragController {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if some internal handling failed.
+   * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
@@ -1866,7 +1866,7 @@ export class DragController {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if some internal handling failed.
+   * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
@@ -1884,7 +1884,7 @@ export class DragController {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if some internal handling failed.
+   * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
@@ -1897,7 +1897,7 @@ export class DragController {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if some internal handling failed.
+   * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
@@ -1982,7 +1982,7 @@ export class FocusController {
    * request focus to the specific component.
    * @param { string } key - the inspector key of the component.
    * @throws { BusinessError } 150001 - the component cannot be focused.
-   * @throws { BusinessError } 150002 - there are components in ancestor nodes cannot be focused.
+   * @throws { BusinessError } 150002 - This component has an unfocusable ancestor.
    * @throws { BusinessError } 150003 - the component is not on tree or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 12

@@ -46,6 +46,15 @@ export { NodeController } from './arkui/NodeController';
 export { FrameNode, LayoutConstraint } from './arkui/FrameNode';
 
 /**
+ * Export FrameNode. FrameNode defines a basic type of node which contains a RenderNode.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export { typeNode } from './arkui/FrameNode';
+
+/**
  * Export Graphics. Defines the basic types related to the Graphics.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
