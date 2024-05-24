@@ -1263,19 +1263,19 @@ declare namespace text {
   interface RunMetrics {
     /**
      * The metrics of an Font.
-     * @type { ?TextStyle }
+     * @type { TextStyle }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    textStyle?: TextStyle;
+    textStyle: TextStyle;
 
     /**
      * Describes text style.
-     * @type { ?FontMetrics }
+     * @type { drawing.FontMetrics }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    fontMetrics?: drawing.FontMetrics;
+    fontMetrics: drawing.FontMetrics;
   }
 
   /**
@@ -1287,93 +1287,93 @@ declare namespace text {
   interface LineMetrics {
     /**
      * The indexes in the text buffer the line begins.
-     * @type { ?number }
+     * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    startIndex?: number;
+    startIndex: number;
 
     /**
      * The indexes in the text buffer the line ends.
-     * @type { ?number }
+     * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    endIndex?: number;
+    endIndex: number;
 
     /**
      * The height of the text rise, the distance from the baseline to the top of the character.
-     * @type { ?number }
+     * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    ascent?: number;
+    ascent: number;
 
     /**
      * The height of the text drop, the distance from the baseline to the bottom of the character.
-     * @type { ?number }
+     * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    descent?: number;
+    descent: number;
 
     /**
      * The height of the current line is `round(ascent + descent)`.
-     * @type { ?number }
+     * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    height?: number;
+    height: number;
 
     /**
      * Width of the line.
-     * @type { ?number }
+     * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    width?: number;
+    width: number;
 
     /**
      * The left edge of the line. The right edge can be obtained with `left + width`.
-     * @type { ?number }
+     * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    left?: number;
+    left: number;
 
     /**
      * The y position of the baseline for this line from the top of the paragraph.
-     * @type { ?number }
+     * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    baseline?: number;
+    baseline: number;
 
     /**
      * Zero indexed line number.
-     * @type { ?number }
+     * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    lineNumber?: number;
+    lineNumber: number;
 
     /**
      * Height from the top.
-     * @type { ?number }
+     * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    topHeight?: number;
+    topHeight: number;
 
     /**
      * Mapping between text index ranges and the FontMetrics associated with
      * them. The first run will be keyed under start_index. The metrics here.
      * are before layout and are the base values we calculate from.
-     * @type { ?Map<number, RunMetrics> }
+     * @type { Map<number, RunMetrics> }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    runMetrics?: Map<number, RunMetrics>;
+    runMetrics: Map<number, RunMetrics>;
   }
 }
 
