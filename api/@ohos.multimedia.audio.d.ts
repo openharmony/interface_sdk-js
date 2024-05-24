@@ -2668,6 +2668,19 @@ declare namespace audio {
      * @since 9
      */
     on(type: 'volumeChange', callback: Callback<VolumeEvent>): void;
+
+    /**
+     * Uses a callback to unsubscribe volume change events.
+     * @param { 'volumeChange' } type - Type of the event to be unsubscribed. Only the volumeChange event is supported.
+     * @param { Callback<VolumeEvent> } callback - Callback used to obtain the invoking volume change event.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters missing.
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 12
+     */
+    off(type: 'volumeChange', callback?: Callback<VolumeEvent>): void;
   }
 
   /**
