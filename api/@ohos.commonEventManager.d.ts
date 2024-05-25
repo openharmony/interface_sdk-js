@@ -1723,6 +1723,7 @@ declare namespace commonEventManager {
     /**
      * The notification slot has been updated.
      * This is a protected common event that can only be sent by system.
+     * This API can be called only by system applications.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9
