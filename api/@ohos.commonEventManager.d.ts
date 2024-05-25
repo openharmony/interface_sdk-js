@@ -1632,6 +1632,7 @@ declare namespace commonEventManager {
     /**
      * The external storage was removed.
      * This is a protected common event that can only be sent by system.
+     * This API can be called only by system applications.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9
@@ -1641,6 +1642,7 @@ declare namespace commonEventManager {
     /**
      * The external storage was unmounted.
      * This is a protected common event that can only be sent by system.
+     * This API can be called only by system applications.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9
@@ -1650,6 +1652,7 @@ declare namespace commonEventManager {
     /**
      * The external storage was mounted.
      * This is a protected common event that can only be sent by system.
+     * This API can be called only by system applications.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9
@@ -1659,6 +1662,7 @@ declare namespace commonEventManager {
     /**
      * The external storage was bad removal.
      * This is a protected common event that can only be sent by system.
+     * This API can be called only by system applications.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9
@@ -1668,6 +1672,7 @@ declare namespace commonEventManager {
     /**
      * The external storage was eject.
      * This is a protected common event that can only be sent by system.
+     * This API can be called only by system applications.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9
