@@ -56,7 +56,6 @@ declare namespace uiEffect {
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @since 12
-   * @form
    */
   enum TileMode {
     /**
@@ -65,7 +64,6 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 12
-     * @form
      */
     CLAMP = 0,
 
@@ -75,7 +73,6 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 12
-     * @form
      */
     REPEAT = 1,
 
@@ -85,7 +82,6 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 12
-     * @form
      */
     MIRROR = 2,
 
@@ -95,7 +91,6 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 12
-     * @form
      */
     DECAL = 3,
   }
@@ -174,7 +169,7 @@ declare namespace uiEffect {
     /**
      * Defines the brightness positiveCoeff.
      *
-     * @type { Array<number> }
+     * @type { [number, number, number] }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 12
@@ -183,7 +178,7 @@ declare namespace uiEffect {
     /**
      * Defines the brightness negativeCoeff.
      *
-     * @type { Array<number> }
+     * @type { [number, number, number] }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 12
@@ -218,13 +213,21 @@ declare namespace uiEffect {
 
   /**
    * Create a BrightnessBlender to add BrightnessBlender to the component.
+   * @param { number } cubicRate - The cubicRate to brightness blender.
+   * @param { number } quadRate - The quadRate to brightness blender.
+   * @param { number } linearRate - The linearRate to brightness blender.
+   * @param { number } degree - The degree to brightness blender.
+   * @param { number } saturation - The saturation to brightness blender.
+   * @param { Array<number> } positiveCoeff - The positiveCoeff to brightness blender.
+   * @param { Array<number> } negativeCoeff - The negativeCoeff to brightness blender.
+   * @param { number } fraction - The fraction to brightness blender.
    * @returns { BrightnessBlender } Returns the blender.
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @since 12
    */
   function createBrightnessBlender(cubicRate: number, quadRate: number, linearRate: number, degree: number, saturation: number,
-    positiveCoeff: Array<number>, negetiveCoeff: Array<number>, fraction: number): BrightnessBlender;
+    positiveCoeff: Array<number>, negativeCoeff: Array<number>, fraction: number): BrightnessBlender;
 }
 
 export default uiEffect;
