@@ -179,7 +179,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 12
  */
 export class MovingPhotoViewController {
     /**
