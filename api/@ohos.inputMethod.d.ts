@@ -911,7 +911,8 @@ declare namespace inputMethod {
     stopInput(): Promise<boolean>;
 
     /**
-     * Show soft keyboard
+     * Show soft keyboard.
+     * This API can be called only by system applications.
      *
      * @permission ohos.permission.CONNECT_IME_ABILITY
      * @param { AsyncCallback<void> } callback - the callback of showSoftKeyboard.
@@ -924,7 +925,8 @@ declare namespace inputMethod {
     showSoftKeyboard(callback: AsyncCallback<void>): void;
 
     /**
-     * Show soft keyboard
+     * Show soft keyboard.
+     * This API can be called only by system applications.
      *
      * @permission ohos.permission.CONNECT_IME_ABILITY
      * @returns { Promise<void> } the promise returned by the function.
@@ -937,7 +939,8 @@ declare namespace inputMethod {
     showSoftKeyboard(): Promise<void>;
 
     /**
-     * Hide soft keyboard
+     * Hide soft keyboard.
+     * This API can be called only by system applications.
      *
      * @permission ohos.permission.CONNECT_IME_ABILITY
      * @param { AsyncCallback<void> } callback - the callback of hideSoftKeyboard.
@@ -950,7 +953,8 @@ declare namespace inputMethod {
     hideSoftKeyboard(callback: AsyncCallback<void>): void;
 
     /**
-     * Hide soft keyboard
+     * Hide soft keyboard.
+     * This API can be called only by system applications.
      *
      * @permission ohos.permission.CONNECT_IME_ABILITY
      * @returns { Promise<void> } the promise returned by the function.
