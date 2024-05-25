@@ -2594,7 +2594,7 @@ declare namespace webview {
   enum OfflineResourceType {
     /**
      * Image resource
-     * 
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12
      */
@@ -2602,7 +2602,7 @@ declare namespace webview {
 
     /**
      * CSS resource
-     * 
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12
      */
@@ -2610,7 +2610,7 @@ declare namespace webview {
 
     /**
      * Classic javascript resource
-     * 
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12
      */
@@ -2618,7 +2618,7 @@ declare namespace webview {
 
     /**
      * Module javascript resource
-     * 
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12
      */
@@ -2643,7 +2643,7 @@ declare namespace webview {
 
     /**
      * Arraybuffer of resource. Size must less than 10Mb and cannot be empty.
-     * 
+     *
      * @type { Uint8Array }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12
@@ -3479,7 +3479,7 @@ declare namespace webview {
      *                          object name called in the window.
      * @param { Array<string> } methodList - The method of the application side JavaScript object participating
      *                                       in the registration.
-     * @param { Array<string> } [asyncMethodList] - The async method of the application side JavaScript object 
+     * @param { Array<string> } [asyncMethodList] - The async method of the application side JavaScript object
      *                                            participating in the registration.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
@@ -4570,7 +4570,7 @@ declare namespace webview {
 
     /**
      * Set web scheme handler for specific scheme. This is only used for related web component.
-     * 
+     *
      * @param { string } scheme - String value for url scheme.
      * @param { WebSchemeHandler } handler - Web scheme handler.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
@@ -4706,12 +4706,12 @@ declare namespace webview {
      * You can prefetch no more than 6 resources. If you want to prefetch the seventh resource, you can clear one of
      * the prefetched resources that you won't use any more. Otherwise the oldest resource you prefetched will be
      * cleared.
-     * @param { RequestInfo } request - The information of the request. 
+     * @param { RequestInfo } request - The information of the request.
      * @param { Array<WebHeader> } [additionalHeaders] - Additional HTTP request header of the request.
      * @param { string } [cacheKey] - The key for memory cache. Default value is the url of the request.
      *    Only support number and letters.
      * @param { number } [cacheValidTime] - The valid time of the cache for request, ranges greater than 0.
-     *    The unit is second. Default value is 300s. 
+     *    The unit is second. Default value is 300s.
      *    The value of cacheValidTime must between 1 and 2147483647.
      * @throws { BusinessError } 401 - Invalid input parameter.Possible causes: 1. Mandatory parameters are left unspecified.
      *    2. Incorrect parameter types. 3. Parameter verification failed.
@@ -4829,6 +4829,37 @@ declare namespace webview {
      * @since 12
      */
     injectOfflineResources(resourceMaps: Array<OfflineResourceMap>): void;
+
+    /**
+     * Enable the ability to block Ads, disabled by default.
+     *
+     * @param { boolean } enable {@code true} Enable Ads block; {@code false} otherwise.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    enableAdsBlock(enable: boolean): void;
+
+    /**
+     * Get whether Ads block is enabled.
+     *
+     * @returns { boolean } True if the ability of AdsBlock is enabled; else false.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    isAdsBlockEnabled(): boolean;
+
+    /**
+     * Get whether Ads block is enabled for current Webpage.
+     *
+     * @returns { boolean } True if the ability of AdsBlock is enabled for current Webpage; else false.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    isAdsBlockEnabledForCurPage(): boolean;
   }
 
   /**
@@ -5379,7 +5410,7 @@ declare namespace webview {
 
   /**
    * The http body stream of the request.
-   * 
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
@@ -5387,7 +5418,7 @@ declare namespace webview {
   class WebHttpBodyStream {
     /**
      * Initialize data stream.
-     * 
+     *
      * @returns { Promise<void> } The promise of data stream is initialized.
      * @throws { BusinessError } 17100022 - Failed to initialize the HTTP body stream.
      * @syscap SystemCapability.Web.Webview.Core
@@ -5397,7 +5428,7 @@ declare namespace webview {
     initialize(): Promise<void>;
     /**
      * Read the data stream to the buffer.
-     * 
+     *
      * @param { number } size - Read size.
      * @returns { Promise<ArrayBuffer> } Read array buffer of result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -5409,7 +5440,7 @@ declare namespace webview {
     read(size: number): Promise<ArrayBuffer>;
     /**
      * Get the total size of the data stream. When data is chunked, always return zero.
-     * 
+     *
      * @returns { number } Return size of data stream size.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -5418,7 +5449,7 @@ declare namespace webview {
     getSize(): number;
     /**
      * Get the current position of the data stream.
-     * 
+     *
      * @returns { number } Return position in post data stream.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -5427,7 +5458,7 @@ declare namespace webview {
     getPosition(): number;
     /**
      * Whether data stream is chunked.
-     * 
+     *
      * @returns { boolean } Whether data stream is chunked.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -5437,7 +5468,7 @@ declare namespace webview {
     /**
      * Whether all data stream has been consumed. For chunked uploads,
      * returns false until the first read attempt.
-     * 
+     *
      * @returns { boolean } Whether data stream has been consumed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -5447,7 +5478,7 @@ declare namespace webview {
     /**
      * Returns true if the upload data in the stream is entirely in memory, and all read requests will succeed
      * synchronously. Expected to return false for chunked requests.
-     * 
+     *
      * @returns { boolean } Whether the data stream is in memory.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -5626,7 +5657,7 @@ declare namespace webview {
 
   /**
    * Defines the Web resource request used for scheme handler.
-   * 
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
@@ -5688,7 +5719,7 @@ declare namespace webview {
     hasGesture(): boolean;
     /**
      * Get http body stream.
-     * 
+     *
      * @returns { WebHttpBodyStream | null } Return http body stream. If request has no http body stream, return null.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -5697,7 +5728,7 @@ declare namespace webview {
     getHttpBodyStream(): WebHttpBodyStream | null;
     /**
      * Get request's resource type.
-     * 
+     *
      * @returns { WebResourceType } Return the request's resource type.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12
@@ -5715,7 +5746,7 @@ declare namespace webview {
 
   /**
    * Defines the Web resource response used for scheme handler.
-   * 
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
@@ -5723,7 +5754,7 @@ declare namespace webview {
   class WebSchemeHandlerResponse {
     /**
      * Constructor.
-     * 
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5731,7 +5762,7 @@ declare namespace webview {
     constructor();
     /**
      * Set the resolved URL after redirects or changed as a result of HSTS.
-     * 
+     *
      * @param { string } url - Set response url for redirects.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
@@ -5741,7 +5772,7 @@ declare namespace webview {
     setUrl(url: string): void;
     /**
      * Get the resolved URL after redirects or changed as a result of HSTS.
-     * 
+     *
      * @returns { string } Return response url for redirects.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -5760,7 +5791,7 @@ declare namespace webview {
     setNetErrorCode(code: WebNetErrorList): void;
     /**
      * Get net error code.
-     * 
+     *
      * @returns { WebNetErrorList } Return response error code.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -5769,7 +5800,7 @@ declare namespace webview {
     getNetErrorCode(): WebNetErrorList;
     /**
      * Set http status code.
-     * 
+     *
      * @param { number } code - Http status code.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
@@ -5779,7 +5810,7 @@ declare namespace webview {
     setStatus(code: number): void;
     /**
      * Get http status code.
-     * 
+     *
      * @returns { number } Return http status code.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -5788,7 +5819,7 @@ declare namespace webview {
     getStatus(): number;
     /**
      * Set status text.
-     * 
+     *
      * @param { string } text - Status text.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
@@ -5798,7 +5829,7 @@ declare namespace webview {
     setStatusText(text: string): void;
     /**
      * Get status text.
-     * 
+     *
      * @returns { string } Return http status text.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -5807,7 +5838,7 @@ declare namespace webview {
     getStatusText(): string;
     /**
      * Set mime type.
-     * 
+     *
      * @param { string } type - Mime type.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
@@ -5817,7 +5848,7 @@ declare namespace webview {
     setMimeType(type: string): void;
     /**
      * Get mime type.
-     * 
+     *
      * @returns { string } Return mime type of response.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -5826,7 +5857,7 @@ declare namespace webview {
     getMimeType(): string;
     /**
      * Set the response encoding.
-     * 
+     *
      * @param { string } type - Encoding.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
@@ -5836,7 +5867,7 @@ declare namespace webview {
     setEncoding(encoding: string): void;
     /**
      * Get the response encoding.
-     * 
+     *
      * @returns { string } Return encoding of response.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -5844,8 +5875,8 @@ declare namespace webview {
      */
     getEncoding(): string;
     /**
-     * Set response hander value by name. 
-     * 
+     * Set response hander value by name.
+     *
      * @param { string } name - Header name.
      * @param { string } value - Header value.
      * @param { boolean } name - Whether to overwrite.
@@ -5858,7 +5889,7 @@ declare namespace webview {
     setHeaderByName(name: string, value: string, overwrite: boolean): void;
     /**
      * Get the header value by name from the response.
-     * 
+     *
      * @param { string } name - Header name.
      * @returns { string } Return header value by name.
      * @syscap SystemCapability.Web.Webview.Core
@@ -5871,7 +5902,7 @@ declare namespace webview {
   /**
    * Used to intercept url requests. Response headers and body can be sent through
    * WebResourceHandler.
-   * 
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
@@ -5879,7 +5910,7 @@ declare namespace webview {
   class WebResourceHandler {
     /**
      * Pass response headers to intercepted requests.
-     * 
+     *
      * @param { WebSchemeHandlerResponse } response - Set response header to intercept.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * @throws { BusinessError } 17100021 - The resource handler is invalid.
@@ -5890,7 +5921,7 @@ declare namespace webview {
     didReceiveResponse(response: WebSchemeHandlerResponse): void;
     /**
      * Pass response body data to intercepted requests.
-     * 
+     *
      * @param { ArrayBuffer } data - Set response body to intercept.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * @throws { BusinessError } 17100021 - The resource handler is invalid.
@@ -5901,7 +5932,7 @@ declare namespace webview {
     didReceiveResponseBody(data: ArrayBuffer): void;
     /**
      * Notify that this request should be finished and there is no more data available.
-     * 
+     *
      * @throws { BusinessError } 17100021 - The resource handler is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -5910,7 +5941,7 @@ declare namespace webview {
     didFinish(): void;
     /**
      * Notify that this request should be failed.
-     * 
+     *
      * @param { WebNetErrorList } code - Set response error code to intercept.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @throws { BusinessError } 17100021 - The resource handler is invalid.
@@ -5923,7 +5954,7 @@ declare namespace webview {
 
   /**
    * This class is used to intercept requests for a specified scheme.
-   * 
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
@@ -5931,7 +5962,7 @@ declare namespace webview {
   class WebSchemeHandler {
     /**
      * Callback for handling the request.
-     * 
+     *
      * @param { function } callback - Callback of handling the request. If callback return false,
      *                                it means no interception.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -5942,10 +5973,10 @@ declare namespace webview {
      */
     onRequestStart(
       callback: (request: WebSchemeHandlerRequest, handler: WebResourceHandler) => boolean): void;
-    
+
     /**
      * Callback when the request is completed.
-     * 
+     *
      * @param { Callback<WebSchemeHandlerRequest> } callback - Callback of request is completed.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @syscap SystemCapability.Web.Webview.Core
@@ -6650,6 +6681,84 @@ declare namespace webview {
    */
   type CreateNativeMediaPlayerCallback =
       (handler: NativeMediaPlayerHandler, mediaInfo: MediaInfo) => NativeMediaPlayerBridge
+
+  /**
+   * This class is used to set adblock config.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  class AdsBlockManager {
+    /**
+     * set Ads Block ruleset file, containing easylist rules.
+     * @param {string} rulesFile: absolute file path contains app customized ads block rules.
+     * @param {boolean} replace: (@code true)replace internal rules;(@code false) add to internal rules.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static setAdsBlockRules(rulesFile: string, replace: boolean): void;
+
+    /**
+     * Add items to Ads Block Disallow list.
+     * @param {Array<string>} domainSuffixes: list of domain suffix, if web page url matches someone in the list,
+     * Ads Block will be disallowed for the web page.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static addAdsBlockDisallowedList(domainSuffixes: Array<string>): void;
+
+    /**
+     * Add items to Ads Block Allow list.
+     * By default, ads block is allowed for all pages unless they are added to the
+     * disallow list. The priority of allowlist is higher than the disallowlist. It is
+     * used to re-enable ads block on the page that matches disallow list.
+     * @param {Array<string>} domainSuffixes: list of domain suffix, if web page url matches someone in the list,
+     * Ads Block will be allowed for the web page.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static addAdsBlockAllowedList(domainSuffixes: Array<string>): void;
+
+    /**
+     * remove items from Ads Block Disallowed list.
+     * @param {Array<string>} domainSuffixes: list of domain suffix needed be removed from disallow list
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static removeAdsBlockDisallowedList(domainSuffixes: Array<string>): void;
+
+    /**
+     * remove items from Ads Block Allowed list.
+     * @param {Array<string>} domainSuffixes: list of domain suffix needed be removed from allow list
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static removeAdsBlockAllowedList(domainSuffixes: Array<string>): void;
+
+    /**
+     * remove items from Ads Block Allowed list.
+     * @param {Array<string>} domainSuffixes: list of domain suffix needed be removed from allow list
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static clearAdsBlockDisallowedList(domainSuffixes: Array<string>): void;
+
+    /**
+     * remove items from Ads Block Allowed list.
+     * @param {Array<string>} domainSuffixes: list of domain suffix needed be removed from allow list
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static clearAdsBlockAllowedList(domainSuffixes: Array<string>): void;
+  }
+
 }
 
 export default webview;

@@ -1134,4 +1134,9 @@ encipherment
 reconfirmed
 subresource
 euc
+ruleset
+easylist
+allowlist
+disallowlist
+adblock
 
