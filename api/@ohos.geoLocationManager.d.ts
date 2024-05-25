@@ -45,10 +45,10 @@ declare namespace geoLocationManager {
    * @param { 'locationChange' } type - Indicates the location service event to be subscribed to.
    * @param { LocationRequest } request - Indicates the location request parameters.
    * @param { Callback<Location> } callback - Indicates the callback for reporting the location result.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('locationChange')} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
    * @syscap SystemCapability.Location.Location.Core
@@ -61,10 +61,10 @@ declare namespace geoLocationManager {
    * @param { 'locationChange' } type - Indicates the location service event to be subscribed to.
    * @param { LocationRequest } request - Indicates the location request parameters.
    * @param { Callback<Location> } callback - Indicates the callback for reporting the location result.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('locationChange')} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
    * @syscap SystemCapability.Location.Location.Core
@@ -78,10 +78,10 @@ declare namespace geoLocationManager {
    * @param { 'locationChange' } type - Indicates the location service event to be subscribed to.
    * @param { LocationRequest | ContinuousLocationRequest } request - Indicates the location request parameters.
    * @param { Callback<Location> } callback - Indicates the callback for reporting the location result.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('locationChange')} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
    * @syscap SystemCapability.Location.Location.Core
@@ -97,10 +97,10 @@ declare namespace geoLocationManager {
    * @permission ohos.permission.APPROXIMATELY_LOCATION
    * @param { 'locationChange' } type - Indicates the location service event to be subscribed to.
    * @param { Callback<Location> } [callback] - Indicates the callback for reporting the location result.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.off('locationChange')} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
    * @syscap SystemCapability.Location.Location.Core
@@ -112,10 +112,10 @@ declare namespace geoLocationManager {
    * @permission ohos.permission.APPROXIMATELY_LOCATION
    * @param { 'locationChange' } type - Indicates the location service event to be subscribed to.
    * @param { Callback<Location> } [callback] - Indicates the callback for reporting the location result.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.off('locationChange')} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
    * @syscap SystemCapability.Location.Location.Core
@@ -130,10 +130,10 @@ declare namespace geoLocationManager {
    * @permission ohos.permission.APPROXIMATELY_LOCATION
    * @param { 'locationError' } type - Indicates the location service event to be subscribed to.
    * @param { Callback<LocationError> } callback - Indicates the callback for reporting the continuous location error.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('locationError')} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
    * @since 12
@@ -146,10 +146,10 @@ declare namespace geoLocationManager {
    * @permission ohos.permission.APPROXIMATELY_LOCATION
    * @param { 'locationError' } type - Indicates the location service event to be subscribed to.
    * @param { Callback<LocationError> } [callback] - Indicates the callback for reporting the continuous location error.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.off('locationError')} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
    * @since 12
@@ -161,9 +161,9 @@ declare namespace geoLocationManager {
    *
    * @param { 'locationEnabledChange' } type - Indicates the location service event to be subscribed to.
    * @param { Callback<boolean> } callback - Indicates the callback for reporting the location switch status.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('locationEnabledChange')} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @since 9
    */
@@ -174,9 +174,9 @@ declare namespace geoLocationManager {
    *
    * @param { 'locationEnabledChange' } type - Indicates the location service event to be subscribed to.
    * @param { Callback<boolean> } [callback] - Indicates the callback for reporting the location switch status.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.off('locationEnabledChange')} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @since 9
    */
@@ -189,10 +189,10 @@ declare namespace geoLocationManager {
    * @param { 'cachedGnssLocationsChange' } type - Indicates the location service event to be subscribed to.
    * @param { CachedGnssLocationsRequest } request - Indicates the cached GNSS locations request parameters.
    * @param { Callback<Array<Location>> } callback - Indicates the callback for reporting the cached GNSS locations.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('cachedGnssLocationsChange')} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
    * @syscap SystemCapability.Location.Location.Gnss
@@ -206,10 +206,10 @@ declare namespace geoLocationManager {
    * @permission ohos.permission.APPROXIMATELY_LOCATION
    * @param { 'cachedGnssLocationsChange' } type - Indicates the location service event to be subscribed to.
    * @param { Callback<Array<Location>> } [callback] - Indicates the callback for reporting the cached gnss locations.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.off('cachedGnssLocationsChange')} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
    * @syscap SystemCapability.Location.Location.Gnss
@@ -223,10 +223,10 @@ declare namespace geoLocationManager {
    * @permission ohos.permission.APPROXIMATELY_LOCATION
    * @param { 'satelliteStatusChange' } type - Indicates the location service event to be subscribed to.
    * @param { Callback<SatelliteStatusInfo> } callback - Indicates the callback for reporting the satellite status.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('satelliteStatusChange')} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Gnss
    * @since 9
@@ -239,10 +239,10 @@ declare namespace geoLocationManager {
    * @permission ohos.permission.APPROXIMATELY_LOCATION
    * @param { 'satelliteStatusChange' } type - Indicates the location service event to be subscribed to.
    * @param { Callback<SatelliteStatusInfo> } [callback] - Indicates the callback for reporting the satellite status.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.off('satelliteStatusChange')} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Gnss
    * @since 9
@@ -255,10 +255,10 @@ declare namespace geoLocationManager {
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
    * @param { 'nmeaMessage' } type - Indicates the location service event to be subscribed to.
    * @param { Callback<string> } callback - Indicates the callback for reporting the nmea message.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('nmeaMessage')} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Gnss
    * @since 9
@@ -271,10 +271,10 @@ declare namespace geoLocationManager {
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
    * @param { 'nmeaMessage' } type - Indicates the location service event to be subscribed to.
    * @param { Callback<string> } [callback] - Indicates the callback for reporting the nmea message.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.off('nmeaMessage')} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Gnss
    * @since 9
@@ -288,10 +288,10 @@ declare namespace geoLocationManager {
    * @param { 'gnssFenceStatusChange' } type - Indicates the location service event to be subscribed to.
    * @param { GeofenceRequest } request - Indicates the Geofence configuration parameters.
    * @param { WantAgent } want - Indicates which ability to start when the geofence event is triggered.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('gnssFenceStatusChange')} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @throws { BusinessError } 3301600 - Failed to operate the geofence.
    * @syscap SystemCapability.Location.Location.Geofence
@@ -306,10 +306,10 @@ declare namespace geoLocationManager {
    * @param { 'gnssFenceStatusChange' } type - Indicates the location service event to be subscribed to.
    * @param { GeofenceRequest } request - Indicates the Geofence configuration parameters.
    * @param { WantAgent } want - Indicates which ability to start when the geofence event is triggered.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.off('gnssFenceStatusChange')} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @throws { BusinessError } 3301600 - Failed to operate the geofence.
    * @syscap SystemCapability.Location.Location.Geofence
@@ -322,9 +322,9 @@ declare namespace geoLocationManager {
    *
    * @param { 'countryCodeChange' } type - Indicates the location service event to be subscribed to.
    * @param { Callback<CountryCode> } callback - Indicates the callback for reporting country code changes.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('countryCodeChange')} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301500 - Failed to query the area information.
    * @syscap SystemCapability.Location.Location.Core
    * @since 9
@@ -336,9 +336,9 @@ declare namespace geoLocationManager {
    *
    * @param { 'countryCodeChange' } type - Indicates the location service event to be subscribed to.
    * @param { Callback<CountryCode> } [callback] - Indicates the callback for reporting country code changes.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.off('countryCodeChange')} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301500 - Failed to query the area information.
    * @syscap SystemCapability.Location.Location.Core
    * @since 9
@@ -353,9 +353,9 @@ declare namespace geoLocationManager {
    * @param { 'locatingRequiredDataChange' } type - Indicates the location service event to be subscribed to.
    * @param { LocatingRequiredDataConfig } config - Indicates the locating required data configuration parameters.
    * @param { Callback<Array<LocatingRequiredData>> } [callback] - Indicates the callback for reporting WiFi/BT scan info.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('locatingRequiredDataChange')} due to limited device capabilities.
    * @throws { BusinessError } 3301800 - Failed to start WiFi or Bluetooth scanning.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
@@ -369,9 +369,9 @@ declare namespace geoLocationManager {
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
    * @param { 'locatingRequiredDataChange' } type - Indicates the location service event to be subscribed to.
    * @param { Callback<Array<LocatingRequiredData>> } [callback] - Indicates the callback for reporting WiFi/BT scan info.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.off('locatingRequiredDataChange')} due to limited device capabilities.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 10
@@ -383,9 +383,9 @@ declare namespace geoLocationManager {
    *
    * @param { 'locationIconStatusChange' } type - Indicates the location service event to be subscribed to.
    * @param { Callback<LocationIconStatus> } callback - Indicates the callback for reporting the location icon status.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('locationIconStatusChange')} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 12
@@ -397,9 +397,9 @@ declare namespace geoLocationManager {
    *
    * @param { 'locationIconStatusChange' } type - Indicates the location service event to be subscribed to.
    * @param { Callback<LocationIconStatus> } [callback] - Indicates the callback for reporting the location icon status.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.off('locationIconStatusChange')} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 12
@@ -412,10 +412,10 @@ declare namespace geoLocationManager {
    * @permission ohos.permission.APPROXIMATELY_LOCATION
    * @param { CurrentLocationRequest } request - Indicates the location request parameters.
    * @param { AsyncCallback<Location> } callback - Indicates the callback for reporting the location result.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getCurrentLocation} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
    * @syscap SystemCapability.Location.Location.Core
@@ -427,10 +427,10 @@ declare namespace geoLocationManager {
    * @permission ohos.permission.APPROXIMATELY_LOCATION
    * @param { CurrentLocationRequest } request - Indicates the location request parameters.
    * @param { AsyncCallback<Location> } callback - Indicates the callback for reporting the location result.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getCurrentLocation} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
    * @syscap SystemCapability.Location.Location.Core
@@ -443,10 +443,10 @@ declare namespace geoLocationManager {
    * @permission ohos.permission.APPROXIMATELY_LOCATION
    * @param { CurrentLocationRequest | SingleLocationRequest } request - Indicates the location request parameters.
    * @param { AsyncCallback<Location> } callback - Indicates the callback for reporting the location result.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getCurrentLocation} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
    * @syscap SystemCapability.Location.Location.Core
@@ -461,10 +461,10 @@ declare namespace geoLocationManager {
    *
    * @permission ohos.permission.APPROXIMATELY_LOCATION
    * @param { AsyncCallback<Location> } callback - Indicates the callback for reporting the location result.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getCurrentLocation} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
    * @syscap SystemCapability.Location.Location.Core
@@ -475,10 +475,10 @@ declare namespace geoLocationManager {
    *
    * @permission ohos.permission.APPROXIMATELY_LOCATION
    * @param { AsyncCallback<Location> } callback - Indicates the callback for reporting the location result.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getCurrentLocation} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
    * @syscap SystemCapability.Location.Location.Core
@@ -493,10 +493,10 @@ declare namespace geoLocationManager {
    * @permission ohos.permission.APPROXIMATELY_LOCATION
    * @param { CurrentLocationRequest } [request] - Indicates the location request parameters.
    * @returns { Promise<Location> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getCurrentLocation} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
    * @syscap SystemCapability.Location.Location.Core
@@ -508,10 +508,10 @@ declare namespace geoLocationManager {
    * @permission ohos.permission.APPROXIMATELY_LOCATION
    * @param { CurrentLocationRequest } [request] - Indicates the location request parameters.
    * @returns { Promise<Location> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getCurrentLocation} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
    * @syscap SystemCapability.Location.Location.Core
@@ -524,10 +524,10 @@ declare namespace geoLocationManager {
    * @permission ohos.permission.APPROXIMATELY_LOCATION
    * @param { CurrentLocationRequest | SingleLocationRequest } [request] - Indicates the location request parameters.
    * @returns { Promise<Location> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getCurrentLocation} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
    * @syscap SystemCapability.Location.Location.Core
@@ -542,9 +542,9 @@ declare namespace geoLocationManager {
    *
    * @permission ohos.permission.APPROXIMATELY_LOCATION
    * @returns { Location } The last known location information.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getLastLocation} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
    * @syscap SystemCapability.Location.Location.Core
@@ -555,9 +555,9 @@ declare namespace geoLocationManager {
    *
    * @permission ohos.permission.APPROXIMATELY_LOCATION
    * @returns { Location } The last known location information.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getLastLocation} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
    * @syscap SystemCapability.Location.Location.Core
@@ -570,8 +570,8 @@ declare namespace geoLocationManager {
    * Obtain current location switch status.
    *
    * @returns { boolean } Returns {@code true} if the location switch on, returns {@code false} otherwise.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.isLocationEnabled} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @since 9
    */
@@ -579,8 +579,8 @@ declare namespace geoLocationManager {
    * Obtain current location switch status.
    *
    * @returns { boolean } Returns {@code true} if the location switch on, returns {@code false} otherwise.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.isLocationEnabled} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
    * @since 11
@@ -592,11 +592,11 @@ declare namespace geoLocationManager {
    *
    * @permission ohos.permission.MANAGE_SECURE_SETTINGS
    * @param { AsyncCallback<void> } callback - Indicates the callback for reporting the error message.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - System API is not allowed called by third HAP.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.enableLocation} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 9
@@ -608,10 +608,10 @@ declare namespace geoLocationManager {
    *
    * @permission ohos.permission.MANAGE_SECURE_SETTINGS
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - System API is not allowed called by third HAP.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.enableLocation} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 9
@@ -622,10 +622,10 @@ declare namespace geoLocationManager {
    * Disable location switch.
    *
    * @permission ohos.permission.MANAGE_SECURE_SETTINGS
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - System API is not allowed called by third HAP.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.disableLocation} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 9
@@ -637,9 +637,9 @@ declare namespace geoLocationManager {
    *
    * @param { ReverseGeoCodeRequest } request - Indicates the reverse geocode query parameters.
    * @param { AsyncCallback<Array<GeoAddress>> } callback - Indicates the callback for reporting the address info.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getAddressesFromLocation} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301300 - Reverse geocoding query failed.
    * @syscap SystemCapability.Location.Location.Geocoder
    * @since 9
@@ -651,9 +651,9 @@ declare namespace geoLocationManager {
    *
    * @param { ReverseGeoCodeRequest } request - Indicates the reverse geocode query parameters.
    * @returns { Promise<Array<GeoAddress>> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getAddressesFromLocation} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301300 - Reverse geocoding query failed.
    * @syscap SystemCapability.Location.Location.Geocoder
    * @since 9
@@ -665,9 +665,9 @@ declare namespace geoLocationManager {
    *
    * @param { GeoCodeRequest } request - Indicates the geocode query parameters.
    * @param { AsyncCallback<Array<GeoAddress>> } callback - Indicates the callback for reporting the latitude and longitude result.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getAddressesFromLocationName} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301400 - Geocoding query failed.
    * @syscap SystemCapability.Location.Location.Geocoder
    * @since 9
@@ -679,9 +679,9 @@ declare namespace geoLocationManager {
    *
    * @param { GeoCodeRequest } request - Indicates the geocode query parameters.
    * @returns { Promise<Array<GeoAddress>> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getAddressesFromLocationName} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301400 - Geocoding query failed.
    * @syscap SystemCapability.Location.Location.Geocoder
    * @since 9
@@ -692,8 +692,8 @@ declare namespace geoLocationManager {
    * Obtain geocoding service status.
    *
    * @returns { boolean } Returns {@code true} if geocoding service is available, returns {@code false} otherwise.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.isGeocoderAvailable} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Geocoder
    * @since 9
    */
@@ -704,10 +704,10 @@ declare namespace geoLocationManager {
    *
    * @permission ohos.permission.APPROXIMATELY_LOCATION
    * @param { AsyncCallback<number> } callback - Indicates the callback for reporting the cached GNSS locations size.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getCachedGnssLocationsSize} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Gnss
    * @since 9
@@ -719,9 +719,9 @@ declare namespace geoLocationManager {
    *
    * @permission ohos.permission.APPROXIMATELY_LOCATION
    * @returns { Promise<number> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getCachedGnssLocationsSize} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Gnss
    * @since 9
@@ -736,10 +736,10 @@ declare namespace geoLocationManager {
    * @param { AsyncCallback<void> } callback - Indicates the callback for reporting the error message.
    * If the function fails to execute, the error message will be carried in the first parameter err of AsyncCallback,
    * If the function executes successfully, execute the callback function only, no data will be returned.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.flushCachedGnssLocations} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
    * @syscap SystemCapability.Location.Location.Gnss
@@ -753,9 +753,9 @@ declare namespace geoLocationManager {
    *
    * @permission ohos.permission.APPROXIMATELY_LOCATION
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.flushCachedGnssLocations} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
    * @syscap SystemCapability.Location.Location.Gnss
@@ -770,9 +770,9 @@ declare namespace geoLocationManager {
    * @param { AsyncCallback<void> } callback - Indicates the callback for reporting the error message.
    * If the function fails to execute, the error message will be carried in the first parameter err of AsyncCallback,
    * If the function executes successfully, execute the callback function only, no data will be returned.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.sendCommand} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @since 9
    */
@@ -783,9 +783,9 @@ declare namespace geoLocationManager {
    *
    * @param { LocationCommand } command - Indicates the extended command message body.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.sendCommand} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @since 9
    */
@@ -795,9 +795,9 @@ declare namespace geoLocationManager {
    * Obtain the current country code.
    *
    * @param { AsyncCallback<CountryCode> } callback - Indicates the callback for reporting the country code.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getCountryCode} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301500 - Failed to query the area information.
    * @syscap SystemCapability.Location.Location.Core
    * @since 9
@@ -808,8 +808,8 @@ declare namespace geoLocationManager {
    * Obtain the current country code.
    *
    * @returns { Promise<CountryCode> } The promise returned by the function.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getCountryCode} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301500 - Failed to query the area information.
    * @syscap SystemCapability.Location.Location.Core
    * @since 9
@@ -819,9 +819,9 @@ declare namespace geoLocationManager {
   /**
    * Enable the geographical location simulation function.
    *
-   * @throws { BusinessError } 202 - System API is not allowed called by third HAP.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.enableLocationMock} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
@@ -832,9 +832,9 @@ declare namespace geoLocationManager {
   /**
    * Disable the geographical location simulation function.
    *
-   * @throws { BusinessError } 202 - System API is not allowed called by third HAP.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.disableLocationMock} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
@@ -847,9 +847,9 @@ declare namespace geoLocationManager {
    *
    * @param { LocationMockConfig } config - Indicates the configuration parameters for location simulation.
    * Contains the array of locations and reporting intervals that need to be simulated.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.setMockedLocations} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
@@ -860,9 +860,9 @@ declare namespace geoLocationManager {
   /**
    * Enable the reverse geocoding simulation function.
    *
-   * @throws { BusinessError } 202 - System API is not allowed called by third HAP.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.enableReverseGeocodingMock} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 9
@@ -872,9 +872,9 @@ declare namespace geoLocationManager {
   /**
    * Disable the reverse geocoding simulation function.
    *
-   * @throws { BusinessError } 202 - System API is not allowed called by third HAP.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.disableReverseGeocodingMock} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 9
@@ -885,10 +885,10 @@ declare namespace geoLocationManager {
    * Set the configuration parameters for simulating reverse geocoding.
    *
    * @param { Array<ReverseGeocodingMockInfo> } mockInfos - Indicates the set of locations and place names to be simulated.
-   * @throws { BusinessError } 202 - System API is not allowed called by third HAP.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.setReverseGeocodingMockInfo} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 9
@@ -900,10 +900,10 @@ declare namespace geoLocationManager {
    *
    * @param { LocationPrivacyType } type - Indicates location privacy protocol type.
    * @returns { boolean } Returns {@code true} if the location privacy protocol has been confirmed, returns {@code false} otherwise.
-   * @throws { BusinessError } 202 - System API is not allowed called by third HAP.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.isLocationPrivacyConfirmed} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 9
@@ -916,11 +916,11 @@ declare namespace geoLocationManager {
    * @permission ohos.permission.MANAGE_SECURE_SETTINGS
    * @param { LocationPrivacyType } type - Indicates location privacy protocol type.
    * @param { boolean } isConfirmed - Indicates whether the location privacy protocol has been confirmed.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - System API is not allowed called by third HAP.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.setLocationPrivacyConfirmStatus} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 9
@@ -933,9 +933,9 @@ declare namespace geoLocationManager {
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
    * @param { LocatingRequiredDataConfig } config - Indicates the request parameters for obtaining the data required for locating.
    * @returns { Promise<Array<LocatingRequiredData>> } The promise returned by the function, for reporting WiFi/BT scan info.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getLocatingRequiredData} due to limited device capabilities.
    * @throws { BusinessError } 3301800 - Failed to start WiFi or Bluetooth scanning.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
@@ -949,10 +949,10 @@ declare namespace geoLocationManager {
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
    * @param { GnssGeofenceRequest } fenceRequest - Indicates the Geofence configuration parameters.
    * @returns { Promise<number> } The promise returned by the function, for reporting the ID of geofence.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.addGnssGeofence} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @throws { BusinessError } 3301601 - The number of geofences exceeds the maximum.
    * @syscap SystemCapability.Location.Location.Geofence
@@ -966,10 +966,10 @@ declare namespace geoLocationManager {
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
    * @param { number } geofenceId - Indicates the ID of geofence.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.removeGnssGeofence} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301602 - Failed to delete a geofence due to an incorrect ID.
    * @syscap SystemCapability.Location.Location.Geofence
    * @since 12
@@ -980,8 +980,8 @@ declare namespace geoLocationManager {
    * Obtains the coordinate system types supported by geofence.
    *
    * @returns { Array<CoordinateSystemType> } Return the coordinate system types supported by geofence.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getGeofenceSupportedCoordTypes} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Geofence
    * @since 12
    */
@@ -991,8 +991,8 @@ declare namespace geoLocationManager {
    * Get location icon status.
    *
    * @returns { LocationIconStatus } The location icon status.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getLocationIconStatus} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 12
