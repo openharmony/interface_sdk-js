@@ -1273,6 +1273,15 @@ declare namespace camera {
      * @since 10
      */
     readonly hostDeviceType: HostDeviceType;
+    /**
+     * Camera sensor orientation attribute.
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
+    readonly cameraOrientation: number;
   }
 
   /**
