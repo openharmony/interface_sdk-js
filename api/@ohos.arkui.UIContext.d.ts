@@ -1107,6 +1107,7 @@ export class PromptAction {
    * @throws { BusinessError } 103302 - Dialog content already exists
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
     openCustomDialog<T extends Object>(dialogContent: ComponentContent<T>, options?: promptAction.BaseDialogOptions): Promise<void>;
@@ -1125,6 +1126,7 @@ export class PromptAction {
    * @throws { BusinessError } 103303 - the ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
     updateCustomDialog<T extends Object>(dialogContent: ComponentContent<T>, options: promptAction.BaseDialogOptions): Promise<void>;
@@ -1142,6 +1144,7 @@ export class PromptAction {
      * @throws { BusinessError } 103303 - the ComponentContent cannot be found.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     closeCustomDialog<T extends Object>(dialogContent: ComponentContent<T>): Promise<void>;

@@ -21365,6 +21365,7 @@ declare interface EdgeEffectOptions {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare class ChildrenMainSize {
@@ -21379,6 +21380,7 @@ declare class ChildrenMainSize {
    * <br> 3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   constructor(childDefaultSize: number);
@@ -21394,6 +21396,7 @@ declare class ChildrenMainSize {
    * <br> 3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   set childDefaultSize(value: number);
@@ -21405,6 +21408,7 @@ declare class ChildrenMainSize {
    * If the main axis is horizontal, it indicates width.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   get childDefaultSize(): number;
@@ -21421,6 +21425,7 @@ declare class ChildrenMainSize {
    * <br> 3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    * @example splice(1, 0, [100]), Insert a child after first child, the child's main size is 100vp.
    * splice(1, 1), Delete the second child.
@@ -21439,6 +21444,7 @@ declare class ChildrenMainSize {
    * <br> 3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   update(index: number, childSize: number): void;

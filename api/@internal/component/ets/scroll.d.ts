@@ -524,6 +524,7 @@ declare class Scroller {
    * @throws { BusinessError } 100004 - Controller not bound to component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   fling(velocity: number): void;
@@ -558,6 +559,7 @@ declare class Scroller {
    * @param { ScrollPageOptions } value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   scrollPage(value: ScrollPageOptions);
