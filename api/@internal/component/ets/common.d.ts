@@ -10063,6 +10063,34 @@ declare enum SheetMode {
 }
 
 /**
+ * Define the flush mode of the sheet.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum SheetFlushMode {
+  /**
+   * Sheet flush after the slide ends.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  DEFAULT = 0,
+
+  /**
+   * Sheet dynamically flush during the sliding process.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  ALWAYS = 1,
+}
+
+/**
  * Component sheet dismiss
  *
  * @interface SheetDismiss
@@ -10463,6 +10491,17 @@ declare interface SheetOptions extends BindOptions {
    * @since 12
    */
   mode?: SheetMode;
+
+    /**
+   * Determine sheet flush mode, whether sheet should dynamically flush during sliding
+   *
+   * @type { ?SheetFlushMode }
+   * @default SheetFlushMode.DEFAULT
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+    flushMode?: SheetFlushMode;
 
   /**
    * Called when detents of the sheet changed
