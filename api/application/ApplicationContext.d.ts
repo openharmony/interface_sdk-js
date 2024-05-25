@@ -456,6 +456,7 @@ export default class ApplicationContext extends Context {
    * @param { Want } want - Indicates the want name of the current app, and the ability name is UIAbility.
    * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000063 - The target to restart does not belong to the current app or is not a UIAbility.
    * @throws { BusinessError } 16000064 - Restart too frequently. Try again at least 10s later.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -496,11 +497,24 @@ export default class ApplicationContext extends Context {
    * @throws { BusinessError } 401 - The input parameter is not a valid parameter.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000068 - The supported process cache state cannot be set more than once.
+   * @throws { BusinessError } 16000200 - The supported process cache state cannot be set more than once.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
    * @since 12
    */
   setSupportedProcessCache(isSupported : boolean): void;
+
+  /**
+   * Get current app clone index.
+   *
+   * @returns { number } Returns the app clone index for current app.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000071 - The MultiAppMode is not {@link APP_CLONE}.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+  getCurrentAppCloneIndex(): number;
 }

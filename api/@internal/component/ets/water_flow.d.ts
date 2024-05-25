@@ -179,6 +179,34 @@ declare class WaterFlowSections {
 }
 
 /**
+ * Declare layout modes of WaterFlow.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum WaterFlowLayoutMode {
+  /**
+   * Top-down Layout mode. Positions of new items depend on items above.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  ALWAYS_TOP_DOWN = 0,
+
+  /**
+   * Sliding window mode. Only maintains layout information of items currently in viewport.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  SLIDING_WINDOW = 1,
+}
+
+/**
  * Defines the water flow options.
  *
  * @interface WaterFlowOptions
@@ -264,6 +292,16 @@ declare interface WaterFlowOptions {
    * @since 12
    */
   sections?: WaterFlowSections;
+
+  /**
+   * Describes the layout mode.
+   *
+   * @type { ?WaterFlowLayoutMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  layoutMode?: WaterFlowLayoutMode;
 }
 
 /**

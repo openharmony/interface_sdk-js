@@ -205,9 +205,9 @@ declare namespace config {
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Input parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types;
-   *     3.Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types;
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 9300001 - Invalid bundle name or ability name.
    * @throws { BusinessError } 9300002 - Target ability already enabled.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
@@ -227,9 +227,9 @@ declare namespace config {
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Input parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types;
-   *     3.Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types;
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 9300001 - Invalid bundle name or ability name.
    * @throws { BusinessError } 9300002 - Target ability already enabled.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
@@ -252,9 +252,9 @@ declare namespace config {
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Input parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types;
-   *     3.Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types;
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 9300001 - Invalid bundle name or ability name.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -272,9 +272,9 @@ declare namespace config {
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Input parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types;
-   *     3.Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types;
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 9300001 - Invalid bundle name or ability name.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -290,9 +290,9 @@ declare namespace config {
    * @param { Callback<void> } callback Indicates the listener.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Input parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types;
-   *     3.Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types;
+   *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 9
@@ -307,9 +307,9 @@ declare namespace config {
    * @param { Callback<void> } callback Indicates the listener.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Input parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types;
-   *     3.Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types;
+   *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 12
@@ -324,9 +324,9 @@ declare namespace config {
    * @param { Callback<void> } callback Indicates the listener.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Input parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types;
-   *     3.Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types;
+   *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 9
@@ -341,9 +341,9 @@ declare namespace config {
    * @param { Callback<void> } callback Indicates the listener.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Input parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types;
-   *     3.Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types;
+   *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 12
@@ -366,12 +366,12 @@ declare namespace config {
      * @param { T } value Indicates the value.
      * @returns { Promise<void> }
      * @throws { BusinessError } 201 - Permission verification failed.
-   *     The application does not have the permission required to call the API.
+     *     The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Input parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types;
-     *     3.Parameter verification failed.
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types;
+     *     3. Parameter verification failed.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
      * @since 9
@@ -385,12 +385,12 @@ declare namespace config {
      * @param { T } value Indicates the value.
      * @param { AsyncCallback<void> } callback
      * @throws { BusinessError } 201 - Permission verification failed.
-   *     The application does not have the permission required to call the API.
+     *     The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Input parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types;
-     *     3.Parameter verification failed.
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types;
+     *     3. Parameter verification failed.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
      * @since 9
@@ -402,7 +402,7 @@ declare namespace config {
      *
      * @returns { Promise<T> }
      * @throws { BusinessError } 201 - Permission verification failed.
-   *     The application does not have the permission required to call the API.
+     *     The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
@@ -415,7 +415,7 @@ declare namespace config {
      *
      * @param { AsyncCallback<T> } callback
      * @throws { BusinessError } 201 - Permission verification failed.
-   *     The application does not have the permission required to call the API.
+     *     The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
@@ -429,12 +429,12 @@ declare namespace config {
      * @permission ohos.permission.READ_ACCESSIBILITY_CONFIG
      * @param { Callback<T> } callback Indicates the listener.
      * @throws { BusinessError } 201 - Permission verification failed.
-   *     The application does not have the permission required to call the API.
+     *     The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Input parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types;
-     *     3.Parameter verification failed.
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types;
+     *     3. Parameter verification failed.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
      * @since 9

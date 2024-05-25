@@ -283,6 +283,36 @@ export interface IconItemOptions {
 }
 
 /**
+ * Defines ChipGroupPaddingOptions.
+ *
+ * @interface ChipGroupPaddingOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export interface ChipGroupPaddingOptions {
+    /**
+     * Top of chip group padding.
+     *
+     * @type { Length }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    top: Length;
+
+    /**
+     * Bottom of chip group padding.
+     *
+     * @type { Length }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    bottom: Length;
+}
+
+/**
  * Defines IconGroupSuffix.
  *
  * @interface IconGroupSuffix
@@ -370,6 +400,17 @@ export declare struct ChipGroup {
      */
     @Prop
     chipGroupSpace?: ChipGroupSpaceOptions;
+
+     /**
+     * Chip group padding（only top and bottom）.
+     *
+     * @type { ?ChipGroupPaddingOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    @Prop
+    chipGroupPadding?: ChipGroupPaddingOptions;
 
     /**
      * Chip group callback.

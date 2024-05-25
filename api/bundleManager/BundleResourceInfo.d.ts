@@ -72,4 +72,15 @@ export interface BundleResourceInfo {
    * @since 12
    */
   readonly drawableDescriptor: DrawableDescriptor;
+
+  /**
+   * Indicates the index of the bundle
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Resource
+   * @systemapi
+   * @since 12
+   */
+  readonly appIndex: number;
 }

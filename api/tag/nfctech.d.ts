@@ -302,7 +302,10 @@ export interface IsoDepTag extends TagSession {
    * @permission ohos.permission.NFC_TAG
    * @returns { Promise<boolean> } Returns true if extended apdu length supported, otherwise false.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 9
@@ -313,7 +316,10 @@ export interface IsoDepTag extends TagSession {
    * @permission ohos.permission.NFC_TAG
    * @returns { Promise<boolean> } Returns true if extended apdu length supported, otherwise false.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @throws { BusinessError } 3100204 - Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
@@ -328,7 +334,10 @@ export interface IsoDepTag extends TagSession {
    * @permission ohos.permission.NFC_TAG
    * @param { AsyncCallback<boolean> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 9
@@ -339,7 +348,10 @@ export interface IsoDepTag extends TagSession {
    * @permission ohos.permission.NFC_TAG
    * @param { AsyncCallback<boolean> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @throws { BusinessError } 3100204 - Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
@@ -456,7 +468,10 @@ export interface NdefTag extends TagSession {
    * @permission ohos.permission.NFC_TAG
    * @returns { Promise<NdefMessage> } The NDEF message in tag.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 9
@@ -467,7 +482,10 @@ export interface NdefTag extends TagSession {
    * @permission ohos.permission.NFC_TAG
    * @returns { Promise<NdefMessage> } The NDEF message in tag.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @throws { BusinessError } 3100204 - Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
@@ -482,7 +500,10 @@ export interface NdefTag extends TagSession {
    * @permission ohos.permission.NFC_TAG
    * @param { AsyncCallback<NdefMessage> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 9
@@ -493,7 +514,10 @@ export interface NdefTag extends TagSession {
    * @permission ohos.permission.NFC_TAG
    * @param { AsyncCallback<NdefMessage> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @throws { BusinessError } 3100204 - Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
@@ -509,7 +533,10 @@ export interface NdefTag extends TagSession {
    * @param { NdefMessage } msg - The NDEF message to be written.
    * @returns { Promise<void> } The void
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 9
@@ -521,7 +548,10 @@ export interface NdefTag extends TagSession {
    * @param { NdefMessage } msg - The NDEF message to be written.
    * @returns { Promise<void> } The void
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @throws { BusinessError } 3100204 - Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
@@ -537,7 +567,10 @@ export interface NdefTag extends TagSession {
    * @param { NdefMessage } msg - The NDEF message to be written.
    * @param { AsyncCallback<void> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 9
@@ -549,7 +582,10 @@ export interface NdefTag extends TagSession {
    * @param { NdefMessage } msg - The NDEF message to be written.
    * @param { AsyncCallback<void> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @throws { BusinessError } 3100204 - Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
@@ -587,7 +623,10 @@ export interface NdefTag extends TagSession {
    * @permission ohos.permission.NFC_TAG
    * @returns { Promise<void> } The void
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 9
@@ -598,7 +637,10 @@ export interface NdefTag extends TagSession {
    * @permission ohos.permission.NFC_TAG
    * @returns { Promise<void> } The void
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @throws { BusinessError } 3100204 - Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
@@ -613,7 +655,10 @@ export interface NdefTag extends TagSession {
    * @permission ohos.permission.NFC_TAG
    * @param { AsyncCallback<void> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 9
@@ -624,7 +669,10 @@ export interface NdefTag extends TagSession {
    * @permission ohos.permission.NFC_TAG
    * @param { AsyncCallback<void> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @throws { BusinessError } 3100204 - Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
@@ -638,7 +686,10 @@ export interface NdefTag extends TagSession {
    *
    * @param { tag.NfcForumType } type - NFC forum type of NDEF tag.
    * @returns { string } The NFC forum string type.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 9
    */
@@ -647,7 +698,10 @@ export interface NdefTag extends TagSession {
    *
    * @param { tag.NfcForumType } type - NFC forum type of NDEF tag.
    * @returns { string } The NFC forum string type.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12
@@ -680,7 +734,10 @@ export interface MifareClassicTag extends TagSession {
    * @param { boolean } isKeyA - KeyA flag. true means KeyA, otherwise KeyB.
    * @returns { Promise<void> } The void
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 9
@@ -694,7 +751,10 @@ export interface MifareClassicTag extends TagSession {
    * @param { boolean } isKeyA - KeyA flag. true means KeyA, otherwise KeyB.
    * @returns { Promise<void> } The void
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @throws { BusinessError } 3100204 - Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
@@ -712,7 +772,10 @@ export interface MifareClassicTag extends TagSession {
    * @param { boolean } isKeyA - KeyA flag. true means KeyA, otherwise KeyB.
    * @param { AsyncCallback<void> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 9
@@ -726,7 +789,10 @@ export interface MifareClassicTag extends TagSession {
    * @param { boolean } isKeyA - KeyA flag. true means KeyA, otherwise KeyB.
    * @param { AsyncCallback<void> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @throws { BusinessError } 3100204 - Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
@@ -742,7 +808,10 @@ export interface MifareClassicTag extends TagSession {
    * @param { number } blockIndex - The index of block to read.
    * @returns { Promise<number[]> } Returns the block data.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 9
@@ -754,7 +823,10 @@ export interface MifareClassicTag extends TagSession {
    * @param { number } blockIndex - The index of block to read.
    * @returns { Promise<number[]> } Returns the block data.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @throws { BusinessError } 3100204 - Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
@@ -770,7 +842,10 @@ export interface MifareClassicTag extends TagSession {
    * @param { number } blockIndex - The index of block to read.
    * @param { AsyncCallback<number[]> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 9
@@ -782,7 +857,10 @@ export interface MifareClassicTag extends TagSession {
    * @param { number } blockIndex - The index of block to read.
    * @param { AsyncCallback<number[]> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @throws { BusinessError } 3100204 - Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
@@ -799,7 +877,10 @@ export interface MifareClassicTag extends TagSession {
    * @param { number[] } data - The block data to write.
    * @returns { Promise<void> } The void
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 9
@@ -812,7 +893,10 @@ export interface MifareClassicTag extends TagSession {
    * @param { number[] } data - The block data to write.
    * @returns { Promise<void> } The void
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @throws { BusinessError } 3100204 - Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
@@ -829,7 +913,10 @@ export interface MifareClassicTag extends TagSession {
    * @param { number[] } data - The block data to write.
    * @param { AsyncCallback<void> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 9
@@ -842,7 +929,10 @@ export interface MifareClassicTag extends TagSession {
    * @param { number[] } data - The block data to write.
    * @param { AsyncCallback<void> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @throws { BusinessError } 3100204 - Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
@@ -859,7 +949,10 @@ export interface MifareClassicTag extends TagSession {
    * @param { number } value - The value to increment, none-negative.
    * @returns { Promise<void> } The void
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 9
@@ -872,7 +965,10 @@ export interface MifareClassicTag extends TagSession {
    * @param { number } value - The value to increment, none-negative.
    * @returns { Promise<void> } The void
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @throws { BusinessError } 3100204 - Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
@@ -889,7 +985,10 @@ export interface MifareClassicTag extends TagSession {
    * @param { number } value - The value to increment, none-negative.
    * @param { AsyncCallback<void> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 9
@@ -902,7 +1001,10 @@ export interface MifareClassicTag extends TagSession {
    * @param { number } value - The value to increment, none-negative.
    * @param { AsyncCallback<void> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @throws { BusinessError } 3100204 - Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
@@ -919,7 +1021,10 @@ export interface MifareClassicTag extends TagSession {
    * @param { number } value - The value to decrease, none-negative.
    * @returns { Promise<void> } The void
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 9
@@ -932,7 +1037,10 @@ export interface MifareClassicTag extends TagSession {
    * @param { number } value - The value to decrease, none-negative.
    * @returns { Promise<void> } The void
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @throws { BusinessError } 3100204 - Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
@@ -949,7 +1057,10 @@ export interface MifareClassicTag extends TagSession {
    * @param { number } value - The value to decrease, none-negative.
    * @param { AsyncCallback<void> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 9
@@ -962,7 +1073,10 @@ export interface MifareClassicTag extends TagSession {
    * @param { number } value - The value to decrease, none-negative.
    * @param { AsyncCallback<void> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @throws { BusinessError } 3100204 - Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
@@ -978,7 +1092,10 @@ export interface MifareClassicTag extends TagSession {
    * @param { number } blockIndex - The index of value block to be written.
    * @returns { Promise<void> } The void
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 9
@@ -990,7 +1107,10 @@ export interface MifareClassicTag extends TagSession {
    * @param { number } blockIndex - The index of value block to be written.
    * @returns { Promise<void> } The void
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @throws { BusinessError } 3100204 - Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
@@ -1006,7 +1126,10 @@ export interface MifareClassicTag extends TagSession {
    * @param { number } blockIndex - The index of value block to be written.
    * @param { AsyncCallback<void> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 9
@@ -1018,7 +1141,10 @@ export interface MifareClassicTag extends TagSession {
    * @param { number } blockIndex - The index of value block to be written.
    * @param { AsyncCallback<void> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @throws { BusinessError } 3100204 - Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
@@ -1034,7 +1160,10 @@ export interface MifareClassicTag extends TagSession {
    * @param { number } blockIndex - The index of value block to be moved from.
    * @returns { Promise<void> } The void
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 9
@@ -1046,7 +1175,10 @@ export interface MifareClassicTag extends TagSession {
    * @param { number } blockIndex - The index of value block to be moved from.
    * @returns { Promise<void> } The void
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @throws { BusinessError } 3100204 - Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
@@ -1062,7 +1194,10 @@ export interface MifareClassicTag extends TagSession {
    * @param { number } blockIndex - The index of value block to be moved from.
    * @param { AsyncCallback<void> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 9
@@ -1074,7 +1209,10 @@ export interface MifareClassicTag extends TagSession {
    * @param { number } blockIndex - The index of value block to be moved from.
    * @param { AsyncCallback<void> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @throws { BusinessError } 3100204 - Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
@@ -1105,7 +1243,10 @@ export interface MifareClassicTag extends TagSession {
    *
    * @param { number } sectorIndex - The index of sector.
    * @returns { number } Returns the number of blocks.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 9
    */
@@ -1114,7 +1255,10 @@ export interface MifareClassicTag extends TagSession {
    *
    * @param { number } sectorIndex - The index of sector.
    * @returns { number } Returns the number of blocks.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12
@@ -1177,7 +1321,10 @@ export interface MifareClassicTag extends TagSession {
    *
    * @param { number } sectorIndex - The index of sector.
    * @returns { number } Returns index of first block in the sector.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 9
    */
@@ -1186,7 +1333,10 @@ export interface MifareClassicTag extends TagSession {
    *
    * @param { number } sectorIndex - The index of sector.
    * @returns { number } Returns index of first block in the sector.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12
@@ -1198,7 +1348,10 @@ export interface MifareClassicTag extends TagSession {
    *
    * @param { number } blockIndex - The index of block.
    * @returns { number } Returns the sector index.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 9
    */
@@ -1207,7 +1360,10 @@ export interface MifareClassicTag extends TagSession {
    *
    * @param { number } blockIndex - The index of block.
    * @returns { number } Returns the sector index.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12
@@ -1238,7 +1394,10 @@ export interface MifareUltralightTag extends TagSession {
    * @param { number } pageIndex - The index of page to read.
    * @returns { Promise<number[]> } Returns 4 pages data.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 9
@@ -1250,7 +1409,10 @@ export interface MifareUltralightTag extends TagSession {
    * @param { number } pageIndex - The index of page to read.
    * @returns { Promise<number[]> } Returns 4 pages data.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @throws { BusinessError } 3100204 - Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
@@ -1266,7 +1428,10 @@ export interface MifareUltralightTag extends TagSession {
    * @param { number } pageIndex - The index of page to read.
    * @param { AsyncCallback<number[]> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 9
@@ -1278,7 +1443,10 @@ export interface MifareUltralightTag extends TagSession {
    * @param { number } pageIndex - The index of page to read.
    * @param { AsyncCallback<number[]> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @throws { BusinessError } 3100204 - Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
@@ -1295,7 +1463,10 @@ export interface MifareUltralightTag extends TagSession {
    * @param { number[] } data - The page data to write.
    * @returns { Promise<void> } The void
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 9
@@ -1308,7 +1479,10 @@ export interface MifareUltralightTag extends TagSession {
    * @param { number[] } data - The page data to write.
    * @returns { Promise<void> } The void
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @throws { BusinessError } 3100204 - Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
@@ -1325,7 +1499,10 @@ export interface MifareUltralightTag extends TagSession {
    * @param { number[] } data - The page data to write.
    * @param { AsyncCallback<void> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 9
@@ -1338,7 +1515,10 @@ export interface MifareUltralightTag extends TagSession {
    * @param { number[] } data - The page data to write.
    * @param { AsyncCallback<void> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @throws { BusinessError } 3100204 - Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
@@ -1388,7 +1568,10 @@ export interface NdefFormatableTag extends TagSession {
    * @param { NdefMessage } message - NDEF message to write while format. It can be null, then only format the tag.
    * @returns { Promise<void> } The void
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 9
@@ -1400,7 +1583,10 @@ export interface NdefFormatableTag extends TagSession {
    * @param { NdefMessage } message - NDEF message to write while format. It can be null, then only format the tag.
    * @returns { Promise<void> } The void
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @throws { BusinessError } 3100204 - Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
@@ -1416,7 +1602,10 @@ export interface NdefFormatableTag extends TagSession {
    * @param { NdefMessage } message - NDEF message to write while format. It can be null, then only format the tag.
    * @param { AsyncCallback<void> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 9
@@ -1428,7 +1617,10 @@ export interface NdefFormatableTag extends TagSession {
    * @param { NdefMessage } message - NDEF message to write while format. It can be null, then only format the tag.
    * @param { AsyncCallback<void> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @throws { BusinessError } 3100204 - Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
@@ -1444,7 +1636,10 @@ export interface NdefFormatableTag extends TagSession {
    * @param { NdefMessage } message - NDEF message to write while format. It can be null, then only format the tag.
    * @returns { Promise<void> } The void
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 9
@@ -1456,7 +1651,10 @@ export interface NdefFormatableTag extends TagSession {
    * @param { NdefMessage } message - NDEF message to write while format. It can be null, then only format the tag.
    * @returns { Promise<void> } The void
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @throws { BusinessError } 3100204 - Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
@@ -1472,7 +1670,10 @@ export interface NdefFormatableTag extends TagSession {
    * @param { NdefMessage } message - NDEF message to write while format. It can be null, then only format the tag.
    * @param { AsyncCallback<void> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 9
@@ -1484,7 +1685,10 @@ export interface NdefFormatableTag extends TagSession {
    * @param { NdefMessage } message - NDEF message to write while format. It can be null, then only format the tag.
    * @param { AsyncCallback<void> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @throws { BusinessError } 3100204 - Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag

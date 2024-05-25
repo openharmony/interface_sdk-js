@@ -368,6 +368,8 @@ const ErrorValueInfo = {
   ERROR_CHANGES_JSDOC_TRROWS: 'Forbid changes: Throws tag cannot be created.',
   ERROR_CHANGES_JSDOC_PERMISSION: 'Forbid changes: Permission tag cannot be created or modified.',
   ERROR_FILE_TAG_ORDER: 'File tags order is incorrect.',
+  ERROR_DESCRIPTION_NULL: 'description is null',
+  ERROR_HAS_CHINESE: 'has chinese'
 };
 exports.ErrorValueInfo = ErrorValueInfo;
 

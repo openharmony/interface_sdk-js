@@ -104,6 +104,15 @@ export interface CommonEventData {
    * @atomicservice
    * @since 11
    */
+  /**
+   * The custom result data of the common event.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   data?: string;
 
   /**

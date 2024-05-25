@@ -60,7 +60,7 @@ export interface BundleVersion {
 export default class BackupExtensionAbility {
   /**
    * Indicates backup extension ability context.
-   * 
+   *
    * @type { ExtensionContext }
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @StageModelOnly
@@ -68,7 +68,7 @@ export default class BackupExtensionAbility {
    */
     /**
    * Indicates backup extension ability context.
-   * 
+   *
    * @type { BackupExtensionContext }
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @StageModelOnly
@@ -115,12 +115,12 @@ export default class BackupExtensionAbility {
   *
   * @param { BundleVersion } bundleVersion Bundle version to be restore.
   * @param { string } restoreInfo RestoreInfo to be restore.
-  * @returns { string } Return restore result.
+  * @returns { string | Promise<string> } Return restore result, support promise.
   * @syscap SystemCapability.FileManagement.StorageService.Backup
   * @StageModelOnly
   * @since 12
   */
-  onRestoreEx(bundleVersion: BundleVersion, restoreInfo: string): string;
+  onRestoreEx(bundleVersion: BundleVersion, restoreInfo: string): string | Promise<string>;
 
   /**
     * Callback to be called when getting application backupInfo.
