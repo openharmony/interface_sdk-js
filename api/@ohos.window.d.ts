@@ -2253,7 +2253,7 @@ declare namespace window {
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @throws { BusinessError } 1300004 - Unauthorized operation.
    * @syscap SystemCapability.Window.SessionManager
-   * @since 12
+   * @since 11
    */
   function shiftAppWindowFocus(sourceWindowId: number, targetWindowId: number): Promise<void>;
 
