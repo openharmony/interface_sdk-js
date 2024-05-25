@@ -1502,7 +1502,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 12
      */
-    SECURE_PHOTO = 12,
+    SECURE_PHOTO = 12
   }
 
   /**
