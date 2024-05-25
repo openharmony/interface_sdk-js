@@ -80,6 +80,7 @@ interface MovingPhotoViewInterface {
  * @typedef { function } MovingPhotoViewEventCallback
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare type MovingPhotoViewEventCallback = () => void;
