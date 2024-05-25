@@ -2246,10 +2246,8 @@ declare namespace window {
    * @param { number } sourceWindowId - Window id which the focus shift from.
    * @param { number } targetWindowId - Window id which the focus shift to.
    * @returns { Promise<void> } - Promise that returns no value.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-   *                                                                  2. Incorrect parameter types;
-   *                                                                  3. Parameter verification failed.
+   *                                                                  2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 1300002 - This window state is abnormal.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
@@ -2264,11 +2262,15 @@ declare namespace window {
    *
    * @param { number } windowId - Indicates target window id.
    * @returns { Promise<image.PixelMap> } - Promise that returns no value.
-   * @throws {BusinessError} 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-   * @throws {BusinessError} 1300002 - This window state is abnormal.
-   * @throws {BusinessError} 1300003 - This window manager service work abnormally.
-   * @throws {BusinessError} 1300004 - This operation is not access.
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+   *                                                                  2. Incorrect parameter types;
+   *                                                                  3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 1300002 - This window state is abnormal.
+   * @throws { BusinessError } 1300003 - This window manager service work abnormally.
+   * @throws { BusinessError } 1300004 - This operation is not access.
+   * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
    * @since 12
    */
