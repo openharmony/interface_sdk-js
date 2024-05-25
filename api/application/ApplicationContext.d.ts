@@ -496,7 +496,7 @@ export default class ApplicationContext extends Context {
    * @throws { BusinessError } 401 - The input parameter is not a valid parameter.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000068 - The supported process cache state cannot be set more than once.
+   * @throws { BusinessError } 16000200 - The supported process cache state cannot be set more than once.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
