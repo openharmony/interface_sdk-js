@@ -10495,7 +10495,7 @@ declare interface SheetOptions extends BindOptions {
    */
   mode?: SheetMode;
 
-    /**
+  /**
    * Determine sheet flush mode, whether sheet should dynamically flush during sliding
    *
    * @type { ?SheetFlushMode }
