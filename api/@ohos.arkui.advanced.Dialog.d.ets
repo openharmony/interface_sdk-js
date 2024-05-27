@@ -21,6 +21,7 @@
 /// <reference path="../component/units.d.ts" />
 
 import { ResourceStr } from 'GlobalResource';
+import { Theme, CustomTheme } from '@ohos.arkui.theme';
 
 /**
  * Declare ButtonOptions
@@ -151,7 +152,14 @@ export declare struct TipsDialog {
    * @atomicservice
    * @since 11
    */
-  imageRes: Resource;
+  /**
+   * Sets the TipsDialog imageRes.
+   * @type { ResourceStr | PixelMap }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  imageRes: ResourceStr | PixelMap;
   /**
    * Sets the TipsDialog image size.
    * @type { SizeOptions }.
@@ -271,6 +279,23 @@ export declare struct TipsDialog {
    * @since 11
    */
   secondaryButton?: ButtonOptions;
+  /**
+   * Custom Theme.
+   *
+   * @type { ?(Theme | CustomTheme) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  theme?: Theme | CustomTheme;
+  /**
+   * Sets the TipsDialog CheckBox Callback.
+   * @type { ?Callback<boolean> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  onCheckedChange?: Callback<boolean>;
 }
 
 /**
@@ -370,6 +395,16 @@ export declare struct SelectDialog {
    * @since 11
    */
   radioContent: Array<SheetInfo>;
+  /**
+   * Custom Theme.
+   *
+   * @type { ?(Theme | CustomTheme) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  theme?: Theme | CustomTheme;
 }
 
 /**
@@ -483,6 +518,23 @@ export declare struct ConfirmDialog {
    * @since 11
    */
   secondaryButton?: ButtonOptions;
+  /**
+   * Custom Theme.
+   *
+   * @type { ?(Theme | CustomTheme) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  theme?: Theme | CustomTheme;
+  /**
+   * Sets the ConfirmDialog CheckBox Callback.
+   * @type { ?Callback<boolean> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  onCheckedChange?: Callback<boolean>;
 }
 
 /**
@@ -570,6 +622,16 @@ export declare struct AlertDialog {
    * @since 11
    */
   secondaryButton?: ButtonOptions;
+  /**
+   * Custom Theme.
+   *
+   * @type { ?(Theme | CustomTheme) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  theme?: Theme | CustomTheme;
 }
 
 /**
@@ -613,6 +675,16 @@ export declare struct LoadingDialog {
    * @since 11
    */
   content?: ResourceStr;
+  /**
+   * Custom Theme.
+   *
+   * @type { ?(Theme | CustomTheme) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  theme?: Theme | CustomTheme;
 }
 
 /**
@@ -671,4 +743,14 @@ export declare struct CustomContentDialog {
    * @since 12
    */
   buttons?: ButtonOptions[];
+  /**
+   * Custom Theme.
+   *
+   * @type { ?(Theme | CustomTheme) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  theme?: Theme | CustomTheme;
 }

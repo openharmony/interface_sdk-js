@@ -37,7 +37,10 @@ declare namespace omapi {
    * @param { 'serviceState' } type nfc serviceState
    * @param { Callback<ServiceState> } callback - The callback to return the service.
    * @returns { SEService } The new SEService instance.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.SecureElement
    * @since 10
@@ -232,7 +235,10 @@ declare namespace omapi {
      * @param { number[] } aid - The AID of the applet to be selected on this channel, as a byte array,
      * or Null if no applet is to be selected.
      * @returns { Promise<Channel> } An instance of channel if available. Null if the SE is unable to provide.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session that has been closed.
      * @throws { BusinessError } 3300102 - NoSuchElementError, the AID on the SE is not available or cannot be selected.
@@ -250,7 +256,10 @@ declare namespace omapi {
      * @param { number[] } aid - The AID of the applet to be selected on this channel, as a byte array,
      * or Null if no applet is to be selected.
      * @param { AsyncCallback<Channel> } callback - The callback to return the Channel object. Null if the SE is unable to provide.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session that has been closed.
      * @throws { BusinessError } 3300102 - NoSuchElementError, the AID on the SE is not available or cannot be selected.
@@ -275,7 +284,10 @@ declare namespace omapi {
      * or Null if no applet is to be selected.
      * @param { number } p2 - The P2 parameter of the SELECT APDU executed on this channel.
      * @returns { Promise<Channel> } An instance of channel if available. Null if the SE is unable to provide.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session that has been closed.
      * @throws { BusinessError } 3300102 - NoSuchElementError, the AID on the SE is not available or cannot be selected.
@@ -300,7 +312,10 @@ declare namespace omapi {
      * or Null if no applet is to be selected.
      * @param { number } p2 - The P2 parameter of the SELECT APDU executed on this channel.
      * @param { AsyncCallback<Channel> } callback - The callback to return the Channel object. Null if the SE is unable to provide.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session that has been closed.
      * @throws { BusinessError } 3300102 - NoSuchElementError, the AID on the SE is not available or cannot be selected.
@@ -318,7 +333,10 @@ declare namespace omapi {
      * @param { number[] } aid - The AID of the applet to be selected on this channel, as a byte array.
      * @returns {  Promise<Channel> } An instance of channel if available. Null if the SE is unable to provide.
      * A new logical channel or is unable to retrieve Access Control rules due to the lack of an available logical channel.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session that has been closed.
      * @throws { BusinessError } 3300102 - NoSuchElementError, the AID on the SE is not available or cannot be selected or
@@ -337,7 +355,10 @@ declare namespace omapi {
      * @param { number[] } aid - The AID of the applet to be selected on this channel, as a byte array.
      * @param { AsyncCallback<Channel> } callback - The callback to return the Channel object. Null if the SE is unable to provide.
      * A new logical channel or is unable to retrieve Access Control rules due to the lack of an available logical channel.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session that has been closed.
      * @throws { BusinessError } 3300102 - NoSuchElementError, the AID on the SE is not available or cannot be selected or
@@ -363,7 +384,10 @@ declare namespace omapi {
      * @param { number } p2 - The P2 parameter of the SELECT APDU executed on this channel.
      * @returns { Promise<Channel> } An instance of channel if available. Null if the SE is unable to provide.
      * A new logical channel or is unable to retrieve Access Control rules due to the lack of an available logical channel.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session that has been closed.
      * @throws { BusinessError } 3300102 - NoSuchElementError, the AID on the SE is not available or cannot be selected or
@@ -388,7 +412,10 @@ declare namespace omapi {
      * @param { number[] } aid - The AID of the applet to be selected on this channel, as a byte array.
      * @param { number } p2 - The P2 parameter of the SELECT APDU executed on this channel.
      * @param { AsyncCallback<Channel> } callback - The callback to return the instance of channel. Null if the SE is unable to provide.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session that has been closed.
      * @throws { BusinessError } 3300102 - NoSuchElementError, the AID on the SE is not available or cannot be selected or
@@ -465,7 +492,10 @@ declare namespace omapi {
      *
      * @param { number[] } command - The APDU command to be transmitted, as a byte array.
      * @returns { Promise<number[]> } The response received, as a byte array.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session or channel that has been closed.
      * @throws { BusinessError } 3300103 - SecurityError, the command is filtered by the security policy.
@@ -480,7 +510,10 @@ declare namespace omapi {
      *
      * @param { number[] } command - The APDU command to be transmitted, as a byte array.
      * @param { AsyncCallback<number[]> } callback - The callback to return the response received, as a byte array.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session or channel that has been closed.
      * @throws { BusinessError } 3300103 - SecurityError, the command is filtered by the security policy.

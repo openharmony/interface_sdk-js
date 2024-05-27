@@ -2157,7 +2157,17 @@ declare namespace image {
      * @crossplatform
      * @since 12
      */
-    SCENE_VERSION = 'HwMnoteSceneVersion'
+    SCENE_VERSION = 'HwMnoteSceneVersion',
+
+    /**
+     * GIF LOOP COUNT
+     * If infinite loop returns 0, other values represent the number of loops
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    GIF_LOOP_COUNT = 'GIFLoopCount'
   }
 
   /**
@@ -5036,6 +5046,16 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     writeBufferToPixelsSync(src: ArrayBuffer): void;
 
+    /**
+     * Convert pixelmap to standard dynamic range.
+     * 
+     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 62980137 - Invalid image operation.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    toSdr(): Promise<void>;
+  
     /**
      * Obtains pixel map information about this image. This method uses a promise to return the information.
      *

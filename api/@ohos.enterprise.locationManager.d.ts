@@ -74,9 +74,9 @@ declare namespace locationManager {
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *                         The admin must have the corresponding permission.
    * @param { LocationPolicy } policy - the policy of location service.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -93,9 +93,9 @@ declare namespace locationManager {
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *                         If the admin is not empty, it must have the corresponding permission.
    * @returns { LocationPolicy } the policy of location service.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager

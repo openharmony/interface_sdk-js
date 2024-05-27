@@ -583,7 +583,6 @@ export { WaterFlowModifier } from './arkui/WaterFlowModifier';
 /**
  * Export AttributeUpdater, which is used to update attributes to native side.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
  * @crossplatform
  * @since 12
  */

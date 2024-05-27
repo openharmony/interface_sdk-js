@@ -457,6 +457,16 @@ declare namespace uiObserver {
     id: string,
 
     /**
+     * The uniqueId of the scrollable component.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    uniqueId: number,
+
+    /**
      * Changed ScrollEvent type.
      *
      * @type { ScrollEventType }

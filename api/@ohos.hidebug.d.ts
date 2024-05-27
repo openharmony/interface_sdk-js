@@ -174,6 +174,7 @@ declare namespace hidebug {
   /**
    * Get a debugging dump of a system service by service id.
    * It need dump permission.
+   * This API can be called only by system application.
    *
    * @permission ohos.permission.DUMP
    * @param { number } serviceid - Indicates the id of the service ability.

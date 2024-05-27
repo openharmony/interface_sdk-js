@@ -115,7 +115,7 @@ declare namespace abilityAccessCtrl {
      * @param { Permissions } permissionName - Name of the permission to be verified.
      * @returns { GrantStatus } Returns permission verify result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256.
+     * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, or the permissionName exceeds 256 characters.
      * @syscap SystemCapability.Security.AccessToken
      * @since 9
      */
@@ -128,7 +128,7 @@ declare namespace abilityAccessCtrl {
      * @param { Permissions } permissionName - Name of the permission to be verified.
      * @returns { Promise<GrantStatus> } Returns permission verify result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256.
+     * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, or the permissionName exceeds 256 characters.
      * @syscap SystemCapability.Security.AccessToken
      * @since 9
      */
@@ -140,7 +140,7 @@ declare namespace abilityAccessCtrl {
      * @param { Permissions } permissionName - Name of the permission to be verified.
      * @returns { Promise<GrantStatus> } Returns permission verify result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256.
+     * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, or the permissionName exceeds 256 characters.
      * @syscap SystemCapability.Security.AccessToken
      * @crossplatform
      * @since 10
@@ -153,7 +153,7 @@ declare namespace abilityAccessCtrl {
      * @param { Permissions } permissionName - Name of the permission to be verified.
      * @returns { Promise<GrantStatus> } Returns permission verify result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256.
+     * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, or the permissionName exceeds 256 characters.
      * @syscap SystemCapability.Security.AccessToken
      * @crossplatform
      * @atomicservice
@@ -169,7 +169,7 @@ declare namespace abilityAccessCtrl {
      * @param { Permissions } permissionName - Name of the permission to be verified.
      * @returns { GrantStatus } Returns permission verify result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256.
+     * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, or the permissionName exceeds 256 characters.
      * @syscap SystemCapability.Security.AccessToken
      * @crossplatform
      * @since 10
@@ -182,7 +182,7 @@ declare namespace abilityAccessCtrl {
      * @param { Permissions } permissionName - Name of the permission to be verified.
      * @returns { GrantStatus } Returns permission verify result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256.
+     * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, or the permissionName exceeds 256 characters.
      * @syscap SystemCapability.Security.AccessToken
      * @crossplatform
      * @atomicservice
@@ -198,7 +198,7 @@ declare namespace abilityAccessCtrl {
      * @param { Array<Permissions> } permissionList - Indicates the list of permissions to be requested. This parameter cannot be null or empty.
      * @param { AsyncCallback<PermissionRequestResult> } requestCallback Callback for the result from requesting permissions.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12100001 - The parameter is invalid. The context is invalid when it does not belong to the application itself.
+     * @throws { BusinessError } 12100001 - Invalid parameter. The context is invalid when it does not belong to the application itself.
      * @syscap SystemCapability.Security.AccessToken
      * @stagemodelonly
      * @since 9
@@ -211,7 +211,7 @@ declare namespace abilityAccessCtrl {
      * @param { Array<Permissions> } permissionList - Indicates the list of permissions to be requested. This parameter cannot be null or empty.
      * @param { AsyncCallback<PermissionRequestResult> } requestCallback Callback for the result from requesting permissions.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12100001 - The parameter is invalid. The context is invalid when it does not belong to the application itself.
+     * @throws { BusinessError } 12100001 - Invalid parameter. The context is invalid when it does not belong to the application itself.
      * @syscap SystemCapability.Security.AccessToken
      * @stagemodelonly
      * @crossplatform
@@ -224,8 +224,8 @@ declare namespace abilityAccessCtrl {
      * <br> The context must belong to the Stage model and only supports UIAbilityContext and UIExtensionContext.
      * @param { Array<Permissions> } permissionList - Indicates the list of permissions to be requested. This parameter cannot be null or empty.
      * @param { AsyncCallback<PermissionRequestResult> } requestCallback Callback for the result from requesting permissions.
-     * @throws { BusinessError } 401 - The parameter check failed.
-     * @throws { BusinessError } 12100001 - The parameter is invalid. The context is invalid when it does not belong to the application itself.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 12100001 - Invalid parameter. The context is invalid when it does not belong to the application itself.
      * @syscap SystemCapability.Security.AccessToken
      * @stagemodelonly
      * @crossplatform
@@ -246,7 +246,7 @@ declare namespace abilityAccessCtrl {
      * @param { Array<Permissions> } permissionList - Indicates the list of permissions to be requested. This parameter cannot be null or empty.
      * @returns { Promise<PermissionRequestResult> } Returns result of requesting permissions.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12100001 - The parameter is invalid. The context is invalid when it does not belong to the application itself.
+     * @throws { BusinessError } 12100001 - Invalid parameter. The context is invalid when it does not belong to the application itself.
      * @syscap SystemCapability.Security.AccessToken
      * @stagemodelonly
      * @since 9
@@ -259,7 +259,7 @@ declare namespace abilityAccessCtrl {
      * @param { Array<Permissions> } permissionList - Indicates the list of permissions to be requested. This parameter cannot be null or empty.
      * @returns { Promise<PermissionRequestResult> } Returns result of requesting permissions.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12100001 - The parameter is invalid. The context is invalid when it does not belong to the application itself.
+     * @throws { BusinessError } 12100001 - Invalid parameter. The context is invalid when it does not belong to the application itself.
      * @syscap SystemCapability.Security.AccessToken
      * @stagemodelonly
      * @crossplatform
@@ -273,7 +273,7 @@ declare namespace abilityAccessCtrl {
      * @param { Array<Permissions> } permissionList - Indicates the list of permissions to be requested. This parameter cannot be null or empty.
      * @returns { Promise<PermissionRequestResult> } Returns result of requesting permissions.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12100001 - The parameter is invalid. The context is invalid when it does not belong to the application itself.
+     * @throws { BusinessError } 12100001 - Invalid parameter. The context is invalid when it does not belong to the application itself.
      * @syscap SystemCapability.Security.AccessToken
      * @stagemodelonly
      * @crossplatform
@@ -293,13 +293,12 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.GRANT_SENSITIVE_PERMISSIONS".
      * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
-     * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256,
-     *  or the flags value is invalid.
+     * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, the permissionName exceeds 256 characters, or the flags value is invalid.
      * @throws { BusinessError } 12100002 - The specified tokenID does not exist.
      * @throws { BusinessError } 12100003 - The specified permission does not exist.
      * @throws { BusinessError } 12100006 - The application specified by the tokenID is not allowed to be granted with the specified permission.
      *  Either the application is a sandbox or the tokenID is from a remote device.
-     * @throws { BusinessError } 12100007 - Service is abnormal.
+     * @throws { BusinessError } 12100007 - The service is abnormal.
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 8
@@ -317,13 +316,12 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.GRANT_SENSITIVE_PERMISSIONS".
      * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
-     * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256,
-     *  or the flags value is invalid.
+     * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, the permissionName exceeds 256 characters, or the flags value is invalid.
      * @throws { BusinessError } 12100002 - The specified tokenID does not exist.
      * @throws { BusinessError } 12100003 - The specified permission does not exist.
      * @throws { BusinessError } 12100006 - The application specified by the tokenID is not allowed to be granted with the specified permission.
      *  Either the application is a sandbox or the tokenID is from a remote device.
-     * @throws { BusinessError } 12100007 - Service is abnormal.
+     * @throws { BusinessError } 12100007 - The service is abnormal.
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 8
@@ -346,13 +344,12 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.REVOKE_SENSITIVE_PERMISSIONS".
      * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
-     * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256,
-     *  or the flags value is invalid.
+     * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, the permissionName exceeds 256 characters, or the flags value is invalid.
      * @throws { BusinessError } 12100002 - The specified tokenID does not exist.
      * @throws { BusinessError } 12100003 - The specified permission does not exist.
      * @throws { BusinessError } 12100006 - The application specified by the tokenID is not allowed to be revoked with the specified permission.
      *  Either the application is a sandbox or the tokenID is from a remote device.
-     * @throws { BusinessError } 12100007 - Service is abnormal.
+     * @throws { BusinessError } 12100007 - The service is abnormal.
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 8
@@ -370,13 +367,12 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.REVOKE_SENSITIVE_PERMISSIONS".
      * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
-     * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256,
-     *  or the flags value is invalid.
+     * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, the permissionName exceeds 256 characters, or the flags value is invalid.
      * @throws { BusinessError } 12100002 - The specified tokenID does not exist.
      * @throws { BusinessError } 12100003 - The specified permission does not exist.
      * @throws { BusinessError } 12100006 - The application specified by the tokenID is not allowed to be revoked with the specified permission.
      *  Either the application is a sandbox or the tokenID is from a remote device.
-     * @throws { BusinessError } 12100007 - Service is abnormal.
+     * @throws { BusinessError } 12100007 - The service is abnormal.
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 8
@@ -398,11 +394,11 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission specified below.
      * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
-     * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256.
+     * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, or the permissionName exceeds 256 characters.
      * @throws { BusinessError } 12100002 - The specified tokenID does not exist.
      * @throws { BusinessError } 12100003 - The specified permission does not exist.
      * @throws { BusinessError } 12100006 - The operation is not allowed. Either the application is a sandbox or the tokenID is from a remote device.
-     * @throws { BusinessError } 12100007 - Service is abnormal.
+     * @throws { BusinessError } 12100007 - The service is abnormal.
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 8
@@ -419,10 +415,9 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission specified below.
      * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
-     * @throws { BusinessError } 12100001 - The parameter is invalid. The string size of permissionName is larger than 256,
-     * or the status value is invalid.
+     * @throws { BusinessError } 12100001 - Invalid parameter. The permissionName exceeds 256 characters, or the status value is invalid.
      * @throws { BusinessError } 12100003 - The specified permission does not exist.
-     * @throws { BusinessError } 12100007 - Service is abnormal.
+     * @throws { BusinessError } 12100007 - The service is abnormal.
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 12
@@ -438,9 +433,9 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission specified below.
      * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
-     * @throws { BusinessError } 12100001 - The parameter is invalid. The string size of permissionName is larger than 256.
+     * @throws { BusinessError } 12100001 - Invalid parameter. The permissionName exceeds 256 characters.
      * @throws { BusinessError } 12100003 - The specified permission does not exist.
-     * @throws { BusinessError } 12100007 - Service is abnormal.
+     * @throws { BusinessError } 12100007 - The service is abnormal.
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 12
@@ -468,9 +463,9 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.GET_SENSITIVE_PERMISSIONS".
      * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
-     * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the permissionList is empty.
+     * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, or the permissionList is empty.
      * @throws { BusinessError } 12100002 - The specified tokenID does not exist.
-     * @throws { BusinessError } 12100007 - Service is abnormal.
+     * @throws { BusinessError } 12100007 - The service is abnormal.
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 12
@@ -492,10 +487,10 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.GET_SENSITIVE_PERMISSIONS".
      * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
-     * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256.
-     * @throws { BusinessError } 12100004 - The interface is called repeatedly with the same input.
+     * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, or the permissionName exceeds 256 characters.
+     * @throws { BusinessError } 12100004 - The API is used repeatedly with the same input.
      * @throws { BusinessError } 12100005 - The registration time has exceeded the limitation.
-     * @throws { BusinessError } 12100007 - Service is abnormal.
+     * @throws { BusinessError } 12100007 - The service is abnormal.
      * @throws { BusinessError } 12100008 - Out of memory.
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
@@ -521,9 +516,9 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.GET_SENSITIVE_PERMISSIONS".
      * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
-     * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenIDs or permissionNames in the list are all invalid.
-     * @throws { BusinessError } 12100004 - The interface is not used together with "on".
-     * @throws { BusinessError } 12100007 - Service is abnormal.
+     * @throws { BusinessError } 12100001 - Invalid parameter. The tokenIDs or permissionNames in the list are all invalid.
+     * @throws { BusinessError } 12100004 - The API is not used in pair with 'on'.
+     * @throws { BusinessError } 12100007 - The service is abnormal.
      * @throws { BusinessError } 12100008 - Out of memory.
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi

@@ -5661,6 +5661,77 @@ declare enum BlurStyle {
 }
 
 /**
+ * Enumerates the policies for activating the blur style.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare enum BlurStyleActivePolicy {
+  /**
+   * The component has the blur effect only when the window is focused.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  FOLLOWS_WINDOW_ACTIVE_STATE = 0,
+
+  /**
+   * The component always has the blur effect, regardless of whether the window is focused.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  ALWAYS_ACTIVE = 1,
+
+  /**
+   * The component does not have the blur effect, regardless of whether the window is focused.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  ALWAYS_INACTIVE = 2,
+}
+
+/**
+ * Enumerates the blur types.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare enum BlurType {
+  /**
+   * The blur is applied within the window.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  WITHIN_WINDOW = 0,
+  /**
+   * The blur is applied behind the window.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  BEHIND_WINDOW = 1
+}
+
+/**
  * enum color mode
  *
  * @enum { number }
@@ -5870,7 +5941,43 @@ declare enum ModalTransition {
  * @atomicservice
  * @since 11
  */
-declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {}
+declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {
+  /**
+   * Defines the policy for activating the blur style.
+   *
+   * @type { ?BlurStyleActivePolicy }
+   * @default BlurStyleActivePolicy.FOLLOWS_WINDOW_ACTIVE_STATE
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  policy?: BlurStyleActivePolicy;
+
+  /**
+   * Color of the background effect when the window is not focused.
+   *
+   * @type { ?ResourceColor }
+   * @default Color.Transparent
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  inactiveColor?: ResourceColor;
+
+  /**
+   * Blur blending type.
+   *
+   * @type { ?BlurType }
+   * @default BlurType.WITHIN_WINDOW
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  type?: BlurType;
+}
 
 /**
  * Defines the options of ForegroundBlurStyle
@@ -6162,6 +6269,42 @@ declare interface BackgroundEffectOptions {
    * @since 12
    */
   blurOptions?: BlurOptions;
+
+  /**
+   * Defines the policy for activating the blur style.
+   *
+   * @type { ?BlurStyleActivePolicy }
+   * @default BlurStyleActivePolicy.FOLLOWS_WINDOW_ACTIVE_STATE
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  policy?: BlurStyleActivePolicy;
+
+  /**
+   * Color of the background effect when the window is not focused.
+   *
+   * @type { ?ResourceColor }
+   * @default Color.Transparent
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  inactiveColor?: ResourceColor;
+
+  /**
+   * Blur blending type.
+   *
+   * @type { ?BlurType }
+   * @default BlurType.WITHIN_WINDOW
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  type?: BlurType;
 }
 
 /**
@@ -6991,6 +7134,53 @@ declare enum SafeAreaEdge {
 }
 
 /**
+ * Enumerates the safe area types can be ignored.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum LayoutSafeAreaType {
+  /**
+   * Default area of the system, including the status bar and navigation bar.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  SYSTEM = 0,
+}
+
+/**
+ * Enumerates the safe area edges can be ignored.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum LayoutSafeAreaEdge {
+  /**
+   * Top edge of the safe area.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  TOP = 0,
+
+  /**
+   * Bottom edge of the safe area.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  BOTTOM = 1,
+}
+
+/**
  * Defines sheet size type.
  *
  * @enum { number }
@@ -7340,6 +7530,18 @@ declare interface BaseEvent {
    * @form
    */
   sourceTool: SourceTool;
+
+  /**
+   * Query the ModifierKey press state, support 'ctrl'|'alt'|'shift'|'fn'
+   *
+   * @param { Array<string> } keys - indicate the keys of the ModifierKey.
+   * @returns { boolean }
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter verification failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getModifierKeyState?(keys: Array<string>): boolean;
 }
 
 /**
@@ -9363,6 +9565,18 @@ declare interface DragEvent {
    * @since 11
    */
   getVelocity(): number;
+
+  /**
+   * Query the ModifierKey press state, support 'ctrl'|'alt'|'shift'|'fn'
+   *
+   * @param { Array<string> } keys - indicate the keys of the ModifierKey.
+   * @returns { boolean }
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter verification failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getModifierKeyState?(keys: Array<string>): boolean;
 }
 
 /**
@@ -9634,6 +9848,18 @@ declare interface KeyEvent {
    * @since 11
    */
   intentionCode: IntentionCode;
+
+  /**
+   * Get the modifier keys press state, support 'ctrl'|'alt'|'shift'|'fn'
+   *
+   * @param { Array<string> } keys - indicate the modifier keys.
+   * @returns { boolean }
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter verification failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getModifierKeyState?(keys: Array<string>): boolean;
 }
 
 /**
@@ -12059,6 +12285,16 @@ interface ContextMenuAnimationOptions {
    * @since 12
    */
   transition?: TransitionEffect;
+
+  /**
+   * Sets the scale start and end animator of the image displayed before the custom builder preview is displayed.
+   *
+   * @type { ?AnimationRange<number> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  hoverScale?: AnimationRange<number>;
 }
 
 /**
@@ -16423,6 +16659,28 @@ declare class CommonMethod<T> {
   onDisAppear(event: () => void): T;
 
   /**
+   * This callback is triggered when a component mounts to view tree.
+   *
+   * @param { Callback<void> } callback
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onAttach(callback: Callback<void>): T;
+
+  /**
+   * This callback is triggered when a component is detached from view tree.
+   *
+   * @param { Callback<void> } callback
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onDetach(callback: Callback<void>): T;
+
+  /**
    * This callback is triggered when the size or position of this component change finished.
    *
    * @param { function } event - event callback.
@@ -18163,7 +18421,19 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  bindContentCover(isShow: boolean, builder: CustomBuilder, type?: ModalTransition): T;
+  /**
+   * Bind content cover
+   *
+   * @param { Optional<boolean> } isShow - true means display content, false means hide content.
+   * @param { CustomBuilder } builder - the content to be displayed.
+   * @param { ModalTransition } [type] - transition type.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  bindContentCover(isShow: Optional<boolean>, builder: CustomBuilder, type?: ModalTransition): T;
 
   /**
    * Bind content cover
@@ -18188,7 +18458,19 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  bindContentCover(isShow: boolean, builder: CustomBuilder, options?: ContentCoverOptions): T;
+  /**
+   * Bind content cover
+   *
+   * @param { Optional<boolean> } isShow - true means display content, false means hide content.
+   * @param { CustomBuilder } builder - the content to be displayed.
+   * @param { ContentCoverOptions } [options] - options of content cover.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  bindContentCover(isShow: Optional<boolean>, builder: CustomBuilder, options?: ContentCoverOptions): T;
 
   /**
    * Bind sheet
@@ -18213,7 +18495,19 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  bindSheet(isShow: boolean, builder: CustomBuilder, options?: SheetOptions): T;
+  /**
+   * Bind sheet
+   *
+   * @param { Optional<boolean> } isShow - true means display sheet, false means hide sheet.
+   * @param { CustomBuilder } builder - the sheet to be displayed.
+   * @param { SheetOptions } [options] - options of sheet.
+   * @returns { T } - template type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  bindSheet(isShow: Optional<boolean>, builder: CustomBuilder, options?: SheetOptions): T;
 
   /**
    * Sets styles for component state.
@@ -18386,6 +18680,17 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Sets accessibilityGroup
+   *
+   * @param { boolean } value - set group with accessibility
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
   accessibilityGroup(value: boolean): T;
 
   /**
@@ -18407,6 +18712,17 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Sets accessibilityText
+   *
+   * @param { string } value - set accessibility text
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
   accessibilityText(value: string): T;
 
   /**
@@ -18416,6 +18732,7 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
    */
@@ -18440,6 +18757,17 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Sets accessibilityDescription
+   *
+   * @param { string } value - set description of accessibility
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
   accessibilityDescription(value: string): T;
 
   /**
@@ -18461,6 +18789,17 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Sets accessibilityLevel
+   *
+   * @param { string } value - set accessibility level
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
   accessibilityLevel(value: string): T;
 
   /**
@@ -18472,6 +18811,17 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Sets accessibilityVirtualNode
+   *
+   * @param { CustomBuilder } builder - set virtual node of accessibility
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
    */
   accessibilityVirtualNode(builder: CustomBuilder): T;
 
@@ -20352,6 +20702,17 @@ declare class CustomComponent extends CommonAttribute {
   aboutToRecycle?(): void;
 
   /**
+   * The onWillApplyTheme function is a custom hook to get active theme object from the context
+   * 
+   * @param { Theme } theme - Custom theme init params.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onWillApplyTheme?(theme: Theme): void;
+
+  /**
    * Custom component override this method to layout each of its sub components.
    *
    * @param { Array<LayoutChild> } children
@@ -21053,15 +21414,13 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   /**
    * Called when the scrollable will scroll.
    *
-   * @param { OnScrollCallback } handler - callback of scrollable,
-   * scrollOffset is offset this frame will scroll, which may or may not be reached.
-   * scrollState is current scroll state.
+   * @param { Optional<OnWillScrollCallback> } handler - callback of scrollable.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  onWillScroll(handler: OnScrollCallback): T;
+  onWillScroll(handler: Optional<OnWillScrollCallback>): T;
 
   /**
    * Called when the scrollable did scroll.
@@ -21138,13 +21497,81 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
 }
 
 /**
-  * on scroll callback using in scrollable onWillScroll and onDidScroll.
+ * The actual offset by which the scrollable scrolls.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class ScrollResult {
+  /**
+   * Actual offset by which the scrollable scrolls in vp.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  offsetRemain: number;
+}
+
+/**
+ * Called before scroll to allow developer to control real offset the Scrollable can scroll.
+ *
+ * @typedef { function } OnWillScrollCallback
+ * @param { number } scrollOffset - offset this frame will scroll, which may or may not be reached.
+ * @param { ScrollState } scrollState - current scroll state.
+ * @param { ScrollSource } scrollSource - source of current scroll.
+ * @returns { void | ScrollResult } the remain offset for the scrollable, 
+ *     same as scrollOffset when no ScrollResult is returned.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type OnWillScrollCallback = 
+(scrollOffset: number, scrollState: ScrollState, scrollSource: ScrollSource) => void | ScrollResult;
+
+/**
+  * On scroll callback using in scrollable onDidScroll.
   *
+  * @typedef { function } OnScrollCallback
+  * @param { number } scrollOffset - offset this frame did scroll.
+  * @param { ScrollState } scrollState - current scroll state.
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @since 12
   */
 declare type OnScrollCallback = (scrollOffset: number, scrollState: ScrollState) => void;
+
+/**
+ * Defines the onMove callback.
+ *
+ * @typedef { function } OnMoveHandler
+ * @param { number } from - Index number for moving elements.
+ * @param { number } to - Target index number for moving elements.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type OnMoveHandler = (from: number, to: number) => void;
+
+/**
+ * Define DynamicNode.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class DynamicNode<T> {
+  /**
+   * Set the move action.
+   *
+   * @param { Optional<OnMoveHandler> } handler
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onMove(handler: Optional<OnMoveHandler>): T;
+}
 
 declare module "SpecialEvent" {
   module "SpecialEvent" {
@@ -21692,6 +22119,49 @@ declare interface Callback<T, V = void> {
 declare type HoverCallback = (isHover: boolean, event: HoverEvent) => void
 
 /**
+ * Defines the options about VisibleAreaEvent.
+ *
+ * @interface VisibleAreaEventOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface VisibleAreaEventOptions {
+  /**
+   * Each number in ratios indicates the value of visibility ratio. Each number in the Array value range in [0, 1].
+   *
+   * @type { Array<number> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  ratios: Array<number>;
+
+  /**
+   * The value of expectedUpdateInterval indicates desired update period(ms).
+   *
+   * @type { ?number }
+   * @default 1000
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  expectedUpdateInterval?: number;
+}
+
+/**
+ * Defines the callback type used in VisibleAreaChange events.
+ *
+ * @typedef { function } VisibleAreaChangeCallback
+ * @param { boolean } isVisible - The value of isVisible indicates whether the component is visible.
+ * @param { number } currentRatio - The value of currentRatio indicates the visibility ratio of the current component.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type VisibleAreaChangeCallback = (isVisible: boolean, currentRatio: number) => void;
+
+/**
  * Defines a UICommonEvent which is used to set different common event to target component.
  *
  * @interface UICommonEvent
@@ -21800,6 +22270,18 @@ declare interface UICommonEvent {
   * @since 12
   */
   setOnSizeChange(callback: SizeChangeCallback | undefined): void;
+
+  /**
+   * Set or reset the callback which is triggered when the visibleArea of component changed.
+   *
+   * @param { VisibleAreaEventOptions } options - The options for the visibility event.
+   * @param { VisibleAreaChangeCallback | undefined } event - The callback will be triggered when the visibleArea of component changed and get close to any number in ratios defined by options.
+   * If set undefined will reset the target callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setOnVisibleAreaApproximateChange(options: VisibleAreaEventOptions, event: VisibleAreaChangeCallback | undefined): void;
 }
 
 /**

@@ -19,6 +19,19 @@
  */
 
 /**
+ * declare ForEachAttribute
+ *
+ * @extends DynamicNode<ForEachAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 12
+ */
+declare class ForEachAttribute extends DynamicNode<ForEachAttribute> {
+}
+
+/**
  * looping function.
  *
  * @interface ForEachInterface
@@ -99,11 +112,24 @@ interface ForEachInterface {
    * @since 11
    * @form
    */
+  /**
+   * Set the value, array, and key.
+   *
+   * @param { Array<any> } arr
+   * @param { function } itemGenerator
+   * @param { function } keyGenerator
+   * @returns { ForEachAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
   (
     arr: Array<any>,
     itemGenerator: (item: any, index: number) => void,
     keyGenerator?: (item: any, index: number) => string,
-  ): ForEachInterface;
+  ): ForEachAttribute;
 }
 
 /**

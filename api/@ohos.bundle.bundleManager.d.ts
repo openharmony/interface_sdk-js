@@ -1337,6 +1337,37 @@ declare namespace bundleManager {
   }
 
   /**
+   * This enumeration value is used to identify various types of extension ability
+   *
+   * @enum { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 12
+  */
+  export enum MultiAppModeType {
+    /**
+     * Indicates multi app mode with type of unspecified
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 12
+     */
+    UNSPECIFIED = 0,
+    /**
+     * Indicates multi app mode with type of multiInstance
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 12
+     */
+    MULTI_INSTANCE = 1,
+    /**
+     * Indicates multi app mode with type of appClone
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 12
+    */
+    APP_CLONE = 2,
+  }
+
+  /**
    * Obtains own bundleInfo.
    *
    * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
@@ -2016,6 +2047,25 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
    * @param { string } bundleName - Indicates the bundle name of the application.
+   * @param { number } appIndex - Indicates the index of clone app.
+   * @param { boolean } isEnabled - The value true means to enable it, and the value false means to disable it.
+   * @returns { Promise<void> } set app enabled result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700061 - AppIndex not in valid range.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  function setApplicationEnabled(bundleName: string, appIndex: number, isEnabled: boolean): Promise<void>;
+
+  /**
+   * Sets whether to enable a specified application.
+   *
+   * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
+   * @param { string } bundleName - Indicates the bundle name of the application.
    * @param { boolean } isEnabled - The value true means to enable it, and the value false means to disable it.
    * @param { AsyncCallback<void> } callback - The callback of setting app enabled result.
    * @throws { BusinessError } 201 - Permission denied.
@@ -2060,6 +2110,26 @@ declare namespace bundleManager {
    * @since 10
    */
   function setApplicationEnabledSync(bundleName: string, isEnabled: boolean): void;
+
+  /**
+   * Sets whether to enable a specified ability.
+   *
+   * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
+   * @param { AbilityInfo } info - Indicates information about the ability to set.
+   * @param { number } appIndex - Indicates the index of clone app.
+   * @param { boolean } isEnabled - The value true means to enable it, and the value false means to disable it.
+   * @returns { Promise<void> } set ability enabled result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700003 - The specified abilityInfo is not found.
+   * @throws { BusinessError } 17700061 - AppIndex not in valid range.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  function setAbilityEnabled(info: AbilityInfo, appIndex: number, isEnabled: boolean): Promise<void>;
 
   /**
    * Sets whether to enable a specified ability.
@@ -2118,6 +2188,22 @@ declare namespace bundleManager {
    * Checks whether a specified application is enabled.
    *
    * @param { string } bundleName - Indicates the bundle name of the application.
+   * @param { number } appIndex - Indicates the index of clone app.
+   * @returns { Promise<boolean> } Returns true if the application is enabled; returns false otherwise.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700061 - AppIndex not in valid range.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  function isApplicationEnabled(bundleName: string, appIndex: number): Promise<boolean>;
+
+  /**
+   * Checks whether a specified application is enabled.
+   *
+   * @param { string } bundleName - Indicates the bundle name of the application.
    * @param { AsyncCallback<boolean> } callback - The callback of checking application enabled result. The result is true if enabled, false otherwise.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -2155,6 +2241,23 @@ declare namespace bundleManager {
    * @since 10
    */
   function isApplicationEnabledSync(bundleName: string): boolean;
+
+  /**
+   * Checks whether a specified ability is enabled.
+   *
+   * @param { AbilityInfo } info - Indicates information about the ability to check.
+   * @param { number } appIndex - Indicates the index of clone app.
+   * @returns { Promise<boolean> } Returns true if the ability is enabled; returns false otherwise.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700003 - The specified abilityName is not found.
+   * @throws { BusinessError } 17700061 - AppIndex not in valid range.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  function isAbilityEnabled(info: AbilityInfo, appIndex: number): Promise<boolean>;
 
   /**
    * Checks whether a specified ability is enabled.
@@ -3124,6 +3227,62 @@ declare namespace bundleManager {
    * @since 12
    */
   function switchUninstallState(bundleName: string, state: boolean): void;
+  
+  /**
+   * Get the BundleInfo of the specified MultiIsolation App.
+   * 
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - Indicates the application bundle name to be queried. 
+   * @param { number } appIndex - Indicates the index of clone app.
+   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
+   * @param { number } [userId] - Indicates the user ID, If the user id is not specified, the current user id is used by default.
+   * @returns { Promise<BundleInfo> } Returns A BundleInfo Of MultiApp Mode.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700061 - AppIndex not in valid range.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  function getAppCloneBundleInfo(bundleName: string, appIndex: number, bundleFlags: number, userId?: number): Promise<BundleInfo>;
+
+  /**
+   * Get all BundleInfo of clone app.
+   * 
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - Indicates the application bundle name to be queried.
+   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
+   * @param { number } [userId] - Indicates the user ID, If the user id is not specified, the current user id is used by default.
+   * @returns { Promise<Array<BundleInfo>> } Returns BundleInfo Arrays Of MultiApp Mode.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  function getAllAppCloneBundleInfo(bundleName: string, bundleFlags: number, userId?: number): Promise<Array<BundleInfo>>;
+
+  /**
+   * Obtains AppCloneIdentity contains bundleName and appIndex by the given uid.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { number } uid - Indicates the UID of an application.
+   * @returns { Promise<AppCloneIdentity> } Returns the clone Identity contains bundleName and appIndex.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 17700021 - The uid is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  function getAppCloneIdentity(uid: number): Promise<AppCloneIdentity>;
 
   /**
    * Obtains configuration information about an application.
@@ -3245,6 +3404,15 @@ declare namespace bundleManager {
   export type SignatureInfo = _BundleInfo.SignatureInfo;
 
   /**
+   * AppCloneIdentity Contain BundleName and appIndex.
+   *
+   * @typedef { _BundleInfo.AppCloneIdentity }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 12
+   */
+  export type AppCloneIdentity = _BundleInfo.AppCloneIdentity;
+
+  /**
    * Obtains configuration information about a module.
    *
    * @typedef { _HapModuleInfo.HapModuleInfo }
@@ -3263,7 +3431,7 @@ declare namespace bundleManager {
 
   /**
    * Obtains preload information about a module.
-   * 
+   *
    * @typedef { _HapModuleInfo.PreloadItem }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
@@ -3341,7 +3509,7 @@ declare namespace bundleManager {
 
   /**
    * Obtains extension information about a bundle.
-   * 
+   *
    * @typedef { _ExtensionAbilityInfo.ExtensionAbilityInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9

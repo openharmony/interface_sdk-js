@@ -21,6 +21,7 @@
 /// <reference path="../component/units.d.ts" />
 
 import { ResourceStr } from 'GlobalResource';
+import { TextModifier } from './@ohos.arkui.modifier';
 
 /**
  * Control style of operation element
@@ -451,4 +452,53 @@ export declare struct SubHeader {
    * @since 12
    */
   operationSymbolOptions?: Array<SymbolOptions>;
+
+  /**
+   * Text modifier for primary title.
+   * @type { TextModifier }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  primaryTitleModifier?: TextModifier;
+
+  /**
+   * Text modifier for secondary title.
+   * @type { TextModifier }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  secondaryTitleModifier?: TextModifier;
+
+  /**
+   * Set the title content.
+   * @type { () => void }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  @BuilderParam titleBuilder?: () => void;
+
+  /**
+   * Set the content margin.
+   * @type { ?LocalizedMargin }
+   * @default set different default values according to the width of the subHeader:
+   * <br> When the subHeader width is <600vp, the default value is
+   * <br> {start: LengthMetrics.vp(16), end: LengthMetrics.vp(16)};
+   * <br> When the subHeader width is >=600vp and <840vp, the default value is
+   * <br> {start: LengthMetrics.vp(24), end: LengthMetrics.vp(24)};
+   * <br> Otherwise, the default value is {start: LengthMetrics.vp(32), end: LengthMetrics.vp(32)}.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  @Prop contentMargin?: LocalizedMargin;
+
+  /**
+   * Set the content padding.
+   * @type { ?LocalizedPadding }
+   * @default set different default values according to the width of the subHeader:
+   * <br> When the left area is secondaryTitle or the group of secondaryTitle and icon,
+   * <br> the default value is {start: LengthMetrics.vp(12), end: LengthMetrics.vp(12)};
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  @Prop contentPadding?: LocalizedPadding;
 }

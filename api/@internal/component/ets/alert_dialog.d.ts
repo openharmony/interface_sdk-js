@@ -500,6 +500,15 @@ declare interface AlertDialogButtonOptions {
    * @since 11
    */
   action: () => void;
+  /**
+   * Define whether the button responds to Enter/Space key by default.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+    primary?: boolean;
 }
 
 /**
@@ -850,12 +859,12 @@ declare interface AlertDialogParam {
   /**
    * Defines the alertDialog's corner radius.
    *
-   * @type { ?(Dimension | BorderRadiuses) }
+   * @type { ?(Dimension | BorderRadiuses | LocalizedBorderRadiuses) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  cornerRadius?: Dimension | BorderRadiuses;
+  cornerRadius?: Dimension | BorderRadiuses | LocalizedBorderRadiuses;
 
   /**
    * Defines the alertDialog's width.
@@ -880,22 +889,22 @@ declare interface AlertDialogParam {
   /**
    * Defines the alertDialog's border width.
    *
-   * @type { ?(Dimension | EdgeWidths) }
+   * @type { ?(Dimension | EdgeWidths | LocalizedEdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  borderWidth?: Dimension | EdgeWidths;
+  borderWidth?: Dimension | EdgeWidths | LocalizedEdgeWidths;
 
   /**
    * Defines the alertDialog's border color.
    *
-   * @type { ?(ResourceColor | EdgeColors) }
+   * @type { ?(ResourceColor | EdgeColors | LocalizedEdgeColors) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  borderColor?: ResourceColor | EdgeColors;
+  borderColor?: ResourceColor | EdgeColors | LocalizedEdgeColors;
 
   /**
    * Defines the alertDialog's border style.

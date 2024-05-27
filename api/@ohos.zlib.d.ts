@@ -1225,8 +1225,8 @@ declare namespace zlib {
      * @param { number } adler - Initial value of Adler32 checksum.
      * @param { ArrayBuffer } buf - Calculate checksum data buffer.
      * @returns { Promise<number> } Return the updated checksum.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1240,8 +1240,8 @@ declare namespace zlib {
      * @param { number } adler2 - The second Adler32 checksum.
      * @param { number } len2 - The length of the data block associated with the second Adler32 checksum.
      * @returns { Promise<number> } Returns the Adler-32 checksum.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1254,8 +1254,8 @@ declare namespace zlib {
      * @param { number } crc - Initial value of CRC-32 checksum.
      * @param { ArrayBuffer } buf - Calculate checksum data buffer.
      * @returns { Promise<number> } Return the updated CRC-32.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1269,8 +1269,8 @@ declare namespace zlib {
      * @param { number } crc2 - The second CRC-32 checksum.
      * @param { number } len2 - The length of the data block associated with the second CRC-32 checksum.
      * @returns { Promise<number> } Returns the CRC-32 check value.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1283,8 +1283,8 @@ declare namespace zlib {
      * @param { number } crc - Initial value of CRC-64 checksum.
      * @param { ArrayBuffer } buf - Calculate checksum data buffer.
      * @returns { Promise<number> } Return the updated CRC-64.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1452,6 +1452,7 @@ declare namespace zlib {
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17800005 - Data error.
+     * @throws { BusinessError } 17800007 - Buffer error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1472,22 +1473,6 @@ declare namespace zlib {
      * @since 12
      */
     inflateValidate(strm: ZStream, check: number): Promise<ReturnStatus>;
-
-    /**
-     * Used to modify the sane flag in the structure.
-     *
-     * @param { ZStream } strm - Object to structure z_stream.
-     * @param { number } subvert - Whether to subvert the internal sane logo.
-     * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - ZStream error.
-     * @throws { BusinessError } 17800005 - Data error.
-     * @syscap SystemCapability.BundleManager.Zlib
-     * @atomicservice
-     * @since 12
-     */
-    inflateUndermine(strm: ZStream, subvert: number): Promise<ReturnStatus>;
 
     /**
      * Find a synchronization point for the current decompressed stream.
@@ -1725,11 +1710,12 @@ declare namespace zlib {
      * Initialize the internal stream state for decompression using inflateBack() calls.
      *
      * @param { ZStream } strm - Object to structure z_stream.
-     * @param { number } windowBits - Parameter is interpreted the same as it is for inflateInit2.
+     * @param { number } windowBits - Parameter is interpreted the same as it is for inflateInit2. The value range is between 8~15.
      * @param { ArrayBuffer } window - The preset sliding window buffer.
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17800004 - ZStream error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1816,7 +1802,8 @@ declare namespace zlib {
      * @atomicservice
      * @since 12
      */
-    deflateInit2(strm: ZStream, level: CompressLevel, method: CompressMethod, windowBits: number, memLevel: MemLevel, strategy: CompressStrategy): Promise<ReturnStatus>;
+    deflateInit2(strm: ZStream, level: CompressLevel, method: CompressMethod, windowBits: number,
+        memLevel: MemLevel, strategy: CompressStrategy): Promise<ReturnStatus>;
 
     /**
      * Compresses as much data as possible, and stops when the input buffer becomes empty or the output buffer becomes full.
@@ -2000,7 +1987,7 @@ declare namespace zlib {
      * Inserts bits in the deflate output stream.
      *
      * @param { ZStream } strm - Object to structure z_stream.
-     * @param { number } bits - The number of bits to be inserted.
+     * @param { number } bits - The number of bits to be inserted. The value range is between 0~16.
      * @param { number } value - The bit value corresponding to the number of bits.
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -2031,7 +2018,7 @@ declare namespace zlib {
      * @returns { Promise<void> }
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800002 - No such file or directory.
+     * @throws { BusinessError } 17800002 - No such file or access mode error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -2045,6 +2032,7 @@ declare namespace zlib {
      * @returns { Promise<number> } Returns 0 on success.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17800009 - Internal structure error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -2059,7 +2047,7 @@ declare namespace zlib {
      * @returns { Promise<void> }
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800002 - No such file or directory.
+     * @throws { BusinessError } 17800002 - No such file or access mode error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -2091,6 +2079,7 @@ declare namespace zlib {
      *
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
      * @throws { BusinessError } 17800004 - ZStream error.
+     * @throws { BusinessError } 17800006 - Memory allocation failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -2180,6 +2169,7 @@ declare namespace zlib {
      *
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
      * @throws { BusinessError } 17800004 - ZStream error.
+     * @throws { BusinessError } 17800006 - Memory allocation failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -2335,21 +2325,6 @@ declare namespace zlib {
      * @since 12
      */
     gzprintf(format: string, ...args: Array<string | number>): Promise<number>;
-
-    /**
-     * Open gzip compressed file with wide character path name and mode.
-     *
-     * @param { string } widePath - A wide character path name.
-     * @param { string } mode - Specify the file opening method.
-     * @returns { Promise<void> }
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800010 - System architecture error, compiling with _WIN32.
-     * @syscap SystemCapability.BundleManager.Zlib
-     * @atomicservice
-     * @since 12
-     */
-    gzopenw(widePath: string, mode: string): Promise<void>;
 
     /**
      * Return the current compressed (actual) read or write offset of file.

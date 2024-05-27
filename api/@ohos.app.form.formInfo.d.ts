@@ -405,6 +405,16 @@ declare namespace formInfo {
      * @since 11
      */
     transparencyEnabled: boolean;
+
+    /**
+     * Obtains the shape supported by this form.
+     *
+     * @type { Array<number> }
+     * @syscap SystemCapability.Ability.Form
+     * @atomicservice
+     * @since 12
+     */
+    supportedShapes: Array<number>;
   }
 
   /**
@@ -1095,6 +1105,17 @@ declare namespace formInfo {
      * @since 12
      */
     supportedDimensions?: Array<number>;
+
+    /**
+     * optional supportedShapes that used to ask getFormsInfo to return
+     * form infos with the same supportedShapes.
+     *
+     * @type { ?Array<number> }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 12
+     */
+    supportedShapes?: Array<number>;
   }
 
   /**
@@ -1206,6 +1227,35 @@ declare namespace formInfo {
      */
     DIMENSION_6_4,
   }
+
+   /**
+   * Defines the FormShape enum.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Ability.Form
+   * @atomicservice
+   * @since 12
+   */
+  enum FormShape {
+    /**
+     * The rect shape.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @atomicservice
+     * @since 12
+     */
+    RECT = 1,
+
+    /**
+     * The circle shape.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @atomicservice
+     * @since 12
+     */
+    CIRCLE,
+  }
+
   /**
    * The visibility of a form.
    *

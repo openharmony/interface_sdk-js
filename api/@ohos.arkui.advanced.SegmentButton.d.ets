@@ -435,6 +435,20 @@ interface CommonSegmentButtonOptions {
    */
   buttonPadding?: Padding | Dimension;
 
+   /**
+   * The localized padding of buttons.
+   *
+   * @type { ?LocalizedPadding }
+   * @default For text only / icon only buttons LocalizedPadding
+   * { top: LengthMetrics.vp(4), end: LengthMetrics.vp(8), bottom: LengthMetrics.vp(4), start: LengthMetrics.vp(8) }.
+   * For text & icon buttons LocalizedPadding
+   * {{ top: LengthMetrics.vp(6), end: LengthMetrics.vp(8), bottom: LengthMetrics.vp(6), start: LengthMetrics.vp(8) }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  localizedButtonPadding?: LocalizedPadding;
+
   /**
    * The padding of text in button.
    *
@@ -456,6 +470,16 @@ interface CommonSegmentButtonOptions {
    */
   textPadding?: Padding | Dimension;
 
+   /**
+   * The localized padding of text in button.
+   *
+   * @type { ?LocalizedPadding }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  localizedTextPadding?: LocalizedPadding;
+
   /**
    * The blurStyle of background.
    *
@@ -474,6 +498,16 @@ interface CommonSegmentButtonOptions {
    * @since 12
    */
   backgroundBlurStyle?: BlurStyle;
+
+  /**
+   * Indicates the attribute of the current segment button direction.
+   *
+   * @type { ?Direction }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  direction?: Direction;
 }
 
 /**
@@ -1287,6 +1321,16 @@ declare class SegmentButtonOptions {
    */
   buttonPadding: Padding | Dimension;
 
+   /**
+   * The localized padding of buttons.
+   *
+   * @type { ?LocalizedPadding }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  localizedButtonPadding?: LocalizedPadding;
+
   /**
    * The padding of text in button.
    *
@@ -1305,6 +1349,16 @@ declare class SegmentButtonOptions {
    * @since 12
    */
   textPadding: Padding | Dimension;
+
+   /**
+   * The localized padding of text in button.
+   *
+   * @type { ?LocalizedPadding }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  localizedTextPadding?: LocalizedPadding;
 
   /**
    * The blurStyle of background.
@@ -1389,6 +1443,16 @@ declare class SegmentButtonOptions {
    * @since 12
    */
   static capsule(options: CapsuleSegmentButtonConstructionOptions): SegmentButtonOptions;
+
+  /**
+   * Indicates the attribute of the current segment button direction.
+   *
+   * @type { ?Direction }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  direction?: Direction;
 }
 
 /**

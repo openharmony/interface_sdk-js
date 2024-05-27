@@ -1504,8 +1504,8 @@ declare namespace window {
      * Set complete state of animation transition
      *
      * @param { boolean } isCompleted - Whether the transition is complete. The value true means that the transition is complete, and false means the opposite.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
@@ -1526,8 +1526,8 @@ declare namespace window {
      * Animation configuration when showing window
      *
      * @param { TransitionContext } context - The transition context.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
@@ -1537,8 +1537,8 @@ declare namespace window {
      * Animation configuration when hiding window
      *
      * @param { TransitionContext } context - The transition context.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
@@ -1597,6 +1597,24 @@ declare namespace window {
      * @since 9
      */
     parentId?: number;
+
+    /**
+     * Indicates whether enable window decor, only support dialog, The default value is false.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    decorEnabled?: boolean;
+
+    /**
+     * Indicates dialog window title when decor enabled.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    title?: string;
   }
 
   /**
@@ -1829,12 +1847,12 @@ declare namespace window {
    *
    * @param { Configuration } config - Parameters for window creation.
    * @param { AsyncCallback<Window> } callback - Callback used to return the window created.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-   *                                                                  2.Incorrect parameter types.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+   *                                                                  2. Incorrect parameter types.
    * @throws { BusinessError } 1300001 - Repeated operation.
    * @throws { BusinessError } 1300006 - This window context is abnormal.
-   * @throws { BusinessError } 1300008 - The operation is on invalid display.
+   * @throws { BusinessError } 1300008 - The display device is abnormal.
    * @throws { BusinessError } 1300009 - The parent window is invalid.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 9
@@ -1846,12 +1864,12 @@ declare namespace window {
    *
    * @param { Configuration } config - Parameters for window creation.
    * @returns { Promise<Window> } Promise used to return the window created.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-   *                                                                  2.Incorrect parameter types.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+   *                                                                  2. Incorrect parameter types.
    * @throws { BusinessError } 1300001 - Repeated operation.
    * @throws { BusinessError } 1300006 - This window context is abnormal.
-   * @throws { BusinessError } 1300008 - The operation is on invalid display.
+   * @throws { BusinessError } 1300008 - The display device is abnormal.
    * @throws { BusinessError } 1300009 - The parent window is invalid.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 9
@@ -1943,8 +1961,8 @@ declare namespace window {
    *
    * @param { string } name - Indicates window name.
    * @returns { Window } Window found.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-   *                                                                  2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+   *                                                                  2. Incorrect parameter types.
    * @throws { BusinessError } 1300002 - This window state is abnormal.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 9
@@ -1954,8 +1972,8 @@ declare namespace window {
    *
    * @param { string } name - Indicates window name.
    * @returns { Window } Window found.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-   *                                                                  2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+   *                                                                  2. Incorrect parameter types.
    * @throws { BusinessError } 1300002 - This window state is abnormal.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
@@ -1966,8 +1984,8 @@ declare namespace window {
    *
    * @param { string } name - Indicates window name.
    * @returns { Window } Window found.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-   *                                                                  2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+   *                                                                  2. Incorrect parameter types.
    * @throws { BusinessError } 1300002 - This window state is abnormal.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
@@ -2029,8 +2047,8 @@ declare namespace window {
    *
    * @param { BaseContext } ctx - Current application context.
    * @param { AsyncCallback<Window> } callback - Callback used to return the top window obtained.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-   *                                                                  2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+   *                                                                  2. Incorrect parameter types.
    * @throws { BusinessError } 1300002 - This window state is abnormal.
    * @throws { BusinessError } 1300006 - This window context is abnormal.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -2041,8 +2059,8 @@ declare namespace window {
    *
    * @param { BaseContext } ctx - Current application context.
    * @param { AsyncCallback<Window> } callback - Callback used to return the top window obtained.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-   *                                                                  2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+   *                                                                  2. Incorrect parameter types.
    * @throws { BusinessError } 1300002 - This window state is abnormal.
    * @throws { BusinessError } 1300006 - This window context is abnormal.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -2056,8 +2074,8 @@ declare namespace window {
    *
    * @param { BaseContext } ctx - Current application context.
    * @returns { Promise<Window> } Promise used to return the top window obtained.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-   *                                                                  2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+   *                                                                  2. Incorrect parameter types.
    * @throws { BusinessError } 1300002 - This window state is abnormal.
    * @throws { BusinessError } 1300006 - This window context is abnormal.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -2068,8 +2086,8 @@ declare namespace window {
    *
    * @param { BaseContext } ctx - Current application context.
    * @returns { Promise<Window> } Promise used to return the top window obtained.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-   *                                                                  2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+   *                                                                  2. Incorrect parameter types.
    * @throws { BusinessError } 1300002 - This window state is abnormal.
    * @throws { BusinessError } 1300006 - This window context is abnormal.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -2083,9 +2101,9 @@ declare namespace window {
    *
    * @param { number } id - ID of the display.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-   *                                                                  2.Incorrect parameter types;
-   *                                                                  3.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+   *                                                                  2. Incorrect parameter types;
+   *                                                                  3. Parameter verification failed.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -2098,9 +2116,9 @@ declare namespace window {
    *
    * @param { number } id - ID of the display.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-   *                                                                  2.Incorrect parameter types;
-   *                                                                  3.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+   *                                                                  2. Incorrect parameter types;
+   *                                                                  3. Parameter verification failed.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -2135,9 +2153,9 @@ declare namespace window {
    *
    * @param { WindowLayoutMode } mode - The layout mode of a window.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-   *                                                                  2.Incorrect parameter types; 
-   *                                                                  3.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+   *                                                                  2. Incorrect parameter types; 
+   *                                                                  3. Parameter verification failed.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -2150,9 +2168,9 @@ declare namespace window {
    *
    * @param { WindowLayoutMode } mode - The layout mode of a window.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-   *                                                                  2.Incorrect parameter types; 
-   *                                                                  3.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+   *                                                                  2. Incorrect parameter types; 
+   *                                                                  3. Parameter verification failed.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -2165,8 +2183,8 @@ declare namespace window {
    *
    * @param { boolean } enable - Gesture navigation if true, or disable if false.
    * @param { AsyncCallback<void> } callback - The callback of setGestureNavigationEnabled.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-   *                                                                  2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+   *                                                                  2. Incorrect parameter types.
    * @throws { BusinessError } 1300002 - This window state is abnormal.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -2180,8 +2198,8 @@ declare namespace window {
    *
    * @param { boolean } enable - Gesture navigation if true, or disable if false.
    * @returns { Promise<void> } - The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-   *                                                                  2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+   *                                                                  2. Incorrect parameter types.
    * @throws { BusinessError } 1300002 - This window state is abnormal.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -2196,9 +2214,9 @@ declare namespace window {
    * @param { image.PixelMap } pixelMap - Watermark image.
    * @param { boolean } enable - Show watermark if true.
    * @returns { Promise<void> } - Promise that returns no value.
-   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
-   * @throws { BusinessError } 401 - Parameter error. Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-   *                                                                                   2.Incorrect parameter types.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+   *                                                                  2. Incorrect parameter types.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -2212,9 +2230,9 @@ declare namespace window {
    * @param { image.PixelMap } pixelMap - Watermark image.
    * @param { boolean } enable - Show watermark if true.
    * @param { AsyncCallback<void> } callback - The callback of setWaterMarkImage.
-   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
-   * @throws { BusinessError } 401 - Parameter error. Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-   *                                                                                   2.Incorrect parameter types.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+   *                                                                  2. Incorrect parameter types.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -2228,9 +2246,9 @@ declare namespace window {
    * @param { number } sourceWindowId - Window id which the focus shift from.
    * @param { number } targetWindowId - Window id which the focus shift to.
    * @returns { Promise<void> } - Promise that returns no value.
-   * @throws { BusinessError } 401 - Parameter error. Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-   *                                                                                   2.Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+   *                                                                  2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 1300002 - This window state is abnormal.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @throws { BusinessError } 1300004 - Unauthorized operation.
@@ -2244,7 +2262,7 @@ declare namespace window {
    *
    * @param { number } windowId - Indicates target window id.
    * @returns { Promise<image.PixelMap> } - Promise that returns no value.
-   * @throws {BusinessError} 801 - Capability not supported on this device.
+   * @throws {BusinessError} 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws {BusinessError} 1300002 - This window state is abnormal.
    * @throws {BusinessError} 1300003 - This window manager service work abnormally.
    * @throws {BusinessError} 1300004 - This operation is not access.
@@ -2259,9 +2277,9 @@ declare namespace window {
    *
    * @param { 'systemBarTintChange' } type - The value is fixed at 'systemBarTintChange', indicating the property change event of the system bar.
    * @param { Callback<SystemBarTintState> } callback - Callback used to return the properties of the system bar.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-   *                                                                  2.Incorrect parameter types; 
-   *                                                                  3.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+   *                                                                  2. Incorrect parameter types; 
+   *                                                                  3. Parameter verification failed.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -2273,8 +2291,8 @@ declare namespace window {
    *
    * @param { 'systemBarTintChange' } type - The value is fixed at 'systemBarTintChange', indicating the property change event of the system bar.
    * @param { Callback<SystemBarTintState> } callback - Callback used to return the properties of the system bar.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Incorrect parameter types; 
-   *                                                                  2.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
+   *                                                                  2. Parameter verification failed.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -2286,9 +2304,9 @@ declare namespace window {
    *
    * @param { 'gestureNavigationEnabledChange' } type the event of gesture navigation enabled changes.
    * @param { Callback<boolean> } callback Callback used to return the result whether gesture navigation enabled or not.
-   * @throws { BusinessError } 401 - Parameter error. Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-   *                                                                                   2.Incorrect parameter types.
-   *                                                                                   3.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+   *                                                                  2. Incorrect parameter types.
+   *                                                                  3. Parameter verification failed.
    * @throws { BusinessError } 1300002 - This window state is abnormal.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -2302,8 +2320,8 @@ declare namespace window {
    *
    * @param { 'gestureNavigationEnabledChange' } type the event of gesture navigation enabled changes.
    * @param { Callback<boolean> } callback Callback used to return the result whether gesture navigation enabled or not.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Incorrect parameter types; 
-   *                                                                  2.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
+   *                                                                  2. Parameter verification failed.
    * @throws { BusinessError } 1300002 - This window state is abnormal.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -2317,7 +2335,7 @@ declare namespace window {
    *
    * @param { 'waterMarkFlagChange' } type the event of watermark flag change.
    * @param { Callback<boolean> } callback Callback used to return the result whether watermark flag change or not.
-   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -2330,7 +2348,7 @@ declare namespace window {
    *
    * @param { 'waterMarkFlagChange' } type the event of watermark flag change.
    * @param { Callback<boolean> } callback Callback used to return the result whether watermark flag change or not.
-   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -3032,8 +3050,8 @@ declare namespace window {
      * @param { number } x - Indicate the X-coordinate of the window.
      * @param { number } y - Indicate the Y-coordinate of the window.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -3045,8 +3063,8 @@ declare namespace window {
      * @param { number } x - Indicate the X-coordinate of the window.
      * @param { number } y - Indicate the Y-coordinate of the window.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -3059,8 +3077,8 @@ declare namespace window {
      * @param { number } x - Indicate the X-coordinate of the window.
      * @param { number } y - Indicate the Y-coordinate of the window.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -3076,8 +3094,8 @@ declare namespace window {
      * @param { number } x - Indicate the X-coordinate of the window.
      * @param { number } y - Indicate the Y-coordinate of the window.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -3089,8 +3107,8 @@ declare namespace window {
      * @param { number } x - Indicate the X-coordinate of the window.
      * @param { number } y - Indicate the Y-coordinate of the window.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -3103,8 +3121,8 @@ declare namespace window {
      * @param { number } x - Indicate the X-coordinate of the window.
      * @param { number } y - Indicate the Y-coordinate of the window.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -3146,9 +3164,9 @@ declare namespace window {
      * @param { number } width - Indicates the width of the window. The width should be greater than 0.
      * @param { number } height - Indicates the height of the window. The height should be greater than 0.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -3160,9 +3178,9 @@ declare namespace window {
      * @param { number } width - Indicates the width of the window. The width should be greater than 0.
      * @param { number } height - Indicates the height of the window. The height should be greater than 0.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -3175,9 +3193,9 @@ declare namespace window {
      * @param { number } width - Indicates the width of the window. The width should be greater than 0.
      * @param { number } height - Indicates the height of the window. The height should be greater than 0.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -3193,9 +3211,9 @@ declare namespace window {
      * @param { number } width - Indicates the width of the window. The width should be greater than 0.
      * @param { number } height - Indicates the height of the window. The height should be greater than 0.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -3207,9 +3225,9 @@ declare namespace window {
      * @param { number } width - Indicates the width of the window. The width should be greater than 0.
      * @param { number } height - Indicates the height of the window. The height should be greater than 0.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -3222,9 +3240,9 @@ declare namespace window {
      * @param { number } width - Indicates the width of the window. The width should be greater than 0.
      * @param { number } height - Indicates the height of the window. The height should be greater than 0.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -3263,9 +3281,9 @@ declare namespace window {
      *
      * @param { WindowMode } mode - Indicate the mode of a window.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -3279,9 +3297,9 @@ declare namespace window {
      *
      * @param { WindowMode } mode - Indicate the mode of a window.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -3370,9 +3388,9 @@ declare namespace window {
      *
      * @param { AvoidAreaType } type - Type of the area
      * @returns { AvoidArea } Area where the window cannot be displayed.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
@@ -3382,9 +3400,9 @@ declare namespace window {
      *
      * @param { AvoidAreaType } type - Type of the area
      * @returns { AvoidArea } Area where the window cannot be displayed.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
@@ -3395,9 +3413,9 @@ declare namespace window {
      *
      * @param { AvoidAreaType } type - Type of the area
      * @returns { AvoidArea } Area where the window cannot be displayed.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
@@ -3533,8 +3551,8 @@ declare namespace window {
      *
      * @param { Array<'status' | 'navigation'> } names - The set of system bar
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -3545,8 +3563,8 @@ declare namespace window {
      *
      * @param { Array<'status' | 'navigation'> } names - The set of system bar
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -3560,8 +3578,8 @@ declare namespace window {
      *
      * @param { Array<'status' | 'navigation'> } names - The set of system bar
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -3572,8 +3590,8 @@ declare namespace window {
      *
      * @param { Array<'status' | 'navigation'> } names - The set of system bar
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -3588,8 +3606,8 @@ declare namespace window {
      * @param {SpecificSystemBar} name - the set of system bar
      * @param {boolean} enable - Show specific system bar if true, or hide specific system bar if false.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws {BusinessError} 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                2.Incorrect parameter types.
+     * @throws {BusinessError} 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                2. Incorrect parameter types.
      * @throws {BusinessError} 1300002 - This window state is abnormal.
      * @throws {BusinessError} 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -3603,8 +3621,8 @@ declare namespace window {
      * @param {boolean} enable - Show specific system bar if true, or hide specific system bar if false.
      * @param {boolean} enableAnimation - Whether using animation during this setting, using animation if true or not using animation if false.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws {BusinessError} 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                2.Incorrect parameter types.
+     * @throws {BusinessError} 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                2. Incorrect parameter types.
      * @throws {BusinessError} 1300002 - This window state is abnormal.
      * @throws {BusinessError} 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -3643,9 +3661,9 @@ declare namespace window {
      *
      * @param { SystemBarProperties } systemBarProperties - The properties of system bar
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -3656,9 +3674,9 @@ declare namespace window {
      *
      * @param { SystemBarProperties } systemBarProperties - The properties of system bar
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -3672,9 +3690,9 @@ declare namespace window {
      *
      * @param { SystemBarProperties } systemBarProperties - The properties of system bar
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -3685,9 +3703,9 @@ declare namespace window {
      *
      * @param { SystemBarProperties } systemBarProperties - The properties of system bar
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -3714,9 +3732,9 @@ declare namespace window {
      *
      * @param { Orientation } orientation - The orientation config of the window
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
@@ -3726,9 +3744,9 @@ declare namespace window {
      *
      * @param { Orientation } orientation - The orientation config of the window
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
@@ -3739,9 +3757,9 @@ declare namespace window {
      *
      * @param { Orientation } orientation - The orientation config of the window
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
@@ -3755,9 +3773,9 @@ declare namespace window {
      *
      * @param { Orientation } orientation - The orientation config of the window
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
@@ -3767,9 +3785,9 @@ declare namespace window {
      *
      * @param { Orientation } orientation - The orientation config of the window
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
@@ -3780,9 +3798,9 @@ declare namespace window {
      *
      * @param { Orientation } orientation - The orientation config of the window
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
@@ -3808,8 +3826,8 @@ declare namespace window {
      * @param { string } path - Path of the page to which the content will be loaded
      * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -3822,8 +3840,8 @@ declare namespace window {
      * @param { string } path - Path of the page to which the content will be loaded
      * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -3837,8 +3855,8 @@ declare namespace window {
      * @param { string } path - Path of the page to which the content will be loaded
      * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -3855,8 +3873,8 @@ declare namespace window {
      * @param { string } path - Path of the page to which the content will be loaded
      * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -3869,8 +3887,8 @@ declare namespace window {
      * @param { string } path - Path of the page to which the content will be loaded
      * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -3884,8 +3902,8 @@ declare namespace window {
      * @param { string } path - Path of the page to which the content will be loaded
      * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -3924,7 +3942,9 @@ declare namespace window {
      * Get the UIContext associate with the window content.
      *
      * @returns { UIContext } the object of UIContext.
-     * @throws { BusinessError } 401 - If param is invalid
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 
+     *                                                                   2. Incorrect parameter types; 
+     *                                                                   3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @stagemodelonly
@@ -3935,7 +3955,9 @@ declare namespace window {
      * Get the UIContext associate with the window content.
      *
      * @returns { UIContext } the object of UIContext.
-     * @throws { BusinessError } 401 - If param is invalid
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 
+     *                                                                   2. Incorrect parameter types; 
+     *                                                                   3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @stagemodelonly
@@ -3950,8 +3972,8 @@ declare namespace window {
      *
      * @param { string } path - Path of the page to which the content will be loaded
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -3962,8 +3984,8 @@ declare namespace window {
      *
      * @param { string } path - Path of the page to which the content will be loaded
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -3975,8 +3997,8 @@ declare namespace window {
      *
      * @param { string } path - Path of the page to which the content will be loaded
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -3991,8 +4013,8 @@ declare namespace window {
      *
      * @param { string } path - Path of the page to which the content will be loaded
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -4003,8 +4025,8 @@ declare namespace window {
      *
      * @param { string } path - Path of the page to which the content will be loaded
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -4016,8 +4038,8 @@ declare namespace window {
      *
      * @param { string } path - Path of the page to which the content will be loaded
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -4033,8 +4055,8 @@ declare namespace window {
      * @param { string } name - name of the page to which the content will be loaded.
      * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -4050,8 +4072,8 @@ declare namespace window {
      *
      * @param { string } name - name of the page to which the content will be loaded.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -4068,8 +4090,8 @@ declare namespace window {
      * @param { string } name - name of the page to which the content will be loaded.
      * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -4136,9 +4158,9 @@ declare namespace window {
      *
      * @param { 'windowSizeChange' } type - The value is fixed at 'windowSizeChange', indicating the window size change event.
      * @param { Callback<Size> } callback - Callback used to return the window size.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
@@ -4147,9 +4169,9 @@ declare namespace window {
      *
      * @param { 'windowSizeChange' } type - The value is fixed at 'windowSizeChange', indicating the window size change event.
      * @param { Callback<Size> } callback - Callback used to return the window size.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 11
@@ -4161,8 +4183,8 @@ declare namespace window {
      *
      * @param { 'windowSizeChange' } type - The value is fixed at 'windowSizeChange', indicating the window size change event.
      * @param { Callback<Size> } callback - Callback used to return the window size.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Incorrect parameter types; 
-     *                                                                  2.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
+     *                                                                  2. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
@@ -4171,8 +4193,8 @@ declare namespace window {
      *
      * @param { 'windowSizeChange' } type - The value is fixed at 'windowSizeChange', indicating the window size change event.
      * @param { Callback<Size> } callback - Callback used to return the window size.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Incorrect parameter types; 
-     *                                                                  2.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
+     *                                                                  2. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 11
@@ -4208,7 +4230,9 @@ declare namespace window {
      *
      * @param { 'avoidAreaChange' } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
      * @param { Callback<{ type: AvoidAreaType, area: AvoidArea }> } callback - Callback used to return the area.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 
+     *                                                                   2. Incorrect parameter types; 
+     *                                                                   3. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
@@ -4217,7 +4241,9 @@ declare namespace window {
      *
      * @param { 'avoidAreaChange' } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
      * @param { Callback<{ type: AvoidAreaType, area: AvoidArea }> } callback - Callback used to return the area.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 
+     *                                                                   2. Incorrect parameter types; 
+     *                                                                   3. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 11
@@ -4227,7 +4253,9 @@ declare namespace window {
      *
      * @param { 'avoidAreaChange' } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
      * @param { Callback<AvoidAreaOptions> } callback - Callback used to return the area.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 
+     *                                                                   2. Incorrect parameter types; 
+     *                                                                   3. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -4239,7 +4267,9 @@ declare namespace window {
      *
      * @param { 'avoidAreaChange' } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
      * @param { Callback<{ type: AvoidAreaType, area: AvoidArea }> } callback - Callback used to return the area.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 
+     *                                                                   2. Incorrect parameter types; 
+     *                                                                   3. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
@@ -4248,7 +4278,9 @@ declare namespace window {
      *
      * @param { 'avoidAreaChange' } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
      * @param { Callback<{ type: AvoidAreaType, area: AvoidArea }> } callback - Callback used to return the area.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 
+     *                                                                   2. Incorrect parameter types; 
+     *                                                                   3. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 11
@@ -4258,7 +4290,9 @@ declare namespace window {
      *
      * @param { 'avoidAreaChange' } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
      * @param { Callback<AvoidAreaOptions> } callback - Callback used to return the area.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 
+     *                                                                   2. Incorrect parameter types; 
+     *                                                                   3. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -4270,9 +4304,9 @@ declare namespace window {
      *
      * @param { 'keyboardHeightChange' } type - The value is fixed at 'keyboardHeightChange', indicating the keyboard height change event.
      * @param { Callback<number> } callback - Callback used to return the current keyboard height.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
@@ -4283,8 +4317,8 @@ declare namespace window {
      *
      * @param { 'keyboardHeightChange' } type - The value is fixed at 'keyboardHeightChange', indicating the keyboard height change event.
      * @param { Callback<number> } callback - Callback used to return the current keyboard height.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Incorrect parameter types; 
-     *                                                                  2.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
+     *                                                                  2. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
@@ -4295,9 +4329,9 @@ declare namespace window {
      *
      * @param { 'touchOutside' } type - The value is fixed at 'touchOutside', indicating the click event outside this window.
      * @param { Callback<void> } callback - Callback used to return the click event outside this window.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 11
@@ -4309,8 +4343,8 @@ declare namespace window {
      *
      * @param { 'touchOutside' } type - The value is fixed at 'touchOutside', indicating the click event outside this window.
      * @param { Callback<void> } callback - Callback used to return the click event outside this window.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Incorrect parameter types; 
-     *                                                                  2.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
+     *                                                                  2. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 11
@@ -4322,10 +4356,10 @@ declare namespace window {
      *
      * @param { 'windowVisibilityChange' } type - The value is fixed at 'windowVisibilityChange', indicating the window visibility change.
      * @param { Callback<boolean> } callback - Callback used to notify the window visibility change.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -4338,9 +4372,9 @@ declare namespace window {
      *
      * @param { 'windowVisibilityChange' } type - The value is fixed at 'windowVisibilityChange', indicating the window visibility change.
      * @param { Callback<boolean> } callback - Callback used to notify the window visibility change.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Incorrect parameter types; 
-     *                                                                  2.Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
+     *                                                                  2. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -4354,10 +4388,10 @@ declare namespace window {
      * @param { 'noInteractionDetected' } type - The value is fixed at 'noInteractionDetected', indicating the window has no interaction for a long time.
      * @param { number } timeout - The timeout(in seconds) of no interaction detection.
      * @param { Callback<void> } callback - Callback used to notify the window has no interaction for a long time.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -4370,7 +4404,7 @@ declare namespace window {
      *
      * @param { 'noInteractionDetected' } type - The value is fixed at 'noInteractionDetected', indicating the window has no interaction for a long time.
      * @param { Callback<void> } callback - Callback used to notify the window has no interaction for a long time.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -4383,9 +4417,9 @@ declare namespace window {
      *
      * @param { 'screenshot' } type - The value is fixed at 'screenshot', indicating the screenshot event.
      * @param { Callback<void> } callback - Callback invoked when a screenshot event occurs.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
@@ -4396,8 +4430,8 @@ declare namespace window {
      *
      * @param { 'screenshot' } type - The value is fixed at 'screenshot', indicating the screenshot event.
      * @param { Callback<void> } callback - Callback invoked when a screenshot event occurs.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Incorrect parameter types; 
-     *                                                                  2.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
+     *                                                                  2. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
@@ -4408,9 +4442,9 @@ declare namespace window {
      *
      * @param { 'dialogTargetTouch' } type - The value is fixed at 'dialogTargetTouch', indicating the click event of the target window in the modal window mode.
      * @param { Callback<void> } callback - Callback invoked when the click event occurs in the target window of the modal window mode.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 10
      */
@@ -4422,8 +4456,8 @@ declare namespace window {
      * @param { 'dialogTargetTouch' } type - The value is fixed at 'dialogTargetTouch',
      *  indicating the click event of the target window in the modal window mode.
      * @param { Callback<void> } callback - Callback invoked when the click event occurs in the target window of the modal window mode.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Incorrect parameter types; 
-     *                                                                  2.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
+     *                                                                  2. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 10
      */
@@ -4434,9 +4468,9 @@ declare namespace window {
      *
      * @param { 'windowEvent' } type - The value is fixed at 'windowEvent', indicating the window lifecycle change event.
      * @param { Callback<WindowEventType> } callback - the callback of window event
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 10
      */
@@ -4445,9 +4479,9 @@ declare namespace window {
      *
      * @param { 'windowEvent' } type - The value is fixed at 'windowEvent', indicating the window lifecycle change event.
      * @param { Callback<WindowEventType> } callback - the callback of window event
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
@@ -4460,8 +4494,8 @@ declare namespace window {
      *
      * @param { 'windowEvent' } type - The value is fixed at 'windowEvent', indicating the window lifecycle change event.
      * @param { Callback<WindowEventType> } callback - the callback of window event
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Incorrect parameter types; 
-     *                                                                  2.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
+     *                                                                  2. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 10
      */
@@ -4470,8 +4504,8 @@ declare namespace window {
      *
      * @param { 'windowEvent' } type - The value is fixed at 'windowEvent', indicating the window lifecycle change event.
      * @param { Callback<WindowEventType> } callback - the callback of window event
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Incorrect parameter types; 
-     *                                                                  2.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
+     *                                                                  2. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
@@ -4484,10 +4518,10 @@ declare namespace window {
      *
      * @param { 'windowStatusChange' } type - The value is fixed at 'windowStatusChange', indicating the window status change event.
      * @param { Callback<WindowStatusType> } callback - Callback used to return the window status.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
@@ -4498,9 +4532,9 @@ declare namespace window {
      *
      * @param { 'windowStatusChange' } type - The value is fixed at 'windowStatusChange', indicating the window status change event.
      * @param { Callback<WindowStatusType> } callback - Callback used to return the window status.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Incorrect parameter types; 
-     *                                                                  2.Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
+     *                                                                  2. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
@@ -4642,9 +4676,9 @@ declare namespace window {
      *
      * @param { ColorSpace } colorSpace the specified color space.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
@@ -4654,9 +4688,9 @@ declare namespace window {
      *
      * @param { ColorSpace } colorSpace the specified color space.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
@@ -4669,9 +4703,9 @@ declare namespace window {
      *
      * @param { ColorSpace } colorSpace the specified color space.
      * @param { AsyncCallback<void> } callback Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
@@ -4681,9 +4715,9 @@ declare namespace window {
      *
      * @param { ColorSpace } colorSpace the specified color space.
      * @param { AsyncCallback<void> } callback Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
@@ -4760,8 +4794,8 @@ declare namespace window {
      * Sets the background color of window.
      *
      * @param { string } color the specified color.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
@@ -4770,8 +4804,8 @@ declare namespace window {
      * Sets the background color of window.
      *
      * @param { string } color the specified color.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
@@ -4781,8 +4815,8 @@ declare namespace window {
      * Sets the background color of window.
      *
      * @param { string } color the specified color.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
@@ -4820,10 +4854,10 @@ declare namespace window {
      *
      * @param { boolean } isTopmost - Main window is topmost if true.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
@@ -4838,8 +4872,8 @@ declare namespace window {
      *
      * @param { number } brightness the specified brightness value.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -4850,8 +4884,8 @@ declare namespace window {
      *
      * @param { number } brightness the specified brightness value.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -4863,8 +4897,8 @@ declare namespace window {
      *
      * @param { number } brightness the specified brightness value.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -4879,8 +4913,8 @@ declare namespace window {
      *
      * @param { number } brightness the specified brightness value.
      * @param { AsyncCallback<void> } callback Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -4891,8 +4925,8 @@ declare namespace window {
      *
      * @param { number } brightness the specified brightness value.
      * @param { AsyncCallback<void> } callback Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -4904,8 +4938,8 @@ declare namespace window {
      *
      * @param { number } brightness the specified brightness value.
      * @param { AsyncCallback<void> } callback Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -4966,8 +5000,8 @@ declare namespace window {
      *
      * @param { boolean } isFocusable can be focus if true, or can not be focus if false.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -4980,8 +5014,8 @@ declare namespace window {
      *
      * @param { boolean } isFocusable can be focus if true, or can not be focus if false.
      * @param { AsyncCallback<void> } callback Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -5018,8 +5052,8 @@ declare namespace window {
      *
      * @param { boolean } isKeepScreenOn keep screen on if true, or not if false.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -5030,8 +5064,8 @@ declare namespace window {
      *
      * @param { boolean } isKeepScreenOn keep screen on if true, or not if false.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -5043,8 +5077,8 @@ declare namespace window {
      *
      * @param { boolean } isKeepScreenOn keep screen on if true, or not if false.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -5059,8 +5093,8 @@ declare namespace window {
      *
      * @param { boolean } isKeepScreenOn keep screen on if true, or not if false.
      * @param { AsyncCallback<void> } callback Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -5071,8 +5105,8 @@ declare namespace window {
      *
      * @param { boolean } isKeepScreenOn keep screen on if true, or not if false.
      * @param { AsyncCallback<void> } callback Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -5084,8 +5118,8 @@ declare namespace window {
      *
      * @param { boolean } isKeepScreenOn keep screen on if true, or not if false.
      * @param { AsyncCallback<void> } callback Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -5099,8 +5133,8 @@ declare namespace window {
      * Sets whether to wake up the screen when this ability is restored.
      *
      * @param { boolean } wakeUp Specifies whether to wake up the screen. True means to wake it up, false means not.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                                   2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -5161,9 +5195,9 @@ declare namespace window {
      * @permission ohos.permission.PRIVACY_WINDOW
      * @param { boolean } isPrivacyMode in private mode if true, or not if false.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 201 - Permission verification failed.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
@@ -5174,9 +5208,9 @@ declare namespace window {
      * @permission ohos.permission.PRIVACY_WINDOW
      * @param { boolean } isPrivacyMode in private mode if true, or not if false.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 201 - Permission verification failed.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
@@ -5190,9 +5224,9 @@ declare namespace window {
      * @permission ohos.permission.PRIVACY_WINDOW
      * @param { boolean } isPrivacyMode in private mode if true, or not if false.
      * @param { AsyncCallback<void> } callback Callback used to return the result.
-     * @throws { BusinessError } 201 - Permission verification failed.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
@@ -5203,9 +5237,9 @@ declare namespace window {
      * @permission ohos.permission.PRIVACY_WINDOW
      * @param { boolean } isPrivacyMode in private mode if true, or not if false.
      * @param { AsyncCallback<void> } callback Callback used to return the result.
-     * @throws { BusinessError } 201 - Permission verification failed.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
@@ -5217,8 +5251,8 @@ declare namespace window {
      * Ignore this window during screenshot.
      *
      * @param { boolean } isSkip skip if true, or not if false.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
@@ -5255,8 +5289,8 @@ declare namespace window {
      *
      * @param { boolean } isTouchable is touchable if true, or not if false.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -5269,8 +5303,8 @@ declare namespace window {
      *
      * @param { boolean } isTouchable is touchable if true, or not if false.
      * @param { AsyncCallback<void> } callback Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -5283,10 +5317,10 @@ declare namespace window {
      *
      * @param { boolean } enable - Add handwrite flag to window if true, or remove flag if false.
      * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -5300,7 +5334,8 @@ declare namespace window {
      *
      * @param { boolean } isForbidSplitMove the flag of the window is forbidden to move in split screen mode
      * @param { AsyncCallback<void> } callback Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -5314,7 +5349,8 @@ declare namespace window {
      *
      * @param { boolean } isForbidSplitMove the flag of the window is forbidden to move in split screen mode
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -5347,9 +5383,9 @@ declare namespace window {
      * Sets opacity  of window
      *
      * @param { number } opacity Interval is 0.f-1.f.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -5362,9 +5398,9 @@ declare namespace window {
      * Sets scale options of window.
      *
      * @param { ScaleOptions } scaleOptions scale param of window.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -5377,9 +5413,9 @@ declare namespace window {
      * Sets rotate options of window.
      *
      * @param { RotateOptions } rotateOptions rotate param of window.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -5392,9 +5428,9 @@ declare namespace window {
      * Sets translate options of window.
      *
      * @param { TranslateOptions } translateOptions translate param of window.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -5419,9 +5455,9 @@ declare namespace window {
      * Sets the window blur radius.
      *
      * @param { number } radius the blur radius.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -5434,9 +5470,9 @@ declare namespace window {
      * Sets the window backdrop blur radius.
      *
      * @param { number } radius the blur radius.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -5449,9 +5485,9 @@ declare namespace window {
      * Sets the window backdrop blur style.
      *
      * @param { BlurStyle } blurStyle the specified blur style.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -5467,9 +5503,9 @@ declare namespace window {
      * @param { string } color the color of the shadow.
      * @param { number } offsetX the offset of the shadow on the x-axis.
      * @param { number } offsetY the offset of the shadow on the y-axis.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -5482,9 +5518,9 @@ declare namespace window {
      * Sets corner radius.
      *
      * @param { number } cornerRadius the corner radius.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -5497,7 +5533,7 @@ declare namespace window {
      * Raise app sub window to app top
      *
      * @param { AsyncCallback<void> } callback - The callback of raiseToAppTop
-     * @throws { BusinessError } 201 - Permission verification failed.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
@@ -5512,7 +5548,7 @@ declare namespace window {
      * Raise app sub window to app top
      *
      * @returns { Promise<void> } - The promise returned by the function
-     * @throws { BusinessError } 201 - Permission verification failed.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
@@ -5528,9 +5564,9 @@ declare namespace window {
      *
      * @param { number } ratio - The aspect ratio of window except decoration
      * @param { AsyncCallback<void> } callback - The callback of setAspectRatio.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -5543,9 +5579,9 @@ declare namespace window {
      *
      * @param { number } ratio - The aspect ratio of window except decoration
      * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -5582,7 +5618,7 @@ declare namespace window {
      * @param { AsyncCallback<void> } callback - The callback of setWaterMarkFlag.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300008 - The operation is on invalid display.
+     * @throws { BusinessError } 1300008 - The display device is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -5596,7 +5632,7 @@ declare namespace window {
      * @returns { Promise<void> } - The promise returned by the function
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300008 - The operation is on invalid display.
+     * @throws { BusinessError } 1300008 - The display device is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -5608,9 +5644,9 @@ declare namespace window {
      *
      * @param { number } windowId - Indicates target window id.
      * @param { AsyncCallback<void> } callback - The callback of raiseAboveTarget.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: Mandatory parameters are left unspecified.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
@@ -5626,9 +5662,9 @@ declare namespace window {
      *
      * @param { number } windowId - Indicates target window id.
      * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: Mandatory parameters are left unspecified.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
@@ -5644,10 +5680,10 @@ declare namespace window {
      *
      * @param { boolean } enable - Disable app sub window to raise itself by by click if false.
      * @param { AsyncCallback<void> } callback - The callback of setRaiseByClickEnabled.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
@@ -5663,10 +5699,10 @@ declare namespace window {
      *
      * @param { boolean } enable - Disable app sub window to raise itself by by click if false.
      * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
@@ -5681,7 +5717,7 @@ declare namespace window {
      * Minimize app main window and hide app subWindow.
      *
      * @param { AsyncCallback<void> } callback - The callback of Minimize.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -5693,7 +5729,7 @@ declare namespace window {
      * Minimize app main window and hide app subWindow.
      *
      * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -5705,7 +5741,7 @@ declare namespace window {
      * Maximize app main window.
      *
      * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
@@ -5720,10 +5756,10 @@ declare namespace window {
      *
      * @param { boolean } enable - Disable window to resize by drag if false.
      * @param { AsyncCallback<void> } callback - The callback of setResizeByDragEnabled.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
@@ -5736,10 +5772,10 @@ declare namespace window {
      *
      * @param { boolean } enable - Disable window to resize by drag if false.
      * @param { AsyncCallback<void> } callback - The callback of setResizeByDragEnabled.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -5753,10 +5789,10 @@ declare namespace window {
      *
      * @param { boolean } enable - Disable window to resize by drag if false.
      * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -5770,10 +5806,10 @@ declare namespace window {
      *
      * @param { boolean } shouldHide - Hide the non-system floating windows if true, otherwise means the opposite.
      * @param { AsyncCallback<void> } callback - The callback of hideNonSystemFloatingWindows.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
@@ -5788,10 +5824,10 @@ declare namespace window {
      *
      * @param { boolean } shouldHide - Hide the non-system floating windows if true, otherwise means the opposite.
      * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
@@ -5805,7 +5841,7 @@ declare namespace window {
      * Get the window limits of current window.
      *
      * @returns { WindowLimits } - The limits of window.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
@@ -5817,10 +5853,10 @@ declare namespace window {
      *
      * @param { WindowLimits } windowLimits - window limits of the window.
      * @returns { Promise<WindowLimits> } - Promise is used to return the limits of window.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
@@ -5834,10 +5870,10 @@ declare namespace window {
      *
      * @param { boolean } enable - Enable the single frame composer if true, otherwise means the opposite.
      * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
@@ -5849,9 +5885,9 @@ declare namespace window {
      * When get focused, keep the keyboard created by other windows, support system window and app subwindow.
      *
      * @param { boolean } keepKeyboardFlag - keep the keyboard if true, otherwise means the opposite.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
@@ -5863,7 +5899,7 @@ declare namespace window {
      * Recover app main window.
      *
      * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300001 - Repeated operation.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
@@ -5875,9 +5911,9 @@ declare namespace window {
      * Set the visibility of the window decor.
      *
      * @param { boolean } - Enable the decor visible if true, otherwise means the opposite.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
@@ -5890,9 +5926,9 @@ declare namespace window {
      *
      * @param { boolean } - Enable the window modal if true, otherwise means the opposite.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
@@ -5904,10 +5940,10 @@ declare namespace window {
      * Set the height of the window decor.
      *
      * @param { number } - The height of window decor.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
@@ -5918,7 +5954,7 @@ declare namespace window {
      * Get the height of the window decor.
      *
      * @returns { number } - The height of window decor.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
@@ -5931,10 +5967,10 @@ declare namespace window {
      * If the window area changes, you need to reset it.
      *
      * @param { Array<Rect> } rects - Touchable areas. The maximum size cannot exceed 10, touchable area cannot exceed the window's area.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -5947,7 +5983,7 @@ declare namespace window {
      * Get the area of window title buttons.
      *
      * @returns { TitleButtonRect } - The area of window title buttons.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
@@ -5960,10 +5996,10 @@ declare namespace window {
      * @param { boolean } isMaximizeVisible - Display maximize button if true, or hide maximize button if false.
      * @param { boolean } isMinimizeVisible - Display minimize button if true, or hide minimize button if false.
      * @param { boolean } isSplitVisible - Display split button if true, or hide split button if false.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
@@ -6001,10 +6037,10 @@ declare namespace window {
      *
      * @param { 'windowTitleButtonRectChange' } type - The value is fixed at 'windowTitleButtonRectChange', indicating the title buttons area change event.
      * @param { Callback<TitleButtonRect> } callback - Callback used to return the current title buttons area.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
@@ -6016,9 +6052,9 @@ declare namespace window {
      *
      * @param { 'windowTitleButtonRectChange' } type - The value is fixed at 'windowTitleButtonRectChange', indicating the title buttons area change event.
      * @param { Callback<TitleButtonRect> } callback - Callback used to return the current title buttons area.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Incorrect parameter types; 
-     *                                                                  2.Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
+     *                                                                  2. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
@@ -6030,9 +6066,9 @@ declare namespace window {
      *
      * @param { Array<Array<number>> } windowMask - The mask of window. The value of the array is 0 and 1, the other number is illegal value.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -6045,10 +6081,10 @@ declare namespace window {
      *
      * @param { 'windowRectChange' } type - The value is fixed at 'windowRectChange', indicating the window rect change event.
      * @param { Callback<RectChangeOptions> } callback - Callback used to return the RectChangeOptions.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -6062,9 +6098,9 @@ declare namespace window {
      *
      * @param { 'windowRectChange' } type - The value is fixed at 'windowRectChange', indicating the window rect change event.
      * @param { Callback<RectChangeOptions> } callback - Callback used to return the RectChangeOptions.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Incorrect parameter types; 
-     *                                                                  2.Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
+     *                                                                  2. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -6078,10 +6114,10 @@ declare namespace window {
      *
      * @param { number } grayScale - The value of gray scale.
      * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -6093,7 +6129,8 @@ declare namespace window {
      * Set whether to enable immersive mode.
      *
      * @param { boolean } enabled - The value true means to enable immersive mode, and false means the opposite.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
@@ -6513,7 +6550,7 @@ declare namespace window {
      * @param { SubWindowOptions } options - options of sub window creation
      * @returns { Promise<Window> } Promise used to return the subwindow.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.Window.SessionManager
@@ -6589,8 +6626,8 @@ declare namespace window {
      * @param { string } path Path of the page to which the content will be loaded
      * @param { LocalStorage } storage The data object shared within the content instance loaded by the window
      * @param { AsyncCallback<void> } callback Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -6603,8 +6640,8 @@ declare namespace window {
      * @param { string } path Path of the page to which the content will be loaded
      * @param { LocalStorage } storage The data object shared within the content instance loaded by the window
      * @param { AsyncCallback<void> } callback Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -6618,8 +6655,8 @@ declare namespace window {
      * @param { string } path Path of the page to which the content will be loaded
      * @param { LocalStorage } storage The data object shared within the content instance loaded by the window
      * @param { AsyncCallback<void> } callback Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -6635,8 +6672,8 @@ declare namespace window {
      * @param { string } path of the page to which the content will be loaded
      * @param { LocalStorage } storage The data object shared within the content instance loaded by the window
      * @returns { Promise<void> }
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -6649,8 +6686,8 @@ declare namespace window {
      * @param { string } path of the page to which the content will be loaded
      * @param { LocalStorage } storage The data object shared within the content instance loaded by the window
      * @returns { Promise<void> }
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -6664,8 +6701,8 @@ declare namespace window {
      * @param { string } path of the page to which the content will be loaded
      * @param { LocalStorage } storage The data object shared within the content instance loaded by the window
      * @returns { Promise<void> }
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -6680,8 +6717,8 @@ declare namespace window {
      *
      * @param { string } path of the page to which the content will be loaded
      * @param { AsyncCallback<void> } callback Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -6693,8 +6730,8 @@ declare namespace window {
      *
      * @param { string } path of the page to which the content will be loaded
      * @param { AsyncCallback<void> } callback Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -6707,8 +6744,8 @@ declare namespace window {
      *
      * @param { string } path of the page to which the content will be loaded
      * @param { AsyncCallback<void> } callback Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -6725,8 +6762,8 @@ declare namespace window {
      * @param { string } name - name of the page to which the content will be loaded.
      * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -6742,8 +6779,8 @@ declare namespace window {
      *
      * @param { string } name - name of the page to which the content will be loaded.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -6760,8 +6797,8 @@ declare namespace window {
      * @param { string } name - name of the page to which the content will be loaded.
      * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -6777,9 +6814,9 @@ declare namespace window {
      *
      * @param { 'windowStageEvent' } eventType The value is fixed at 'windowStageEvent', indicating the window stage lifecycle change event.
      * @param { Callback<WindowStageEventType> } callback Callback used to return the window stage lifecycle state.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -6791,9 +6828,9 @@ declare namespace window {
      *
      * @param { 'windowStageEvent' } eventType The value is fixed at 'windowStageEvent', indicating the window stage lifecycle change event.
      * @param { Callback<WindowStageEventType> } callback Callback used to return the window stage lifecycle state.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -6806,9 +6843,9 @@ declare namespace window {
      *
      * @param { 'windowStageEvent' } eventType The value is fixed at 'windowStageEvent', indicating the window stage lifecycle change event.
      * @param { Callback<WindowStageEventType> } callback Callback used to return the window stage lifecycle state.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types; 
-     *                                                                  3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -6823,8 +6860,8 @@ declare namespace window {
      *
      * @param { 'windowStageEvent' } eventType The value is fixed at 'windowStageEvent', indicating the window stage lifecycle change event.
      * @param { Callback<WindowStageEventType> } callback Callback used to return the window stage lifecycle state.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Incorrect parameter types; 
-     *                                                                                   2.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
+     *                                                                  2. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -6836,8 +6873,8 @@ declare namespace window {
      *
      * @param { 'windowStageEvent' } eventType The value is fixed at 'windowStageEvent', indicating the window stage lifecycle change event.
      * @param { Callback<WindowStageEventType> } callback Callback used to return the window stage lifecycle state.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Incorrect parameter types; 
-     *                                                                                   2.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
+     *                                                                  2. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -6850,8 +6887,8 @@ declare namespace window {
      *
      * @param { 'windowStageEvent' } eventType The value is fixed at 'windowStageEvent', indicating the window stage lifecycle change event.
      * @param { Callback<WindowStageEventType> } callback Callback used to return the window stage lifecycle state.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Incorrect parameter types; 
-     *                                                                                   2.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
+     *                                                                  2. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -6878,8 +6915,8 @@ declare namespace window {
      * Sets whether can show on lock screen or not
      *
      * @param { boolean } showOnLockScreen can show on lock screen if true, or not if false
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -6893,9 +6930,9 @@ declare namespace window {
      * Set whether to use default density.
      *
      * @param { boolean } enabled - Use default density if true, or follow system density change if false
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                  2.Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.Window.SessionManager

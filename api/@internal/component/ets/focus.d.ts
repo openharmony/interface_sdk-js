@@ -21,7 +21,7 @@
  * @crossplatform
  * @since 12
  */
-interface FocusBoxStyle {
+declare interface FocusBoxStyle {
   /**
    * Describes the focus-box margin.
    *
