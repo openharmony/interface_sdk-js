@@ -285,6 +285,34 @@ declare namespace stream {
      */
     doFlush(callback: Function): void;
   }
+
+  /**
+   * Return readable options.
+   *
+   * @interface ReadableOptions
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 12
+   */
+  interface ReadableOptions {
+    /**
+    * Specifies the encoding format of the data. If this parameter is provided,
+    * the readable stream decodes the data into a string in the specified encoding format. Default: utf8.
+    * If an invalid string is entered, a 401 exception is thrown in the Readable constructor.
+    * Supported encoding formats: utf-8, ibm866, iso-8859-2, iso-8859-3, iso-8859-4, iso-8859-5, iso-8859-6,
+    * iso-8859-7, iso-8859-8, iso-8859-8-i, iso-8859-10, iso-8859-13, iso-8859-14, iso-8859-15, koi8-r, koi8-u,
+    * macintosh, windows-874, windows-1250, windows-1251, windows-1252, windows-1253, windows-1254, windows-1255,
+    * windows-1256, windows-1257, windows-1258, x-mac-cyrillic, gbk, gb18030, big5, euc-jp, iso-2022-jp, shift_jis,
+    * euc-kr, utf-16be, utf-16le.
+    *
+    * @type { ?string }
+    * @syscap SystemCapability.Utils.Lang
+    * @crossplatform
+    * @since 12
+    */
+    encoding?: string;
+  }
+
   /**
    * The stream from which data can be read.
    *
@@ -301,6 +329,17 @@ declare namespace stream {
      * @since 12
      */
     constructor();
+    /**
+     * The Readable constructor.
+     *
+     * @param { ReadableOptions } options - Provide options.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Incorrect parameter types.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 12
+     */
+    constructor(options: ReadableOptions);
     /**
      * Reads a buffer of a specified size from the buffer. If the available buffer is sufficient, the result
      * of the specified size is returned. Otherwise, if Readable has ended, all remaining buffers are returned.

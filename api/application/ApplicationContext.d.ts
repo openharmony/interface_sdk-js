@@ -497,7 +497,7 @@ export default class ApplicationContext extends Context {
    * @throws { BusinessError } 401 - The input parameter is not a valid parameter.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000068 - The supported process cache state cannot be set more than once.
+   * @throws { BusinessError } 16000200 - The supported process cache state cannot be set more than once.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -506,7 +506,7 @@ export default class ApplicationContext extends Context {
   setSupportedProcessCache(isSupported : boolean): void;
 
   /**
-   * Set language of the application
+   * Set font of the application
    *
    * @param { string } font - Font.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -517,4 +517,17 @@ export default class ApplicationContext extends Context {
    * @since 12
    */
   setFont(font: string): void;
+
+  /**
+   * Get current app clone index.
+   *
+   * @returns { number } Returns the app clone index for current app.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000071 - The MultiAppMode is not {@link APP_CLONE}.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+  getCurrentAppCloneIndex(): number;
 }

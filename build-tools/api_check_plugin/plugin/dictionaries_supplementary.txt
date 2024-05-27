@@ -527,6 +527,7 @@ lstat
 lubyte
 luint
 luma
+lumination
 lushort
 lux
 mah
@@ -809,6 +810,7 @@ screensaver
 scrolldown
 scrollup
 sdpi
+sdr
 searchsetter
 sece
 secinfo
@@ -1132,3 +1134,10 @@ ocsp
 encipherment
 reconfirmed
 subresource
+euc
+ruleset
+easylist
+allowlist
+disallowlist
+adblock
+

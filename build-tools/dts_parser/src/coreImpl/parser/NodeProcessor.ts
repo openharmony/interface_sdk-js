@@ -957,9 +957,10 @@ export class NodeProcessorHelper {
     if (ts.isFunctionTypeNode(nodeType)) {
       const typeParameters = nodeType.parameters;
       typeParameters.forEach((typeParameter: ts.ParameterDeclaration) => {
-        const typeParamInfo: TypeParamInfo = new TypeParamInfo();
-        typeParamInfo.setParamName(typeParameter.name.getText());
-        typeParamInfo.setParamType(typeParameter.type?.getText());
+        const typeParamInfo: ParamInfo = NodeProcessorHelper.processParam(
+          typeParameter,
+          new MethodInfo(ApiType.METHOD, node, parentApi)
+        );
         typeAliasInfo.setParamInfos(typeParamInfo);
       });
       typeAliasInfo.setReturnType(nodeType.type.getText());

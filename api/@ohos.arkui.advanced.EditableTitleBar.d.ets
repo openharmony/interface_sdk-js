@@ -304,4 +304,19 @@ export declare struct EditableTitleBar {
    * @since 12
    */
   options: EditableTitleBarOptions;
+
+  /**
+   * Sets the content margin.
+   * @type { ?LocalizedMargin }
+   * @default set different default values according to the width of the title bar:
+   * <br> When the title bar width is <600vp, 
+   * <br> the default value is {start: LengthMetrics.vp(16), end: LengthMetrics.vp(16)};
+   * <br> When the title bar width is >=600vp and <840vp, 
+   * <br> the default value is {start: LengthMetrics.vp(24), end: LengthMetrics.vp(24)};
+   * <br> Otherwise, the default value is {start: LengthMetrics.vp(32), end: LengthMetrics.vp(32)}.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  @Prop contentMargin?: LocalizedMargin;
 }
