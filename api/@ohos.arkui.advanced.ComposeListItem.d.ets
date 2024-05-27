@@ -572,9 +572,9 @@ export declare struct ComposeListItem {
   
   /**
    * Sets the compose item's padding.
-   * @type { ?Padding }
+   * @type { ?LocalizedPadding }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 12
    */
-  @Prop composeItemPadding?: Padding;
+  @Prop composeItemPadding?: LocalizedPadding;
 }
