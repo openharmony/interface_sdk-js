@@ -726,7 +726,6 @@ declare namespace backup {
      *
      * @permission ohos.permission.BACKUP
      * @param { Array<IncrementalBackupData> } bundlesToBackup Bundles to incremental backup.
-     * @param { string[] } infos information of the bundlesToBackup
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
@@ -742,7 +741,7 @@ declare namespace backup {
      * @systemapi
      * @since 12
      */
-    appendBundles(bundlesToBackup: Array<IncrementalBackupData>, infos? :string[]): Promise<void>;
+    appendBundles(bundlesToBackup: Array<IncrementalBackupData>): Promise<void>;
 
     /**
      * End backup process

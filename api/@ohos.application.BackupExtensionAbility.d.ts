@@ -117,6 +117,7 @@ export default class BackupExtensionAbility {
   * @param { string } restoreInfo RestoreInfo to be restore.
   * @returns { string | Promise<string> } Return restore result, support promise.
   * @syscap SystemCapability.FileManagement.StorageService.Backup
+  * @systemapi
   * @StageModelOnly
   * @since 12
   */
