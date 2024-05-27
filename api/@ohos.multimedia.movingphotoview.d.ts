@@ -24,7 +24,7 @@ import photoAccessHelper from './@ohos.file.photoAccessHelper';
  * Defines the moving photo view options.
  *
  * @interface MovingPhotoViewOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @crossplatform
  * @atomicservice
  * @since 12
@@ -34,7 +34,7 @@ declare interface MovingPhotoViewOptions {
      * moving photo data.
      *
      * @type { photoAccessHelper.MovingPhoto }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
      * @since 12
@@ -44,7 +44,7 @@ declare interface MovingPhotoViewOptions {
      * controller of MovingPhotoView.
      *
      * @type { ?MovingPhotoViewController }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
      * @since 12
@@ -55,7 +55,7 @@ declare interface MovingPhotoViewOptions {
  * Defines the moving photo view interface.
  *
  * @interface MovingPhotoViewInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @crossplatform
  * @atomicservice
  * @since 12
@@ -66,7 +66,7 @@ interface MovingPhotoViewInterface {
      *
      * @param { MovingPhotoViewOptions } options
      * @returns { MovingPhotoViewAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
      * @since 12
@@ -78,8 +78,9 @@ interface MovingPhotoViewInterface {
  * function that moving photo view media events callback.
  *
  * @typedef { function } MovingPhotoViewEventCallback
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare type MovingPhotoViewEventCallback = () => void;
@@ -88,7 +89,7 @@ declare type MovingPhotoViewEventCallback = () => void;
  * Defines the moving photo view attribute functions.
  *
  * @extends CommonMethod<MovingPhotoViewAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @crossplatform
  * @atomicservice
  * @since 12
@@ -99,7 +100,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      *
      * @param { boolean } isMuted
      * @returns { MovingPhotoViewAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
      * @since 12
@@ -110,7 +111,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      *
      * @param { ImageFit } value
      * @returns { MovingPhotoViewAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
      * @since 12
@@ -121,7 +122,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      *
      * @param { MovingPhotoViewEventCallback } callback
      * @returns { MovingPhotoViewAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
      * @since 12
@@ -132,18 +133,29 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      *
      * @param { MovingPhotoViewEventCallback } callback
      * @returns { MovingPhotoViewAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
      * @since 12
      */
     onStop(callback: MovingPhotoViewEventCallback): MovingPhotoViewAttribute;
     /**
+     * Called when the video playback paused.
+     *
+     * @param { MovingPhotoViewEventCallback } callback
+     * @returns { MovingPhotoViewAttribute }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    onPause(callback: MovingPhotoViewEventCallback): MovingPhotoViewAttribute;
+    /**
      * Called when the video playback ends.
      *
      * @param { MovingPhotoViewEventCallback } callback
      * @returns { MovingPhotoViewAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
      * @since 12
@@ -154,7 +166,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      *
      * @param { MovingPhotoViewEventCallback } callback
      * @returns { MovingPhotoViewAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
      * @since 12
@@ -164,16 +176,16 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
 /**
  * Defines the MovingPhotoView controller.
  *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 12
  */
 export class MovingPhotoViewController {
     /**
      * constructor.
      *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
      * @since 12
@@ -182,7 +194,7 @@ export class MovingPhotoViewController {
     /**
      * Start play moving photo.
      *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
      * @since 12
@@ -191,7 +203,7 @@ export class MovingPhotoViewController {
     /**
      * Stop play moving photo.
      *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
      * @since 12
@@ -201,7 +213,7 @@ export class MovingPhotoViewController {
 /**
  * Defines MovingPhotoView Component.
  *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @crossplatform
  * @atomicservice
  * @since 12
@@ -210,7 +222,7 @@ declare const MovingPhotoView: MovingPhotoViewInterface;
 /**
  * Defines MovingPhotoView Component instance.
  *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @crossplatform
  * @atomicservice
  * @since 12
