@@ -563,7 +563,7 @@ export declare struct ComposeListItem {
   @Prop operateItem?: OperateItem;
   
   /**
-   * Sets the compose item's space.
+   * Sets the compose item's space.Its length unit is vp.
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 12
