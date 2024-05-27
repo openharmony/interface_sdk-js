@@ -19,6 +19,7 @@
  */
 
 import { AsyncCallback, Callback } from './@ohos.base';
+import Context from './application/Context';
 
 /**
  * Provide the capabilities to use different pickers.
@@ -236,6 +237,23 @@ declare namespace picker {
    * @since 11
    */
   class PhotoViewPicker {
+    /**
+     * The constructor used to create a PhotoViewPicker object.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @since 12
+     */
+    constructor();
+
+    /**
+     * The constructor used to create a PhotoViewPicker object.
+     *
+     * @param { Context } context - represents the context.
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @since 12
+     */
+    constructor(context: Context);
+
     /**
      * Pull up the photo picker based on the selection mode.
      *
@@ -608,6 +626,23 @@ declare namespace picker {
    */
   class DocumentViewPicker {
     /**
+     * The constructor used to create a DocumentViewPicker object.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @since 12
+     */
+    constructor();
+
+    /**
+     * The constructor used to create a DocumentViewPicker object.
+     *
+     * @param { Context } context - represents the context.
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @since 12
+     */
+    constructor(context: Context);
+
+    /**
      * Pull up the document picker based on the selection mode.
      *
      * @param { DocumentSelectOptions } option - represents the options provided in select mode.
@@ -781,6 +816,23 @@ declare namespace picker {
    * @since 9
    */
   class AudioViewPicker {
+    /**
+     * The constructor used to create a AudioViewPicker object.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @since 12
+     */
+    constructor();
+
+    /**
+     * The constructor used to create a AudioViewPicker object.
+     *
+     * @param { Context } context - represents the context.
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @since 12
+     */
+    constructor(context: Context);
+
     /**
      * Pull up the audio picker based on the selection mode.
      *

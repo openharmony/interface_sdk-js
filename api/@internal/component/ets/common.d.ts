@@ -5661,6 +5661,77 @@ declare enum BlurStyle {
 }
 
 /**
+ * Enumerates the policies for activating the blur style.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare enum BlurStyleActivePolicy {
+  /**
+   * The component has the blur effect only when the window is focused.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  FOLLOWS_WINDOW_ACTIVE_STATE = 0,
+
+  /**
+   * The component always has the blur effect, regardless of whether the window is focused.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  ALWAYS_ACTIVE = 1,
+
+  /**
+   * The component does not have the blur effect, regardless of whether the window is focused.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  ALWAYS_INACTIVE = 2,
+}
+
+/**
+ * Enumerates the blur types.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare enum BlurType {
+  /**
+   * The blur is applied within the window.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  WITHIN_WINDOW = 0,
+  /**
+   * The blur is applied behind the window.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  BEHIND_WINDOW = 1
+}
+
+/**
  * enum color mode
  *
  * @enum { number }
@@ -5870,7 +5941,43 @@ declare enum ModalTransition {
  * @atomicservice
  * @since 11
  */
-declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {}
+declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {
+  /**
+   * Defines the policy for activating the blur style.
+   *
+   * @type { ?BlurStyleActivePolicy }
+   * @default BlurStyleActivePolicy.FOLLOWS_WINDOW_ACTIVE_STATE
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  policy?: BlurStyleActivePolicy;
+
+  /**
+   * Color of the background effect when the window is not focused.
+   *
+   * @type { ?ResourceColor }
+   * @default Color.Transparent
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  inactiveColor?: ResourceColor;
+
+  /**
+   * Blur blending type.
+   *
+   * @type { ?BlurType }
+   * @default BlurType.WITHIN_WINDOW
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  type?: BlurType;
+}
 
 /**
  * Defines the options of ForegroundBlurStyle
@@ -6162,6 +6269,42 @@ declare interface BackgroundEffectOptions {
    * @since 12
    */
   blurOptions?: BlurOptions;
+
+  /**
+   * Defines the policy for activating the blur style.
+   *
+   * @type { ?BlurStyleActivePolicy }
+   * @default BlurStyleActivePolicy.FOLLOWS_WINDOW_ACTIVE_STATE
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  policy?: BlurStyleActivePolicy;
+
+  /**
+   * Color of the background effect when the window is not focused.
+   *
+   * @type { ?ResourceColor }
+   * @default Color.Transparent
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  inactiveColor?: ResourceColor;
+
+  /**
+   * Blur blending type.
+   *
+   * @type { ?BlurType }
+   * @default BlurType.WITHIN_WINDOW
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  type?: BlurType;
 }
 
 /**
@@ -21982,6 +22125,49 @@ declare interface Callback<T, V = void> {
 declare type HoverCallback = (isHover: boolean, event: HoverEvent) => void
 
 /**
+ * Defines the options about VisibleAreaEvent.
+ *
+ * @interface VisibleAreaEventOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface VisibleAreaEventOptions {
+  /**
+   * Each number in ratios indicates the value of visibility ratio. Each number in the Array value range in [0, 1].
+   *
+   * @type { Array<number> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  ratios: Array<number>;
+
+  /**
+   * The value of expectedUpdateInterval indicates desired update period(ms).
+   *
+   * @type { ?number }
+   * @default 1000
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  expectedUpdateInterval?: number;
+}
+
+/**
+ * Defines the callback type used in VisibleAreaChange events.
+ *
+ * @typedef { function } VisibleAreaChangeCallback
+ * @param { boolean } isVisible - The value of isVisible indicates whether the component is visible.
+ * @param { number } currentRatio - The value of currentRatio indicates the visibility ratio of the current component.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type VisibleAreaChangeCallback = (isVisible: boolean, currentRatio: number) => void;
+
+/**
  * Defines a UICommonEvent which is used to set different common event to target component.
  *
  * @interface UICommonEvent
@@ -22090,6 +22276,18 @@ declare interface UICommonEvent {
   * @since 12
   */
   setOnSizeChange(callback: SizeChangeCallback | undefined): void;
+
+  /**
+   * Set or reset the callback which is triggered when the visibleArea of component changed.
+   *
+   * @param { VisibleAreaEventOptions } options - The options for the visibility event.
+   * @param { VisibleAreaChangeCallback | undefined } event - The callback will be triggered when the visibleArea of component changed and get close to any number in ratios defined by options.
+   * If set undefined will reset the target callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setOnVisibleAreaApproximateChange(options: VisibleAreaEventOptions, event: VisibleAreaChangeCallback | undefined): void;
 }
 
 /**

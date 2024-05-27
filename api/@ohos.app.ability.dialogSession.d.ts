@@ -119,6 +119,17 @@ declare namespace dialogSession {
      * @since 11
      */
     bundleLabelId: number;
+
+    /**
+     * The ability is visible
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    visible: boolean;
   }
 
   /**

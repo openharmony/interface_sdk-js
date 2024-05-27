@@ -1452,6 +1452,7 @@ declare namespace zlib {
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17800005 - Data error.
+     * @throws { BusinessError } 17800007 - Buffer error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1709,11 +1710,12 @@ declare namespace zlib {
      * Initialize the internal stream state for decompression using inflateBack() calls.
      *
      * @param { ZStream } strm - Object to structure z_stream.
-     * @param { number } windowBits - Parameter is interpreted the same as it is for inflateInit2.
+     * @param { number } windowBits - Parameter is interpreted the same as it is for inflateInit2. The value range is between 8~15.
      * @param { ArrayBuffer } window - The preset sliding window buffer.
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17800004 - ZStream error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1985,7 +1987,7 @@ declare namespace zlib {
      * Inserts bits in the deflate output stream.
      *
      * @param { ZStream } strm - Object to structure z_stream.
-     * @param { number } bits - The number of bits to be inserted.
+     * @param { number } bits - The number of bits to be inserted. The value range is between 0~16.
      * @param { number } value - The bit value corresponding to the number of bits.
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -2016,7 +2018,7 @@ declare namespace zlib {
      * @returns { Promise<void> }
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800002 - No such file or directory.
+     * @throws { BusinessError } 17800002 - No such file or access mode error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -2030,6 +2032,7 @@ declare namespace zlib {
      * @returns { Promise<number> } Returns 0 on success.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17800009 - Internal structure error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -2044,7 +2047,7 @@ declare namespace zlib {
      * @returns { Promise<void> }
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800002 - No such file or directory.
+     * @throws { BusinessError } 17800002 - No such file or access mode error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -2076,6 +2079,7 @@ declare namespace zlib {
      *
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
      * @throws { BusinessError } 17800004 - ZStream error.
+     * @throws { BusinessError } 17800006 - Memory allocation failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -2165,6 +2169,7 @@ declare namespace zlib {
      *
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
      * @throws { BusinessError } 17800004 - ZStream error.
+     * @throws { BusinessError } 17800006 - Memory allocation failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
