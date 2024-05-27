@@ -22010,7 +22010,8 @@ declare interface VisibleAreaEventOptions {
  * Defines the callback type used in VisibleAreaChange events.
  *
  * @typedef { function } VisibleAreaChangeCallback
- * @param { boolean } isVisible - The value of isVisible indicates whether the component is visible.
+ * @param { boolean } isVisible - Indicates the ratio of the visible area to its own area compared to the last change.
+ * It is true as the ratio increases and false as the ratio decreases.
  * @param { number } currentRatio - The value of currentRatio indicates the visibility ratio of the current component.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
