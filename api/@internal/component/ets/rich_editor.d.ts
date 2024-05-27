@@ -2748,6 +2748,17 @@ declare class RichEditorBaseController implements TextEditControllerEx {
    * @since 12
    */
   stopEditing(): void;
+
+  /**
+   * Get LayoutManager.
+   *
+   * @returns { LayoutManager } - Return the LayoutManager.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  getLayoutManager(): LayoutManager;
 }
 
 /**
