@@ -568,7 +568,7 @@ export declare struct ComposeListItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 12
    */
-  itemSpace?: number;
+  @Prop itemSpace?: number;
   
   /**
    * Sets the compose item's padding.
@@ -576,5 +576,5 @@ export declare struct ComposeListItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 12
    */
-  composeItemPadding?: Padding;
+  @Prop composeItemPadding?: Padding;
 }
