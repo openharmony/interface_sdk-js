@@ -407,6 +407,17 @@ declare namespace taskpool {
     onExecutionSucceeded(callback: CallbackFunction): void;
 
     /**
+     * Check if the task has been completed.
+     *
+     * @returns { boolean } Returns {@code true} if the task has been completed; returns {@code false} otherwise.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    isDone(): boolean;
+
+    /**
      * Concurrent function to execute in taskpool.
      *
      * @syscap SystemCapability.Utils.Lang
