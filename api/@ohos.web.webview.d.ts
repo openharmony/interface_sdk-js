@@ -654,7 +654,8 @@ declare namespace webview {
    * @param {string} type Types of web event.
    * @param {Callback<void>} callback Indicate callback used to receive the web event.
    *
-   * @throws { BusinessError } 401 - Invalid input parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3.Parameter verification failed.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
@@ -664,7 +665,8 @@ declare namespace webview {
    * @param {string} type Types of web event.
    * @param {Callback<void>} callback Indicate callback used to receive the web event.
    *
-   * @throws { BusinessError } 401 - Invalid input parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3.Parameter verification failed.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
@@ -706,7 +708,8 @@ declare namespace webview {
      * Delete the storage data with the origin.
      *
      * @param { string } origin - The origin which to be deleted.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
@@ -715,7 +718,8 @@ declare namespace webview {
      * Delete the storage data with the origin.
      *
      * @param { string } origin - The origin which to be deleted.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -734,7 +738,8 @@ declare namespace webview {
     /**
      * Get current all the web storage origins.
      * @returns { Promise<Array<WebStorageOrigin>> } - returns all the WebStorageOrigin.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100012 - Invalid web storage origin.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -753,7 +758,8 @@ declare namespace webview {
     /**
      * Get current all the web storage origins.
      * @param { AsyncCallback<Array<WebStorageOrigin>> } callback - callback used to return all the WebStorageOrigin.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100012 - Invalid web storage origin.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -774,7 +780,8 @@ declare namespace webview {
      * Get the web storage quota with the origin.
      * @param { string } origin -  The origin which to be inquired.
      * @returns { Promise<number> } - the promise returned by the function
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -786,7 +793,8 @@ declare namespace webview {
      * Get the web storage quota with the origin.
      * @param { string } origin -  The origin which to be inquired.
      * @param { AsyncCallback<number> } callback - the callback of getOriginQuota.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
@@ -795,7 +803,8 @@ declare namespace webview {
      * Get the web storage quota with the origin.
      * @param { string } origin -  The origin which to be inquired.
      * @param { AsyncCallback<number> } callback - the callback of getOriginQuota.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -807,7 +816,8 @@ declare namespace webview {
      * Get the web amount of storage with the origin.
      * @param { string } origin -  The origin which to be inquired.
      * @returns { Promise<number> } - the promise returned by the function
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
@@ -816,7 +826,8 @@ declare namespace webview {
      * Get the web amount of storage with the origin.
      * @param { string } origin -  The origin which to be inquired.
      * @returns { Promise<number> } - the promise returned by the function
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -828,7 +839,8 @@ declare namespace webview {
      * Get the web amount of storage with the origin.
      * @param { string } origin -  The origin which to be inquired.
      * @param { AsyncCallback<number> } callback - the callback of getOriginUsage.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
@@ -837,7 +849,8 @@ declare namespace webview {
      * Get the web amount of storage with the origin.
      * @param { string } origin -  The origin which to be inquired.
      * @param { AsyncCallback<number> } callback - the callback of getOriginUsage.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -905,7 +918,8 @@ declare namespace webview {
      * @param { string } host - The host to which the credentials apply.
      * @param { string } realm - The realm to which the credentials apply.
      * @returns { Array<string> } Return an array containing username and password.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
@@ -929,7 +943,8 @@ declare namespace webview {
      * @param { string } realm - The realm to which the credentials apply.
      * @param { string } username - The username.
      * @param { string } password - The password.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
@@ -963,7 +978,8 @@ declare namespace webview {
      * @param { string } origin - Url source.
      * @param { boolean } incognito - {@code true} Allow geolocation permissions for specifies source
      *                                in incognito mode; {@code false} otherwise.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -984,7 +1000,8 @@ declare namespace webview {
      * @param { string } origin - Url source.
      * @param { boolean } incognito - {@code true} delete geolocation permissions for specifies source
      *                                in incognito mode; {@code false} otherwise.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -1032,7 +1049,8 @@ declare namespace webview {
      *                               true for authorization, false for access denial. Failed
      *                               to get, indicating that the permission status of the
      *                               specified source does not exist.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -1065,7 +1083,8 @@ declare namespace webview {
      *                                              not exist.
      * @param { boolean } incognito - {@code true} gets the geolocation permission status of the
      *                                specified source in incognito mode; {@code false} otherwise.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -1088,7 +1107,8 @@ declare namespace webview {
      *                                in incognito mode; {@code false} otherwise.
      * @returns { Promise<Array<string>> } A Promise instance that gets all source information about
      *                                     the stored geolocation permission state.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -1109,7 +1129,8 @@ declare namespace webview {
      *                                                    stored geolocation permission states.
      * @param { boolean } incognito - {@code true} gets all stored geolocation permission url
      *                                source in incognito mode; {@code false} otherwise.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -1137,7 +1158,8 @@ declare namespace webview {
      *
      * @param { string } url - The URL for which the cookies are requested.
      * @returns { string } - The cookie value for the given URL.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100002 - Invalid url.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
@@ -1255,14 +1277,16 @@ declare namespace webview {
     /**
      * Save the cookies Asynchronously.
      * @returns { Promise<void> } - A promise resolved after the cookies have been saved.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      */
     /**
      * Save the cookies Asynchronously.
      * @returns { Promise<void> } - A promise resolved after the cookies have been saved.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -1272,14 +1296,16 @@ declare namespace webview {
     /**
      * Save the cookies Asynchronously.
      * @param { AsyncCallback<void> } callback - Called after the cookies have been saved.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      */
     /**
      * Save the cookies Asynchronously.
      * @param { AsyncCallback<void> } callback - Called after the cookies have been saved.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -1317,7 +1343,8 @@ declare namespace webview {
      * By default this is set to be true.
      *
      * @param { boolean } accept - Whether the instance should send and accept cookies.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -1346,7 +1373,8 @@ declare namespace webview {
      * By default this is set to be false.
      *
      * @param { boolean } accept - Whether the instance should send and accept thirdparty cookies.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      */
@@ -1355,7 +1383,8 @@ declare namespace webview {
      * By default this is set to be false.
      *
      * @param { boolean } accept - Whether the instance should send and accept thirdparty cookies.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -1739,8 +1768,9 @@ declare namespace webview {
     /**
      * Set the type of the web message.
      * @param { WebMessageType } type - set WebMessageType type data
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -1760,8 +1790,9 @@ declare namespace webview {
     /**
      * Set the string value of the web message.
      * @param { string } message - set string type data
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -1781,8 +1812,9 @@ declare namespace webview {
     /**
      * Set the number value of the web message.
      * @param { number } message - set number type data
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -1802,8 +1834,9 @@ declare namespace webview {
     /**
      * Set the boolean value of the web message.
      * @param { boolean } message - set boolean type data
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -1823,8 +1856,9 @@ declare namespace webview {
     /**
      * Set the array buffer value of the web message.
      * @param { ArrayBuffer } message - set ArrayBuffer type data
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -1843,8 +1877,9 @@ declare namespace webview {
     /**
      * Set the array value of the web message.
      * @param { Array<string | number | boolean> } message - set Array type data
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -1854,8 +1889,9 @@ declare namespace webview {
     /**
      * Set the error value of the web message.
      * @param { Error } message - set Error type data
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
@@ -1863,8 +1899,9 @@ declare namespace webview {
     /**
      * Set the error value of the web message.
      * @param { Error } message - set Error type data
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -1942,8 +1979,9 @@ declare namespace webview {
     /**
      * Post a message to other port.
      * @param { WebMessage } message - Message to send.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100010 - Can not post message using this port.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100010 - Failed to post messages through the port.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
@@ -1962,8 +2000,9 @@ declare namespace webview {
     /**
      * Receive message from other port.
      * @param { function } callback - Callback function for receiving messages.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100006 - Can not register message event using this port.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100006 - Failed to register a message event for the port.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
@@ -1982,8 +2021,9 @@ declare namespace webview {
     /**
      * Post a message to other port.
      * @param { WebMessageExt } message - Message to send.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100010 - Can not post message using this port.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100010 - Failed to post messages through the port.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -2001,8 +2041,9 @@ declare namespace webview {
     /**
      * Receive message from other port.
      * @param { function } callback - Callback function for receiving messages.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100006 - Can not register message event using this port.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100006 - Failed to register a message event for the port.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -2632,14 +2673,16 @@ declare namespace webview {
     /**
      * Enables debugging of web contents.
      * @param { boolean } webDebuggingAccess {@code true} enables debugging of web contents; {@code false} otherwise.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      */
     /**
      * Enables debugging of web contents.
      * @param { boolean } webDebuggingAccess {@code true} enables debugging of web contents; {@code false} otherwise.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -2722,7 +2765,8 @@ declare namespace webview {
      *
      * @param { number } step - The number of steps.
      * @returns { boolean } True if the web page can go back else false.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -2879,7 +2923,8 @@ declare namespace webview {
      * @param { string } [historyUrl] - History URL. When it is not empty, it can be managed by
      *                                history records to realize the back and forth function.
      *                                This property is invalid when baseUrl is empty.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -2921,7 +2966,8 @@ declare namespace webview {
      *
      * @param { string | Resource } url - The URL to load.
      * @param { Array<WebHeader> } [headers] - Additional HTTP request header for URL.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @throws { BusinessError } 17100002 - Invalid url.
@@ -3045,7 +3091,8 @@ declare namespace webview {
      * Let the Web zoom by.
      *
      * @param { number } factor - The zoom factor.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @throws { BusinessError } 17100004 - Function not enable.
@@ -3199,7 +3246,8 @@ declare namespace webview {
      * Goes forward or back backOrForward in the history of the web page.
      *
      * @param { number } step - Steps to go forward or backward.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -3209,7 +3257,8 @@ declare namespace webview {
      * Goes forward or back backOrForward in the history of the web page.
      *
      * @param { number } step - Steps to go forward or backward.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -3263,7 +3312,8 @@ declare namespace webview {
      * @param { boolean } isExtentionType - Set whether the web message port supports extention type.
      * @returns { Array<WebMessagePort> } An array represent 2 WebMessagePort, then can use
      *                                    those ports to communication with html pages.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -3291,7 +3341,8 @@ declare namespace webview {
      * @param { string } name - Data name information to send.
      * @param { Array<WebMessagePort> } ports - Port number array information to send.
      * @param { string } uri - URI to receive this information.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -3360,7 +3411,8 @@ declare namespace webview {
      *                                       in the registration.
      * @param { Array<string> } [asyncMethodList] - The async method of the application side JavaScript object 
      *                                            participating in the registration.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -3385,7 +3437,8 @@ declare namespace webview {
      * Deletes a registered JavaScript object with given name.
      *
      * @param { string } name - The name of a registered JavaScript object to be deleted.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @throws { BusinessError } 17100008 - Cannot delete JavaScriptProxy.
@@ -3400,7 +3453,8 @@ declare namespace webview {
      * result will be notify through callback onSearchResultReceive.
      *
      * @param { string } searchString - String to be search.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
      *                         The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -3411,7 +3465,8 @@ declare namespace webview {
      * result will be notify through callback onSearchResultReceive.
      *
      * @param { string } searchString - String to be search.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
      *                         The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -3453,7 +3508,8 @@ declare namespace webview {
      * Highlights and scrolls to the next match search.
      *
      * @param { boolean } forward - Step of search is back or forward.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -3522,7 +3578,8 @@ declare namespace webview {
      *                              This parameter will be the result of JavaScript script execution.
      *                              If the JavaScript script fails to execute or has no return value,
      *                              null will be returned.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -3548,7 +3605,8 @@ declare namespace webview {
      *
      * @param { string } script - JavaScript Script.
      * @param { AsyncCallback<string> } callback - Callbacks execute JavaScript script results.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -3595,7 +3653,8 @@ declare namespace webview {
      *                              This parameter will be the result of JavaScript script execution.
      *                              If the JavaScript script fails to execute or has no return value,
      *                              a none type value will be returned.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -3632,7 +3691,8 @@ declare namespace webview {
      *
      * @param { string | ArrayBuffer } script - JavaScript Script.
      * @param { AsyncCallback<JsMessageExt> } callback - Callbacks execute JavaScript script results.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -3886,7 +3946,8 @@ declare namespace webview {
      *
      * @param { number } x - the x of the position.
      * @param { number } y - the y of the position.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -3912,7 +3973,8 @@ declare namespace webview {
      *
      * @param { number } deltaX - the delta x of the position.
      * @param { number } deltaY - the delta y of the position.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -3938,7 +4000,8 @@ declare namespace webview {
      *
      * @param { number } vx - the x speed of the speed.
      * @param { number } vy - the y speed of the speed.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -3978,7 +4041,8 @@ declare namespace webview {
     /**
      * Restoring the web access stack, that is, the history of access.
      * @param { Uint8Array } state - Web access stack after serialization.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -4035,7 +4099,8 @@ declare namespace webview {
     /**
      * Get certificate for the current website.
      * @param {AsyncCallback<Array<cert.X509Cert>>} callback - the callback of getCertificate.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -4044,7 +4109,8 @@ declare namespace webview {
     /**
      * Get certificate for the current website.
      * @param {AsyncCallback<Array<cert.X509Cert>>} callback - the callback of getCertificate.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -4215,7 +4281,8 @@ declare namespace webview {
      * Create the Web Print Document Adapter.
      * @param { string } jobName - The name of the currently printed document.
      * @returns { print.PrintDocumentAdapter } Return the Print Document Adapter.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -4251,7 +4318,8 @@ declare namespace webview {
      * Set whether scroll is allowed
      *
      * @param { boolean } enable - Set whether scrolling is allowed
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -4275,7 +4343,8 @@ declare namespace webview {
      * Set whether print web page background.
      *
      * @param { boolean } enable - Set whether print web page background
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -4631,7 +4700,8 @@ declare namespace webview {
      * @param { string } hostName - Which host name to be resolved.
      * @param { string } address - Resolved IP address.
      * @param { number } aliveTime - The validity seconds for resolve cache.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -4642,7 +4712,8 @@ declare namespace webview {
      * Clear the host name IP address.
      *
      * @param { string } hostName - Which host name to be cleared.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
