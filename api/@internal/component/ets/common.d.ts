@@ -10083,7 +10083,7 @@ declare enum SheetFlushMode {
   DEFAULT = 0,
 
   /**
-   * Sheet dynamically flush during the sliding process.
+   * Sheet flush during the sliding process.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
