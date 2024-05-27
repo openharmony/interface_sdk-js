@@ -1405,6 +1405,7 @@ declare namespace zlib {
      * @returns { Promise<ZipOutputInfo> } Return ReturnStatus and total sizeof the destination buffer.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17800004 - ZStream error.
      * @throws { BusinessError } 17800007 - Buffer error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
@@ -1496,6 +1497,7 @@ declare namespace zlib {
      * 2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17800004 - ZStream error.
      * @throws { BusinessError } 17800005 - Data error.
+     * @throws { BusinessError } 17800007 - Buffer error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1511,6 +1513,7 @@ declare namespace zlib {
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17800004 - ZStream error.
+     * @throws { BusinessError } 17800005 - Data error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1812,6 +1815,7 @@ declare namespace zlib {
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17800004 - ZStream error.
+     * @throws { BusinessError } 17800007 - Buffer error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
