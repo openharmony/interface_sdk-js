@@ -565,6 +565,7 @@ export declare struct ComposeListItem {
   /**
    * Sets the compose item's space.Its length unit is vp.
    * @type { ?number }
+   * @default the default value is 12.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 12
    */
@@ -573,6 +574,7 @@ export declare struct ComposeListItem {
   /**
    * Sets the compose item's padding.
    * @type { ?LocalizedPadding }
+   * @default the default value is { start: LengthMetrics.vp(12), end: LengthMetrics.vp(12)}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 12
    */
