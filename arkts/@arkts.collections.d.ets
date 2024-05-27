@@ -71,6 +71,19 @@ declare namespace collections {
   type TypedArrayForEachCallback<ElementType, ArrayType> =
     (value: ElementType, index: number, array: ArrayType) => void;
   /**
+   * Callback function used in typed Array functions that perform specific action for each element and
+   *    produce corresponding new element.
+   * 
+   * @param { ElementType } value - The value of the element.
+   * @param { number } index - The index of the element.
+   * @param { ArrayType } array - The array that the element belongs to.
+   * @returns { ElementType } The result of the mapping.
+   * @syscap SystemCapability.Utils.Lang
+   * @since 12
+   */
+  type TypedArrayMapCallback<ElementType, ArrayType> =
+    (value: ElementType, index: number, array: ArrayType) => ElementType;
+  /**
    * Callback function used in typed Array functions that require a reduction.
    * 
    * @param { AccType } previousValue - The accumulator value.
@@ -1821,7 +1834,7 @@ declare namespace collections {
      * Calls a defined callback function on each element of an array, and returns an array that
      * contains the results.
      *
-     * @param { TypedArrayForEachCallback<number, Uint8ClampedArray> } callbackFn - A function that
+     * @param { TypedArrayMapCallback<number, Uint8ClampedArray> } callbackFn - A function that
      *     accepts up to three arguments.
      *     The map method calls the callbackfn function one time for each element in the array.
      * @returns { Uint8ClampedArray } The array itself.
@@ -1831,7 +1844,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @since 12
      */
-    map(callbackFn: TypedArrayForEachCallback<number, Uint8ClampedArray>): Uint8ClampedArray;
+    map(callbackFn: TypedArrayMapCallback<number, Uint8ClampedArray>): Uint8ClampedArray;
     /**
      * Calls the specified callback function for all the elements in an array. The return value of
      * the callback function is the accumulated result, and is provided as an argument in the next
@@ -1854,26 +1867,6 @@ declare namespace collections {
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { TypedArrayReduceCallback<number, number, Uint8ClampedArray> } callbackFn - A function that
-     *     accepts up to four arguments.
-     *     The reduce method calls the callbackfn function one time for each element in the array.
-     * @param { number } initialValue - If initialValue is specified, it is used as the initial value to start
-     *     the accumulation. The first call to the callbackfn function provides this value as an argument
-     *     instead of an array value.
-     * @returns { number } The value that results from running the "reducer" callback function to
-     *     completion over the entire typed array.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
-     * @throws { BusinessError } 10200201 - Concurrent modification error.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 12
-     */
-    reduce(callbackFn: TypedArrayReduceCallback<number, number, Uint8ClampedArray>, initialValue: number): number;
-    /**
-     * Calls the specified callback function for all the elements in an array. The return value of
-     * the callback function is the accumulated result, and is provided as an argument in the next
-     * call to the callback function.
-     *
      * @param { TypedArrayReduceCallback<U, number, Uint8ClampedArray> } callbackFn - A function that
      *     accepts up to four arguments.
      *     The reduce method calls the callbackfn function one time for each element in the array.
@@ -1888,7 +1881,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @since 12
      */
-    reduce<U>(callbackFn: TypedArrayReduceCallback<U, number, Uint8ClampedArray>, initialValue: U): U;
+    reduce<U = number>(callbackFn: TypedArrayReduceCallback<U, number, Uint8ClampedArray>, initialValue: U): U;
     /**
      * Reverses the elements in an Array.
      *
