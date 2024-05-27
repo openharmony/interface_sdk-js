@@ -5661,6 +5661,77 @@ declare enum BlurStyle {
 }
 
 /**
+ * Enumerates the policies for activating the blur style.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare enum BlurStyleActivePolicy {
+  /**
+   * The component has the blur effect only when the window is focused.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  FOLLOWS_WINDOW_ACTIVE_STATE = 0,
+
+  /**
+   * The component always has the blur effect, regardless of whether the window is focused.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  ALWAYS_ACTIVE = 1,
+
+  /**
+   * The component does not have the blur effect, regardless of whether the window is focused.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  ALWAYS_INACTIVE = 2,
+}
+
+/**
+ * Enumerates the blur types.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare enum BlurType {
+  /**
+   * The blur is applied within the window.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  WITHIN_WINDOW = 0,
+  /**
+   * The blur is applied behind the window.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  BEHIND_WINDOW = 1
+}
+
+/**
  * enum color mode
  *
  * @enum { number }
@@ -5870,7 +5941,43 @@ declare enum ModalTransition {
  * @atomicservice
  * @since 11
  */
-declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {}
+declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {
+  /**
+   * Defines the policy for activating the blur style.
+   *
+   * @type { ?BlurStyleActivePolicy }
+   * @default BlurStyleActivePolicy.FOLLOWS_WINDOW_ACTIVE_STATE
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  policy?: BlurStyleActivePolicy;
+
+  /**
+   * Color of the background effect when the window is not focused.
+   *
+   * @type { ?ResourceColor }
+   * @default Color.Transparent
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  inactiveColor?: ResourceColor;
+
+  /**
+   * Blur blending type.
+   *
+   * @type { ?BlurType }
+   * @default BlurType.WITHIN_WINDOW
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  type?: BlurType;
+}
 
 /**
  * Defines the options of ForegroundBlurStyle
@@ -6162,6 +6269,42 @@ declare interface BackgroundEffectOptions {
    * @since 12
    */
   blurOptions?: BlurOptions;
+
+  /**
+   * Defines the policy for activating the blur style.
+   *
+   * @type { ?BlurStyleActivePolicy }
+   * @default BlurStyleActivePolicy.FOLLOWS_WINDOW_ACTIVE_STATE
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  policy?: BlurStyleActivePolicy;
+
+  /**
+   * Color of the background effect when the window is not focused.
+   *
+   * @type { ?ResourceColor }
+   * @default Color.Transparent
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  inactiveColor?: ResourceColor;
+
+  /**
+   * Blur blending type.
+   *
+   * @type { ?BlurType }
+   * @default BlurType.WITHIN_WINDOW
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  type?: BlurType;
 }
 
 /**
