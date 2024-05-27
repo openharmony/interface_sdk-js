@@ -10068,6 +10068,7 @@ declare enum SheetMode {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare enum SheetFlushMode {
@@ -10076,6 +10077,7 @@ declare enum SheetFlushMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   DEFAULT = 0,
@@ -10085,6 +10087,7 @@ declare enum SheetFlushMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   ALWAYS = 1,
@@ -10499,6 +10502,7 @@ declare interface SheetOptions extends BindOptions {
    * @default SheetFlushMode.DEFAULT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
     flushMode?: SheetFlushMode;
