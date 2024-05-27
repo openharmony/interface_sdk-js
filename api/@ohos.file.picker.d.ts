@@ -722,6 +722,16 @@ declare namespace picker {
      * @since 12
      */
     save(callback: AsyncCallback<Array<string>>): void;
+
+    /**
+     * Obtain the saving type selected by the user.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    getSelection(): number;
   }
 
   /**
