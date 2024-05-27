@@ -37,6 +37,15 @@ import { Resource } from 'GlobalResource';
  * @crossplatform
  * @since 11
  */
+/**
+ * Defines the options of MeasureText.
+ *
+ * @interface MeasureOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 export interface MeasureOptions {
   /**
    * Text to display.
@@ -58,6 +67,7 @@ export interface MeasureOptions {
    * @type { string | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   textContent: string | Resource;
@@ -75,6 +85,7 @@ export interface MeasureOptions {
    * @type { ?(number | string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   constraintWidth?: number | string | Resource;
@@ -92,6 +103,7 @@ export interface MeasureOptions {
    * @type { ?(number | string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   fontSize?: number | string | Resource;
@@ -109,6 +121,7 @@ export interface MeasureOptions {
    * @type { ?(number | FontStyle) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   fontStyle?: number | FontStyle;
@@ -126,6 +139,7 @@ export interface MeasureOptions {
    * @type { ?(number | string | FontWeight) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   fontWeight?: number | string | FontWeight;
@@ -143,6 +157,7 @@ export interface MeasureOptions {
    * @type { ?(string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   fontFamily?: string | Resource;
@@ -160,6 +175,7 @@ export interface MeasureOptions {
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   letterSpacing?: number | string;
@@ -177,6 +193,7 @@ export interface MeasureOptions {
    * @type { ?(number | TextAlign) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   textAlign?: number | TextAlign;
@@ -194,6 +211,7 @@ export interface MeasureOptions {
    * @type { ?(number | TextOverflow) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   overflow?: number | TextOverflow;
@@ -211,6 +229,7 @@ export interface MeasureOptions {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   maxLines?: number;
@@ -228,6 +247,7 @@ export interface MeasureOptions {
    * @type { ?(number | string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   lineHeight?: number | string | Resource;
@@ -245,6 +265,7 @@ export interface MeasureOptions {
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   baselineOffset?: number | string;
@@ -262,6 +283,7 @@ export interface MeasureOptions {
    * @type { ?(number | TextCase) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   textCase?: number | TextCase;
@@ -316,6 +338,7 @@ export interface MeasureOptions {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 export default class MeasureText {
@@ -336,6 +359,16 @@ export default class MeasureText {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Displays the textWidth.
+   *
+   * @param { MeasureOptions } options - Options.
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   static measureText(options: MeasureOptions): number;
 
   /**
@@ -354,6 +387,16 @@ export default class MeasureText {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Displays the text width and height.
+   *
+   * @param { MeasureOptions } options - Options of measure area occupied by text.
+   * @returns { SizeOptions } width and height for text to display \
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   static measureTextSize(options: MeasureOptions): SizeOptions;
 }

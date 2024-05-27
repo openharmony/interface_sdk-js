@@ -263,6 +263,7 @@ declare enum ListItemAlign {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare enum ListItemGroupArea {
@@ -271,6 +272,7 @@ declare enum ListItemGroupArea {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   NONE = 0,
@@ -280,6 +282,7 @@ declare enum ListItemGroupArea {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   IN_LIST_ITEM_AREA = 1,
@@ -289,6 +292,7 @@ declare enum ListItemGroupArea {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   IN_HEADER_AREA = 2,
@@ -298,6 +302,7 @@ declare enum ListItemGroupArea {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   IN_FOOTER_AREA = 3,
@@ -652,6 +657,7 @@ declare interface CloseSwipeActionOptions {
  * @interface VisibleListContentInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface VisibleListContentInfo {
@@ -661,6 +667,7 @@ declare interface VisibleListContentInfo {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   index: number
@@ -671,6 +678,7 @@ declare interface VisibleListContentInfo {
    * @type { ?ListItemGroupArea }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   itemGroupArea?: ListItemGroupArea
@@ -681,6 +689,7 @@ declare interface VisibleListContentInfo {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   itemIndexInGroup?: number
@@ -692,6 +701,7 @@ declare interface VisibleListContentInfo {
  * @typedef {function} OnScrollVisibleContentChangeCallback
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare type OnScrollVisibleContentChangeCallback = (start: VisibleListContentInfo, end: VisibleListContentInfo) => void;
@@ -1457,6 +1467,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   childrenMainSize(value: ChildrenMainSize): ListAttribute;
