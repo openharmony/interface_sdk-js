@@ -135,7 +135,16 @@ declare namespace taskpool {
      * @atomicservice
      * @since 11
      */
-    LOW = 2
+    LOW = 2,
+    /**
+     * set task priority to idle.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    IDLE = 3
   }
 
   /**
