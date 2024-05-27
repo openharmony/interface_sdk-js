@@ -1773,7 +1773,7 @@ declare namespace huks {
   function abortSession(handle: number, options: HuksOptions): Promise<void>;
 
   /**
-   * Key Attestation.
+   * Key Attestation. This API can be called only by system applications.
    *
    * @permission ohos.permission.ATTEST_KEY
    * @param { string } keyAlias - keyAlias indicates the key's name.
@@ -1830,7 +1830,7 @@ declare namespace huks {
   function attestKeyItemAsUser(userId: number, keyAlias: string, huksOptions: HuksOptions): Promise<HuksReturnResult>;
 
   /**
-   * Key Attestation.
+   * Key Attestation. This API can be called only by system applications.
    *
    * @permission ohos.permission.ATTEST_KEY
    * @param { string } keyAlias - keyAlias indicates the key's name.
