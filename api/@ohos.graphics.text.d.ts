@@ -927,6 +927,33 @@ declare namespace text {
      * @since 12
      */
     getTextLines(): Array<TextLine>;
+
+    /**
+     * Returns the visible text on the line (excluding a possible ellipsis).
+     * @param { number } lineNumber - a line number
+     * @param { boolean } includeSpaces - indicates if the whitespaces should be included
+     * @returns { Range } The range of text.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    getActualTextRange(lineNumber: number, includeSpaces: boolean): Range;
+
+    /**
+     * Returns the array of line metrics for a line of text.
+     * @returns { Array<LineMetrics> } Array of line metrics.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    getLineMetrics(): Array<LineMetrics>;
+
+    /**
+     * Returns line metrics info for the line.
+     * @param { number } lineNumber - a line number
+     * @returns { LineMetrics | undefined } line metrics.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    getLineMetrics(lineNumber: number): LineMetrics | undefined;
   }
 
   /**
@@ -1225,6 +1252,128 @@ declare namespace text {
      * @since 12
      */
     paint(canvas: drawing.Canvas, x: number, y: number): void;
+  }
+
+  /**
+   * Describes the layout information and metrics for a continuous piece of text (a run) in a line of text.
+   * @typedef RunMetrics
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  interface RunMetrics {
+    /**
+     * The metrics of an Font.
+     * @type { TextStyle }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    textStyle: TextStyle;
+
+    /**
+     * Describes text style.
+     * @type { drawing.FontMetrics }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    fontMetrics: drawing.FontMetrics;
+  }
+
+  /**
+   * Describes the metric information for a line of text in a text layout.
+   * @typedef LineMetrics
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  interface LineMetrics {
+    /**
+     * The indexes in the text buffer the line begins.
+     * @type { number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    startIndex: number;
+
+    /**
+     * The indexes in the text buffer the line ends.
+     * @type { number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    endIndex: number;
+
+    /**
+     * The height of the text rise, the distance from the baseline to the top of the character.
+     * @type { number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    ascent: number;
+
+    /**
+     * The height of the text drop, the distance from the baseline to the bottom of the character.
+     * @type { number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    descent: number;
+
+    /**
+     * The height of the current line is `round(ascent + descent)`.
+     * @type { number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    height: number;
+
+    /**
+     * Width of the line.
+     * @type { number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    width: number;
+
+    /**
+     * The left edge of the line. The right edge can be obtained with `left + width`.
+     * @type { number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    left: number;
+
+    /**
+     * The y position of the baseline for this line from the top of the paragraph.
+     * @type { number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    baseline: number;
+
+    /**
+     * Zero indexed line number.
+     * @type { number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    lineNumber: number;
+
+    /**
+     * Height from the top.
+     * @type { number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    topHeight: number;
+
+    /**
+     * Mapping between text index ranges and the FontMetrics associated with
+     * them. The first run will be keyed under start_index. The metrics here.
+     * are before layout and are the base values we calculate from.
+     * @type { Map<number, RunMetrics> }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    runMetrics: Map<number, RunMetrics>;
   }
 }
 

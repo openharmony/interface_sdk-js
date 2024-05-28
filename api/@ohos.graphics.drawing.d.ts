@@ -859,12 +859,64 @@ declare namespace drawing {
   }
 
   /**
+   * Indicate when certain metrics are valid; the underline or strikeout metrics may be valid and zero.
+   * Fonts with embedded bitmaps may not have valid underline or strikeout metrics.
+   * @enum { number }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  enum FontMetricsFlags {
+    /**
+     * Set if underlineThickness of FontMetrics is valid.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    UNDERLINE_THICKNESS_VALID = 1 << 0,
+
+    /**
+     * Set if underlinePosition of FontMetrics is valid.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    UNDERLINE_POSITION_VALID  = 1 << 1,
+
+    /**
+     * Set if strikethroughThickness of FontMetrics is valid.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    STRIKETHROUGH_THICKNESS_VALID = 1 << 2,
+
+    /**
+     * Set if strikethroughPosition of FontMetrics is valid.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    STRIKETHROUGH_POSITION_VALID  = 1 << 3,
+
+    /**
+     * set if top, bottom, xMin, xMax of FontMetrics invalid.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    BOUNDS_INVALID               = 1 << 4,
+  }
+
+  /**
    * The metrics of an Font.
    * @typedef FontMetrics
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11
    */
   interface FontMetrics {
+    /**
+     * Indicating which metrics are valid.
+     * @type { ?FontMetricsFlags }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    flags?: FontMetricsFlags;
+
     /**
      * Maximum range above the glyph bounding box.
      * @type { number }
@@ -900,6 +952,85 @@ declare namespace drawing {
      * @since 11
      */
     leading: number;
+    /**
+     * Average character width, zero if unknown.
+     * @type { ?number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+     avgCharWidth?: number;
+
+     /**
+      * Maximum character width, zero if unknown.
+      * @type { ?number }
+      * @syscap SystemCapability.Graphics.Drawing
+      * @since 12
+      */
+     maxCharWidth?: number;
+ 
+     /**
+      * Greatest extent to left of origin of any glyph bounding box, typically negative; deprecated with variable fonts.
+      * @type { ?number }
+      * @syscap SystemCapability.Graphics.Drawing
+      * @since 12
+      */
+     xMin?: number;
+ 
+     /**
+      * Greatest extent to right of origin of any glyph bounding box, typically positive; deprecated with variable fonts.
+      * @type { ?number }
+      * @syscap SystemCapability.Graphics.Drawing
+      * @since 12
+      */
+     xMax?: number;
+ 
+     /**
+      * Height of lower-case 'x', zero if unknown, typically negative.
+      * @type { ?number }
+      * @syscap SystemCapability.Graphics.Drawing
+      * @since 12
+      */
+     xHeight?: number;
+ 
+     /**
+      * Height of an upper-case letter, zero if unknown, typically negative.
+      * @type { ?number }
+      * @syscap SystemCapability.Graphics.Drawing
+      * @since 12
+      */
+     capHeight?: number;
+ 
+     /**
+      * Underline thickness.
+      * @type { ?number }
+      * @syscap SystemCapability.Graphics.Drawing
+      * @since 12
+      */
+     underlineThickness?: number;
+ 
+     /**
+      * Distance from baseline to top of stroke, typically positive.
+      * @type { ?number }
+      * @syscap SystemCapability.Graphics.Drawing
+      * @since 12
+      */
+     underlinePosition?: number;
+ 
+     /**
+      * Strikethrough thickness.
+      * @type { ?number }
+      * @syscap SystemCapability.Graphics.Drawing
+      * @since 12
+      */
+     strikethroughThickness?: number;
+ 
+     /**
+      * Distance from baseline to bottom of stroke, typically negative.
+      * @type { ?number }
+      * @syscap SystemCapability.Graphics.Drawing
+      * @since 12
+      */
+     strikethroughPosition?: number;
   }
 
   /**
