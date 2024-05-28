@@ -1295,6 +1295,31 @@ declare namespace unifiedDataChannel {
    * @since 11
    */
   function deleteData(options: Options): Promise<Array<UnifiedData>>;
+
+  /**
+   * Set app sharing option.
+   *
+   * @param { shareOption } Types of scope that UnifiedData can be used.
+   * @returns { boolean } Returns true if the option set successfully, else false.
+   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @systemapi
+   * @StageModelOnly
+   * @since 12
+   */
+   function setAppShareOption(shareOption:ShareOptions): boolean;
+
+  /**
+   * Remove app sharing option.
+   *
+   * @returns { boolean } Returns true if the option remove successfully, else false.
+   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @systemapi
+   * @StageModelOnly
+   * @since 12
+   */
+   function removeAppShareOption(): boolean;
 }
 
 export default unifiedDataChannel;
