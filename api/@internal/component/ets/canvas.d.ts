@@ -5805,6 +5805,17 @@ interface CanvasInterface {
    * @form
    */
   (context?: CanvasRenderingContext2D | DrawingRenderingContext): CanvasAttribute;
+
+  /**
+   * Construct a canvas component.
+   *
+   * @param { CanvasRenderingContext2D | DrawingRenderingContext } context - Canvas context object.
+   * @param { ImageAIOptions } imageAIOptions
+   * @returns { CanvasAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  (context: CanvasRenderingContext2D | DrawingRenderingContext, imageAIOptions: ImageAIOptions): CanvasAttribute;
 }
 
 /**
