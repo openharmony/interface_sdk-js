@@ -28,7 +28,7 @@ import type ViewData from './ViewData';
  * @interface FillRequest
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
- * @StageModelOnly
+ * @stagemodelonly
  * @since 11
  */
 export interface FillRequest {
@@ -38,7 +38,7 @@ export interface FillRequest {
    * @type { AutoFillType }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   type: AutoFillType;
@@ -49,7 +49,7 @@ export interface FillRequest {
    * @type { ViewData }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   viewData: ViewData;
@@ -60,7 +60,7 @@ export interface FillRequest {
    * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   isPopup: boolean;
@@ -72,7 +72,7 @@ export interface FillRequest {
  * @interface SaveRequest
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
- * @StageModelOnly
+ * @stagemodelonly
  * @since 11
  */
 export interface SaveRequest {
@@ -82,7 +82,7 @@ export interface SaveRequest {
    * @type { ViewData }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   viewData: ViewData;
@@ -94,7 +94,7 @@ export interface SaveRequest {
  * @interface UpdateRequest
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
- * @StageModelOnly
+ * @stagemodelonly
  * @since 12
  */
 export interface UpdateRequest {
@@ -104,7 +104,7 @@ export interface UpdateRequest {
    * @type { ViewData }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   viewData: ViewData;
@@ -116,7 +116,7 @@ export interface UpdateRequest {
  * @interface FillResponse
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
- * @StageModelOnly
+ * @stagemodelonly
  * @since 11
  */
 export interface FillResponse {
@@ -126,7 +126,7 @@ export interface FillResponse {
    * @type { ViewData }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   viewData: ViewData;
@@ -138,7 +138,7 @@ export interface FillResponse {
  * @interface FillRequestCallback
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
- * @StageModelOnly
+ * @stagemodelonly
  * @since 11
  */
 export interface FillRequestCallback {
@@ -147,11 +147,12 @@ export interface FillRequestCallback {
    *
    * @param { FillResponse } response - Indicates the fill response.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameters types.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   onSuccess(response: FillResponse): void;
@@ -163,7 +164,7 @@ export interface FillRequestCallback {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   onFailure(): void;
@@ -175,7 +176,7 @@ export interface FillRequestCallback {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   /**
@@ -183,7 +184,8 @@ export interface FillRequestCallback {
    *
    * @param { string } [fillContent] - Indicates the content to be filled in.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Incorrect parameter types.
+   * @throws { BusinessError } 401 - Incorrect parameter types. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameters types.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
@@ -197,7 +199,8 @@ export interface FillRequestCallback {
    *
    * @param { AutoFillPopupConfig } autoFillPopupConfig - Indicates the autofill popup config.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - The input parameter is not valid parameter. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameters types.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
@@ -213,7 +216,7 @@ export interface FillRequestCallback {
  * @interface SaveRequestCallback
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
- * @StageModelOnly
+ * @stagemodelonly
  * @since 11
  */
 export interface SaveRequestCallback {
@@ -224,7 +227,7 @@ export interface SaveRequestCallback {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   onSuccess(): void;
@@ -236,7 +239,7 @@ export interface SaveRequestCallback {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   onFailure(): void;
