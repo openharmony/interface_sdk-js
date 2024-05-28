@@ -767,7 +767,7 @@ declare namespace hidebug {
   /**
    * Collection statistics.
    *
-   * @typedef GcStats
+   * @typedef { Record<string, number> } GcStats
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12
    */
