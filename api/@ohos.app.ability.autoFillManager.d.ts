@@ -104,7 +104,7 @@ declare namespace autoFillManager {
    * @param { UIContext } context - Indicates the ui context where the save operation will be performed.
    * @param { AutoSaveCallback } [callback] - Indicates the callback that used to receive the result.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Get instance id failed;
-   * 2. Parse instance id failed; 3. The second parameter is not of type callback.
+   * <br>2. Parse instance id failed; 3. The second parameter is not of type callback.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
@@ -116,7 +116,7 @@ declare namespace autoFillManager {
    * @param { UIContext } context - Indicates the ui context where the save operation will be performed.
    * @param { AutoSaveCallback } [callback] - Indicates the callback that used to receive the result.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Get instance id failed;
-   * 2. Parse instance id failed; 3. The second parameter is not of type callback.
+   * <br>2. Parse instance id failed; 3. The second parameter is not of type callback.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
