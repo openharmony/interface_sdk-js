@@ -1623,6 +1623,36 @@ declare namespace camera {
   }
 
   /**
+   * LCD Flash Status.
+   *
+   * @typedef LcdFlashStatus
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 12
+   */
+  interface LcdFlashStatus {
+    /**
+     * Check whether lcd flash is needed.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    readonly isLcdFlashNeeded: boolean;
+
+    /**
+     * Compensate value for lcd flash.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    readonly lcdCompensation: number;
+  }
+
+  /**
    * Flash Query object.
    *
    * @interface FlashQuery
@@ -2236,7 +2266,7 @@ declare namespace camera {
      * @systemapi
      * @since 12
      */
-    INCANDESCENT =2,
+    INCANDESCENT = 2,
 
     /**
      * Fluorescent white balance mode.
@@ -2245,7 +2275,7 @@ declare namespace camera {
      * @systemapi
      * @since 12
      */
-    FLUORESCENT =3,
+    FLUORESCENT = 3,
 
     /**
      * Daylight white balance mode.
