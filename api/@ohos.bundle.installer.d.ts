@@ -913,6 +913,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700001 - The specified bundleName cannot be found or the bundle is not installed by the specified user.
      * @throws { BusinessError } 17700004 - The userId is invalid.
      * @throws { BusinessError } 17700061 - The appIndex is not in valid range or already exists.
+     * @throws { BusinessError } 17700069 - The app does not support the creation of an appClone instance.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12
