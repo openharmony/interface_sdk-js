@@ -14709,6 +14709,51 @@ declare class CommonMethod<T> {
    */
   foregroundEffect(options: ForegroundEffectOptions): T;
 
+
+  /**
+   * Unified visual effect interface.
+   *
+   * @param { VisualEffect } effect - Visual effect parameters.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  visualEffect(effect: VisualEffect): T;
+
+  /**
+   * Filter applied to the background layer of the component.
+   *
+   * @param { Filter } filter - Filter effect parameters.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  backgroundFilter(filter: Filter): T;
+
+  /**
+   * Filter applied to the foreground layer of the component.
+   *
+   * @param { Filter } filter - Filter effect parameters.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  foregroundFilter(filter: Filter): T;
+
+  /**
+   * Filter applied to the compositing layer of the component.
+   *
+   * @param { Filter } filter - Filter effect parameters.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  compositingFilter(filter: Filter): T;
+
   /**
    * Foreground blur style.
    * blurStyle:Blur style type.
@@ -20507,6 +20552,27 @@ declare type UIContext = import('../api/@ohos.arkui.UIContext').UIContext;
  * @since 12
  */
 declare type DrawContext = import('../api/arkui/Graphics').DrawContext;
+
+/**
+ * VisualEffect
+ *
+ * @typedef { import('../api/@ohos.graphics.uiEffect').default.VisualEffect } VisualEffect
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type VisualEffect = import('../api/@ohos.graphics.uiEffect').default.VisualEffect;
+
+
+/**
+ * Filter
+ *
+ * @typedef { import('../api/@ohos.graphics.uiEffect').default.Filter } Filter
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type Filter = import('../api/@ohos.graphics.uiEffect').default.Filter;
 
 /**
  * ComponentContent.
