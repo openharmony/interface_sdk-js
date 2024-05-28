@@ -187,8 +187,6 @@ declare namespace vpn {
      * @throws { BusinessError } 2200001 - Invalid parameter value.
      * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
      * @throws { BusinessError } 2200003 - System internal error.
-     * @throws { BusinessError } 2203001 - VPN creation denied. Check the user type.
-     * @throws { BusinessError } 2203002 - VPN already exists.
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12
@@ -206,8 +204,6 @@ declare namespace vpn {
      * @throws { BusinessError } 2200001 - Invalid parameter value.
      * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
      * @throws { BusinessError } 2200003 - System internal error.
-     * @throws { BusinessError } 2203001 - VPN creation denied. Check the user type.
-     * @throws { BusinessError } 2203002 - VPN already exists.
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12
@@ -225,8 +221,6 @@ declare namespace vpn {
      * @throws { BusinessError } 2200001 - Invalid parameter value.
      * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
      * @throws { BusinessError } 2200003 - System internal error.
-     * @throws { BusinessError } 2203001 - VPN creation denied. Check the user type.
-     * @throws { BusinessError } 2203002 - VPN already exists.
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12
@@ -244,8 +238,6 @@ declare namespace vpn {
      * @throws { BusinessError } 2200001 - Invalid parameter value.
      * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
      * @throws { BusinessError } 2200003 - System internal error.
-     * @throws { BusinessError } 2203001 - VPN creation denied. Check the user type.
-     * @throws { BusinessError } 2203002 - VPN already exists.
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12
@@ -263,8 +255,6 @@ declare namespace vpn {
      * @throws { BusinessError } 2200001 - Invalid parameter value.
      * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
      * @throws { BusinessError } 2200003 - System internal error.
-     * @throws { BusinessError } 2203001 - VPN creation denied. Check the user type.
-     * @throws { BusinessError } 2203002 - VPN already exists.
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12
@@ -282,8 +272,6 @@ declare namespace vpn {
      * @throws { BusinessError } 2200001 - Invalid parameter value.
      * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
      * @throws { BusinessError } 2200003 - System internal error.
-     * @throws { BusinessError } 2203001 - VPN creation denied. Check the user type.
-     * @throws { BusinessError } 2203002 - VPN already exists.
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12
@@ -301,8 +289,6 @@ declare namespace vpn {
      * @throws { BusinessError } 2200001 - Invalid parameter value.
      * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
      * @throws { BusinessError } 2200003 - System internal error.
-     * @throws { BusinessError } 2203001 - VPN creation denied. Check the user type.
-     * @throws { BusinessError } 2203002 - VPN already exists.
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12
@@ -320,8 +306,6 @@ declare namespace vpn {
      * @throws { BusinessError } 2200001 - Invalid parameter value.
      * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
      * @throws { BusinessError } 2200003 - System internal error.
-     * @throws { BusinessError } 2203001 - VPN creation denied. Check the user type.
-     * @throws { BusinessError } 2203002 - VPN already exists.
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12
@@ -338,8 +322,6 @@ declare namespace vpn {
      * @throws { BusinessError } 2200001 - Invalid parameter value.
      * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
      * @throws { BusinessError } 2200003 - System internal error.
-     * @throws { BusinessError } 2203001 - VPN creation denied. Check the user type.
-     * @throws { BusinessError } 2203002 - VPN already exists.
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12
@@ -356,8 +338,6 @@ declare namespace vpn {
      * @throws { BusinessError } 2200001 - Invalid parameter value.
      * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
      * @throws { BusinessError } 2200003 - System internal error.
-     * @throws { BusinessError } 2203001 - VPN creation denied. Check the user type.
-     * @throws { BusinessError } 2203002 - VPN already exists.
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12
@@ -375,8 +355,6 @@ declare namespace vpn {
      * @throws { BusinessError } 2200001 - Invalid parameter value.
      * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
      * @throws { BusinessError } 2200003 - System internal error.
-     * @throws { BusinessError } 2203001 - VPN creation denied. Check the user type.
-     * @throws { BusinessError } 2203002 - VPN already exists.
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12
@@ -394,8 +372,6 @@ declare namespace vpn {
      * @throws { BusinessError } 2200001 - Invalid parameter value.
      * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
      * @throws { BusinessError } 2200003 - System internal error.
-     * @throws { BusinessError } 2203001 - VPN creation denied. Check the user type.
-     * @throws { BusinessError } 2203002 - VPN already exists.
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12
@@ -412,8 +388,6 @@ declare namespace vpn {
      * @throws { BusinessError } 2200001 - Invalid parameter value.
      * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
      * @throws { BusinessError } 2200003 - System internal error.
-     * @throws { BusinessError } 2203001 - VPN creation denied. Check the user type.
-     * @throws { BusinessError } 2203002 - VPN already exists.
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12
@@ -430,8 +404,6 @@ declare namespace vpn {
      * @throws { BusinessError } 2200001 - Invalid parameter value.
      * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
      * @throws { BusinessError } 2200003 - System internal error.
-     * @throws { BusinessError } 2203001 - VPN creation denied. Check the user type.
-     * @throws { BusinessError } 2203002 - VPN already exists.
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12
