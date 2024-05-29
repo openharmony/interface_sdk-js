@@ -245,7 +245,7 @@ declare namespace vpn {
     off(type: 'connect'): Promise<VpnConnectState>;
 
     /**
-     * save the VPN config.
+     * add the VPN config.
      * @permission ohos.permission.MANAGE_VPN
      * @param { VpnConfig } config - Indicates the {@link VpnConfig} configuration of the VPN network.
      * @param { AsyncCallback<void> } callback - The callback of the function.
@@ -259,10 +259,10 @@ declare namespace vpn {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    saveSystemVpn(config: VpnConfig, callback: AsyncCallback<void>): void;
+    addSystemVpn(config: VpnConfig, callback: AsyncCallback<void>): void;
  
     /**
-     * save the VPN config.
+     * add the VPN config.
      * @permission ohos.permission.MANAGE_VPN
      * @param { VpnConfig } config - Indicates the {@link VpnConfig} configuration of the VPN network.
      * @returns { Promise<void> } The promise returned by the function.
@@ -276,7 +276,7 @@ declare namespace vpn {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    saveSystemVpn(config: VpnConfig): Promise<void>;
+    addSystemVpn(config: VpnConfig): Promise<void>;
 	
     /**
      * delete the VPN config.
@@ -907,13 +907,13 @@ declare namespace vpn {
   }
 
   /**
-   * Define configuration of the ipsec VPN network.
-   * @interface IpsecVpnConfig
+   * Define configuration of the l2tp VPN network.
+   * @interface L2tpVpnConfig
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  export interface IpsecVpnConfig {
+  export interface L2tpVpnConfig {
     /**
      * The uuid of the VPN network.
      * @type {?string}
