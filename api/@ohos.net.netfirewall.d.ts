@@ -195,7 +195,7 @@ declare namespace netfirewall {
   /**
    * Firewall rule direction enumeration.
    *
-   * @interface NetFirewallRuleDirection
+   * @enum {number}
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @systemapi Hide this for inner system use.
    * @since 12
@@ -222,7 +222,7 @@ declare namespace netfirewall {
   /**
    * Firewall rule behavior enumeration.
    *
-   * @interface FirewallRuleAction
+   * @enum {number}
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @systemapi Hide this for inner system use.
    * @since 12
@@ -249,7 +249,7 @@ declare namespace netfirewall {
   /**
    * Indicates the firewall rule type.
    *
-   * @interface NetFirewallRuleType
+   * @enum {number}
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @systemapi Hide this for inner system use.
    * @since 12
@@ -284,7 +284,7 @@ declare namespace netfirewall {
   /**
    * Pagination query sorting field.
    *
-   * @interface NetFirewallOrderField
+   * @enum {number}
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @systemapi Hide this for inner system use.
    * @since 12
@@ -311,7 +311,7 @@ declare namespace netfirewall {
   /**
    * Pagination query sorting type.
    *
-   * @interface NetFirewallOrderType
+   * @enum {number}
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @systemapi Hide this for inner system use.
    * @since 12
@@ -698,7 +698,7 @@ declare namespace netfirewall {
     /**
      * User id.
      *
-     * @type {nubmer}
+     * @type {number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
      * @since 12
@@ -828,7 +828,7 @@ declare namespace netfirewall {
     /**
      * Sort field.
      *
-     * @type {number}
+     * @type {NetFirewallOrderField}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
      * @since 12
@@ -838,7 +838,7 @@ declare namespace netfirewall {
     /**
      * sort type: Ascending or descending
      *
-     * @type {number}
+     * @type {NetFirewallOrderType}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
      * @since 12
