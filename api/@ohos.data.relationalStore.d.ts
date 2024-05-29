@@ -1063,7 +1063,7 @@ declare namespace relationalStore {
    */
   enum RebuildType {
     /**
-     * The database is not rebuilt.
+     * The database is not rebuilt or repaired.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
@@ -1076,7 +1076,15 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
-    REBUILT
+    REBUILT,
+
+    /**
+     * The database is repaired.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    REPAIRED
   }
 
   /**
