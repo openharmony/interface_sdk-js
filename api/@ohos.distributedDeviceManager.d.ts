@@ -221,7 +221,7 @@ declare namespace distributedDeviceManager {
      * Get the device id of the local device.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @returns { string } - Returns local device type.
+     * @returns { string } - Returns local device id.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
