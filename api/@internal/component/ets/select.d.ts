@@ -771,6 +771,17 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @since 12
    */
   menuItemContentModifier(modifier: ContentModifier<MenuItemConfiguration>): SelectAttribute;
+
+  /**
+   * Set the divider of select.
+   *
+   * @param { Optional<DividerOptions> | null } options Set custom and hidden divider.
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  divider(options: Optional<DividerOptions> | null): SelectAttribute;
 }
 
 /**
