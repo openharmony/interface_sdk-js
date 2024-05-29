@@ -677,7 +677,7 @@ declare namespace deviceManager {
    *                                                  1. Mandatory parameters are left unspecified;
    *                                                  2. Incorrect parameter types;
    *                                                  3. Parameter verification failed.
-   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi this method can be used only by system applications.
    * @since 7
@@ -700,8 +700,8 @@ declare namespace deviceManager {
      * Releases the {@code DeviceManager} instance after the methods for device management are no longer used.
      *
      * @permission ohos.permission.ACCESS_SERVICE_DM
-     * @throws { BusinessError } 202 - The caller is not a system application.
-     * @throws { BusinessError } 201 - Permission verify failed.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -716,8 +716,8 @@ declare namespace deviceManager {
      *
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @returns { Array<DeviceInfo> } returns a list of trusted devices.
-     * @throws { BusinessError } 202 - The caller is not a system application.
-     * @throws { BusinessError } 201 - Permission verify failed.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -733,8 +733,8 @@ declare namespace deviceManager {
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { boolean } isRefresh Refresh the online device list to quickly bring nearby trusted devices online.
      * @returns { Array<DeviceInfo> } Returns a list of trusted devices.
-     * @throws { BusinessError } 202 - The caller is not a system application.
-     * @throws { BusinessError } 201 - Permission verify failed.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                                  1. Mandatory parameters are left unspecified;
      *                                                  2. Incorrect parameter type;
@@ -752,7 +752,7 @@ declare namespace deviceManager {
      *
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { AsyncCallback<Array<DeviceInfo>> } callback Indicates the callback to be invoked upon getTrustedDeviceList
-     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                                  1. Mandatory parameters are left unspecified;
      *                                                  2. Incorrect parameter type;
@@ -770,7 +770,7 @@ declare namespace deviceManager {
      *
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @returns { Promise<Array<DeviceInfo>> } Returns a list of trusted devices.
-     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 8
@@ -784,8 +784,8 @@ declare namespace deviceManager {
      *
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @returns { DeviceInfo } Returns local device info.
-     * @throws { BusinessError } 202 - The caller is not a system application.
-     * @throws { BusinessError } 201 - Permission verify failed.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -804,7 +804,7 @@ declare namespace deviceManager {
      *                                                  1. Mandatory parameters are left unspecified;
      *                                                  2. Incorrect parameter type;
      *                                                  3. Parameter verification failed.
-     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 8
@@ -818,7 +818,7 @@ declare namespace deviceManager {
      *
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @returns { Promise<DeviceInfo> } Returns local device info.
-     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 8
@@ -838,7 +838,7 @@ declare namespace deviceManager {
      *                                                  2. Incorrect parameter type;
      *                                                  3. Parameter verification failed;
      *                                                  4. The size of specified networkId is greater than 255.
-     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 10
@@ -858,7 +858,7 @@ declare namespace deviceManager {
      *                                                  2. Incorrect parameter type;
      *                                                  3. Parameter verification failed;
      *                                                  4. The size of specified networkId is greater than 255.
-     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 10
@@ -877,9 +877,9 @@ declare namespace deviceManager {
      *                                                  2. Incorrect parameter type;
      *                                                  3. Parameter verification failed;
      *                                                  4. The size of specified param is greater than 255.
-     * @throws { BusinessError } 202 - The caller is not a system application.
-     * @throws { BusinessError } 201 - Permission verify failed.
-     * @throws { BusinessError } 11600104 - Discovery invalid.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 11600104 - Discovery unavailable.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -900,9 +900,9 @@ declare namespace deviceManager {
      *                                                  2. Incorrect parameter type;
      *                                                  3. Parameter verification failed;
      *                                                  4. The size of specified param is greater than 255.
-     * @throws { BusinessError } 202 - The caller is not a system application.
-     * @throws { BusinessError } 201 - Permission verify failed.
-     * @throws { BusinessError } 11600104 - Discovery invalid.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 11600104 - Discovery unavailable.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -922,8 +922,8 @@ declare namespace deviceManager {
      *                                                  2. Incorrect parameter type;
      *                                                  3. Parameter verification failed;
      *                                                  4. The size of specified param is greater than 255.
-     * @throws { BusinessError } 202 - The caller is not a system application.
-     * @throws { BusinessError } 201 - Permission verify failed.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -942,9 +942,9 @@ declare namespace deviceManager {
      *                                                  1. Mandatory parameters are left unspecified;
      *                                                  2. Incorrect parameter type;
      *                                                  3. Parameter verification failed.
-     * @throws { BusinessError } 202 - The caller is not a system application.
-     * @throws { BusinessError } 201 - Permission verify failed.
-     * @throws { BusinessError } 11600105 - Publish invalid.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 11600105 - Publish unavailable.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -962,8 +962,8 @@ declare namespace deviceManager {
      *                                                  1. Mandatory parameters are left unspecified;
      *                                                  2. Incorrect parameter type;
      *                                                  3. Parameter verification failed.
-     * @throws { BusinessError } 202 - The caller is not a system application.
-     * @throws { BusinessError } 201 - Permission verify failed.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -983,7 +983,7 @@ declare namespace deviceManager {
      *                                                  1. Mandatory parameters are left unspecified;
      *                                                  2. Incorrect parameter type;
      *                                                  3. Parameter verification failed.
-     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
@@ -1005,8 +1005,8 @@ declare namespace deviceManager {
      *                                                  1. Mandatory parameters are left unspecified;
      *                                                  2. Incorrect parameter type;
      *                                                  3. Parameter verification failed.
-     * @throws { BusinessError } 202 - The caller is not a system application.
-     * @throws { BusinessError } 201 - Permission verify failed.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -1026,7 +1026,7 @@ declare namespace deviceManager {
      *                                                  1. Mandatory parameters are left unspecified;
      *                                                  2. Incorrect parameter type;
      *                                                  3. Parameter verification failed.
-     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
@@ -1045,8 +1045,8 @@ declare namespace deviceManager {
      *                                                  2. Incorrect parameter type;
      *                                                  3. Parameter verification failed;
      *                                                  4. The size of specified params is greater than 255.
-     * @throws { BusinessError } 202 - The caller is not a system application.
-     * @throws { BusinessError } 201 - Permission verify failed.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 9
@@ -1066,7 +1066,7 @@ declare namespace deviceManager {
      *                                                  2. Incorrect parameter type;
      *                                                  3. Parameter verification failed;
      *                                                  4. The size of specified requestInfo is greater than 255.
-     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 10
@@ -1087,7 +1087,7 @@ declare namespace deviceManager {
      *                                                  2. Incorrect parameter type;
      *                                                  3. Parameter verification failed;
      *                                                  4. The size of specified credentialInfo is greater than 5999.
-     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 10
@@ -1106,7 +1106,7 @@ declare namespace deviceManager {
      *                                                  2. Incorrect parameter type;
      *                                                  3. Parameter verification failed;
      *                                                  4. The size of specified queryInfo is greater than 5999.
-     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 10
@@ -1126,7 +1126,7 @@ declare namespace deviceManager {
      *                                                  2. Incorrect parameter type;
      *                                                  3. Parameter verification failed;
      *                                                  4. The size of specified eventType is greater than 255.
-     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 9
@@ -1147,7 +1147,7 @@ declare namespace deviceManager {
      *                                                  2. Incorrect parameter type;
      *                                                  3. Parameter verification failed;
      *                                                  4. The size of specified eventType is greater than 255.
-     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 9
@@ -1169,7 +1169,7 @@ declare namespace deviceManager {
      *                                                  2. Incorrect parameter type;
      *                                                  3. Parameter verification failed;
      *                                                  4. The size of specified eventType is greater than 255.
-     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
@@ -1189,7 +1189,7 @@ declare namespace deviceManager {
      *                                                  2. Incorrect parameter type;
      *                                                  3. Parameter verification failed;
      *                                                  4. The size of specified eventType is greater than 255.
-     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
@@ -1209,7 +1209,7 @@ declare namespace deviceManager {
      *                                                  2. Incorrect parameter type;
      *                                                  3. Parameter verification failed;
      *                                                  4. The size of specified eventType is greater than 255.
-     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
@@ -1229,7 +1229,7 @@ declare namespace deviceManager {
      *                                                  2. Incorrect parameter type;
      *                                                  3. Parameter verification failed;
      *                                                  4. The size of specified eventType is greater than 255.
-     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
@@ -1249,7 +1249,7 @@ declare namespace deviceManager {
      *                                                  2. Incorrect parameter type;
      *                                                  3. Parameter verification failed;
      *                                                  4. The size of specified eventType is greater than 255.
-     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
@@ -1269,7 +1269,7 @@ declare namespace deviceManager {
      *                                                  2. Incorrect parameter type;
      *                                                  3. Parameter verification failed;
      *                                                  4. The size of specified eventType is greater than 255.
-     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
@@ -1289,7 +1289,7 @@ declare namespace deviceManager {
      *                                                  2. Incorrect parameter type;
      *                                                  3. Parameter verification failed;
      *                                                  4. The size of specified eventType is greater than 255.
-     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 9
@@ -1308,7 +1308,7 @@ declare namespace deviceManager {
      *                                                  2. Incorrect parameter type;
      *                                                  3. Parameter verification failed;
      *                                                  4. The size of specified eventType is greater than 255.
-     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 9
@@ -1327,7 +1327,7 @@ declare namespace deviceManager {
      *                                                  2. Incorrect parameter type;
      *                                                  3. Parameter verification failed;
      *                                                  4. The size of specified eventType is greater than 255.
-     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 9
@@ -1346,7 +1346,7 @@ declare namespace deviceManager {
      *                                                  2. Incorrect parameter type;
      *                                                  3. Parameter verification failed;
      *                                                  4. The size of specified eventType is greater than 255.
-     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 9
@@ -1365,7 +1365,7 @@ declare namespace deviceManager {
      *                                                  2. Incorrect parameter type;
      *                                                  3. Parameter verification failed;
      *                                                  4. The size of specified eventType is greater than 255.
-     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
@@ -1385,7 +1385,7 @@ declare namespace deviceManager {
      *                                                  2. Incorrect parameter type;
      *                                                  3. Parameter verification failed;
      *                                                  4. The size of specified eventType is greater than 255.
-     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
