@@ -161,6 +161,143 @@ type OnRenderProcessRespondingCallback = () => void;
 type OnViewportFitChangedCallback = (viewportFit: ViewportFit) => void;
 
 /**
+ * Defines the web keyboard options when onInterceptKeyboardAttach event return.
+ *
+ * @interface WebKeyboardOptions
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+declare interface WebKeyboardOptions {
+  /**
+   * Whether the system keyboard is used.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  useSystemKeyboard: boolean;
+  /**
+   * Set the enter key type when the system keyboard is used, the "enter" key related to the {@link inputMethodEngine}.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  enterKeyType?: number;
+  /**
+   * Set the custom keyboard builder when the custom keyboard is used.
+   *
+   * @type { ?CustomBuilder }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  customKeyboard?: CustomBuilder;
+}
+
+/**
+ * Define the controller to interact with a custom keyboard, related to the {@link onInterceptKeyboardAttach} event.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+declare class WebKeyboardController {
+  /**
+   * Constructor.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  constructor();
+
+  /**
+   * Insert text into Editor.
+   *
+   * @param { string } text - text which will be inserted.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  insertText(text: string): void;
+  /**
+   * Delete text from back to front.
+   *
+   * @param { number } length - length of text, which will be deleted from back to front.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  deleteForward(length: number): void;
+  /**
+   * Delete text from front to back.
+   *
+   * @param { number } length - length of text, which will be deleted from front to back.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  deleteBackward(length: number): void;
+  /**
+   * Send the function of the key.
+   *
+   * @param { number } key - action indicates the "enter" key related to the {@link inputMethodEngine}
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  sendFunctionKey(key: number): void;
+  /**
+   * Close the custom keyboard.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  close(): void;
+}
+
+/**
+ * Defines the web keyboard callback info related to the {@link onInterceptKeyboardAttach} event.
+ *
+ * @interface WebKeyboardCallbackInfo
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+declare interface WebKeyboardCallbackInfo {
+  /**
+   * The web keyboard controller.
+   *
+   * @type { WebKeyboardController }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  controller: WebKeyboardController;
+  /**
+   * The attributes of web input element.
+   *
+   * @type { Record<string, string> }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  attributes: Record<string, string>;
+}
+
+/**
+ * The callback of onInterceptKeyboardAttach event.
+ *
+ * @typedef {function} WebKeyboardCallback
+ * @param {WebKeyboardCallbackInfo} keyboardCallbackInfo - callback information of onInterceptKeyboardAttach.
+ * @returns {WebKeyboardOptions} Return the web keyboard options of this web component.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+type WebKeyboardCallback = (keyboardCallbackInfo: WebKeyboardCallbackInfo) => WebKeyboardOptions;
+
+/**
  * Enum type supplied to {@link getMessageLevel} for receiving the console log level of JavaScript.
  *
  * @enum { number }
@@ -8140,6 +8277,20 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   * @since 12
   */
   onViewportFitChanged(callback: OnViewportFitChangedCallback): WebAttribute;
+
+  /**
+   * When the soft keyboard is about to be displayed on the current Web,
+   * it gives the application the opportunity to intercept the system keyboard attachment.
+   * The application can return the keyboard options to control the web to
+   * pull up the soft keyboard of the different type.
+   *
+   * @param { WebKeyboardCallback } callback - The callback for onInterceptKeyboardAttach.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  onInterceptKeyboardAttach(callback: WebKeyboardCallback): WebAttribute;
 }
 
 /**
