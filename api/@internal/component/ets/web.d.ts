@@ -4080,6 +4080,19 @@ declare interface WebOptions {
    * @since 11
    */
   incognitoMode? : boolean;
+  
+  /**
+   * Sets the shared render process token of the web.
+   * When the web is in multiprocess mode, web with the same
+   * sharedRenderProcessToken will attempt to reuse the same render process.
+   * The shared render process will remain active until all associated
+   * web are destroyed.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  sharedRenderProcessToken? : string;
 }
 
 /**
