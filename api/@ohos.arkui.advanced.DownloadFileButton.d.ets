@@ -36,7 +36,7 @@ export declare enum DownloadIconStyle {
    * @atomicservice
    * @since 12
    */
-  FULL_FILLED = 0,
+  FULL_FILLED = 1,
 
   /**
    * LINES type.
@@ -46,7 +46,7 @@ export declare enum DownloadIconStyle {
    * @atomicservice
    * @since 12
    */
-  LINES = 1
+  LINES = 2
 }
 
 /**
@@ -68,7 +68,7 @@ export declare enum DownloadDescription {
    * @atomicservice
    * @since 12
    */
-  DOWNLOAD = 0,
+  DOWNLOAD = 1,
 
   /**
    * Description is DOWNLOAD_FILE.
@@ -78,7 +78,7 @@ export declare enum DownloadDescription {
    * @atomicservice
    * @since 12
    */
-  DOWNLOAD_FILE = 1,
+  DOWNLOAD_FILE = 2,
 
   /**
    * Description is SAVE.
@@ -88,7 +88,7 @@ export declare enum DownloadDescription {
    * @atomicservice
    * @since 12
    */
-  SAVE = 2,
+  SAVE = 3,
 
   /**
    * Description is SAVE_IMAGE.
@@ -98,7 +98,7 @@ export declare enum DownloadDescription {
    * @atomicservice
    * @since 12
    */
-  SAVE_IMAGE = 3,
+  SAVE_IMAGE = 4,
 
   /**
    * Description is SAVE_FILE.
@@ -108,7 +108,7 @@ export declare enum DownloadDescription {
    * @atomicservice
    * @since 12
    */
-  SAVE_FILE = 4,
+  SAVE_FILE = 5,
 
   /**
    * Description is DOWNLOAD_AND_SHARE.
@@ -118,7 +118,7 @@ export declare enum DownloadDescription {
    * @atomicservice
    * @since 12
    */
-  DOWNLOAD_AND_SHARE = 5,
+  DOWNLOAD_AND_SHARE = 6,
 
   /**
    * Description is RECEIVE.
@@ -128,7 +128,7 @@ export declare enum DownloadDescription {
    * @atomicservice
    * @since 12
    */
-  RECEIVE = 6,
+  RECEIVE = 7,
 
   /**
    * Description is CONTINUE_TO_RECEIVE.
@@ -138,7 +138,7 @@ export declare enum DownloadDescription {
    * @atomicservice
    * @since 12
    */
-  CONTINUE_TO_RECEIVE = 7
+  CONTINUE_TO_RECEIVE = 8
 }
 
 /**
@@ -174,9 +174,9 @@ export declare enum DownloadLayoutDirection {
 }
 
 /**
- * Defines the download content option.
+ * Defines the download content options.
  *
- * @interface DownloadContentOption
+ * @interface DownloadContentOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -184,9 +184,9 @@ export declare enum DownloadLayoutDirection {
  */
 export interface DownloadContentOptions {
   /**
-   * Download icon Style.
+   * DownloadFileButton icon Style.
    *
-   * @type { DownloadIconStyle }
+   * @type { ?DownloadIconStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -197,7 +197,7 @@ export interface DownloadContentOptions {
   /**
    * DownloadFileButton description.
    *
-   * @type { DownloadDescription }
+   * @type { ?DownloadDescription }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -207,9 +207,9 @@ export interface DownloadContentOptions {
 }
 
 /**
- * Defines the download style option.
+ * Defines the DownloadFileButton style option.
  *
- * @interface DownloadStyleOption
+ * @interface DownloadStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -220,7 +220,7 @@ export interface DownloadStyleOptions {
   /**
    * Icon size.
    *
-   * @type { Dimension }
+   * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -231,7 +231,7 @@ export interface DownloadStyleOptions {
   /**
    * Layout direction.
    *
-   * @type { DownloadLayoutDirection }
+   * @type { ?DownloadLayoutDirection }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -242,7 +242,7 @@ export interface DownloadStyleOptions {
   /**
    * Font size.
    *
-   * @type { Dimension }
+   * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -253,7 +253,7 @@ export interface DownloadStyleOptions {
   /**
    * Font Style.
    *
-   * @type { FontStyle }
+   * @type { ?FontStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -264,7 +264,7 @@ export interface DownloadStyleOptions {
   /**
    * Font weight.
    *
-   * @type { number | FontWeight | string }
+   * @type { ?number | FontWeight | string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -275,7 +275,7 @@ export interface DownloadStyleOptions {
   /**
    * Font family.
    *
-   * @type { string | Resource }
+   * @type { ?string | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -286,7 +286,7 @@ export interface DownloadStyleOptions {
   /**
    * Font color.
    *
-   * @type { ResourceColor }
+   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -297,7 +297,7 @@ export interface DownloadStyleOptions {
   /**
    * Icon color.
    *
-   * @type { ResourceColor }
+   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -308,7 +308,7 @@ export interface DownloadStyleOptions {
   /**
    * Text and Icon space.
    *
-   * @type { Dimension }
+   * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -319,24 +319,30 @@ export interface DownloadStyleOptions {
 
 /**
  * Declare Component DownloadFileButton
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @atomicservice
  * @since 12
  */
 @Component
 export declare struct DownloadFileButton {
   /**
-   * Sets the ProgressButton progress.
-   * @type { DownloadContentOption }.
+   * Set DownloadFileButton Content.
+   *
+   * @type { DownloadContentOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 12
    */
   @State contentOptions: DownloadContentOptions;
   /**
-   * Sets the DownloadFileButton Content.
-   * @type { DownloadStyleOption }.
+   * Set DownloadFileButton Style.
+   *
+   * @type { DownloadStyleOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 12
    */
