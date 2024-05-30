@@ -106,6 +106,14 @@ import SystemRouter, {
 } from '@system.router';
 import { SymbolGlyphModifier } from '@ohos.arkui.modifier';
 import { Colors, CustomColors, Theme, ThemeControl, CustomTheme } from '@ohos.arkui.theme';
+import {
+  ExtraRegionPosition,
+  ExpandedRegionLayoutOptions,
+  SemiFoldedRegionLayoutOptions,
+  FoldedRegionLayoutOptions,
+  PresetSplitRatio,
+  FoldSplitContainer,
+} from '@ohos.arkui.advanced.FoldSplitContainer';
 
 export {
   AddFormMenuItem, AddFormOptions, AlertDialog, Animator, AnimatorOptions, AnimatorResult, App, AppResponse, AtomicServiceBar,
@@ -133,5 +141,6 @@ export {
   font, inspector, matrix4, mediaquery, performanceMonitor, pluginComponentManager, prompt, promptAction, router,
   screen, screenshot, uiAppearance, uiExtensionHost, uiObserver, window, windowAnimationManager, CustomContentDialog,
   IconOptions, ChipItemLabelOptions, ChipGroupItemOptions, ChipItemStyle, ChipGroupSpaceOptions, IconItemOptions, IconGroupSuffix, ChipGroup,
-  SymbolGlyphModifier, Colors, CustomColors, Theme, ThemeControl, CustomTheme
+  SymbolGlyphModifier, Colors, CustomColors, Theme, ThemeControl, CustomTheme,
+  ExtraRegionPosition, ExpandedRegionLayoutOptions, SemiFoldedRegionLayoutOptions, FoldedRegionLayoutOptions, PresetSplitRatio, FoldSplitContainer
 };
