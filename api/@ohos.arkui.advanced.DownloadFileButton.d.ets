@@ -264,7 +264,7 @@ export interface DownloadStyleOptions {
   /**
    * Font weight.
    *
-   * @type { ?number | FontWeight | string }
+   * @type { ?(number | FontWeight | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -275,7 +275,7 @@ export interface DownloadStyleOptions {
   /**
    * Font family.
    *
-   * @type { ?string | Resource }
+   * @type { ?(string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
