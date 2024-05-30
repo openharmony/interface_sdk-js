@@ -4860,6 +4860,16 @@ declare namespace webview {
      * @since 12
      */
     isAdsBlockEnabledForCurPage(): boolean;
+    
+    /**
+     * Get the ID of the surface created by ArkWeb. This ID can be used for web page screenshots.
+     *
+     * @returns { string } The ID of the surface created by ArkWeb.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    getSurfaceId(): string;
   }
 
   /**
