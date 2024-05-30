@@ -160,6 +160,8 @@ declare namespace securityGuard {
   interface Querier {
     /**
      * Triggered when data is returned.
+     * 
+     * @type { function }
      * @syscap SystemCapability.Security.SecurityGuard
      * @systemapi Hide this for inner system use.
      * @since 12
@@ -168,6 +170,8 @@ declare namespace securityGuard {
     onQuery: (events: Array<SecurityEvent>) => void;
     /**
      * Triggered when data is complete.
+     * 
+     * @type { function }
      * @syscap SystemCapability.Security.SecurityGuard
      * @systemapi Hide this for inner system use.
      * @since 12
@@ -176,6 +180,8 @@ declare namespace securityGuard {
     onComplete: () => void;
     /**
      * Triggered when error.
+     * 
+     * @type { function }
      * @syscap SystemCapability.Security.SecurityGuard
      * @systemapi Hide this for inner system use.
      * @since 12
