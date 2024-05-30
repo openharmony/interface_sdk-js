@@ -2147,6 +2147,20 @@ declare namespace window {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Get the final show window.
+   *
+   * @param { BaseContext } ctx - Current application context.
+   * @param { AsyncCallback<Window> } callback - Callback used to return the top window obtained.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
+   *                                                                  2. Incorrect parameter types.
+   * @throws { BusinessError } 1300002 - This window state is abnormal.
+   * @throws { BusinessError } 1300006 - This window context is abnormal.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   function getLastWindow(ctx: BaseContext, callback: AsyncCallback<Window>): void;
 
   /**
@@ -2173,6 +2187,20 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Get the final show window.
+   *
+   * @param { BaseContext } ctx - Current application context.
+   * @returns { Promise<Window> } Promise used to return the top window obtained.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
+   *                                                                  2. Incorrect parameter types.
+   * @throws { BusinessError } 1300002 - This window state is abnormal.
+   * @throws { BusinessError } 1300006 - This window context is abnormal.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   function getLastWindow(ctx: BaseContext): Promise<Window>;
 
