@@ -194,23 +194,6 @@ declare namespace vpn {
     on(type: 'connect', callback: AsyncCallback<VpnConnectState>): void;
 
     /**
-     * Subscribes to vpn state changes.
-     * @permission ohos.permission.MANAGE_VPN
-     * @param { 'connect' } type - Indicates vpn connect state changes.
-     * @returns { Promise<VpnConnectState> } The promise returned by the vpn connect state.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - Non-system applications use system APIs.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2200001 - Invalid parameter value.
-     * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
-     * @throws { BusinessError } 2200003 - System internal error.
-     * @syscap SystemCapability.Communication.NetManager.Vpn
-     * @systemapi Hide this for inner system use.
-     * @since 12
-     */
-    on(type: 'connect'): Promise<VpnConnectState>;
-
-    /**
      * Unsubscribes from vpn state changes.
      * @permission ohos.permission.MANAGE_VPN
      * @param { 'connect' } type - Indicates vpn connect state changes.
@@ -226,23 +209,6 @@ declare namespace vpn {
      * @since 12
      */
     off(type: 'connect', callback: AsyncCallback<VpnConnectState>): void;
-
-    /**
-     * Unsubscribes from vpn state changes.
-     * @permission ohos.permission.MANAGE_VPN
-     * @param { 'connect' } type - Indicates vpn connect state changes.
-     * @returns { Promise<VpnConnectState> } The promise returned by the vpn connect state.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - Non-system applications use system APIs.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2200001 - Invalid parameter value.
-     * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
-     * @throws { BusinessError } 2200003 - System internal error.
-     * @syscap SystemCapability.Communication.NetManager.Vpn
-     * @systemapi Hide this for inner system use.
-     * @since 12
-     */
-    off(type: 'connect'): Promise<VpnConnectState>;
 
     /**
      * add the VPN config.
