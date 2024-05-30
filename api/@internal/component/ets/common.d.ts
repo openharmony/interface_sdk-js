@@ -10063,7 +10063,7 @@ declare enum SheetMode {
 }
 
 /**
- * Define the flush mode of the sheet.
+ * Define the scroll size mode of the sheet.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
