@@ -340,7 +340,7 @@ export declare class ContentItem {
 
   /**
    * Image modifier for icon.
-   * @type { ImageModifier }
+   * @type { ?ImageModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 12
    */
@@ -348,7 +348,7 @@ export declare class ContentItem {
 
   /**
    * Text modifier for primaryText.
-   * @type { TextModifier }
+   * @type { ?TextModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 12
    */
@@ -356,7 +356,7 @@ export declare class ContentItem {
 
   /**
    * Text modifier for secondaryText.
-   * @type { TextModifier }
+   * @type { ?TextModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 12
    */
@@ -364,7 +364,7 @@ export declare class ContentItem {
 
   /**
    * Text modifier for description.
-   * @type { TextModifier }
+   * @type { ?TextModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 12
    */
