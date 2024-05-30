@@ -131,14 +131,14 @@ declare namespace uiEffect {
      */
     cubicRate: number;
     /**
-     * Defines the brightness quadRate.
+     * Defines the brightness quadraticRate.
      *
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 12
      */
-    quadRate: number;
+    quadraticRate: number;
     /**
      * Defines the brightness LinearRate.
      *
@@ -167,23 +167,23 @@ declare namespace uiEffect {
      */
     saturation: number;
     /**
-     * Defines the brightness positiveCoeff.
+     * Defines the brightness positiveCoefficient.
      *
      * @type { [number, number, number] }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 12
      */
-    positiveCoeff: [number, number, number];
+    positiveCoefficient: [number, number, number];
     /**
-     * Defines the brightness negativeCoeff.
+     * Defines the brightness negativeCoefficient.
      *
      * @type { [number, number, number] }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 12
      */
-    negativeCoeff: [number, number, number];
+    negativeCoefficient: [number, number, number];
     /**
      * Defines the brightness fraction.
      *
@@ -240,14 +240,14 @@ declare interface BrightnessBlenderParam {
    */
   cubicRate: number;
   /**
-   * Defines the brightness quadRate.
+   * Defines the brightness quadraticRate.
    *
    * @type { number }
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @since 12
    */
-  quadRate: number;
+  quadraticRate: number;
   /**
    * Defines the brightness LinearRate.
    *
@@ -276,23 +276,23 @@ declare interface BrightnessBlenderParam {
    */
   saturation: number;
   /**
-   * Defines the brightness positiveCoeff.
+   * Defines the brightness positiveCoefficient.
    *
    * @type { [number, number, number] }
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @since 12
    */
-  positiveCoeff: [number, number, number];
+  positiveCoefficient: [number, number, number];
   /**
-   * Defines the brightness negativeCoeff.
+   * Defines the brightness negativeCoefficient.
    *
    * @type { [number, number, number] }
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @since 12
    */
-  negativeCoeff: [number, number, number];
+  negativeCoefficient: [number, number, number];
   /**
    * Defines the brightness fraction.
    *
