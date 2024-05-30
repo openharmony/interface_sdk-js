@@ -10080,7 +10080,7 @@ declare enum ScrollSizeMode {
    * @atomicservice
    * @since 12
    */
-  FOLLOW_DETEND = 0,
+  FOLLOW_DETENT = 0,
 
   /**
    * Sheet change scroll size during the sliding process.
