@@ -94,7 +94,7 @@ declare namespace uiEffect {
      */
     DECAL = 3,
   }
-
+  
   /**
    * The VisualEffect of Component.
    * @typedef VisualEffect
@@ -213,21 +213,95 @@ declare namespace uiEffect {
 
   /**
    * Create a BrightnessBlender to add BrightnessBlender to the component.
-   * @param { number } cubicRate - The cubicRate to brightness blender.
-   * @param { number } quadRate - The quadRate to brightness blender.
-   * @param { number } linearRate - The linearRate to brightness blender.
-   * @param { number } degree - The degree to brightness blender.
-   * @param { number } saturation - The saturation to brightness blender.
-   * @param { Array<number> } positiveCoeff - The positiveCoeff to brightness blender.
-   * @param { Array<number> } negativeCoeff - The negativeCoeff to brightness blender.
-   * @param { number } fraction - The fraction to brightness blender.
+   * @param { BrightnessBlenderParam } param - The brightness blender parameters.
    * @returns { BrightnessBlender } Returns the blender.
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @since 12
    */
-  function createBrightnessBlender(cubicRate: number, quadRate: number, linearRate: number, degree: number, saturation: number,
-    positiveCoeff: Array<number>, negativeCoeff: Array<number>, fraction: number): BrightnessBlender;
+  function createBrightnessBlender(param: BrightnessBlenderParam): BrightnessBlender;
+}
+
+/**
+ * The parameters of brightness blender.
+ * @typedef BrightnessBlenderParam
+ * @syscap SystemCapability.Graphics.Drawing
+ * @systemapi
+ * @since 12
+ */
+declare interface BrightnessBlenderParam {
+  /**
+   * Defines the brightness cubicRate.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @since 12
+   */
+  cubicRate: number;
+  /**
+   * Defines the brightness quadRate.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @since 12
+   */
+  quadRate: number;
+  /**
+   * Defines the brightness LinearRate.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @since 12
+   */
+  linearRate: number;
+  /**
+   * Defines the brightness degree.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @since 12
+   */
+  degree: number;
+  /**
+   * Defines the brightness saturation.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @since 12
+   */
+  saturation: number;
+  /**
+   * Defines the brightness positiveCoeff.
+   *
+   * @type { [number, number, number] }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @since 12
+   */
+  positiveCoeff: [number, number, number];
+  /**
+   * Defines the brightness negativeCoeff.
+   *
+   * @type { [number, number, number] }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @since 12
+   */
+  negativeCoeff: [number, number, number];
+  /**
+   * Defines the brightness fraction.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @since 12
+   */
+  fraction: number;
 }
 
 export default uiEffect;
