@@ -1401,6 +1401,32 @@ declare namespace media {
     setMediaSource(src: MediaSource, strategy?: PlaybackStrategy): Promise<void>;
 
     /**
+     * Add subtitle resource represented by FD to the player.
+     * @param { number } fd : The file descriptor of subtitle source from file system.
+     * The caller is responsible to close the file descriptor.
+     * @param { number } offset : The offset into the file where the data to be read, in bytes.
+     * By default, the offset is zero.
+     * @param { number } length : The length in bytes of the data to be read.
+     * By default, the length is the rest of bytes in the file from the offset.
+     * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 12
+     */
+    addSubtitleFromFd(fd: number, offset?: number, length?: number): Promise<void>;
+
+    /**
+     * Add subtitle resource represented by url to the player. After the Promise returns,
+     * subtitle info can be obtained by @getTrackDescription
+     * @param { string } url : Address of external subtitle file.
+     * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 12
+     */
+    addSubtitleFromUrl(url: string): Promise<void>;
+
+    /**
      * Media URI. Mainstream media formats are supported.
      * Network:http://xxx
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -2121,6 +2147,24 @@ declare namespace media {
      * @since 12
      */
     off(type: 'audioOutputDeviceChangeWithInfo', callback?: Callback<audio.AudioStreamDeviceChangeInfo>): void;
+
+    /**
+     * Subscribes listener for subtitle update event.
+     * @param { 'subtitleUpdate' } type - Type of the event to listen for.
+     * @param { Callback<SubtitleInfo> } callback - Callback used to listen subtitle update event.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 12
+     */
+    on(type: 'subtitleUpdate', callback: Callback<SubtitleInfo>): void
+
+    /**
+     * Unsubscribes listener for subtitle update event.
+     * @param { 'subtitleUpdate' } type - Type of the event to listen for.
+     * @param { Callback<SubtitleInfo> } callback - Callback used to listen subtitle update event.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 12
+     */
+    off(type: 'subtitleUpdate', callback?: Callback<SubtitleInfo>): void
   }
 
   /**
@@ -2484,6 +2528,35 @@ declare namespace media {
      * @since 11
      */
     callback: (buffer: ArrayBuffer, length: number, pos?: number) => number;
+  }
+
+  /**
+   * Provides subtitle information.
+   * Can be synchroized to the time reported by AVPlayer#timeUpdate event
+   *
+   * @typedef SubtitleInfo
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @since 12
+   */
+  interface SubtitleInfo {
+    /**
+     * Duration of the text to be displayed, as milliseconds.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
+    duration?: number;
+    /**
+     * Display start time of the text, as milliseconds.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
+    startTime?: number;
+    /**
+     * Text information of current update event.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
+    text?: string;
   }
 
   /**
@@ -4420,6 +4493,13 @@ declare namespace media {
      * @since 11
      */
     MEDIA_TYPE_VID = 1,
+    /**
+     * Track is subtitle.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 12
+     */
+    MEDIA_TYPE_SUBTITLE = 2,
   }
 
   /**
@@ -4575,6 +4655,14 @@ declare namespace media {
      * @since 12
      */
     MD_KEY_AUD_SAMPLE_DEPTH = 'sample_depth',
+
+    /**
+     * Key for language.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 12
+     */
+    MD_KEY_LANGUAGE = 'language',
   }
 
   /**
