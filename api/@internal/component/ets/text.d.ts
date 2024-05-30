@@ -1514,4 +1514,15 @@ declare class TextController {
    * @since 12
    */
   setStyledString(value: StyledString): void;
+
+  /**
+   * Get LayoutManager.
+   *
+   * @returns { LayoutManager } - Return the LayoutManager.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  getLayoutManager(): LayoutManager;
 }
