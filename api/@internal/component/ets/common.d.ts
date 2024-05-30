@@ -10071,26 +10071,26 @@ declare enum SheetMode {
  * @atomicservice
  * @since 12
  */
-declare enum SheetFlushMode {
+declare enum ScrollSizeMode {
   /**
-   * Sheet flush after the slide ends.
+   * Sheet change scroll size after the slide ends.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  DEFAULT = 0,
+  FELLOW_DETEND = 0,
 
   /**
-   * Sheet flush during the sliding process.
+   * Sheet change scroll size during the sliding process.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  ALWAYS = 1,
+  CONTINUOUS = 1,
 }
 
 /**
@@ -10496,16 +10496,16 @@ declare interface SheetOptions extends BindOptions {
   mode?: SheetMode;
 
   /**
-   * Determine sheet flush mode, whether sheet should flush during sliding
+   * Determine sheet scroll size mode.
    *
-   * @type { ?SheetFlushMode }
-   * @default SheetFlushMode.DEFAULT
+   * @type { ?ScrollSizeMode }
+   * @default ScrollSizeMode.FELLOW_DETEND
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-    flushMode?: SheetFlushMode;
+    scrollSizeMode?: ScrollSizeMode;
 
   /**
    * Called when detents of the sheet changed
