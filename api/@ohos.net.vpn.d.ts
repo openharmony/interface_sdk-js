@@ -288,7 +288,7 @@ declare namespace vpn {
      * @since 10
      */
     setUp(config: VpnConfig, callback: AsyncCallback<number>): void;
-
+ 
     /**
      * Create a VPN network using the VpnConfig.
      * @permission ohos.permission.MANAGE_VPN
@@ -307,7 +307,7 @@ declare namespace vpn {
      * @since 10
      */
     setUp(config: VpnConfig): Promise<number>;
-
+ 
     /**
      * Protect a socket from VPN connections. After protecting, data sent through this socket will go directly to the
      * underlying network so its traffic will not be forwarded through the VPN.
@@ -326,7 +326,7 @@ declare namespace vpn {
      * @since 10
      */
     protect(socketFd: number, callback: AsyncCallback<void>): void;
-
+ 
     /**
      * Protect a socket from VPN connections. After protecting, data sent through this socket will go directly to the
      * underlying network so its traffic will not be forwarded through the VPN.
@@ -345,7 +345,7 @@ declare namespace vpn {
      * @since 10
      */
     protect(socketFd: number): Promise<void>;
-
+ 
     /**
      * Destroy the VPN network.
      * @permission ohos.permission.MANAGE_VPN
@@ -360,7 +360,7 @@ declare namespace vpn {
      * @since 10
      */
     destroy(callback: AsyncCallback<void>): void;
-
+ 
     /**
      * Destroy the VPN network.
      * @permission ohos.permission.MANAGE_VPN
@@ -393,7 +393,7 @@ declare namespace vpn {
      * @since 10
      */
     addresses: Array<LinkAddress>;
-
+ 
     /**
      * The array of routes for VPN interface.
      * @type {?Array<RouteInfo>}
@@ -411,7 +411,7 @@ declare namespace vpn {
      * @since 10
      */
     dnsAddresses?: Array<string>;
-
+ 
     /**
      * The array of search domains for the DNS resolver.
      * @type {?Array<string>}
@@ -420,7 +420,7 @@ declare namespace vpn {
      * @since 10
      */
     searchDomains?: Array<string>;
-
+ 
     /**
      * The maximum transmission unit (MTU) for the VPN interface.
      * @type {?number}
@@ -429,7 +429,7 @@ declare namespace vpn {
      * @since 10
      */
     mtu?: number;
-
+ 
     /**
      * Whether ipv4 is supported. The default value is true.
      * @type {?boolean}
@@ -438,7 +438,7 @@ declare namespace vpn {
      * @since 10
      */
     isIPv4Accepted?: boolean;
-
+ 
     /**
      * Whether ipv6 is supported. The default value is false.
      * @type {?boolean}
@@ -447,7 +447,7 @@ declare namespace vpn {
      * @since 10
      */
     isIPv6Accepted?: boolean;
-
+ 
     /**
      * Whether to use the built-in VPN. The default value is false.
      * @type {?boolean}
@@ -456,7 +456,7 @@ declare namespace vpn {
      * @since 10
      */
     isLegacy?: boolean;
-
+ 
     /**
      * Whether the VPN interface's file descriptor is in blocking/non-blocking mode. The default value is false.
      * @type {?boolean}
@@ -465,7 +465,7 @@ declare namespace vpn {
      * @since 10
      */
     isBlocking?: boolean;
-
+ 
     /**
      * The array of trustlist for the VPN network. The string indicates package name.
      * @type {?Array<string>}
@@ -474,7 +474,7 @@ declare namespace vpn {
      * @since 10
      */
     trustedApplications?: Array<string>;
-
+ 
     /**
      * The array of blocklist for the VPN network. The string indicates package name.
      * @type {?Array<string>}
