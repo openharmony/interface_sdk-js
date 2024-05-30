@@ -3294,7 +3294,7 @@ declare namespace bundleManager {
 
   /**
    * Obtains preload information about a module.
-   * 
+   *
    * @typedef { _HapModuleInfo.PreloadItem }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
@@ -3337,6 +3337,16 @@ declare namespace bundleManager {
   export type RouterItem = _HapModuleInfo.RouterItem;
 
   /**
+   * Obtains the data item within router item.
+   *
+   * @typedef { _HapModuleInfo.DataItem }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  export type DataItem = _HapModuleInfo.DataItem;
+
+  /**
    * Obtains configuration information about an ability.
    *
    * @typedef { _AbilityInfo.AbilityInfo }
@@ -3372,7 +3382,7 @@ declare namespace bundleManager {
 
   /**
    * Obtains extension information about a bundle.
-   * 
+   *
    * @typedef { _ExtensionAbilityInfo.ExtensionAbilityInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9

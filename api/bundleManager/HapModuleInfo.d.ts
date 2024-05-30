@@ -613,7 +613,28 @@ export interface RouterItem {
    */
   readonly buildFunction: string;
   /**
-   * Indicates the json string of custom data
+   * Indicates the custom data
+   *
+   * @type { Array<DataItem> }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  readonly data: Array<DataItem>;
+}
+
+/**
+ * Indicates the data item defined in router item
+ *
+ * @typedef DataItem
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @atomicservice
+ * @since 12
+ */
+export interface DataItem {
+  /**
+   * Indicates the key of the custom data item
    *
    * @type { string }
    * @readonly
@@ -621,5 +642,15 @@ export interface RouterItem {
    * @atomicservice
    * @since 12
    */
-  readonly data: string;
+  readonly key: string;
+  /**
+   * Indicates the value of the custom data item
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  readonly value: string;
 }
