@@ -1337,37 +1337,6 @@ declare namespace bundleManager {
   }
 
   /**
-   * This enumeration value is used to identify various types of extension ability
-   *
-   * @enum { number }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 12
-  */
-  export enum MultiAppModeType {
-    /**
-     * Indicates multi app mode with type of unspecified
-     *
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 12
-     */
-    UNSPECIFIED = 0,
-    /**
-     * Indicates multi app mode with type of multiInstance
-     *
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 12
-     */
-    MULTI_INSTANCE = 1,
-    /**
-     * Indicates multi app mode with type of appClone
-     *
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 12
-    */
-    APP_CLONE = 2,
-  }
-
-  /**
    * Obtains own bundleInfo.
    *
    * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
@@ -3455,16 +3424,6 @@ declare namespace bundleManager {
   export type RecoverableApplicationInfo = _RecoverableApplicationInfo;
 
   /**
-   * Indicates the information of preinstalled application.
-   *
-   * @typedef { _PreinstalledApplicationInfo  }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
-   * @since 12
-   */
-  export type PreinstalledApplicationInfo = _PreinstalledApplicationInfo;
-
-  /**
    * Obtains configuration information about an skill
    *
    * @typedef { _Skill.Skill }
@@ -3483,6 +3442,16 @@ declare namespace bundleManager {
    * @since 12
    */
   export type SkillUrl = _Skill.SkillUri;
+
+  /**
+   * Indicates the information of preinstalled application.
+   *
+   * @typedef { _PreinstalledApplicationInfo  }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  export type PreinstalledApplicationInfo = _PreinstalledApplicationInfo;  
 }
 
 export default bundleManager;
