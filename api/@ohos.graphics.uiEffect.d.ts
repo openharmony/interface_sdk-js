@@ -204,11 +204,11 @@ declare namespace uiEffect {
   function createFilter(): Filter;
 
   /**
-     * Create a VisualEffect to add multiple effects to the component.
-     * @returns { VisualEffect } Returns the head node of visualEffect.
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
-     */
+   * Create a VisualEffect to add multiple effects to the component.
+   * @returns { VisualEffect } Returns the head node of visualEffect.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
   function createEffect(): VisualEffect;
 
   /**
