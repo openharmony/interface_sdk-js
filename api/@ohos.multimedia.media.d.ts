@@ -2541,18 +2541,21 @@ declare namespace media {
   interface SubtitleInfo {
     /**
      * Duration of the text to be displayed, as milliseconds.
+     * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 12
      */
     duration?: number;
     /**
      * Display start time of the text, as milliseconds.
+     * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 12
      */
     startTime?: number;
     /**
      * Text information of current update event.
+     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 12
      */
