@@ -161,6 +161,46 @@ type OnRenderProcessRespondingCallback = () => void;
 type OnViewportFitChangedCallback = (viewportFit: ViewportFit) => void;
 
 /**
+* The callback of ads block
+*
+* @typedef OnAdsBlockedCallback
+* @syscap SystemCapability.Web.Webview.Core
+* @atomicservice
+* @since 12
+*/
+type OnAdsBlockedCallback = (details: AdsBlockedDetails) => void;
+
+/**
+ * Defines the ads block details.
+ *
+ * @interface AdsBlockedDetails
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+declare interface AdsBlockedDetails {
+  /**
+   * The url of main frame.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  url: string;
+
+  /**
+   * the url of ads.
+   *
+   * @type { Array<string> }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  adsBlocked: Array<string>;
+}
+
+/**
  * Defines the web keyboard options when onInterceptKeyboardAttach event return.
  *
  * @interface WebKeyboardOptions
@@ -4217,7 +4257,7 @@ declare interface WebOptions {
    * @since 11
    */
   incognitoMode? : boolean;
-  
+
   /**
    * Sets the shared render process token of the web.
    * When the web is in multiprocess mode, web with the same
@@ -8291,6 +8331,19 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 12
    */
   onInterceptKeyboardAttach(callback: WebKeyboardCallback): WebAttribute;
+
+  /**
+  * Called when received Ads blocked results.
+  * If blocked results exist at end of page loading, the first call will be triggered.
+  * To avoid performance issues, subsequent results will be periodically reported through this api.
+  *
+  * @param { OnAdsBlockedCallback } callback - The callback for OnAdsBlockedCallback.
+  * @returns { WebAttribute }
+  * @syscap SystemCapability.Web.Webview.Core
+  * @atomicservice
+  * @since 12
+  */
+  onAdsBlocked(callback: OnAdsBlockedCallback): WebAttribute;
 }
 
 /**
