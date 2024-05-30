@@ -61,7 +61,7 @@ declare namespace vpn {
    * @since 10
    */
   function createVpnConnection(context: AbilityContext): VpnConnection;
-
+ 
   /**
    * Subscribes to vpn state changes.
    * @permission ohos.permission.MANAGE_VPN
@@ -1026,3 +1026,4 @@ declare namespace vpn {
   }
 }
 export default vpn;
+ 
