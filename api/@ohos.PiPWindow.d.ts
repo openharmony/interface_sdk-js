@@ -19,7 +19,7 @@
  */
 
 import type BaseContext from './application/BaseContext';
-import { NodeController } from '@ohos.arkui.node'
+import { NodeController, NodeContent } from '@ohos.arkui.node'
 
 /**
  * Picture In Picture Window Manager
@@ -133,6 +133,15 @@ declare namespace PiPWindow {
      * @since 12
      */
     nodeController?: NodeController;
+
+    /**
+     * Describes the nodeContent by which we can display a custom layout above PiP window.
+     *
+     * @type { ?NodeContent }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    nodeContent?: NodeContent;
   }
 
   /**
