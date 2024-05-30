@@ -292,7 +292,7 @@ export declare class ContentItem {
    * @since 11
    */
   icon?: ResourceStr;
-  
+
   /**
    * Sets the primaryText.
    * @type { ?ResourceStr }
@@ -307,7 +307,7 @@ export declare class ContentItem {
    * @since 11
    */
   primaryText?: ResourceStr;
-  
+
   /**
    * Sets the secondaryText.
    * @type { ?ResourceStr }
@@ -322,7 +322,7 @@ export declare class ContentItem {
    * @since 11
    */
   secondaryText?: ResourceStr;
-  
+
   /**
    * Sets the description.
    * @type { ?ResourceStr }
@@ -337,7 +337,7 @@ export declare class ContentItem {
    * @since 11
    */
   description?: ResourceStr;
-  
+
   /**
    * Image modifier for icon.
    * @type { ImageModifier }
@@ -345,7 +345,7 @@ export declare class ContentItem {
    * @since 12
    */
   iconImageModifier?: ImageModifier;
-  
+
   /**
    * Text modifier for primaryText.
    * @type { TextModifier }
@@ -353,7 +353,7 @@ export declare class ContentItem {
    * @since 12
    */
   primaryTextModifier?: TextModifier;
-  
+
   /**
    * Text modifier for secondaryText.
    * @type { TextModifier }
@@ -361,7 +361,7 @@ export declare class ContentItem {
    * @since 12
    */
   secondaryTextModifier?: TextModifier;
-  
+
   /**
    * Text modifier for description.
    * @type { TextModifier }
@@ -561,7 +561,7 @@ export declare struct ComposeListItem {
    * @since 11
    */
   @Prop operateItem?: OperateItem;
-  
+
   /**
    * Sets the compose item's space.Its length unit is vp.
    * @type { ?number }
@@ -570,7 +570,7 @@ export declare struct ComposeListItem {
    * @since 12
    */
   @Prop itemSpace?: number;
-  
+
   /**
    * Sets the compose item's padding.
    * @type { ?LocalizedPadding }
