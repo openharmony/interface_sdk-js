@@ -448,21 +448,21 @@ declare namespace vpn {
 
     /**
      * The config of the open VPN network.
-     * @type {?OpenVpnConifg}
+     * @type {?OpenVpnConfig}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    openVpnConfig?: OpenVpnConifg
+    openVpnConfig?: OpenVpnConfig
 
     /**
      * The config of the ipsec VPN network.
-     * @type {?IpsecVpnConifg}
+     * @type {?IpsecVpnConfig}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    ipsecVpnConfig?: IpsecVpnConifg
+    ipsecVpnConfig?: IpsecVpnConfig
 
     /**
      * The config of the l2tp VPN network.
