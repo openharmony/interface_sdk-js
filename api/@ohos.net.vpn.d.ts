@@ -114,23 +114,6 @@ declare namespace vpn {
   function addSysVpnConfig(config: VpnConfig, callback: AsyncCallback<void>): void;
 
   /**
-   * add the VPN config.
-   * @permission ohos.permission.MANAGE_VPN
-   * @param { VpnConfig } config - Indicates the {@link VpnConfig} configuration of the VPN network.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2200001 - Invalid parameter value.
-   * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2200003 - System internal error.
-   * @syscap SystemCapability.Communication.NetManager.Vpn
-   * @systemapi Hide this for inner system use.
-   * @since 12
-   */
-  function addSysVpnConfig(config: VpnConfig): Promise<void>;
-
-  /**
    * delete the VPN config.
    * @permission ohos.permission.MANAGE_VPN
    * @param { string } vpnUuid - Indicates the uuid of the VPN network.
@@ -148,23 +131,6 @@ declare namespace vpn {
   function deleteSysVpnConfig(vpnUuid: string, callback: AsyncCallback<void>): void;
 
   /**
-   * delete the VPN config.
-   * @permission ohos.permission.MANAGE_VPN
-   * @param { string } vpnUuid - Indicates the uuid of the VPN network.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2200001 - Invalid parameter value.
-   * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2200003 - System internal error.
-   * @syscap SystemCapability.Communication.NetManager.Vpn
-   * @systemapi Hide this for inner system use.
-   * @since 12
-   */
-  function deleteSysVpnConfig(vpnUuid: string): Promise<void>;
-
-  /**
    * get the VPN config list.
    * @permission ohos.permission.MANAGE_VPN
    * @param { AsyncCallback<Array<VpnConfig>> } callback - The callback of the all VPN network.
@@ -179,22 +145,6 @@ declare namespace vpn {
    * @since 12
    */
   function getSysVpnConfigList(callback: AsyncCallback<Array<VpnConfig>>): void;
-
-  /**
-   * get the VPN config list.
-   * @permission ohos.permission.MANAGE_VPN
-   * @returns { Promise<void> } The promise returned by the all VPN network..
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2200001 - Invalid parameter value.
-   * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2200003 - System internal error.
-   * @syscap SystemCapability.Communication.NetManager.Vpn
-   * @systemapi Hide this for inner system use.
-   * @since 12
-   */
-  function getSysVpnConfigList(): Promise<Array<VpnConfig>>;
 
   /**
    * get the VPN config.
@@ -214,23 +164,6 @@ declare namespace vpn {
   function getSysVpnConfig(vpnUuid: string, callback: AsyncCallback<VpnConfig>): void;
 
   /**
-   * get the VPN config.
-   * @permission ohos.permission.MANAGE_VPN
-   * @param { string } vpnUuid - Indicates the uuid of the VPN network.
-   * @returns { Promise<VpnConfig> } The promise returned by the VPN network.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2200001 - Invalid parameter value.
-   * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2200003 - System internal error.
-   * @syscap SystemCapability.Communication.NetManager.Vpn
-   * @systemapi Hide this for inner system use.
-   * @since 12
-   */
-  function getSysVpnConfig(vpnUuid: string): Promise<VpnConfig>;
-
-  /**
    * get the connected VPN config.
    * @permission ohos.permission.MANAGE_VPN
    * @param { AsyncCallback<VpnConfig> } callback - The callback of the connected VPN network.
@@ -245,22 +178,6 @@ declare namespace vpn {
    * @since 12
    */
   function getConnectedSysVpnConfig(callback: AsyncCallback<VpnConfig>): void;
-
-  /**
-   * get the connected VPN config.
-   * @permission ohos.permission.MANAGE_VPN
-   * @returns { Promise<VpnConfig> } The promise returned by the connected VPN network.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2200001 - Invalid parameter value.
-   * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2200003 - System internal error.
-   * @syscap SystemCapability.Communication.NetManager.Vpn
-   * @systemapi Hide this for inner system use.
-   * @since 12
-   */
-  function getConnectedSysVpnConfig(): Promise<VpnConfig>;
 
   /**
    * Defines a VPN connection.
