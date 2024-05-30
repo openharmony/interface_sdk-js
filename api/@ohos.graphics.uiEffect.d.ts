@@ -122,7 +122,7 @@ declare namespace uiEffect {
    */
   interface BrightnessBlender {
     /**
-     * Defines the brightness cubicRate.
+     * Defines third-order rate for grayscale adjustment.
      *
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
@@ -131,7 +131,7 @@ declare namespace uiEffect {
      */
     cubicRate: number;
     /**
-     * Defines the brightness quadraticRate.
+     * Defines second-order rate for grayscale adjustment.
      *
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
@@ -140,7 +140,7 @@ declare namespace uiEffect {
      */
     quadraticRate: number;
     /**
-     * Defines the brightness LinearRate.
+     * Defines linear rate for grayscale adjustment.
      *
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
@@ -149,7 +149,7 @@ declare namespace uiEffect {
      */
     linearRate: number;
     /**
-     * Defines the brightness degree.
+     * Defines grayscale adjustment degree.
      *
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
@@ -158,7 +158,7 @@ declare namespace uiEffect {
      */
     degree: number;
     /**
-     * Defines the brightness saturation.
+     * Defines the reference saturation for brightness.
      *
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
@@ -167,7 +167,7 @@ declare namespace uiEffect {
      */
     saturation: number;
     /**
-     * Defines the brightness positiveCoefficient.
+     * Defines the positive adjustment coefficients in RGB channels based on the reference saturation.
      *
      * @type { [number, number, number] }
      * @syscap SystemCapability.Graphics.Drawing
@@ -176,7 +176,7 @@ declare namespace uiEffect {
      */
     positiveCoefficient: [number, number, number];
     /**
-     * Defines the brightness negativeCoefficient.
+     * Defines the negative adjustment coefficients in RGB channels based on the reference saturation.
      *
      * @type { [number, number, number] }
      * @syscap SystemCapability.Graphics.Drawing
@@ -185,7 +185,7 @@ declare namespace uiEffect {
      */
     negativeCoefficient: [number, number, number];
     /**
-     * Defines the brightness fraction.
+     * Defines the blending fraction for brightness effect.
      *
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
@@ -231,7 +231,7 @@ declare namespace uiEffect {
  */
 declare interface BrightnessBlenderParam {
   /**
-   * Defines the brightness cubicRate.
+   * Defines third-order rate for grayscale adjustment.
    *
    * @type { number }
    * @syscap SystemCapability.Graphics.Drawing
@@ -240,7 +240,7 @@ declare interface BrightnessBlenderParam {
    */
   cubicRate: number;
   /**
-   * Defines the brightness quadraticRate.
+   * Defines second-order rate for grayscale adjustment.
    *
    * @type { number }
    * @syscap SystemCapability.Graphics.Drawing
@@ -249,7 +249,7 @@ declare interface BrightnessBlenderParam {
    */
   quadraticRate: number;
   /**
-   * Defines the brightness LinearRate.
+   * Defines linear rate for grayscale adjustment.
    *
    * @type { number }
    * @syscap SystemCapability.Graphics.Drawing
@@ -258,7 +258,7 @@ declare interface BrightnessBlenderParam {
    */
   linearRate: number;
   /**
-   * Defines the brightness degree.
+   * Defines grayscale adjustment degree.
    *
    * @type { number }
    * @syscap SystemCapability.Graphics.Drawing
@@ -267,7 +267,7 @@ declare interface BrightnessBlenderParam {
    */
   degree: number;
   /**
-   * Defines the brightness saturation.
+   * Defines the reference saturation for brightness.
    *
    * @type { number }
    * @syscap SystemCapability.Graphics.Drawing
@@ -276,7 +276,7 @@ declare interface BrightnessBlenderParam {
    */
   saturation: number;
   /**
-   * Defines the brightness positiveCoefficient.
+   * Defines the positive adjustment coefficients in RGB channels based on the reference saturation.
    *
    * @type { [number, number, number] }
    * @syscap SystemCapability.Graphics.Drawing
@@ -285,7 +285,7 @@ declare interface BrightnessBlenderParam {
    */
   positiveCoefficient: [number, number, number];
   /**
-   * Defines the brightness negativeCoefficient.
+   * Defines the negative adjustment coefficients in RGB channels based on the reference saturation.
    *
    * @type { [number, number, number] }
    * @syscap SystemCapability.Graphics.Drawing
@@ -294,7 +294,7 @@ declare interface BrightnessBlenderParam {
    */
   negativeCoefficient: [number, number, number];
   /**
-   * Defines the brightness fraction.
+   * Defines the blending fraction for brightness effect.
    *
    * @type { number }
    * @syscap SystemCapability.Graphics.Drawing
