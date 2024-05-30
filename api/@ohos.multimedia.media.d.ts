@@ -1408,6 +1408,7 @@ declare namespace media {
      * By default, the offset is zero.
      * @param { number } length : The length in bytes of the data to be read.
      * By default, the length is the rest of bytes in the file from the offset.
+     * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -1419,6 +1420,7 @@ declare namespace media {
      * Add subtitle resource represented by url to the player. After the Promise returns,
      * subtitle info can be obtained by @getTrackDescription
      * @param { string } url : Address of external subtitle file.
+     * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
