@@ -2258,21 +2258,6 @@ declare namespace window {
   function shiftAppWindowFocus(sourceWindowId: number, targetWindowId: number): Promise<void>;
 
   /**
-   * gets snapshot of window
-   *
-   * @param { number } windowId - Indicates target window id.
-   * @returns { Promise<image.PixelMap> } - Promise that returns no value.
-   * @throws {BusinessError} 801 - Capability not supported on this device.
-   * @throws {BusinessError} 1300002 - This window state is abnormal.
-   * @throws {BusinessError} 1300003 - This window manager service work abnormally.
-   * @throws {BusinessError} 1300004 - This operation is not access.
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @systemapi Hide this for inner system use.
-   * @since 12
-   */
-  function getSnapshot(windowId: number): Promise<image.PixelMap>;
-
-  /**
    * Register the callback of systemBarTintChange
    *
    * @param { 'systemBarTintChange' } type - The value is fixed at 'systemBarTintChange', indicating the property change event of the system bar.
@@ -6106,33 +6091,6 @@ declare namespace window {
      * @since 12
      */
     setWindowGrayScale(grayScale: number): Promise<void>;
-
-    /**
-     * Set whether to enable immersive mode.
-     *
-     * @param { boolean } enabled - The value true means to enable immersive mode, and false means the opposite.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300004 - Unauthorized operation.
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
-     * @since 12
-     */
-    setImmersiveModeEnabledState(enabled: boolean): void;
-
-    /**
-     * Get whether the immersive mode is enabled or not.
-     *
-     * @returns { boolean } - The value true means the immersive mode is enabled, and false means the opposite.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300004 - Unauthorized operation.
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
-     * @since 12
-     */
-    getImmersiveModeEnabledState(): boolean;
   }
 
   /**
