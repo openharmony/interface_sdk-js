@@ -126,22 +126,13 @@ declare namespace PiPWindow {
     controlGroups?: Array<PiPControlGroup>;
 
     /**
-     * Describes the nodeController by which we can display a custom layout above PiP window.
+     * Describes the nodeController by which we can display a custom layout above pip window.
      *
      * @type { ?NodeController }
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
     nodeController?: NodeController;
-
-    /**
-     * Describes the nodeContent by which we can display a custom layout above PiP window.
-     *
-     * @type { ?NodeContent }
-     * @syscap SystemCapability.Window.SessionManager
-     * @since 12
-     */
-    nodeContent?: NodeContent;
   }
 
   /**
