@@ -18,6 +18,7 @@
  * @kit ArkUI
  */
 
+import { TextModifier } from './@ohos.arkui.modifier';
 
 
 /**

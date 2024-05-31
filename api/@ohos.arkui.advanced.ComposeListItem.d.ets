@@ -18,6 +18,7 @@
  * @kit ArkUI
  */
 
+import { TextModifier, ImageModifier } from './@ohos.arkui.modifier';
 
 /**
  * Declare enum IconType
