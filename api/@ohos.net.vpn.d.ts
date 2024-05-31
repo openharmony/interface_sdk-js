@@ -744,6 +744,15 @@ declare namespace vpn {
     strongswanConf?: string;
 
     /**
+     * The ipsec vpn ca cert config
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    ipsecCaCertConf?: string;
+
+    /**
      * The ipsec vpn private user cert config
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
