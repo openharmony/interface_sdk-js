@@ -472,6 +472,15 @@ declare namespace vpn {
      * @since 12
      */
     userId?: number;
+
+    /**
+     * relay route for system multi-user
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    relayRoute?: string;
   }
 
   /**
@@ -618,22 +627,40 @@ declare namespace vpn {
     ipsecCaCertConf?: string;
 
     /**
-     * The ipsec vpn user cert config
+     * The ipsec vpn private user cert config
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    ipsecUserCertConf?: string;
+    ipsecPrivateUserCertConf?: string;
 
     /**
-     * The ipsec vpn server cert config
+     * The ipsec vpn public user cert config
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    ipsecServerCertConf?: string;
+    ipsecPublicUserCertConf_?: string;
+
+    /**
+     * The ipsec vpn private server cert config
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    ipsecPrivateServerCertConf?: string;
+
+    /**
+     * The ipsec vpn public server cert config
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    ipsecPublicServerCertConf?: string;
 
     /**
      * The ipsec vpn ca cert file path
@@ -645,22 +672,40 @@ declare namespace vpn {
     ipsecCaCertFilePath?: string;
 
     /**
-     * The ipsec vpn user cert file path
+     * The ipsec vpn private user cert file path
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    ipsecUserCertFilePath?: string;
+    ipsecPrivateUserCertFilePath?: string;
 
     /**
-     * The ipsec vpn server cert file path
+     * The ipsec vpn public user cert file path
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    ipsecServerCertFilePath?: string;
+    ipsecPublicUserCertFilePath?: string;
+
+    /**
+     * The ipsec vpn private server cert file path
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    ipsecPrivateServerCertFilePath?: string;
+
+    /**
+     * The ipsec vpn public server cert file path
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    ipsecPublicServerCertFilePath?: string;
   }
 
   /**
@@ -699,31 +744,40 @@ declare namespace vpn {
     strongswanConf?: string;
 
     /**
-     * The ipsec vpn ca cert config
+     * The ipsec vpn private user cert config
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    ipsecCaCertConf?: string;
+    ipsecPrivateUserCertConf?: string;
 
     /**
-     * The ipsec vpn user cert config
+     * The ipsec vpn public user cert config
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    ipsecUserCertConf?: string;
+    ipsecPublicUserCertConf_?: string;
 
     /**
-     * The ipsec vpn server cert config
+     * The ipsec vpn private server cert config
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    ipsecServerCertConf?: string;
+    ipsecPrivateServerCertConf?: string;
+
+    /**
+     * The ipsec vpn public server cert config
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    ipsecPublicServerCertConf?: string;
 
     /**
      * The ipsec vpn ca cert file path
@@ -735,22 +789,40 @@ declare namespace vpn {
     ipsecCaCertFilePath?: string;
 
     /**
-     * The ipsec vpn user cert file path
+     * The ipsec vpn private user cert file path
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    ipsecUserCertFilePath?: string;
+    ipsecPrivateUserCertFilePath?: string;
 
     /**
-     * The ipsec vpn server cert file path
+     * The ipsec vpn public user cert file path
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    ipsecServerCertFilePath?: string;
+    ipsecPublicUserCertFilePath?: string;
+
+    /**
+     * The ipsec vpn private server cert file path
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    ipsecPrivateServerCertFilePath?: string;
+
+    /**
+     * The ipsec vpn public server cert file path
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    ipsecPublicServerCertFilePath?: string;
 
     /**
      * The L2TP/IPSec vpn config
