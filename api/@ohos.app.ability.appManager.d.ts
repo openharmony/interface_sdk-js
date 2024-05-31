@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -883,6 +883,25 @@ declare namespace appManager {
    * @since 12
    */
   function getRunningMultiAppInfo(bundleName: string): Promise<RunningMultiAppInfo>;
+
+  /**
+  * Check whether the bundle is running.
+  *
+  * @permission ohos.permission.GET_RUNNING_INFO
+  * @param { string } bundleName - Indicates the bundle name of the bundle.
+  * @param { number } [appCloneIndex] - app clone index
+  * @returns { Promise<boolean> } Returns the bundle running result. The result is true if running, false otherwise.
+  * @throws { BusinessError } 201 - Permission denied.
+  * @throws { BusinessError } 202 - Not system application.
+  * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+  * 2. Incorrect parameter types; 3. Parameter verification failed.
+  * @throws { BusinessError } 16000050 - Internal error.
+  * @throws { BusinessError } 16000073 - The app clone index does not exist.
+  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+  * @systemapi
+  * @since 12
+  */
+  function isAppRunning(bundleName: string, appCloneIndex?: number): Promise<boolean>;
 
   /**
    * The ability or extension state data.
