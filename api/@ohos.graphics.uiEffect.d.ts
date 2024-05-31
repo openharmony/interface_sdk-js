@@ -26,7 +26,6 @@ import { AsyncCallback } from './@ohos.base';
  * @syscap SystemCapability.Graphics.Drawing
  * @since 12
  */
-
 declare namespace uiEffect {
 
   /**
@@ -47,13 +46,13 @@ declare namespace uiEffect {
      * @since 12
      */
     pixelStretch(stretchSizes: Array<number>, tileMode: TileMode): Filter;
+
     /**
      * Set blur effect of the Component.
      *
      * @param { number } blurRadius
      * @returns { Filter }
      * @syscap SystemCapability.Graphics.Drawing
-     * @systemapi
      * @since 12
      */
     blur(blurRadius: number): Filter;
@@ -140,6 +139,7 @@ declare namespace uiEffect {
      * @since 12
      */
     cubicRate: number;
+
     /**
      * Defines second-order rate for grayscale adjustment.
      *
@@ -149,6 +149,7 @@ declare namespace uiEffect {
      * @since 12
      */
     quadraticRate: number;
+
     /**
      * Defines linear rate for grayscale adjustment.
      *
@@ -158,6 +159,7 @@ declare namespace uiEffect {
      * @since 12
      */
     linearRate: number;
+
     /**
      * Defines grayscale adjustment degree.
      *
@@ -167,6 +169,7 @@ declare namespace uiEffect {
      * @since 12
      */
     degree: number;
+
     /**
      * Defines the reference saturation for brightness.
      *
@@ -176,6 +179,7 @@ declare namespace uiEffect {
      * @since 12
      */
     saturation: number;
+
     /**
      * Defines the positive adjustment coefficients in RGB channels based on the reference saturation.
      *
@@ -185,6 +189,7 @@ declare namespace uiEffect {
      * @since 12
      */
     positiveCoefficient: [number, number, number];
+    
     /**
      * Defines the negative adjustment coefficients in RGB channels based on the reference saturation.
      *
@@ -194,6 +199,7 @@ declare namespace uiEffect {
      * @since 12
      */
     negativeCoefficient: [number, number, number];
+
     /**
      * Defines the blending fraction for brightness effect.
      *
@@ -249,6 +255,7 @@ declare interface BrightnessBlenderParam {
    * @since 12
    */
   cubicRate: number;
+
   /**
    * Defines second-order rate for grayscale adjustment.
    *
@@ -258,6 +265,7 @@ declare interface BrightnessBlenderParam {
    * @since 12
    */
   quadraticRate: number;
+
   /**
    * Defines linear rate for grayscale adjustment.
    *
@@ -267,6 +275,7 @@ declare interface BrightnessBlenderParam {
    * @since 12
    */
   linearRate: number;
+
   /**
    * Defines grayscale adjustment degree.
    *
@@ -276,6 +285,7 @@ declare interface BrightnessBlenderParam {
    * @since 12
    */
   degree: number;
+
   /**
    * Defines the reference saturation for brightness.
    *
@@ -285,6 +295,7 @@ declare interface BrightnessBlenderParam {
    * @since 12
    */
   saturation: number;
+
   /**
    * Defines the positive adjustment coefficients in RGB channels based on the reference saturation.
    *
@@ -294,6 +305,7 @@ declare interface BrightnessBlenderParam {
    * @since 12
    */
   positiveCoefficient: [number, number, number];
+
   /**
    * Defines the negative adjustment coefficients in RGB channels based on the reference saturation.
    *
@@ -303,6 +315,7 @@ declare interface BrightnessBlenderParam {
    * @since 12
    */
   negativeCoefficient: [number, number, number];
+
   /**
    * Defines the blending fraction for brightness effect.
    *
