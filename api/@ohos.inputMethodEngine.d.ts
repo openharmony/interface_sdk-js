@@ -665,7 +665,7 @@ declare namespace inputMethodEngine {
      * @param { PanelInfo } info - the info of panel to be created.
      * @param { AsyncCallback<Panel> } callback - the callback of createPanel.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 
      * @throws { BusinessError } 12800004 - not an input method extension.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
@@ -680,7 +680,7 @@ declare namespace inputMethodEngine {
      * @param { PanelInfo } info - the info of panel to be created.
      * @returns { Promise<Panel> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;
      * @throws { BusinessError } 12800004 - not an input method extension.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
@@ -693,7 +693,7 @@ declare namespace inputMethodEngine {
      * @param { Panel } panel - to be destroyed.
      * @param { AsyncCallback<void> } callback - the callback of destroyPanel.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -705,7 +705,7 @@ declare namespace inputMethodEngine {
      * @param { Panel } panel - to be destroyed.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -872,8 +872,8 @@ declare namespace inputMethodEngine {
      *
      * @param { number } action - action indicates the function of "enter" key.
      * @param { AsyncCallback<boolean> } callback - the callback of sendKeyFunction.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 401 - parameter error. Possible causes: 
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800003 - input method client error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
@@ -885,8 +885,8 @@ declare namespace inputMethodEngine {
      *
      * @param { number } action - action indicates the function of "enter" key.
      * @returns { Promise<boolean> } the promise returned by the function.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 401 - parameter error. Possible causes: 
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800003 - input method client error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
@@ -898,8 +898,8 @@ declare namespace inputMethodEngine {
      *
      * @param { number } length - length of text which will be deleted forward. It can't be less than 0.
      * @param { AsyncCallback<boolean> } callback - the callback of deleteForward.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 401 - parameter error. Possible causes: 
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800002 - Input method engine error.
      * @throws { BusinessError } 12800003 - input method client error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -912,8 +912,8 @@ declare namespace inputMethodEngine {
      *
      * @param { number } length - length of text which will be deleted forward. It can't be less than 0.
      * @returns { Promise<boolean> } the promise returned by the function.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 401 - parameter error. Possible causes: 
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800002 - Input method engine error.
      * @throws { BusinessError } 12800003 - input method client error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -926,7 +926,7 @@ declare namespace inputMethodEngine {
      *
      * @param { number } length - length of text which will be deleted forward. It can't be less than 0.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800002 - input method engine error.
      * @throws { BusinessError } 12800003 - input method client error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -939,8 +939,8 @@ declare namespace inputMethodEngine {
      *
      * @param { number } length - length of text which will be deleted backward. It can't be less than 0.
      * @param { AsyncCallback<boolean> } callback - the callback of deleteBackward.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 401 - parameter error. Possible causes: 
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800002 - Input method engine error.
      * @throws { BusinessError } 12800003 - input method client error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -953,8 +953,8 @@ declare namespace inputMethodEngine {
      *
      * @param { number } length - length of text which will be deleted backward. It can't be less than 0.
      * @returns { Promise<boolean> } the promise returned by the function.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 401 - parameter error. Possible causes: 
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800002 - Input method engine error.
      * @throws { BusinessError } 12800003 - input method client error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -967,7 +967,7 @@ declare namespace inputMethodEngine {
      *
      * @param { number } length - length of text which will be deleted backward. It can't be less than 0.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800002 - input method engine error.
      * @throws { BusinessError } 12800003 - input method client error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -980,8 +980,8 @@ declare namespace inputMethodEngine {
      *
      * @param { string } text - text which will be inserted.
      * @param { AsyncCallback<boolean> } callback - the callback of insertText.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 401 - parameter error. Possible causes: 
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800002 - Input method engine error.
      * @throws { BusinessError } 12800003 - input method client error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -994,8 +994,8 @@ declare namespace inputMethodEngine {
      *
      * @param { string } text - text which will be inserted.
      * @returns { Promise<boolean> } the promise returned by the function.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 401 - parameter error. Possible causes: 
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800002 - Input method engine error.
      * @throws { BusinessError } 12800003 - input method client error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1008,7 +1008,7 @@ declare namespace inputMethodEngine {
      *
      * @param { string } text - text which will be inserted.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800002 - input method engine error.
      * @throws { BusinessError } 12800003 - input method client error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1021,8 +1021,8 @@ declare namespace inputMethodEngine {
      *
      * @param { number } length - the length of text which will be got. It can't be less than 0.
      * @param { AsyncCallback<string> } callback - the callback of getForward.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 401 - parameter error. Possible causes: 
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800003 - input method client error.
      * @throws { BusinessError } 12800006 - Input method controller error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1035,8 +1035,8 @@ declare namespace inputMethodEngine {
      *
      * @param { number } length - the length of text which will be got. It can't be less than 0.
      * @returns { Promise<string> } the promise returned by the function.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 401 - parameter error. Possible causes: 
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800003 - input method client error.
      * @throws { BusinessError } 12800006 - Input method controller error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1050,7 +1050,7 @@ declare namespace inputMethodEngine {
      * @param { number } length - the length of text which will be got. It can't be less than 0.
      * @returns { string } the text string before cursor.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error.
      * @throws { BusinessError } 12800006 - input method controller error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1063,8 +1063,8 @@ declare namespace inputMethodEngine {
      *
      * @param { number } length - the length of text which will be got.It can't be less than 0.
      * @param { AsyncCallback<string> } callback - the callback of getBackward.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 401 - parameter error. Possible causes: 
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800003 - input method client error.
      * @throws { BusinessError } 12800006 - Input method controller error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1077,8 +1077,8 @@ declare namespace inputMethodEngine {
      *
      * @param { number } length - the length of text which will be got.It can't be less than 0.
      * @returns { Promise<string> } the promise returned by the function.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 401 - parameter error. Possible causes: 
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800003 - input method client error.
      * @throws { BusinessError } 12800006 - Input method controller error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1092,7 +1092,7 @@ declare namespace inputMethodEngine {
      * @param { number } length - the length of text which will be got. It can't be less than 0.
      * @returns { string } the text string after cursor.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error.
      * @throws { BusinessError } 12800006 - input method controller error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1136,7 +1136,7 @@ declare namespace inputMethodEngine {
      * @param { number } direction - Indicates the distance of cursor to be moved. It can't be less than 0.
      * @param { AsyncCallback<void> } callback - the callback of moveCursor.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
@@ -1149,7 +1149,7 @@ declare namespace inputMethodEngine {
      * @param { number } direction - Indicates the distance of cursor to be moved. It can't be less than 0.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
@@ -1161,7 +1161,7 @@ declare namespace inputMethodEngine {
      *
      * @param { number } direction - Indicates the distance of cursor to be moved. It can't be less than 0.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     *    1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
@@ -1174,7 +1174,7 @@ declare namespace inputMethodEngine {
      * @param { Range } range - indicates the range of selected text in editor.
      * @param { AsyncCallback<void> } callback - the callback of selectByRange.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
@@ -1187,7 +1187,7 @@ declare namespace inputMethodEngine {
      * @param { Range } range - indicates the range of selected text in editor.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     *    1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
@@ -1199,7 +1199,7 @@ declare namespace inputMethodEngine {
      *
      * @param { Range } range - indicates the range of selected text in editor.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
@@ -1212,7 +1212,7 @@ declare namespace inputMethodEngine {
      * @param { Movement } movement - indicates the movement of cursor when selecting.
      * @param { AsyncCallback<void> } callback - the callback of selectByMovement.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
@@ -1225,7 +1225,7 @@ declare namespace inputMethodEngine {
      * @param { Movement } movement - indicates the movement of cursor when selecting.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
@@ -1237,7 +1237,7 @@ declare namespace inputMethodEngine {
      *
      * @param { Movement } movement - indicates the movement of cursor when selecting.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800003 - input method client error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
@@ -1285,7 +1285,7 @@ declare namespace inputMethodEngine {
      * @param { ExtendAction } action - action code which will be send.
      * @param { AsyncCallback<void> } callback - the callback of sendExtendAction.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types
      * @throws { BusinessError } 12800003 - input method client error.
      * @throws { BusinessError } 12800006 - Input method controller error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1299,7 +1299,7 @@ declare namespace inputMethodEngine {
      * @param { ExtendAction } action - action code which will be send.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types
      * @throws { BusinessError } 12800003 - input method client error.
      * @throws { BusinessError } 12800006 - Input method controller error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1313,7 +1313,7 @@ declare namespace inputMethodEngine {
      * @param { Record<string, CommandDataType> } commandData - command data which will be send.Max size 32KB.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error.
      * @throws { BusinessError } 12800010 - not default input method configured by system.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1339,7 +1339,8 @@ declare namespace inputMethodEngine {
      * @param { string } text - the text to be previewed.
      * @param { Range } range - the range of the text to be replaced by the preview text.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     *    1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error.
      * @throws { BusinessError } 12800011 - text preview is not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1353,7 +1354,7 @@ declare namespace inputMethodEngine {
      * @param { string } text - the text to be previewed.
      * @param { Range } range - the range of the text to be replaced by the preview text.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error.
      * @throws { BusinessError } 12800011 - text preview is not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1534,7 +1535,7 @@ declare namespace inputMethodEngine {
      * @param { string } path - the path of ui content.
      * @param { AsyncCallback<void> } callback - the callback of setUiContent.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1547,7 +1548,7 @@ declare namespace inputMethodEngine {
      * @param { string } path - the path of ui content.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1561,7 +1562,7 @@ declare namespace inputMethodEngine {
      * @param { LocalStorage } storage - the data object shared within the content instance loaded by the panel.
      * @param { AsyncCallback<void> } callback - the callback of setUiContent.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1575,7 +1576,7 @@ declare namespace inputMethodEngine {
      * @param { LocalStorage } storage - the data object shared within the content instance loaded by the panel.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1588,7 +1589,7 @@ declare namespace inputMethodEngine {
      * @param { number } height - the new height of the panel.
      * @param { AsyncCallback<void> } callback - the callback of resize.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1601,7 +1602,7 @@ declare namespace inputMethodEngine {
      * @param { number } height - the new height of the panel.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1615,7 +1616,7 @@ declare namespace inputMethodEngine {
      * @param { number } y - the y-coordinate of the new position.
      * @param { AsyncCallback<void> } callback - the callback of moveTo.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1629,7 +1630,7 @@ declare namespace inputMethodEngine {
      * @param { number } y - the y-coordinate of the new position.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1688,7 +1689,7 @@ declare namespace inputMethodEngine {
      * @param { 'show' } type - events type.
      * @param { function } [callback] - the callback to Unregister.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1711,7 +1712,7 @@ declare namespace inputMethodEngine {
      * @param { 'hide' } type - events type.
      * @param { function } [callback] - the callback to Unregister.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1724,7 +1725,7 @@ declare namespace inputMethodEngine {
      *
      * @param { PanelFlag } flag - the callback of changeFlag.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1738,7 +1739,7 @@ declare namespace inputMethodEngine {
      * otherwise the non-privacy mode will be set.
      * @throws { BusinessError } 201 - permissions check fails.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11
      */
@@ -1751,7 +1752,7 @@ declare namespace inputMethodEngine {
      * @param { PanelFlag } flag - panel flag.
      * @param { PanelRect } rect - panel rect.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *         1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800013 - window manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12

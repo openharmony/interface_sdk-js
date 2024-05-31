@@ -504,4 +504,30 @@ export default class ApplicationContext extends Context {
    * @since 12
    */
   setSupportedProcessCache(isSupported : boolean): void;
+
+  /**
+   * Set font of the application
+   *
+   * @param { string } font - Font.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 12
+   */
+  setFont(font: string): void;
+
+  /**
+   * Get current app clone index.
+   *
+   * @returns { number } Returns the app clone index for current app.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000071 - The MultiAppMode is not {@link APP_CLONE}.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+  getCurrentAppCloneIndex(): number;
 }

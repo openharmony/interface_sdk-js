@@ -62,7 +62,16 @@ declare enum SaveIconStyle {
    * @atomicservice
    * @since 11
    */
-  LINES = 1
+  LINES = 1,
+
+  /**
+   * Icon rendered as picture.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 12
+   */
+  PICTURE = 2
 }
 
 /**

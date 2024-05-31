@@ -135,7 +135,16 @@ declare namespace taskpool {
      * @atomicservice
      * @since 11
      */
-    LOW = 2
+    LOW = 2,
+    /**
+     * set task priority to idle.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    IDLE = 3
   }
 
   /**
@@ -405,6 +414,17 @@ declare namespace taskpool {
      * @since 12
      */
     onExecutionSucceeded(callback: CallbackFunction): void;
+
+    /**
+     * Check if the task has been completed.
+     *
+     * @returns { boolean } Returns {@code true} if the task has been completed; returns {@code false} otherwise.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    isDone(): boolean;
 
     /**
      * Concurrent function to execute in taskpool.

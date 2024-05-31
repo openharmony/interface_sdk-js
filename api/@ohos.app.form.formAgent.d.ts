@@ -38,13 +38,31 @@ declare namespace formAgent {
    * @param { Want } want - The want of the form to publish.
    * @param { AsyncCallback<string> } callback - The callback is used to return the form id.
    * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16500050 - An IPC connection error happened.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 11
+   */
+  /**
+   * Request to publish a form to the form host.
+   *
+   * @permission ohos.permission.AGENT_REQUIRE_FORM
+   * @param { Want } want - The want of the form to publish.
+   * @param { AsyncCallback<string> } callback - The callback is used to return the form id.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16500050 - An IPC connection error happened.
+   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @throws { BusinessError } 16501008 - Waiting for the form addition to the desktop timed out.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 12
    */
   function requestPublishForm(want: Want, callback: AsyncCallback<string>): void;
 
@@ -55,13 +73,31 @@ declare namespace formAgent {
    * @param { Want } want - The want of the form to publish.
    * @returns { Promise<string> } Returns the form id.
    * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16500050 - An IPC connection error happened.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 11
+   */
+  /**
+   * Request to publish a form to the form host.
+   *
+   * @permission ohos.permission.AGENT_REQUIRE_FORM
+   * @param { Want } want - The want of the form to publish.
+   * @returns { Promise<string> } Returns the form id.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16500050 - An IPC connection error happened.
+   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @throws { BusinessError } 16501008 - Waiting for the form addition to the desktop timed out.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 12
    */
   function requestPublishForm(want: Want): Promise<string>;
 }

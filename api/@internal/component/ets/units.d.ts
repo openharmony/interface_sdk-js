@@ -2782,6 +2782,26 @@ declare interface BorderOptions {
    * @form
    */
   style?: EdgeStyles | BorderStyle;
+
+  /**
+   * Defines the gap of dash when BorderStyle is dashed.
+   *
+   * @type { ?(EdgeWidths | LengthMetrics | LocalizedEdgeWidths) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  dashGap?: EdgeWidths | LengthMetrics | LocalizedEdgeWidths;
+
+  /**
+   * Defines the length of dash when BorderStyle is dashed.
+   *
+   * @type { ?(EdgeWidths | LengthMetrics | LocalizedEdgeWidths) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  dashWidth?: EdgeWidths | LengthMetrics | LocalizedEdgeWidths;
 }
 
 /**

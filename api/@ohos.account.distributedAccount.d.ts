@@ -172,6 +172,7 @@ declare namespace distributedAccount {
      * @throws { BusinessError } 12300002 - Invalid accountInfo.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
+     * This API can be called only by system applications.
      * @since 9
      */
     setOsAccountDistributedInfo(accountInfo: DistributedInfo, callback: AsyncCallback<void>): void;
@@ -189,6 +190,7 @@ declare namespace distributedAccount {
      * @throws { BusinessError } 12300002 - Invalid accountInfo.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
+     * This API can be called only by system applications.
      * @since 9
      */
     setOsAccountDistributedInfo(accountInfo: DistributedInfo): Promise<void>;

@@ -534,6 +534,7 @@ declare interface NavigationMenuItem {
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   isEnabled?: boolean;
@@ -623,14 +624,14 @@ declare interface PopInfo {
 }
 
 /**
- * Indicates the information of route page.
+ * Indicates the information of NavDestination.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 /**
- * Indicates the information of route page.
+ * Indicates the information of NavDestination.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -641,8 +642,8 @@ declare class NavPathInfo {
   /**
    * Creates an instance of NavPathInfo.
    *
-   * @param { string } name - The name of route page.
-   * @param { unknown } param - The detailed parameter of the route page.
+   * @param { string } name - The name of NavDestination.
+   * @param { unknown } param - The detailed parameter of the NavDestination.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -650,8 +651,8 @@ declare class NavPathInfo {
   /**
    * Creates an instance of NavPathInfo.
    *
-   * @param { string } name - The name of route page.
-   * @param { unknown } param - The detailed parameter of the route page.
+   * @param { string } name - The name of NavDestination.
+   * @param { unknown } param - The detailed parameter of the NavDestination.
    * @param { import('../api/@ohos.base').Callback<PopInfo> } onPop - The callback when next page returns.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -661,7 +662,7 @@ declare class NavPathInfo {
   constructor(name: string, param: unknown, onPop?: import('../api/@ohos.base').Callback<PopInfo>);
 
   /**
-   * The name of route page.
+   * The name of NavDestination.
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -669,7 +670,7 @@ declare class NavPathInfo {
    * @since 10
    */
   /**
-   * The name of route page.
+   * The name of NavDestination.
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -680,7 +681,7 @@ declare class NavPathInfo {
   name: string;
 
   /**
-   * The detailed parameter of the route page.
+   * The detailed parameter of the NavDestination.
    *
    * @type { ?unknown }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -688,7 +689,7 @@ declare class NavPathInfo {
    * @since 10
    */
   /**
-   * The detailed parameter of the route page.
+   * The detailed parameter of the NavDestination.
    *
    * @type { ?unknown }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -719,14 +720,83 @@ declare class NavPathInfo {
 }
 
 /**
- * Indicates the information of route page.Providers methods for controlling destination page in the stack
+ * Defines the mode of stack operation.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum LaunchMode {
+  /**
+   * There will always be a new NavDestination created.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  STANDARD = 0,
+
+  /**
+   * When the NavDestination with a specified name exists, it will be moved to top of stack,
+   * otherwise a new NavDestination will be created.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  MOVE_TO_TOP_SINGLETON = 1,
+
+  /**
+   * When the NavDestination with a specified name exists, the stack will pop until that NavDestination,
+   * otherwise a new NavDestination will be created.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  POP_TO_SINGLETON = 2,
+}
+
+/**
+ * Indicates the options of stack operation.
+ *
+ * @interface NavigationOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface NavigationOptions {
+  /**
+   * Indicates the launchMode of stack operation.
+   *
+   * @type { ?LaunchMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  launchMode?: LaunchMode;
+
+  /**
+   * Indicates whether the transition is animated.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  animated?: boolean;
+}
+
+/**
+ * Indicates the information of NavDestinations. Providers methods for controlling destination page in the stack
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 /**
- * Indicates the information of route page.Providers methods for controlling destination page in the stack
+ * Indicates the information of NavDestinations. Providers methods for controlling destination page in the stack
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -752,17 +822,17 @@ declare class NavPathStack {
   constructor();
 
   /**
-   * Pushes the route page into the stack.
+   * Pushes the NavDestination into the stack.
    *
-   * @param { NavPathInfo } info - Indicates the route page to be pushed.
+   * @param { NavPathInfo } info - Indicates the NavDestination to be pushed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Pushes the route page into the stack.
+   * Pushes the NavDestination into the stack.
    *
-   * @param { NavPathInfo } info - Indicates the route page to be pushed.
+   * @param { NavPathInfo } info - Indicates the NavDestination to be pushed.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -772,15 +842,26 @@ declare class NavPathStack {
   pushPath(info: NavPathInfo, animated?: boolean): void;
 
   /**
-   * Pushes the route page into the stack.
+   * Pushes the NavDestination into the stack.
    *
-   * @param { NavPathInfo } info - Indicates the route page to be pushed.
+   * @param { NavPathInfo } info - Indicates the NavDestination to be pushed.
+   * @param { NavigationOptions } [options] - Indicates options of stack operation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  pushPath(info: NavPathInfo, options?: NavigationOptions): void;
+
+  /**
+   * Pushes the NavDestination into the stack.
+   *
+   * @param { NavPathInfo } info - Indicates the NavDestination to be pushed.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameters types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @throws { BusinessError } 100005 - Builder function not registered.
    * @throws { BusinessError } 100006 - NavDestination not found.
@@ -789,15 +870,15 @@ declare class NavPathStack {
    * @since 11
    */
   /**
-   * Pushes the route page into the stack.
+   * Pushes the NavDestination into the stack.
    *
-   * @param { NavPathInfo } info - Indicates the route page to be pushed.
+   * @param { NavPathInfo } info - Indicates the NavDestination to be pushed.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameters types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @throws { BusinessError } 100005 - Builder function not registered.
    * @throws { BusinessError } 100006 - NavDestination not found.
@@ -809,19 +890,38 @@ declare class NavPathStack {
   pushDestination(info: NavPathInfo, animated?: boolean): Promise<void>;
 
   /**
-   * Pushes the specified route page into the stack.
+   * Pushes the NavDestination into the stack.
    *
-   * @param { string } name - Indicates the name of the route page to be pushed.
-   * @param { unknown } param - Indicates the detailed parameter of the route page to be pushed.
+   * @param { NavPathInfo } info - Indicates the NavDestination to be pushed.
+   * @param { NavigationOptions } [options] - Indicates options of stack operation.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameters types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 100005 - Builder function not registered.
+   * @throws { BusinessError } 100006 - NavDestination not found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  pushDestination(info: NavPathInfo, options?: NavigationOptions): Promise<void>;
+
+  /**
+   * Pushes the specified NavDestination into the stack.
+   *
+   * @param { string } name - Indicates the name of the NavDestination to be pushed.
+   * @param { unknown } param - Indicates the detailed parameter of the NavDestination to be pushed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Pushes the specified route page into the stack.
+   * Pushes the specified NavDestination into the stack.
    *
-   * @param { string } name - Indicates the name of the route page to be pushed.
-   * @param { unknown } param - Indicates the detailed parameter of the route page to be pushed.
+   * @param { string } name - Indicates the name of the NavDestination to be pushed.
+   * @param { unknown } param - Indicates the detailed parameter of the NavDestination to be pushed.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -831,10 +931,10 @@ declare class NavPathStack {
   pushPathByName(name: string, param: unknown, animated?: boolean): void;
 
   /**
-   * Pushes the specified route page into the stack.
+   * Pushes the specified NavDestination into the stack.
    *
-   * @param { string } name - Indicates the name of the route page to be pushed.
-   * @param { Object } param - Indicates the detailed parameter of the route page to be pushed.
+   * @param { string } name - Indicates the name of the NavDestination to be pushed.
+   * @param { Object } param - Indicates the detailed parameter of the NavDestination to be pushed.
    * @param { import('../api/@ohos.base').Callback<PopInfo> } onPop - The callback when next page returns.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -842,10 +942,10 @@ declare class NavPathStack {
    * @since 11
    */
   /**
-   * Pushes the specified route page into the stack.
+   * Pushes the specified NavDestination into the stack.
    *
-   * @param { string } name - Indicates the name of the route page to be pushed.
-   * @param { Object } param - Indicates the detailed parameter of the route page to be pushed.
+   * @param { string } name - Indicates the name of the NavDestination to be pushed.
+   * @param { Object } param - Indicates the detailed parameter of the NavDestination to be pushed.
    * @param { import('../api/@ohos.base').Callback<PopInfo> } onPop - The callback when next page returns.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -856,16 +956,16 @@ declare class NavPathStack {
   pushPathByName(name: string, param: Object, onPop: import('../api/@ohos.base').Callback<PopInfo>, animated?: boolean): void;
 
   /**
-   * Pushes the specified route page into the stack.
+   * Pushes the specified NavDestination into the stack.
    *
-   * @param { string } name - Indicates the name of the route page to be pushed.
-   * @param { Object } param - Indicates the detailed parameter of the route page to be pushed.
+   * @param { string } name - Indicates the name of the NavDestination to be pushed.
+   * @param { Object } param - Indicates the detailed parameter of the NavDestination to be pushed.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameters types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @throws { BusinessError } 100005 - Builder function not registered.
    * @throws { BusinessError } 100006 - NavDestination not found.
@@ -874,16 +974,16 @@ declare class NavPathStack {
    * @since 11
    */
   /**
-   * Pushes the specified route page into the stack.
+   * Pushes the specified NavDestination into the stack.
    *
-   * @param { string } name - Indicates the name of the route page to be pushed.
-   * @param { Object } param - Indicates the detailed parameter of the route page to be pushed.
+   * @param { string } name - Indicates the name of the NavDestination to be pushed.
+   * @param { Object } param - Indicates the detailed parameter of the NavDestination to be pushed.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameters types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @throws { BusinessError } 100005 - Builder function not registered.
    * @throws { BusinessError } 100006 - NavDestination not found.
@@ -895,17 +995,17 @@ declare class NavPathStack {
   pushDestinationByName(name: string, param: Object, animated?: boolean): Promise<void>;
 
   /**
-   * Pushes the specified route page into the stack.
+   * Pushes the specified NavDestination into the stack.
    *
-   * @param { string } name - Indicates the name of the route page to be pushed.
-   * @param { Object } param - Indicates the detailed parameter of the route page to be pushed.
+   * @param { string } name - Indicates the name of the NavDestination to be pushed.
+   * @param { Object } param - Indicates the detailed parameter of the NavDestination to be pushed.
    * @param { import('../api/@ohos.base').Callback<PopInfo> } onPop - The callback when next page returns.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameters types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @throws { BusinessError } 100005 - Builder function not registered.
    * @throws { BusinessError } 100006 - NavDestination not found.
@@ -914,17 +1014,17 @@ declare class NavPathStack {
    * @since 11
    */
   /**
-   * Pushes the specified route page into the stack.
+   * Pushes the specified NavDestination into the stack.
    *
-   * @param { string } name - Indicates the name of the route page to be pushed.
-   * @param { Object } param - Indicates the detailed parameter of the route page to be pushed.
+   * @param { string } name - Indicates the name of the NavDestination to be pushed.
+   * @param { Object } param - Indicates the detailed parameter of the NavDestination to be pushed.
    * @param { import('../api/@ohos.base').Callback<PopInfo> } onPop - The callback when next page returns.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameters types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @throws { BusinessError } 100005 - Builder function not registered.
    * @throws { BusinessError } 100006 - NavDestination not found.
@@ -936,18 +1036,18 @@ declare class NavPathStack {
   pushDestinationByName(name: string, param: Object, onPop: import('../api/@ohos.base').Callback<PopInfo>, animated?: boolean): Promise<void>;
 
   /**
-   * replace the current page with the specific one.The current page will be destroyed.
+   * Replace the current NavDestination with the specific one.The current NavDestination will be destroyed.
    *
-   * @param { NavPathInfo } info - Indicates the the new route page in top of the stack.
+   * @param { NavPathInfo } info - Indicates the new NavDestination in top of the stack.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
   /**
-   * replace the current page with the specific one.The current page will be destroyed.
+   * Replace the current NavDestination with the specific one.The current NavDestination will be destroyed.
    *
-   * @param { NavPathInfo } info - Indicates the the new route page in top of the stack.
+   * @param { NavPathInfo } info - Indicates the new NavDestination in top of the stack.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -957,20 +1057,31 @@ declare class NavPathStack {
   replacePath(info: NavPathInfo, animated?: boolean): void;
 
   /**
-   * replace the current page with the specific one.The current page will be destroyed.
+   * Replace the current NavDestination with the specific one.The current NavDestination will be destroyed.
    *
-   * @param { string } name - Indicates name of the new route page in top of stack.
-   * @param { Object } param - Indicates the detailed parameter of the new route page in top of the stack.
+   * @param { NavPathInfo } info - Indicates the new NavDestination in top of the stack.
+   * @param { NavigationOptions } [options] - Indicates options of stack operation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  replacePath(info: NavPathInfo, options?: NavigationOptions): void;
+
+  /**
+   * Replace the current NavDestination with the specific one.The current NavDestination will be destroyed.
+   *
+   * @param { string } name - Indicates name of the new NavDestination in top of stack.
+   * @param { Object } param - Indicates the detailed parameter of the new NavDestination in top of the stack.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
   /**
-   * replace the current page with the specific one.The current page will be destroyed.
+   * Replace the current NavDestination with the specific one.The current NavDestination will be destroyed.
    *
-   * @param { string } name - Indicates name of the new route page in top of stack.
-   * @param { Object } param - Indicates the detailed parameter of the new route page in top of the stack.
+   * @param { string } name - Indicates name of the new NavDestination in top of stack.
+   * @param { Object } param - Indicates the detailed parameter of the new NavDestination in top of the stack.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -980,18 +1091,18 @@ declare class NavPathStack {
   replacePathByName(name: string, param: Object, animated?: boolean): void;
 
   /**
-   * Remove the specified pages by indexes.
+   * Remove the specified NavDestinations by indexes.
    *
-   * @param { Array<number> } indexes - Indicates the indexes of the pages to be removed.
+   * @param { Array<number> } indexes - Indicates the indexes of the NavDestinations to be removed.
    * @returns { number } Returns the number of removed pages. Invalid indexes will be ignored.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
   /**
-   * Remove the specified pages by indexes.
+   * Remove the specified NavDestinations by indexes.
    *
-   * @param { Array<number> } indexes - Indicates the indexes of the pages to be removed.
+   * @param { Array<number> } indexes - Indicates the indexes of the NavDestinations to be removed.
    * @returns { number } Returns the number of removed pages. Invalid indexes will be ignored.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1001,19 +1112,19 @@ declare class NavPathStack {
   removeByIndexes(indexes: Array<number>): number;
 
   /**
-   * Remove the specified page by name.
+   * Remove the specified NavDestination by name.
    *
-   * @param { string } name - Indicates the name of the page to be removed.
-   * @returns { number } Returns the number of removed pages.
+   * @param { string } name - Indicates the name of the NavDestination to be removed.
+   * @returns { number } Returns the number of removed NavDestinations.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
   /**
-   * Remove the specified page by name.
+   * Remove the specified NavDestination by name.
    *
-   * @param { string } name - Indicates the name of the page to be removed.
-   * @returns { number } Returns the number of removed pages.
+   * @param { string } name - Indicates the name of the NavDestination to be removed.
+   * @returns { number } Returns the number of removed NavDestinations.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1022,7 +1133,7 @@ declare class NavPathStack {
   removeByName(name: string): number;
 
   /**
-   * Pops the top route page out of the stack.
+   * Pops the top NavDestination out of the stack.
    *
    * @returns { NavPathInfo | undefined } Returns the top NavPathInfo if the stack is not empty, otherwise returns undefined.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1030,7 +1141,7 @@ declare class NavPathStack {
    * @since 10
    */
   /**
-   * Pops the top route page out of the stack.
+   * Pops the top NavDestination out of the stack.
    *
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @returns { NavPathInfo | undefined } Returns the top NavPathInfo if the stack is not empty, otherwise returns undefined.
@@ -1042,9 +1153,9 @@ declare class NavPathStack {
   pop(animated?: boolean): NavPathInfo | undefined;
 
   /**
-   * Pops the top route page out of the stack.
+   * Pops the top NavDestination out of the stack.
    *
-   * @param { Object } result - The result of the page.
+   * @param { Object } result - The result of the NavDestination.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @returns { NavPathInfo | undefined } Returns the top NavPathInfo if the stack is not empty, otherwise returns undefined.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1052,9 +1163,9 @@ declare class NavPathStack {
    * @since 11
    */
   /**
-   * Pops the top route page out of the stack.
+   * Pops the top NavDestination out of the stack.
    *
-   * @param { Object } result - The result of the page.
+   * @param { Object } result - The result of the NavDestination.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @returns { NavPathInfo | undefined } Returns the top NavPathInfo if the stack is not empty, otherwise returns undefined.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1065,20 +1176,20 @@ declare class NavPathStack {
   pop(result: Object, animated?: boolean): NavPathInfo | undefined;
 
   /**
-   * Pops the specified route page out of the stack.
+   * Pops the specified NavDestination out of the stack.
    *
-   * @param { string } name - Indicates the name of the route page to be popped.
-   * @returns { number } Returns the index of the route page if it exists in the stack, otherwise returns -1;
+   * @param { string } name - Indicates the name of the NavDestination to be popped.
+   * @returns { number } Returns the index of the NavDestination if it exists in the stack, otherwise returns -1;
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Pops the specified route page out of the stack.
+   * Pops the specified NavDestination out of the stack.
    *
-   * @param { string } name - Indicates the name of the route page to be popped.
+   * @param { string } name - Indicates the name of the NavDestination to be popped.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
-   * @returns { number } Returns the index of the route page if it exists in the stack, otherwise returns -1;
+   * @returns { number } Returns the index of the NavDestination if it exists in the stack, otherwise returns -1;
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1087,23 +1198,23 @@ declare class NavPathStack {
   popToName(name: string, animated?: boolean): number;
 
   /**
-   * Pops the specified route page out of the stack.
+   * Pops the specified NavDestination out of the stack.
    *
-   * @param { string } name - Indicates the name of the route page to be popped.
-   * @param { Object } result - The result of the page.
+   * @param { string } name - Indicates the name of the NavDestination to be popped.
+   * @param { Object } result - The result of the NavDestination.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
-   * @returns { number } Returns the index of the route page if it exists in the stack, otherwise returns -1;
+   * @returns { number } Returns the index of the NavDestination if it exists in the stack, otherwise returns -1;
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
   /**
-   * Pops the specified route page out of the stack.
+   * Pops the specified NavDestination out of the stack.
    *
-   * @param { string } name - Indicates the name of the route page to be popped.
-   * @param { Object } result - The result of the page.
+   * @param { string } name - Indicates the name of the NavDestination to be popped.
+   * @param { Object } result - The result of the NavDestination.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
-   * @returns { number } Returns the index of the route page if it exists in the stack, otherwise returns -1;
+   * @returns { number } Returns the index of the NavDestination if it exists in the stack, otherwise returns -1;
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1112,17 +1223,17 @@ declare class NavPathStack {
   popToName(name: string, result: Object, animated?: boolean): number;
 
   /**
-   * Pops the specified route page out of the stack.
+   * Pops the specified NavDestination out of the stack.
    *
-   * @param { number } index - Indicates the index of the route page to be popped.
+   * @param { number } index - Indicates the index of the NavDestination to be popped.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Pops the specified route page out of the stack.
+   * Pops the specified NavDestination out of the stack.
    *
-   * @param { number } index - Indicates the index of the route page to be popped.
+   * @param { number } index - Indicates the index of the NavDestination to be popped.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1132,10 +1243,10 @@ declare class NavPathStack {
   popToIndex(index: number, animated?: boolean): void;
 
   /**
-   * Pops the specified route page out of the stack.
+   * Pops the specified NavDestination out of the stack.
    *
-   * @param { number } index - Indicates the index of the route page to be popped.
-   * @param { Object } result - The result of the page.
+   * @param { number } index - Indicates the index of the NavDestination to be popped.
+   * @param { Object } result - The result of the NavDestination.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1145,20 +1256,20 @@ declare class NavPathStack {
   popToIndex(index: number, result: Object, animated?: boolean): void;
 
   /**
-   * Moves the specified route page to stack top.
+   * Moves the specified NavDestination to stack top.
    *
-   * @param { string } name - Indicates the name of the route page to be moved to the top.
-   * @returns { number } Returns the index of the route page if it exists in the stack, otherwise returns -1;
+   * @param { string } name - Indicates the name of the NavDestination to be moved to the top.
+   * @returns { number } Returns the index of the NavDestination if it exists in the stack, otherwise returns -1;
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Moves the specified route page to stack top.
+   * Moves the specified NavDestination to stack top.
    *
-   * @param { string } name - Indicates the name of the route page to be moved to the top.
+   * @param { string } name - Indicates the name of the NavDestination to be moved to the top.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
-   * @returns { number } Returns the index of the route page if it exists in the stack, otherwise returns -1;
+   * @returns { number } Returns the index of the NavDestination if it exists in the stack, otherwise returns -1;
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1167,17 +1278,17 @@ declare class NavPathStack {
   moveToTop(name: string, animated?: boolean): number;
 
   /**
-   * Moves the specified route page to stack top.
+   * Moves the specified NavDestination to stack top.
    *
-   * @param { number } index - Indicates the index of the route page to be moved to the top.
+   * @param { number } index - Indicates the index of the NavDestination to be moved to the top.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Moves the specified route page to stack top.
+   * Moves the specified NavDestination to stack top.
    *
-   * @param { number } index - Indicates the index of the route page to be moved to the top.
+   * @param { number } index - Indicates the index of the NavDestination to be moved to the top.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1205,17 +1316,17 @@ declare class NavPathStack {
   clear(animated?: boolean): void;
 
   /**
-   * Obtains all the page name in the stack.
+   * Obtains all the NavDestination name in the stack.
    *
-   * @returns { Array<string> } Returns all the page name in the stack;
+   * @returns { Array<string> } Returns all the NavDestination name in the stack;
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Obtains all the page name in the stack.
+   * Obtains all the NavDestination name in the stack.
    *
-   * @returns { Array<string> } Returns all the page name in the stack;
+   * @returns { Array<string> } Returns all the NavDestination name in the stack;
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1224,19 +1335,19 @@ declare class NavPathStack {
   getAllPathName(): Array<string>;
 
   /**
-   * Obtains the param of the specified route page.
+   * Obtains the param of the specified NavDestination.
    *
-   * @param { number } index - Indicates the index of the route page.
-   * @returns { unknown | undefined } Returns the detailed parameter of the route page if it exists in the stack, otherwise returns undefined;
+   * @param { number } index - Indicates the index of the NavDestination.
+   * @returns { unknown | undefined } Returns the detailed parameter of the NavDestination if it exists in the stack, otherwise returns undefined;
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Obtains the param of the specified route page.
+   * Obtains the param of the specified NavDestination.
    *
-   * @param { number } index - Indicates the index of the route page.
-   * @returns { unknown | undefined } Returns the detailed parameter of the route page if it exists in the stack, otherwise returns undefined;
+   * @param { number } index - Indicates the index of the NavDestination.
+   * @returns { unknown | undefined } Returns the detailed parameter of the NavDestination if it exists in the stack, otherwise returns undefined;
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1245,19 +1356,19 @@ declare class NavPathStack {
   getParamByIndex(index: number): unknown | undefined;
 
   /**
-   * Obtains the param of the specified route page.
+   * Obtains the param of the specified NavDestination.
    *
-   * @param { string } name - Indicates the name of the route page.
-   * @returns { Array<unknown> } Returns the detailed parameter of all the route pages named name.
+   * @param { string } name - Indicates the name of the NavDestination.
+   * @returns { Array<unknown> } Returns the detailed parameter of all the NavDestinations.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Obtains the param of the specified route page.
+   * Obtains the param of the specified NavDestination.
    *
-   * @param { string } name - Indicates the name of the route page.
-   * @returns { Array<unknown> } Returns the detailed parameter of all the route pages named name.
+   * @param { string } name - Indicates the name of the NavDestination.
+   * @returns { Array<unknown> } Returns the detailed parameter of all the NavDestinations.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1266,19 +1377,19 @@ declare class NavPathStack {
   getParamByName(name: string): Array<unknown>;
 
   /**
-   * Obtains the index of the specified route page.
+   * Obtains the index of the specified NavDestination.
    *
-   * @param { string } name - Indicates the name of the route page.
-   * @returns { Array<number> } Returns the index of all the route pages named name.
+   * @param { string } name - Indicates the name of the NavDestination.
+   * @returns { Array<number> } Returns the index of all the NavDestinations.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Obtains the index of the specified route page.
+   * Obtains the index of the specified NavDestination.
    *
-   * @param { string } name - Indicates the name of the route page.
-   * @returns { Array<number> } Returns the index of all the route pages named name.
+   * @param { string } name - Indicates the name of the NavDestination.
+   * @returns { Array<number> } Returns the index of all the NavDestinations.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1341,6 +1452,7 @@ declare class NavPathStack {
    * @param { NavigationInterception } interception - the instance to intercept in navigation changes.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   setInterception(interception: NavigationInterception): void;
@@ -1349,8 +1461,10 @@ declare class NavPathStack {
 /**
  * Navigation home name
  *
+ * @typedef { 'navBar' } NavBar
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare type NavBar = 'navBar'
@@ -1358,8 +1472,14 @@ declare type NavBar = 'navBar'
 /**
  * navigation interception callback using in willShow and didShow
  *
+ * @typedef { function } InterceptionShowCallback
+ * @param { NavDestinationContext | NavBar } from - Indicates the starting NavDestination or NavBar.
+ * @param { NavDestinationContext | NavBar } to - Indicates the destination NavDestination or NavBar.
+ * @param { NavigationOperation } operation - Indicates the type of stack operation.
+ * @param { boolean } isAnimated - Indicates whether the transition is animated.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare type InterceptionShowCallback = (from: NavDestinationContext|NavBar, to: NavDestinationContext|NavBar, operation: NavigationOperation, isAnimated: boolean) => void;
@@ -1367,8 +1487,11 @@ declare type InterceptionShowCallback = (from: NavDestinationContext|NavBar, to:
 /**
  * navigation interception callback using in navigation mode change
  *
+ * @typedef { function } InterceptionModeCallback
+ * @param { NavigationMode } mode - Indicates the mode of Navigation.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare type InterceptionModeCallback = (mode: NavigationMode) => void;
@@ -1379,6 +1502,7 @@ declare type InterceptionModeCallback = (mode: NavigationMode) => void;
  * @interface NavigationInterception
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface NavigationInterception {
@@ -1389,6 +1513,7 @@ declare interface NavigationInterception {
    * @type { ?InterceptionShowCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   willShow?: InterceptionShowCallback;
@@ -1399,6 +1524,7 @@ declare interface NavigationInterception {
    * @type { ?InterceptionShowCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   didShow?: InterceptionShowCallback;
@@ -1409,6 +1535,7 @@ declare interface NavigationInterception {
    * @type { ?InterceptionModeCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   modeChange?: InterceptionModeCallback;
@@ -1796,6 +1923,7 @@ declare interface NavigationTitleOptions {
    * @default BarStyle.STANDARD
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   barStyle?: BarStyle;
@@ -1807,6 +1935,7 @@ declare interface NavigationTitleOptions {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare enum BarStyle {
@@ -1815,6 +1944,7 @@ declare enum BarStyle {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   STANDARD = 0,
@@ -1824,6 +1954,7 @@ declare enum BarStyle {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   STACK = 1,
@@ -2436,6 +2567,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   ignoreLayoutSafeArea(types?: Array<LayoutSafeAreaType>, edges?: Array<LayoutSafeAreaEdge>): NavigationAttribute;

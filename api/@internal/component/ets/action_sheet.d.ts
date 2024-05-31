@@ -636,12 +636,12 @@ interface ActionSheetOptions
   /**
    * Defines the actionSheet's corner radius.
    *
-   * @type { ?(Dimension | BorderRadiuses) }
+   * @type { ?(Dimension | BorderRadiuses | LocalizedBorderRadiuses) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  cornerRadius?: Dimension | BorderRadiuses;
+  cornerRadius?: Dimension | BorderRadiuses | LocalizedBorderRadiuses;
 
   /**
    * Defines the actionSheet's width.
@@ -666,22 +666,22 @@ interface ActionSheetOptions
   /**
    * Defines the actionSheet's border width.
    *
-   * @type { ?(Dimension | EdgeWidths) }
+   * @type { ?(Dimension | EdgeWidths | LocalizedEdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  borderWidth?: Dimension | EdgeWidths;
+  borderWidth?: Dimension | EdgeWidths | LocalizedEdgeWidths;
 
   /**
    * Defines the actionSheet's border color.
    *
-   * @type { ?(ResourceColor | EdgeColors) }
+   * @type { ?(ResourceColor | EdgeColors | LocalizedEdgeColors) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  borderColor?: ResourceColor | EdgeColors;
+  borderColor?: ResourceColor | EdgeColors | LocalizedEdgeColors;
 
   /**
    * Defines the actionSheet's border style.

@@ -176,6 +176,7 @@ declare namespace nfcController {
 
   /**
    * Enables NFC.
+   * This API can be called only by system applications
    *
    * @permission ohos.permission.MANAGE_SECURE_SETTINGS
    * @throws { BusinessError } 201 - Permission denied.
@@ -200,6 +201,7 @@ declare namespace nfcController {
 
   /**
    * Disables NFC.
+   * This API can be called only by system applications
    *
    * @permission ohos.permission.MANAGE_SECURE_SETTINGS
    * @throws { BusinessError } 201 - Permission denied.

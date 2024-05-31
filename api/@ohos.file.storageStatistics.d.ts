@@ -156,8 +156,25 @@ parameters are left unspecified;
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
    * @since 9
+   */ 
+  /**
+   * Get the bundle statistics.
+   *
+   * @permission ohos.permission.STORAGE_MANAGER
+   * @param { string } packageName - The name of the application
+   * @param { AsyncCallback<BundleStats> } callback - callback
+   * @param { number } index - The index number of the clone application, the default value is 0.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 13600008 - No such object.
+   * @throws { BusinessError } 13900042 - Unknown error.
+   * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+   * @systemapi
+   * @since 12
    */
-  function getBundleStats(packageName: string, callback: AsyncCallback<BundleStats>): void;
+  function getBundleStats(packageName: string, callback: AsyncCallback<BundleStats>, index?: number): void;
 
   /**
    * Get the bundle statistics.
@@ -177,7 +194,24 @@ parameters are left unspecified;
    * @systemapi
    * @since 9
    */
-  function getBundleStats(packageName: string): Promise<BundleStats>;
+  /**
+   * Get the bundle statistics.
+   *
+   * @permission ohos.permission.STORAGE_MANAGER
+   * @param { string } packageName - The name of the application
+   * @param { number } index - The index number of the clone application, the default value is 0.
+   * @returns { Promise<BundleStats> } return Promise
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 13600008 - No such object.
+   * @throws { BusinessError } 13900042 - Unknown error.
+   * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+   * @systemapi
+   * @since 12
+   */
+  function getBundleStats(packageName: string, index?: number): Promise<BundleStats>;
 
   /**
    * Get the current bundle statistics.

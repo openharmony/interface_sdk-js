@@ -527,6 +527,7 @@ lstat
 lubyte
 luint
 luma
+lumination
 lushort
 lux
 mah
@@ -872,6 +873,7 @@ statfs
 stopcd
 storei
 storge
+strikethrough
 strm
 stroked
 stuffit
@@ -1134,4 +1136,9 @@ encipherment
 reconfirmed
 subresource
 euc
-
+ruleset
+easylist
+allowlist
+disallowlist
+adblock
+enqueued
