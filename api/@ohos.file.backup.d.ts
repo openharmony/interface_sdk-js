@@ -744,6 +744,29 @@ declare namespace backup {
     appendBundles(bundlesToBackup: Array<IncrementalBackupData>): Promise<void>;
 
     /**
+     * Append new bundles to incremental backup.
+     *
+     * @permission ohos.permission.BACKUP
+     * @param { Array<IncrementalBackupData> } bundlesToAppend Bundles to incremental backup.
+     * @param { string[] } infos information of the bundlesToBackup
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission verification failed. This error code is usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     * @throws { BusinessError } 13600001 - IPC error
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900005 - I/O error
+     * @throws { BusinessError } 13900011 - Out of memory
+     * @throws { BusinessError } 13900025 - No space left on device
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @since 12
+     */
+    appendBundles(bundlesToAppend: Array<IncrementalBackupData>, infos: string[]): Promise<void>;
+
+    /**
      * End backup process
      *
      * @permission ohos.permission.BACKUP
