@@ -98,6 +98,7 @@ declare namespace screenshot {
    * Takes a screenshot and picks it as a PickInfo object.
    *
    * @returns { Promise<PickInfo> } Promise used to return a PickInfo object.
+   * @throws { BusinessError } 801 - Capability not supported on this device.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 12
