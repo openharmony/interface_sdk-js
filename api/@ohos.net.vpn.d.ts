@@ -404,7 +404,7 @@ declare namespace vpn {
 
   /**
    * Define configuration of the system VPN network.
-   * @interface VpnConfig
+   * @interface SysVpnConfig
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @systemapi Hide this for inner system use.
    * @since 12
@@ -417,7 +417,7 @@ declare namespace vpn {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    vpnId?: string;
+    vpnUuid?: string;
 
     /**
      * The name of the VPN network.
@@ -476,7 +476,7 @@ declare namespace vpn {
 
   /**
    * Define configuration of the open VPN network.
-   * @interface VpnConfig
+   * @interface OpenVpnConfig
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @systemapi Hide this for inner system use.
    * @since 12
