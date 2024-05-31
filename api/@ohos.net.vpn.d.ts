@@ -457,7 +457,7 @@ declare namespace vpn {
 
     /**
      * whether save login name and password
-     * @type {?number}
+     * @type {?boolean}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12
