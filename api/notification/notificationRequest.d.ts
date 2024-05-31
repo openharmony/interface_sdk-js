@@ -441,16 +441,6 @@ export interface NotificationRequest {
   badgeNumber?: number;
 
   /**
-   * Notification control flags.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 12
-   */
-  notificationControlFlags?: number;
-
-  /**
    * Whether the notification need to be agent display.
    *
    * @type { ?BundleOption }
@@ -479,6 +469,16 @@ export interface NotificationRequest {
    * @since 12
    */
   unifiedGroupInfo?: UnifiedGroupInfo;
+
+  /**
+   * Notification control flags.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  notificationControlFlags?: number;
 }
 
 /**

@@ -425,7 +425,7 @@ export interface NotificationTime {
   initialTime?: number;
 
   /**
-   *
+   * 
    * Count down the time.
    *
    * @type { ?boolean }
