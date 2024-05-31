@@ -47,6 +47,16 @@ declare namespace uiEffect {
      * @since 12
      */
     pixelStretch(stretchSizes: Array<number>, tileMode: TileMode): Filter;
+    /**
+     * Set blur effect of the Component.
+     *
+     * @param { number } blurRadius
+     * @returns { Filter }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 12
+     */
+    blur(blurRadius: number): Filter;
   }
 
   /**
