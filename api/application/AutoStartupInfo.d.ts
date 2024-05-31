@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -24,7 +24,7 @@
  * @typedef AutoStartupInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
- * @StageModelOnly
+ * @stagemodelonly
  * @since 11
  */
 export interface AutoStartupInfo {
@@ -34,7 +34,7 @@ export interface AutoStartupInfo {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   bundleName: string;
@@ -45,7 +45,7 @@ export interface AutoStartupInfo {
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   moduleName?: string;
@@ -56,7 +56,7 @@ export interface AutoStartupInfo {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   abilityName: string;
@@ -67,10 +67,20 @@ export interface AutoStartupInfo {
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   abilityTypeName?: string;
+
+  /**
+   * The app clone index of ability instance.
+   * @type { ?number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+  appCloneIndex?: number;
 }
 
 export default AutoStartupInfo;

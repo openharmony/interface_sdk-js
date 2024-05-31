@@ -330,7 +330,7 @@ export declare struct IconGroupSuffix {
      * @crossplatform
      * @since 12
      */
-    @Prop
+    @Require @Prop
     items: Array<IconItemOptions | SymbolGlyphModifier>;
 }
 
@@ -354,7 +354,7 @@ export declare struct ChipGroup {
      * @crossplatform
      * @since 12
      */
-    @Prop
+    @Require @Prop
     items: ChipGroupItemOptions[];
 
     /**
@@ -402,7 +402,7 @@ export declare struct ChipGroup {
     chipGroupSpace?: ChipGroupSpaceOptions;
 
      /**
-     * Chip group padding（only top and bottom）.
+     * Chip group padding (only support top and bottom).
      *
      * @type { ?ChipGroupPaddingOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full

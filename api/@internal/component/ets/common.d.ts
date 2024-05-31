@@ -8871,6 +8871,33 @@ declare interface TouchEvent extends BaseEvent {
 declare type SizeChangeCallback = (oldValue: SizeOptions, newValue: SizeOptions) => void;
 
 /**
+ * Defines the callback type used in onGestureRecognizerJudgeBegin.
+ *
+ * @typedef { function } GestureRecognizerJudgeBeginCallback
+ * @param { BaseGestureEvent } event - the event information
+ * @param { GestureRecognizer } currentRecognizer - the current gesture recognizer of the component
+ * @param { Array<GestureRecognizer> } recognizers - the gesture recognizers of the component on the response chain
+ * @returns { GestureJudgeResult } the gesture judge result
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type GestureRecognizerJudgeBeginCallback = (event: BaseGestureEvent, current: GestureRecognizer, recognizers: Array<GestureRecognizer>) => GestureJudgeResult;
+
+/**
+ * Defines the callback type used in shouldBuiltInRecognizerParallelWith.
+ *
+ * @typedef { function } ShouldBuiltInRecognizerParallelWithCallback
+ * @param { GestureRecognizer } current - the current gesture recognizer of the component
+ * @param { Array<GestureRecognizer> } others - the gesture recognizers of the component on the response chain
+ * @returns { GestureRecognizer } gesture recognizer of the component
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type ShouldBuiltInRecognizerParallelWithCallback = (current: GestureRecognizer, others: Array<GestureRecognizer>) => GestureRecognizer;
+
+/**
  * Defines the PixelMap type object for ui component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -19163,6 +19190,29 @@ declare class CommonMethod<T> {
    * @since 12
    */
   onGestureJudgeBegin(callback: (gestureInfo: GestureInfo, event: BaseGestureEvent) => GestureJudgeResult): T;
+
+  /**
+   * When a gesture bound to this component will be accepted, a user-defined callback is triggered to get the result
+   *
+   * @param { GestureRecognizerJudgeBeginCallback } callback - A callback instance used when a gesture bound to this component will be accepted.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onGestureRecognizerJudgeBegin(callback: GestureRecognizerJudgeBeginCallback): T;
+
+  /**
+   * In the touch test phase, the recognizer is selected to form a parallel relationship with other recognizers on the response chain.
+   *
+   * @param { ShouldBuiltInRecognizerParallelWithCallback } callback - A callback instance used when a component is doing touch test.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  shouldBuiltInRecognizerParallelWith(callback: ShouldBuiltInRecognizerParallelWithCallback): T;
 
   /**
    * Events are monopolized by components.
