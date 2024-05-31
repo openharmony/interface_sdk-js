@@ -19,7 +19,7 @@
  */
 
 import type BaseContext from './application/BaseContext';
-import { NodeController, NodeContent } from '@ohos.arkui.node'
+import { NodeController } from '@ohos.arkui.node'
 
 /**
  * Picture In Picture Window Manager
