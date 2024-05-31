@@ -474,13 +474,13 @@ declare namespace vpn {
     userId?: number;
 
     /**
-     * relay route for system multi-user
+     * forwarding routes for system multi-user
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    relayRoute?: string;
+    forwardingRoutes?: string;
   }
 
   /**
