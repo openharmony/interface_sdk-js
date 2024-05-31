@@ -17,10 +17,11 @@
  * @file
  * @kit ArkUI
  */
-
+/// <reference path="../component/common_ts_ets_api.d.ts"/>
 
 import { AsyncCallback, BusinessError, Callback } from './@ohos.base';
 import BaseContext from './application/BaseContext';
+import { LocalStorage } from 'StateManagement';
 import image from './@ohos.multimedia.image';
 import rpc from './@ohos.rpc';
 import dialogRequest from './@ohos.app.ability.dialogRequest';

@@ -18,6 +18,8 @@
  * @kit AbilityKit
  */
 
+/// <reference path="../../component/common_ts_ets_api.d.ts"/>
+
 import { AbilityInfo } from '../bundleManager/AbilityInfo';
 import { AbilityResult } from '../ability/abilityResult';
 import { AsyncCallback } from '../@ohos.base';
@@ -29,6 +31,7 @@ import StartOptions from '../@ohos.app.ability.StartOptions';
 import OpenLinkOptions from '../@ohos.app.ability.OpenLinkOptions';
 import { Configuration } from '../@ohos.app.ability.Configuration';
 import { Caller } from '../@ohos.app.ability.UIAbility';
+import { LocalStorage } from 'StateManagement';
 import image from '../@ohos.multimedia.image';
 import dialogRequest from '../@ohos.app.ability.dialogRequest';
 import AbilityConstant from '../@ohos.app.ability.AbilityConstant';
