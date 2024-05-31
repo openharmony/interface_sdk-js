@@ -378,6 +378,20 @@ declare namespace drawing {
     drawRect(rect: common2D.Rect): void;
 
     /**
+     * If rectangle is stroked, use pen to stroke width describes the line thickness,
+     * else use brush to fill the rectangle.
+     * @param { number } left - Indicates the left position of the rectangle.
+     * @param { number } top - Indicates the top position of the rectangle.
+     * @param { number } right - Indicates the right position of the rectangle.
+     * @param { number } bottom - Indicates the bottom position of the rectangle.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    drawRect(left: number, top: number, right: number, bottom: number): void;
+
+    /**
      * If radius is zero or less, nothing is drawn. If circle is stroked, use pen to
      * stroke width describes the line thickness, else use brush to fill the circle.
      * @param { number } x - X coordinate of the circle center.
@@ -422,6 +436,20 @@ declare namespace drawing {
      * @since 11
      */
     drawColor(color: common2D.Color, blendMode?: BlendMode): void;
+
+    /**
+     * Fills the clipped rectangle with the specified ARGB color.
+     * @param { number } alpha - Alpha channel of color. The range of alpha must be [0, 255].
+     * @param { number } red - Red channel of color. The range of red must be [0, 255].
+     * @param { number } green - Green channel of color. The range of green must be [0, 255].
+     * @param { number } blue - Blue channel of color. The range of blue must be [0, 255].
+     * @param { BlendMode } blendMode - Used to combine source color and destination. The default value is SRC_OVER.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    drawColor(alpha: number, red: number, green: number, blue: number, blendMode?: BlendMode): void;
 
     /**
      * Draw a point.
@@ -1270,6 +1298,18 @@ declare namespace drawing {
     */
     setColor(color: common2D.Color): void;
     /**
+    * Set the AGRB color of the pen.
+     * @param { number } alpha - Alpha channel of color. The range of alpha must be [0, 255].
+     * @param { number } red - Red channel of color. The range of red must be [0, 255].
+     * @param { number } green - Green channel of color. The range of green must be [0, 255].
+     * @param { number } blue - Blue channel of color. The range of blue must be [0, 255].
+    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+    * @syscap SystemCapability.Graphics.Drawing
+    * @since 12
+    */
+    setColor(alpha: number, red: number, green: number, blue: number): void;
+    /**
     * Sets the thickness of the pen used by the paint to outline the shape.
     * 
     * @param { number } width - Zero thickness for hairline; greater than zero for pen thickness.
@@ -1411,6 +1451,18 @@ declare namespace drawing {
      * @since 11
      */
     setColor(color: common2D.Color): void;
+    /**
+     * Set the ARGB color of the brush.
+     * @param { number } alpha - Alpha channel of color. The range of alpha must be [0, 255].
+     * @param { number } red - Red channel of color. The range of red must be [0, 255].
+     * @param { number } green - Green channel of color. The range of green must be [0, 255].
+     * @param { number } blue - Blue channel of color. The range of blue must be [0, 255].
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    setColor(alpha: number, red: number, green: number, blue: number): void;
     /**
      * Requests, but does not require, that edge pixels draw opaque or with partial transparency.
      * @param { boolean } aa - Setting for antialiasing.
