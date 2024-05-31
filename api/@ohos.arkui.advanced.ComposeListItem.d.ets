@@ -19,9 +19,6 @@
  */
 
 
-
-
-
 /**
  * Declare enum IconType
  * @enum { IconType }
@@ -336,6 +333,38 @@ export declare class ContentItem {
    * @since 11
    */
   description?: ResourceStr;
+
+  /**
+   * Image modifier for icon.
+   * @type { ?ImageModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  iconImageModifier?: ImageModifier;
+
+  /**
+   * Text modifier for primaryText.
+   * @type { ?TextModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  primaryTextModifier?: TextModifier;
+
+  /**
+   * Text modifier for secondaryText.
+   * @type { ?TextModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  secondaryTextModifier?: TextModifier;
+
+  /**
+   * Text modifier for description.
+   * @type { ?TextModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  descriptionModifier?: TextModifier;
 }
 
 /**
@@ -528,4 +557,22 @@ export declare struct ComposeListItem {
    * @since 11
    */
   @Prop operateItem?: OperateItem;
+
+  /**
+   * Sets the compose item's space.Its length unit is vp.
+   * @type { ?number }
+   * @default the default value is 12.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  @Prop itemSpace?: number;
+
+  /**
+   * Sets the compose item's padding.
+   * @type { ?LocalizedPadding }
+   * @default the default value is { start: LengthMetrics.vp(12), end: LengthMetrics.vp(12)}.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  @Prop composeItemPadding?: LocalizedPadding;
 }
