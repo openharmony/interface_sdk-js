@@ -91,6 +91,15 @@ declare namespace Environment {
    * @syscap SystemCapability.FileManagement.File.Environment.FolderObtain
    * @since 11
    */
+  /**
+   * Get the public download directory.
+   *
+   * @returns { string } Return the public download directory.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 13900042 - Unknown error.
+   * @syscap SystemCapability.FileManagement.File.Environment.FolderObtain
+   * @since 12
+   */
   function getUserDownloadDir(): string;
 
   /**
@@ -104,6 +113,15 @@ declare namespace Environment {
    * @syscap SystemCapability.FileManagement.File.Environment.FolderObtain
    * @since 11
    */
+  /**
+   * Get the public desktop directory.
+   *
+   * @returns { string } Return the public desktop directory.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 13900042 - Unknown error.
+   * @syscap SystemCapability.FileManagement.File.Environment.FolderObtain
+   * @since 12
+   */
   function getUserDesktopDir(): string;
 
   /**
@@ -116,6 +134,15 @@ declare namespace Environment {
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.File.Environment.FolderObtain
    * @since 11
+   */
+  /**
+   * Get the public document directory.
+   *
+   * @returns { string } Return the public document directory.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 13900042 - Unknown error.
+   * @syscap SystemCapability.FileManagement.File.Environment.FolderObtain
+   * @since 12
    */
   function getUserDocumentDir(): string;
 
