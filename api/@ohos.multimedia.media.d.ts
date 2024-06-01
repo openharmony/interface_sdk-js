@@ -1754,13 +1754,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
-    /**
-     * Unregister listens for media playback volumeChange event.
-     * @param { 'volumeChange' } type - Type of the playback event to listen for.
-     * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @atomicservice
-     * @since 12
-     */
     off(type: 'volumeChange'): void;
     /**
      * Register listens for media playback endOfStream event.
@@ -1783,13 +1776,6 @@ declare namespace media {
      * @param { 'endOfStream' } type - Type of the playback event to listen for.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
-     */
-    /**
-     * Unregister listens for media playback endOfStream event.
-     * @param { 'endOfStream' } type - Type of the playback event to listen for.
-     * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @atomicservice
-     * @since 12
      */
     off(type: 'endOfStream'): void;
     /**
@@ -1844,13 +1830,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
-    /**
-     * Unregister listens for media playback speedDone event.
-     * @param { 'speedDone' } type - Type of the playback event to listen for.
-     * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @atomicservice
-     * @since 12
-     */
     off(type: 'speedDone'): void;
     /**
      * Register listens for media playback setBitrateDone event.
@@ -1873,13 +1852,6 @@ declare namespace media {
      * @param { 'bitrateDone' } type - Type of the playback event to listen for.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
-     */
-    /**
-     * Unregister listens for media playback setBitrateDone event.
-     * @param { 'bitrateDone' } type - Type of the playback event to listen for.
-     * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @atomicservice
-     * @since 12
      */
     off(type: 'bitrateDone'): void;
     /**
@@ -1934,13 +1906,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
-    /**
-     * Unregister listens for media playback durationUpdate event.
-     * @param { 'durationUpdate' } type - Type of the playback event to listen for.
-     * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @atomicservice
-     * @since 12
-     */
     off(type: 'durationUpdate'): void;
     /**
      * Register listens for video playback buffering events.
@@ -1967,14 +1932,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
-    /**
-     * Unregister listens for video playback buffering events.
-     * @param { 'bufferingUpdate' } type - Type of the playback buffering update event to listen for.
-	   * return BufferingInfoType and the value.
-     * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @atomicservice
-     * @since 12
-     */
     off(type: 'bufferingUpdate'): void;
     /**
      * Register listens for start render video frame events.
@@ -1997,13 +1954,6 @@ declare namespace media {
      * @param { 'startRenderFrame' } type - Type of the playback event to listen for.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
-     */
-    /**
-     * Unregister listens for start render video frame events.
-     * @param { 'startRenderFrame' } type - Type of the playback event to listen for.
-     * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @atomicservice
-     * @since 12
      */
     off(type: 'startRenderFrame'): void;
     /**
@@ -2028,13 +1978,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
-    /**
-     * Unregister listens for video size change event.
-     * @param { 'videoSizeChange' } type - Type of the playback event to listen for.
-     * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @atomicservice
-     * @since 12
-     */
     off(type: 'videoSizeChange'): void;
     /**
      * Register listens for audio interrupt event, refer to {@link #audio.InterruptEvent}
@@ -2057,13 +2000,6 @@ declare namespace media {
      * @param { 'audioInterrupt' } type - Type of the playback event to listen for.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
-     */
-    /**
-     * Unregister listens for audio interrupt event, refer to {@link #audio.InterruptEvent}
-     * @param { 'audioInterrupt' } type - Type of the playback event to listen for.
-     * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @atomicservice
-     * @since 12
      */
     off(type: 'audioInterrupt'): void;
     /**
@@ -2090,14 +2026,6 @@ declare namespace media {
      * @param { 'availableBitrates' } type - Type of the playback event to listen for.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
-     */
-    /**
-     * Unregister listens for available bitrate list collect completed events for HLS protocol stream playback.
-     * This event will be reported after the {@link #prepare} called.
-     * @param { 'availableBitrates' } type - Type of the playback event to listen for.
-     * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @atomicservice
-     * @since 12
      */
     off(type: 'availableBitrates'): void;
     /**
