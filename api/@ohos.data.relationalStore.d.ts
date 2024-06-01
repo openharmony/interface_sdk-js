@@ -367,6 +367,16 @@ declare namespace relationalStore {
      * @since 12
      */
     vector?: boolean;
+
+    /**
+     * Specifies whether the database opened is read-only.
+     * If isReadOnly is true, other configuration items will become invalid.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    isReadOnly?: boolean;
   }
 
   /**
