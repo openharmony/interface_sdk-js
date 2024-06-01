@@ -171,7 +171,7 @@ export default class UIAbilityContext extends Context {
    *
    * @param { Want } want - Indicates the ability to start.
    * @param { AsyncCallback<void> } callback - The callback of startAbility.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -199,7 +199,7 @@ export default class UIAbilityContext extends Context {
    * @param { Want } want - Indicates the ability to start.
    * @param { AsyncCallback<void> } callback - The callback of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -230,7 +230,7 @@ export default class UIAbilityContext extends Context {
    * @param { Want } want - Indicates the ability to start.
    * @param { AsyncCallback<void> } callback - The callback of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -262,7 +262,7 @@ export default class UIAbilityContext extends Context {
    * @param { Want } want - Indicates the ability to start.
    * @param { AsyncCallback<void> } callback - The callback of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -295,7 +295,7 @@ export default class UIAbilityContext extends Context {
    * @param { Want } want - Indicates the ability to start.
    * @param { StartOptions } options - Indicates the start options.
    * @param { AsyncCallback<void> } callback - The callback of startAbility.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -324,7 +324,7 @@ export default class UIAbilityContext extends Context {
    * @param { StartOptions } options - Indicates the start options.
    * @param { AsyncCallback<void> } callback - The callback of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
@@ -353,7 +353,7 @@ export default class UIAbilityContext extends Context {
    * @param { StartOptions } options - Indicates the start options.
    * @param { AsyncCallback<void> } callback - The callback of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
@@ -383,7 +383,7 @@ export default class UIAbilityContext extends Context {
    * @param { StartOptions } options - Indicates the start options.
    * @param { AsyncCallback<void> } callback - The callback of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not support.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -417,7 +417,7 @@ export default class UIAbilityContext extends Context {
    * @param { Want } want - Indicates the ability to start.
    * @param { StartOptions } [options] - Indicates the start options.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -447,7 +447,7 @@ export default class UIAbilityContext extends Context {
    * @param { StartOptions } [options] - Indicates the start options.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -478,7 +478,7 @@ export default class UIAbilityContext extends Context {
    * @param { StartOptions } [options] - Indicates the start options.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -510,7 +510,7 @@ export default class UIAbilityContext extends Context {
    * @param { StartOptions } [options] - Indicates the start options.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not support.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
@@ -552,7 +552,7 @@ export default class UIAbilityContext extends Context {
    * @param { AsyncCallback<AbilityResult> } [callback] - The callback is used to return the ability result.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Params error. Possible causes: Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -585,7 +585,8 @@ export default class UIAbilityContext extends Context {
    * @param { AsyncCallback<void> } callback - The callback of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -656,7 +657,8 @@ export default class UIAbilityContext extends Context {
    * @param { AsyncCallback<void> } callback - The callback of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
@@ -724,7 +726,7 @@ export default class UIAbilityContext extends Context {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -790,7 +792,7 @@ export default class UIAbilityContext extends Context {
    * @param { Want } want - Indicates the ability to start.
    * @returns { Promise<Caller> } Returns the Caller interface.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -817,7 +819,7 @@ export default class UIAbilityContext extends Context {
    * @param { Want } want - Indicates the ability to start.
    * @returns { Promise<Caller> } Returns the Caller interface.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -844,7 +846,7 @@ export default class UIAbilityContext extends Context {
    * @param { Want } want - Indicates the ability to start.
    * @returns { Promise<Caller> } Returns the Caller interface.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -871,7 +873,7 @@ export default class UIAbilityContext extends Context {
    * @param { Want } want - Indicates the ability to start.
    * @returns { Promise<Caller> } Returns the Caller interface.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -904,7 +906,7 @@ export default class UIAbilityContext extends Context {
    * @returns { Promise<Caller> } Returns the Caller interface.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -971,7 +973,7 @@ export default class UIAbilityContext extends Context {
    * @param { AsyncCallback<void> } callback - The callback of startAbilityWithAccount.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -1006,7 +1008,7 @@ export default class UIAbilityContext extends Context {
    * @param { AsyncCallback<void> } callback - The callback of startAbilityWithAccount.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -1041,7 +1043,7 @@ export default class UIAbilityContext extends Context {
    * @param { AsyncCallback<void> } callback - The callback of startAbilityWithAccount.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -1075,7 +1077,7 @@ export default class UIAbilityContext extends Context {
    * @param { AsyncCallback<void> } callback - The callback of startAbilityWithAccount.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
@@ -1109,7 +1111,7 @@ export default class UIAbilityContext extends Context {
    * @param { AsyncCallback<void> } callback - The callback of startAbilityWithAccount.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
@@ -1147,7 +1149,7 @@ export default class UIAbilityContext extends Context {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -1183,7 +1185,7 @@ export default class UIAbilityContext extends Context {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -1213,7 +1215,7 @@ export default class UIAbilityContext extends Context {
    *
    * @param { Want } want - Indicates the ability to start.
    * @param { AsyncCallback<AbilityResult> } callback - The callback is used to return the result of startAbility.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -1242,7 +1244,7 @@ export default class UIAbilityContext extends Context {
    * @param { Want } want - Indicates the ability to start.
    * @param { AsyncCallback<AbilityResult> } callback - The callback is used to return the result of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -1273,7 +1275,7 @@ export default class UIAbilityContext extends Context {
    * @param { Want } want - Indicates the ability to start.
    * @param { AsyncCallback<AbilityResult> } callback - The callback is used to return the result of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -1305,7 +1307,7 @@ export default class UIAbilityContext extends Context {
    * @param { Want } want - Indicates the ability to start.
    * @param { AsyncCallback<AbilityResult> } callback - The callback is used to return the result of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -1337,7 +1339,7 @@ export default class UIAbilityContext extends Context {
    * @param { Want } want - Indicates the ability to start.
    * @param { StartOptions } options - Indicates the start options.
    * @param { AsyncCallback<AbilityResult> } callback - The callback is used to return the result of startAbility.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -1367,7 +1369,7 @@ export default class UIAbilityContext extends Context {
    * @param { StartOptions } options - Indicates the start options.
    * @param { AsyncCallback<AbilityResult> } callback - The callback is used to return the result of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
@@ -1397,7 +1399,7 @@ export default class UIAbilityContext extends Context {
    * @param { StartOptions } options - Indicates the start options.
    * @param { AsyncCallback<AbilityResult> } callback - The callback is used to return the result of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
@@ -1428,7 +1430,7 @@ export default class UIAbilityContext extends Context {
    * @param { StartOptions } options - Indicates the start options.
    * @param { AsyncCallback<AbilityResult> } callback - The callback is used to return the result of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
@@ -1458,7 +1460,7 @@ export default class UIAbilityContext extends Context {
    * @param { Want } want - Indicates the ability to start.
    * @param { StartOptions } [options] - Indicates the start options.
    * @returns { Promise<AbilityResult> } Returns the result of startAbility.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -1488,7 +1490,7 @@ export default class UIAbilityContext extends Context {
    * @param { StartOptions } [options] - Indicates the start options.
    * @returns { Promise<AbilityResult> } Returns the result of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -1520,7 +1522,7 @@ export default class UIAbilityContext extends Context {
    * @param { StartOptions } [options] - Indicates the start options.
    * @returns { Promise<AbilityResult> } Returns the result of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -1553,7 +1555,7 @@ export default class UIAbilityContext extends Context {
    * @param { StartOptions } [options] - Indicates the start options.
    * @returns { Promise<AbilityResult> } Returns the result of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Params error. Possible causes: Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -1593,7 +1595,7 @@ export default class UIAbilityContext extends Context {
    * @param { AsyncCallback<AbilityResult> } callback - The callback is used to return the result of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -1621,7 +1623,7 @@ export default class UIAbilityContext extends Context {
    * @param { AsyncCallback<AbilityResult> } callback - The callback is used to return the result of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -1651,7 +1653,7 @@ export default class UIAbilityContext extends Context {
    * @param { AsyncCallback<AbilityResult> } callback - The callback is used to return the result of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -1686,7 +1688,7 @@ export default class UIAbilityContext extends Context {
    * @param { AsyncCallback<void> } callback - The callback is used to return the result of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -1720,7 +1722,7 @@ export default class UIAbilityContext extends Context {
    * @param { AsyncCallback<void> } callback - The callback is used to return the result of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
@@ -1754,7 +1756,7 @@ export default class UIAbilityContext extends Context {
    * @param { AsyncCallback<void> } callback - The callback is used to return the result of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
@@ -1797,7 +1799,7 @@ export default class UIAbilityContext extends Context {
    * @returns { Promise<AbilityResult> } Returns the result of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -1826,7 +1828,7 @@ export default class UIAbilityContext extends Context {
    * @returns { Promise<AbilityResult> } Returns the result of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -1857,7 +1859,7 @@ export default class UIAbilityContext extends Context {
    * @returns { Promise<AbilityResult> } Returns the result of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -1889,7 +1891,7 @@ export default class UIAbilityContext extends Context {
    * @param { AsyncCallback<void> } callback - The callback of startServiceExtensionAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
@@ -1914,7 +1916,7 @@ export default class UIAbilityContext extends Context {
    * @param { AsyncCallback<void> } callback - The callback of startServiceExtensionAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -1942,7 +1944,7 @@ export default class UIAbilityContext extends Context {
    * @param { AsyncCallback<void> } callback - The callback of startServiceExtensionAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -1969,7 +1971,7 @@ export default class UIAbilityContext extends Context {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
@@ -1994,7 +1996,7 @@ export default class UIAbilityContext extends Context {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -2022,7 +2024,7 @@ export default class UIAbilityContext extends Context {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -2051,7 +2053,7 @@ export default class UIAbilityContext extends Context {
    * @param { AsyncCallback<void> } callback - The callback of startServiceExtensionAbilityWithAccount.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
@@ -2078,7 +2080,7 @@ export default class UIAbilityContext extends Context {
    * @param { AsyncCallback<void> } callback - The callback of startServiceExtensionAbilityWithAccount.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -2108,7 +2110,7 @@ export default class UIAbilityContext extends Context {
    * @param { AsyncCallback<void> } callback - The callback of startServiceExtensionAbilityWithAccount.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -2137,7 +2139,7 @@ export default class UIAbilityContext extends Context {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
@@ -2164,7 +2166,7 @@ export default class UIAbilityContext extends Context {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -2194,7 +2196,7 @@ export default class UIAbilityContext extends Context {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -2220,7 +2222,7 @@ export default class UIAbilityContext extends Context {
    * @param { Want } want - Indicates the want info to start.
    * @param { AsyncCallback<void> } callback - The callback of stopServiceExtensionAbility.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
@@ -2244,7 +2246,7 @@ export default class UIAbilityContext extends Context {
    * @param { AsyncCallback<void> } callback - The callback of stopServiceExtensionAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -2268,7 +2270,7 @@ export default class UIAbilityContext extends Context {
    * @param { Want } want - Indicates the want info to start.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
@@ -2292,7 +2294,7 @@ export default class UIAbilityContext extends Context {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -2317,7 +2319,7 @@ export default class UIAbilityContext extends Context {
    * @param { AsyncCallback<void> } callback - The callback of stopServiceExtensionAbilityWithAccount.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
@@ -2343,7 +2345,7 @@ export default class UIAbilityContext extends Context {
    * @param { AsyncCallback<void> } callback - The callback of stopServiceExtensionAbilityWithAccount.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -2368,7 +2370,7 @@ export default class UIAbilityContext extends Context {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
@@ -2394,7 +2396,7 @@ export default class UIAbilityContext extends Context {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -2414,7 +2416,7 @@ export default class UIAbilityContext extends Context {
    * Destroys this Page ability.
    *
    * @param { AsyncCallback<void> } callback - The callback of terminateSelf.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
@@ -2429,7 +2431,7 @@ export default class UIAbilityContext extends Context {
    * Destroys this Page ability.
    *
    * @param { AsyncCallback<void> } callback - The callback of terminateSelf.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -2442,7 +2444,7 @@ export default class UIAbilityContext extends Context {
    * Destroys this Page ability.
    *
    * @param { AsyncCallback<void> } callback - The callback of terminateSelf.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -2500,7 +2502,7 @@ export default class UIAbilityContext extends Context {
    *
    * @param { AbilityResult } parameter - Indicates the result to return.
    * @param { AsyncCallback<void> } callback - The callback of terminateSelfWithResult.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
@@ -2516,7 +2518,7 @@ export default class UIAbilityContext extends Context {
    *
    * @param { AbilityResult } parameter - Indicates the result to return.
    * @param { AsyncCallback<void> } callback - The callback of terminateSelfWithResult.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -2529,7 +2531,7 @@ export default class UIAbilityContext extends Context {
    *
    * @param { AbilityResult } parameter - Indicates the result to return.
    * @param { AsyncCallback<void> } callback - The callback of terminateSelfWithResult.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -2545,7 +2547,7 @@ export default class UIAbilityContext extends Context {
    *
    * @param { AbilityResult } parameter - Indicates the result to return.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
@@ -2561,7 +2563,7 @@ export default class UIAbilityContext extends Context {
    *
    * @param { AbilityResult } parameter - Indicates the result to return.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -2574,7 +2576,7 @@ export default class UIAbilityContext extends Context {
    *
    * @param { AbilityResult } parameter - Indicates the result to return.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -2592,7 +2594,7 @@ export default class UIAbilityContext extends Context {
    * @param { ConnectOptions } options - The remote object instance
    * @returns { number } Returns the number code of the ability connected
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000011 - The context does not exist.
@@ -2612,7 +2614,7 @@ export default class UIAbilityContext extends Context {
    * @param { ConnectOptions } options - The remote object instance
    * @returns { number } Returns the number code of the ability connected
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -2639,7 +2641,7 @@ export default class UIAbilityContext extends Context {
    * @returns { number } Returns the number code of the ability connected
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000011 - The context does not exist.
@@ -2663,7 +2665,7 @@ export default class UIAbilityContext extends Context {
    * @returns { number } Returns the number code of the ability connected
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -2686,7 +2688,7 @@ export default class UIAbilityContext extends Context {
    *
    * @param { number } connection - The number code of the ability connected
    * @param { AsyncCallback<void> } callback - The callback of disconnectAbility.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -2700,7 +2702,7 @@ export default class UIAbilityContext extends Context {
    *
    * @param { number } connection - The number code of the ability connected
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -2714,7 +2716,7 @@ export default class UIAbilityContext extends Context {
    *
    * @param { string } label - The label of ability that showed in recent missions.
    * @param { AsyncCallback<void> } callback - The callback of setMissionLabel.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -2726,7 +2728,7 @@ export default class UIAbilityContext extends Context {
    *
    * @param { string } label - The label of ability that showed in recent missions.
    * @param { AsyncCallback<void> } callback - The callback of setMissionLabel.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -2741,7 +2743,7 @@ export default class UIAbilityContext extends Context {
    *
    * @param { string } label - The label of ability that showed in recent missions.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -2753,7 +2755,7 @@ export default class UIAbilityContext extends Context {
    *
    * @param { string } label - The label of ability that showed in recent missions.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -2768,7 +2770,7 @@ export default class UIAbilityContext extends Context {
    *
    * @param { image.PixelMap } icon - The icon of ability that showed in recent missions.
    * @param { AsyncCallback<void> } callback - The callback of setMissionIcon.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -2782,7 +2784,7 @@ export default class UIAbilityContext extends Context {
    * @param { image.PixelMap } icon - The icon of ability that showed in recent missions.
    * @param { AsyncCallback<void> } callback - The callback of setMissionIcon.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -2797,7 +2799,7 @@ export default class UIAbilityContext extends Context {
    *
    * @param { image.PixelMap } icon - The icon of ability that showed in recent missions.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -2811,7 +2813,7 @@ export default class UIAbilityContext extends Context {
    * @param { image.PixelMap } icon - The icon of ability that showed in recent missions.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -2826,7 +2828,7 @@ export default class UIAbilityContext extends Context {
    *
    * @param { AbilityConstant.ContinueState } state - The mission continue state of current ability.
    * @param { AsyncCallback<void> } callback - The callback of setMissionContinueState.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -2838,7 +2840,7 @@ export default class UIAbilityContext extends Context {
    *
    * @param { AbilityConstant.ContinueState } state - The mission continue state of current ability.
    * @param { AsyncCallback<void> } callback - The callback of setMissionContinueState.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -2853,7 +2855,7 @@ export default class UIAbilityContext extends Context {
    *
    * @param { AbilityConstant.ContinueState } state - The mission continue state of current ability.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -2865,7 +2867,7 @@ export default class UIAbilityContext extends Context {
    *
    * @param { AbilityConstant.ContinueState } state - The mission continue state of current ability.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -2879,7 +2881,7 @@ export default class UIAbilityContext extends Context {
    * Restore window stage data in ability continuation
    *
    * @param { LocalStorage } localStorage - the storage data used to restore window stage
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -2890,7 +2892,7 @@ export default class UIAbilityContext extends Context {
    * Restore window stage data in ability continuation
    *
    * @param { LocalStorage } localStorage - the storage data used to restore window stage
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -2927,7 +2929,8 @@ export default class UIAbilityContext extends Context {
    *
    * @param { Want } want - Indicates the ability to start.
    * @param { AsyncCallback<void> } callback - The callback of startAbility.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -2957,7 +2960,8 @@ export default class UIAbilityContext extends Context {
    * @param { Want } want - Indicates the ability to start.
    * @param { AsyncCallback<void> } callback - The callback of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -3021,7 +3025,7 @@ export default class UIAbilityContext extends Context {
    * @param { Want } want - Indicates the ability to start.
    * @param { StartOptions } options - Indicates the start options.
    * @param { AsyncCallback<void> } callback - The callback of startAbility.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -3052,7 +3056,7 @@ export default class UIAbilityContext extends Context {
    * @param { StartOptions } options - Indicates the start options.
    * @param { AsyncCallback<void> } callback - The callback of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
@@ -3113,7 +3117,7 @@ export default class UIAbilityContext extends Context {
    * @param { Want } want - Indicates the ability to start.
    * @param { StartOptions } [options] - Indicates the start options.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -3144,7 +3148,7 @@ export default class UIAbilityContext extends Context {
    * @param { StartOptions } [options] - Indicates the start options.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Params error. Possible causes: Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -3207,7 +3211,7 @@ export default class UIAbilityContext extends Context {
    *
    * @param { Want } want - Indicates the dialog service to start.
    * @param { AsyncCallback<dialogRequest.RequestResult> } result - The callback is used to return the request result.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -3236,7 +3240,7 @@ export default class UIAbilityContext extends Context {
    * @param { Want } want - Indicates the dialog service to start.
    * @param { AsyncCallback<dialogRequest.RequestResult> } result - The callback is used to return the request result.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -3263,7 +3267,7 @@ export default class UIAbilityContext extends Context {
    *
    * @param { Want } want - Indicates the dialog service to start.
    * @returns { Promise<dialogRequest.RequestResult> } Returns the request result.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -3293,7 +3297,7 @@ export default class UIAbilityContext extends Context {
    * @param { Want } want - Indicates the dialog service to start.
    * @returns { Promise<dialogRequest.RequestResult> } Returns the request result.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -3360,7 +3364,7 @@ export default class UIAbilityContext extends Context {
    * @param { AbilityStartCallback } abilityStartCallback - Indicates the abilityStartCallback.
    * @param { AsyncCallback<void> } callback - The callback of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -3378,7 +3382,7 @@ export default class UIAbilityContext extends Context {
    * @param { Record<string, Object> } wantParam - Indicates the want parameter.
    * @param { AbilityStartCallback } abilityStartCallback - Indicates the abilityStartCallback.
    * @param { AsyncCallback<void> } callback - The callback of startAbility.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -3399,7 +3403,7 @@ export default class UIAbilityContext extends Context {
    * @param { AbilityStartCallback } abilityStartCallback - Indicates the abilityStartCallback.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -3417,7 +3421,7 @@ export default class UIAbilityContext extends Context {
    * @param { Record<string, Object> } wantParam - Indicates the want parameter.
    * @param { AbilityStartCallback } abilityStartCallback - Indicates the abilityStartCallback.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -3437,7 +3441,7 @@ export default class UIAbilityContext extends Context {
    * @param { AsyncCallback<void> } callback - The callback of requestModalUIExtension.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -3460,7 +3464,7 @@ export default class UIAbilityContext extends Context {
    * @param { Want } type - Indicates the UIExtensionAbility to start.
    * @param { AsyncCallback<void> } callback - The callback of requestModalUIExtension.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -3478,7 +3482,7 @@ export default class UIAbilityContext extends Context {
    * @returns { Promise<void> } The promise returned by the requestModalUIExtension.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -3501,7 +3505,7 @@ export default class UIAbilityContext extends Context {
    * @param { Want } type - Indicates the UIExtensionAbility to start.
    * @returns { Promise<void> } The promise returned by the requestModalUIExtension.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -3516,7 +3520,7 @@ export default class UIAbilityContext extends Context {
    * @param { string } appId - Globally unique identifier of an application, which is allocated by the cloud.
    * @param { AtomicServiceOptions } [options] - Indicates the atomic service start options.
    * @returns { Promise<AbilityResult> } Returns the result of openAtomicService.
-   * @throws { BusinessError } 401 - Params error. Possible causes: Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000003 - The appId does not exist.
    * @throws { BusinessError } 16000004 - Can not start invisible component
