@@ -526,7 +526,7 @@ export interface AbilityDelegator {
    * @param { AbilityMonitor } monitor - AbilityMonitor object.
    * @param { number } [timeout] - Maximum wait time, in milliseconds.
    * @returns { Promise<UIAbility> } Returns the Ability object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - WaitAbilityMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
@@ -637,7 +637,7 @@ export interface AbilityDelegator {
    * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
    * @param { number } [timeout] - Maximum wait time, in milliseconds.
    * @returns { Promise<AbilityStage> } Returns the AbilityStage object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - WaitAbilityStageMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
