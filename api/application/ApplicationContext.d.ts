@@ -269,7 +269,7 @@ export default class ApplicationContext extends Context {
    *
    * @param { 'applicationStateChange' } type - applicationStateChange.
    * @param { ApplicationStateChangeCallback } [callback] - The applicationStateChange callback.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
