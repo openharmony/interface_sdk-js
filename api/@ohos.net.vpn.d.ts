@@ -116,7 +116,7 @@ declare namespace vpn {
   /**
    * delete the VPN config.
    * @permission ohos.permission.MANAGE_VPN
-   * @param { string } vpnUuid - Indicates the uuid of the VPN network.
+   * @param { string } vpnId - Indicates the uuid of the VPN network.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -128,7 +128,7 @@ declare namespace vpn {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  function deleteSysVpnConfig(vpnUuid: string): Promise<void>;
+  function deleteSysVpnConfig(vpnId: string): Promise<void>;
 
   /**
    * get the VPN config list.
@@ -149,7 +149,7 @@ declare namespace vpn {
   /**
    * get the VPN config.
    * @permission ohos.permission.MANAGE_VPN
-   * @param { string } vpnUuid - Indicates the uuid of the VPN network.
+   * @param { string } vpnId - Indicates the uuid of the VPN network.
    * @returns { Promise<SysVpnConfig> } The promise returned by the VPN network.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -161,7 +161,7 @@ declare namespace vpn {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  function getSysVpnConfig(vpnUuid: string): Promise<SysVpnConfig>;
+  function getSysVpnConfig(vpnId: string): Promise<SysVpnConfig>;
 
   /**
    * get the connected VPN config.
@@ -417,7 +417,7 @@ declare namespace vpn {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    vpnUuid?: string;
+    vpnId?: string;
 
     /**
      * The name of the VPN network.
