@@ -345,6 +345,21 @@ declare namespace taskpool {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Add dependencies on the task array for this task.
+     *
+     * @param { Task[] } tasks - An array of dependent tasks.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
+     * @throws { BusinessError } 10200026 - There is a circular dependency.
+     * @throws { BusinessError } 10200052 - The periodic task cannot have a dependency.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     addDependency(...tasks: Task[]): void;
 
     /**
@@ -360,6 +375,21 @@ declare namespace taskpool {
      * @crossplatform
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Remove dependencies on the task array for this task.
+     *
+     * @param { Task[] } tasks - An array of dependent tasks.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
+     * @throws { BusinessError } 10200027 - The dependency does not exist.
+     * @throws { BusinessError } 10200052 - The periodic task cannot have a dependency.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     removeDependency(...tasks: Task[]): void;
 
@@ -627,6 +657,21 @@ declare namespace taskpool {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Add a Task into TaskGroup.
+     *
+     * @param { Task } task - The task want to add in task group.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
+     * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
+     * @throws { BusinessError } 10200051 - The periodic task cannot be executed again.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     addTask(task: Task): void;
 
     /**
@@ -678,6 +723,23 @@ declare namespace taskpool {
      * @crossplatform
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Execute a concurrent function.
+     *
+     * @param { Task } task - The task want to execute.
+     * @returns { Promise<Object> }
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types;
+     * @throws { BusinessError } 10200003 - Worker initialization failed.
+     * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+     * @throws { BusinessError } 10200025 - A dependent task cannot be added to SequenceRunner.
+     * @throws { BusinessError } 10200051 - The periodic task cannot be executed again.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     execute(task: Task): Promise<Object>;
   }
@@ -1088,6 +1150,25 @@ declare namespace taskpool {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Execute a concurrent task.
+   *
+   * @param { Task } task - The task want to execute.
+   * @param { Priority } [priority] - Task priority, MEDIUM is default.
+   * @returns { Promise<Object> }
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
+   * @throws { BusinessError } 10200003 - Worker initialization failed.
+   * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+   * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
+   * @throws { BusinessError } 10200051 - The periodic task cannot be executed again.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   function execute(task: Task, priority?: Priority): Promise<Object>;
 
   /**
@@ -1140,7 +1221,47 @@ declare namespace taskpool {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Execute a concurrent task after the specified time.
+   *
+   * @param { number } delayTime - The time want to delay.
+   * @param { Task } task - The task want to execute.
+   * @param { Priority } [priority] - Task priority, MEDIUM is default.
+   * @returns { Promise<Object> }
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
+   * @throws { BusinessError } 10200028 - The delayTime is less than zero.
+   * @throws { BusinessError } 10200051 - The periodic task cannot be executed again.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   function executeDelayed(delayTime: number, task: Task, priority?: Priority): Promise<Object>;
+
+  /**
+   * Execute a concurrent task periodically.
+   *
+   * @param { number } period - The period in milliseconds for executing task.
+   * @param { Task } task - The task want to execute.
+   * @param { Priority } [priority] - Task priority, MEDIUM is default.
+   * @throws { BusinessError } 401 - The input parameters are invalid.
+   * <br>1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
+   * @throws { BusinessError } 10200003 - Worker initialization failed.
+   * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+   * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
+   * @throws { BusinessError } 10200028 - The period is less than zero.
+   * @throws { BusinessError } 10200050 - The concurrent task has been executed and cannot be executed periodically.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  function executePeriodically(period: number, task: Task, priority?: Priority): void;
 
   /**
    * Cancel a concurrent task.
