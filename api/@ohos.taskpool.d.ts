@@ -709,6 +709,20 @@ declare namespace taskpool {
     constructor(priority?: Priority);
 
     /**
+     * Create or get a SequenceRunner instance by name.
+     *
+     * @param { string } name - SequenceRunner name, if name is the same, will return the same SequenceRunner.
+     * @param { Priority } priority - Task execution priority, MEDIUM is default.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    constructor(name: string, priority?: Priority);
+
+    /**
      * Execute a concurrent function.
      *
      * @param { Task } task - The task want to execute.
