@@ -22,8 +22,9 @@
  */
 declare namespace netfirewall {
   /**
-   * <p>Set firewall policies by userId. Enables or disables the firewall function, 
-   * and specifies the default actions for inbound connections and outbound connections.</p>
+   * <p>Set firewall policy by userId.
+   * Enables or disables the firewall function, and specifies the default actions for inbound connections and outbound
+   * connections.</p>
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { NetFirewallPolicy } policy - The firewall policy to be set.
