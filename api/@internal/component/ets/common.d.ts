@@ -8905,6 +8905,19 @@ declare type GestureRecognizerJudgeBeginCallback = (event: BaseGestureEvent, cur
 declare type ShouldBuiltInRecognizerParallelWithCallback = (current: GestureRecognizer, others: Array<GestureRecognizer>) => GestureRecognizer;
 
 /**
+ * Defines the finish callback type used in transition.
+ * 
+ * @typedef { function } TransitionFinishCallback
+ * @param { boolean } transitionIn - a boolean value indicates whether it is the callback of transitionIn or transitionOut.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 12
+ */
+declare type TransitionFinishCallback = (transitionIn: boolean) => void;
+
+/**
  * Defines the PixelMap type object for ui component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -15960,6 +15973,20 @@ declare class CommonMethod<T> {
    * @form
    */
   transition(value: TransitionOptions | TransitionEffect): T;
+
+  /**
+   * Set the transition effect of component when it appears and disappears.
+   *
+   * @param { TransitionEffect } effect - transition effect
+   * @param { Optional<TransitionFinishCallback> } onFinish - transition finish callback.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  transition(effect: TransitionEffect, onFinish: Optional<TransitionFinishCallback>): T;
 
   /**
    * Bind gesture recognition.
