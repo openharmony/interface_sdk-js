@@ -1040,6 +1040,18 @@ declare namespace notificationManager {
   function isNotificationEnabled(): Promise<boolean>;
 
   /**
+   * Checks whether this application allows to publish notifications.
+   *
+   * @returns { boolean } Returned by the function.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @syscap SystemCapability.Notification.Notification
+   * @since 12
+   */
+  function isNotificationEnabledSync(): boolean;
+
+  /**
    * Checks whether this application allows to publish notifications under the user.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
