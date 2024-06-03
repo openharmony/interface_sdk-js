@@ -89,7 +89,7 @@ declare namespace securityManager {
    *                         The admin must have the corresponding permission.
    * @returns { string } the security patch tag of the device.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -110,7 +110,7 @@ declare namespace securityManager {
    *                         The admin must have the corresponding permission.
    * @returns { DeviceEncryptionStatus } device encryption status.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -133,7 +133,7 @@ declare namespace securityManager {
    *                          patch means the device security patch tag, and encryption means the device encryption status.
    * @returns { string } security policy of the specific type.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -153,7 +153,7 @@ declare namespace securityManager {
    * @param { CertBlob } certificate - certificate file content and alias. It cannot be empty or more than 40 characters.
    * @returns { Promise<string> } the promise carries the uri of the certificate used to uninstall
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9201001 - Failed to manage the certificate.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -174,7 +174,7 @@ declare namespace securityManager {
    * @param { string } certUri - uri of the certificate. It cannot be empty or more than 64 characters.
    * @returns { Promise<void> } the promise returned by the uninstallUserCertificate.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9201001 - Failed to manage the certificate.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -193,7 +193,7 @@ declare namespace securityManager {
    *                         The admin must have the corresponding permission.
    * @param { PasswordPolicy } policy - password policy to be set.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -211,7 +211,7 @@ declare namespace securityManager {
    *                         The admin must have the corresponding permission.
    * @returns { PasswordPolicy } policy - the password policy of the device.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
