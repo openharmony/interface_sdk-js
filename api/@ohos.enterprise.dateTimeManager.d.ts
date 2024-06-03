@@ -40,7 +40,7 @@ declare namespace dateTimeManager {
    * @param { number } time - time indicates the target time stamp (ms).
    * @param { AsyncCallback<void> } callback - the callback of setDateTime.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -62,7 +62,7 @@ declare namespace dateTimeManager {
    * @param { number } time - time indicates the target time stamp (ms).
    * @returns { Promise<void> } the promise returned by the setDateTime.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -84,7 +84,7 @@ declare namespace dateTimeManager {
    * @param { boolean } disallow - true if the user is not allowed to modify the system time.
    * @param { AsyncCallback<void> } callback - the callback of disallowModifyDateTime.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -106,7 +106,7 @@ declare namespace dateTimeManager {
    * @param { boolean } disallow - true if the user is not allowed to modify the system time.
    * @returns { Promise<void> } the promise returned by the disallowModifyDateTime.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -127,7 +127,7 @@ declare namespace dateTimeManager {
    *                         If the admin is not empty, it must have the corresponding permission.
    * @param { AsyncCallback<boolean> } callback - return true if modify datetime is not allowed.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -148,7 +148,7 @@ declare namespace dateTimeManager {
    *                         If the admin is not empty, it must have the corresponding permission.
    * @returns { Promise<boolean> } return true if modify datetime is not allowed.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;

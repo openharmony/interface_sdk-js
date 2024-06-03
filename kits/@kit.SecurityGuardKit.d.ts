@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,12 +15,9 @@
 
 /**
  * @file
- * @kit AudioKit
+ * @kit SecurityGuardKit
  */
 
-import audio from '@ohos.multimedia.audio';
-import audioHaptic from '@ohos.multimedia.audioHaptic';
-import systemSoundManager from '@ohos.multimedia.systemSoundManager';
-import { AVVolumePanel, AVVolumePanelParameter } from '@ohos.multimedia.avVolumePanel';
+import securityGuard from '@ohos.security.securityGuard';
 
-export { audio, audioHaptic, systemSoundManager, AVVolumePanel, AVVolumePanelParameter };
+export { securityGuard };

@@ -1451,6 +1451,31 @@ declare namespace pasteboard {
      * @since 12
      */
     setUnifiedDataSync(data: unifiedDataChannel.UnifiedData): void;
+
+    /**
+     * Sets a unified ShareOptions for your application, so that the PasteData copied from your application is applicable to this ShareOptions.
+     * 
+     * @param { ShareOption } shareOptions - Scope that PasteData can be pasted.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *                                                                   2. Incorrect parameter types;
+     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 12900006 - Settings already exist.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @systemapi
+     * @since 12
+     */
+    setAppShareOptions(shareOptions: ShareOption): void;
+
+    /**
+     * Removes the unified ShareOptions of your application.
+     * 
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @systemapi
+     * @since 12
+     */
+    removeAppShareOptions(): void;
   }
 }
 

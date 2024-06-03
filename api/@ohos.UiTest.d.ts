@@ -1415,6 +1415,15 @@ declare interface UIEventObserver {
  * @atomicservice
  * @since 11
  */
+/**
+ * Enumerates the direction for the UI operation .
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Test.UiTest
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare enum UiDirection {
   /**
    * Left.
@@ -1429,6 +1438,15 @@ declare enum UiDirection {
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 11
+   * @test
+   */
+  /**
+   * Left.
+   *
+   * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    * @test
    */
   LEFT = 0,
@@ -1447,6 +1465,15 @@ declare enum UiDirection {
    * @since 11
    * @test
    */
+  /**
+   * Right.
+   *
+   * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @test
+   */
   RIGHT = 1,
   /**
    * Up.
@@ -1463,6 +1490,15 @@ declare enum UiDirection {
    * @since 11
    * @test
    */
+  /**
+   * Up.
+   *
+   * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @test
+   */
   UP = 2,
   /**
    * Down.
@@ -1477,6 +1513,15 @@ declare enum UiDirection {
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 11
+   * @test
+   */
+  /**
+   * Down.
+   *
+   * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    * @test
    */
   DOWN = 3
@@ -3821,6 +3866,20 @@ declare class Driver {
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 11
+   * @test
+   */
+  /**
+   * Inject fling on the device display.
+   *
+   * @param { UiDirection } direction - the direction of this action.
+   * @param { number } speed - the speed of fling (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    * @test
    */
   fling(direction: UiDirection, speed: number): Promise<void>;
