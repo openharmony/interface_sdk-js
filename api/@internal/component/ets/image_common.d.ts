@@ -78,6 +78,7 @@ declare enum ImageAnalyzerType {
  *
  * @interface ImageAnalyzerConfig
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
  */
 declare interface ImageAnalyzerConfig {
@@ -94,6 +95,7 @@ declare interface ImageAnalyzerConfig {
    *
    * @type { ImageAnalyzerType[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   types: ImageAnalyzerType[];
