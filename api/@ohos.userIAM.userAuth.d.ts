@@ -1285,7 +1285,7 @@ declare namespace userAuth {
      * @permission ohos.permission.ACCESS_BIOMETRIC
      * @throws { BusinessError } 201 - Permission verification failed.
      * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
-     * <br>2. Incorrect parameter types.
+     * <br>1. Incorrect parameter types.
      * @throws { BusinessError } 12500001 - Authentication failed.
      * @throws { BusinessError } 12500002 - General operation error.
      * @throws { BusinessError } 12500003 - Authentication canceled.
@@ -1305,7 +1305,7 @@ declare namespace userAuth {
      * @permission ohos.permission.ACCESS_BIOMETRIC
      * @throws { BusinessError } 201 - Permission verification failed.
      * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
-     * <br>2. Incorrect parameter types.
+     * <br>1. Incorrect parameter types.
      * @throws { BusinessError } 12500001 - Authentication failed.
      * @throws { BusinessError } 12500002 - General operation error.
      * @throws { BusinessError } 12500003 - Authentication canceled.
@@ -1328,7 +1328,7 @@ declare namespace userAuth {
      * @permission ohos.permission.ACCESS_BIOMETRIC
      * @throws { BusinessError } 201 - Permission verification failed.
      * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
-     * <br>2. Incorrect parameter types.
+     * <br>1. Incorrect parameter types.
      * @throws { BusinessError } 12500002 - General operation error.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 10
