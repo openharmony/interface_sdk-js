@@ -47,6 +47,7 @@ import {
   Popup, PopupButtonOptions, PopupIconOptions, PopupOptions, PopupTextOptions
 } from '@ohos.arkui.advanced.Popup';
 import { ProgressButton } from '@ohos.arkui.advanced.ProgressButton';
+import { Qrcode, QrcodeOptions, QrcodeState, CommonQrcodeOptions } from '@ohos.arkui.advanced.Qrcode';
 import {
   CapsuleSegmentButtonConstructionOptions, CapsuleSegmentButtonOptions, SegmentButton,
   SegmentButtonItemOptionsArray, SegmentButtonOptions, TabSegmentButtonConstructionOptions, TabSegmentButtonOptions
@@ -129,5 +130,6 @@ export {
   WindowExtensionContext, XComponentNode, LengthMetrics, ComponentContent, componentSnapshot, componentUtils, curves, display, dragController, dragInteraction,
   font, inspector, matrix4, mediaquery, performanceMonitor, pluginComponentManager, prompt, promptAction, router,
   screen, screenshot, uiAppearance, uiExtensionHost, uiObserver, window, windowAnimationManager, CustomContentDialog,
-  IconOptions, ChipItemLabelOptions, ChipGroupItemOptions, ChipItemStyle, ChipGroupSpaceOptions, IconItemOptions, IconGroupSuffix, ChipGroup
+  IconOptions, ChipItemLabelOptions, ChipGroupItemOptions, ChipItemStyle, ChipGroupSpaceOptions, IconItemOptions, IconGroupSuffix, ChipGroup,
+  Qrcode, QrcodeOptions, QrcodeState, CommonQrcodeOptions
 };
