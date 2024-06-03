@@ -394,12 +394,12 @@ interface XComponentInterface {
   /**
    * Constructor parameters
    *
-   * @param { XComponentOptions } value - Indicates the options of the xcomponent.
+   * @param { object } value - Indicates the options of the xcomponent.
    * @returns { XComponentAttribute } The attribute of the xcomponent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 12
    */
-  (value: XComponentOptions): XComponentAttribute;
+  (value: { id: string; type: XComponentType; libraryname?: string; controller?: XComponentController; imageAIOptions?: ImageAIOptions }): XComponentAttribute;
 }
 
 /**
