@@ -109,7 +109,19 @@ declare namespace contextConstant {
      * @atomicservice
      * @since 11
      */
-    EL4 = 3
+    EL4 = 3,
+
+    /**
+     * User privacy sensitive encryption area
+     * when the screen locked, a closed file cannot be opened, read, or written,
+     * a file can be created and then opened, read, or written.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 12
+     */
+    EL5 = 4
   }
 
   /**
