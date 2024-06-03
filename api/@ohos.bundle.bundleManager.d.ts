@@ -3451,7 +3451,7 @@ declare namespace bundleManager {
    * @systemapi
    * @since 12
    */
-  export type PreinstalledApplicationInfo = _PreinstalledApplicationInfo;  
+  export type PreinstalledApplicationInfo = _PreinstalledApplicationInfo;
 }
 
 export default bundleManager;

@@ -4529,7 +4529,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    *            {@link ImageFormat} constants.
    * @param { number } capacity - The maximum number of images the user will want to access simultaneously.
    * @returns { ImageReceiver } Returns the ImageReceiver instance if the operation is successful; returns null otherwise.
-   * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types;
+   * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;
    * @syscap SystemCapability.Multimedia.Image.ImageReceiver
    * @since 11
    */
@@ -4559,7 +4559,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    *            {@link ImageFormat} constants.
    * @param { number } capacity - The maximum number of images the user will want to access simultaneously.
    * @returns { ImageCreator } Returns the ImageCreator instance if the operation is successful; returns null otherwise.
-   * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types;
+   * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;
    * @syscap SystemCapability.Multimedia.Image.ImageCreator
    * @since 11
    */
@@ -6411,7 +6411,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { DecodingOptions } options Image decoding parameters.
      * @returns { Promise<Array<PixelMap>> } A Promise instance used to return the PixelMap array.
-     * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 62980096 - The operation failed.
      * @throws { BusinessError } 62980099 - The shared memory data is abnormal.
      * @throws { BusinessError } 62980101 - The image data is abnormal.
@@ -6439,7 +6438,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Creates a PixelMap array. This method uses a callback to return the array.
      *
      * @param { AsyncCallback<Array<PixelMap>> } callback Callback used to return the PixelMap array.
-     * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 62980096 - The operation failed.
      * @throws { BusinessError } 62980099 - The shared memory data is abnormal.
      * @throws { BusinessError } 62980101 - The image data is abnormal.
@@ -6469,7 +6467,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { DecodingOptions } options Image decoding parameters.
      * @param { AsyncCallback<Array<PixelMap>> } callback Callback used to return the PixelMap array.
-     * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 62980096 - The operation failed.
      * @throws { BusinessError } 62980099 - The shared memory data is abnormal.
      * @throws { BusinessError } 62980101 - The image data is abnormal.
@@ -6497,7 +6494,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Obtains the array of delay time in an image. This method uses a promise to return the array.
      *
      * @returns { Promise<Array<number>> } A Promise instance used to return the array.
-     * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 62980096 - The operation failed.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
@@ -6519,7 +6515,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Obtains the array of delay time in an image. This method uses a callback to return the array.
      *
      * @param { AsyncCallback<Array<number>> } callback Callback used to return the array.
-     * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 62980096 - The operation failed.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
@@ -6541,7 +6536,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Obtains the array of disposal type in a gif image. This method uses a promise to return the array.
      *
      * @returns { Promise<Array<number>> } A Promise instance used to return the array.
-     * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 62980096 - The operation failed.
      * @throws { BusinessError } 62980101 - The image data is abnormal.
      * @throws { BusinessError } 62980137 - Invalid media operation.
@@ -6556,7 +6550,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Obtains the count of frame in an image. This method uses a promise to return the number.
      *
      * @returns { Promise<number> } A Promise instance used to return the number.
-     * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 62980096 - The operation failed.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
@@ -6577,7 +6570,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Obtains the count of frame in an image. This method uses a callback to return the number.
      *
      * @param { AsyncCallback<number> } callback Callback used to return the number.
-     * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 62980096 - The operation failed.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
@@ -6601,7 +6593,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { PropertyKey } key - Name of the property whose value is to be obtained.
      * @param { ImagePropertyOptions } options - Index of the image.
      * @returns { Promise<string> } A Promise instance used to return the property value. If the operation fails, the default value is returned.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types;3.Parameter verification failed;
+     * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;3.Parameter verification failed;
      * @throws { BusinessError } 62980096 - The operation failed.
      * @throws { BusinessError } 62980103 - The image data is not supported.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
@@ -6706,7 +6698,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { Array<PropertyKey> } key - Name of the properties whose value is to be obtained.
      * @returns { Promise<Record<PropertyKey, string|null>> } Array of Records instance used to return the
      * property values. If the operation fails, the null is returned.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types;3.Parameter verification failed;
+     * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed;
      * @throws { BusinessError } 62980096 - The operation failed.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
      * @throws { BusinessError } 62980113 - Unknown image format.
@@ -6724,7 +6716,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { PropertyKey } key - Name of the property whose value is to be modified.
      * @param { string } value - The value to be set to property.
      * @returns { Promise<void> } A Promise instance used to return the property value.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types;
+     * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;
      * @throws { BusinessError } 62980123 - Images in EXIF format are not supported.
      * @throws { BusinessError } 62980133 - The EXIF data is out of range.
      * @throws { BusinessError } 62980135 - The EXIF value is invalid.
@@ -6796,7 +6788,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * be modified.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an
      * error message is returned.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types;3.Parameter verification failed;
+     * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed;
      * @throws { BusinessError } 62980123 - Images in EXIF format are not supported.
      * @throws { BusinessError } 62980133 - The EXIF data is out of range.
      * @throws { BusinessError } 62980135 - The EXIF value is invalid.
