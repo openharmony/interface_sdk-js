@@ -784,6 +784,21 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 12
    */
+  /**
+   * Modify remote device name.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
+   * @param { string } name - New device name. Max length is 64 bytes.
+   * @returns { Promise<void> } Returns the promise object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @atomicservice
+   * @since 12
+   */
     function setRemoteDeviceName(deviceId: string, name: string): Promise<void>;
 
   /**
