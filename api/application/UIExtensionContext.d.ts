@@ -97,7 +97,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16000069 - The extension cannot start the third party application.
    * @throws { BusinessError } 16000070 - The extension cannot start the service.
-   * @throws { BusinessError } 16000073 - The target app clone with the specified index does not exist.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
@@ -164,7 +164,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16000069 - The extension cannot start the third party application.
    * @throws { BusinessError } 16000070 - The extension cannot start the service.
-   * @throws { BusinessError } 16000073 - The target app clone with the specified index does not exist.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
@@ -235,7 +235,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16000069 - The extension cannot start the third party application.
    * @throws { BusinessError } 16000070 - The extension cannot start the service.
-   * @throws { BusinessError } 16000073 - The target app clone with the specified index does not exist.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
@@ -338,7 +338,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16000069 - The extension cannot start the third party application.
    * @throws { BusinessError } 16000070 - The extension cannot start the service.
-   * @throws { BusinessError } 16000073 - The target app clone with the specified index does not exist.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
@@ -405,7 +405,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16000069 - The extension cannot start the third party application.
    * @throws { BusinessError } 16000070 - The extension cannot start the service.
-   * @throws { BusinessError } 16000073 - The target app clone with the specified index does not exist.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
@@ -476,7 +476,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16000069 - The extension cannot start the third party application.
    * @throws { BusinessError } 16000070 - The extension cannot start the service.
-   * @throws { BusinessError } 16000073 - The target app clone with the specified index does not exist.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
@@ -503,7 +503,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000069 - The extension cannot start the third party application.
    * @throws { BusinessError } 16000070 - The extension cannot start the service.
-   * @throws { BusinessError } 16000073 - The target app clone with the specified index does not exist.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
