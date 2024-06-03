@@ -66,7 +66,7 @@ declare namespace vpn {
    * Subscribes to vpn state changes.
    * @permission ohos.permission.MANAGE_VPN
    * @param { 'connect' } type - Indicates vpn connect state changes.
-   * @param { AsyncCallback<VpnConnectState> } callback - The callback of the vpn connect state.
+   * @param { Callback<VpnConnectState> } callback - The callback of the vpn connect state.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -77,13 +77,13 @@ declare namespace vpn {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  function on(type: 'connect', callback: AsyncCallback<VpnConnectState>): void;
+  function on(type: 'connect', callback: Callback<VpnConnectState>): void;
 
   /**
    * Unsubscribes from vpn state changes.
    * @permission ohos.permission.MANAGE_VPN
    * @param { 'connect' } type - Indicates vpn connect state changes.
-   * @param { AsyncCallback<VpnConnectState> } callback - The callback of the vpn connect state.
+   * @param { Callback<VpnConnectState> } callback - The callback of the vpn connect state.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -94,7 +94,7 @@ declare namespace vpn {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  function off(type: 'connect', callback: AsyncCallback<VpnConnectState>): void;
+  function off(type: 'connect', callback?: Callback<VpnConnectState>): void;
 
   /**
    * add the VPN config.
