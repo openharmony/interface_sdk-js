@@ -35,7 +35,7 @@ declare namespace systemDateTime {
    * @param { number } time - Indicates the target timestamp(in milliseconds)
    * @param { AsyncCallback<void> } callback - The callback of setTime
    * @throws { BusinessError } 201 - Permission denied
-   * @throws { BusinessError } 202 - Permission denied, Non system application use system APIs
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
@@ -49,7 +49,7 @@ declare namespace systemDateTime {
    * @param { number } time - Indicates the target timestamp(in milliseconds)
    * @returns { Promise<void> } The promise returned by the function
    * @throws { BusinessError } 201 - Permission denied
-   * @throws { BusinessError } 202 - Permission denied, Non system application use system APIs
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
@@ -226,7 +226,7 @@ declare namespace systemDateTime {
    * @param { Date } date - The target date, it must > 0
    * @param { AsyncCallback<void> } callback - The callback of setDate
    * @throws { BusinessError } 201 - Permission denied
-   * @throws { BusinessError } 202 - Permission denied, Non system application use system APIs
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed;
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
@@ -243,7 +243,7 @@ declare namespace systemDateTime {
    * @param { Date } date - The target date, it must > 0
    * @returns { Promise<void> } The promise returned by the function
    * @throws { BusinessError } 201 - Permission denied
-   * @throws { BusinessError } 202 - Permission denied, Non system application use system APIs
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed;
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
@@ -284,7 +284,7 @@ declare namespace systemDateTime {
    * @param { string } timezone - The system time zone
    * @param { AsyncCallback<void> } callback - The callback of setTimezone
    * @throws { BusinessError } 201 - Permission denied
-   * @throws { BusinessError } 202 - Permission denied, Non system application use system APIs
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
@@ -299,7 +299,7 @@ declare namespace systemDateTime {
    * @param { string } timezone -  The system time zone
    * @returns { Promise<void> } The promise returned by the function
    * @throws { BusinessError } 201 - Permission denied
-   * @throws { BusinessError } 202 - Permission denied, Non system application use system APIs
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
