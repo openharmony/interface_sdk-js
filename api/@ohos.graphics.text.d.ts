@@ -379,6 +379,113 @@ declare namespace text {
   }
 
   /**
+   * Enumeration of font width of text.
+   * @enum { number }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  enum FontWidth {
+    /**
+     * Ultra condensed font width.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    ULTRA_CONDENSED = 1,
+
+    /**
+     * Extra condensed font width.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    EXTRA_CONDENSED = 2,
+
+    /**
+     * Condensed font width.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    CONDENSED = 3,
+
+    /**
+     * Semi condensed font width.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    SEMI_CONDENSED = 4,
+
+    /**
+     * Normal font width.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    NORMAL = 5,
+
+    /**
+     * Semi expanded font width.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    SEMI_EXPANDED = 6,
+
+    /**
+     * Expanded font width.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    EXPANDED = 7,
+
+    /**
+     * Extra expanded font width.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    EXTRA_EXPANDED = 8,
+
+    /**
+     * Ultra expanded font width.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    ULTRA_EXPANDED = 9,
+  }
+
+  /**
+   * Enumerates of height mode of text.
+   * @enum { number }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  enum TextHeightBehavior {
+    /**
+     * Both ascend of first row and last row style.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    ALL = 0x0,
+
+    /**
+     * Forbidding ascend of first row style.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    DISABLE_FIRST_ASCENT = 0x1,
+
+    /**
+     * Forbidding ascend of last row style.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    DISABLE_LAST_ASCENT = 0x2,
+
+    /**
+     * Neither ascend of first row nor last row style.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    DISABLE_ALL = 0x1 | 0x2,
+  }
+
+  /**
    * Enumeration the type of text baseline.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
@@ -429,6 +536,107 @@ declare namespace text {
      * @since 12
      */
     END,
+  }
+
+  /**
+   * Describes shadow of text.
+   * @typedef TextShadow
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  interface TextShadow {
+    /**
+     * The color of text shadow.
+     * @type { ?common2D.Color } The color of text shadow
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    color?: common2D.Color;
+    /**
+     * The value sets offset of text shadow that based on the original text.
+     * @type { ?common2D.Point } The point of shadow
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    point?: common2D.Point;
+    /**
+     * The value sets special effect radius of blurring text, it default is 0.
+     * @type { ?number } The value about radius of blur, it type is "double"
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    blurRadius?: number;
+  }
+
+  /**
+   * Describes rect style of text.
+   * @typedef RectStyle
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  interface RectStyle {
+    /**
+     * The color of rect style.
+     * @type { common2D.Color } The color of rect style
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    color: common2D.Color;
+
+    /**
+     * Radius in left top of rect style.
+     * @type { number } it is double type data
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    leftTopRadius: number;
+
+    /**
+     * Radius in right top of rect style.
+     * @type { number } it is double type data
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    rightTopRadius: number;
+
+    /**
+     * Radius in right bottom of rect style.
+     * @type { number } it is double type data
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    rightBottomRadius: number;
+
+    /**
+     * Radius in left bottom of rect style.
+     * @type { number } it is double type data
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    leftBottomRadius: number;
+  }
+
+  /**
+   * Describes font feature of text.
+   * @typedef FontFeature
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  interface FontFeature {
+    /**
+     * The name of font feature.
+     * @type { string } feature name
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    name: string;
+    /**
+     * The value of font feature.
+     * @type { number } feature value
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    value: number;
   }
 
   /**
@@ -559,6 +767,38 @@ declare namespace text {
      * @since 12
      */
     locale?: string;
+
+    /**
+     * The offset distance that the underline of text.
+     * @type { ?number } it is double type data.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    baselineShift?: number;
+
+    /**
+     * Text Style available font features.
+     * @type { ?Array<FontFeature> } A collection of font features.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    fontFeatures?: Array<FontFeature>;
+
+    /**
+     * Text shadows of text.
+     * @type { ?Array<TextShadow> } textShadow gather.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    textShadows?: Array<TextShadow>;
+
+    /**
+     * Rect style of text.
+     * @type { ?RectStyle } rect style for text.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    backgroundRect?: RectStyle;
   }
 
   /**
@@ -583,6 +823,102 @@ declare namespace text {
      * @since 12
      */
     loadFontSync(name: string, path: string | Resource): void;
+  }
+
+  /**
+   * Describes strut style.
+   * @typedef StrutStyle
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  interface StrutStyle {
+    /**
+     * The families of the font to use when calculating the strut.
+     * @type { ?Array<string> } fontfamily gather
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    fontFamilies?: Array<string>;
+
+    /**
+     * The font style to use when calculating the strut.
+     * @type { ?FontStyle } it is uint32_t type data
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    fontStyle?: FontStyle;
+
+    /**
+     * The font width to use when calculating the strut.
+     * @type { ?FontWidth } it is uint32_t type data
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    fontWidth?: FontWidth;
+
+    /**
+     * The font weight to use when calculating the strut.
+     * @type { ?FontWeight } it is uint32_t type data
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    fontWeight?: FontWeight;
+
+    /**
+     * The size of the ascent plus descent in logical pixels.
+     * @type { ?number } it is double type data
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    fontSize?: number;
+
+    /**
+     * The minimum height of the strut, as a multiple of fontSize.
+     * @type { ?number } it is double type data
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    height?: number;
+
+    /**
+     * The additional leading to apply to the strut as a multiple of Size.
+     * @type { ?number } it is double type data
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    leading?: number;
+
+    /**
+     * Whether the strut height should be forced.
+     * @type { ?boolean } it is boolean type data
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    forceHeight?: boolean;
+
+    /**
+     * Whether the strut style should be enable.
+     * @type { ?boolean } it is boolean type data
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    enabled?: boolean;
+
+    /**
+     * Whether the height is override.
+     * @type { ?boolean } it is boolean type data
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    heightOverride?: boolean;
+
+    /**
+     * Whether the halfleading is enable.
+     * @type { ?boolean } it is boolean type data
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    halfLeading?: boolean;
   }
 
   /**
@@ -639,6 +975,22 @@ declare namespace text {
      * @since 12
      */
     breakStrategy?: BreakStrategy;
+
+    /**
+     * Strut style of paragraph.
+     * @type { ?StrutStyle }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    strutStyle?: StrutStyle;
+
+    /**
+     * Text height behavior of paragraph.
+     * @type { ?TextHeightBehavior }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    textHeightBehavior?: TextHeightBehavior;
   }
 
   /**
@@ -1154,6 +1506,14 @@ declare namespace text {
      * @since 12
      */
     build(): Paragraph;
+
+    /**
+     * Add symbolId.
+     * @param { number } symbolId - Symbol Id
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    addSymbol(symbolId: number): void;
   }
 
   /**
