@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import ts from 'typescript';
+import ts, { TypeParameter, TypeParameterDeclaration } from 'typescript';
 import _ from 'lodash';
 import path from 'path';
 
@@ -230,6 +230,7 @@ export class NodeProcessorHelper {
     if (!subscriotionSet.has(apiInfo.getApiName())) {
       return undefined;
     }
+    apiInfo.setIsJoinType(true);
     if (methodNode.parameters.length === 0) {
       return undefined;
     }
@@ -1081,6 +1082,7 @@ export class NodeProcessorHelper {
     propertyInfo.setApiName(declarationNode.name.getText());
     propertyInfo.addType(NodeProcessorHelper.processDataType(declarationNode.type));
     propertyInfo.setIsRequired(true);
+    propertyInfo.setTypeKind(declarationNode?.type?.kind);
     if (StringUtils.hasSubstring(definedText, StringConstant.CONST_KEY_WORD)) {
       propertyInfo.setIsReadOnly(true);
     }
