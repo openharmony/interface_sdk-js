@@ -1781,17 +1781,6 @@ interface GestureInterface<T> {
    * @since 11
    */
   tag(tag: string): T;
-
-  /**
-   * Input source type for touch event response.
-   *
-   * @param { Array<SourceTool> } value - indicate the input source that allows touch
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  allowedTypes(value: Array<SourceTool>): T;
 }
 
 /**
@@ -3025,16 +3014,6 @@ declare class GestureHandler<T> implements GestureInterface<T> {
    * @since 12
    */
   tag(tag: string): T;
-  /**
-   * Input source type for touch event response.
-   *
-   * @param { Array<SourceTool> } types - indicate the input source that allows touch
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  allowedTypes(types: Array<SourceTool>): T;
 }
 
 /**

@@ -15426,30 +15426,6 @@ declare class CommonMethod<T> {
   focusBox(style: FocusBoxStyle): T;
 
   /**
-  * Set container as a focus group with a specific identifier.
-  *
-  * @param { string } id - focus scope identifier.
-  * @param { boolean } [isGroup] - whether this scope is a focus group, the default value is false
-  * @returns { T }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @since 12
-  */
- focusScopeId(id: string, isGroup?: boolean): T;
-
-  /**
-  * Set the focus priority of component in a specific focus scope.
-  *
-  * @param { string } scopeId
-  * @param { FocusPriority } [priority] - the default value is AUTO
-  * @returns { T }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @since 12
-  */
- focusScopePriority(scopeId: string, priority?: FocusPriority): T;
-
-  /**
    * animation
    *
    * @param { AnimateParam } value
