@@ -2752,6 +2752,16 @@ declare interface NavigationTransitionProxy {
    * @since 12
    */
   cancelTransition?(): void;
+
+  /**
+   * Notification system transition animation update.
+   *
+   * @param { number } progress - The progress of transition animation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  updateTransition?(progress: number): void;
 }
 
 /**
@@ -2838,6 +2848,16 @@ declare interface NavContentInfo {
    * @since 12
    */
   param?: Object;
+
+  /**
+   * The unique id of NavDestination.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  navDestinationId?: string;
 }
 
 /**
