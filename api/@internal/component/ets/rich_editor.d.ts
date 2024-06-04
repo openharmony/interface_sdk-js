@@ -3446,6 +3446,18 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
     * @since 12
     */
   onCopy(callback: Callback<CopyEvent>): RichEditorAttribute;
+
+  /**
+   * Set the custom text menu.
+   *
+   * @param { Array<ExpandedMenuItemOptions> } expandedMenuOptions - Customize text menu options.
+   * @returns { RichEditorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  selectionMenuOptions(expandedMenuOptions: Array<ExpandedMenuItemOptions>): RichEditorAttribute;
 }
 
 /**
