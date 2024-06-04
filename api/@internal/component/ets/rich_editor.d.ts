@@ -1388,6 +1388,17 @@ declare interface RichEditorTextSpanResult {
    * @since 12
    */
   paragraphStyle?: RichEditorParagraphStyle;
+
+  /**
+   * The preview text.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  previewText?: string;
 }
 
 /**
@@ -2343,6 +2354,17 @@ declare interface RichEditorInsertValue {
    * @since 11
    */
   insertValue: string;
+
+  /**
+   * The preview text.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  previewText?: string;
 }
 
 /**
@@ -3313,6 +3335,18 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @since 12
    */
   enableDataDetector(enable: boolean): RichEditorAttribute;
+
+  /**
+   * Enable preview text.
+   *
+   * @param { boolean } enable - Enable preview text.
+   * @returns { RichEditorAttribute } The attribute of the rich editor.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  enablePreviewText(enable: boolean): RichEditorAttribute;
 
   /**
    * Data detector with config.

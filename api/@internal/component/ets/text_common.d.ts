@@ -468,6 +468,17 @@ interface StyledStringChangeValue {
    * @since 12
    */
   replacementString: StyledString;
+
+  /**
+   * Preview StyledString
+   *
+   * @type { ?StyledString }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  previewText?: StyledString;
 }
 
 /**
