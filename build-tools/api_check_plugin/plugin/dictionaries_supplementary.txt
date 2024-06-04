@@ -166,6 +166,7 @@ crl
 crls
 crops
 crosshair
+crossings
 crowdtest
 crowdtested
 crowdtesting
@@ -405,6 +406,7 @@ hierarchically
 hifi
 hilog
 hinote
+hinting
 hisysevent
 hitrace
 hiview
