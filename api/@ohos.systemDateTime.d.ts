@@ -65,6 +65,7 @@ declare namespace systemDateTime {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types;
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
+   * @deprecated since 12
    */
   function getCurrentTime(isNano: boolean, callback: AsyncCallback<number>): void;
 
@@ -75,6 +76,7 @@ declare namespace systemDateTime {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types;
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
+   * @deprecated since 12
    */
   function getCurrentTime(callback: AsyncCallback<number>): void;
 
@@ -86,6 +88,7 @@ declare namespace systemDateTime {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types;
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
+   * @deprecated since 12
    */
   function getCurrentTime(isNano?: boolean): Promise<number>;
 
@@ -107,6 +110,7 @@ declare namespace systemDateTime {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types;
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
+   * @deprecated since 12
    */
   function getRealActiveTime(isNano: boolean, callback: AsyncCallback<number>): void;
 
@@ -117,6 +121,7 @@ declare namespace systemDateTime {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types;
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
+   * @deprecated since 12
    */
   function getRealActiveTime(callback: AsyncCallback<number>): void;
 
@@ -128,6 +133,7 @@ declare namespace systemDateTime {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types;
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
+   * @deprecated since 12
    */
   function getRealActiveTime(isNano?: boolean): Promise<number>;
 
@@ -139,6 +145,7 @@ declare namespace systemDateTime {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types;
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
+   * @deprecated since 12
    */
   function getRealTime(isNano: boolean, callback: AsyncCallback<number>): void;
 
@@ -149,6 +156,7 @@ declare namespace systemDateTime {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types;
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
+   * @deprecated since 12
    */
   function getRealTime(callback: AsyncCallback<number>): void;
 
@@ -160,6 +168,7 @@ declare namespace systemDateTime {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types;
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
+   * @deprecated since 12
    */
   function getRealTime(isNano?: boolean): Promise<number>;
 
@@ -197,6 +206,17 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @since 10
    */
+  /**
+   * Obtains the number of milliseconds since the system has been running.
+   *
+   * @param { TimeType } timeType - indicates the type of get uptime. It can only be `STARTUP` or `ACTIVE`.
+   * @param { boolean } [ isNanoseconds ] - True if the result is in nanoseconds, otherwise in milliseconds
+   * @returns { number } The timestamp returned of getUpTime.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
+   *     3. Parameter verification failed. This error code was added due to missing issues.
+   * @syscap SystemCapability.MiscServices.Time
+   * @since 12
+   */
   function getUptime(timeType: TimeType, isNanoseconds?: boolean): number;
 
   /**
@@ -207,7 +227,8 @@ declare namespace systemDateTime {
    * @param { AsyncCallback<void> } callback - The callback of setDate
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission denied, Non system application use system APIs
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed;
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;
+   * 3.Parameter verification failed;
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
    * @since 9
@@ -224,7 +245,8 @@ declare namespace systemDateTime {
    * @returns { Promise<void> } The promise returned by the function
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission denied, Non system application use system APIs
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed;
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;
+   * 3.Parameter verification failed;
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
    * @since 9
@@ -295,6 +317,13 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
    */
+  /**
+   * Obtains the system time zone.
+   *
+   * @param { AsyncCallback<string> } callback - The callback of getTimezone
+   * @syscap SystemCapability.MiscServices.Time
+   * @since 12
+   */
   function getTimezone(callback: AsyncCallback<string>): void;
 
   /**
@@ -304,6 +333,13 @@ declare namespace systemDateTime {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.System error.
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
+   */
+  /**
+   * Obtains the system time zone.
+   *
+   * @returns { Promise<string> } The promise returned by the function
+   * @syscap SystemCapability.MiscServices.Time
+   * @since 12
    */
   function getTimezone(): Promise<string>;
 
