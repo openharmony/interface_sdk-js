@@ -462,17 +462,6 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
    * @since 12
    */
   onOffsetChange(callback: Callback<number>): RefreshAttribute;
-
-  /**
-   * Pull-down follow ratio for Refresh.
-   *
-   * @param { Optional<number> } ratio - Pull-down follow ratio for Refresh.
-   * @returns { RefreshAttribute } The attribute of the Refresh.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  pullDownRatio(ratio: Optional<number>): RefreshAttribute;
 }
 
 /**
