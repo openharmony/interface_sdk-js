@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit ArkGraphics 2D
+ * @kit ArkGraphics2D
  */
 
 import type image from './@ohos.multimedia.image';
