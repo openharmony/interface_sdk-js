@@ -18,15 +18,11 @@
  * @kit ArkWeb
  */
 
-/// <reference path="../component/units.d.ts" />
-
 import { AsyncCallback, BusinessError } from './@ohos.base';
 import { Callback } from './@ohos.base';
-import { Resource } from 'GlobalResource';
 import cert from './@ohos.security.cert';
 import image from './@ohos.multimedia.image';
 import type print from './@ohos.print';
-import './@internal/component/ets/units';
 import { WebNetErrorList } from './@ohos.web.netErrorList';
 
 /**
@@ -4870,6 +4866,22 @@ declare namespace webview {
      * @since 12
      */
     getSurfaceId(): string;
+
+    /**
+     * Set the URL trust list for the ArkWeb.
+     * When the URL trust list has been set, only the URLs in the list can be accessed.
+     *
+     * @param { string } urlTrustList - the URL trust list in JSON format.
+     *     An empty string means that all URLs are allowed to access.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Parameter string is too long. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100001 - Init error.
+     *     The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    setUrlTrustList(urlTrustList: string): void;
   }
 
   /**

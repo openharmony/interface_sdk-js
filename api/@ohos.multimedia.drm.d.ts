@@ -711,7 +711,8 @@ declare namespace drm {
    * Get a MediaKeySystem's UUID.
    * @param { string } name - The Digital Right Management solution name.
    * @returns { string } The MediaKeySystem uuid.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - The parameter check failed.Possibly because:
+   * <br>1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
    * @throws { BusinessError } 24700101 - All unknown errors.
    * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
    * @syscap SystemCapability.Multimedia.Drm.Core
@@ -799,7 +800,7 @@ declare namespace drm {
   interface MediaKeySystem {
     /**
      * Get the specified configuration.
-     * @param { string } - configName - Used to specify the config name.
+     * @param { string } configName - Used to specify the config name.
      * @returns { string } The config value string.
      * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
      * 1.Mandatory parameters are left unspecified. 2.Parameter verification failed,

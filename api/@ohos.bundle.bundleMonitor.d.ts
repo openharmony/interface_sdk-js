@@ -56,6 +56,15 @@ declare namespace bundleMonitor {
      * @since 9
      */
     readonly userId: number;
+    /**
+     * The app index of clone app
+     *
+     * @type { number }
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    readonly appIndex: number;
   }
 
   /**
