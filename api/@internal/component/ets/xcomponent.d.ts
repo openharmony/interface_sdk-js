@@ -335,7 +335,7 @@ interface XComponentInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 12
    */
-  (value: { id: string; type: XComponentType; libraryname?: string; controller?: XComponentController; imageAIOptions?: ImageAIOptions }): XComponentAttribute;
+  (value: { id: string; type: XComponentType; imageAIOptions: ImageAIOptions; libraryname?: string; controller?: XComponentController }): XComponentAttribute;
 }
 
 /**
