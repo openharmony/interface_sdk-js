@@ -43,7 +43,7 @@ declare namespace screenshot {
    * @permission ohos.permission.CAPTURE_SCREEN
    * @param { ScreenshotOptions } options Screenshot options, which consist of screenRect, imageSize, and rotation. You need to set these parameters
    * @param { AsyncCallback<image.PixelMap> } callback Callback used to return a PixelMap object.
-   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -56,8 +56,8 @@ declare namespace screenshot {
    * @permission ohos.permission.CAPTURE_SCREEN
    * @param { ScreenshotOptions } options - Screenshot options, which consist of screenRect, imageSize, and rotation. You need to set these parameters
    * @param { AsyncCallback<image.PixelMap> } callback - Callback used to return a PixelMap object.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
@@ -72,7 +72,7 @@ declare namespace screenshot {
    *
    * @permission ohos.permission.CAPTURE_SCREEN
    * @param { AsyncCallback<image.PixelMap> } callback Callback used to return a PixelMap object.
-   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 7
@@ -85,7 +85,7 @@ declare namespace screenshot {
    * @permission ohos.permission.CAPTURE_SCREEN
    * @param { ScreenshotOptions } options Screenshot options, which consist of screenRect, imageSize, and rotation. You need to set these parameters
    * @returns { Promise<image.PixelMap> } Promise used to return a PixelMap object.
-   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
