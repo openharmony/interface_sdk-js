@@ -2576,7 +2576,7 @@ declare interface SelectionMenuOptions {
    * @atomicservice
    * @since 11
    */
-    /**
+  /**
    * Callback function when the selection menu appears.
    * 
    * @type { ?MenuOnAppearCallback }
@@ -3369,7 +3369,7 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @since 12
    */
   selectedBackgroundColor(value: ResourceColor): RichEditorAttribute;
-  
+
   /**
    * Called when edit status is changed
    *
