@@ -132,6 +132,7 @@ def process_param_or_return(dict_data: dict, key_info: str, parent_info: dict,
             error_message = message_of_error[1].replace('&', new_label)
             error_result.setdefault('error_type', error_type)
             error_result.setdefault('error_message', error_message)
+            error_result.setdefault('error_quote_name', child_info.get('typeName'))
             message_obj = get_message_obj(dict_data, error_result, process_data)
             missing_tag_message_list.append(message_obj)
             break
@@ -164,8 +165,9 @@ def process_tag(dict_data: dict, label):
         return missing_tag_data_list
     # 处理property
     for child_data in dict_data['childApis']:
-        result_list = process_child_quote_of_three(child_data, label)
-        missing_tag_data_list.extend(result_list)
+        if 'apiType' in child_data and 'Property' == child_data.get('apiType'):
+            result_list = process_child_quote_of_three(child_data, label)
+            missing_tag_data_list.extend(result_list)
     # 节点没有jsDocInfos
     if 'jsDocInfos' not in dict_data:
         error_result = process_no_js_info(dict_data, label)
@@ -205,14 +207,8 @@ def process_reference_type_child(child_data, current_info, label, process_key):
         if label in current_info and label in refer_info:
             # property有，引用没
             if current_info[label] and (not refer_info[label]):
-                error_result = reference_obj_or_type(process_key, new_label, 1)
+                error_result = reference_obj_or_type(process_key, new_label)
                 error_result.setdefault('error_quote_name', refer_info.get('typeName'))
-            # property没，引用有
-            elif (not current_info[label]) and refer_info[label]:
-                error_result = reference_obj_or_type(process_key, new_label, 0)
-                message_obj = get_message_obj(child_data, error_result)
-                missing_tag_message_list.append(message_obj)
-                break
 
         if error_result:
             message_obj = get_message_obj(child_data, error_result)
@@ -221,29 +217,19 @@ def process_reference_type_child(child_data, current_info, label, process_key):
     return missing_tag_message_list
 
 
-def reference_obj_or_type(process_key, new_label, key_num):
+def reference_obj_or_type(process_key, new_label):
     error_result = {}
     error_type = ''
     error_message = ''
     if 'typeLocations' == process_key:
         # property有，引用没
-        if 1 == key_num:
-            error_type = ErrorType.PROPERTY_REFERENCE_NO_TAG.value
-            error_message = ErrorMessage.PROPERTY_HAVE_REFERENCE_NO.value.replace('&', new_label)
-        # property没，引用有
-        elif 0 == key_num:
-            error_type = ErrorType.PROPERTY_NO_TAG.value
-            error_message = ErrorMessage.REFERENCE_HAVE_PROPERTY_NO.value.replace('&', new_label)
+        error_type = ErrorType.PROPERTY_REFERENCE_NO_TAG.value
+        error_message = ErrorMessage.PROPERTY_HAVE_REFERENCE_NO.value.replace('&', new_label)
 
     elif 'objLocations' == process_key:
         # property有，引用对象没
-        if 1 == key_num:
-            error_type = ErrorType.PROPERTY_REFERENCE_OBJ_NO_TAG.value
-            error_message = ErrorMessage.PROPERTY_HAVE_REFERENCE_OBJ_NO.value.replace('&', new_label)
-        # property没，引用对象有
-        elif 0 == key_num:
-            error_type = ErrorType.PROPERTY_NO_TAG.value
-            error_message = ErrorMessage.REFERENCE_OBJ_HAVE_PROPERTY_NO.value.replace('&', new_label)
+        error_type = ErrorType.PROPERTY_REFERENCE_OBJ_NO_TAG.value
+        error_message = ErrorMessage.PROPERTY_HAVE_REFERENCE_OBJ_NO.value.replace('&', new_label)
 
     error_result.setdefault('error_type', error_type)
     error_result.setdefault('error_message', error_message)
@@ -330,7 +316,7 @@ def get_message_obj(dict_data: dict, error_result: dict, in_or_out=None) -> Outp
         defined_text = in_or_out['definedText']
     else:
         defined_text = dict_data['definedText']
-    if error_result.get('error_quote_name'):
+    if 'error_quote_name' in error_result:
         error_message = '({});{}'.format(error_result.get('error_quote_name'),
                                          error_result['error_message'])
     else:

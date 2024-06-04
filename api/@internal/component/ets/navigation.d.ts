@@ -534,6 +534,7 @@ declare interface NavigationMenuItem {
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   isEnabled?: boolean;
@@ -1451,6 +1452,7 @@ declare class NavPathStack {
    * @param { NavigationInterception } interception - the instance to intercept in navigation changes.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   setInterception(interception: NavigationInterception): void;
@@ -1462,6 +1464,7 @@ declare class NavPathStack {
  * @typedef { 'navBar' } NavBar
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare type NavBar = 'navBar'
@@ -1476,6 +1479,7 @@ declare type NavBar = 'navBar'
  * @param { boolean } isAnimated - Indicates whether the transition is animated.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare type InterceptionShowCallback = (from: NavDestinationContext|NavBar, to: NavDestinationContext|NavBar, operation: NavigationOperation, isAnimated: boolean) => void;
@@ -1487,6 +1491,7 @@ declare type InterceptionShowCallback = (from: NavDestinationContext|NavBar, to:
  * @param { NavigationMode } mode - Indicates the mode of Navigation.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare type InterceptionModeCallback = (mode: NavigationMode) => void;
@@ -1497,6 +1502,7 @@ declare type InterceptionModeCallback = (mode: NavigationMode) => void;
  * @interface NavigationInterception
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface NavigationInterception {
@@ -1507,6 +1513,7 @@ declare interface NavigationInterception {
    * @type { ?InterceptionShowCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   willShow?: InterceptionShowCallback;
@@ -1517,6 +1524,7 @@ declare interface NavigationInterception {
    * @type { ?InterceptionShowCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   didShow?: InterceptionShowCallback;
@@ -1527,6 +1535,7 @@ declare interface NavigationInterception {
    * @type { ?InterceptionModeCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   modeChange?: InterceptionModeCallback;
@@ -1914,6 +1923,7 @@ declare interface NavigationTitleOptions {
    * @default BarStyle.STANDARD
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   barStyle?: BarStyle;
@@ -1925,6 +1935,7 @@ declare interface NavigationTitleOptions {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare enum BarStyle {
@@ -1933,6 +1944,7 @@ declare enum BarStyle {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   STANDARD = 0,
@@ -1942,6 +1954,7 @@ declare enum BarStyle {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   STACK = 1,
@@ -2554,6 +2567,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   ignoreLayoutSafeArea(types?: Array<LayoutSafeAreaType>, edges?: Array<LayoutSafeAreaEdge>): NavigationAttribute;
@@ -2614,6 +2628,17 @@ declare interface NavigationAnimatedTransition {
    * @since 12
    */
   timeout?: number;
+
+  /**
+   * Indicates whether it is an interactive transition.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  isInteractive?: boolean;
 
   /**
    * Configure the animations associated with custom transition.
@@ -2692,6 +2717,17 @@ declare interface NavigationTransitionProxy {
   to: NavContentInfo;
 
   /**
+   * Indicates whether it is an interactive transition.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  isInteractive?: boolean;
+
+  /**
    * Notification system transition animation completed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2707,6 +2743,15 @@ declare interface NavigationTransitionProxy {
    * @since 12
    */
   finishTransition(): void;
+
+  /**
+   * Notification system transition animation canceled.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  cancelTransition?(): void;
 }
 
 /**
@@ -2783,6 +2828,16 @@ declare interface NavContentInfo {
    * @since 12
    */
   mode?: NavDestinationMode;
+
+  /**
+   * Navigation content param.
+   *
+   * @type { ?Object }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  param?: Object;
 }
 
 /**

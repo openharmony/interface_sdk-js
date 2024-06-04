@@ -1564,7 +1564,15 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12
      */
-    PHOTO_SUBTYPE = 'subtype'
+    PHOTO_SUBTYPE = 'subtype',
+    /**
+     * Effect mode of moving photo, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    MOVING_PHOTO_EFFECT_MODE = 'moving_photo_effect_mode'
   }
 
   /**
@@ -3776,6 +3784,61 @@ declare namespace photoAccessHelper {
   }
 
   /**
+   * Enumeration of moving photo effect mode.
+   *
+   * @enum { number } MovingPhotoEffectMode
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 12
+   */
+  enum MovingPhotoEffectMode {
+    /**
+     * Default
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    DEFAULT = 0,
+
+    /**
+     * Bounce play
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    BOUNCE_PLAY = 1,
+
+    /**
+     * Loop play
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    LOOP_PLAY = 2,
+
+    /**
+     * Long exposure
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    LONG_EXPOSURE = 3,
+
+    /**
+     * Multi exposure
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    MULTI_EXPOSURE = 4
+  }
+
+  /**
    * Defines the interface of media change request.
    *
    * @interface MediaChangeRequest
@@ -4090,6 +4153,21 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     saveCameraPhoto(): void;
+
+    /**
+     * Set effect mode of moving photo.
+     *
+     * @param { MovingPhotoEffectMode } mode - the new effect mode of the moving photo
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @throws { BusinessError } 14000016 - Operation Not Support
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    setEffectMode(mode: MovingPhotoEffectMode): void;
   }
 
   /**

@@ -527,6 +527,7 @@ lstat
 lubyte
 luint
 luma
+lumination
 lushort
 lux
 mah
@@ -758,6 +759,7 @@ removable
 renderbuffer
 renderbuffertarget
 renegotiation
+repaired
 repayment
 repeates
 replacer
@@ -813,6 +815,7 @@ sdr
 searchsetter
 sece
 secinfo
+securityguard
 seeked
 semicircles
 sendable
@@ -872,6 +875,7 @@ statfs
 stopcd
 storei
 storge
+strikethrough
 strm
 stroked
 stuffit
@@ -1139,4 +1143,4 @@ easylist
 allowlist
 disallowlist
 adblock
-
+enqueued

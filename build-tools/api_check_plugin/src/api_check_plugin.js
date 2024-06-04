@@ -55,6 +55,7 @@ function getMdFiles(url, isTestCase) {
   });
   return mdFiles;
 }
+exports.getMdFiles = getMdFiles;
 
 function tsTransform(uFiles, callback) {
   uFiles.forEach((filePath, index) => {
@@ -134,13 +135,13 @@ function scanEntry(url, prId, isTestCase) {
 }
 exports.scanEntry = scanEntry;
 
-function reqGitApi(scanResult, prId) {
+function reqGitApi(scanResult, prId, ApiCheckResult) {
   const administrators = new Set();
   const SUCCESS_CODE = 200;
   rules.administrators.forEach((administrator) => {
     administrators.add(administrator.user);
   });
-  if (ApiCheckResult.formatCheckResult || !prId || prId === 'NA') {
+  if (ApiCheckResult|| !prId || prId === 'NA') {
     return scanResult;
   }
   const commentRequestPath = `https://gitee.com/api/v5/repos/openharmony/interface_sdk-js/pulls/${prId}/comments?page=1&per_page=100&direction=desc`;

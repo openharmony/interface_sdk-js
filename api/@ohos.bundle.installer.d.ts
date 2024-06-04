@@ -223,6 +223,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700054 - Failed to install the HAP because the HAP requests wrong permissions.
      * @throws { BusinessError } 17700058 - Failed to install the HAP because the device has been controlled.
      * @throws { BusinessError } 17700066 - Failed to install the HAP because installing the native package failed.
+     * @throws { BusinessError } 17700068 - Failed to install the HAP because the maximum count of clone app cannot be reduced.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12
@@ -368,6 +369,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700054 - Failed to install the HAP because the HAP requests wrong permissions.
      * @throws { BusinessError } 17700058 - Failed to install the HAP because the device has been controlled.
      * @throws { BusinessError } 17700066 - Failed to install the HAP because installing the native package failed.
+     * @throws { BusinessError } 17700068 - Failed to install the HAP because the maximum count of clone app cannot be reduced.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12
@@ -525,6 +527,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700054 - Failed to install the HAP because the HAP requests wrong permissions.
      * @throws { BusinessError } 17700058 - Failed to install the HAP because the device has been controlled.
      * @throws { BusinessError } 17700066 - Failed to install the HAP because installing the native package failed.
+     * @throws { BusinessError } 17700068 - Failed to install the HAP because the maximum count of clone app cannot be reduced.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12
@@ -913,6 +916,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700001 - The specified bundleName cannot be found or the bundle is not installed by the specified user.
      * @throws { BusinessError } 17700004 - The userId is invalid.
      * @throws { BusinessError } 17700061 - The appIndex is not in valid range or already exists.
+     * @throws { BusinessError } 17700069 - The app does not support the creation of an appClone instance.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12

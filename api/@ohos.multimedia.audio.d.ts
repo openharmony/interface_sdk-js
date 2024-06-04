@@ -388,17 +388,36 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Device
    * @since 7
    */
+  /**
+   * Enumerates device roles.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Device
+   * @atomicservice
+   * @since 12
+   */
   enum DeviceRole {
     /**
      * Input role.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 7
      */
+    /**
+     * Input role.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @atomicservice
+     * @since 12
+     */
     INPUT_DEVICE = 1,
     /**
      * Output role.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 7
+     */
+    /**
+     * Output role.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @atomicservice
+     * @since 12
      */
     OUTPUT_DEVICE = 2,
   }
@@ -409,11 +428,24 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Device
    * @since 7
    */
+  /**
+   * Enumerates device types.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Device
+   * @atomicservice
+   * @since 12
+   */
   enum DeviceType {
     /**
      * Invalid device.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 7
+     */
+    /**
+     * Invalid device.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @atomicservice
+     * @since 12
      */
     INVALID = 0,
     /**
@@ -421,11 +453,23 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 7
      */
+    /**
+     * Built-in earpiece.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @atomicservice
+     * @since 12
+     */
     EARPIECE = 1,
     /**
      * Built-in speaker.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 7
+     */
+    /**
+     * Built-in speaker.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @atomicservice
+     * @since 12
      */
     SPEAKER = 2,
     /**
@@ -433,11 +477,23 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 7
      */
+    /**
+     * Wired headset, which is a combination of a pair of earpieces and a microphone.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @atomicservice
+     * @since 12
+     */
     WIRED_HEADSET = 3,
     /**
      * A pair of wired headphones.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 7
+     */
+    /**
+     * A pair of wired headphones.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @atomicservice
+     * @since 12
      */
     WIRED_HEADPHONES = 4,
     /**
@@ -445,11 +501,23 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 7
      */
+    /**
+     * Bluetooth device using the synchronous connection oriented link (SCO).
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @atomicservice
+     * @since 12
+     */
     BLUETOOTH_SCO = 7,
     /**
      * Bluetooth device using advanced audio distribution profile (A2DP).
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 7
+     */
+    /**
+     * Bluetooth device using advanced audio distribution profile (A2DP).
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @atomicservice
+     * @since 12
      */
     BLUETOOTH_A2DP = 8,
     /**
@@ -457,22 +525,36 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 7
      */
+    /**
+     * Built-in microphone.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @atomicservice
+     * @since 12
+     */
     MIC = 15,
     /**
      * USB audio headset.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 7
      */
+    /**
+     * USB audio headset.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @atomicservice
+     * @since 12
+     */
     USB_HEADSET = 22,
     /**
      * Display port device.
      * @syscap SystemCapability.Multimedia.Audio.Device
+     * @atomicservice
      * @since 12
      */
     DISPLAY_PORT = 23,
     /**
      * Device type for rerouting audio to other remote devices by system application
      * @syscap SystemCapability.Multimedia.Audio.Device
+     * @atomicservice
      * @since 12
      */
     REMOTE_CAST = 24,
@@ -480,6 +562,12 @@ declare namespace audio {
      * Default device type.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 9
+     */
+    /**
+     * Default device type.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @atomicservice
+     * @since 12
      */
     DEFAULT = 1000,
   }
@@ -783,17 +871,36 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @since 8
    */
+  /**
+   * Enumerates the audio encoding type.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @atomicservice
+   * @since 12
+   */
   enum AudioEncodingType {
     /**
      * Invalid type.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 8
      */
+    /**
+     * Invalid type.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @atomicservice
+     * @since 12
+     */
     ENCODING_TYPE_INVALID = -1,
     /**
      * PCM encoding.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 8
+     */
+    /**
+     * PCM encoding.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @atomicservice
+     * @since 12
      */
     ENCODING_TYPE_RAW = 0
   }
@@ -1078,6 +1185,13 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @since 8
    */
+  /**
+   * Describes audio renderer information.
+   * @typedef AudioRendererInfo
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @atomicservice
+   * @since 12
+   */
   interface AudioRendererInfo {
     /**
      * Content type.
@@ -1099,11 +1213,23 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 8
      */
+    /**
+     * Stream usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @atomicservice
+     * @since 12
+     */
     usage: StreamUsage;
     /**
      * Audio renderer flags.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 8
+     */
+    /**
+     * Audio renderer flags.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @atomicservice
+     * @since 12
      */
     rendererFlags: number;
   }
@@ -1194,17 +1320,36 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Interrupt
    * @since 9
    */
+  /**
+   * Enumerates the interrupt modes.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Interrupt
+   * @atomicservice
+   * @since 12
+   */
   enum InterruptMode {
     /**
      * Mode that different stream share one interrupt unit.
      * @syscap SystemCapability.Multimedia.Audio.Interrupt
      * @since 9
      */
+    /**
+     * Mode that different stream share one interrupt unit.
+     * @syscap SystemCapability.Multimedia.Audio.Interrupt
+     * @atomicservice
+     * @since 12
+     */
     SHARE_MODE = 0,
     /**
      * Mode that each stream has independent interrupt unit.
      * @syscap SystemCapability.Multimedia.Audio.Interrupt
      * @since 9
+     */
+    /**
+     * Mode that each stream has independent interrupt unit.
+     * @syscap SystemCapability.Multimedia.Audio.Interrupt
+     * @atomicservice
+     * @since 12
      */
     INDEPENDENT_MODE = 1
   }
@@ -1242,11 +1387,24 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    * @since 7
    */
+  /**
+   * Enumerates the interrupt types.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Renderer
+   * @atomicservice
+   * @since 12
+   */
   enum InterruptType {
     /**
      * Audio playback interruption started.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 7
+     */
+    /**
+     * Audio playback interruption started.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @atomicservice
+     * @since 12
      */
     INTERRUPT_TYPE_BEGIN = 1,
 
@@ -1254,6 +1412,12 @@ declare namespace audio {
      * Audio playback interruption ended.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 7
+     */
+    /**
+     * Audio playback interruption ended.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @atomicservice
+     * @since 12
      */
     INTERRUPT_TYPE_END = 2
   }
@@ -1264,17 +1428,36 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    * @since 7
    */
+  /**
+   * Enumerates the interrupt hints.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Renderer
+   * @atomicservice
+   * @since 12
+   */
   enum InterruptHint {
     /**
      * None.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
      */
+    /**
+     * None.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @atomicservice
+     * @since 12
+     */
     INTERRUPT_HINT_NONE = 0,
     /**
      * Resume the playback.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 7
+     */
+    /**
+     * Resume the playback.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @atomicservice
+     * @since 12
      */
     INTERRUPT_HINT_RESUME = 1,
 
@@ -1283,12 +1466,24 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 7
      */
+    /**
+     * Paused/Pause the playback.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @atomicservice
+     * @since 12
+     */
     INTERRUPT_HINT_PAUSE = 2,
 
     /**
      * Stopped/Stop the playback.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 7
+     */
+    /**
+     * Stopped/Stop the playback.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @atomicservice
+     * @since 12
      */
     INTERRUPT_HINT_STOP = 3,
 
@@ -1297,12 +1492,24 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 7
      */
+    /**
+     * Ducked the playback. (In ducking, the audio volume is reduced, but not silenced.)
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @atomicservice
+     * @since 12
+     */
     INTERRUPT_HINT_DUCK = 4,
 
     /**
      * Unducked the playback.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
+     */
+    /**
+     * Unducked the playback.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @atomicservice
+     * @since 12
      */
     INTERRUPT_HINT_UNDUCK = 5,
   }
@@ -1313,17 +1520,36 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    * @since 9
    */
+  /**
+   * Enumerates the interrupt force types.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Renderer
+   * @atomicservice
+   * @since 12
+   */
   enum InterruptForceType {
     /**
      * Forced action taken by system.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 9
      */
+    /**
+     * Forced action taken by system.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @atomicservice
+     * @since 12
+     */
     INTERRUPT_FORCE = 0,
     /**
      * Share type, application can choose to take action or ignore.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 9
+     */
+    /**
+     * Share type, application can choose to take action or ignore.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @atomicservice
+     * @since 12
      */
     INTERRUPT_SHARE = 1
   }
@@ -1334,11 +1560,24 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    * @since 9
    */
+  /**
+   * Describes the interrupt event received by the app when playback is interrupted.
+   * @typedef InterruptEvent
+   * @syscap SystemCapability.Multimedia.Audio.Renderer
+   * @atomicservice
+   * @since 12
+   */
   interface InterruptEvent {
     /**
      * Indicates whether the interruption has started or finished.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 9
+     */
+    /**
+     * Indicates whether the interruption has started or finished.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @atomicservice
+     * @since 12
      */
     eventType: InterruptType;
 
@@ -1347,12 +1586,24 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 9
      */
+    /**
+     * Indicates whether the action is taken by system or to be taken by the app.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @atomicservice
+     * @since 12
+     */
     forceType: InterruptForceType;
 
     /**
      * Indicates the kind of action.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 9
+     */
+    /**
+     * Indicates the kind of action.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @atomicservice
+     * @since 12
      */
     hintType: InterruptHint;
   }
@@ -3597,11 +3848,24 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Device
    * @since 7
    */
+  /**
+   * Describes an audio device.
+   * @typedef AudioDeviceDescriptor
+   * @syscap SystemCapability.Multimedia.Audio.Device
+   * @atomicservice
+   * @since 12
+   */
   interface AudioDeviceDescriptor {
     /**
      * Audio device role.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 7
+     */
+    /**
+     * Audio device role.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @atomicservice
+     * @since 12
      */
     readonly deviceRole: DeviceRole;
 
@@ -3610,12 +3874,24 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 7
      */
+    /**
+     * Audio device type.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @atomicservice
+     * @since 12
+     */
     readonly deviceType: DeviceType;
 
     /**
      * Audio device id.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 9
+     */
+    /**
+     * Audio device id.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @atomicservice
+     * @since 12
      */
     readonly id: number;
 
@@ -3624,12 +3900,24 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 9
      */
+    /**
+     * Audio device name.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @atomicservice
+     * @since 12
+     */
     readonly name: string;
 
     /**
      * Audio device address.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 9
+     */
+    /**
+     * Audio device address.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @atomicservice
+     * @since 12
      */
     readonly address: string;
 
@@ -3638,6 +3926,12 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 9
      */
+    /**
+     * Supported sampling rates.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @atomicservice
+     * @since 12
+     */
     readonly sampleRates: Array<number>;
 
     /**
@@ -3645,12 +3939,24 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 9
      */
+    /**
+     * Supported channel counts.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @atomicservice
+     * @since 12
+     */
     readonly channelCounts: Array<number>;
 
     /**
      * Supported channel masks.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 9
+     */
+    /**
+     * Supported channel masks.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @atomicservice
+     * @since 12
      */
     readonly channelMasks: Array<number>;
     /**
@@ -3679,12 +3985,24 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 10
      */
+    /**
+     * Name used to display, considering distributed device situation.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @atomicservice
+     * @since 12
+     */
     readonly displayName: string;
 
     /**
      * Supported encoding types.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 11
+     */
+    /**
+     * Supported encoding types.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @atomicservice
+     * @since 12
      */
     readonly encodingTypes?: Array<AudioEncodingType>;
   }
@@ -3694,6 +4012,13 @@ declare namespace audio {
    * @typedef { Array<Readonly<AudioDeviceDescriptor>> } AudioDeviceDescriptors
    * @syscap SystemCapability.Multimedia.Audio.Device
    * @since 7
+   */
+  /**
+   * Array of AudioDeviceDescriptors, which is read-only.
+   * @typedef { Array<Readonly<AudioDeviceDescriptor>> } AudioDeviceDescriptors
+   * @syscap SystemCapability.Multimedia.Audio.Device
+   * @atomicservice
+   * @since 12
    */
   type AudioDeviceDescriptors = Array<Readonly<AudioDeviceDescriptor>>;
 
@@ -3894,17 +4219,36 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Device
    * @since 11
    */
+  /**
+   * Enumerates audio stream device change reason.
+   * @enum {number}
+   * @syscap SystemCapability.Multimedia.Audio.Device
+   * @atomicservice
+   * @since 12
+   */
   enum AudioStreamDeviceChangeReason {
     /**
      * Unknown.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 11
      */
+    /**
+     * Unknown.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @atomicservice
+     * @since 12
+     */
     REASON_UNKNOWN = 0,
     /**
      * New device available.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 11
+     */
+    /**
+     * New device available.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @atomicservice
+     * @since 12
      */
     REASON_NEW_DEVICE_AVAILABLE = 1,
     /**
@@ -3913,11 +4257,24 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 11
      */
+    /**
+     * Old device unavailable. Applications should consider to pause the audio playback when this reason is
+     * reported.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @atomicservice
+     * @since 12
+     */
     REASON_OLD_DEVICE_UNAVAILABLE = 2,
     /**
      * Overrode by user or system.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 11
+     */
+    /**
+     * Overrode by user or system.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @atomicservice
+     * @since 12
      */
     REASON_OVERRODE = 3,
   }
@@ -3927,12 +4284,26 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Device
    * @since 11
    */
+  /**
+   * Audio stream device change info.
+   * @typedef AudioStreamDeviceChangeInfo
+   * @syscap SystemCapability.Multimedia.Audio.Device
+   * @atomicservice
+   * @since 12
+   */
   interface AudioStreamDeviceChangeInfo {
     /**
      * Audio device descriptors after change.
      * @type {AudioDeviceDescriptors}
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 11
+     */
+    /**
+     * Audio device descriptors after change.
+     * @type {AudioDeviceDescriptors}
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @atomicservice
+     * @since 12
      */
     devices: AudioDeviceDescriptors;
     /**
@@ -3941,8 +4312,50 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 11
      */
+    /**
+     * Audio stream device change reason.
+     * @type {AudioStreamDeviceChangeReason}
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @atomicservice
+     * @since 12
+     */
     changeReason: AudioStreamDeviceChangeReason;
   }
+
+  /**
+   * Enumerates callback result.
+   * @enum {number}
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @since 12
+   */
+  enum AudioDataCallbackResult {
+    /**
+     * Indicates data of this callback is invalid.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 12
+     */
+    INVALID = -1,
+
+    /**
+     * Indicates data of this callback is valid.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 12
+     */
+    VALID = 0,
+  }
+
+  /**
+   * Type definition of callback function for audio renderer write data.
+   *
+   * @typedef {function} AudioRendererWriteDataCallback
+   * @param {ArrayBuffer} data - audio data array buffer.
+   * @returns {AudioDataCallbackResult | void} result of callback or void. If void or AudioDataCallbackResult.VALID is
+   * returned, it indicates the data is valid and will be played. If AudioDataCallbackResult.INVALID is returned, it
+   * indicates the data is will not be played.
+   * @syscap SystemCapability.Multimedia.Audio.Renderer
+   * @since 12
+   */
+  type AudioRendererWriteDataCallback = (data: ArrayBuffer) => AudioDataCallbackResult | void;
 
   /**
    * Provides audio playback APIs.
@@ -4462,6 +4875,26 @@ declare namespace audio {
     setChannelBlendMode(mode: ChannelBlendMode): void;
 
     /**
+     * Sets silent and mix with other stream for this stream.
+     * @param { boolean } on - Whether play silent and mix with other streams.
+     *     true: set the silent mode and mix with other streams.
+     *     false: unset the silent mode, current stream will trigger the audio focus internally.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 12
+     */
+    setSilentModeAndMixWithOthers(on: boolean): void;
+
+    /**
+     * Gets silent and mix with other stream status for this stream.
+     * @returns { boolean } Returns silent and mix with other stream status.
+     *     true: current stream is in the silent mode and mix with other streams.
+     *     false: current stream in in the normal playback mode
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 12
+     */
+    getSilentModeAndMixWithOthers(): boolean;
+
+    /**
      * Listens for audio interrupt events. This method uses a callback to get interrupt events. The interrupt event is
      * triggered when audio playback is interrupted.
      * @param { 'audioInterrupt' } type - Type of the event to listen for. Only the audioInterrupt event is supported.
@@ -4586,7 +5019,19 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 11
      */
-    on(type: 'writeData', callback: Callback<ArrayBuffer>): void;
+    /**
+     * Subscribes audio data callback.
+     * The event is triggered when audio buffer is available for writing more data.
+     * @param { 'writeData' } type - Type of the event to listen for.
+     * @param { AudioRendererWriteDataCallback } callback - Audio renderer write data callback.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 12
+     */
+    on(type: 'writeData', callback: AudioRendererWriteDataCallback): void;
 
     /**
      * Unsubscribes audio data callback.
@@ -4599,7 +5044,18 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 11
      */
-    off(type: 'writeData', callback?: Callback<ArrayBuffer>): void;
+    /**
+     * Unsubscribes audio data callback.
+     * @param { 'writeData' } type - Type of the event to listen for.
+     * @param { AudioRendererWriteDataCallback } callback - Audio renderer write data callback.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 12
+     */
+    off(type: 'writeData', callback?: AudioRendererWriteDataCallback): void;
   }
 
   /**
@@ -5590,17 +6046,36 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    * @since 10
    */
+  /**
+   * Describes an audio effect mode group.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Renderer
+   * @atomicservice
+   * @since 12
+   */
   enum AudioEffectMode {
     /**
      * Audio Effect Mode effect none.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 10
      */
+    /**
+     * Audio Effect Mode effect none.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @atomicservice
+     * @since 12
+     */
     EFFECT_NONE = 0,
     /**
      * Audio Effect Mode effect default.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 10
+     */
+    /**
+     * Audio Effect Mode effect default.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @atomicservice
+     * @since 12
      */
     EFFECT_DEFAULT = 1,
   }

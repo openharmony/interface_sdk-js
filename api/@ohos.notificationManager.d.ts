@@ -112,10 +112,10 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600007 - The notification does not exist.
    * @throws { BusinessError } 1600009 - The notification sending frequency reaches the upper limit.
    * @throws { BusinessError } 1600012 - No memory space.
-   * @throws { BusinessError } 1600014 - No relevant right.
+   * @throws { BusinessError } 1600014 - No permission.
    * @throws { BusinessError } 1600015 - The current notification status does not support duplicate configurations.
    * @throws { BusinessError } 1600016 - The notification version for this update is too low.
-   * @throws { BusinessError } 2300007 - Network is unreachable.
+   * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @since 11
    */
@@ -136,10 +136,10 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600007 - The notification does not exist.
    * @throws { BusinessError } 1600009 - The notification sending frequency reaches the upper limit.
    * @throws { BusinessError } 1600012 - No memory space.
-   * @throws { BusinessError } 1600014 - No relevant right.
+   * @throws { BusinessError } 1600014 - No permission.
    * @throws { BusinessError } 1600015 - The current notification status does not support duplicate configurations.
    * @throws { BusinessError } 1600016 - The notification version for this update is too low.
-   * @throws { BusinessError } 2300007 - Network is unreachable.
+   * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 12
@@ -182,10 +182,10 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600007 - The notification does not exist.
    * @throws { BusinessError } 1600009 - The notification sending frequency reaches the upper limit.
    * @throws { BusinessError } 1600012 - No memory space.
-   * @throws { BusinessError } 1600014 - No relevant right.
+   * @throws { BusinessError } 1600014 - No permission.
    * @throws { BusinessError } 1600015 - The current notification status does not support duplicate configurations.
    * @throws { BusinessError } 1600016 - The notification version for this update is too low.
-   * @throws { BusinessError } 2300007 - Network is unreachable.
+   * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @since 11
    */
@@ -206,10 +206,10 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600007 - The notification does not exist.
    * @throws { BusinessError } 1600009 - The notification sending frequency reaches the upper limit.
    * @throws { BusinessError } 1600012 - No memory space.
-   * @throws { BusinessError } 1600014 - No relevant right.
+   * @throws { BusinessError } 1600014 - No permission.
    * @throws { BusinessError } 1600015 - The current notification status does not support duplicate configurations.
    * @throws { BusinessError } 1600016 - The notification version for this update is too low.
-   * @throws { BusinessError } 2300007 - Network is unreachable.
+   * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 12
@@ -259,10 +259,10 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600008 - The user does not exist.
    * @throws { BusinessError } 1600009 - The notification sending frequency reaches the upper limit.
    * @throws { BusinessError } 1600012 - No memory space.
-   * @throws { BusinessError } 1600014 - No relevant right.
+   * @throws { BusinessError } 1600014 - No permission.
    * @throws { BusinessError } 1600015 - The current notification status does not support duplicate configurations.
    * @throws { BusinessError } 1600016 - The notification version for this update is too low.
-   * @throws { BusinessError } 2300007 - Network is unreachable.
+   * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11
@@ -312,10 +312,10 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600008 - The user does not exist.
    * @throws { BusinessError } 1600009 - The notification sending frequency reaches the upper limit.
    * @throws { BusinessError } 1600012 - No memory space.
-   * @throws { BusinessError } 1600014 - No relevant right.
+   * @throws { BusinessError } 1600014 - No permission.
    * @throws { BusinessError } 1600015 - The current notification status does not support duplicate configurations.
    * @throws { BusinessError } 1600016 - The notification version for this update is too low.
-   * @throws { BusinessError } 2300007 - Network is unreachable.
+   * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11
@@ -1040,6 +1040,18 @@ declare namespace notificationManager {
   function isNotificationEnabled(): Promise<boolean>;
 
   /**
+   * Checks whether this application allows to publish notifications.
+   *
+   * @returns { boolean } Returned by the function.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @syscap SystemCapability.Notification.Notification
+   * @since 12
+   */
+  function isNotificationEnabledSync(): boolean;
+
+  /**
    * Checks whether this application allows to publish notifications under the user.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
@@ -1758,7 +1770,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600004 - Notification disabled.
-   * @throws { BusinessError } 1600013 - Enable Notification Dialog has been popping already.
+   * @throws { BusinessError } 1600013 - A notification dialog box is already displayed.
    * @syscap SystemCapability.Notification.Notification
    * @since 11
    */
@@ -1772,7 +1784,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600004 - Notification disabled.
-   * @throws { BusinessError } 1600013 - Enable Notification Dialog has been popping already.
+   * @throws { BusinessError } 1600013 - A notification dialog box is already displayed.
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 12
@@ -1804,7 +1816,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600004 - Notification disabled.
-   * @throws { BusinessError } 1600013 - Enable Notification Dialog has been popping already.
+   * @throws { BusinessError } 1600013 - A notification dialog box is already displayed.
    * @syscap SystemCapability.Notification.Notification
    * @StageModelOnly
    * @since 11
@@ -1833,7 +1845,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600004 - Notification disabled.
-   * @throws { BusinessError } 1600013 - Enable Notification Dialog has been popping already.
+   * @throws { BusinessError } 1600013 - A notification dialog box is already displayed.
    * @syscap SystemCapability.Notification.Notification
    * @since 11
    */
@@ -1847,7 +1859,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600004 - Notification disabled.
-   * @throws { BusinessError } 1600013 - Enable Notification Dialog has been popping already.
+   * @throws { BusinessError } 1600013 - A notification dialog box is already displayed.
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 12
@@ -1879,7 +1891,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600004 - Notification disabled.
-   * @throws { BusinessError } 1600013 - Enable Notification Dialog has been popping already.
+   * @throws { BusinessError } 1600013 - A notification dialog box is already displayed.
    * @syscap SystemCapability.Notification.Notification
    * @StageModelOnly
    * @since 11

@@ -3408,6 +3408,7 @@ declare namespace bundleManager {
    *
    * @typedef { _BundleInfo.AppCloneIdentity }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 12
    */
   export type AppCloneIdentity = _BundleInfo.AppCloneIdentity;
