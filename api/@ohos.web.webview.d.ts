@@ -6691,8 +6691,8 @@ declare namespace webview {
   class AdsBlockManager {
     /**
      * set Ads Block ruleset file, containing easylist rules.
-     * @param {string} rulesFile: absolute file path contains app customized ads block rules.
-     * @param {boolean} replace: (@code true)replace internal rules;(@code false) add to internal rules.
+     * @param {string} rulesFile - absolute file path contains app customized ads block rules.
+     * @param {boolean} replace - (@code true)replace internal rules;(@code false) add to internal rules.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -6701,7 +6701,7 @@ declare namespace webview {
 
     /**
      * Add items to Ads Block Disallow list.
-     * @param {Array<string>} domainSuffixes: list of domain suffix, if web page url matches someone in the list,
+     * @param { Array<string> } domainSuffixes - list of domain suffix, if web page url matches someone in the list,
      * Ads Block will be disallowed for the web page.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -6714,7 +6714,7 @@ declare namespace webview {
      * By default, ads block is allowed for all pages unless they are added to the
      * disallow list. The priority of allowlist is higher than the disallowlist. It is
      * used to re-enable ads block on the page that matches disallow list.
-     * @param {Array<string>} domainSuffixes: list of domain suffix, if web page url matches someone in the list,
+     * @param { Array<string> } domainSuffixes - list of domain suffix, if web page url matches someone in the list,
      * Ads Block will be allowed for the web page.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -6724,7 +6724,7 @@ declare namespace webview {
 
     /**
      * remove items from Ads Block Disallowed list.
-     * @param {Array<string>} domainSuffixes: list of domain suffix needed be removed from disallow list
+     * @param { Array<string> } domainSuffixes - list of domain suffix needed be removed from disallow list
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -6733,7 +6733,7 @@ declare namespace webview {
 
     /**
      * remove items from Ads Block Allowed list.
-     * @param {Array<string>} domainSuffixes: list of domain suffix needed be removed from allow list
+     * @param { Array<string> } domainSuffixes - list of domain suffix needed be removed from allow list
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -6741,22 +6741,20 @@ declare namespace webview {
     static removeAdsBlockAllowedList(domainSuffixes: Array<string>): void;
 
     /**
-     * remove items from Ads Block Allowed list.
-     * @param {Array<string>} domainSuffixes: list of domain suffix needed be removed from allow list
+     * clear Ads Block Disallowed list.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
      */
-    static clearAdsBlockDisallowedList(domainSuffixes: Array<string>): void;
+    static clearAdsBlockDisallowedList(): void;
 
     /**
-     * remove items from Ads Block Allowed list.
-     * @param {Array<string>} domainSuffixes: list of domain suffix needed be removed from allow list
+     * clear Ads Block Allowed list.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
      */
-    static clearAdsBlockAllowedList(domainSuffixes: Array<string>): void;
+    static clearAdsBlockAllowedList(): void;
   }
 
 }
