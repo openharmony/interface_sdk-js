@@ -19,6 +19,15 @@
  */
 
 /**
+ * Import the SystemBarStyle type for Navigation.
+ *
+ * @typedef { import('../api/@ohos.window').default.SystemBarStyle } SystemBarStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+declare type SystemBarStyle = import('../api/@ohos.window').default.SystemBarStyle;
+
+/**
  * Defines the navigation common title.
  *
  * @interface NavigationCommonTitle
@@ -2571,6 +2580,16 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @since 12
    */
   ignoreLayoutSafeArea(types?: Array<LayoutSafeAreaType>, edges?: Array<LayoutSafeAreaEdge>): NavigationAttribute;
+
+  /**
+   * Set the style of system bar
+   *
+   * @param { Optional<SystemBarStyle> } style - The properties of system bar
+   * @returns { NavigationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  systemBarStyle(style: Optional<SystemBarStyle>): NavigationAttribute;
 }
 
 /**
