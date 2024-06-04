@@ -18,15 +18,14 @@
  * @kit ArkUI
  */
 
-/// <reference path="../../component/common.d.ts" />
-/// <reference path="../../component/container_span.d.ts" />
-
 /**
  * Defines ContainerSpan Modifier
  *
  * @extends ContainerSpanAttribute
  * @implements AttributeModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
  * @since 12
 */
 export declare class ContainerSpanModifier extends ContainerSpanAttribute implements AttributeModifier<ContainerSpanAttribute> {
@@ -37,6 +36,7 @@ export declare class ContainerSpanModifier extends ContainerSpanAttribute implem
    * @param { ContainerSpanAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: ContainerSpanAttribute): void;
