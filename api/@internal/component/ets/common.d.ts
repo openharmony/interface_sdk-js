@@ -21296,38 +21296,6 @@ declare type OnWillScrollCallback =
   */
 declare type OnScrollCallback = (scrollOffset: number, scrollState: ScrollState) => void;
 
-/**
- * Defines the onMove callback.
- *
- * @typedef { function } OnMoveHandler
- * @param { number } from - Index number for moving elements.
- * @param { number } to - Target index number for moving elements.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 12
- */
-declare type OnMoveHandler = (from: number, to: number) => void
-
-/**
- * Define DynamicNode.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 12
- */
-declare class DynamicNode<T> {
-  /**
-   * Set the move action.
-   *
-   * @param { Optional<OnMoveHandler> } handler
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  onMove(handler: Optional<OnMoveHandler>): T
-}
-
 declare module "SpecialEvent" {
   module "SpecialEvent" {
     // @ts-ignore
