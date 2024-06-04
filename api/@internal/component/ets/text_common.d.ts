@@ -289,6 +289,19 @@ declare interface DeleteValue {
 declare type OnDidChangeCallback = (rangeBefore: TextRange, rangeAfter: TextRange) => void;
 
 /**
+ * Callback when input sometimes has info of previewText.
+ *
+ * @typedef { function } EditableTextOnChangeCallback
+ * @param { string } value - Value of all text.
+ * @param { TextRange } [previewRange] - index of previewText in content.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare type EditableTextOnChangeCallback = (value: string, previewRange?: TextRange) => void;
+
+/**
  * Define the text selection controller.
  *
  * @interface TextBaseController
