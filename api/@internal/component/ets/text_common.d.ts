@@ -628,3 +628,45 @@ interface CaretStyle {
    */
   color?: ResourceColor,
 }
+
+/**
+ * ExpandedMenuItemOptions
+ *
+ * @interface ExpandedMenuItemOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare interface ExpandedMenuItemOptions {
+  /**
+   * Customize what the menu displays.
+   *
+   * @type { ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  content: ResourceStr;
+  /**
+   * Customize the icon before the menu displays content.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  startIcon?: ResourceStr;
+  /**
+   * Get the selected text information.
+   *
+   * @type { Callback<TextRange> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  action: Callback<TextRange>;
+}

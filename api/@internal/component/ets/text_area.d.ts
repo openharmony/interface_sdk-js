@@ -1585,6 +1585,18 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 12
    */
   onDidDelete(callback: Callback<DeleteValue>): TextAreaAttribute;
+
+  /**
+   * Set the custom text menu.
+   *
+   * @param { Array<ExpandedMenuItemOptions> } expandedMenuOptions - Customize text menu options.
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  selectionMenuOptions(expandedMenuOptions: Array<ExpandedMenuItemOptions>): TextAreaAttribute;
 }
 
 /**

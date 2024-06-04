@@ -1095,6 +1095,18 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 12
    */
   textSelectable(mode: TextSelectableMode): TextAttribute;
+
+  /**
+   * Set the custom text menu.
+   *
+   * @param { Array<ExpandedMenuItemOptions> } expandedMenuOptions - Customize text menu options.
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  selectionMenuOptions(expandedMenuOptions: Array<ExpandedMenuItemOptions>): TextAttribute;
 }
 
 /**
