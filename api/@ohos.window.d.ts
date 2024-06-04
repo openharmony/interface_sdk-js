@@ -650,7 +650,7 @@ declare namespace window {
    * Properties of status bar, it couldn't update automatically
    *
    * @interface SystemBarStyle
-   * @syscap SystemCapability.Window.SessionManager
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
    * @since 12
    */
@@ -658,10 +658,10 @@ declare namespace window {
     /**
      * The content color of the status bar
      *
-     * @syscap SystemCapability.Window.SessionManager
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 12
      */
-    statusBarContentColor: string;
+    statusBarContentColor?: string;
   }
 
   /**
