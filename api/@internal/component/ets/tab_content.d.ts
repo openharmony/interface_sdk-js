@@ -871,16 +871,7 @@ declare class BottomTabBarStyle {
    * @atomicservice
    * @since 11
    */
-  /**
-   * Set the padding of the bottom tab bar
-   *
-   * @param { Padding | Dimension | LocalizedPadding } value - indicates the padding of the bottom tab bar
-   * @returns { BottomTabBarStyle } the style of the bottom tab bar
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  padding(value: Padding | Dimension | LocalizedPadding): BottomTabBarStyle;
+  padding(value: Padding | Dimension): BottomTabBarStyle;
 
   /**
    * Set the layout mode of the bottom tab bar
