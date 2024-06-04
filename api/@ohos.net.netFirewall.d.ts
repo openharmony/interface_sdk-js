@@ -14,17 +14,22 @@
  */
 
 /**
- * Provides interfaces to manage netfirewall.
+ * @file
+ * @kit NetworkKit
+ */
+
+/**
+ * Provides interfaces to manage net firewall.
  * 
- * @namespace netfirewall
+ * @namespace netFirewall
  * @syscap SystemCapability.Communication.NetManager.NetFirewall
  * @since 12
  */
-declare namespace netfirewall {
+declare namespace netFirewall {
   /**
-   * <p>Set firewall policy by userId.
-   * Enables or disables the firewall function, and specifies the default actions for inbound connections and outbound
-   * connections.</p>
+   * Set firewall policy by userId.
+   * <p>Enables or disables the firewall function, and specifies the default actions for inbound connections and
+   * outbound connections.</p>
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { NetFirewallPolicy } policy - The firewall policy to be set.
@@ -130,7 +135,7 @@ declare namespace netfirewall {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  function deleteNetFirewallRule(userId: number, ruleId: number): Promise<void>;
+  function removeNetFirewallRule(userId: number, ruleId: number): Promise<void>;
 
   /**
    * Get firewall rules by userId, and it is necessary to specify the pagination query parameters.
@@ -546,7 +551,7 @@ declare namespace netfirewall {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    ruleId?: number;
+    id?: number;
     /**
      * Rule name.
      *
@@ -555,7 +560,7 @@ declare namespace netfirewall {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    ruleName: string;
+    name: string;
     /**
      * Rule description.
      *
@@ -564,7 +569,7 @@ declare namespace netfirewall {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    ruleDescription?: string;
+    description?: string;
     /**
      * Rule direction, inbound or outbound.
      *
@@ -573,25 +578,25 @@ declare namespace netfirewall {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    ruleDirection: NetFirewallRuleDirection;
+    direction: NetFirewallRuleDirection;
     /**
-     * Rules of action.
+     * Rule action.
      *
      * @type {FirewallRuleAction}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    ruleAction: FirewallRuleAction;
+    action: FirewallRuleAction;
     /**
      * Rule type.
      *
      * @type {NetFirewallRuleType}
-     * @syscap SystemCapability.Communication.NetManager.NetFirewall\
+     * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    ruleType: NetFirewallRuleType;
+    type: NetFirewallRuleType;
     /**
      * Whether the rule is enabled
      *
@@ -909,4 +914,4 @@ declare namespace netfirewall {
   }
 }
 
-export default netfirewall;
+export default netFirewall;
