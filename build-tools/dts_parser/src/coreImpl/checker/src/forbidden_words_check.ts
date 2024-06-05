@@ -33,7 +33,7 @@ export class ForbiddenWordsCheck {
     };
     const apiFullText: string = singleApi.getDefinedText();
     const jsDocInfo: Comment.JsDocInfo[] = singleApi.getJsDocInfos();
-    const publishVersion: string = jsDocInfo[0].getSince();
+    const publishVersion: string = CommonFunctions.getSinceVersion(jsDocInfo[0].getSince());
     const apiVersionToBeVerified: string = CommonFunctions.getCheckApiVersion();
     const reg = /\s{2,}/g;
     const regx = /(\/\*|\*\/|\*)|\\n|\\r/g;

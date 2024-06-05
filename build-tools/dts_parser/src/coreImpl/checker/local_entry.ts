@@ -77,6 +77,7 @@ export class LocalEntry {
       let resultItemInfo: string = resultItem.message.replace(/API check error of \[.*\]: /g, '');
       const regex1 = /Prohibited word in \[.*\]:{option}.The word allowed is \[.*\]\./g;
       const regex2 = /Prohibited word in \[.*\]:{ability} in the \[.*\] file\./g;
+      const regex3= /please confirm whether it needs to be corrected to a common word./g;
       if (/\d/g.test(resultItemInfo)) {
         resultItemInfo = resultItemInfo.replace(/\d+/g, '1');
       }
@@ -85,6 +86,9 @@ export class LocalEntry {
       }
       if (regex2.test(resultItemInfo)) {
         resultItemInfo = JSON.stringify(apiCheckInfos.get('API_DEFINE_NAME_02')).replace(/\"/g, '');
+      }
+      if (regex3.test(resultItemInfo)) {
+        resultItemInfo = resultItemInfo.replace(/\{.*\}/g, '{XXXX}');
       }
       if (/This name \[.*\] should be named by/g.test(resultItemInfo)) {
         resultItemInfo = resultItemInfo.replace(/\[.*\]/g, '[XXXX]');

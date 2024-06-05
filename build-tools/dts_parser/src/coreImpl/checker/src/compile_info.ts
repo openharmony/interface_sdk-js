@@ -58,14 +58,14 @@ export class AddErrorLogs {
     const apiCheckErrorLog: ApiResultInfo = new ApiResultInfo();
     apiCheckErrorLog
       .setErrorType(errorType)
-      .setLocation(location)
+      .setLocation(filePath.slice(filePath.indexOf('api'), filePath.length) + `(line: ${location})`)
       .setApiType(apiType)
       .setMessage(errorMessage)
       .setVersion(version)
       .setLevel(level)
       .setApiName(apiName)
       .setApiFullText(apiFullText)
-      .setBaseName(filePath.substring(filePath.lastIndexOf('/') + 1, filePath.length));
+      .setBaseName(filePath.slice(filePath.lastIndexOf('\\') + 1, filePath.length));
     checkErrorInfos.push(apiChecktSimpleErrorLog);
     checkErrorAllInfos.push(apiCheckErrorLog);
   }

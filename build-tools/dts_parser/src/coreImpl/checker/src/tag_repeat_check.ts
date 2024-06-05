@@ -30,6 +30,9 @@ export class TagRepeatCheck {
     apiJsdoc.tags?.forEach((tag) => {
       tagNameArr.push(tag.tag);
     });
+    if (tagNameArr.includes('deprecated')) {
+      return tagRepeatCheckResult;
+    }
     const duplicateArr: string[] = tagNameArr.filter((item) => {
       return tagNameArr.indexOf(item) !== tagNameArr.lastIndexOf(item);
     });
