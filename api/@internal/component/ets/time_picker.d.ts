@@ -834,16 +834,6 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @since 12
    */
   shadow?: ShadowOptions | ShadowStyle;
-
-  /**
-   * Set time format
-   *
-   * @type { ?DateTimeOptions }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  dateTimeOptions?: DateTimeOptions;
 }
 
 /**
