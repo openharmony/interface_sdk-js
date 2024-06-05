@@ -710,10 +710,11 @@ declare class Scroller {
   getItemRect(index: number): RectResult;
 }
 
-/*
+/**
  * Define scroll page options
  * @interface ScrollPageOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
  */
 declare interface ScrollPageOptions {
@@ -723,6 +724,7 @@ declare interface ScrollPageOptions {
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   next: boolean;
@@ -734,6 +736,7 @@ declare interface ScrollPageOptions {
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   animation?: boolean;
