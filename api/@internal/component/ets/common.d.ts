@@ -197,11 +197,12 @@ declare const Component: ClassDecorator & ((options: ComponentOptions) => ClassD
 /**
  * Defining ComponentV2 ClassDecorator
  *
+ * ComponentV2 is a ClassDecorator and it supports ComponentOptions as parameters.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
-declare const ComponentV2: ClassDecorator;
+declare const ComponentV2: ClassDecorator & ((options: ComponentOptions) => ClassDecorator);
 
 /**
  * Defines the options of Entry ClassDecorator.
