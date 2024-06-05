@@ -2687,6 +2687,7 @@ declare namespace avSession {
    * @param { string } assetId - request key for current assetId
    * @param { Uint8Array } requestData - media key request data sent to media key server
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @atomicservice
    * @since 12
    */
   type KeyRequestCallback = (assetId: string, requestData: Uint8Array) => void;
