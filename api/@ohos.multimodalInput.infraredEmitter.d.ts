@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit InputKit
+ */
+
+/**
  * Declares the APIs for configuring attributes of the IR emitter.
  *
  * @namespace infraredEmitter
