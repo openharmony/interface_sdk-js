@@ -600,7 +600,7 @@ declare namespace policy {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  function setNetworkAccessPolicy(uid: number, policy: NetworkAccessPolicy, isReconfirmed?: boolean): Promise<void>
+  function setNetworkAccessPolicy(uid: number, policy: NetworkAccessPolicy, isReconfirmed?: boolean): Promise<void>;
 
   /**
    * Query the network access policy of the specified application.
@@ -626,8 +626,6 @@ declare namespace policy {
    * @returns { Promise<UidNetworkAccessPolicy> } the network access policy of all applications.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -1282,7 +1280,7 @@ declare namespace policy {
        * @systemapi Hide this for inner system use.
        * @since 12
        */
-      [uid: number]: NetworkAccessPolicy;
+      [uid: string]: NetworkAccessPolicy;
   }
 }
 
