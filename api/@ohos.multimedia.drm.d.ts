@@ -24,6 +24,13 @@
  * @syscap SystemCapability.Multimedia.Drm.Core
  * @since 11
  */
+/**
+ * This module provides the DRM capability to multimedia player.
+ * @namespace drm
+ * @syscap SystemCapability.Multimedia.Drm.Core
+ * @atomicservice
+ * @since 12
+ */
 declare namespace drm {
 /**
  * Enumerates drm error code.
