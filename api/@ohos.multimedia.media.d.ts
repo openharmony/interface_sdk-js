@@ -3802,7 +3802,6 @@ declare namespace media {
     /**
      * playback at 0.5x normal speed
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
-     * @atomicservice
      * @since 12
      */
     /**
@@ -3815,7 +3814,6 @@ declare namespace media {
     /**
      * playback at 1.5x normal speed
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
-     * @atomicservice
      * @since 12
      */
     /**
