@@ -130,6 +130,7 @@ declare namespace collections {
    * Represents an array-like object that can be concatenated.
    * 
    * @interface ConcatArray
+   * @extends ISendable
    * @syscap SystemCapability.Utils.Lang
    * @since 12
    */
