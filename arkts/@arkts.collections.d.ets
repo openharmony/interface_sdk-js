@@ -33,6 +33,7 @@ declare namespace collections {
   /**
    * Callback function used in the typed Array's 'from' function.
    * 
+   * @typedef { function } TypedArrayFromMapFn
    * @param { FromElementType } value - The value in the original array.
    * @param { number } index - The index in the original array.
    * @returns { ToElementType } The transformed value.
@@ -46,6 +47,7 @@ declare namespace collections {
    * Callback function used in typed Array functions which needs to determine
    * whether some element satisfies the specified predicate test
    * 
+   * @typedef { function } TypedArrayPredicateFn
    * @param { ElementType } value - The value of the element.
    * @param { number } index - The index of the element.
    * @param { ArrayType } array - The array that the element belongs to.
@@ -60,6 +62,7 @@ declare namespace collections {
   /**
    * Callback function used in typed Array functions that perform specific action for each element.
    * 
+   * @typedef { function } TypedArrayForEachCallback
    * @param { ElementType } value - The value of the element.
    * @param { number } index - The index of the element.
    * @param { ArrayType } array - The array that the element belongs to.
@@ -74,6 +77,7 @@ declare namespace collections {
    * Callback function used in typed Array functions that perform specific action for each element and
    *    produce corresponding new element.
    * 
+   * @typedef { function } TypedArrayMapCallback
    * @param { ElementType } value - The value of the element.
    * @param { number } index - The index of the element.
    * @param { ArrayType } array - The array that the element belongs to.
@@ -86,6 +90,7 @@ declare namespace collections {
   /**
    * Callback function used in typed Array functions that require a reduction.
    * 
+   * @typedef { function } TypedArrayReduceCallback
    * @param { AccType } previousValue - The accumulator value.
    * @param { ElementType } currentValue - The current element being processed in the array.
    * @param { number } currentIndex - The index of the current element being processed in the array.
@@ -101,6 +106,7 @@ declare namespace collections {
   /**
    * Callback function used in the typed Array's 'sort' function.
    * 
+   * @typedef { function } TypedArrayCompareFn
    * @param { ElementType } first - The first element of the comparison.
    * @param { ElementType } second - The second element of the comparison.
    * @returns { number } The result of the comparison.
