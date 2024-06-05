@@ -746,7 +746,8 @@ declare function closeSync(file: number | File): void;
  * @param { string } destUri - dest uri.
  * @param { CopyOptions } [options] - options.
  * @returns { Promise<void> } The promise returned by the function.
- * @throws { BusinessError } 401 - Parameter error.
+ * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+ * <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -782,7 +783,8 @@ declare function copy(srcUri: string, destUri: string, options?: CopyOptions): P
  * @param { string } srcUri - src uri.
  * @param { string } destUri - dest uri.
  * @param { AsyncCallback<void> } callback - Return the callback function.
- * @throws { BusinessError } 401 - Parameter error.
+ * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+ * <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -819,7 +821,8 @@ declare function copy(srcUri: string, destUri: string, callback: AsyncCallback<v
  * @param { string } destUri - dest uri.
  * @param { CopyOptions } options - options.
  * @param { AsyncCallback<void> } callback - Return the callback function.
- * @throws { BusinessError } 401 - Parameter error.
+ * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+ * <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call

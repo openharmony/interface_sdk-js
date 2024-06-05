@@ -15426,30 +15426,6 @@ declare class CommonMethod<T> {
   focusBox(style: FocusBoxStyle): T;
 
   /**
-  * Set container as a focus group with a specific identifier.
-  *
-  * @param { string } id - focus scope identifier.
-  * @param { boolean } [isGroup] - whether this scope is a focus group, the default value is false
-  * @returns { T }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @since 12
-  */
- focusScopeId(id: string, isGroup?: boolean): T;
-
-  /**
-  * Set the focus priority of component in a specific focus scope.
-  *
-  * @param { string } scopeId
-  * @param { FocusPriority } [priority] - the default value is AUTO
-  * @returns { T }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @since 12
-  */
- focusScopePriority(scopeId: string, priority?: FocusPriority): T;
-
-  /**
    * animation
    *
    * @param { AnimateParam } value
@@ -21169,15 +21145,13 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   /**
    * Called when the scrollable will scroll.
    *
-   * @param { OnScrollCallback } handler - callback of scrollable,
-   * scrollOffset is offset this frame will scroll, which may or may not be reached.
-   * scrollState is current scroll state.
+   * @param { Optional<OnWillScrollCallback> } handler - callback of scrollable.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  onWillScroll(handler: OnScrollCallback): T;
+  onWillScroll(handler: Optional<OnWillScrollCallback>): T;
 
   /**
    * Called when the scrollable did scroll.
@@ -21254,45 +21228,49 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
 }
 
 /**
-  * on scroll callback using in scrollable onWillScroll and onDidScroll.
+ * The actual offset by which the scrollable scrolls.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class ScrollResult {
+  /**
+   * Actual offset by which the scrollable scrolls in vp.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  offsetRemain: number;
+}
+
+/**
+ * Called before scroll to allow developer to control real offset the Scrollable can scroll.
+ *
+ * @typedef { function } OnWillScrollCallback
+ * @param { number } scrollOffset - offset this frame will scroll, which may or may not be reached.
+ * @param { ScrollState } scrollState - current scroll state.
+ * @param { ScrollSource } scrollSource - source of current scroll.
+ * @returns { void | ScrollResult } the remain offset for the scrollable, 
+ *     same as scrollOffset when no ScrollResult is returned.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type OnWillScrollCallback = 
+(scrollOffset: number, scrollState: ScrollState, scrollSource: ScrollSource) => void | ScrollResult;
+
+/**
+  * On scroll callback using in scrollable onDidScroll.
   *
+  * @typedef { function } OnScrollCallback
+  * @param { number } scrollOffset - offset this frame did scroll.
+  * @param { ScrollState } scrollState - current scroll state.
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @since 12
   */
 declare type OnScrollCallback = (scrollOffset: number, scrollState: ScrollState) => void;
-
-/**
- * Defines the onMove callback.
- *
- * @typedef { function } OnMoveHandler
- * @param { number } from - Index number for moving elements.
- * @param { number } to - Target index number for moving elements.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 12
- */
-declare type OnMoveHandler = (from: number, to: number) => void
-
-/**
- * Define DynamicNode.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 12
- */
-declare class DynamicNode<T> {
-  /**
-   * Set the move action.
-   *
-   * @param { Optional<OnMoveHandler> } handler
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  onMove(handler: Optional<OnMoveHandler>): T
-}
 
 declare module "SpecialEvent" {
   module "SpecialEvent" {
@@ -21365,6 +21343,7 @@ declare interface EdgeEffectOptions {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare class ChildrenMainSize {
@@ -21379,6 +21358,7 @@ declare class ChildrenMainSize {
    * <br> 3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   constructor(childDefaultSize: number);
@@ -21394,6 +21374,7 @@ declare class ChildrenMainSize {
    * <br> 3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   set childDefaultSize(value: number);
@@ -21405,6 +21386,7 @@ declare class ChildrenMainSize {
    * If the main axis is horizontal, it indicates width.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   get childDefaultSize(): number;
@@ -21421,6 +21403,7 @@ declare class ChildrenMainSize {
    * <br> 3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    * @example splice(1, 0, [100]), Insert a child after first child, the child's main size is 100vp.
    * splice(1, 1), Delete the second child.
@@ -21439,6 +21422,7 @@ declare class ChildrenMainSize {
    * <br> 3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   update(index: number, childSize: number): void;

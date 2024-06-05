@@ -1423,7 +1423,6 @@ declare namespace dlpPermission {
    * Cleans sandbox application configuration. This method uses a promise to return the result.
    *
    * @returns { Promise<void> } Promise used to return the result.
-   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100007 - This API cannot be called by DLP sandbox applications.
    * @throws { BusinessError } 19100011 - System service exception.
@@ -1437,7 +1436,6 @@ declare namespace dlpPermission {
    * Obtains sandbox application configuration. This method uses a promise to return the result.
    *
    * @returns { Promise<string> } Promise used to return the result.
-   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100011 - System service exception.
    * @throws { BusinessError } 19100018 - Not authorized application.

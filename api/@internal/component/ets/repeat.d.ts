@@ -48,13 +48,12 @@
 /**
  * Defines the Repeat component attribute functions.
  *
- * @extends DynamicNode<RepeatAttribute<T>>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  * @form
  */
-declare class RepeatAttribute<T> extends DynamicNode<RepeatAttribute<T>> {
+declare class RepeatAttribute<T> {
   /**
    * Executes itemGenerator of each item.
    *

@@ -46,7 +46,8 @@ declare namespace avSession {
    * @param { string } tag - A user-defined name for this session
    * @param { AVSessionType } type - The type of session {@link AVSessionType}
    * @param { AsyncCallback<AVSession> } callback - async callback for AVSession.
-   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+   * 2.Parameter verification failed.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 10
@@ -59,7 +60,8 @@ declare namespace avSession {
    * @param { string } tag - A user-defined name for this session
    * @param { AVSessionType } type - The type of session {@link AVSessionType}
    * @returns { Promise<AVSession> } Promise for AVSession
-   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+   * 2.Parameter verification failed.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 10
@@ -70,7 +72,8 @@ declare namespace avSession {
    * @param { string } tag - A user-defined name for this session
    * @param { AVSessionType } type - The type of session {@link AVSessionType}
    * @returns { Promise<AVSession> } Promise for AVSession
-   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+   * 2.Parameter verification failed.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @atomicservice
@@ -108,7 +111,8 @@ declare namespace avSession {
    * @param { number } maxSize - Specifies the maximum size of the returned value array.
    * @param { AsyncCallback<Array<Readonly<AVSessionDescriptor>>> } callback - async callback for an array of AVSessionDescriptors.
    * If provided '0' or not provided, the maximum value is determined by the system.
-   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 401 - parameter check failed. Possible causes: 1.Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi Hide this for inner system use
@@ -122,7 +126,8 @@ declare namespace avSession {
    * @param { number } maxSize - Specifies the maximum size of the returned value array.
    * If provided '0' or not provided, the maximum value is determined by the system.
    * @returns { Promise<Array<Readonly<AVSessionDescriptor>>> } Promise for an array of AVSessionDescriptors
-   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi Hide this for inner system use
@@ -139,7 +144,8 @@ declare namespace avSession {
    * If provided '0' or not provided, the maximum value is determined by the system.
    * @throws { BusinessError } 201 - permission denied
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi Hide this for inner system use
@@ -153,7 +159,8 @@ declare namespace avSession {
    * @param { number } maxSize - Specifies the maximum size of the returned value array.
    * @param { number } maxAppSize - Specifies the maximum app size of the returned value array.
    * @returns { Promise<Array<Readonly<AVQueueInfo>>> } Promise for an array of AVQueueInfo
-   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi Hide this for inner system use
@@ -168,7 +175,8 @@ declare namespace avSession {
    * @param { AsyncCallback<AVSessionController> } callback - async callback for AVSessionController.
    * If provided 'default', the system will create a default controller, Used to control the system default session
    * @throws { BusinessError } 201 - permission denied
-   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+   * 2.Parameter verification failed.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @throws { BusinessError } 6600102 - The session does not exist.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
@@ -184,7 +192,8 @@ declare namespace avSession {
    * If provided 'default', the system will create a default controller, Used to control the system default session
    * @returns { Promise<AVSessionController> } Promise for AVSessionController
    * @throws { BusinessError } 201 - permission denied
-   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+   * 2.Parameter verification failed.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @throws { BusinessError } 6600102 - The session does not exist.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
@@ -201,7 +210,8 @@ declare namespace avSession {
    * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
    * 'all' means cast all the media audio of this device to remote.
    * @throws { BusinessError } 201 - permission denied
-   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+   * 2.Parameter verification failed.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @throws { BusinessError } 6600102 - The session does not exist.
    * @throws { BusinessError } 6600104 - The remote session connection failed.
@@ -219,7 +229,8 @@ declare namespace avSession {
    * @returns { Promise<void> } void promise when executed successfully
    * 'all' means cast all the media audio of this device to remote.
    * @throws { BusinessError } 201 - permission denied
-   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+   * 2.Parameter verification failed.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @throws { BusinessError } 6600102 - The session does not exist.
    * @throws { BusinessError } 6600104 - The remote session  connection failed.
@@ -237,7 +248,8 @@ declare namespace avSession {
    * @returns { Promise<void> } void promise when executed successfully
    * @throws { BusinessError } 201 - permission denied
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
-   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
@@ -291,7 +303,8 @@ declare namespace avSession {
    * @param { 'sessionCreate' } type - Registration Type, 'sessionCreate'
    * @param { function } callback - Used to handle ('sessionCreate' command)
    * @throws { BusinessError } 201 - permission denied
-   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
@@ -305,7 +318,8 @@ declare namespace avSession {
    * @param { 'sessionDestroy' } type - Registration Type, 'sessionDestroy'
    * @param { function } callback - Used to handle ('sessionDestroy' command)
    * @throws { BusinessError } 201 - permission denied
-   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
@@ -319,7 +333,8 @@ declare namespace avSession {
    * @param { 'topSessionChange' } type - Registration Type, top priority session change, 'topSessionChange'
    * @param { function } callback - Used to handle ('topSessionChange' command)
    * @throws { BusinessError } 201 - permission denied
-   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
@@ -333,7 +348,8 @@ declare namespace avSession {
    * @param { 'sessionCreate' } type - Registration Type, session creation, 'sessionCreate'
    * @param { function } callback - Used to unregister listener for ('sessionCreate') command
    * @throws { BusinessError } 201 - permission denied
-   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
@@ -347,7 +363,8 @@ declare namespace avSession {
    * @param { 'sessionDestroy' } type - Registration Type, session deletion, 'sessionDestroy'
    * @param { function } callback - Used to unregister listener for ('sessionDestroy') command
    * @throws { BusinessError } 201 - permission denied
-   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
@@ -361,7 +378,8 @@ declare namespace avSession {
    * @param { 'topSessionChange' } type - Registration Type, top priority session change, 'topSessionChange'
    * @param { function } callback - Used to unregister listener for ('topSessionChange') command
    * @throws { BusinessError } 201 - permission denied
-   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
@@ -374,7 +392,8 @@ declare namespace avSession {
    * @param { 'sessionServiceDie' } type - Registration Type, 'sessionServiceDie'
    * @param { function } callback - Used to handle ('sessionServiceDie') command.
    * @throws { BusinessError } 201 - permission denied
-   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @systemapi
@@ -387,7 +406,8 @@ declare namespace avSession {
    * @param { 'sessionServiceDie' } type - Registration Type, 'sessionServiceDie'
    * @param { function } callback -  Used to unregister listener for ('sessionServiceDie') command.
    * @throws { BusinessError } 201 - permission denied
-   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @systemapi
@@ -401,7 +421,8 @@ declare namespace avSession {
    * @param { KeyEvent } event - The key event to be sent
    * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
    * @throws { BusinessError } 201 - permission denied
-   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+   * 2.Parameter verification failed.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @throws { BusinessError } 6600105 - Invalid session command.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
@@ -416,7 +437,8 @@ declare namespace avSession {
    * @param { KeyEvent } event - The key event to be sent
    * @returns { Promise<void> } void promise when executed successfully
    * @throws { BusinessError } 201 - permission denied
-   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+   * 2.Parameter verification failed.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @throws { BusinessError } 6600105 - Invalid session command.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
@@ -431,7 +453,8 @@ declare namespace avSession {
    * @param { AVControlCommand } command - The command to be sent. See {@link AVControlCommand}
    * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
    * @throws { BusinessError } 201 - permission denied
-   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+   * 2.Parameter verification failed.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @throws { BusinessError } 6600105 - Invalid session command.
    * @throws { BusinessError } 6600107 - Too many commands or events.
@@ -447,7 +470,8 @@ declare namespace avSession {
    * @param { AVControlCommand } command - The command to be sent. See {@link AVControlCommand}
    * @returns { Promise<void> } void promise when executed successfully
    * @throws { BusinessError } 201 - permission denied
-   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+   * 2.Parameter verification failed.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @throws { BusinessError } 6600105 - Invalid session command.
    * @throws { BusinessError } 6600107 - Too many commands or events.
@@ -524,7 +548,8 @@ declare namespace avSession {
    * Start device discovery.
    * @param { number } filter device filter when discovering, can be an union of {@link ProtocolType}
    * @param { AsyncCallback<void> } callback a callback function
-   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+   * 2.Parameter verification failed.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
    * @since 10
@@ -535,7 +560,8 @@ declare namespace avSession {
    * Start device discovery.
    * @param { number } filter device filter when discovering, can be an union of {@link ProtocolType}
    * @returns { Promise<void> } Promise for the result
-   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+   * 2.Parameter verification failed.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
    * @since 10
@@ -547,7 +573,8 @@ declare namespace avSession {
    * It is effective when protocol type is TYPE_CAST_PLUS_STREAM.
    * @returns { Promise<void> } Promise for the result
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types. 3.Parameter verification failed.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
    * @since 12
@@ -576,7 +603,8 @@ declare namespace avSession {
    * Enable or disable device to be discoverable, used at sink side.
    * @param { boolean } enable true: can be discoverable, false: cannot be discoverable.
    * @param { AsyncCallback<void> } callback a callback function
-   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+   * 2.Parameter verification failed.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
    * @since 10
@@ -587,7 +615,8 @@ declare namespace avSession {
    * Enable or disable device to be discoverable, used at sink side.
    * @param { boolean } enable true: can be discoverable, false: cannot be discoverable.
    * @returns { Promise<void> } Promise for the result
-   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+   * 2.Parameter verification failed.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
    * @since 10
@@ -599,7 +628,8 @@ declare namespace avSession {
    * @param { 'deviceAvailable' } type Registration Type
    * @param { function } callback Used to returns the device info
    * @throws {BusinessError} 201 - permission denied
-   * @throws {BusinessError} 401 - parameter check failed
+   * @throws {BusinessError} 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
    * @since 10
@@ -611,7 +641,8 @@ declare namespace avSession {
    * @param { 'deviceAvailable' } type Registration Type
    * @param { function } callback Used to returns the device info
    * @throws {BusinessError} 201 - permission denied
-   * @throws {BusinessError} 401 - parameter check failed
+   * @throws {BusinessError} 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
    * @since 10
@@ -623,7 +654,8 @@ declare namespace avSession {
    * @param { 'deviceOffline' } type - Registration Type
    * @param { function } callback - Used to returns the device info
    * @throws {BusinessError} 201 - permission denied
-   * @throws {BusinessError} 401 - parameter check failed
+   * @throws {BusinessError} 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
    * @since 11
@@ -637,7 +669,8 @@ declare namespace avSession {
    * @param { function } callback - Used to returns the device info
    * @throws {BusinessError} 201 - permission denied
    * @throws {BusinessError} 202 - Not System App.
-   * @throws {BusinessError} 401 - parameter check failed
+   * @throws {BusinessError} 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
    * @since 11
@@ -651,7 +684,8 @@ declare namespace avSession {
    * @param { string } sessionId Specifies the sessionId to get controller.
    * @param { AsyncCallback<AVCastController> } callback - async callback for the AVCastController.
    * @throws {BusinessError} 201 - permission denied
-   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+   * 2.Parameter verification failed.
    * @throws {BusinessError} 6600101 - Session service exception
    * @throws {BusinessError} 6600102 - session does not exist
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -667,7 +701,8 @@ declare namespace avSession {
    * @param { string } sessionId Specifies the sessionId to get controller.
    * @returns { Promise<AVCastController> } Promise for the AVCastController
    * @throws {BusinessError} 201 - permission denied
-   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+   * 2.Parameter verification failed.
    * @throws {BusinessError} 6600101 - server exception
    * @throws {BusinessError} 6600102 - session does not exist
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -683,7 +718,8 @@ declare namespace avSession {
    * @param { OutputDeviceInfo } device Specifies the device to cast.
    * @param { AsyncCallback<void> } callback A callback instance used to return when start casting.
    * @throws {BusinessError} 201 - permission denied
-   * @throws {BusinessError} 401 - parameter check failed
+   * @throws {BusinessError} 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 6600101 - Session service exception
    * @throws {BusinessError} 6600108 - Device connecting failed
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -699,7 +735,8 @@ declare namespace avSession {
    * @param { OutputDeviceInfo } device Specifies the device to cast.
    * @returns { Promise<void> } Promise for the result
    * @throws {BusinessError} 201 - permission denied
-   * @throws {BusinessError} 401 - parameter check failed
+   * @throws {BusinessError} 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 6600101 - Session service exception
    * @throws {BusinessError} 6600108 - Device connecting failed
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -712,7 +749,8 @@ declare namespace avSession {
    * Stop current cast and disconnect device connection.
    * @param { SessionToken } session Specifies the sessionId which is to be stopped.
    * @param { AsyncCallback<void> } callback A callback instance used to return when cast stopped completed.
-   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 6600109 - The remote connection is not established
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
@@ -724,7 +762,8 @@ declare namespace avSession {
    * Stop current cast and disconnect device connection.
    * @param { SessionToken } session Specifies the sessionId which is to be stopped.
    * @returns { Promise<void> } Promise for the result
-   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 6600109 - The remote connection is not established
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
@@ -795,7 +834,8 @@ declare namespace avSession {
      * In addition to the required properties, users can fill in partially supported properties
      * @param { AVMetadata } data {@link AVMetadata}
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -808,7 +848,8 @@ declare namespace avSession {
      * In addition to the required properties, users can fill in partially supported properties
      * @param { AVMetadata } data {@link AVMetadata}
      * @returns { Promise<void> } void promise when executed successfully
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -819,7 +860,8 @@ declare namespace avSession {
      * In addition to the required properties, users can fill in partially supported properties
      * @param { AVMetadata } data {@link AVMetadata}
      * @returns { Promise<void> } void promise when executed successfully
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -832,7 +874,8 @@ declare namespace avSession {
      * Set the metadata related with current call.
      * @param { CallMetadata } data - {@link CallMetadata}
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -844,7 +887,8 @@ declare namespace avSession {
      * Set the metadata related with current call.
      * @param { CallMetadata } data - {@link CallMetadata}
      * @returns { Promise<void> } void promise when executed successfully
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -856,7 +900,8 @@ declare namespace avSession {
      * Set the playback state of this session.
      * @param { AVPlaybackState } state {@link AVPlaybackState}
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -868,7 +913,8 @@ declare namespace avSession {
      * Set the playback state of this session.
      * @param { AVPlaybackState } state {@link AVPlaybackState}
      * @returns { Promise<void> } void promise when executed successfully
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -878,7 +924,8 @@ declare namespace avSession {
      * Set the playback state of this session.
      * @param { AVPlaybackState } state {@link AVPlaybackState}
      * @returns { Promise<void> } void promise when executed successfully
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -891,7 +938,8 @@ declare namespace avSession {
      * Set the call state of this session.
      * @param { AVCallState } state - {@link AVCallState}
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -903,7 +951,8 @@ declare namespace avSession {
      * Set the call state of this session.
      * @param { AVCallState } state - {@link AVCallState}
      * @returns { Promise<void> } void promise when executed successfully
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -915,7 +964,8 @@ declare namespace avSession {
      * Set the ability to start the session corresponding to
      * @param { WantAgent } ability - The WantAgent for launch the ability
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -927,7 +977,8 @@ declare namespace avSession {
      * Set the ability to start the session corresponding to
      * @param { WantAgent } ability - The WantAgent for launch the ability
      * @returns { Promise<void> } void promise when executed successfully
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -940,7 +991,8 @@ declare namespace avSession {
      * @param { string } event - Session event name to dispatch
      * @param { object } args - The parameters of session event
      * @param { AsyncCallback<void>} callback - The asyncCallback triggered when the command is executed successfully
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -953,7 +1005,8 @@ declare namespace avSession {
      * @param { string } event - Session event name to dispatch
      * @param { object } args - The parameters of session event
      * @returns { Promise<void> } void promise when executed successfully
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -965,7 +1018,8 @@ declare namespace avSession {
      * Set the playlist of queueItem. Identifies the content of the playlist presented by this session.
      * @param { Array<AVQueueItem> } items - An array of the AVQueueItem
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -977,7 +1031,8 @@ declare namespace avSession {
      * Set the playlist of queueItem. Identifies the content of the playlist presented by this session.
      * @param { Array<AVQueueItem> } items - An array of the AVQueueItem
      * @returns { Promise<void> } void promise when executed successfully
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -989,7 +1044,8 @@ declare namespace avSession {
      * Set the name of the playlist presented by this session.
      * @param { string } title - The name of the playlist
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1001,7 +1057,8 @@ declare namespace avSession {
      * Set the name of the playlist presented by this session.
      * @param { string } title - The name of the playlist
      * @returns { Promise<void> } void promise when executed successfully
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1013,7 +1070,8 @@ declare namespace avSession {
      * Set the custom media packets for this session.
      * @param { object } extras - The custom media packets
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1025,7 +1083,8 @@ declare namespace avSession {
      * Set the custom media packets for this session.
      * @param { object } extras - The custom media packets
      * @returns { Promise<void> } void promise when executed successfully
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1143,7 +1202,8 @@ declare namespace avSession {
      * and the new callback will replace the previous one.
      * @param { 'play' } type - Command to register 'play'.
      * @param { function } callback - Used to handle ('play') command
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1160,7 +1220,8 @@ declare namespace avSession {
      * and the new callback will replace the previous one.
      * @param { 'pause' } type - Command to register 'pause'.
      * @param { function } callback - Used to handle ('pause') command
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1177,7 +1238,8 @@ declare namespace avSession {
      * and the new callback will replace the previous one.
      * @param { 'stop' } type - Command to register 'stop'.
      * @param { function } callback - Used to handle ('stop') command
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1194,7 +1256,8 @@ declare namespace avSession {
      * and the new callback will replace the previous one.
      * @param { 'playNext' } type - Command to register 'playNext'.
      * @param { function } callback - Used to handle ('playNext') command
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1211,7 +1274,8 @@ declare namespace avSession {
      * and the new callback will replace the previous one.
      * @param { 'playPrevious' } type - Command to register 'playPrevious'.
      * @param { function } callback - Used to handle ('playPrevious') command
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1228,7 +1292,8 @@ declare namespace avSession {
      * and the new callback will replace the previous one.
      * @param { 'fastForward' } type - Command to register 'fastForward'.
      * @param { function } callback - Used to handle ('fastForward') command
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1245,7 +1310,8 @@ declare namespace avSession {
      * and the new callback will replace the previous one.
      * @param { 'rewind' } type - Command to register 'rewind'.
      * @param { function } callback - Used to handle ('rewind') command
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1258,7 +1324,8 @@ declare namespace avSession {
      * When canceling the callback, need to update the supported commands list.
      * @param { 'play' } type - Command to register 'play'.
      * @param { function } callback - Used to handle ('play') command
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1271,7 +1338,8 @@ declare namespace avSession {
      * When canceling the callback, need to update the supported commands list.
      * @param { 'pause' } type - Command to register 'pause'.
      * @param { function } callback - Used to handle ('pause') command
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1284,7 +1352,8 @@ declare namespace avSession {
      * When canceling the callback, need to update the supported commands list.
      * @param { 'stop' } type - Command to register 'stop'.
      * @param { function } callback - Used to handle ('stop') command
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1297,7 +1366,8 @@ declare namespace avSession {
      * When canceling the callback, need to update the supported commands list.
      * @param { 'playNext' } type - Command to register 'playNext'.
      * @param { function } callback - Used to handle ('playNext') command
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1310,7 +1380,8 @@ declare namespace avSession {
      * When canceling the callback, need to update the supported commands list.
      * @param { 'playPrevious' } type - Command to register 'playPrevious'.
      * @param { function } callback - Used to handle ('playPrevious') command
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1323,7 +1394,8 @@ declare namespace avSession {
      * When canceling the callback, need to update the supported commands list.
      * @param { 'fastForward' } type - Command to register 'fastForward'.
      * @param { function } callback - Used to handle ('fastForward') command
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1336,7 +1408,8 @@ declare namespace avSession {
      * When canceling the callback, need to update the supported commands list.
      * @param { 'rewind' } type - Command to register 'rewind'.
      * @param { function } callback - Used to handle ('rewind') command
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1353,7 +1426,8 @@ declare namespace avSession {
      * and the new callback will replace the previous one.
      * @param { 'playFromAssetId' } type - Command to register 'playFromAssetId'.
      * @param { function } callback - Used to handle ('playFromAssetId') command
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1365,7 +1439,8 @@ declare namespace avSession {
      * Unregister playFromAssetId command callback.
      * @param { 'playFromAssetId' } type - Command to register 'playFromAssetId'.
      * @param { function } callback - Used to handle ('playFromAssetId') command
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1377,7 +1452,8 @@ declare namespace avSession {
      * Register seek command callback
      * @param { 'seek' } type - Registration Type 'seek'
      * @param { function } callback - Used to handle seek command.The callback provides the seek time(ms)
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1389,7 +1465,8 @@ declare namespace avSession {
      * Unregister seek command callback
      * @param { 'seek' } type - Registration Type 'seek'
      * @param { function } callback - Used to handle seek command.The callback provides the seek time(ms)
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1401,7 +1478,8 @@ declare namespace avSession {
      * Register setSpeed command callback
      * @param { 'setSpeed' } type - Registration Type 'setSpeed'
      * @param { function } callback - Used to handle setSpeed command.The callback provides the speed value
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1413,7 +1491,8 @@ declare namespace avSession {
      * Unregister setSpeed command callback
      * @param { 'setSpeed' } type - Registration Type 'setSpeed'
      * @param { function } callback - Used to handle setSpeed command.The callback provides the speed value
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1425,7 +1504,8 @@ declare namespace avSession {
      * Register setLoopMode command callback
      * @param { 'setLoopMode' } type - Registration Type 'setLoopMode'
      * @param { function } callback - Used to handle setLoopMode command.The callback provides the {@link LoopMode}
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1437,7 +1517,8 @@ declare namespace avSession {
      * Unregister setLoopMode command callback
      * @param { 'setLoopMode' } type - Registration Type 'setLoopMode'
      * @param { function } callback - Used to handle setLoopMode command.The callback provides the {@link LoopMode}
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1450,7 +1531,8 @@ declare namespace avSession {
      * @param { 'toggleFavorite' } type - Registration Type 'toggleFavorite'
      * @param { function } callback - Used to handle toggleFavorite command.The callback provides
      * the assetId for which the favorite status needs to be switched.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1463,7 +1545,8 @@ declare namespace avSession {
      * @param { 'toggleFavorite' } type - Registration Type 'toggleFavorite'
      * @param { function } callback - Used to handle toggleFavorite command.The callback provides
      * the assetId for which the favorite status needs to be switched.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1475,7 +1558,8 @@ declare namespace avSession {
      * Register media key handling callback
      * @param { 'handleKeyEvent' } type - Registration Type 'handleKeyEvent'
      * @param { function } callback - Used to handle key events.The callback provides the KeyEvent
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1487,7 +1571,8 @@ declare namespace avSession {
      * Unregister media key handling callback
      * @param { 'handleKeyEvent' } type - Registration Type 'handleKeyEvent'
      * @param { function } callback - Used to handle key events.The callback provides the KeyEvent
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1500,7 +1585,8 @@ declare namespace avSession {
      * @param { 'outputDeviceChange' } type - Registration Type 'outputDeviceChange'
      * @param { function } callback - Used to handle output device changed.
      * The callback provide the new device info {@link OutputDeviceInfo} and related connection state {@link ConnectionState}.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @throws { BusinessError } 6600102 - The session does not exist
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1511,7 +1597,8 @@ declare namespace avSession {
      * @param { 'outputDeviceChange' } type - Registration Type 'outputDeviceChange'
      * @param { function } callback - Used to handle output device changed.
      * The callback provide the new device info {@link OutputDeviceInfo} and related connection state {@link ConnectionState}.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @throws { BusinessError } 6600102 - The session does not exist
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1525,7 +1612,8 @@ declare namespace avSession {
      * @param { 'outputDeviceChange' } type - Registration Type 'outputDeviceChange'
      * @param { function } callback - Used to handle output device changed.
      * The callback provide the new device info {@link OutputDeviceInfo} and related connection state {@link ConnectionState}.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @throws { BusinessError } 6600102 - The session does not exist
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1536,7 +1624,8 @@ declare namespace avSession {
      * @param { 'outputDeviceChange' } type - Registration Type 'outputDeviceChange'
      * @param { function } callback - Used to handle output device changed.
      * The callback provide the new device info {@link OutputDeviceInfo} and related connection state {@link ConnectionState}.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @throws { BusinessError } 6600102 - The session does not exist
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1550,7 +1639,8 @@ declare namespace avSession {
      * @param { 'commonCommand' } type - Registration Type 'commonCommand'
      * @param { function } callback - Used to handle event when the common command is received
      * The callback provide the command name and command args
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1563,7 +1653,8 @@ declare namespace avSession {
      * @param { 'commonCommand' } type - Registration Type 'commonCommand'
      * @param { function } callback - Used to cancel a specific listener
      * The callback provide the command name and command args
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1576,7 +1667,8 @@ declare namespace avSession {
      * @param { 'skipToQueueItem' } type - Registration Type 'skipToQueueItem'
      * @param { function } callback - Used to handle the item to be played.
      * The callback provide the new device info {@link OutputDeviceInfo}
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1589,7 +1681,8 @@ declare namespace avSession {
      * @param { 'skipToQueueItem' } type - Registration Type 'skipToQueueItem'
      * @param { function } callback - Used to handle the item to be played.
      * The callback provide the new device info {@link OutputDeviceInfo}
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1603,7 +1696,8 @@ declare namespace avSession {
      * If you cancel the callback, you need to call off {@link off}
      * @param { 'answer' } type - Command to register 'answer'.
      * @param { Callback<void> } callback - Used to handle ('answer') command
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1615,7 +1709,8 @@ declare namespace avSession {
      * Unregister answer command callback.
      * @param { 'answer' } type - Command to register 'answer'.
      * @param { Callback<void> } callback - Used to handle ('answer') command
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1629,7 +1724,8 @@ declare namespace avSession {
      * If you cancel the callback, you need to call off {@link off}
      * @param { 'hangUp' } type - Command to register 'hangUp'.
      * @param { Callback<void> } callback - Used to handle ('hangUp') command
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1641,7 +1737,8 @@ declare namespace avSession {
      * Unregister hangUp command callback.
      * @param { 'hangUp' } type - Command to register 'hangUp'.
      * @param { Callback<void> } callback - Used to handle ('hangUp') command
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1655,7 +1752,8 @@ declare namespace avSession {
      * If you cancel the callback, you need to call off {@link off}
      * @param { 'toggleCallMute' } type - Command to register 'toggleCallMute'.
      * @param { Callback<void> } callback - Used to handle ('toggleCallMute') command
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1667,7 +1765,7 @@ declare namespace avSession {
      * Unregister toggleCallMute command callback.
      * @param { 'toggleCallMute' } type - Command to register 'toggleCallMute'.
      * @param { Callback<void> } callback - Used to handle ('toggleCallMute') command
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1679,7 +1777,8 @@ declare namespace avSession {
      * Register listener for cast display information changed.
      * @param { 'castDisplayChange' } type - Type of the 'castDisplayChange' to listen for.
      * @param { Callback<CastDisplayInfo> } callback - Callback used to return cast display information.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @throws { BusinessError } 6600102 - The session does not exist
      * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
@@ -1691,7 +1790,8 @@ declare namespace avSession {
      * Unregister listener for cast display information changed.
      * @param { 'castDisplayChange' } type - Type of the 'castDisplayChange' to listen for.
      * @param { Callback<CastDisplayInfo> } callback - Callback used to return cast display information.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @throws { BusinessError } 6600102 - The session does not exist
      * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
@@ -1898,7 +1998,8 @@ declare namespace avSession {
      * Set a surface instance to display playing view, used at sink side.
      * @param { string } surfaceId - surface id, video player will use this id get a surface instance.
      * @param { AsyncCallback<void> } callback - A callback instance used to return when set surface completed.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Parameter verification failed.
      * @throws { BusinessError } 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @systemapi
@@ -1910,7 +2011,8 @@ declare namespace avSession {
      * Set a surface instance to display playing view, used at sink side.
      * @param { string } surfaceId - surface id, video player will use this id get a surface instance.
      * @returns { Promise<void> } Promise used to return the result.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Parameter verification failed.
      * @throws { BusinessError } 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @systemapi
@@ -1948,7 +2050,8 @@ declare namespace avSession {
      * Send control commands to remote player
      * @param { AVCastControlCommand } command The command to be send.
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception
      * @throws { BusinessError } 6600105 - Invalid session command
      * @throws { BusinessError } 6600109 - The remote connection is not established
@@ -1961,7 +2064,8 @@ declare namespace avSession {
      * Send control commands to remote player
      * @param { AVCastControlCommand } command The command to be send.
      * @returns { Promise<void> } Promise used to return the result.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception
      * @throws { BusinessError } 6600105 - Invalid session command
      * @throws { BusinessError } 6600109 - The remote connection is not established
@@ -1972,7 +2076,8 @@ declare namespace avSession {
      * Send control commands to remote player
      * @param { AVCastControlCommand } command The command to be send.
      * @returns { Promise<void> } Promise used to return the result.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception
      * @throws { BusinessError } 6600105 - Invalid session command
      * @throws { BusinessError } 6600109 - The remote connection is not established
@@ -1986,7 +2091,8 @@ declare namespace avSession {
      * Play the current item, should contain mediaUri otherwise the playback will fail.
      * @param { AVQueueItem } item media item info.
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
-     * @throws {BusinessError} 401 - parameter check failed
+     * @throws {BusinessError} 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Parameter verification failed.
      * @throws {BusinessError} 6600101 - Session service exception
      * @throws {BusinessError} 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -1998,7 +2104,8 @@ declare namespace avSession {
      * Play the current item, should contain mediaUri otherwise the playback will fail.
      * @param { AVQueueItem } item media item info.
      * @returns { Promise<void> } Promise used to return the result.
-     * @throws {BusinessError} 401 - parameter check failed
+     * @throws {BusinessError} 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Parameter verification failed.
      * @throws {BusinessError} 6600101 - Session service exception
      * @throws {BusinessError} 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -2008,7 +2115,8 @@ declare namespace avSession {
      * Play the current item, should contain mediaUri otherwise the playback will fail.
      * @param { AVQueueItem } item media item info.
      * @returns { Promise<void> } Promise used to return the result.
-     * @throws {BusinessError} 401 - parameter check failed
+     * @throws {BusinessError} 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Parameter verification failed.
      * @throws {BusinessError} 6600101 - Session service exception
      * @throws {BusinessError} 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -2021,7 +2129,8 @@ declare namespace avSession {
      * Load the current item and mediaUri can be null, this is needed for sink media information displaying
      * @param { AVQueueItem } item media item info.
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
-     * @throws {BusinessError} 401 - parameter check failed
+     * @throws {BusinessError} 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Parameter verification failed.
      * @throws {BusinessError} 6600101 - Session service exception
      * @throws {BusinessError} 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -2033,7 +2142,8 @@ declare namespace avSession {
      * Load the current item and mediaUri can be null, this is needed for sink media information displaying
      * @param { AVQueueItem } item media item info.
      * @returns { Promise<void> } Promise used to return the result.
-     * @throws {BusinessError} 401 - parameter check failed
+     * @throws {BusinessError} 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Parameter verification failed.
      * @throws {BusinessError} 6600101 - Session service exception
      * @throws {BusinessError} 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -2043,7 +2153,8 @@ declare namespace avSession {
      * Load the current item and mediaUri can be null, this is needed for sink media information displaying
      * @param { AVQueueItem } item media item info.
      * @returns { Promise<void> } Promise used to return the result.
-     * @throws {BusinessError} 401 - parameter check failed
+     * @throws {BusinessError} 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Parameter verification failed.
      * @throws {BusinessError} 6600101 - Session service exception
      * @throws {BusinessError} 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -2101,7 +2212,8 @@ declare namespace avSession {
      * @param { string } assetId - The assetId of resource which provides the response.
      * @param { Uint8Array } response - Response corresponding to the request.
      * @returns { Promise<void> } void promise when executed successfully
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 12
@@ -2140,7 +2252,8 @@ declare namespace avSession {
      * @param { Array<keyof AVPlaybackState> | 'all' } filter - The properties of {@link AVPlaybackState} that you cared about
      * @param { function } callback - The callback used to handle playback state changed event.
      * The callback function provides the {@link AVPlaybackState} parameter.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
@@ -2151,7 +2264,8 @@ declare namespace avSession {
      * @param { Array<keyof AVPlaybackState> | 'all' } filter - The properties of {@link AVPlaybackState} that you cared about
      * @param { function } callback - The callback used to handle playback state changed event.
      * The callback function provides the {@link AVPlaybackState} parameter.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
@@ -2164,7 +2278,8 @@ declare namespace avSession {
      * @param { 'playbackStateChange' } type
      * @param { function } callback - The callback used to handle playback state changed event.
      * The callback function provides the {@link AVPlaybackState} parameter.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
@@ -2174,7 +2289,8 @@ declare namespace avSession {
      * @param { 'playbackStateChange' } type
      * @param { function } callback - The callback used to handle playback state changed event.
      * The callback function provides the {@link AVPlaybackState} parameter.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
@@ -2186,7 +2302,8 @@ declare namespace avSession {
      * Register listener for current media item playback events.
      * @param { 'mediaItemChange' } type Type of the playback event to listen for.
      * @param { Callback<AVQueueItem> } callback Callback used to listen for current item changed.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
@@ -2195,7 +2312,8 @@ declare namespace avSession {
      * Register listener for current media item playback events.
      * @param { 'mediaItemChange' } type Type of the playback event to listen for.
      * @param { Callback<AVQueueItem> } callback Callback used to listen for current item changed.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
@@ -2206,7 +2324,8 @@ declare namespace avSession {
     /**
      * Unregister listener for current media item playback events.
      * @param { 'mediaItemChange' } type Type of the playback event to listen for.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
@@ -2214,7 +2333,8 @@ declare namespace avSession {
     /**
      * Unregister listener for current media item playback events.
      * @param { 'mediaItemChange' } type Type of the playback event to listen for.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
@@ -2227,7 +2347,8 @@ declare namespace avSession {
      * Application needs update the new media resource when receive these commands by using playItem.
      * @param { 'playNext' } type - Type of the 'playNext' event to listen for.
      * @param { Callback<void> } callback - Used to handle 'playNext' command
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
@@ -2237,7 +2358,8 @@ declare namespace avSession {
      * Application needs update the new media resource when receive these commands by using playItem.
      * @param { 'playNext' } type - Type of the 'playNext' event to listen for.
      * @param { Callback<void> } callback - Used to handle 'playNext' command
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
@@ -2249,7 +2371,8 @@ declare namespace avSession {
      * Unregister playback command callback sent by remote side or media center.
      * When canceling the callback, need to update the supported commands list.
      * @param { 'playNext' } type - Type of the 'playNext' event to listen for.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
@@ -2258,7 +2381,8 @@ declare namespace avSession {
      * Unregister playback command callback sent by remote side or media center.
      * When canceling the callback, need to update the supported commands list.
      * @param { 'playNext' } type - Type of the 'playNext' event to listen for.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
@@ -2271,7 +2395,8 @@ declare namespace avSession {
      * Application needs update the new media resource when receive these commands by using playItem.
      * @param { 'playPrevious' } type - Type of the 'playPrevious' to listen for.
      * @param { Callback<void> } callback - Used to handle 'playPrevious' command
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
@@ -2281,7 +2406,8 @@ declare namespace avSession {
      * Application needs update the new media resource when receive these commands by using playItem.
      * @param { 'playPrevious' } type - Type of the 'playPrevious' to listen for.
      * @param { Callback<void> } callback - Used to handle 'playPrevious' command
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
@@ -2293,7 +2419,8 @@ declare namespace avSession {
      * Unregister playback command callback sent by remote side or media center.
      * When canceling the callback, need to update the supported commands list.
      * @param { 'playPrevious' } type - Type of the 'playPrevious' to listen for.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
@@ -2302,7 +2429,8 @@ declare namespace avSession {
      * Unregister playback command callback sent by remote side or media center.
      * When canceling the callback, need to update the supported commands list.
      * @param { 'playPrevious' } type - Type of the 'playPrevious' to listen for.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
@@ -2315,7 +2443,8 @@ declare namespace avSession {
      * The AVQueueItem may include the requested assetId, starting position and other configurations.
      * @param { 'requestPlay' } type - Type of the 'requestPlay' to listen for.
      * @param { Callback<AVQueueItem> } callback - Used to handle 'requestPlay' command
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 11
@@ -2326,7 +2455,8 @@ declare namespace avSession {
      * Unregister requested playback command callback sent by remote side or media center.
      * @param { 'requestPlay' } type - Type of the 'requestPlay' to listen for.
      * @param { Callback<AVQueueItem> } callback - Used to handle 'requestPlay' command
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 11
@@ -2338,7 +2468,8 @@ declare namespace avSession {
      * Application needs update the new media resource when receive these commands by using playItem.
      * @param { 'endOfStream' } type - Type of the 'endOfStream' to listen for.
      * @param { Callback<void> } callback - Used to handle 'endOfStream' command
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 11
@@ -2349,7 +2480,8 @@ declare namespace avSession {
      * Unregister endOfStream state callback.
      * @param { 'endOfStream' } type - Type of the 'endOfStream' to listen for.
      * @param { Callback<void> } callback - Used to handle 'endOfStream' command
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 11
@@ -2360,7 +2492,8 @@ declare namespace avSession {
      * Register listens for playback events.
      * @param { 'seekDone' } type - Type of the 'seekDone' to listen for.
      * @param { Callback<number> } callback - Callback used to listen for the playback seekDone event.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
@@ -2369,7 +2502,8 @@ declare namespace avSession {
      * Register listens for playback events.
      * @param { 'seekDone' } type - Type of the 'seekDone' to listen for.
      * @param { Callback<number> } callback - Callback used to listen for the playback seekDone event.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
@@ -2380,7 +2514,8 @@ declare namespace avSession {
     /**
      * Unregister listens for playback events.
      * @param { 'seekDone' } type - Type of the 'seekDone' to listen for.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
@@ -2388,7 +2523,8 @@ declare namespace avSession {
     /**
      * Unregister listens for playback events.
      * @param { 'seekDone' } type - Type of the 'seekDone' to listen for.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
@@ -2401,7 +2537,8 @@ declare namespace avSession {
      * @param { 'validCommandChange' } type - 'validCommandChange'
      * @param { Callback<Array<AVCastControlCommandType>> } callback - The callback used to handle the changes.
      * The callback function provides an array of AVCastControlCommandType.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -2414,7 +2551,8 @@ declare namespace avSession {
      * @param { 'validCommandChange' } type - 'validCommandChange'
      * @param { Callback<Array<AVCastControlCommandType>> } callback - The callback used to handle the changes.
      * The callback function provides an array of AVCastControlCommandType.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -2426,7 +2564,8 @@ declare namespace avSession {
      * Register listener for video size change event, used at remote side.
      * @param { 'videoSizeChange' } type - Type of the 'videoSizeChange' to listen for.
      * @param { function } callback - Callback used to return video size.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @systemapi
@@ -2437,7 +2576,8 @@ declare namespace avSession {
     /**
      * Unregister listener for video size change event, used at remote side.
      * @param { 'videoSizeChange' } type - Type of the 'videoSizeChange' to listen for.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @systemapi
@@ -2449,7 +2589,8 @@ declare namespace avSession {
      * Register listeners for playback error events.
      * @param { 'error' } type Type of the 'error' to listen for.
      * @param { ErrorCallback } callback Callback used to listen for the playback error event.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 5400101 - No memory.
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @throws { BusinessError } 5400103 - I/O error.
@@ -2464,7 +2605,8 @@ declare namespace avSession {
      * Register listeners for playback error events.
      * @param { 'error' } type Type of the 'error' to listen for.
      * @param { ErrorCallback } callback Callback used to listen for the playback error event.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 5400101 - No memory.
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @throws { BusinessError } 5400103 - I/O error.
@@ -2481,7 +2623,8 @@ declare namespace avSession {
     /**
      * Unregister listens for playback error events.
      * @param { 'error' } type Type of the 'error' to listen for.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 5400101 - No memory.
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @throws { BusinessError } 5400103 - I/O error.
@@ -2495,7 +2638,8 @@ declare namespace avSession {
     /**
      * Unregister listens for playback error events.
      * @param { 'error' } type Type of the 'error' to listen for.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 5400101 - No memory.
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @throws { BusinessError } 5400103 - I/O error.
@@ -2513,7 +2657,8 @@ declare namespace avSession {
      * Register listener for drm key request.
      * @param { 'keyRequest' } type - Type of the 'keyRequest' to listen for.
      * @param { KeyRequestCallback } callback - Callback used to request drm key.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
@@ -2525,7 +2670,8 @@ declare namespace avSession {
      * Unregister listener for drm key request.
      * @param { 'keyRequest' } type - Type of the 'keyRequest' to listen for.
      * @param { KeyRequestCallback } callback - Callback used to request drm key.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
@@ -4565,7 +4711,8 @@ declare namespace avSession {
      * Set the item in the playlist to be played
      * @param { number } itemId - The serial number of the item to be played
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
@@ -4578,7 +4725,8 @@ declare namespace avSession {
      * Set the item in the playlist to be played
      * @param { number } itemId - The serial number of the item to be played
      * @returns { Promise<void> } void promise when executed successfully
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
@@ -4621,7 +4769,8 @@ declare namespace avSession {
      * Send media key event to this session
      * @param { KeyEvent } event - The KeyEvent
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Parameter verification failed.
      * @throws { BusinessError } 600101 - Session service exception.
      * @throws { BusinessError } 600102 - The session does not exist.
      * @throws { BusinessError } 600103 - The session controller does not exist.
@@ -4636,7 +4785,8 @@ declare namespace avSession {
      * Send media key event to this session
      * @param { KeyEvent } event - The KeyEvent
      * @returns { Promise<void> } void promise when executed successfully
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Parameter verification failed.
      * @throws { BusinessError } 600101 - Session service exception.
      * @throws { BusinessError } 600102 - The session does not exist.
      * @throws { BusinessError } 600103 - The session controller does not exist.
@@ -4770,7 +4920,8 @@ declare namespace avSession {
      * Send control commands to this session
      * @param { AVControlCommand } command - The command to be sent. See {@link AVControlCommand}
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
@@ -4786,7 +4937,8 @@ declare namespace avSession {
      * Send control commands to this session
      * @param { AVControlCommand } command - The command to be sent. See {@link AVControlCommand}
      * @returns { Promise<void> } void promise when executed successfully
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
@@ -4803,7 +4955,8 @@ declare namespace avSession {
      * @param { string } command - The command name to be sent.
      * @param { object } args - The parameters of session event
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
@@ -4820,7 +4973,8 @@ declare namespace avSession {
      * @param { string } command - The command name to be sent.
      * @param { object } args - The parameters of session event
      * @returns { Promise<void> } void promise when executed successfully
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
@@ -4835,7 +4989,8 @@ declare namespace avSession {
     /**
      * Get custom media packets provided by the corresponding session
      * @param { AsyncCallback<{[key: string]: Object}> } callback - The triggered asyncCallback when (getExtras).
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
@@ -4849,7 +5004,8 @@ declare namespace avSession {
     /**
      * Get custom media packets provided by the corresponding session
      * @returns { Promise<{[key: string]: Object}> } the parameters of extras
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
@@ -4867,7 +5023,8 @@ declare namespace avSession {
      * @param { function } callback - The callback used to handle metadata changed event.
      * The callback function provides the {@link AVMetadata} parameter.
      * It only contains the properties set in the filter.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -4881,7 +5038,8 @@ declare namespace avSession {
      * @param { function } callback - The callback used to handle metadata changed event.
      * The callback function provides the {@link AVMetadata} parameter.
      * It only contains the properties set in the filter.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -4895,7 +5053,8 @@ declare namespace avSession {
      * @param { Array<keyof AVPlaybackState> | 'all' } filter - The properties of {@link AVPlaybackState} that you cared about
      * @param { function } callback - The callback used to handle playback state changed event.
      * The callback function provides the {@link AVPlaybackState} parameter.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -4908,7 +5067,8 @@ declare namespace avSession {
      * @param { 'playbackStateChange' } type
      * @param { function } callback - The callback used to handle playback state changed event.
      * The callback function provides the {@link AVPlaybackState} parameter.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -4923,7 +5083,8 @@ declare namespace avSession {
      * @param { Callback<CallMetadata> } callback - The callback used to handle call metadata changed event.
      * The callback function provides the {@link CallMetadata} parameter.
      * It only contains the properties set in the filter.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -4937,7 +5098,8 @@ declare namespace avSession {
      * @param { Callback<CallMetadata> } callback - The callback used to handle call metadata changed event.
      * The callback function provides the {@link CallMetadata} parameter.
      * It only contains the properties set in the filter.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -4951,7 +5113,8 @@ declare namespace avSession {
      * @param { Array<keyof AVCallState> | 'all' } filter - The properties of {@link AVCallState} that you cared about
      * @param { Callback<AVCallState> } callback - The callback used to handle call state changed event.
      * The callback function provides the {@link AVCallState} parameter.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -4964,7 +5127,8 @@ declare namespace avSession {
      * @param { 'callStateChange' } type - 'callStateChange'
      * @param { Callback<AVCallState> } callback - The callback used to handle call state changed event.
      * The callback function provides the {@link AVCallState} parameter.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -4976,7 +5140,8 @@ declare namespace avSession {
      * Register current session destroyed callback
      * @param { 'sessionDestroy' } type
      * @param { function } callback - The callback used to handle current session destroyed event.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -4988,7 +5153,8 @@ declare namespace avSession {
      * Unregister current session destroyed callback
      * @param { 'sessionDestroy' } type - 'sessionDestroy'
      * @param { function } callback - The callback used to handle current session destroyed event.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -5001,7 +5167,8 @@ declare namespace avSession {
      * @param { 'activeStateChange' } type - 'activeStateChange'
      * @param { function } callback - The callback used to handle the active state of this session changed event.
      * The callback function provides the changed session state.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -5014,7 +5181,8 @@ declare namespace avSession {
      * @param { 'activeStateChange' } type - 'activeStateChange'
      * @param { function } callback - The callback used to handle the active state of this session changed event.
      * The callback function provides the changed session state.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -5027,7 +5195,8 @@ declare namespace avSession {
      * @param { 'validCommandChange' } type - 'validCommandChange'
      * @param { function } callback - The callback used to handle the changes.
      * The callback function provides an array of AVControlCommandType.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -5040,7 +5209,8 @@ declare namespace avSession {
      * @param { 'validCommandChange' } type - 'validCommandChange'
      * @param { function } callback - The callback used to handle the changes.
      * The callback function provides an array of AVControlCommandType.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -5053,7 +5223,8 @@ declare namespace avSession {
      * @param { 'outputDeviceChange' } type - Registration Type 'outputDeviceChange'
      * @param { function } callback - Used to handle output device changed.
      * The callback provide the new device info {@link OutputDeviceInfo} and related connection state {@link ConnectionState}.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @throws { BusinessError } 6600103 - The session controller does not exist
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -5066,7 +5237,8 @@ declare namespace avSession {
      * @param { 'outputDeviceChange' } type - Registration Type 'outputDeviceChange'
      * @param { function } callback - Used to handle output device changed.
      * The callback provide the new device info {@link OutputDeviceInfo} and related connection state {@link ConnectionState}.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @throws { BusinessError } 6600103 - The session controller does not exist
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -5079,7 +5251,8 @@ declare namespace avSession {
      * @param { 'sessionEvent' } type - 'sessionEvent'
      * @param { function } callback - The callback used to handle session event changed event.
      * The callback function provides the event string and key-value pair parameters.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -5092,7 +5265,8 @@ declare namespace avSession {
      * @param { 'sessionEvent' } type - 'sessionEvent'
      * @param { function } callback - Used to cancel a specific listener
      * The callback function provides the event string and key-value pair parameters.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -5105,7 +5279,8 @@ declare namespace avSession {
      * @param { 'queueItemsChange' } type - Registration Type 'queueItemsChange'
      * @param { function } callback - Used to handle playlist changed.
      * The callback provides the new array of AVQueueItem {@link AVQueueItem}
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -5118,7 +5293,8 @@ declare namespace avSession {
      * @param { 'queueItemsChange' } type - Registration Type 'queueItemsChange'
      * @param { function } callback - Used to handle playlist changed.
      * The callback provides the new array of AVQueueItem {@link AVQueueItem}
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -5131,7 +5307,8 @@ declare namespace avSession {
      * @param { 'queueTitleChange' } type - Registration Type 'queueTitleChange'
      * @param { function } callback - Used to handle name of playlist changed.
      * The callback provides the new name.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -5144,7 +5321,8 @@ declare namespace avSession {
      * @param { 'queueTitleChange' } type - Registration Type 'queueTitleChange'
      * @param { function } callback - Used to handle name of playlist changed.
      * The callback provides the new name.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -5157,7 +5335,8 @@ declare namespace avSession {
      * @param { 'extrasChange' } type - Registration Type 'extrasChange'
      * @param { function } callback - Used to handle custom media packets changed.
      * The callback provides the new media packets.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -5170,7 +5349,8 @@ declare namespace avSession {
      * @param { 'extrasChange' } type - Registration Type 'extrasChange'
      * @param { function } callback - Used to handle custom media packets changed.
      * The callback provides the new media packets.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
