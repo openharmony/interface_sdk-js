@@ -64,6 +64,7 @@ declare namespace unifiedDataChannel {
 
   /**
    * Indicated delay get UnifiedData
+   * 
    * @typedef {function} GetDelayData
    * @param { string } type - the type of UnifiedData required.
    * @returns { UnifiedData } Return the UnifiedData required.
@@ -1045,6 +1046,7 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the intention of drag
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @systemapi
      * @StageModelOnly
