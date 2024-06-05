@@ -624,6 +624,14 @@ declare class VideoController {
    * @since 11
    */
   setCurrentTime(value: number, seekMode: SeekMode);
+
+  /**
+   * Provide the reset method of video playback.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  reset(): void;
 }
 
 /**
