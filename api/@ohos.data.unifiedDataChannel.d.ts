@@ -1046,7 +1046,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the intention of drag
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @systemapi
      * @StageModelOnly
