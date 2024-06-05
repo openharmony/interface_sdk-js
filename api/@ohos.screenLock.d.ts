@@ -104,7 +104,7 @@ declare namespace screenLock {
    * Unlock the screen.
    *
    * @param { AsyncCallback<boolean> } callback - the callback of unlock.
-   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
    * @syscap SystemCapability.MiscServices.ScreenLock
@@ -115,7 +115,7 @@ declare namespace screenLock {
    * Unlock the screen.
    *
    * @param { AsyncCallback<boolean> } callback - the callback of unlock.
-   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
    * @throws { BusinessError } 13200003 - illegal use.
@@ -153,7 +153,7 @@ declare namespace screenLock {
    *
    * @permission ohos.permission.ACCESS_SCREEN_LOCK_INNER
    * @param { AsyncCallback<boolean> } callback - the callback of lock.
-   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 201 - permission denied.
    * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
@@ -233,7 +233,7 @@ declare namespace screenLock {
    * @permission ohos.permission.ACCESS_SCREEN_LOCK_INNER
    * @param { Callback<SystemEvent> } callback - the callback of onSystemEvent.
    * @returns { boolean } returns true if register system event is success, returns false otherwise.
-   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 201 - permission denied.
    * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
@@ -250,7 +250,7 @@ declare namespace screenLock {
    * @param { String } event - event type.
    * @param { number } parameter - operation result of the event.
    * @param { AsyncCallback<boolean> } callback - the callback of sendScreenLockEvent.
-   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 201 - permission denied.
    * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
@@ -267,7 +267,7 @@ declare namespace screenLock {
    * @param { String } event - event type.
    * @param { number } parameter - operation result of the event.
    * @returns { Promise<boolean> } the promise returned by the function.
-   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 201 - permission denied.
    * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
