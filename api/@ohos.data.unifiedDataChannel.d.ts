@@ -64,6 +64,7 @@ declare namespace unifiedDataChannel {
 
   /**
    * Indicated delay get UnifiedData
+   * 
    * @typedef {function} GetDelayData
    * @param { string } type - the type of UnifiedData required.
    * @returns { UnifiedData } Return the UnifiedData required.
