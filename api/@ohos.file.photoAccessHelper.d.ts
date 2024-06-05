@@ -3471,6 +3471,16 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     preselectedUris?: Array<string>;
+
+    /**
+     * Support preview in single selection mode or not
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    isPreviewForSingleSelectionSupported?: boolean;
   }
 
   /**
@@ -3504,6 +3514,16 @@ declare namespace photoAccessHelper {
      * @since 11
      */
     isEditSupported?: boolean;
+
+    /**
+     * Support select original image or not
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    isOriginalImageSelectionSupported?: boolean;
   }
 
   /**
