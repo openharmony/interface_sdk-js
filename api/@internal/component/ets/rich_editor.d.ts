@@ -675,6 +675,15 @@ declare interface RichEditorTextSpan {
  * @crossplatform
  * @since 11
  */
+/**
+ * Defines the richEditor Image Layout Style.
+ *
+ * @interface RichEditorLayoutStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 interface RichEditorLayoutStyle {
   /**
    * Outer Margin.
@@ -2197,6 +2206,15 @@ declare interface RichEditorUpdateSymbolSpanStyleOptions extends RichEditorSpanS
  * @crossplatform
  * @since 11
  */
+/**
+ * Defines the symbol span options of RichEditor.
+ *
+ * @interface RichEditorSymbolSpanOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare interface RichEditorSymbolSpanOptions {
   /**
    * The offset that add custom symbol span at.
@@ -3518,6 +3536,7 @@ declare type SubmitCallback = (enterKey: EnterKeyType, event: SubmitEvent) => vo
  * @param { number } end - End offset of the selected content in rich editor.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare type MenuOnAppearCallback = (start: number, end: number) => void;

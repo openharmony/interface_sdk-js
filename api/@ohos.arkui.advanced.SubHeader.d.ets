@@ -212,6 +212,7 @@ export declare class SelectOptions {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare enum SymbolRenderingStrategy {
@@ -220,6 +221,7 @@ declare enum SymbolRenderingStrategy {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   SINGLE = 0,
@@ -229,6 +231,7 @@ declare enum SymbolRenderingStrategy {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   MULTIPLE_COLOR = 1,
@@ -238,6 +241,7 @@ declare enum SymbolRenderingStrategy {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   MULTIPLE_OPACITY = 2,
@@ -249,6 +253,7 @@ declare enum SymbolRenderingStrategy {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare enum SymbolEffectStrategy {
@@ -257,6 +262,7 @@ declare enum SymbolEffectStrategy {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   NONE = 0,
@@ -266,6 +272,7 @@ declare enum SymbolEffectStrategy {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   SCALE = 1,
@@ -275,6 +282,7 @@ declare enum SymbolEffectStrategy {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   HIERARCHICAL = 2,
