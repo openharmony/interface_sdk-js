@@ -10076,6 +10076,7 @@ declare interface SheetDismiss {
  * @interface DismissSheetAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface DismissSheetAction {
@@ -10108,6 +10109,7 @@ declare interface DismissSheetAction {
  * @interface SpringBackAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface SpringBackAction {
@@ -20188,6 +20190,15 @@ declare type NavigationInfo = import('../api/@ohos.arkui.observer').default.Navi
  * @crossplatform
  * @since 11
  */
+/**
+ * UIContext
+ *
+ * @typedef {import('../api/@ohos.arkui.UIContext').UIContext} UIContext
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare type UIContext = import('../api/@ohos.arkui.UIContext').UIContext;
 
 /**
@@ -21767,6 +21778,7 @@ declare module 'touchEvent'{
  * @typedef Callback
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface Callback<T, V = void> {
@@ -21777,6 +21789,7 @@ declare interface Callback<T, V = void> {
    * @returns { V } - Returns result of the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   (data: T): V;

@@ -2238,6 +2238,16 @@ declare interface LocalizedEdges {
  * @since 11
  * @form
  */
+/**
+ * Defines the Bias.
+ *
+ * @interface Bias
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ * @form
+ */
 declare interface Bias {
   /**
    * Horizontal ratio of the Bias, it must be >= 0.
