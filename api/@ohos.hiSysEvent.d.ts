@@ -537,7 +537,7 @@ declare namespace hiSysEvent {
    *                         1. Mandatory parameters are left unspecified.
    *                         2. Incorrect parameter types.
    *                         3. Parameter verification failed.
-   * @throws {BusinessError} 11200305 – Failed to unsubscribe.
+   * @throws {BusinessError} 11200305 – Unsubscription failed.
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 10
