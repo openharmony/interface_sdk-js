@@ -6388,6 +6388,15 @@ declare namespace window {
      * @since 12
      */
     isModal?: boolean;
+    /**
+     * Indicates whether subwindow is topmost
+     * 
+     * @type { ?boolean }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    isTopmost?: boolean;
   }
   /**
    * WindowStage
