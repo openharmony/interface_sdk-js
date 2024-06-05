@@ -19,34 +19,6 @@
  */
 
 /**
- * Enumeration of different types of DpiFollowStrategy.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @since 12
- */
-declare enum DpiFollowStrategy {
-  /**
-   * Followed the host DPI.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 12
-   */
-  FOLLOW_HOST_DPI = 0,
-
-  /**
-   * Followed the UIExtensionAbility.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 12
-   */
-  FOLLOW_UI_EXTENSION_ABILITY_DPI = 1,
-}
-
-/**
  * This interface is used to set the options for UIExtensionComponentAttribute during construction
  *
  * @interface UIExtensionOptions
@@ -77,17 +49,6 @@ declare interface UIExtensionOptions {
    * @since 12
    */
   placeholder?: ComponentContent;
-
-  /**
-   * Set UIExtensionComponent Content Dpi Follow Strategy.
-   *
-   * @type { ?DpiFollowStrategy }
-   * @default DpiFollowStrategy.FOLLOW_HOST_DPI
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 12
-   */
-  dpiFollowStrategy?: DpiFollowStrategy;
 }
 
 /**
