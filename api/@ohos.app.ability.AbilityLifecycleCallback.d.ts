@@ -117,7 +117,7 @@ export default class AbilityLifecycleCallback {
    * @atomicservice
    * @since 12
    */
-  onWillNewWant(ability: UIAbility): void;
+  onWillNewWant?(ability: UIAbility): void;
 
   /**
    * Called back after the UIAbility called onNewWant.
@@ -128,7 +128,7 @@ export default class AbilityLifecycleCallback {
    * @atomicservice
    * @since 12
    */
-  onNewWant(ability: UIAbility): void;
+  onNewWant?(ability: UIAbility): void;
 
   /**
    * Called back when a window stage is active.
