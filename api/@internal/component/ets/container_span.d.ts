@@ -95,9 +95,9 @@ declare class ContainerSpanAttribute {
 
   /**
    * Sets the attribute modifier.
-   *
-   * @param { AttributeModifier<ContainerSpanAttribute> } modifier
-   * @returns { ContainerSpanAttribute }
+   * 
+   * @param { AttributeModifier<ContainerSpanAttribute> } modifier - The instance of contain span modifier.
+   * @returns { ContainerSpanAttribute } the attribute of the ContainerSpanAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice

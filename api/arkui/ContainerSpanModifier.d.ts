@@ -19,8 +19,8 @@
  */
 
 /**
- * Defines ContainerSpan Modifier
- *
+ * Defines ContainerSpan modifier, the base class for quick use modifier ability
+ * 
  * @extends ContainerSpanAttribute
  * @implements AttributeModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -32,12 +32,12 @@ export declare class ContainerSpanModifier extends ContainerSpanAttribute implem
 
   /**
    * Defines the normal update attribute function.
-   *
-   * @param { ContainerSpanAttribute } instance
+   * 
+   * @param { ContainerSpanAttribute } containerSpanAttribute - The instance of ContainerSpanAttribute
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?(instance: ContainerSpanAttribute): void;
+  applyNormalAttribute?(containerSpanAttribute: ContainerSpanAttribute): void;
 }
