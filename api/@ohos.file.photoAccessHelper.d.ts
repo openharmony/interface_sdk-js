@@ -3516,14 +3516,14 @@ declare namespace photoAccessHelper {
     isEditSupported?: boolean;
 
     /**
-     * Support select original image or not
+     * Support select original photo or not
      *
      * @type { ?boolean }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12
      */
-    isOriginalImageSelectionSupported?: boolean;
+    isOriginalPhotoSelectionSupported?: boolean;
   }
 
   /**
