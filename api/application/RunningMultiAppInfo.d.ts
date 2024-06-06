@@ -33,8 +33,9 @@ export interface RunningMultiAppInfo {
 
 
   /**
+   * The name of the bundle.
+   *
    * @type { string }
-   * @default the name of the bundle
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 12
