@@ -5749,7 +5749,7 @@ declare function writeSync(
 /**
  * Connect Distributed File System.
  *
- * @permission ohos.permission.DISTRIBUTED_DATASYNC and ohos.permission.FILE_ACCESS_MANAGER
+ * @permission ohos.permission.DISTRIBUTED_DATASYNC
  * @param { string } networkId - The networkId of device.
  * @param { DfsListeners } listeners - The listeners of Distributed File System.
  * @returns { Promise<void> } The promise returned by the function.
@@ -5766,7 +5766,7 @@ declare function connectDfs(networkId: string, listeners: DfsListeners): Promise
 /**
  * Disconnect Distributed File System.
  *
- * @permission ohos.permission.DISTRIBUTED_DATASYNC and ohos.permission.FILE_ACCESS_MANAGER
+ * @permission ohos.permission.DISTRIBUTED_DATASYNC
  * @param { string } networkId - The networkId of device.
  * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 201 - Permission denied.
