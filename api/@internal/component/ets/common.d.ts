@@ -13048,16 +13048,6 @@ declare interface MenuElement {
   icon?: ResourceStr;
 
   /**
-   * Sets the symbol of the menu element.
-   *
-   * @type { ?SymbolGlyphModifier }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  symbolIcon?: SymbolGlyphModifier;
-
-  /**
    * If the value is true, the menu element is available and can respond to operations such as clicking.
    * If the value is false, the menu element is not available and click operations are not responded.
    *
