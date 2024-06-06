@@ -12,7 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import path, { ParsedPath } from 'path';
+import path from 'path';
 import fs, { Stats } from 'fs';
 import { Workbook, Worksheet } from 'exceljs';
 import ts, { LineAndCharacter } from 'typescript';
@@ -247,28 +247,6 @@ export class CommonFunctions {
       }
     });
     return implementsApiValue;
-  }
-
-  static getMdFiles(url: string) {
-    const mdFiles: string[] = [];
-    const content: string = fs.readFileSync(url, 'utf-8');
-    const filePathArr: string[] = content.split(/[(\r\n)\r\n]+/);
-    filePathArr.forEach((filePath: string) => {
-      const pathElements: Set<string> = new Set();
-      CommonFunctions.splitPath(filePath, pathElements);
-      if (!pathElements.has('build-tools')) {
-        mdFiles.push(filePath);
-      }
-    });
-    return mdFiles;
-  }
-
-  static splitPath(filePath: string, pathElements: Set<string>) {
-    let spliteResult: ParsedPath = path.parse(filePath);
-    if (spliteResult.base !== '') {
-      pathElements.add(spliteResult.base);
-      CommonFunctions.splitPath(spliteResult.dir, pathElements);
-    }
   }
 }
 
