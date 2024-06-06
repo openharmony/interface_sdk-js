@@ -17,9 +17,6 @@
  * @file
  * @kit IMEKit
  */
-
-/// <reference path="../component/common_ts_ets_api.d.ts"/>
-
 import type { AsyncCallback, Callback } from './@ohos.base';
 import type { KeyEvent as InputKeyEvent } from './@ohos.multimodalInput.keyEvent';
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
