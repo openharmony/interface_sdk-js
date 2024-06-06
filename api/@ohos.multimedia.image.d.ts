@@ -3166,6 +3166,15 @@ declare namespace image {
      * @since 12
      */
     desiredDynamicRange?: PackingDynamicRange;
+
+    /**
+     * Whether the Exif data is needed.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @since 12
+     */
+    needExif?: boolean;
   }
 
   /**
