@@ -292,6 +292,7 @@ declare namespace backup {
    * Update send file fd rate.
    *
    * @permission ohos.permission.BACKUP
+   * @param { string } bundleName set update to bundleName app.
    * @param { number } sendRate set send file fd rate.
    * @returns { boolean } Return update result, true is success, false is fail.
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
@@ -302,7 +303,7 @@ declare namespace backup {
    * @systemapi
    * @since 12
   */
-  function updateSendRate(sendRate: number): boolean;
+  function updateSendRate(bundleName: string, sendRate: number): boolean;
 
   /**
    * General callbacks for both backup and restore procedure.
