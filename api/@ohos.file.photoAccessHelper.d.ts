@@ -3523,7 +3523,7 @@ declare namespace photoAccessHelper {
      * @atomicservice
      * @since 12
      */
-    isOriginalPhotoSelectionSupported?: boolean;
+    isOriginalSupported?: boolean;
   }
 
   /**
