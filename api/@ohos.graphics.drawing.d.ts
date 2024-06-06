@@ -894,6 +894,24 @@ declare namespace drawing {
      * @since 11
      */
     measureText(text: string, encoding: TextEncoding): number;
+    /**
+     * Sets text scale on x-axis to font.
+     * @param { number } scaleX - Text scaleX.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    setScaleX(scaleX: number): void;
+    /**
+     * Sets text skew on x-axis to font.
+     * @param { number } skewX - Text skewX.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    setSkewX(skewX: number): void;
   }
 
   /**
