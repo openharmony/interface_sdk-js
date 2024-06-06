@@ -3174,7 +3174,7 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @since 12
      */
-    needPackProperties?: boolean;
+    needsPackProperties?: boolean;
   }
 
   /**
