@@ -28,6 +28,14 @@ import type image from './@ohos.multimedia.image';
  * @syscap SystemCapability.MultimodalInput.Input.Pointer
  * @since 9
  */
+/**
+ * Declares interfaces related to mouse pointer attributes.
+ *
+ * @namespace pointer
+ * @syscap SystemCapability.MultimodalInput.Input.Pointer
+ * @atomicservice
+ * @since 12
+ */
 declare namespace pointer {
   /**
    * Pointer style.
@@ -35,6 +43,14 @@ declare namespace pointer {
    * @enum { number }
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 9
+   */
+  /**
+   * Pointer style.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @atomicservice
+   * @since 12
    */
   enum PointerStyle {
     /**
@@ -379,6 +395,13 @@ declare namespace pointer {
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 10
      */
+    /**
+     * Loading state with dynamic cursor
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.Pointer
+     * @atomicservice
+     * @since 12
+     */
     LOADING,
 
     /**
@@ -386,6 +409,13 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 10
+     */
+    /**
+     * Running state with dynamic cursor
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.Pointer
+     * @atomicservice
+     * @since 12
      */
     RUNNING
   }

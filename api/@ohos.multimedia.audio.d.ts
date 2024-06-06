@@ -24,6 +24,11 @@ import { ErrorCallback, AsyncCallback, Callback } from './@ohos.base';
  * @namespace audio
  * @since 7
  */
+/**
+ * @namespace audio
+ * @atomicservice
+ * @since 12
+ */
 declare namespace audio {
   /**
    * Enumerates audio errors.
@@ -970,11 +975,24 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @since 7
    */
+  /**
+   * Enumerates the stream usage.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @atomicservice
+   * @since 12
+   */
   enum StreamUsage {
     /**
      * Unknown usage.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 7
+     */
+    /**
+     * Unknown usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @atomicservice
+     * @since 12
      */
     STREAM_USAGE_UNKNOWN = 0,
     /**
@@ -993,11 +1011,23 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 10
      */
+    /**
+     * Music usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @atomicservice
+     * @since 12
+     */
     STREAM_USAGE_MUSIC = 1,
     /**
      * Voice communication usage.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 7
+     */
+    /**
+     * Voice communication usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @atomicservice
+     * @since 12
      */
     STREAM_USAGE_VOICE_COMMUNICATION = 2,
     /**
@@ -1005,17 +1035,35 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 9
      */
+    /**
+     * Voice assistant broadcast usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @atomicservice
+     * @since 12
+     */
     STREAM_USAGE_VOICE_ASSISTANT = 3,
     /**
      * Alarm usage.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 10
      */
+    /**
+     * Alarm usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @atomicservice
+     * @since 12
+     */
     STREAM_USAGE_ALARM = 4,
     /**
      * Voice message usage.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 10
+     */
+    /**
+     * Voice message usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @atomicservice
+     * @since 12
      */
     STREAM_USAGE_VOICE_MESSAGE = 5,
     /**
@@ -1031,17 +1079,35 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 10
      */
+    /**
+     * Ringtone usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @atomicservice
+     * @since 12
+     */
     STREAM_USAGE_RINGTONE = 6,
     /**
      * Notification usage.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 10
      */
+    /**
+     * Notification usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @atomicservice
+     * @since 12
+     */
     STREAM_USAGE_NOTIFICATION = 7,
     /**
      * Accessibility usage, such as screen reader.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 10
+     */
+    /**
+     * Accessibility usage, such as screen reader.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @atomicservice
+     * @since 12
      */
     STREAM_USAGE_ACCESSIBILITY = 8,
     /**
@@ -1056,11 +1122,23 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 10
      */
+    /**
+     * Movie or video usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @atomicservice
+     * @since 12
+     */
     STREAM_USAGE_MOVIE = 10,
     /**
      * Game sound effect usage.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 10
+     */
+    /**
+     * Game sound effect usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @atomicservice
+     * @since 12
      */
     STREAM_USAGE_GAME = 11,
     /**
@@ -1068,11 +1146,23 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 10
      */
+    /**
+     * Audiobook usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @atomicservice
+     * @since 12
+     */
     STREAM_USAGE_AUDIOBOOK = 12,
     /**
      * Navigation usage.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 10
+     */
+    /**
+     * Navigation usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @atomicservice
+     * @since 12
      */
     STREAM_USAGE_NAVIGATION = 13,
     /**
@@ -1099,6 +1189,7 @@ declare namespace audio {
     /**
      * Video call usage.
      * @syscap SystemCapability.Multimedia.Audio.Core
+     * @atomicservice
      * @since 12
      */
     STREAM_USAGE_VIDEO_COMMUNICATION = 17,

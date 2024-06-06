@@ -1942,6 +1942,7 @@ export class DragController {
  * class MeasureUtils
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 export class MeasureUtils {
@@ -1952,6 +1953,7 @@ export class MeasureUtils {
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   measureText(options: MeasureOptions): number;
@@ -1963,6 +1965,7 @@ export class MeasureUtils {
    * @returns { SizeOptions } width and height for text to display
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   measureTextSize(options: MeasureOptions): SizeOptions;
@@ -1971,12 +1974,14 @@ export class MeasureUtils {
 /**
  * class FocusController
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
  */
 export class FocusController {
   /**
    * clear focus to the root container.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   clearFocus(): void;
@@ -1988,6 +1993,7 @@ export class FocusController {
    * @throws { BusinessError } 150002 - This component has an unfocusable ancestor
    * @throws { BusinessError } 150003 - the component is not on tree or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   requestFocus(key: string): void;
@@ -1998,6 +2004,7 @@ export class FocusController {
  *
  * @typedef {pointer.PointerStyle} PointerStyle
  * @syscap SystemCapability.MultimodalInput.Input.Pointer
+ * @atomicservice
  * @since 12
  */
 export type PointerStyle = pointer.PointerStyle;
@@ -2007,6 +2014,7 @@ export type PointerStyle = pointer.PointerStyle;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 export class CursorController {
@@ -2015,6 +2023,7 @@ export class CursorController {
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   restoreDefault(): void;
@@ -2024,6 +2033,7 @@ export class CursorController {
    * @param { PointerStyle } value - cursor style enum.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   setCursor(value: PointerStyle): void;
@@ -2034,6 +2044,7 @@ export class CursorController {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 export class ContextMenuController {
@@ -2042,6 +2053,7 @@ export class ContextMenuController {
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   close(): void;
@@ -2061,6 +2073,7 @@ export type Context = common.Context;
 /**
  * class ComponentSnapshot
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
  */
 export class ComponentSnapshot {
@@ -2071,6 +2084,7 @@ export class ComponentSnapshot {
      * @param { AsyncCallback<image.PixelMap> } callback - Callback that contains the snapshot in PixelMap format.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
   get(id: string, callback: AsyncCallback<image.PixelMap>): void;
@@ -2082,6 +2096,7 @@ export class ComponentSnapshot {
    * @returns { Promise<image.PixelMap> } A Promise with the snapshot in PixelMap format.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   get(id: string): Promise<image.PixelMap>;
@@ -2093,6 +2108,7 @@ export class ComponentSnapshot {
    * @param { AsyncCallback<image.PixelMap> } callback - Callback that contains the snapshot in PixelMap format.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   createFromBuilder(builder: CustomBuilder, callback: AsyncCallback<image.PixelMap>): void;
@@ -2104,6 +2120,7 @@ export class ComponentSnapshot {
    * @returns { Promise<image.PixelMap> } A Promise with the snapshot in PixelMap format.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   createFromBuilder(builder: CustomBuilder): Promise<image.PixelMap>;
@@ -2190,6 +2207,7 @@ export class UIContext {
    * <br> 3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getFilteredInspectorTree(filters?: Array<string>): string;
@@ -2206,6 +2224,7 @@ export class UIContext {
    * <br> 3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getFilteredInspectorTreeById(id: string, depth: number, filters?: Array<string>): string;
@@ -2290,6 +2309,7 @@ export class UIContext {
    * @returns { OverlayManager } object OverlayManager.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getOverlayManager(): OverlayManager;
@@ -2509,6 +2529,7 @@ export class UIContext {
     * @returns { MeasureUtils } the MeasureUtils
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
+    * @atomicservice
     * @since 12
     */
   getMeasureUtils(): MeasureUtils;
@@ -2553,6 +2574,7 @@ export class UIContext {
    * @returns { FrameNode | null } The instance of FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getFrameNodeById(id: string): FrameNode | null;
@@ -2564,6 +2586,7 @@ export class UIContext {
    * @returns { FrameNode | null } - The FrameNode with the target uniqueId, or null if the frameNode is not existed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getFrameNodeByUniqueId(id: number): FrameNode | null;
@@ -2572,6 +2595,7 @@ export class UIContext {
    * Get FocusController.
    * @returns { FocusController } the FocusController
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   getFocusController(): FocusController;
@@ -2582,6 +2606,7 @@ export class UIContext {
    * @returns { CursorController } object cursor controller.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getCursorController(): CursorController;
@@ -2592,6 +2617,7 @@ export class UIContext {
    * @returns { ContextMenuController } object context menu controller.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getContextMenuController(): ContextMenuController;
@@ -2600,6 +2626,7 @@ export class UIContext {
    * Get ComponentSnapshot.
    * @returns { ComponentSnapshot } the ComponentSnapshot
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   getComponentSnapshot(): ComponentSnapshot;
@@ -2609,6 +2636,7 @@ export class UIContext {
    * @param { number } value
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   vp2px(value: number): number;
@@ -2618,6 +2646,7 @@ export class UIContext {
    * @param { number } value
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   px2vp(value: number): number;
@@ -2627,6 +2656,7 @@ export class UIContext {
    * @param { number } value
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   fp2px(value: number): number;
@@ -2636,6 +2666,7 @@ export class UIContext {
    * @param { number } value
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   px2fp(value: number): number;
@@ -2645,6 +2676,7 @@ export class UIContext {
    * @param { number } value
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   lpx2px(value: number): number;
@@ -2654,6 +2686,7 @@ export class UIContext {
    * @param { number } value
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   px2lpx(value: number): number;
@@ -2665,6 +2698,7 @@ export class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getSharedLocalStorage(): LocalStorage | undefined;
@@ -2676,6 +2710,7 @@ export class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getHostContext(): Context | undefined;
@@ -2698,6 +2733,7 @@ export class UIContext {
    * @returns { string | undefined } The name of current window, or undefined if the window doesn't exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getWindowName(): string | undefined;
