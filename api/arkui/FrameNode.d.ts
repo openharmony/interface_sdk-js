@@ -966,4 +966,46 @@ export namespace typeNode {
    * @since 12
    */
   function createNode(context: UIContext, nodeType: 'Image'): Image;
+
+  /**
+   * Define the FrameNode type for List.
+   * 
+   * @typedef { TypedFrameNode<ListInterface, ListAttribute> } List
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  type List = TypedFrameNode<ListInterface, ListAttribute>;
+
+  /**
+   * Create a FrameNode of List type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'List' } nodeType - node type.
+   * @returns { List } - Return List type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  function createNode(context: UIContext, nodeType: 'List'): List;
+
+  /**
+   * Define the FrameNode type for ListItem.
+   * 
+   * @typedef { TypedFrameNode<ListItemInterface, ListItemAttribute> } ListItem
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  type ListItem = TypedFrameNode<ListItemInterface, ListItemAttribute>;
+
+  /**
+   * Create a FrameNode of ListItem type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'ListItem' } nodeType - node type.
+   * @returns { ListItem } - Return ListItem type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  function createNode(context: UIContext, nodeType: 'ListItem'): ListItem;
 }
