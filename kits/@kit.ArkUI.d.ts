@@ -105,7 +105,7 @@ import SystemRouter, {
   RouterOptions, RouterState
 } from '@system.router';
 import { SymbolGlyphModifier } from '@ohos.arkui.modifier';
-import { Colors, CustomColors, Theme, ThemeControl, CustomTheme } from '@ohos.arkui.theme'
+import { Colors, CustomColors, Theme, ThemeControl, CustomTheme } from '@ohos.arkui.theme';
 
 export {
   AddFormMenuItem, AddFormOptions, AlertDialog, Animator, AnimatorOptions, AnimatorResult, App, AppResponse, AtomicServiceBar,
@@ -113,7 +113,8 @@ export {
   CapsuleSegmentButtonConstructionOptions, CapsuleSegmentButtonOptions, Chip, ChipOptions, ChipSize, CircleShape, ComponentUtils,
   ComposeListItem, ComposeTitleBar, ComposeTitleBarMenuItem, Configuration, ConfirmDialog, ContentItem,
   CounterComponent, CounterOptions, CounterType, DateData, DisableAlertBeforeBackPageOptions, DragController,
-  DrawableDescriptor, DrawContext, EditableLeftIconType, EditableTitleBar, EditableTitleBarItem, EditableTitleBarOptions, EditableTitleBarMenuItem, EditorEventInfo,
+  DrawableDescriptor, DrawContext, EditableLeftIconType, EditableTitleBar, EditableTitleBarItem,
+  EditableTitleBarOptions, EditableTitleBarMenuItem, EditorEventInfo,
   EditorMenuOptions, EllipseShape, EnableAlertBeforeBackPageOptions, ExceptionPrompt, ExpandedMenuOptions, Filter, FilterParams, FilterResult,
   FilterType, Font, FormMenuItemStyle, Frame, FrameNode, GridObjectSortComponent, GridObjectSortComponentItem, GridObjectSortComponentOptions,
   GridObjectSortComponentType, IconCommonOptions, IconType, ItemState, KeyboardAvoidMode, LabelMarginOptions,
