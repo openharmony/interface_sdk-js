@@ -1803,6 +1803,55 @@ export interface AtomicServiceBar {
 }
 
 /**
+ * Represents a dynamic synchronization scene.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 12
+ */
+export class DynamicSyncScene {
+  /**
+   * Sets the FrameRateRange of the DynamicSyncScene.
+   * 
+   * @param { ExpectedFrameRateRange } range - The range of frameRate.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  setFrameRateRange(range: ExpectedFrameRateRange): void;
+
+  /**
+   * Gets the FrameRateRange of the DynamicSyncScene.
+   * 
+   * @returns { ExpectedFrameRateRange } The range of frameRate.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  getFrameRateRange(): ExpectedFrameRateRange;
+}
+
+/**
+ * Represents a dynamic synchronization scene of Swiper.
+ * 
+ * @extends DynamicSyncScene
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 12
+ */
+export class SwiperDynamicSyncScene extends DynamicSyncScene {
+  /**
+  * Type of the SwiperDynamicSyncSceneType.
+  * @type { SwiperDynamicSyncSceneType }
+  * @readonly
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @atomicservice
+  * @since 12
+  */
+  readonly type: SwiperDynamicSyncSceneType;
+}
+
+/**
  * class DragController
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 11
@@ -2779,6 +2828,17 @@ export class UIContext {
    * @since 12
    */
   postDelayedFrameCallback(frameCallback: FrameCallback, delayTime: number): void;
+
+  /**
+   * Require DynamicSyncScene by id.
+   *
+   * @param { string } id - The id of DynamicSyncScene.
+   * @returns { Array<DynamicSyncScene>} The instance of SwiperDynamicSyncScene.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  requireDynamicSyncScene(id: string): Array<DynamicSyncScene>;
 }
 
 /**
@@ -2809,4 +2869,32 @@ export const enum KeyboardAvoidMode {
    * @since 11
    */
   RESIZE = 1
+}
+
+/**
+ * Enum of SwiperDynamicSyncSceneType
+ * 
+ * @enum { number } SwiperDynamicSyncSceneType
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 12
+ */
+export const enum SwiperDynamicSyncSceneType {
+  /**
+   * Scene type is GESTURE.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  GESTURE = 0,
+
+  /**
+   * Scene type is ANIMATION.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  ANIMATION = 1
 }
