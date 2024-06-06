@@ -456,7 +456,7 @@ declare namespace backup {
      * @systemapi
      * @since 12
      */
-    onResultReport: AsyncCallback<string, string>;
+    onResultReport: AsyncCallback<ReportInfo>;
   }
 
   /**
