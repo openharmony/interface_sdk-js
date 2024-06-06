@@ -1008,4 +1008,46 @@ export namespace typeNode {
    * @since 12
    */
   function createNode(context: UIContext, nodeType: 'ListItem'): ListItem;
+
+  /**
+   * Define the FrameNode type for TextInput.
+   * 
+   * @typedef { TypedFrameNode<TextInputInterface, TextInputAttribute> } TextInput
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  type TextInput = TypedFrameNode<TextInputInterface, TextInputAttribute>;
+
+  /**
+   * Create a FrameNode of TextInput type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'TextInput' } nodeType - node type.
+   * @returns { TextInput } - Return TextInput type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  function createNode(context: UIContext, nodeType: 'TextInput'): TextInput;
+
+  /**
+   * Define the FrameNode type for Button.
+   * 
+   * @typedef { TypedFrameNode<ButtonInterface, ButtonAttribute> } Button
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  type Button = TypedFrameNode<ButtonInterface, ButtonAttribute>;
+
+  /**
+   * Create a FrameNode of Button type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Button' } nodeType - node type.
+   * @returns { Button } - Return Button type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  function createNode(context: UIContext, nodeType: 'Button'): Button;
 }
