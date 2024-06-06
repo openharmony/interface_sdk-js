@@ -751,8 +751,8 @@ declare namespace hiAppEvent {
      *
      * @param { number } size Threshold size.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                           1.The limit parameter is too small;
-   *                           2.The parameter type error.
+     *                           1.The limit parameter is too small;
+     *                           2.The parameter type error.
      * @throws { BusinessError } 11104001 - Invalid size value.
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
@@ -764,7 +764,9 @@ declare namespace hiAppEvent {
      * Set the number of rows per read.
      *
      * @param { number } size Row size.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                           1.The limit parameter is too small;
+     *                           2.The parameter type error.
      * @throws { BusinessError } 11104001 - Invalid size value.
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
