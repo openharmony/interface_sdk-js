@@ -60,7 +60,7 @@ export class BasicDiffInfo {
   newSyscapField: string = '';
   //kit信息
   oldKitInfo: string = '';
-  newKitInfo: string = '';
+  newKitInfo:string = '';
 
   setApiType(apiType: string): BasicDiffInfo {
     if (apiType) {
@@ -444,7 +444,6 @@ export enum ApiDiffType {
   FUNCTION_PARAM_TYPE_ADD,
   /**  函数的参数类型范围缩小 */
   FUNCTION_PARAM_TYPE_REDUCE,
-  FUNCTION_PARAM_CHANGE,
   PROPERTY_READONLY_TO_UNREQUIRED,
   PROPERTY_READONLY_TO_REQUIRED,
   PROPERTY_WRITABLE_TO_UNREQUIRED,
@@ -458,25 +457,6 @@ export enum ApiDiffType {
   TYPE_ALIAS_CHANGE,
   TYPE_ALIAS_ADD,
   TYPE_ALIAS_REDUCE,
-  TYPE_ALIAS_FUNCTION_RETURN_TYPE_ADD,
-  TYPE_ALIAS_FUNCTION_RETURN_TYPE_REDUCE,
-  TYPE_ALIAS_FUNCTION_RETURN_TYPE_CHANGE,
-  TYPE_ALIAS_FUNCTION_PARAM_POS_CHAHGE,
-  /** 自定义类型方法新增可选参数 */
-  TYPE_ALIAS_FUNCTION_PARAM_UNREQUIRED_ADD,
-  /** 自定义类型方法新增必选参数 */
-  TYPE_ALIAS_FUNCTION_PARAM_REQUIRED_ADD,
-  TYPE_ALIAS_FUNCTION_PARAM_REDUCE,
-  TYPE_ALIAS_FUNCTION_PARAM_TYPE_CHANGE,
-  /** 自定义类型方法中的必选参数变为可选参数 */
-  TYPE_ALIAS_FUNCTION_PARAM_TO_UNREQUIRED,
-  /** 自定义类型方法中的可选参数变为必选参数 */
-  TYPE_ALIAS_FUNCTION_PARAM_TO_REQUIRED,
-  /**  自定义类型方法的参数类型范围扩大 */
-  TYPE_ALIAS_FUNCTION_PARAM_TYPE_ADD,
-  /**  自定义类型方法的参数类型范围缩小 */
-  TYPE_ALIAS_FUNCTION_PARAM_TYPE_REDUCE,
-  TYPE_ALIAS_FUNCTION_PARAM_CHANGE,
   ENUM_MEMBER_VALUE_CHANGE,
   ADD,
   REDUCE,
@@ -535,7 +515,6 @@ export const diffTypeMap: Map<ApiDiffType, string> = new Map([
   [ApiDiffType.FUNCTION_PARAM_TYPE_CHANGE, '函数变更'],
   [ApiDiffType.FUNCTION_PARAM_TYPE_ADD, '函数变更'],
   [ApiDiffType.FUNCTION_PARAM_TYPE_REDUCE, '函数变更'],
-  [ApiDiffType.FUNCTION_PARAM_CHANGE, '函数变更'],
   [ApiDiffType.PROPERTY_READONLY_TO_UNREQUIRED, '属性变更'],
   [ApiDiffType.PROPERTY_READONLY_TO_REQUIRED, '属性变更'],
   [ApiDiffType.PROPERTY_WRITABLE_TO_UNREQUIRED, '属性变更'],
@@ -549,19 +528,6 @@ export const diffTypeMap: Map<ApiDiffType, string> = new Map([
   [ApiDiffType.TYPE_ALIAS_CHANGE, '自定义类型变更'],
   [ApiDiffType.TYPE_ALIAS_ADD, '自定义类型变更'],
   [ApiDiffType.TYPE_ALIAS_REDUCE, '自定义类型变更'],
-  [ApiDiffType.TYPE_ALIAS_FUNCTION_RETURN_TYPE_ADD, '函数变更'],
-  [ApiDiffType.TYPE_ALIAS_FUNCTION_RETURN_TYPE_REDUCE, '函数变更'],
-  [ApiDiffType.TYPE_ALIAS_FUNCTION_RETURN_TYPE_CHANGE, '函数变更'],
-  [ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_POS_CHAHGE, '自定义类型变更'],
-  [ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_UNREQUIRED_ADD, '自定义类型变更'],
-  [ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_REQUIRED_ADD, '自定义类型变更'],
-  [ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_REDUCE, '自定义类型变更'],
-  [ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_TO_UNREQUIRED, '自定义类型变更'],
-  [ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_TO_REQUIRED, '自定义类型变更'],
-  [ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_TYPE_CHANGE, '自定义类型变更'],
-  [ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_TYPE_ADD, '自定义类型变更'],
-  [ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_TYPE_REDUCE, '自定义类型变更'],
-  [ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_CHANGE, '自定义类型变更'],
   [ApiDiffType.ENUM_MEMBER_VALUE_CHANGE, '枚举赋值发生改变'],
   [ApiDiffType.ADD, '新增API'],
   [ApiDiffType.REDUCE, '删除API'],
@@ -618,7 +584,6 @@ export const diffMap: Map<ApiDiffType, string> = new Map([
   [ApiDiffType.FUNCTION_PARAM_TYPE_CHANGE, '函数的参数类型变更'],
   [ApiDiffType.FUNCTION_PARAM_TYPE_ADD, '函数的参数类型范围扩大'],
   [ApiDiffType.FUNCTION_PARAM_TYPE_REDUCE, '函数的参数类型范围缩小'],
-  [ApiDiffType.FUNCTION_PARAM_CHANGE, '函数的参数变更'],
   [ApiDiffType.PROPERTY_READONLY_TO_UNREQUIRED, '只读属性由必选变为可选'],
   [ApiDiffType.PROPERTY_READONLY_TO_REQUIRED, '只读属性由可选变为必选'],
   [ApiDiffType.PROPERTY_WRITABLE_TO_UNREQUIRED, '可写属性由必选变为可选'],
@@ -629,22 +594,9 @@ export const diffMap: Map<ApiDiffType, string> = new Map([
   [ApiDiffType.PROPERTY_WRITABLE_ADD, '可写属性类型范围扩大'],
   [ApiDiffType.PROPERTY_WRITABLE_REDUCE, '可写属性类型范围缩小'],
   [ApiDiffType.CONSTANT_VALUE_CHANGE, '常量值发生改变'],
-  [ApiDiffType.TYPE_ALIAS_CHANGE, '自定义类型值改变'],
+  [ApiDiffType.TYPE_ALIAS_CHANGE, '自定义类型值直接改变'],
   [ApiDiffType.TYPE_ALIAS_ADD, '自定义类型值范围扩大'],
   [ApiDiffType.TYPE_ALIAS_REDUCE, '自定义类型值范围缩小'],
-  [ApiDiffType.TYPE_ALIAS_FUNCTION_RETURN_TYPE_ADD, '自定义方法类型返回值类型扩大'],
-  [ApiDiffType.TYPE_ALIAS_FUNCTION_RETURN_TYPE_REDUCE, '自定义方法类型返回值类型缩小'],
-  [ApiDiffType.TYPE_ALIAS_FUNCTION_RETURN_TYPE_CHANGE, '自定义方法类型返回值类型改变'],
-  [ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_POS_CHAHGE, '自定义方法类型参数位置发生改变'],
-  [ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_UNREQUIRED_ADD, '自定义方法类型新增可选参数'],
-  [ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_REQUIRED_ADD, '自定义方法类型新增必选参数'],
-  [ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_REDUCE, '自定义方法类型删除参数'],
-  [ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_TO_UNREQUIRED, '自定义方法类型的必选参数变为可选参数'],
-  [ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_TO_REQUIRED, '自定义方法类型的可选参数变为必选参数'],
-  [ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_TYPE_CHANGE, '自定义方法类型的参数类型变更'],
-  [ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_TYPE_ADD, '自定义方法类型的参数类型范围扩大'],
-  [ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_TYPE_REDUCE, '自定义方法类型的参数类型范围缩小'],
-  [ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_CHANGE, '自定义方法类型的参数变更'],
   [ApiDiffType.ENUM_MEMBER_VALUE_CHANGE, '枚举赋值发生改变'],
   [ApiDiffType.ADD, '新增API'],
   [ApiDiffType.REDUCE, '删除API'],
@@ -680,7 +632,6 @@ export const incompatibleApiDiffTypes: Set<ApiDiffType> = new Set([
   ApiDiffType.FUNCTION_PARAM_TO_REQUIRED,
   ApiDiffType.FUNCTION_PARAM_TYPE_CHANGE,
   ApiDiffType.FUNCTION_PARAM_TYPE_REDUCE,
-  ApiDiffType.FUNCTION_PARAM_CHANGE,
   ApiDiffType.PROPERTY_READONLY_TO_REQUIRED,
   ApiDiffType.PROPERTY_WRITABLE_TO_UNREQUIRED,
   ApiDiffType.PROPERTY_WRITABLE_TO_REQUIRED,
@@ -696,10 +647,4 @@ export const incompatibleApiDiffTypes: Set<ApiDiffType> = new Set([
   ApiDiffType.REDUCE,
   ApiDiffType.HISTORICAL_JSDOC_CHANGE,
   ApiDiffType.HISTORICAL_API_CHANGE,
-  ApiDiffType.DELETE_DECORATOR,
-  ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_TYPE_REDUCE,
-  ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_TYPE_CHANGE,
-  ApiDiffType.FUNCTION_RETURN_TYPE_REDUCE,
-  ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_TYPE_ADD,
-  ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_CHANGE,
 ]);

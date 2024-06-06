@@ -553,7 +553,7 @@ export class TypeAliasInfo extends ApiInfo {
   type: string[] = []; // type定义的类型
   typeName: TypeAliasType = '' as TypeAliasType; //type的类型
   returnType: string = ''; //type类型为function时的返回值
-  paramInfos: ParamInfo[] = []; //type类型为function时的参数名和参数类型
+  paramInfos: TypeParamInfo[] = []; //type类型为function时的参数名和参数类型
   typeIsFunction: boolean = false; //type类型是否为function
 
   addType(type: string[]): void {
@@ -582,11 +582,11 @@ export class TypeAliasInfo extends ApiInfo {
     return this.returnType;
   }
 
-  setParamInfos(paramInfo: ParamInfo) {
+  setParamInfos(paramInfo: TypeParamInfo) {
     this.paramInfos.push(paramInfo);
   }
 
-  getParamInfos(): ParamInfo[] {
+  getParamInfos(): TypeParamInfo[] {
     return this.paramInfos;
   }
 
