@@ -194,6 +194,26 @@ export namespace DiffProcessorHelper {
       return diffTypeInfo.setDiffType(ApiDiffType.CARD_TO_NA);
     }
 
+    static diffAtomicService(
+      oldJsDocInfo: Comment.JsDocInfo | undefined,
+      newJsDocInfo: Comment.JsDocInfo | undefined
+      ): DiffTypeInfo | undefined {
+        const diffTypeInfo: DiffTypeInfo = new DiffTypeInfo();
+        const isAtomicServiceOfOld: boolean | undefined = oldJsDocInfo? oldJsDocInfo.getIsAtomicService() : false;
+        const isAtomicServiceOfNew: boolean | undefined = newJsDocInfo? newJsDocInfo.getIsAtomicService() : false;
+        diffTypeInfo
+          .setStatusCode(ApiStatusCode.ATOMICSERVICE_CHANGE)
+          .setOldMessage(StringUtils.transformBooleanToTag(isAtomicServiceOfOld, Comment.JsDocTag.ATOMIC_SERVICE))
+          .setNewMessage(StringUtils.transformBooleanToTag(isAtomicServiceOfNew, Comment.JsDocTag.ATOMIC_SERVICE));
+        if (isAtomicServiceOfOld === isAtomicServiceOfNew) {
+          return undefined;
+        }
+        if (isAtomicServiceOfNew) {
+          return diffTypeInfo.setDiffType(ApiDiffType.ATOMIC_SERVICE_NA_TO_HAVE);
+        }
+        return diffTypeInfo.setDiffType(ApiDiffType.ATOMIC_SERVICE_HAVE_TO_NA);
+      }
+
     static diffIsCrossPlatForm(
       oldJsDocInfo: Comment.JsDocInfo | undefined,
       newJsDocInfo: Comment.JsDocInfo | undefined
@@ -1148,6 +1168,7 @@ export namespace DiffProcessorHelper {
     JsDocDiffHelper.diffIsCrossPlatForm,
     JsDocDiffHelper.diffModelLimitation,
     JsDocDiffHelper.diffIsSystemApi,
+    JsDocDiffHelper.diffAtomicService,
   ];
 
   /**

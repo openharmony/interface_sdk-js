@@ -65,6 +65,6 @@ export class ApiCountInfo {
   }
 
   getApiNumber(): number {
-    return this.apiNumber
+    return this.apiNumber;
   }
 }

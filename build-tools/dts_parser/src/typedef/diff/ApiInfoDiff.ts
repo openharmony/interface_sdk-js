@@ -384,6 +384,7 @@ export enum ApiStatusCode {
   NEW_DECORATOR = 23,
   DELETE_DECORATOR = 24,
   KIT_CHANGE = 26,
+  ATOMICSERVICE_CHANGE = 27,
 }
 
 export enum ApiDiffType {
@@ -468,6 +469,8 @@ export enum ApiDiffType {
   HISTORICAL_JSDOC_CHANGE,
   HISTORICAL_API_CHANGE,
   KIT_CHANGE,
+  ATOMIC_SERVICE_NA_TO_HAVE,
+  ATOMIC_SERVICE_HAVE_TO_NA,
 }
 
 export const diffTypeMap: Map<ApiDiffType, string> = new Map([
@@ -537,6 +540,8 @@ export const diffTypeMap: Map<ApiDiffType, string> = new Map([
   [ApiDiffType.SINCE_VERSION_HAVE_TO_NA, '起始版本有变化'],
   [ApiDiffType.SINCE_VERSION_NA_TO_HAVE, '起始版本有变化'],
   [ApiDiffType.KIT_CHANGE, 'kit变更'],
+  [ApiDiffType.ATOMIC_SERVICE_HAVE_TO_NA, 'API从支持元服务到不支持元服务'],
+  [ApiDiffType.ATOMIC_SERVICE_NA_TO_HAVE, 'API从不支持元服务到支持元服务'],
 ]);
 
 export const diffMap: Map<ApiDiffType, string> = new Map([
@@ -608,6 +613,8 @@ export const diffMap: Map<ApiDiffType, string> = new Map([
   [ApiDiffType.HISTORICAL_JSDOC_CHANGE, '历史版本jsdoc变更'],
   [ApiDiffType.HISTORICAL_API_CHANGE, '历史版本API变更'],
   [ApiDiffType.KIT_CHANGE, 'kit变更'],
+  [ApiDiffType.ATOMIC_SERVICE_HAVE_TO_NA, 'API从支持元服务到不支持元服务'],
+  [ApiDiffType.ATOMIC_SERVICE_NA_TO_HAVE, 'API从不支持元服务到支持元服务'],
 ]);
 
 export const incompatibleApiDiffTypes: Set<ApiDiffType> = new Set([
@@ -647,4 +654,5 @@ export const incompatibleApiDiffTypes: Set<ApiDiffType> = new Set([
   ApiDiffType.REDUCE,
   ApiDiffType.HISTORICAL_JSDOC_CHANGE,
   ApiDiffType.HISTORICAL_API_CHANGE,
+  ApiDiffType.ATOMIC_SERVICE_HAVE_TO_NA,
 ]);
