@@ -200,36 +200,6 @@ declare namespace backup {
   interface File extends FileMeta, FileData, FileManifestData {}
 
   /**
-   * Provides configuration parameters for scenarios where both package name and information need to be obtained.
-   *
-   * @interface BackupParams
-   * @syscap SystemCapability.FileManagement.StorageService.Backup
-   * @systemapi
-   * @since 12
-   */
-  interface ReportInfo {
-    /**
-     * Indicates the name of a bundle.
-     *
-     * @type { string }
-     * @syscap SystemCapability.FileManagement.StorageService.Backup
-     * @systemapi
-     * @since 12
-     */
-    bundleName: string;
-
-    /**
-     * Information returned by the application to the caller.
-     *
-     * @type { string }
-     * @syscap SystemCapability.FileManagement.StorageService.Backup
-     * @systemapi
-     * @since 12
-     */
-    result: string;
-  }
-
-  /**
    * Obtain a Json file that describes local capabilities.
    *
    * @permission ohos.permission.BACKUP
@@ -456,7 +426,7 @@ declare namespace backup {
      * @systemapi
      * @since 12
      */
-    onResultReport: AsyncCallback<ReportInfo>;
+    onResultReport(bundName: string, result: string);
   }
 
   /**
