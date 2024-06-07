@@ -2271,13 +2271,33 @@ declare namespace media {
 
   /**
    * Media source descriptor. User can set media data information
-
    * @typedef MediaSource
    * @syscap SystemCapability.Multimedia.Media.Core
-   * @atomicservice
    * @since 12
    */
   interface MediaSource {
+    /**
+     * Set Media Mime Type to help player handle extended Media source.
+     * @param { AVMimeTypes } mimeType - for MediaSource define. see @ AVMimeTypes.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
+    setMimeType(mimeType: AVMimeTypes): void;
+  }
+
+  /**
+   * Enumerates Media Mime types, used for MediaSource define;
+   * @enum { string }
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @since 12
+   */
+  enum AVMimeTypes {
+    /**
+     * Indicate current file is index file for hls Media.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
+    APPLICATION_M3U8 = 'application/m3u8',
   }
 
   /**
