@@ -113,7 +113,7 @@ export default class AbilityLifecycleCallback {
    *
    * @param { UIAbility } ability - Indicates the ability to register for listening.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
@@ -124,7 +124,7 @@ export default class AbilityLifecycleCallback {
    *
    * @param { UIAbility } ability - Indicates the ability to register for listening.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
