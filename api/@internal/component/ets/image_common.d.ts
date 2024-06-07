@@ -81,6 +81,14 @@ declare enum ImageAnalyzerType {
  */
 declare class ImageAnalyzerController {
   /**
+   * Constructor.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  constructor();
+
+  /**
    * Get image analyzer support types.
    *
    * @returns { ImageAnalyzerType[] }
