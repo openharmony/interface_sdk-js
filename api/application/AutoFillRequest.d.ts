@@ -183,8 +183,8 @@ export interface FillRequestCallback {
    *
    * @param { string } [fillContent] - Indicates the content to be filled in.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The input parameter is not valid parameter. Possible causes: 
-   * <br>1. Incorrect parameter types; <br>2. Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: <br>1.The input parameter is not valid parameter; 
+   * <br>2. Mandatory parameters are left unspecified.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
