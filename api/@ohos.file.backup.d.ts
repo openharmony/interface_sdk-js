@@ -749,6 +749,7 @@ declare namespace backup {
      * @permission ohos.permission.BACKUP
      * @param { Array<IncrementalBackupData> } bundlesToAppend Bundles to incremental backup.
      * @param { string[] } infos information of the bundlesToBackup
+     * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission verification failed. This error code is usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -763,7 +764,7 @@ declare namespace backup {
      * @systemapi
      * @since 12
      */
-    appendBundles(bundlesToAppend: Array<IncrementalBackupData>, infos: string[]): void;
+    appendBundles(bundlesToAppend: Array<IncrementalBackupData>, infos: string[]): Promise<void>;
 
     /**
      * End backup process
