@@ -649,12 +649,12 @@ declare namespace window {
   /**
    * Properties of status bar, it couldn't update automatically
    *
-   * @interface SystemBarProperties
+   * @interface SystemBarStyle
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
    * @since 12
    */
-  interface SystemBarProperties {
+  interface SystemBarStyle {
     /**
      * The content color of the status bar
      *
