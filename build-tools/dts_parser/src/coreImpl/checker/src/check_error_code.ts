@@ -20,7 +20,7 @@ export class CheckErrorCode {
             errorInfo: '',
         };
 
-        const errorCodes = apiJsdoc.errorCodes.filter(number => number > 100 && number < 1000);;
+        const errorCodes = apiJsdoc.errorCodes.filter(number => number >= 100 && number < 1000);;
         if (this.isArrayNotEmpty(errorCodes)) {
             if (!this.hasNumberInArray(errorCodes, this.errorCodeList)) {
                 checkResult.state = false;
