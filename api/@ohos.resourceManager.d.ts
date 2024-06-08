@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -3542,6 +3542,23 @@ declare namespace resourceManager {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Obtains the DrawableDescriptor of the media file corresponding to a specified resource ID.
+     *
+     * @param { number } resId - Indicates the resource ID.
+     * @param { number } [density] - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     *             to use the density of current system dpi.
+     * @param { number } [type] - The optional parameter means the media type, the default value 0 means
+     *             the normal media.
+     * @returns { DrawableDescriptor } The DrawableDescriptor class to get drawable image.
+     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     getDrawableDescriptor(resId: number, density?: number, type?: number): DrawableDescriptor;
 
     /**
@@ -3572,6 +3589,23 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Obtains the DrawableDescriptor of the media file corresponding to a specified resource Name.
+     *
+     * @param { string } resName - Indicates the resource name.
+     * @param { number } [density] - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     *             to use the density of current system dpi.
+     * @param { number } [type] - The optional parameter means the media type, the default value 0 means
+     *             the normal media.
+     * @returns { DrawableDescriptor } The DrawableDescriptor class to get drawable image.
+     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     getDrawableDescriptorByName(resName: string, density?: number, type?: number): DrawableDescriptor;
 
@@ -3605,6 +3639,24 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Obtains the DrawableDescriptor of the media file corresponding to a specified resource.
+     *
+     * @param { Resource } resource - Indicates the resource object.
+     * @param { number } [density] - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     *             to use the density of current system dpi.
+     * @param { number } [type] - The optional parameter means the media type, the default value 0 means
+     *             the normal media.
+     * @returns { DrawableDescriptor } The DrawableDescriptor class to get drawable image.
+     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     getDrawableDescriptor(resource: Resource, density?: number, type?: number): DrawableDescriptor;
 

@@ -174,6 +174,7 @@ declare namespace hidebug {
   /**
    * Get a debugging dump of a system service by service id.
    * It need dump permission.
+   * This API can be called only by system application.
    *
    * @permission ohos.permission.DUMP
    * @param { number } serviceid - Indicates the id of the service ability.
@@ -383,6 +384,14 @@ declare namespace hidebug {
      * @since 12
      */
     vmHeapLimit: bigint;
+    /**
+     * The limit of the total js vm heap size of process, in kilobyte
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    vmTotalHeapSize: bigint;
   }
 
   /**
@@ -755,6 +764,37 @@ declare namespace hidebug {
    * @since 12
    */
   function stopAppTraceCapture(): void;
+
+  /**
+   * Collection statistics.
+   *
+   * @typedef { Record<string, number> } GcStats
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 12
+   */
+  type GcStats = Record<string, number>;
+
+  /**
+   * Get the garbage collection statistics.
+   *
+   * @returns { GcStats } Returns garbage collection statistics.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 12
+   */
+  function getVMRuntimeStats(): GcStats;
+
+  /**
+   * Get the garbage collection statistics by statistical item.
+   *
+   * @param { string } item - statistical item.
+   * @returns { number } Returns garbage collection statistics.
+   * @throws { BusinessError } 401 - Possible causes:
+   *                           1. Invalid parameter, a string parameter required.
+   *                           2. Invalid parameter, unknown property.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 12
+   */
+  function getVMRuntimeStat(item: string): number;
 
   /**
    * Set the resource limitation of application.Please note that this function is only valid

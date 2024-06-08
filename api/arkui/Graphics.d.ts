@@ -20,6 +20,7 @@
 import drawing from '../@ohos.graphics.drawing';
 import type common2D from '../@ohos.graphics.common2D';
 import { BorderStyle } from 'borderStyle'
+import { Resource } from '../global/resource';
 
 /**
  * Size info.
@@ -779,6 +780,20 @@ declare class LengthMetrics {
    * @since 12
    */
   static lpx(value: number): LengthMetrics;
+
+  /**
+   * Init a lengthMetrics with Resource unit.
+   *
+   * @param { Resource } value - The value of the length metrics.
+   * @returns { LengthMetrics } Returns the lengthMetrics object with unit Resource.
+   * @throws { BusinessError } 180001 - System resources does not exist.
+   * @throws { BusinessError } 180002 - The type of system resources is incorrect.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  static resource(value: Resource): LengthMetrics;
   
   /**
    * The unit of the LengthMetrics. The default value is VP.

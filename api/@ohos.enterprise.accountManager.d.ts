@@ -39,10 +39,10 @@ declare namespace accountManager {
    *                         The admin must have the corresponding permission.
    * @param { boolean } disallow - true if the user is not allowed to add local account.
    * @param { AsyncCallback<void> } callback - the callback of disallowAddLocalAccount.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -61,10 +61,10 @@ declare namespace accountManager {
    *                         The admin must have the corresponding permission.
    * @param { boolean } disallow - true if the user is not allowed to add local account.
    * @returns { Promise<void> } the promise returned by the disallowAddLocalAccount.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -83,10 +83,10 @@ declare namespace accountManager {
    *                         The admin must have the corresponding permission.
    * @param { number } userId - indicates the user ID. It cannot be the ID of a user that does not exist.
    * @param { boolean } disallow - true if the specific user is not allowed to add an OS account.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -105,10 +105,10 @@ declare namespace accountManager {
    *                         If the admin is not empty, it must have the corresponding permission.
    * @param { number } userId - indicates the user ID. It cannot be the ID of a user that does not exist.
    * @returns { boolean } true if the specific user is not allowed to add an OS account.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -128,11 +128,11 @@ declare namespace accountManager {
    * @param { string } name - the OS account name. It cannot be empty.
    * @param { osAccount.OsAccountType } type - the OS account type. It can only be one of specified types.
    * @returns { osAccount.OsAccountInfo } information about the OS account added.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9201003 - failed to add an OS account.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9201003 - Failed to add an OS account.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -151,9 +151,9 @@ declare namespace accountManager {
    *                         The admin must have the corresponding permission.
    * @param { boolean } disallow - true if the specific account or all accounts are not allowed to add an OS account.
    * @param { number } [accountId] - indicates the account ID. It cannot be the ID of an account that does not exist.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -171,9 +171,9 @@ declare namespace accountManager {
    *                         If the admin is not empty, it must have the corresponding permission.
    * @param { number } [accountId] - indicates the account ID. It cannot be the ID of an account that does not exist.
    * @returns { boolean } true if the specific account or all accounts are not allowed to add an OS account.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -192,10 +192,10 @@ declare namespace accountManager {
    * @param { string } name - the OS account name. It cannot be empty.
    * @param { osAccount.OsAccountType } type - the OS account type. It can only be one of correct types.
    * @returns { Promise<osAccount.OsAccountInfo> } information about the OS account added.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9201003 - failed to add an OS account.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9201003 - Failed to add an OS account.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager

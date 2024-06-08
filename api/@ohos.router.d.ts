@@ -579,7 +579,7 @@ declare namespace router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
    * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 9
@@ -593,7 +593,7 @@ declare namespace router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
    * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @atomicservice
@@ -610,7 +610,7 @@ declare namespace router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
    * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 9
@@ -624,7 +624,7 @@ declare namespace router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
    * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @atomicservice
@@ -642,7 +642,7 @@ declare namespace router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
    * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 9
@@ -657,7 +657,7 @@ declare namespace router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
    * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @atomicservice
@@ -675,7 +675,7 @@ declare namespace router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if can not get the delegate, only throw in standard system.
+   * @throws { BusinessError } 100001 - Failed to get the delegate. This error code is thrown only in the standard system.
    * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 9
@@ -690,7 +690,7 @@ declare namespace router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if can not get the delegate, only throw in standard system.
+   * @throws { BusinessError } 100001 - Failed to get the delegate. This error code is thrown only in the standard system.
    * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @atomicservice
@@ -1149,7 +1149,7 @@ declare namespace router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
    * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1164,7 +1164,7 @@ declare namespace router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
    * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1182,7 +1182,7 @@ declare namespace router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
    * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1197,7 +1197,7 @@ declare namespace router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
    * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1216,7 +1216,7 @@ declare namespace router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
    * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1232,7 +1232,7 @@ declare namespace router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
    * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1251,7 +1251,7 @@ declare namespace router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if can not get the delegate, only throw in standard system.
+   * @throws { BusinessError } 100001 - Failed to get the delegate. This error code is thrown only in the standard system.
    * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1267,7 +1267,7 @@ declare namespace router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if can not get the delegate, only throw in standard system.
+   * @throws { BusinessError } 100001 - Failed to get the delegate. This error code is thrown only in the standard system.
    * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

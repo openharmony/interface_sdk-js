@@ -470,7 +470,8 @@ declare namespace connection {
   function setDevicePinCode(deviceId: string, code: string): Promise<void>;
 
   /**
-   * Sets the Bluetooth friendly name of a device.
+   * Sets the Bluetooth friendly name of a device. It is used only by system applications for security.
+   * If a non-system application invokes the interface, exception 801 is thrown.
    *
    * @permission ohos.permission.ACCESS_BLUETOOTH
    * @param { string } name - Indicates a valid Bluetooth name.
@@ -482,6 +483,7 @@ declare namespace connection {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 10
+   * @deprecated since 12
    */
   function setLocalName(name: string): void;
 
@@ -782,6 +784,21 @@ declare namespace connection {
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth switch is off.
    * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 12
+   */
+  /**
+   * Modify remote device name.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
+   * @param { string } name - New device name. Max length is 64 bytes.
+   * @returns { Promise<void> } Returns the promise object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @atomicservice
    * @since 12
    */
     function setRemoteDeviceName(deviceId: string, name: string): Promise<void>;

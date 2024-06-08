@@ -152,7 +152,14 @@ export declare struct TipsDialog {
    * @atomicservice
    * @since 11
    */
-  imageRes: Resource;
+  /**
+   * Sets the TipsDialog imageRes.
+   * @type { ResourceStr | PixelMap }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  imageRes: ResourceStr | PixelMap;
   /**
    * Sets the TipsDialog image size.
    * @type { SizeOptions }.
@@ -282,6 +289,13 @@ export declare struct TipsDialog {
    * @since 12
    */
   theme?: Theme | CustomTheme;
+  /**
+   * Sets the TipsDialog CheckBox Callback.
+   * @type { ?Callback<boolean> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  onCheckedChange?: Callback<boolean>;
 }
 
 /**
@@ -514,6 +528,13 @@ export declare struct ConfirmDialog {
    * @since 12
    */
   theme?: Theme | CustomTheme;
+  /**
+   * Sets the ConfirmDialog CheckBox Callback.
+   * @type { ?Callback<boolean> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  onCheckedChange?: Callback<boolean>;
 }
 
 /**
@@ -732,4 +753,56 @@ export declare struct CustomContentDialog {
    * @since 12
    */
   theme?: Theme | CustomTheme;
+}
+
+/**
+ * Declare struct PopupDialog
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+@Component
+export declare struct PopupDialog {
+  /**
+   * Sets the PopupDialog Visible Status.
+   * 
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  @Link
+  show: boolean;
+  /**
+   * Sets the PopupDialog options.
+   * 
+   * @type { PopupDialogOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  @Prop
+  popup: PopupDialogOptions;
+  /**
+   * Sets the targetBuilder content.
+   * 
+   * @type { Callback<void> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  @BuilderParam targetBuilder: Callback<void>;
+}
+
+/**
+ * Defines PopupDialog Options
+ * 
+ * @interface PopupDialogOptions
+ * @extends CustomPopupOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export declare interface PopupDialogOptions extends CustomPopupOptions {
 }

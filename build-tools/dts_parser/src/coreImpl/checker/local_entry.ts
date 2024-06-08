@@ -18,15 +18,17 @@ import { LogUtil } from '../../utils/logUtil';
 import { GenerateFile } from '../../utils/checkUtils';
 import { compositiveResult, compositiveLocalResult, apiCheckResult } from '../../utils/checkUtils';
 import { DOC, DEFINE, CHANEGE } from './config/api_check_config.json';
+import { ApiChangeCheck } from './src/check_api_diff';
 
 /**
  * local entrance
  */
 export class LocalEntry {
-  static checkEntryLocal(filePathArr: string[], fileRuleArr: string[], output: string, excel: string): ApiResultMessage[] {
+
+  static checkEntryLocal(filePathArr: string[], fileRuleArr: string[], output: string, prId: string, excel: string): ApiResultMessage[] {
     let allResult: ApiResultMessage[] = apiCheckResult;
     try {
-      Check.scanEntry(filePathArr);
+      Check.scanEntry(filePathArr, prId);
       LocalEntry.maskAlarm(compositiveResult, fileRuleArr);
     } catch (error) {
       LogUtil.e('API_CHECK_ERROR', error);
@@ -104,5 +106,21 @@ export class LocalEntry {
       }
     }
     return '';
+  }
+
+  static apiChangeCheckEntryLocal(prId: string, fileRuleArr: string[], output: string, excel: string): ApiResultMessage[] {
+    let apiChangeCheckResult: ApiResultMessage[] = apiCheckResult;
+    try {
+      ApiChangeCheck.checkApiChange(prId);
+      LocalEntry.maskAlarm(compositiveResult, fileRuleArr);
+    } catch (error) {
+      LogUtil.e('API_CHECK_ERROR', error);
+    } finally {
+      GenerateFile.writeFile(apiCheckResult, output, {});
+      if (excel === 'true') {
+        GenerateFile.writeExcelFile(compositiveLocalResult);
+      }
+    }
+    return apiChangeCheckResult;
   }
 }

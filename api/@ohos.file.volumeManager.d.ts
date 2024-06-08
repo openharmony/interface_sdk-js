@@ -100,6 +100,16 @@ declare namespace volumeManager {
      * @since 9
      */
     path: string;
+
+    /**
+     * The file system type of the volume.
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @since 12
+     */
+    fsType: string;
   }
   /**
    * Get All Volumes
@@ -108,7 +118,8 @@ declare namespace volumeManager {
    * @param { AsyncCallback<Array<Volume>> } callback - callback
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
+parameters are left unspecified;
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
@@ -124,7 +135,8 @@ declare namespace volumeManager {
    * @returns { Promise<Array<Volume>> } return Promise
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
+parameters are left unspecified;
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
@@ -141,7 +153,9 @@ declare namespace volumeManager {
    * @param { AsyncCallback<void> } callback - callback
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory
+parameters are left unspecified;
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600002 - Not supported filesystem.
    * @throws { BusinessError } 13600003 - Failed to mount.
@@ -162,7 +176,9 @@ declare namespace volumeManager {
    * @returns { Promise<void> } return Promise
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory
+parameters are left unspecified;
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600002 - Not supported filesystem.
    * @throws { BusinessError } 13600003 - Failed to mount.
@@ -183,7 +199,9 @@ declare namespace volumeManager {
    * @param { AsyncCallback<void> } callback - callback
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory
+parameters are left unspecified;
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600002 - Not supported filesystem.
    * @throws { BusinessError } 13600004 - Failed to unmount.
@@ -204,7 +222,9 @@ declare namespace volumeManager {
    * @returns { Promise<void> } return Promise
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory
+parameters are left unspecified;
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600002 - Not supported filesystem.
    * @throws { BusinessError } 13600004 - Failed to unmount.
@@ -225,7 +245,9 @@ declare namespace volumeManager {
    * @param { AsyncCallback<Volume> } callback - callback
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory
+parameters are left unspecified;
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600008 - No such object.
    * @throws { BusinessError } 13900042 - Unknown error.
@@ -243,7 +265,9 @@ declare namespace volumeManager {
    * @returns { Promise<Volume> } return Promise
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory
+parameters are left unspecified;
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600008 - No such object.
    * @throws { BusinessError } 13900042 - Unknown error.
@@ -261,7 +285,9 @@ declare namespace volumeManager {
    * @param { AsyncCallback<Volume> } callback - callback
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory
+parameters are left unspecified;
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600008 - No such object.
    * @throws { BusinessError } 13900042 - Unknown error.
@@ -279,7 +305,9 @@ declare namespace volumeManager {
    * @returns { Promise<Volume> } return Promise
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory
+parameters are left unspecified;
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600008 - No such object.
    * @throws { BusinessError } 13900042 - Unknown error.
@@ -298,7 +326,9 @@ declare namespace volumeManager {
    * @param { AsyncCallback<void> } callback - callback
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory
+parameters are left unspecified;
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600002 - Not supported filesystem.
    * @throws { BusinessError } 13600005 - Incorrect volume state.
@@ -319,7 +349,9 @@ declare namespace volumeManager {
    * @returns { Promise<void> } return Promise
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory
+parameters are left unspecified;
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600002 - Not supported filesystem.
    * @throws { BusinessError } 13600005 - Incorrect volume state.
@@ -340,7 +372,9 @@ declare namespace volumeManager {
    * @param { AsyncCallback<void> } callback - callback
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory
+parameters are left unspecified;
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600002 - Not supported filesystem.
    * @throws { BusinessError } 13600005 - Incorrect volume state.
@@ -361,7 +395,9 @@ declare namespace volumeManager {
    * @returns { Promise<void> } return Promise
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory
+parameters are left unspecified;
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600002 - Not supported filesystem.
    * @throws { BusinessError } 13600005 - Incorrect volume state.
@@ -382,7 +418,9 @@ declare namespace volumeManager {
    * @param { AsyncCallback<void> } callback - callback
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory
+parameters are left unspecified;
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600008 - No such object.
    * @throws { BusinessError } 13900042 - Unknown error.
@@ -401,7 +439,9 @@ declare namespace volumeManager {
    * @returns { Promise<void> } return Promise
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory
+parameters are left unspecified;
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600008 - No such object.
    * @throws { BusinessError } 13900042 - Unknown error.

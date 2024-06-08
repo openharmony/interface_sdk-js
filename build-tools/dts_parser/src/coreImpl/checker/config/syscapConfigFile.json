@@ -1,5 +1,6 @@
 {
   "SystemCapability": [
+    
     "SystemCapability.Applications.CalendarData",
     "SystemCapability.ArkUI.ArkUI.Full",
     "SystemCapability.ArkUI.ArkUI.Lite",
@@ -22,8 +23,8 @@
     "SystemCapability.Graphic.Graphic2D.WebGL",
     "SystemCapability.Graphic.Graphic2D.WebGL2",
     "SystemCapability.Graphic.Graphic2D.ColorManager.Core",
-    "SystemCapability.Graphic.Vulkan",
     "SystemCapability.Window.SessionManager",
+    "SystemCapability.Graphic.Vulkan",
     "SystemCapability.WindowManager.WindowManager.Core",
     "SystemCapability.Notification.CommonEvent",
     "SystemCapability.Notification.Notification",
@@ -81,6 +82,7 @@
     "SystemCapability.Multimedia.Media.VideoPlayer",
     "SystemCapability.Multimedia.Media.VideoRecorder",
     "SystemCapability.Multimedia.Media.CodecBase",
+    "SystemCapability.Multimedia.Media.AudioCodec",
     "SystemCapability.Multimedia.Media.AudioDecoder",
     "SystemCapability.Multimedia.Media.AudioEncoder",
     "SystemCapability.Multimedia.Media.VideoDecoder",
@@ -92,6 +94,7 @@
     "SystemCapability.Multimedia.AVSession.Core",
     "SystemCapability.Multimedia.AVSession.Manager",
     "SystemCapability.Multimedia.AVSession.AVCast",
+    "SystemCapability.Multimedia.AVSession.ExtendedDisplayCast",
     "SystemCapability.Multimedia.Audio.Core",
     "SystemCapability.Multimedia.Audio.Tone",
     "SystemCapability.Multimedia.Audio.Interrupt",
@@ -112,6 +115,8 @@
     "SystemCapability.Multimedia.MediaLibrary.DistributedCore",
     "SystemCapability.Multimedia.Media.AVPlayer",
     "SystemCapability.Multimedia.Media.AVRecorder",
+    "SystemCapability.Multimedia.Media.AVMetadataExtractor",
+    "SystemCapability.Multimedia.Media.AVImageGenerator",
     "SystemCapability.Multimedia.Image.ImageCreator",
     "SystemCapability.Multimedia.SystemSound.Core",
     "SystemCapability.Telephony.CoreService",
@@ -123,6 +128,7 @@
     "SystemCapability.Global.I18n",
     "SystemCapability.Global.ResourceManager",
     "SystemCapability.Customization.ConfigPolicy",
+    "SystemCapability.Customization.CustomConfig",
     "SystemCapability.Customization.EnterpriseDeviceManager",
     "SystemCapability.BarrierFree.Accessibility.Core",
     "SystemCapability.BarrierFree.Accessibility.Vision",
@@ -150,11 +156,13 @@
     "SystemCapability.HiviewDFX.HiProfiler.HiDebug",
     "SystemCapability.Update.UpdateService",
     "SystemCapability.DistributedHardware.DeviceManager",
+    "SystemCapability.DistributedHardware.DistributedHardwareFWK",
     "SystemCapability.Security.DeviceAuth",
     "SystemCapability.Security.DataTransitManager",
     "SystemCapability.Security.DeviceSecurityLevel",
     "SystemCapability.Security.Huks.Core",
     "SystemCapability.Security.Huks.Extension",
+    "SystemCapability.Security.Asset",
     "SystemCapability.Security.AccessToken",
     "SystemCapability.Security.Cipher",
     "SystemCapability.Security.CertificateManager",
@@ -162,6 +170,7 @@
     "SystemCapability.Security.CryptoFramework.Cert",
     "SystemCapability.Security.DataLossPrevention",
     "SystemCapability.Security.Cert",
+    "SystemCapability.Security.SecurityGuard",
     "SystemCapability.Account.OsAccount",
     "SystemCapability.Account.AppAccount",
     "SystemCapability.UserIAM.UserAuth.Core",
@@ -228,6 +237,7 @@
     "SystemCapability.Web.Webview.Core",
     "SystemCapability.Cloud.AAID",
     "SystemCapability.Advertising.OAID",
+    "SystemCapability.Advertising.Ads",
     "SystemCapability.Cloud.VAID",
     "SystemCapability.Cloud.Push",
     "SystemCapability.XTS.DeviceAttest",
@@ -251,11 +261,8 @@
     "SystemCapability.Multimedia.AudioHaptic.Core",
     "SystemCapability.ArkUi.Graphics3D",
     "SystemCapability.Multimedia.Drm.Core",
-    "SystemCapability.Graphics.Drawing"
-  ],
-  "test2": [
-    1,
-    2,
-    3
+    "SystemCapability.Graphics.Drawing",
+    "SystemCapability.ResourceSchedule.SystemLoad",
+    "SystemCapability.Ability.AppStartup"
   ]
 }

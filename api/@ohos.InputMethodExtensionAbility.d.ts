@@ -42,8 +42,6 @@ export default class InputMethodExtensionAbility {
    * Called back when a input method extension is started for initialization.
    *
    * @param { Want } want - Indicates the want of created service extension.
-   * @throws { BusinessError } 401 - parameter error. Possible causes:
-   *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @StageModelOnly
    * @since 9
@@ -53,7 +51,6 @@ export default class InputMethodExtensionAbility {
   /**
    * Called back before a input method extension is destroyed.
    *
-   * @throws { BusinessError } 401 - parameter error. Possible causes: Parameter verification failed.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @StageModelOnly
    * @since 9
