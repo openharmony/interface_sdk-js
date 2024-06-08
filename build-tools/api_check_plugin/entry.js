@@ -39,13 +39,14 @@ function checkEntry(prId) {
     if (!execute) {
       throw 'npm install timeout';
     }
-    const { getMdFiles } = require(path.resolve(__dirname, './src/api_check_plugin'));
+    const { reqGitApi, getMdFiles } = require(path.resolve(__dirname, './src/api_check_plugin'));
     const { ruleArr } = require(path.resolve(__dirname, './src/utils'));
 
     const filePathArr = getMdFiles(mdFilesPath, false);
     const filePath = filePathArr.join(',');
     const resultPath = path.resolve(__dirname, './newResult.json');
     const ruleInfo = ruleArr.join(',');
+    let ApiCheckResult = true;
     buffer = execSync(`cd interface/sdk-js/build-tools/dts_parser/package && node ./JS_API_CHECK.js -N checkOnline --path ${filePath} --checker ${ruleInfo} --prId ${prId} --output ${resultPath} --excel false`, {
       timeout: 120000,
     });
@@ -57,12 +58,15 @@ function checkEntry(prId) {
       }
       newToolResultArr.forEach(newToolResultInfo => {
         const filePath = newToolResultInfo.buggyFilePath;
-        newToolResultInfo.buggyFilePath = filePath.slice(filePath.indexOf('api'), filePath.length);
+        const apiIndex = filePath.indexOf('api');
+        const arktsIndex = filePath.indexOf('arkts');
+        newToolResultInfo.buggyFilePath = filePath.slice(apiIndex !== -1 ? apiIndex : arktsIndex, filePath.length);
         newToolResult.push(newToolResultInfo);
       });
       newToolResult.push('api_check: false');
+      ApiCheckResult = false;
     }
-
+    newToolResult = reqGitApi(newToolResult, prId, ApiCheckResult);
     removeDir(path.resolve(__dirname, '../api_diff/node_modules'));
     removeDir(path.resolve(__dirname, 'node_modules'));
   } catch (error) {

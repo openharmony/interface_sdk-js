@@ -124,7 +124,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
-   * @throws { BusinessError } 16000073 - The target app clone with the specified index does not exist.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -218,7 +218,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
-   * @throws { BusinessError } 16000073 - The target app clone with the specified index does not exist.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -316,7 +316,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
-   * @throws { BusinessError } 16000073 - The target app clone with the specified index does not exist.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -422,7 +422,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
-   * @throws { BusinessError } 16000073 - The target app clone with the specified index does not exist.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -491,7 +491,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
-   * @throws { BusinessError } 16000073 - The target app clone with the specified index does not exist.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -564,7 +564,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
-   * @throws { BusinessError } 16000073 - The target app clone with the specified index does not exist.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -640,7 +640,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
-   * @throws { BusinessError } 16000073 - The target app clone with the specified index does not exist.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -744,7 +744,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
-   * @throws { BusinessError } 16000073 - The target app clone with the specified index does not exist.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -822,7 +822,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
-   * @throws { BusinessError } 16000073 - The target app clone with the specified index does not exist.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -1855,7 +1855,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * If the target UIExtensionAbility is visible, you can start the target UIExtensionAbility; If the target UIExtensionAbility is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible UIExtensionAbility.
    *
-   * @param { Want } type - Indicates the UIExtensionAbility to start.
+   * @param { Want } pickerWant - Indicates the UIExtensionAbility to start.
    * @param { AsyncCallback<void> } callback - The callback of requestModalUIExtension.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
@@ -1880,7 +1880,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * If the target UIExtensionAbility is visible, you can start the target UIExtensionAbility; If the target UIExtensionAbility is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible UIExtensionAbility.
    *
-   * @param { Want } type - Indicates the UIExtensionAbility to start.
+   * @param { Want } pickerWant - Indicates the UIExtensionAbility to start.
    * @param { AsyncCallback<void> } callback - The callback of requestModalUIExtension.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1898,7 +1898,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * If the target UIExtensionAbility is visible, you can start the target UIExtensionAbility; If the target UIExtensionAbility is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible UIExtensionAbility.
    *
-   * @param { Want } type - Indicates the UIExtensionAbility to start.
+   * @param { Want } pickerWant - Indicates the UIExtensionAbility to start.
    * @returns { Promise<void> } The promise returned by the requestModalUIExtension.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
@@ -1923,7 +1923,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * If the target UIExtensionAbility is visible, you can start the target UIExtensionAbility; If the target UIExtensionAbility is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible UIExtensionAbility.
    *
-   * @param { Want } type - Indicates the UIExtensionAbility to start.
+   * @param { Want } pickerWant - Indicates the UIExtensionAbility to start.
    * @returns { Promise<void> } The promise returned by the requestModalUIExtension.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;

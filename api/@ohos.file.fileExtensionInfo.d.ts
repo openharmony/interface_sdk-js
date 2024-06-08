@@ -33,7 +33,7 @@ declare namespace fileExtensionInfo {
    * @enum { number }
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   enum DeviceType {
@@ -42,7 +42,7 @@ declare namespace fileExtensionInfo {
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     DEVICE_LOCAL_DISK = 1,
@@ -52,7 +52,7 @@ declare namespace fileExtensionInfo {
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     DEVICE_SHARED_DISK,
@@ -62,7 +62,7 @@ declare namespace fileExtensionInfo {
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     DEVICE_SHARED_TERMINAL,
@@ -72,7 +72,7 @@ declare namespace fileExtensionInfo {
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     DEVICE_NETWORK_NEIGHBORHOODS,
@@ -82,7 +82,7 @@ declare namespace fileExtensionInfo {
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     DEVICE_EXTERNAL_MTP,
@@ -92,7 +92,7 @@ declare namespace fileExtensionInfo {
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     DEVICE_EXTERNAL_USB,
@@ -102,7 +102,7 @@ declare namespace fileExtensionInfo {
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     DEVICE_EXTERNAL_CLOUD
@@ -114,7 +114,7 @@ declare namespace fileExtensionInfo {
    * @namespace DeviceFlag
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   namespace DeviceFlag {
@@ -124,7 +124,7 @@ declare namespace fileExtensionInfo {
      * @constant
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     const SUPPORTS_READ = 0b1;
@@ -135,7 +135,7 @@ declare namespace fileExtensionInfo {
      * @constant
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     const SUPPORTS_WRITE = 0b10;
@@ -147,7 +147,7 @@ declare namespace fileExtensionInfo {
    * @namespace DocumentFlag
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   namespace DocumentFlag {
@@ -157,7 +157,7 @@ declare namespace fileExtensionInfo {
      * @constant
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     const REPRESENTS_FILE = 0b1;
@@ -168,7 +168,7 @@ declare namespace fileExtensionInfo {
      * @constant
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     const REPRESENTS_DIR = 0b10;
@@ -179,7 +179,7 @@ declare namespace fileExtensionInfo {
      * @constant
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     const SUPPORTS_READ = 0b100;
@@ -190,7 +190,7 @@ declare namespace fileExtensionInfo {
      * @constant
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     const SUPPORTS_WRITE = 0b1000;

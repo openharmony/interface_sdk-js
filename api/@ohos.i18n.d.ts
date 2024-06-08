@@ -717,6 +717,7 @@ declare namespace i18n {
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @static
      * @syscap SystemCapability.Global.I18n
+     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -819,6 +820,7 @@ declare namespace i18n {
    * @interface PhoneNumberFormatOptions
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   export interface PhoneNumberFormatOptions {
@@ -850,6 +852,7 @@ declare namespace i18n {
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     type?: string;
@@ -2334,6 +2337,16 @@ declare namespace i18n {
      * @returns { string } a string represents the display name.
      * @syscap SystemCapability.Global.I18n
      * @since 7
+     */
+    /**
+     * Get the displayName of the TimeZone Object under the locale.
+     *
+     * @param { string } [locale] - the locale tag use to display timezone object's name.
+     * @param { boolean } [isDST] - wether consider daylight saving time when display timezone object's name.
+     * @returns { string } a string represents the display name.
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 12
      */
     getDisplayName(locale?: string, isDST?: boolean): string;
 

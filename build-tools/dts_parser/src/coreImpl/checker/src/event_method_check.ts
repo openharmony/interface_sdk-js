@@ -23,6 +23,8 @@ import { FilesMap, Parser } from '../../parser/parser';
 import { AddErrorLogs } from './compile_info';
 import { compositiveResult, compositiveLocalResult } from '../../../utils/checkUtils';
 import { CheckHump } from './check_hump';
+import { ApiCheckVersion } from '../config/api_check_version.json';
+import { Check } from './api_check_plugin';
 
 export class EventMethodChecker {
   private apiData: FilesMap;
@@ -31,12 +33,15 @@ export class EventMethodChecker {
   }
 
   public getAllEventMethod(): Map<string, EventMethodData> {
-    const allBasicApi: BasicApiInfo[] = Parser.getAllBasicApi(this.apiData);
+    const allNodeInfos: ApiInfo[] = Parser.getAllBasicApi(this.apiData) as ApiInfo[];
+    let allBasicApi: ApiInfo[] = [];
+    Check.getHasJsdocApiInfos(allNodeInfos, allBasicApi);
     const eventMethodInfo: BasicApiInfo[] = [];
-    allBasicApi.forEach((basicApi: BasicApiInfo) => {
-      const lastSince: string | undefined = basicApi.jsDocText.length > 0 ? (basicApi as ApiInfo).getLastJsDocInfo()?.since : '-1';
-      if (basicApi.apiType === ApiType.METHOD && this.isEventMethod(basicApi.apiName) &&
-        lastSince === CommonFunctions.getCheckApiVersion()) {
+    allBasicApi.forEach((basicApi: ApiInfo) => {
+      const publishVersionValue: string = basicApi.jsDocInfos.length > 0 ? basicApi.jsDocInfos[0].since : '-1';
+      const publishSince: string = CommonFunctions.getSinceVersion(publishVersionValue);
+      if (basicApi.apiType === ApiType.METHOD && basicApi.getIsJoinType() &&
+        publishSince === JSON.stringify(ApiCheckVersion)) {
         eventMethodInfo.push(basicApi);
       }
     });
@@ -191,7 +196,8 @@ export class EventMethodChecker {
   }
 
   private checkVersionNeedCheck(eventInfo: BasicApiInfo): boolean {
-    return parseInt(eventInfo.getCurrentVersion()) >= EventConstant.eventMethodCheckVersion;
+    const eventApiVersion:string=CommonFunctions.getSinceVersion(eventInfo.getCurrentVersion())
+    return parseInt(eventApiVersion) >= EventConstant.eventMethodCheckVersion;
   }
 
   private collectEventCallback(offEvent: MethodInfo,
@@ -258,10 +264,5 @@ export class EventMethodChecker {
 
   private getEventType(apiName: string): string {
     return apiName.split(/\_/)[0];
-  }
-
-  private isEventMethod(apiName: string): boolean {
-    const eventNameReg: RegExp = new RegExp(`^(${EventConstant.eventNameList.join('|')})\_`);
-    return eventNameReg.test(apiName);
   }
 }

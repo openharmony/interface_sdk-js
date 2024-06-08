@@ -109,6 +109,28 @@ export default class AbilityLifecycleCallback {
   onWindowStageCreate(ability: UIAbility, windowStage: window.WindowStage): void;
 
   /**
+   * Called back before the UIAbility will called onNewWant.
+   *
+   * @param { UIAbility } ability - Indicates the ability to register for listening.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+  onWillNewWant?(ability: UIAbility): void;
+
+  /**
+   * Called back after the UIAbility called onNewWant.
+   *
+   * @param { UIAbility } ability - Indicates the ability to register for listening.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+  onNewWant?(ability: UIAbility): void;
+
+  /**
    * Called back when a window stage is active.
    *
    * @param { UIAbility } ability - Indicates the ability to register for listening.

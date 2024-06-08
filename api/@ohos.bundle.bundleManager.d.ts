@@ -3242,6 +3242,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @throws { BusinessError } 17700061 - AppIndex not in valid range.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
@@ -3262,6 +3263,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700026 - The specified bundle and clone apps are all disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12
@@ -3408,6 +3410,7 @@ declare namespace bundleManager {
    *
    * @typedef { _BundleInfo.AppCloneIdentity }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 12
    */
   export type AppCloneIdentity = _BundleInfo.AppCloneIdentity;

@@ -36,12 +36,13 @@ export class ApiNamingCheck {
       errorInfo: '',
     };
     const jsDocInfo: Comment.JsDocInfo[] = singleApi.getJsDocInfos();
-    const publishVersion: string = jsDocInfo[0].getSince();
+    const publishVersion: string = CommonFunctions.getSinceVersion(jsDocInfo[0].getSince());
     const apiVersionToBeVerified: string = CommonFunctions.getCheckApiVersion();
     const lowIdentifier: string = singleApi.getDefinedText().toLowerCase();
+    const fileName:string=singleApi.getFilePath().toLowerCase();
     if (publishVersion === apiVersionToBeVerified) {
       ApiNamingCheck.checkApiNamingWords(lowIdentifier, tagNameCheckResult);
-      ApiNamingCheck.checkApiNamingScenario(lowIdentifier, tagNameCheckResult, singleApi);
+      ApiNamingCheck.checkApiNamingScenario(fileName, tagNameCheckResult, singleApi);
     }
     return tagNameCheckResult;
   }
@@ -93,11 +94,10 @@ export class ApiNamingCheck {
     for (const [key, value] of lowercaseNamingScenarioMap) {
       const prohibitedWordIndex: number = lowIdentifier.indexOf(key);
       if (prohibitedWordIndex !== -1 && !ApiNamingCheck.isInAllowedFiles(value.files, singleApi.getFilePath())) {
-        const internalWord = lowIdentifier.substring(prohibitedWordIndex, key.length);
         tagNameCheckResult.state = false;
         tagNameCheckResult.errorInfo = CommonFunctions.createErrorInfo(ErrorMessage.ERROR_SCENARIO, [
           lowIdentifier,
-          internalWord,
+          key,
           singleApi.getFilePath(),
         ]);
       }

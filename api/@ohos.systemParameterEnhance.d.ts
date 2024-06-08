@@ -38,9 +38,9 @@ declare namespace systemParameterEnhance {
    * @returns { string } the value of the parameter.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    * 2.incorrect parameter types; 3.parameter verification failed.
-   * @throws { BusinessError } 14700101 - if key is not found
-   * @throws { BusinessError } 14700103 - if permission denied
-   * @throws { BusinessError } 14700104 - if system internal error
+   * @throws { BusinessError } 14700101 - System parameter not found.
+   * @throws { BusinessError } 14700103 - The operation on the system permission is denied.
+   * @throws { BusinessError } 14700104 - System internal error such as out memory or deadlock.
    * @syscap SystemCapability.Startup.SystemInfo
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -55,9 +55,9 @@ declare namespace systemParameterEnhance {
    * @param { AsyncCallback<string> } callback Callback function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    * 2.incorrect parameter types; 3.parameter verification failed.
-   * @throws { BusinessError } 14700101 - if key is not found
-   * @throws { BusinessError } 14700103 - if permission denied
-   * @throws { BusinessError } 14700104 - if system internal error
+   * @throws { BusinessError } 14700101 - System parameter not found.
+   * @throws { BusinessError } 14700103 - The operation on the system permission is denied.
+   * @throws { BusinessError } 14700104 - System internal error such as out memory or deadlock.
    * @syscap SystemCapability.Startup.SystemInfo
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -73,9 +73,9 @@ declare namespace systemParameterEnhance {
    * @param { AsyncCallback<string> } callback Callback function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    * 2.incorrect parameter types; 3.parameter verification failed.
-   * @throws { BusinessError } 14700101 - if key is not found
-   * @throws { BusinessError } 14700103 - if permission denied
-   * @throws { BusinessError } 14700104 - if system internal error
+   * @throws { BusinessError } 14700101 - System parameter not found.
+   * @throws { BusinessError } 14700103 - The operation on the system permission is denied.
+   * @throws { BusinessError } 14700104 - System internal error such as out memory or deadlock.
    * @syscap SystemCapability.Startup.SystemInfo
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -91,9 +91,9 @@ declare namespace systemParameterEnhance {
    * @returns { Promise<string> }, which is used to obtain the result asynchronously.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    * 2.incorrect parameter types; 3.parameter verification failed.
-   * @throws { BusinessError } 14700101 - if key is not found
-   * @throws { BusinessError } 14700103 - if permission denied
-   * @throws { BusinessError } 14700104 - if system internal error
+   * @throws { BusinessError } 14700101 - System parameter not found.
+   * @throws { BusinessError } 14700103 - The operation on the system permission is denied.
+   * @throws { BusinessError } 14700104 - System internal error such as out memory or deadlock.
    * @syscap SystemCapability.Startup.SystemInfo
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -108,9 +108,9 @@ declare namespace systemParameterEnhance {
    * @param { string } value System attribute value to set, cannot exceed 96 characters.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    * 2.incorrect parameter types; 3.parameter verification failed.
-   * @throws { BusinessError } 14700102 - if value is invalid
-   * @throws { BusinessError } 14700103 - if permission denied
-   * @throws { BusinessError } 14700104 - if system internal error
+   * @throws { BusinessError } 14700102 - Invalid system parameter value.
+   * @throws { BusinessError } 14700103 - The operation on the system permission is denied.
+   * @throws { BusinessError } 14700104 - System internal error such as out memory or deadlock.
    * @syscap SystemCapability.Startup.SystemInfo
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -126,9 +126,9 @@ declare namespace systemParameterEnhance {
    * @param { AsyncCallback<void> } callback Callback function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    * 2.incorrect parameter types; 3.parameter verification failed.
-   * @throws { BusinessError } 14700102 - if value is invalid
-   * @throws { BusinessError } 14700103 - if permission denied
-   * @throws { BusinessError } 14700104 - if system internal error
+   * @throws { BusinessError } 14700102 - Invalid system parameter value.
+   * @throws { BusinessError } 14700103 - The operation on the system permission is denied.
+   * @throws { BusinessError } 14700104 - System internal error such as out memory or deadlock.
    * @syscap SystemCapability.Startup.SystemInfo
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -144,9 +144,9 @@ declare namespace systemParameterEnhance {
    * @returns { Promise<void> }, which is used to obtain the result asynchronously.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    * 2.incorrect parameter types; 3.parameter verification failed.
-   * @throws { BusinessError } 14700102 - if value is invalid
-   * @throws { BusinessError } 14700103 - if permission denied
-   * @throws { BusinessError } 14700104 - if system internal error
+   * @throws { BusinessError } 14700102 - Invalid system parameter value.
+   * @throws { BusinessError } 14700103 - The operation on the system permission is denied.
+   * @throws { BusinessError } 14700104 - System internal error such as out memory or deadlock.
    * @syscap SystemCapability.Startup.SystemInfo
    * @systemapi Hide this for inner system use.
    * @since 9

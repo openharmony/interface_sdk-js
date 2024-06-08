@@ -109,7 +109,19 @@ declare namespace contextConstant {
      * @atomicservice
      * @since 11
      */
-    EL4 = 3
+    EL4 = 3,
+
+    /**
+     * User privacy sensitive encryption area
+     * when the screen locked, a closed file cannot be opened, read, or written,
+     * a file can be created and then opened, read, or written.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 12
+     */
+    EL5 = 4
   }
 
   /**
@@ -140,7 +152,18 @@ declare namespace contextConstant {
      * @stagemodelonly
      * @since 12
      */
-    NEW_PROCESS_ATTACH_TO_STATUS_BAR_ITEM = 2
+    NEW_PROCESS_ATTACH_TO_STATUS_BAR_ITEM = 2,
+
+    /**
+     * Indicates the ability started without forcing the creation of a new process.
+     * When using this mode, the caller needs to add item to status bar first,
+     * and the target ability needs to have the same bundle name as the caller.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since 12
+     */
+    ATTACH_TO_STATUS_BAR_ITEM = 3
   }
 
   /**
