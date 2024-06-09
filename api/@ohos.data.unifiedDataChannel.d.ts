@@ -1048,7 +1048,7 @@ declare namespace unifiedDataChannel {
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 12
      */
      DRAG = 'Drag'
@@ -1318,7 +1318,7 @@ declare namespace unifiedDataChannel {
    * @throws { BusinessError } 20400001 - Settings already exist.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
    function setAppShareOptions(intention: Intention, shareOptions: ShareOptions): void;
@@ -1332,7 +1332,7 @@ declare namespace unifiedDataChannel {
     *                                                                   2. Incorrect parameter types.
     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
     * @systemapi
-    * @StageModelOnly
+    * @stagemodelonly
     * @since 12
     */
    function removeAppShareOptions(intention: Intention): void;
