@@ -381,7 +381,16 @@ declare interface RichEditorTextStyle {
    * @atomicservice
    * @since 11
    */
-  decoration?: { type: TextDecorationType; color?: ResourceColor; };
+  /**
+   * font decoration.
+   *
+   * @type { ?RichEditorDecoration }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  decoration?: RichEditorDecoration;
 
   /**
    * Text shadow
@@ -1038,6 +1047,7 @@ declare interface RichEditorTextStyleResult {
 
   /**
    * font decoration.
+   * richeditor decoration result.
    *
    * @type { object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1052,7 +1062,16 @@ declare interface RichEditorTextStyleResult {
    * @atomicservice
    * @since 11
    */
-  decoration: { type: TextDecorationType; color: ResourceColor; };
+  /**
+   * richeditor decoration result.
+   *
+   * @type { RichEditorDecorationResult }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  decoration: RichEditorDecorationResult;
 
   /**
    * letter spacing.
@@ -1487,6 +1506,7 @@ declare interface RichEditorImageSpanStyleResult {
    * @type { ?RichEditorLayoutStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   layoutStyle?: RichEditorLayoutStyle;
@@ -1885,6 +1905,7 @@ declare interface RichEditorTextSpanOptions {
  * @interface KeyboardOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface KeyboardOptions {
@@ -1894,6 +1915,7 @@ declare interface KeyboardOptions {
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   supportAvoidance?: boolean;
@@ -3622,6 +3644,73 @@ interface RichEditorInterface {
    * @since 12
    */
   (options: RichEditorStyledStringOptions): RichEditorAttribute;
+}
+
+
+/**
+ * Defines the richEditor font decoration.
+ *
+ * @interface RichEditorDecoration
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+interface RichEditorDecoration {
+  /**
+   * font decoration type.
+   *
+   * @type { TextDecorationType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  type: TextDecorationType;
+
+  /**
+   * font decoration color.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  color?: ResourceColor;
+}
+
+/**
+ * Defines the richEditor font decoration result.
+ *
+ * @interface RichEditorDecorationResult
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+interface RichEditorDecorationResult {
+  /**
+   * font decoration type.
+   *
+   * @type { TextDecorationType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  type: TextDecorationType;
+
+  /**
+   * font decoration color.
+   *
+   * @type { ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  color: ResourceColor;
 }
 
 /**
