@@ -1179,6 +1179,38 @@ declare type ClickEventListenerCallback = (event: ClickEvent, node?: FrameNode) 
 declare type GestureEventListenerCallback = (event: GestureEvent, node?: FrameNode) => void;
 
 /**
+ * Defines the PageInfo type.
+ * The value of routerPageInfo indicates the information of the router page, or undefined if the
+ * frameNode does not have router page information. And the value of navDestinationInfo indicates
+ * the information of the navDestination, or undefined if the frameNode does not have navDestination
+ * information.
+ * 
+ * @interface PageInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export interface PageInfo {
+  /**
+   * the property of router page information.
+   *
+   * @type { ?observer.RouterPageInfo }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  routerPageInfo?: observer.RouterPageInfo;
+
+  /**
+   * the property of navDestination information.
+   *
+   * @type { ?observer.NavDestinationInfo }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  navDestinationInfo?: observer.NavDestinationInfo;
+}
+
+/**
  * Register callbacks to observe ArkUI behavior.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2660,6 +2692,33 @@ export class UIContext {
    * @since 12
    */
   getFrameNodeByUniqueId(id: number): FrameNode | null;
+
+  /**
+   * Get page information of the frameNode with uniqueId.
+   *
+   * @param { number } id - The uniqueId of the target FrameNode.
+   * @returns { PageInfo } - The page information of the frameNode with the target uniqueId, includes
+   * navDestination and router page information. If the frame node does not have navDestination and
+   * router page information, it will return an empty object.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full 
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  getPageInfoByUniqueId(id: number): PageInfo;
+
+  /**
+   * Get navigation information of the frameNode with uniqueId.
+   *
+   * @param { number } id - The uniqueId of the target FrameNode.
+   * @returns { observer.NavigationInfo | undefined } - The navigation information of the frameNode with the
+   * target uniqueId, or undefined if the frameNode is not existed or does not have navigation information.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full 
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  getNavigationInfoByUniqueId(id: number): observer.NavigationInfo | undefined;
 
   /**
    * Get FocusController.
