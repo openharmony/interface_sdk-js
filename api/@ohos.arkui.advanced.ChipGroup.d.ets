@@ -19,7 +19,6 @@
  */
 
 
-import { ResourceStr } from 'GlobalResource';
 import { ChipSize, ChipSymbolGlyphOptions } from '@ohos.arkui.advanced.Chip';
 import { SymbolGlyphModifier } from './@ohos.arkui.modifier';
 
