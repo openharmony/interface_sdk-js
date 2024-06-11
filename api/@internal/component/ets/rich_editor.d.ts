@@ -1787,6 +1787,15 @@ declare interface RichEditorGesture {
   /**
    * Trigger a click event when a click is clicked.
    *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+   /**
+   * Trigger a click event when a click is clicked.
+   *
    * @type { ?Callback<ClickEvent> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
