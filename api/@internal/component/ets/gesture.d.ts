@@ -3848,9 +3848,3 @@ declare class PanRecognizer extends GestureRecognizer {
   getPanGestureOptions(): PanGestureOptions;
 }
 
-declare module "GestureEventModule" {
-  module "GestureEventModule" {
-    // @ts-ignore
-    export { GestureEvent };
-  }
-}

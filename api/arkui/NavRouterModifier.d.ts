@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-/// <reference path="../../component/common.d.ts" />
-/// <reference path="../../component/nav_router.d.ts" />
+
+
 
 /**
  * Defines NavRouter Modifier

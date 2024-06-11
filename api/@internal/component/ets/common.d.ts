@@ -21933,34 +21933,6 @@ declare class DynamicNode<T> {
   onMove(handler: Optional<OnMoveHandler>): T;
 }
 
-declare module "SpecialEvent" {
-  module "SpecialEvent" {
-    // @ts-ignore
-    export { TouchObject, KeyEvent, MouseEvent };
-  }
-}
-
-declare module "AnimateToParam" {
-  module "AnimateToParam" {
-    // @ts-ignore
-    export type { AnimateParam, KeyframeAnimateParam, KeyframeState };
-  }
-}
-
-declare module 'DragControllerParam' {
-  module 'DragControllerParam' {
-    // @ts-ignore
-    export type { CustomBuilder, DragItemInfo, DragEvent, DragPreviewOptions };
-  }
-}
-
-declare module 'ExpectedFrameRateRange' {
-  module 'ExpectedFrameRateRange' {
-    // @ts-ignore
-    export type { ExpectedFrameRateRange };
-  }
-}
-
 /**
  * Define EdgeEffect Options.
  *
@@ -22281,12 +22253,6 @@ declare class WrappedBuilder<Args extends Object[]> {
   constructor(builder: (...args: Args) => void);
 }
 
-declare module "wrappedBuilderObject" {
-  module "wrappedBuilderObject" {
-    // @ts-ignore
-    export { WrappedBuilder };
-  }
-}
 
 /**
  * Defines the overall animation parameters of the keyframe animation.
@@ -22444,12 +22410,6 @@ declare interface KeyframeState {
   event: () => void;
 }
 
-declare module 'touchEvent'{
-  module 'touchEvent' {
-    // @ts-ignore
-    export { TouchEvent };
-  }
-}
 
 /**
  * Defines the basic callback.
@@ -22758,25 +22718,4 @@ declare interface SelectionOptions {
    * @since 12
    */
   menuPolicy?: MenuPolicy;
-}
-
-declare module 'commonEvent' {
-  module 'commonEvent' {
-    // @ts-ignore
-    export { UICommonEvent };
-  }
-}
-
-declare module 'commonAttribute'{
-  module 'commonAttribute' {
-    // @ts-ignore
-    export { CommonAttribute };
-  }
-}
-
-declare module "ClickEventModule" {
-  module "ClickEventModule" {
-    // @ts-ignore
-    export { ClickEvent };
-  }
 }

@@ -18,10 +18,8 @@
  * @kit ArkUI
  */
 
-/// <reference path="../component/units.d.ts" />
-
-import { ResourceStr } from 'GlobalResource';
 import { TextModifier } from './@ohos.arkui.modifier';
+
 
 /**
  * Control style of operation element

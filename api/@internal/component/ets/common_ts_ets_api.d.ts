@@ -2413,10 +2413,3 @@ declare class LocalStorage {
    */
   clear(): boolean;
 }
-
-declare module "StateManagement" {
-  module "StateManagement" {
-    // @ts-ignore
-    export { LocalStorage };
-  }
-}

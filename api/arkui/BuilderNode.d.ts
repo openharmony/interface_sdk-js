@@ -19,8 +19,6 @@
  */
 
 import { UIContext } from '../@ohos.arkui.UIContext';
-import { WrappedBuilder } from 'wrappedBuilderObject';
-import { TouchEvent } from 'touchEvent';
 import { FrameNode } from './FrameNode';
 import { Size } from './Graphics';
 
