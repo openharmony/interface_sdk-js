@@ -30,6 +30,11 @@ declare namespace json {
   /**
    * The type of conversion result function.
    *
+   * @typedef { function } Transformer
+   * @param { Object } this - The object to which the parsed key value pair belongs.
+   * @param { string } key - Attribute name.
+   * @param { Object } value - The value of the parsed key value pair.
+   * @returns { Object | undefined | null } Return the modified object or undefined or null.
    * @syscap SystemCapability.Utils.Lang
    * @since 12
    */
