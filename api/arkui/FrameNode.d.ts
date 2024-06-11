@@ -21,8 +21,6 @@
 import { UIContext } from '../@ohos.arkui.UIContext';
 import { RenderNode } from './RenderNode';
 import { Size, Position, Edges, LengthMetrics, SizeT } from './Graphics';
-import { UICommonEvent } from 'commonEvent';
-import { CommonAttribute } from 'commonAttribute';
 import { DrawContext } from './Graphics';
 import { ComponentContent } from './ComponentContent';
 
