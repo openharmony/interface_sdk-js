@@ -659,7 +659,6 @@ declare namespace window {
      * The content color of the status bar
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
      * @since 12
      */
     statusBarContentColor?: string;
