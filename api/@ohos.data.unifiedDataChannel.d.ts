@@ -64,6 +64,7 @@ declare namespace unifiedDataChannel {
 
   /**
    * Indicated delay get UnifiedData
+   * 
    * @typedef {function} GetDelayData
    * @param { string } type - the type of UnifiedData required.
    * @returns { UnifiedData } Return the UnifiedData required.
@@ -1040,7 +1041,17 @@ declare namespace unifiedDataChannel {
      * @atomicservice
      * @since 11
      */
-    DATA_HUB = 'DataHub'
+    DATA_HUB = 'DataHub',
+
+    /**
+     * Indicates the intention of drag
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+     DRAG = 'Drag'
   }
 
   /**
@@ -1295,6 +1306,36 @@ declare namespace unifiedDataChannel {
    * @since 11
    */
   function deleteData(options: Options): Promise<Array<UnifiedData>>;
+
+  /**
+   * Set app sharing options.
+   *
+   * @param { intention } Describe the sharing channel that UDMF support.
+   * @param { shareOptions } Types of scope that UnifiedData can be used.
+   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                                                   2. Incorrect parameter types.
+   * @throws { BusinessError } 20400001 - Settings already exist.
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+   function setAppShareOptions(intention: Intention, shareOptions: ShareOptions): void;
+
+   /**
+    * Remove app sharing options.
+    *
+    * @param { intention } Describe the sharing channel that UDMF support.
+    * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+    *                                                                   2. Incorrect parameter types.
+    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+    * @systemapi
+    * @stagemodelonly
+    * @since 12
+    */
+   function removeAppShareOptions(intention: Intention): void;
 }
 
 export default unifiedDataChannel;
