@@ -20,7 +20,7 @@
 
 import { Shader, MaterialType, Material, Animation, Environment, Image } from './SceneResources'
 import { Camera, LightType, Light, Node, NodeType } from './SceneNodes'
-
+import { Resource } from 'GlobalResource';
 
 /**
  * The scene resource parameters type.
