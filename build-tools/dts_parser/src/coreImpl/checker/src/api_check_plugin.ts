@@ -43,17 +43,14 @@ import { ApiChangeCheck } from './check_api_diff';
 import { TagInheritCheck } from './tag_inherit_check';
 import { ChineseCheck } from "./check_chinese";
 
-let currentFilePath: string = '';
-
 export class Check {
   /**
    * checker tool main entrance
    * @param { string[] } files -File path for storing file information.
    */
-  static scanEntry(files: string[], prId: string): void {
-    ApiChangeCheck.checkApiChange(prId);
+  static scanEntry(files: string[]): void {
+    ApiChangeCheck.checkApiChange();
     files.forEach((filePath: string, index: number) => {
-      currentFilePath = filePath;
       if (filePath.indexOf('build-tools') !== -1) {
         return;
       }
@@ -112,7 +109,7 @@ export class Check {
         AddErrorLogs.addAPICheckErrorLogs(
           ErrorID.NO_JSDOC_ID,
           ErrorLevel.MIDDLE,
-          currentFilePath,
+          singleApi.getFilePath(),
           singleApi.getPos(),
           ErrorType.NO_JSDOC,
           LogType.LOG_JSDOC,
@@ -147,7 +144,7 @@ export class Check {
         AddErrorLogs.addAPICheckErrorLogs(
           ErrorID.WRONG_ORDER_ID,
           ErrorLevel.MIDDLE,
-          currentFilePath,
+          singleApi.getFilePath(),
           singleApi.getPos(),
           ErrorType.WRONG_ORDER,
           LogType.LOG_JSDOC,
@@ -163,7 +160,7 @@ export class Check {
         AddErrorLogs.addAPICheckErrorLogs(
           ErrorID.UNKNOW_DECORATOR_ID,
           ErrorLevel.MIDDLE,
-          currentFilePath,
+          singleApi.getFilePath(),
           singleApi.getPos(),
           ErrorType.UNKNOW_DECORATOR,
           LogType.LOG_JSDOC,
@@ -176,10 +173,12 @@ export class Check {
         );
       }
       if (!forbiddenWorsCheckResult.state) {
+        const isTsFile: boolean = /\.d\.ts/.test(singleApi.getFilePath());
+        const isAnyError: boolean = /any/.test(forbiddenWorsCheckResult.errorInfo);
         AddErrorLogs.addAPICheckErrorLogs(
           ErrorID.FORBIDDEN_WORDS_ID,
           ErrorLevel.MIDDLE,
-          currentFilePath,
+          singleApi.getFilePath(),
           singleApi.getPos(),
           ErrorType.FORBIDDEN_WORDS,
           LogType.LOG_API,
@@ -195,7 +194,7 @@ export class Check {
         AddErrorLogs.addAPICheckErrorLogs(
           ErrorID.NAMING_ERRORS_ID,
           ErrorLevel.MIDDLE,
-          currentFilePath,
+          singleApi.getFilePath(),
           singleApi.getPos(),
           ErrorType.NAMING_ERRORS,
           LogType.LOG_API,
@@ -227,7 +226,7 @@ export class Check {
         AddErrorLogs.addAPICheckErrorLogs(
           ErrorID.WRONG_SCENE_ID,
           ErrorLevel.MIDDLE,
-          currentFilePath,
+          singleApi.getFilePath(),
           singleApi.getPos(),
           ErrorType.WRONG_SCENE,
           LogType.LOG_JSDOC,
@@ -246,7 +245,7 @@ export class Check {
         AddErrorLogs.addAPICheckErrorLogs(
           ErrorID.WRONG_SCENE_ID,
           ErrorLevel.MIDDLE,
-          currentFilePath,
+          singleApi.getFilePath(),
           singleApi.getPos(),
           ErrorType.WRONG_SCENE,
           LogType.LOG_JSDOC,
@@ -265,7 +264,7 @@ export class Check {
         AddErrorLogs.addAPICheckErrorLogs(
           ErrorID.WRONG_VALUE_ID,
           ErrorLevel.MIDDLE,
-          currentFilePath,
+          singleApi.getFilePath(),
           singleApi.getPos(),
           ErrorType.WRONG_VALUE,
           LogType.LOG_JSDOC,
@@ -284,7 +283,7 @@ export class Check {
         AddErrorLogs.addAPICheckErrorLogs(
           ErrorID.WRONG_SCENE_ID,
           ErrorLevel.MIDDLE,
-          currentFilePath,
+          singleApi.getFilePath(),
           singleApi.getPos(),
           ErrorType.WRONG_SCENE,
           LogType.LOG_JSDOC,

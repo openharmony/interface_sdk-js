@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit NetworkKit
+ */
+
+/**
  * This module provides the Network Response.
  * @interface NetworkResponse
  * @syscap SystemCapability.Communication.NetManager.Core

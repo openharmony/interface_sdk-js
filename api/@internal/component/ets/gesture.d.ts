@@ -574,6 +574,15 @@ declare enum GestureJudgeResult {
  * @crossplatform
  * @since 11
  */
+/**
+ * Creating an Object
+ *
+ * @namespace GestureControl 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare namespace GestureControl {
   /**
    * Creating an Object

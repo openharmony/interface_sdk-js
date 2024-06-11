@@ -63,6 +63,39 @@ declare enum ImageAnalyzerType {
    * @since 12
    */
   TEXT,
+
+  /**
+   * Image analyze type object lookup.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  OBJECT_LOOKUP,
+}
+
+/**
+ * Image analyzer controller.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+declare class ImageAnalyzerController {
+  /**
+   * Constructor.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  constructor();
+
+  /**
+   * Get image analyzer support types.
+   *
+   * @returns { ImageAnalyzerType[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  getImageAnalyzerSupportTypes(): ImageAnalyzerType[];
 }
 
 /**
@@ -99,4 +132,31 @@ declare interface ImageAnalyzerConfig {
    * @since 12
    */
   types: ImageAnalyzerType[];
+}
+
+/**
+ * Image ai options.
+ *
+ * @interface ImageAIOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+declare interface ImageAIOptions {
+  /**
+   * Image analyze types.
+   *
+   * @type { ?ImageAnalyzerType[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  types?: ImageAnalyzerType[];
+
+  /**
+   * Image analyze types.
+   *
+   * @type { ?ImageAnalyzerController }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  aiController?: ImageAnalyzerController;
 }

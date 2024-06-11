@@ -1,1 +1,0 @@
-declare function testFun(a: number): void;

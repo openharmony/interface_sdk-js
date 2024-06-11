@@ -512,6 +512,28 @@ declare interface AlertDialogButtonOptions {
 }
 
 /**
+ * Defines TextStyle in the AlertDialog.
+ *
+ * @interface TextStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare interface TextStyle {
+  /**
+   * Set the word break type.
+   *
+   * @type { ?WordBreak }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  wordBreak?: WordBreak;
+}
+
+/**
  * Base param used for AlertDialog.show method.
  *
  * @interface AlertDialogParam
@@ -925,6 +947,17 @@ declare interface AlertDialogParam {
    * @since 12
    */
   shadow?: ShadowOptions | ShadowStyle;
+
+  /**
+   * Set the alertDialog's textStyle.
+   *
+   * @type { ?TextStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  textStyle?: TextStyle;
 }
 
 /**

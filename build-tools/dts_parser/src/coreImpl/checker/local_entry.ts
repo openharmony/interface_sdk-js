@@ -18,17 +18,15 @@ import { LogUtil } from '../../utils/logUtil';
 import { GenerateFile } from '../../utils/checkUtils';
 import { compositiveResult, compositiveLocalResult, apiCheckResult } from '../../utils/checkUtils';
 import { DOC, DEFINE, CHANEGE } from './config/api_check_config.json';
-import { ApiChangeCheck } from './src/check_api_diff';
 
 /**
  * local entrance
  */
 export class LocalEntry {
-
-  static checkEntryLocal(filePathArr: string[], fileRuleArr: string[], output: string, prId: string, excel: string): ApiResultMessage[] {
+  static checkEntryLocal(filePathArr: string[], fileRuleArr: string[], output: string, excel: string): ApiResultMessage[] {
     let allResult: ApiResultMessage[] = apiCheckResult;
     try {
-      Check.scanEntry(filePathArr, prId);
+      Check.scanEntry(filePathArr);
       LocalEntry.maskAlarm(compositiveResult, fileRuleArr);
     } catch (error) {
       LogUtil.e('API_CHECK_ERROR', error);
@@ -77,6 +75,7 @@ export class LocalEntry {
       let resultItemInfo: string = resultItem.message.replace(/API check error of \[.*\]: /g, '');
       const regex1 = /Prohibited word in \[.*\]:{option}.The word allowed is \[.*\]\./g;
       const regex2 = /Prohibited word in \[.*\]:{ability} in the \[.*\] file\./g;
+      const regex3= /please confirm whether it needs to be corrected to a common word./g;
       if (/\d/g.test(resultItemInfo)) {
         resultItemInfo = resultItemInfo.replace(/\d+/g, '1');
       }
@@ -85,6 +84,9 @@ export class LocalEntry {
       }
       if (regex2.test(resultItemInfo)) {
         resultItemInfo = JSON.stringify(apiCheckInfos.get('API_DEFINE_NAME_02')).replace(/\"/g, '');
+      }
+      if (regex3.test(resultItemInfo)) {
+        resultItemInfo = resultItemInfo.replace(/\{.*\}/g, '{XXXX}');
       }
       if (/This name \[.*\] should be named by/g.test(resultItemInfo)) {
         resultItemInfo = resultItemInfo.replace(/\[.*\]/g, '[XXXX]');
@@ -106,21 +108,5 @@ export class LocalEntry {
       }
     }
     return '';
-  }
-
-  static apiChangeCheckEntryLocal(prId: string, fileRuleArr: string[], output: string, excel: string): ApiResultMessage[] {
-    let apiChangeCheckResult: ApiResultMessage[] = apiCheckResult;
-    try {
-      ApiChangeCheck.checkApiChange(prId);
-      LocalEntry.maskAlarm(compositiveResult, fileRuleArr);
-    } catch (error) {
-      LogUtil.e('API_CHECK_ERROR', error);
-    } finally {
-      GenerateFile.writeFile(apiCheckResult, output, {});
-      if (excel === 'true') {
-        GenerateFile.writeExcelFile(compositiveLocalResult);
-      }
-    }
-    return apiChangeCheckResult;
   }
 }

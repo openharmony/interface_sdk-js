@@ -152,7 +152,18 @@ declare namespace contextConstant {
      * @stagemodelonly
      * @since 12
      */
-    NEW_PROCESS_ATTACH_TO_STATUS_BAR_ITEM = 2
+    NEW_PROCESS_ATTACH_TO_STATUS_BAR_ITEM = 2,
+
+    /**
+     * Indicates the ability started without forcing the creation of a new process.
+     * When using this mode, the caller needs to add item to status bar first,
+     * and the target ability needs to have the same bundle name as the caller.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since 12
+     */
+    ATTACH_TO_STATUS_BAR_ITEM = 3
   }
 
   /**

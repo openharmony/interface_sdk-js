@@ -928,6 +928,27 @@ export class RenderNode {
   get shapeMask(): ShapeMask;
 
   /**
+   * Mark whether to preferentially draw the node and its children.
+   *
+   * @param { boolean } isNodeGroup - The parameter indicates whether to preferentially draw the node and its children.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  set markNodeGroup(isNodeGroup: boolean);
+
+  /**
+   * Get whether to preferentially draw the node and its children.
+   *
+   * @returns { boolean } - Return whether to preferentially draw the node and its children.
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  get markNodeGroup(): boolean;
+
+  /**
    * Draw Method. Executed when the associated RenderNode is onDraw.
    *
    * @param { DrawContext } context - The DrawContext will be used when executed draw method.

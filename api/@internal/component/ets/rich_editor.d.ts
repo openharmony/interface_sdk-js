@@ -675,6 +675,15 @@ declare interface RichEditorTextSpan {
  * @crossplatform
  * @since 11
  */
+/**
+ * Defines the richEditor Image Layout Style.
+ *
+ * @interface RichEditorLayoutStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 interface RichEditorLayoutStyle {
   /**
    * Outer Margin.
@@ -1388,6 +1397,17 @@ declare interface RichEditorTextSpanResult {
    * @since 12
    */
   paragraphStyle?: RichEditorParagraphStyle;
+
+  /**
+   * The preview text.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  previewText?: string;
 }
 
 /**
@@ -2197,6 +2217,15 @@ declare interface RichEditorUpdateSymbolSpanStyleOptions extends RichEditorSpanS
  * @crossplatform
  * @since 11
  */
+/**
+ * Defines the symbol span options of RichEditor.
+ *
+ * @interface RichEditorSymbolSpanOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare interface RichEditorSymbolSpanOptions {
   /**
    * The offset that add custom symbol span at.
@@ -2343,6 +2372,17 @@ declare interface RichEditorInsertValue {
    * @since 11
    */
   insertValue: string;
+
+  /**
+   * The preview text.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  previewText?: string;
 }
 
 /**
@@ -2576,7 +2616,7 @@ declare interface SelectionMenuOptions {
    * @atomicservice
    * @since 11
    */
-    /**
+  /**
    * Callback function when the selection menu appears.
    * 
    * @type { ?MenuOnAppearCallback }
@@ -3315,6 +3355,18 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   enableDataDetector(enable: boolean): RichEditorAttribute;
 
   /**
+   * Enable preview text.
+   *
+   * @param { boolean } enable - Enable preview text.
+   * @returns { RichEditorAttribute } The attribute of the rich editor.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  enablePreviewText(enable: boolean): RichEditorAttribute;
+
+  /**
    * Data detector with config.
    *
    * @param { TextDataDetectorConfig } config - The config of text data detector.
@@ -3369,7 +3421,7 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @since 12
    */
   selectedBackgroundColor(value: ResourceColor): RichEditorAttribute;
-  
+
   /**
    * Called when edit status is changed
    *
@@ -3446,6 +3498,18 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
     * @since 12
     */
   onCopy(callback: Callback<CopyEvent>): RichEditorAttribute;
+
+  /**
+   * Set the custom text menu.
+   *
+   * @param { Array<ExpandedMenuItemOptions> } expandedMenuOptions - Customize text menu options.
+   * @returns { RichEditorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  selectionMenuOptions(expandedMenuOptions: Array<ExpandedMenuItemOptions>): RichEditorAttribute;
 }
 
 /**
@@ -3506,6 +3570,7 @@ declare type SubmitCallback = (enterKey: EnterKeyType, event: SubmitEvent) => vo
  * @param { number } end - End offset of the selected content in rich editor.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare type MenuOnAppearCallback = (start: number, end: number) => void;

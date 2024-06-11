@@ -18,8 +18,6 @@
  * @kit AbilityKit
  */
 
-/// <reference path="../../component/common_ts_ets_api.d.ts"/>
-
 import { AbilityInfo } from '../bundleManager/AbilityInfo';
 import { AbilityResult } from '../ability/abilityResult';
 import { AsyncCallback } from '../@ohos.base';
@@ -31,7 +29,6 @@ import StartOptions from '../@ohos.app.ability.StartOptions';
 import OpenLinkOptions from '../@ohos.app.ability.OpenLinkOptions';
 import { Configuration } from '../@ohos.app.ability.Configuration';
 import { Caller } from '../@ohos.app.ability.UIAbility';
-import { LocalStorage } from 'StateManagement';
 import image from '../@ohos.multimedia.image';
 import dialogRequest from '../@ohos.app.ability.dialogRequest';
 import AbilityConstant from '../@ohos.app.ability.AbilityConstant';
@@ -280,7 +277,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
-   * @throws { BusinessError } 16000073 - The target app clone with the specified index does not exist.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @crossplatform
@@ -403,7 +400,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000068 - Ability already running.
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @throws { BusinessError } 16300003 - The target application is not self application.
-   * @throws { BusinessError } 16000073 - The target app clone with the specified index does not exist.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
@@ -532,7 +529,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000068 - Ability already running.
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @throws { BusinessError } 16300003 - The target application is not self application.
-   * @throws { BusinessError } 16000073 - The target app clone with the specified index does not exist.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
@@ -636,7 +633,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
-   * @throws { BusinessError } 16000073 - The target app clone with the specified index does not exist.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -705,7 +702,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
-   * @throws { BusinessError } 16000073 - The target app clone with the specified index does not exist.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -778,7 +775,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
-   * @throws { BusinessError } 16000073 - The target app clone with the specified index does not exist.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -885,7 +882,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
    * @throws { BusinessError } 16000018 - The application is not allow jumping to other applications.
    * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000073 - The target app clone with the specified index does not exist.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12
@@ -951,7 +948,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16200001 - The caller has been released.
-   * @throws { BusinessError } 16000073 - The target app clone with the specified index does not exist.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -1025,7 +1022,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
-   * @throws { BusinessError } 16000073 - The target app clone with the specified index does not exist.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -1126,7 +1123,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
-   * @throws { BusinessError } 16000073 - The target app clone with the specified index does not exist.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -1202,7 +1199,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
-   * @throws { BusinessError } 16000073 - The target app clone with the specified index does not exist.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -1325,7 +1322,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
-   * @throws { BusinessError } 16000073 - The target app clone with the specified index does not exist.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
@@ -1446,7 +1443,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
-   * @throws { BusinessError } 16000073 - The target app clone with the specified index does not exist.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
@@ -1573,7 +1570,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
-   * @throws { BusinessError } 16000073 - The target app clone with the specified index does not exist.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
@@ -1670,7 +1667,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
-   * @throws { BusinessError } 16000073 - The target app clone with the specified index does not exist.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -1771,7 +1768,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
-   * @throws { BusinessError } 16000073 - The target app clone with the specified index does not exist.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -1876,7 +1873,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
-   * @throws { BusinessError } 16000073 - The target app clone with the specified index does not exist.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -3010,7 +3007,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
-   * @throws { BusinessError } 16000073 - The target app clone with the specified index does not exist.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -3104,7 +3101,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
-   * @throws { BusinessError } 16000073 - The target app clone with the specified index does not exist.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -3202,7 +3199,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
-   * @throws { BusinessError } 16000073 - The target app clone with the specified index does not exist.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -3443,7 +3440,7 @@ export default class UIAbilityContext extends Context {
    * If the target UIExtensionAbility is visible, you can start the target UIExtensionAbility; If the target UIExtensionAbility is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible UIExtensionAbility.
    *
-   * @param { Want } type - Indicates the UIExtensionAbility to start.
+   * @param { Want } pickerWant - Indicates the UIExtensionAbility to start.
    * @param { AsyncCallback<void> } callback - The callback of requestModalUIExtension.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
@@ -3467,7 +3464,7 @@ export default class UIAbilityContext extends Context {
    * If the target UIExtensionAbility is visible, you can start the target UIExtensionAbility; If the target UIExtensionAbility is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible UIExtensionAbility.
    *
-   * @param { Want } type - Indicates the UIExtensionAbility to start.
+   * @param { Want } pickerWant - Indicates the UIExtensionAbility to start.
    * @param { AsyncCallback<void> } callback - The callback of requestModalUIExtension.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
@@ -3484,7 +3481,7 @@ export default class UIAbilityContext extends Context {
    * If the target UIExtensionAbility is visible, you can start the target UIExtensionAbility; If the target UIExtensionAbility is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible UIExtensionAbility.
    *
-   * @param { Want } type - Indicates the UIExtensionAbility to start.
+   * @param { Want } pickerWant - Indicates the UIExtensionAbility to start.
    * @returns { Promise<void> } The promise returned by the requestModalUIExtension.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
@@ -3508,7 +3505,7 @@ export default class UIAbilityContext extends Context {
    * If the target UIExtensionAbility is visible, you can start the target UIExtensionAbility; If the target UIExtensionAbility is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible UIExtensionAbility.
    *
-   * @param { Want } type - Indicates the UIExtensionAbility to start.
+   * @param { Want } pickerWant - Indicates the UIExtensionAbility to start.
    * @returns { Promise<void> } The promise returned by the requestModalUIExtension.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.

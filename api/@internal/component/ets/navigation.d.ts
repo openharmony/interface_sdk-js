@@ -19,6 +19,15 @@
  */
 
 /**
+ * Import the SystemBarStyle type for Navigation.
+ *
+ * @typedef { import('../api/@ohos.window').default.SystemBarStyle } SystemBarStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+declare type SystemBarStyle = import('../api/@ohos.window').default.SystemBarStyle;
+
+/**
  * Defines the navigation common title.
  *
  * @interface NavigationCommonTitle
@@ -2571,6 +2580,16 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @since 12
    */
   ignoreLayoutSafeArea(types?: Array<LayoutSafeAreaType>, edges?: Array<LayoutSafeAreaEdge>): NavigationAttribute;
+
+  /**
+   * Set the style of system bar
+   *
+   * @param { Optional<SystemBarStyle> } style - The properties of system bar
+   * @returns { NavigationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  systemBarStyle(style: Optional<SystemBarStyle>): NavigationAttribute;
 }
 
 /**
@@ -2752,6 +2771,16 @@ declare interface NavigationTransitionProxy {
    * @since 12
    */
   cancelTransition?(): void;
+
+  /**
+   * Notification system transition animation update.
+   *
+   * @param { number } progress - The progress of transition animation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  updateTransition?(progress: number): void;
 }
 
 /**
@@ -2838,6 +2867,16 @@ declare interface NavContentInfo {
    * @since 12
    */
   param?: Object;
+
+  /**
+   * The unique id of NavDestination.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  navDestinationId?: string;
 }
 
 /**

@@ -161,13 +161,13 @@ type OnRenderProcessRespondingCallback = () => void;
 type OnViewportFitChangedCallback = (viewportFit: ViewportFit) => void;
 
 /**
-* The callback of ads block
-*
-* @typedef OnAdsBlockedCallback
-* @syscap SystemCapability.Web.Webview.Core
-* @atomicservice
-* @since 12
-*/
+ * The callback of ads block
+ *
+ * @typedef {function} OnAdsBlockedCallback
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
 type OnAdsBlockedCallback = (details: AdsBlockedDetails) => void;
 
 /**
@@ -7726,6 +7726,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   defaultTextEncodingFormat(textEncodingFormat: string): WebAttribute;
 
   /**
+   * Whether force display the scroll bar.
+   *
+   * @param { boolean } enabled {@code true} means show; {@code false} otherwise.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  forceDisplayScrollBar(enabled: boolean): WebAttribute;
+
+  /**
    * Whether web component can load resource from network.
    *
    * @param { boolean } block {@code true} means it can't load resource from network; {@code false} otherwise.
@@ -8333,16 +8344,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onInterceptKeyboardAttach(callback: WebKeyboardCallback): WebAttribute;
 
   /**
-  * Called when received Ads blocked results.
-  * If blocked results exist at end of page loading, the first call will be triggered.
-  * To avoid performance issues, subsequent results will be periodically reported through this api.
-  *
-  * @param { OnAdsBlockedCallback } callback - The callback for OnAdsBlockedCallback.
-  * @returns { WebAttribute }
-  * @syscap SystemCapability.Web.Webview.Core
-  * @atomicservice
-  * @since 12
-  */
+   * Called when received Ads blocked results.
+   * If blocked results exist at the end of page loading, the first call will be triggered.
+   * To avoid performance issues, subsequent results will be periodically reported through this api.
+   *
+   * @param { OnAdsBlockedCallback } callback - The callback for OnAdsBlockedCallback.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
   onAdsBlocked(callback: OnAdsBlockedCallback): WebAttribute;
 }
 

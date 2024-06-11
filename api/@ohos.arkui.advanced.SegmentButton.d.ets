@@ -589,6 +589,15 @@ interface TabSegmentButtonConstructionOptions extends CommonSegmentButtonOptions
    * @crossplatform
    * @since 11
    */
+  /**
+   * The items of tab type of SegmentButton.
+   *
+   * @type { ItemRestriction<SegmentButtonTextItem> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   buttons: ItemRestriction<SegmentButtonTextItem>;
 }
 

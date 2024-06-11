@@ -29,6 +29,13 @@ import type unifiedDataChannel from './@ohos.data.unifiedDataChannel';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * This module allows developers to trigger a drag event.
+ * @namespace dragController
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 12
+ */
 declare namespace dragController {
   /**
    * Defines the Drag Status.
@@ -215,6 +222,14 @@ declare namespace dragController {
    * @interface DragInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * DragInfo object description
+   * 
+   * @interface DragInfo
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
    */
   interface DragInfo {
     /**
