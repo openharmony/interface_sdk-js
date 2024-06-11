@@ -1134,7 +1134,7 @@ declare namespace zlib {
    * @since 11
    */
   function decompressFile(inFile: string, outFile: string, options?: Options): Promise<void>;
-
+  
   /**
    * Get the original size of the compressed zip file, the size is the meta data stored in zip file.
    *
@@ -1159,7 +1159,7 @@ declare namespace zlib {
    * @since 12
    */
   function createChecksum(): Promise<Checksum>;
-
+ 
   /**
    * Synchronize creation of verification objects.
    *
@@ -1169,7 +1169,7 @@ declare namespace zlib {
    * @since 12
    */
   function createChecksumSync(): Checksum;
-
+ 
   /**
    * Asynchronous creation of zip objects.
    *
@@ -1225,14 +1225,13 @@ declare namespace zlib {
      * @param { number } adler - Initial value of Adler32 checksum.
      * @param { ArrayBuffer } buf - Calculate checksum data buffer.
      * @returns { Promise<number> } Return the updated checksum.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
      */
     adler32(adler: number, buf: ArrayBuffer): Promise<number>;
-
+ 
     /**
      * Combine two Adler-32 checksum into one.
      *
@@ -1240,28 +1239,28 @@ declare namespace zlib {
      * @param { number } adler2 - The second Adler32 checksum.
      * @param { number } len2 - The length of the data block associated with the second Adler32 checksum.
      * @returns { Promise<number> } Returns the Adler-32 checksum.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. Possible causes: 1. Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
      */
     adler32Combine(adler1: number, adler2: number, len2: number): Promise<number>;
-
+ 
     /**
      * Update a running CRC-32 with the bytes buf.
      *
      * @param { number } crc - Initial value of CRC-32 checksum.
      * @param { ArrayBuffer } buf - Calculate checksum data buffer.
      * @returns { Promise<number> } Return the updated CRC-32.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. Possible causes: 1. Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
      */
     crc32(crc: number, buf: ArrayBuffer): Promise<number>;
-
+ 
     /**
      * Combine two CRC-32 check values into one.
      *
@@ -1269,28 +1268,28 @@ declare namespace zlib {
      * @param { number } crc2 - The second CRC-32 checksum.
      * @param { number } len2 - The length of the data block associated with the second CRC-32 checksum.
      * @returns { Promise<number> } Returns the CRC-32 check value.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. Possible causes: 1. Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
      */
     crc32Combine(crc1: number, crc2: number, len2: number): Promise<number>;
-
+ 
     /**
      * Update a running CRC-64 with the bytes buf.
      *
      * @param { number } crc - Initial value of CRC-64 checksum.
      * @param { ArrayBuffer } buf - Calculate checksum data buffer.
      * @returns { Promise<number> } Return the updated CRC-64.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. Possible causes: 1. Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
      */
     crc64(crc: number, buf: ArrayBuffer): Promise<number>;
-
+ 
     /**
      * Get CRC-32 table.
      *
@@ -1300,7 +1299,7 @@ declare namespace zlib {
      * @since 12
      */
     getCrcTable(): Promise<Array<number>>;
-
+ 
     /**
      * Get CRC-64 table.
      *
@@ -2045,6 +2044,7 @@ declare namespace zlib {
     /**
      * Open the gzip (.gz) file at path for reading and decompressing, or compressing and writing.
      *
+
      * @param { string } path - The file path to be opened.
      * @param { string } mode - Specify the file opening method.
      * @returns { Promise<void> }
