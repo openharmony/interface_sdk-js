@@ -636,6 +636,41 @@ declare namespace collections {
      * @since 12
      */
     concat(...items: ConcatArray<T>[]): Array<T>;
+    /**
+     * Removes elements from the array and, if necessary, inserts new elements at the specified position.
+     *
+     * @param { number } start - The zero-based index at which to start changing the contents of the array.
+     * @param { number } [deleteCount] - The number of elements to remove from the array,
+     *    starting at the index specified by the start parameter.
+     *    If deleteCount is not specified, or its value is 0, no elements are removed.
+     * @returns { Array<T> } The modified array.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200011 - The splice method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @since 12
+     */
+    splice(start: number, deleteCount?: number): Array<T>;
+    /**
+     * Removes elements from the array and, if necessary, inserts new elements at the specified position.
+     *
+     * @param { number } start - The zero-based index at which to start changing the contents of the array.
+     * @param { number } deleteCount - The number of elements to remove from the array,
+     *    starting at the index specified by the start parameter.
+     * @param { T[] } items - An array of elements to insert into the array,
+     *    starting at the index specified by the start parameter.
+     * @returns { Array<T> } The modified array.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200011 - The splice method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @since 12
+     */
+    splice(start: number, deleteCount: number, ...items: T[]): Array<T>;
   }
   
   /**
