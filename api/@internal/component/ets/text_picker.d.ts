@@ -1130,9 +1130,3 @@ declare const TextPicker: TextPickerInterface;
  */
 declare const TextPickerInstance: TextPickerAttribute;
 
-declare module "textPickerDialogParam" {
-  module "textPickerDialogParam" {
-    // @ts-ignore
-    export { TextPickerDialogOptions };
-  }
-}

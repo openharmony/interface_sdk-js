@@ -18,7 +18,6 @@
  * @kit ArkUI
  */
 
-/// <reference path="../component/units.d.ts" />
 
 import { ResourceStr } from 'GlobalResource';
 import { ChipSize, ChipSymbolGlyphOptions } from '@ohos.arkui.advanced.Chip';

@@ -18,9 +18,6 @@
  * @kit ArkUI
  */
 
-/// <reference path="../component/units.d.ts" />
-
-import { ResourceStr } from 'GlobalResource';
 import { TextModifier, ImageModifier } from './@ohos.arkui.modifier';
 
 /**

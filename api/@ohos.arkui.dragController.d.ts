@@ -18,12 +18,10 @@
  * @kit ArkUI
  */
 
-/// <reference path="../component/common.d.ts" />
+
 
 import type { AsyncCallback, BusinessError, Callback } from './@ohos.base';
 import type unifiedDataChannel from './@ohos.data.unifiedDataChannel';
-import type { CustomBuilder, DragItemInfo, DragEvent, DragPreviewOptions } from 'DragControllerParam';
-import type { ResourceColor, TouchPoint } from 'DragControllerUnitParam';
 
 /**
  * This module allows developers to trigger a drag event.

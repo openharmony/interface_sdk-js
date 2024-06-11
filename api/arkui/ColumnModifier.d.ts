@@ -18,8 +18,6 @@
  * @kit ArkUI
  */
 
-/// <reference path="../../component/common.d.ts" />
-/// <reference path="../../component/column.d.ts" />
 
 /**
  * Defines Column Modifier

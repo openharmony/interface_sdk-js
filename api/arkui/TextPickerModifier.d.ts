@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-/// <reference path="../../component/common.d.ts" />
-/// <reference path="../../component/text_picker.d.ts" />
+
+
 
 /**
  * Defines TextPicker Modifier
