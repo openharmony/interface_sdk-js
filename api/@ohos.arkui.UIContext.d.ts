@@ -1606,7 +1606,7 @@ export class UIObserver {
   off(type: 'didClick', callback?: GestureEventListenerCallback): void;
 
   /**
-   * Registers a callback function to be called when the tabContent show or hide.
+   * Registers a callback function to be called when the tabContent is showed or hidden.
    *
    * @param { 'tabContentUpdate' } type - The type of event to listen for. Must be 'tabContentUpdate'.
    * @param { observer.ObserverOptions } options - The options object.
@@ -1614,6 +1614,7 @@ export class UIObserver {
    *                                                         when the tabContent show or hide.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   on(type: 'tabContentUpdate', options: observer.ObserverOptions, callback: Callback<observer.TabContentInfo>): void;
@@ -1627,18 +1628,20 @@ export class UIObserver {
    *                                              all callbacks for the given event type and Tabs ID will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   off(type: 'tabContentUpdate', options: observer.ObserverOptions, callback?: Callback<observer.TabContentInfo>): void;
 
   /**
-   * Registers a callback function to be called when the tabContent show or hide.
+   * Registers a callback function to be called when the tabContent is showed or hidden.
    *
    * @param { 'tabContentUpdate' } type - The type of event to listen for. Must be 'tabContentUpdate'.
    * @param { Callback<observer.TabContentInfo> } callback - The callback function to be called
-   *                                                         when the tabContent show or hide.
+   *                                                         when the tabContent is showed or hidden.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   on(type: 'tabContentUpdate', callback: Callback<observer.TabContentInfo>): void;
@@ -1651,6 +1654,7 @@ export class UIObserver {
    *                                              all callbacks for the given event type and Tabs ID will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   off(type: 'tabContentUpdate', callback?: Callback<observer.TabContentInfo>): void;

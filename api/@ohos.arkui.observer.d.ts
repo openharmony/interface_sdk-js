@@ -319,7 +319,6 @@ declare namespace uiObserver {
    * @crossplatform
    * @atomicservice
    * @since 12
-   * @form
    */
   export enum TabContentState {
     /**
@@ -340,7 +339,7 @@ declare namespace uiObserver {
      * @atomicservice
      * @since 12
      */
-    ON_HIDDEN = 1
+    ON_HIDE = 1
   }
 
   /**
@@ -1145,11 +1144,11 @@ declare namespace uiObserver {
   export function off(type: 'didLayout', context: UIContext, callback?: Callback<void>): void;
 
   /**
-   * Registers a callback function to be called when the tabContent show or hide.
+   * Registers a callback function to be called when the tabContent is showed or hidden.
    *
    * @param { 'tabContentUpdate' } type - The type of event to listen for. Must be 'tabContentUpdate'.
    * @param { ObserverOptions } options - The options object.
-   * @param { Callback<TabContentInfo> } callback - The callback function to be called when the tabContent show or hide.
+   * @param { Callback<TabContentInfo> } callback - The callback function to be called when when the tabContent is showed or hidden.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1172,10 +1171,10 @@ declare namespace uiObserver {
   export function off(type: 'tabContentUpdate', options: ObserverOptions, callback?: Callback<TabContentInfo>): void;
 
   /**
-   * Registers a callback function to be called when the tabContent show or hide.
+   * Registers a callback function to be called when the tabContent is showed or hidden.
    *
    * @param { 'tabContentUpdate' } type - The type of event to listen for. Must be 'tabContentUpdate'.
-   * @param { Callback<TabContentInfo> } callback - The callback function to be called when the tabContent show or hide.
+   * @param { Callback<TabContentInfo> } callback - The callback function to be called when the tabContent is showed or hidden.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
