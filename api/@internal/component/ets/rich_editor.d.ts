@@ -1047,7 +1047,6 @@ declare interface RichEditorTextStyleResult {
 
   /**
    * font decoration.
-   * richeditor decoration result.
    *
    * @type { object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1063,7 +1062,7 @@ declare interface RichEditorTextStyleResult {
    * @since 11
    */
   /**
-   * richeditor decoration result.
+   * font decoration.
    *
    * @type { RichEditorDecorationResult }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
