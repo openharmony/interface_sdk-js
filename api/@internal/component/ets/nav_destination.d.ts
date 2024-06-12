@@ -351,6 +351,16 @@ declare interface NavDestinationContext {
    */
   pathStack: NavPathStack;
 
+  /**
+   * Get the unique id of NavDestination, which is different from common property id of Component.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  navDestinationId?: string;
+
 
   /**
    * Get configuration of current Destination in module.json
