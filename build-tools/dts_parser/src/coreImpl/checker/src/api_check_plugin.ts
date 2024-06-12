@@ -133,7 +133,7 @@ export class Check {
       // tags name check
       const tagNamseCheckResult: ErrorTagFormat = TagNameCheck.tagNameCheck(apiJsdoc);
       // tags inherit check
-      const tagInheritCheckResult: ErrorTagFormat = TagInheritCheck.tagInheritCheck(singleApi);
+      const tagInheritCheckResult: ErrorTagFormat[] = TagInheritCheck.tagInheritCheck(singleApi);
       // tags value check
       const tagValueCheckResult: ErrorTagFormat[] = TagValueCheck.tagValueCheck(singleApi, apiJsdoc);
       // tags repeat check
@@ -208,21 +208,24 @@ export class Check {
       }
       if (!chineseCheckResult.state) {
         AddErrorLogs.addAPICheckErrorLogs(
-            ErrorID.JSDOC_HAS_CHINESE,
-            ErrorLevel.MIDDLE,
-            singleApi.getFilePath(),
-            singleApi.getPos(),
-            ErrorType.JSDOC_HAS_CHINESE,
-            LogType.LOG_JSDOC,
-            toNumber(apiJsdoc.since),
-            singleApi.getApiName(),
-            singleApi.getDefinedText(),
-            chineseCheckResult.errorInfo,
-            compositiveResult,
-            compositiveLocalResult
+          ErrorID.JSDOC_HAS_CHINESE,
+          ErrorLevel.MIDDLE,
+          singleApi.getFilePath(),
+          singleApi.getPos(),
+          ErrorType.JSDOC_HAS_CHINESE,
+          LogType.LOG_JSDOC,
+          toNumber(apiJsdoc.since),
+          singleApi.getApiName(),
+          singleApi.getDefinedText(),
+          chineseCheckResult.errorInfo,
+          compositiveResult,
+          compositiveLocalResult
         );
       }
-      if (!tagInheritCheckResult.state) {
+      tagInheritCheckResult.forEach((inheritCheckResult: ErrorTagFormat) => {
+        if (inheritCheckResult.state !== false) {
+          return;
+        }
         AddErrorLogs.addAPICheckErrorLogs(
           ErrorID.WRONG_SCENE_ID,
           ErrorLevel.MIDDLE,
@@ -233,11 +236,11 @@ export class Check {
           toNumber(apiJsdoc.since),
           singleApi.getApiName(),
           singleApi.getDefinedText(),
-          tagInheritCheckResult.errorInfo,
+          inheritCheckResult.errorInfo,
           compositiveResult,
           compositiveLocalResult
         );
-      }
+      });
       tagLegalityCheckResult.forEach((legalityResult) => {
         if (legalityResult.state !== false) {
           return;

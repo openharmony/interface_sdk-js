@@ -588,7 +588,7 @@ export class NodeProcessorHelper {
         false
       );
     }
-    propertyInfo.setTypeKind(propertyNode.type ? propertyNode.type.kind : -1);
+    propertyInfo.setTypeKind(propertyNode.type?.kind);
     return propertyInfo;
   }
 
@@ -670,7 +670,7 @@ export class NodeProcessorHelper {
     paramInfo.setApiName(param.name.getText());
     paramInfo.setIsRequired(!param.questionToken ? true : false);
     paramInfo.setDefinedText(param.getText());
-    paramInfo.setParamType(param.type ? param.type.kind : -1);
+    paramInfo.setParamType(param.type?.kind);
     if (param.type === undefined) {
       return paramInfo;
     }

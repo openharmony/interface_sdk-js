@@ -12,7 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import path from 'path';
+import path, { ParsedPath } from 'path';
 import fs, { Stats } from 'fs';
 import { Workbook, Worksheet } from 'exceljs';
 import ts, { LineAndCharacter } from 'typescript';
@@ -122,8 +122,8 @@ export class GenerateFile {
       const apiData: ApiResultInfo = apiCheckArr[i - 1];
       sheet.getRow(i + 1).values = [
         i,
-        apiData.getErrorType(),
         apiData.getLevel(),
+        apiData.getErrorType(),
         apiData.getLocation(),
         apiData.getApiName(),
         apiData.getApiFullText(),
@@ -247,6 +247,28 @@ export class CommonFunctions {
       }
     });
     return implementsApiValue;
+  }
+
+  static getMdFiles(url: string) {
+    const mdFiles: string[] = [];
+    const content: string = fs.readFileSync(url, 'utf-8');
+    const filePathArr: string[] = content.split(/[(\r\n)\r\n]+/);
+    filePathArr.forEach((filePath: string) => {
+      const pathElements: Set<string> = new Set();
+      CommonFunctions.splitPath(filePath, pathElements);
+      if (!pathElements.has('build-tools')) {
+        mdFiles.push(filePath);
+      }
+    });
+    return mdFiles;
+  }
+
+  static splitPath(filePath: string, pathElements: Set<string>) {
+    let spliteResult: ParsedPath = path.parse(filePath);
+    if (spliteResult.base !== '') {
+      pathElements.add(spliteResult.base);
+      CommonFunctions.splitPath(spliteResult.dir, pathElements);
+    }
   }
 }
 
