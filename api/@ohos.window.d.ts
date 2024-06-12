@@ -642,6 +642,24 @@ declare namespace window {
      */
     enableNavigationBarAnimation?: boolean;
   }
+  
+  /**
+   * Properties of status bar, it couldn't update automatically
+   *
+   * @interface SystemBarStyle
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @atomicservice
+   * @since 12
+   */
+  interface SystemBarStyle {
+    /**
+     * The content color of the status bar
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 12
+     */
+    statusBarContentColor?: string;
+  }
 
   /**
    * System bar tint of region
