@@ -200,7 +200,7 @@ declare namespace restrictions {
    * @since 10
    */
   function isHdcDisabled(admin: Want): Promise<boolean>;
-  
+
   /**
    * Disables the microphone of device.
    *

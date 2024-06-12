@@ -398,7 +398,7 @@ declare namespace deviceSettings {
    * @stagemodelonly
    * @since 12
    */
-  function setValue(admin: Want, item: string, value: string): void
+  function setValue(admin: Want, item: string, value: string): void;
 
   /**
    * Gets the device settings value.
@@ -419,7 +419,7 @@ declare namespace deviceSettings {
    * @stagemodelonly
    * @since 12
    */
-  function getValue(admin: Want, item: string): string
+  function getValue(admin: Want, item: string): string;
 }
 
 export default deviceSettings;
