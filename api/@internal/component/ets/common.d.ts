@@ -8882,7 +8882,7 @@ declare type SizeChangeCallback = (oldValue: SizeOptions, newValue: SizeOptions)
  *
  * @typedef { function } GestureRecognizerJudgeBeginCallback
  * @param { BaseGestureEvent } event - the event information
- * @param { GestureRecognizer } currentRecognizer - the current gesture recognizer of the component
+ * @param { GestureRecognizer } current - the current gesture recognizer of the component
  * @param { Array<GestureRecognizer> } recognizers - the gesture recognizers of the component on the response chain
  * @returns { GestureJudgeResult } the gesture judge result
  * @syscap SystemCapability.ArkUI.ArkUI.Full
