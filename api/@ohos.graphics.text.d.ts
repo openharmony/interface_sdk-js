@@ -935,7 +935,7 @@ declare namespace text {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
-  interface TextBox{
+  interface TextBox {
     /**
      * Rect of text box.
      * @type { common2D.Rect }
