@@ -2440,19 +2440,6 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @since 12
    */
   customNavContentTransition(delegate: (from: NavContentInfo, to: NavContentInfo, operation: NavigationOperation) => NavigationAnimatedTransition | undefined): NavigationAttribute;
-
-  /**
-   * Set navigation content expand types and edges.
-   *
-   * @param { Array<LayoutSafeAreaType> } [types] - Indicates the types of the safe area.
-   * @param { Array<LayoutSafeAreaEdge> } [edges] - Indicates the edges of the safe area.
-   * @returns { NavigationAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  ignoreLayoutSafeArea(types?: Array<LayoutSafeAreaType>, edges?: Array<LayoutSafeAreaEdge>): NavigationAttribute;
 }
 
 /**

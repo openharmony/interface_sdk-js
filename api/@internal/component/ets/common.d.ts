@@ -6991,58 +6991,6 @@ declare enum SafeAreaEdge {
 }
 
 /**
- * Enumerates the safe area types can be ignored.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 12
- */
-declare enum LayoutSafeAreaType {
-  /**
-   * Default area of the system, including the status bar and navigation bar.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  SYSTEM = 0,
-}
-
-/**
- * Enumerates the safe area edges can be ignored.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 12
- */
-declare enum LayoutSafeAreaEdge {
-  /**
-   * Top edge of the safe area.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  TOP = 0,
-
-  /**
-   * Bottom edge of the safe area.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  BOTTOM = 1,
-}
-
-/**
  * Defines sheet size type.
  *
  * @enum { number }
