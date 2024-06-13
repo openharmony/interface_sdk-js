@@ -228,7 +228,17 @@ declare namespace promptAction {
      * @atomicservice
      * @since 12
      */
-    TOP_MOST = 1
+    TOP_MOST = 1,
+
+    /**
+     * Toast shows in SYSTEM_TOAST window.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @atomicservice
+     * @since 12
+     */
+    SYSTEM_TOP_MOST = 2
   }
 
   /**

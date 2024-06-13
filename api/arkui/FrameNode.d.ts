@@ -24,6 +24,7 @@ import { Size, Position, Edges, LengthMetrics, SizeT } from './Graphics';
 import { UICommonEvent } from 'commonEvent';
 import { CommonAttribute } from 'commonAttribute';
 import { DrawContext } from './Graphics';
+import { ComponentContent } from './ComponentContent';
 
 /**
  * Layout constraint, include the max size, the min size and the reference size for children to calculate percent.
@@ -438,7 +439,7 @@ export class FrameNode {
   get commonAttribute(): CommonAttribute;
 
   /**
-   * Draw Method. Executed when the associated RenderNode in the current FrameNode is onDraw.
+   * Draw Method. Executed when the current FrameNode is rendering its content.
    *
    * @param { DrawContext } context - The DrawContext will be used when executed draw method.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -570,4 +571,441 @@ export class FrameNode {
    * @since 12
    */
   getPositionToScreenWithTransform(): Position;
+
+  /**
+   * Detach from parent and dispose all child recursively.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  disposeTree(): void;
+
+  /**
+   * Mount ComponentContent to FrameNode.
+   * 
+   * @param { ComponentContent<T> } content - Newly added ComponentContent.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  addComponentContent<T>(content: ComponentContent<T>): void;
+}
+
+/**
+ * Used to define the FrameNode type.
+ *
+ * @interface TypedFrameNode
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export interface TypedFrameNode<C, T> extends FrameNode {
+  /**
+   * Initialize FrameNode.
+   * 
+   * @type { C }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  initialize: C;
+  /**
+   * Get attribute instance of FrameNode to set attributes.
+   * 
+   * @type { T }
+   * @readonly
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  readonly attribute: T;
+}
+
+/**
+ * Provides methods to implement FrameNode.
+ *
+ * @namespace typeNode
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export namespace typeNode {
+  /**
+   * Define the FrameNode type for Text.
+   * 
+   * @typedef { TypedFrameNode<TextInterface, TextAttribute> } Text
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  type Text = TypedFrameNode<TextInterface, TextAttribute>;
+
+  /**
+   * Create a FrameNode of Text type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Text' } nodeType - node type.
+   * @returns { Text } - Return Text type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  function createNode(context: UIContext, nodeType: 'Text'): Text;
+
+  /**
+   * Define the FrameNode type for Column.
+   * 
+   * @typedef { TypedFrameNode<ColumnInterface, ColumnAttribute> } Column
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  type Column = TypedFrameNode<ColumnInterface, ColumnAttribute>;
+
+  /**
+   * Create a FrameNode of Column type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Column' } nodeType - node type.
+   * @returns { Column } - Return Column type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  function createNode(context: UIContext, nodeType: 'Column'): Column;
+
+  /**
+   * Define the FrameNode type for Row.
+   * 
+   * @typedef { TypedFrameNode<RowInterface, RowAttribute> } Row
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  type Row = TypedFrameNode<RowInterface, RowAttribute>;
+
+  /**
+   * Create a FrameNode of Row type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Row' } nodeType - node type.
+   * @returns { Row } - Return Row type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  function createNode(context: UIContext, nodeType: 'Row'): Row;
+
+  /**
+   * Define the FrameNode type for Stack.
+   * 
+   * @typedef { TypedFrameNode<StackInterface, StackAttribute> } Stack
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  type Stack = TypedFrameNode<StackInterface, StackAttribute>;
+
+  /**
+   * Create a FrameNode of Stack type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Stack' } nodeType - node type.
+   * @returns { Stack } - Return Stack type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  function createNode(context: UIContext, nodeType: 'Stack'): Stack;
+
+  /**
+   * Define the FrameNode type for GridRow.
+   * 
+   * @typedef { TypedFrameNode<GridRowInterface, GridRowAttribute> } GridRow
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  type GridRow = TypedFrameNode<GridRowInterface, GridRowAttribute>;
+
+  /**
+   * Create a FrameNode of GridRow type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'GridRow' } nodeType - node type.
+   * @returns { GridRow } - Return GridRow type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  function createNode(context: UIContext, nodeType: 'GridRow'): GridRow;
+
+  /**
+   * Define the FrameNode type for GridCol.
+   * 
+   * @typedef { TypedFrameNode<GridColInterface, GridColAttribute> } GridCol
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  type GridCol = TypedFrameNode<GridColInterface, GridColAttribute>;
+
+  /**
+   * Create a FrameNode of GridCol type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'GridCol' } nodeType - node type.
+   * @returns { GridCol } - Return GridCol type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  function createNode(context: UIContext, nodeType: 'GridCol'): GridCol;
+
+  /**
+   * Define the FrameNode type for Flex.
+   * 
+   * @typedef { TypedFrameNode<FlexInterface, FlexAttribute> } Flex
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  type Flex = TypedFrameNode<FlexInterface, FlexAttribute>;
+
+  /**
+   * Create a FrameNode of Flex type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Flex' } nodeType - node type.
+   * @returns { Flex } - Return Flex type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  function createNode(context: UIContext, nodeType: 'Flex'): Flex;
+
+  /**
+   * Define the FrameNode type for Swiper.
+   * 
+   * @typedef { TypedFrameNode<SwiperInterface, SwiperAttribute> } Swiper
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  type Swiper = TypedFrameNode<SwiperInterface, SwiperAttribute>;
+
+  /**
+   * Create a FrameNode of Swiper type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Swiper' } nodeType - node type.
+   * @returns { Swiper } - Return Swiper type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  function createNode(context: UIContext, nodeType: 'Swiper'): Swiper;
+
+  /**
+   * Define the FrameNode type for Progress.
+   * 
+   * @typedef { TypedFrameNode<ProgressInterface, ProgressAttribute> } Progress
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  type Progress = TypedFrameNode<ProgressInterface, ProgressAttribute>;
+
+  /**
+   * Create a FrameNode of Progress type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Progress' } nodeType - node type.
+   * @returns { Progress } - Return Progress type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  function createNode(context: UIContext, nodeType: 'Progress'): Progress;
+
+  /**
+   * Define the FrameNode type for Scroll.
+   * 
+   * @typedef { TypedFrameNode<ScrollInterface, ScrollAttribute> } Scroll
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  type Scroll = TypedFrameNode<ScrollInterface, ScrollAttribute>;
+
+  /**
+   * Create a FrameNode of Scroll type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Scroll' } nodeType - node type.
+   * @returns { Scroll } - Return Scroll type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  function createNode(context: UIContext, nodeType: 'Scroll'): Scroll;
+
+  /**
+   * Define the FrameNode type for RelativeContainer.
+   * 
+   * @typedef { TypedFrameNode<RelativeContainerInterface, RelativeContainerAttribute> } RelativeContainer
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  type RelativeContainer = TypedFrameNode<RelativeContainerInterface, RelativeContainerAttribute>;
+
+  /**
+   * Create a FrameNode of RelativeContainer type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'RelativeContainer' } nodeType - node type.
+   * @returns { RelativeContainer } - Return RelativeContainer type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  function createNode(context: UIContext, nodeType: 'RelativeContainer'): RelativeContainer;
+
+  /**
+   * Define the FrameNode type for Divider.
+   * 
+   * @typedef { TypedFrameNode<DividerInterface, DividerAttribute> } Divider
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  type Divider = TypedFrameNode<DividerInterface, DividerAttribute>;
+
+  /**
+   * Create a FrameNode of Divider type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Divider' } nodeType - node type.
+   * @returns { Divider } - Return Divider type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  function createNode(context: UIContext, nodeType: 'Divider'): Divider;
+
+  /**
+   * Define the FrameNode type for LoadingProgress.
+   * 
+   * @typedef { TypedFrameNode<LoadingProgressInterface, LoadingProgressAttribute> } LoadingProgress
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  type LoadingProgress = TypedFrameNode<LoadingProgressInterface, LoadingProgressAttribute>;
+
+  /**
+   * Create a FrameNode of LoadingProgress type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'LoadingProgress' } nodeType - node type.
+   * @returns { LoadingProgress } - Return LoadingProgress type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  function createNode(context: UIContext, nodeType: 'LoadingProgress'): LoadingProgress;
+
+  /**
+   * Define the FrameNode type for Search.
+   * 
+   * @typedef { TypedFrameNode<SearchInterface, SearchAttribute> } Search
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  type Search = TypedFrameNode<SearchInterface, SearchAttribute>;
+
+  /**
+   * Create a FrameNode of Search type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Search' } nodeType - node type.
+   * @returns { Search } - Return Search type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  function createNode(context: UIContext, nodeType: 'Search'): Search;
+
+  /**
+   * Define the FrameNode type for Blank.
+   * 
+   * @typedef { TypedFrameNode<BlankInterface, BlankAttribute> } Blank
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  type Blank = TypedFrameNode<BlankInterface, BlankAttribute>;
+
+  /**
+   * Create a FrameNode of Blank type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Blank' } nodeType - node type.
+   * @returns { Blank } - Return Blank type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  function createNode(context: UIContext, nodeType: 'Blank'): Blank;
+
+  /**
+   * Define the FrameNode type for Image.
+   * 
+   * @typedef { TypedFrameNode<ImageInterface, ImageAttribute> } Image
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  type Image = TypedFrameNode<ImageInterface, ImageAttribute>;
+
+  /**
+   * Create a FrameNode of Image type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Image' } nodeType - node type.
+   * @returns { Image } - Return Image type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  function createNode(context: UIContext, nodeType: 'Image'): Image;
+
+  /**
+   * Define the FrameNode type for List.
+   * 
+   * @typedef { TypedFrameNode<ListInterface, ListAttribute> } List
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  type List = TypedFrameNode<ListInterface, ListAttribute>;
+
+  /**
+   * Create a FrameNode of List type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'List' } nodeType - node type.
+   * @returns { List } - Return List type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  function createNode(context: UIContext, nodeType: 'List'): List;
+
+  /**
+   * Define the FrameNode type for ListItem.
+   * 
+   * @typedef { TypedFrameNode<ListItemInterface, ListItemAttribute> } ListItem
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  type ListItem = TypedFrameNode<ListItemInterface, ListItemAttribute>;
+
+  /**
+   * Create a FrameNode of ListItem type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'ListItem' } nodeType - node type.
+   * @returns { ListItem } - Return ListItem type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  function createNode(context: UIContext, nodeType: 'ListItem'): ListItem;
 }

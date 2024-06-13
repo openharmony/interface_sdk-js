@@ -362,7 +362,7 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
    * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -377,7 +377,7 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
    * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -395,7 +395,7 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
    * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -410,7 +410,7 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
    * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -429,7 +429,7 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
    * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -445,7 +445,7 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
    * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -464,7 +464,7 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if can not get the delegate, only throw in standard system.
+   * @throws { BusinessError } 100001 - Failed to get the delegate. This error code is thrown only in the standard system.
    * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -480,7 +480,7 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if can not get the delegate, only throw in standard system.
+   * @throws { BusinessError } 100001 - Failed to get the delegate. This error code is thrown only in the standard system.
    * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -805,7 +805,7 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
    * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -819,7 +819,7 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
    * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -836,7 +836,7 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
    * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -847,7 +847,7 @@ export class Router {
    * @param { router.NamedRouterOptions } options - Options.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
-   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
    * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -865,7 +865,7 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
    * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -877,7 +877,7 @@ export class Router {
    * @param { router.RouterMode } mode - RouterMode.
    * @param { AsyncCallback<void> } callback - the callback of replaceNamedRoute.
    * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
-   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
    * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -895,7 +895,7 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if can not get the delegate, only throw in standard system.
+   * @throws { BusinessError } 100001 - Failed to get the delegate. This error code is thrown only in the standard system.
    * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -910,7 +910,7 @@ export class Router {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if can not get the delegate, only throw in standard system.
+   * @throws { BusinessError } 100001 - Failed to get the delegate. This error code is thrown only in the standard system.
    * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1104,9 +1104,10 @@ export class PromptAction {
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 103301 - the ComponentContent is incorrect.
-   * @throws { BusinessError } 103302 - Dialog content already exists
+   * @throws { BusinessError } 103302 - Dialog content already exists.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
     openCustomDialog<T extends Object>(dialogContent: ComponentContent<T>, options?: promptAction.BaseDialogOptions): Promise<void>;
@@ -1125,6 +1126,7 @@ export class PromptAction {
    * @throws { BusinessError } 103303 - the ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
     updateCustomDialog<T extends Object>(dialogContent: ComponentContent<T>, options: promptAction.BaseDialogOptions): Promise<void>;
@@ -1142,6 +1144,7 @@ export class PromptAction {
      * @throws { BusinessError } 103303 - the ComponentContent cannot be found.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     closeCustomDialog<T extends Object>(dialogContent: ComponentContent<T>): Promise<void>;
@@ -1821,7 +1824,7 @@ export class DragController {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if some internal handling failed.
+   * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
@@ -1835,7 +1838,7 @@ export class DragController {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if some internal handling failed.
+   * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
@@ -1853,7 +1856,7 @@ export class DragController {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if some internal handling failed.
+   * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
@@ -1866,7 +1869,7 @@ export class DragController {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if some internal handling failed.
+   * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
@@ -1884,7 +1887,7 @@ export class DragController {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if some internal handling failed.
+   * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
@@ -1897,7 +1900,7 @@ export class DragController {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if some internal handling failed.
+   * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
@@ -1982,7 +1985,7 @@ export class FocusController {
    * request focus to the specific component.
    * @param { string } key - the inspector key of the component.
    * @throws { BusinessError } 150001 - the component cannot be focused.
-   * @throws { BusinessError } 150002 - This component has an unfocusable ancestor
+   * @throws { BusinessError } 150002 - This component has an unfocusable ancestor.
    * @throws { BusinessError } 150003 - the component is not on tree or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 12
@@ -2042,6 +2045,25 @@ export class ContextMenuController {
    * @since 12
    */
   close(): void;
+}
+
+/**
+ * Class FrameCallback
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export abstract class FrameCallback {
+  /**
+   * Call when a new display frame is being rendered.
+   * 
+   * @param { number } frameTimeInNano - The frame time in nanoseconds.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  abstract onFrame(frameTimeInNano: number): void;
 }
 
 /**
@@ -2698,6 +2720,25 @@ export class UIContext {
    * @since 12
    */
   getWindowName(): string | undefined;
+
+  /**
+   * Post a frame callback to run on the next frame.
+   *
+   * @param { FrameCallback } frameCallback - The frame callback to run on the next frame.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  postFrameCallback(frameCallback: FrameCallback): void;
+
+  /**
+   * Post a frame callback to run on the next frame after the specified delay.
+   *
+   * @param { FrameCallback } frameCallback - The frame callback to run on the next frame.
+   * @param { number } delayTime - The delay time in milliseconds,
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  postDelayedFrameCallback(frameCallback: FrameCallback, delayTime: number): void;
 }
 
 /**

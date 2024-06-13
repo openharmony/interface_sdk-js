@@ -23,6 +23,7 @@
  *
  * @interface SurfaceRect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
  */
 declare interface SurfaceRect {
@@ -31,6 +32,7 @@ declare interface SurfaceRect {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   offsetX?: number;
@@ -40,6 +42,7 @@ declare interface SurfaceRect {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   offsetY?: number;
@@ -49,6 +52,7 @@ declare interface SurfaceRect {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   surfaceWidth: number;
@@ -58,6 +62,7 @@ declare interface SurfaceRect {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   surfaceHeight: number;
@@ -68,6 +73,7 @@ declare interface SurfaceRect {
  *
  * @interface SurfaceRotationOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
  */
 declare interface SurfaceRotationOptions {
@@ -76,6 +82,7 @@ declare interface SurfaceRotationOptions {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   lock?: boolean;
@@ -92,6 +99,7 @@ declare interface SurfaceRotationOptions {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare class XComponentController {
@@ -106,6 +114,7 @@ declare class XComponentController {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   constructor();
@@ -123,6 +132,7 @@ declare class XComponentController {
    * @returns { string } The id of surface created by XComponent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getXComponentSurfaceId(): string;
@@ -140,6 +150,7 @@ declare class XComponentController {
    * @returns { Object } The context of native XComponent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getXComponentContext(): Object;
@@ -170,6 +181,7 @@ declare class XComponentController {
    *
    * @param { SurfaceRect } rect - The surface rectangle information.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   setXComponentSurfaceRect(rect: SurfaceRect): void;
@@ -179,6 +191,7 @@ declare class XComponentController {
    *
    * @returns { SurfaceRect } The surface rectangle information.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   getXComponentSurfaceRect(): SurfaceRect;
@@ -188,6 +201,7 @@ declare class XComponentController {
    *
    * @param { SurfaceRotationOptions } rotationOptions - The surface rotation options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   setXComponentSurfaceRotation(rotationOptions: SurfaceRotationOptions): void;
@@ -197,6 +211,7 @@ declare class XComponentController {
    *
    * @returns { Required<SurfaceRotationOptions> } The surface rotation options result.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   getXComponentSurfaceRotation(): Required<SurfaceRotationOptions>;
@@ -206,6 +221,7 @@ declare class XComponentController {
    *
    * @param { string } surfaceId - The id of the surface created by XComponent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   onSurfaceCreated(surfaceId: string): void;
@@ -216,6 +232,7 @@ declare class XComponentController {
    * @param { string } surfaceId - The id of the surface created by XComponent.
    * @param { SurfaceRect } rect - The rectangle information of the surface created by XComponent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   onSurfaceChanged(surfaceId: string, rect: SurfaceRect): void;
@@ -225,6 +242,7 @@ declare class XComponentController {
    *
    * @param { string } surfaceId - The id of the surface created by XComponent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   onSurfaceDestroyed(surfaceId: string): void;
@@ -238,6 +256,7 @@ declare class XComponentController {
    * @throws { BusinessError } 110002 - Image analysis is currently being executed.
    * @throws { BusinessError } 110003 - Image analysis is stopped.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   startImageAnalyzer(config: ImageAnalyzerConfig): Promise<void>;
@@ -246,6 +265,7 @@ declare class XComponentController {
    * Stop image analyzer.
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   stopImageAnalyzer(): void;
@@ -264,6 +284,7 @@ declare class XComponentController {
  * @interface XComponentInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 interface XComponentInterface {
@@ -274,6 +295,15 @@ interface XComponentInterface {
    * @returns { XComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
+   */
+  /**
+   * Constructor parameters
+   *
+   * @param { object } value - Indicates the options of the xcomponent.
+   * @returns { XComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
    */
   (value: { id: string; type: string; libraryname?: string; controller?: XComponentController }): XComponentAttribute;
 
@@ -292,6 +322,7 @@ interface XComponentInterface {
    * @returns { XComponentAttribute } The attribute of the xcomponent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   (value: { id: string; type: XComponentType; libraryname?: string; controller?: XComponentController }): XComponentAttribute;
@@ -310,6 +341,7 @@ interface XComponentInterface {
  * @extends CommonMethod<XComponentAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
@@ -328,6 +360,7 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    * @returns { XComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onLoad(callback: (event?: object) => void): XComponentAttribute;
@@ -347,6 +380,7 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    * @returns { XComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onDestroy(event: () => void): XComponentAttribute;
@@ -357,6 +391,7 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    * @param { boolean } enable
    * @returns { XComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   enableAnalyzer(enable: boolean): XComponentAttribute;
@@ -373,6 +408,7 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare const XComponent: XComponentInterface;
@@ -388,6 +424,7 @@ declare const XComponent: XComponentInterface;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare const XComponentInstance: XComponentAttribute;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -28,6 +28,7 @@ import { ProcessInformation as _ProcessInformation } from './application/Process
 import * as _AbilityFirstFrameStateObserver from './application/AbilityFirstFrameStateObserver';
 import * as _AbilityFirstFrameStateData from './application/AbilityFirstFrameStateData';
 import bundleManager from './@ohos.bundle.bundleManager';
+import { RunningMultiAppInfo as _RunningMultiAppInfo } from './application/RunningMultiAppInfo';
 
 /**
  * This module provides the function of app manager service.
@@ -866,8 +867,46 @@ declare namespace appManager {
   function preloadApplication(bundleName: string, userId: number, mode: PreloadMode, appIndex?: number): Promise<void>;
 
   /**
+   * Get all running multi app info by bundleName
+   *
+   * @permission ohos.permission.GET_RUNNING_INFO
+   * @param { string } bundleName - The bundle name of the application to query.
+   * @returns { Promise<RunningMultiAppInfo> } Returns the {@link RunningMultiAppInfo} for given bundle.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16000072 - App clone or multi-instance is not supported.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+  function getRunningMultiAppInfo(bundleName: string): Promise<RunningMultiAppInfo>;
+
+  /**
+  * Check whether the bundle is running.
+  *
+  * @permission ohos.permission.GET_RUNNING_INFO
+  * @param { string } bundleName - Indicates the bundle name of the bundle.
+  * @param { number } [appCloneIndex] - app clone index
+  * @returns { Promise<boolean> } Returns the bundle running result. The result is true if running, false otherwise.
+  * @throws { BusinessError } 201 - Permission denied.
+  * @throws { BusinessError } 202 - Not system application.
+  * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+  * 2. Incorrect parameter types; 3. Parameter verification failed.
+  * @throws { BusinessError } 16000050 - Internal error.
+  * @throws { BusinessError } 16000073 - The app clone index does not exist.
+  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+  * @systemapi
+  * @since 12
+  */
+  function isAppRunning(bundleName: string, appCloneIndex?: number): Promise<boolean>;
+
+  /**
    * The ability or extension state data.
    *
+   * @typedef { _AbilityStateData.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9
@@ -877,6 +916,7 @@ declare namespace appManager {
   /**
    * The application state data.
    *
+   * @typedef { _AppStateData.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9
@@ -886,6 +926,7 @@ declare namespace appManager {
   /**
    * The application state observer.
    *
+   * @typedef { _ApplicationStateObserver.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9
@@ -895,6 +936,7 @@ declare namespace appManager {
   /**
    * The application foreground state observer.
    *
+   * @typedef { _AppForegroundStateObserver.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 11
@@ -910,6 +952,7 @@ declare namespace appManager {
   /**
    * The class of a process information.
    *
+   * @typedef { _ProcessInformation }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 11
@@ -919,6 +962,7 @@ declare namespace appManager {
   /**
    * The class of a process information.
    *
+   * @typedef { _ProcessData.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10
@@ -928,6 +972,7 @@ declare namespace appManager {
   /**
    * The ability first frame state observer.
    *
+   * @typedef { _AbilityFirstFrameStateObserver.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 12
@@ -943,6 +988,17 @@ declare namespace appManager {
    * @since 12
    */
   export type AbilityFirstFrameStateData = _AbilityFirstFrameStateData.default;
+
+  /**
+   * The class of running multi app information.
+   *
+   * @typedef { _RunningMultiAppInfo }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @atomicservice
+   * @since 12
+   */
+  export type RunningMultiAppInfo = _RunningMultiAppInfo;
 }
 
 export default appManager;

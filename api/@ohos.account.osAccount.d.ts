@@ -154,7 +154,8 @@ declare namespace osAccount {
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12300008 - Restricted Account.
@@ -779,6 +780,7 @@ declare namespace osAccount {
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @syscap SystemCapability.Account.OsAccount
+     * This API can be called only by system applications.
      * @since 9
      */
     getOsAccountCount(callback: AsyncCallback<number>): void;
@@ -793,6 +795,7 @@ declare namespace osAccount {
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @syscap SystemCapability.Account.OsAccount
+     * This API can be called only by system applications.
      * @since 9
      */
     getOsAccountCount(): Promise<number>;
@@ -947,6 +950,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid domainInfo.
      * @syscap SystemCapability.Account.OsAccount
+     * This API can be called only by system applications.
      * @since 9
      */
     getOsAccountLocalIdForDomain(domainInfo: DomainAccountInfo, callback: AsyncCallback<number>): void;
@@ -963,6 +967,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid domainInfo.
      * @syscap SystemCapability.Account.OsAccount
+     * This API can be called only by system applications.
      * @since 9
      */
     getOsAccountLocalIdForDomain(domainInfo: DomainAccountInfo): Promise<number>;
@@ -2473,7 +2478,8 @@ declare namespace osAccount {
      * @param { AsyncCallback<ExecutorProperty> } callback - Returns an executor property.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid request.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -2507,7 +2513,8 @@ declare namespace osAccount {
      * @returns { Promise<ExecutorProperty> } Returns an executor property.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid request.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -2591,7 +2598,8 @@ declare namespace osAccount {
      * @returns { Uint8Array } Returns a context ID for cancellation.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid challenge, authType or authTrustLevel.
      * @throws { BusinessError } 12300101 - Credential is incorrect.
@@ -2626,7 +2634,8 @@ declare namespace osAccount {
      * @returns { Uint8Array } Returns a context ID for cancellation.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid challenge, authType, authTrustLevel or options.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -2691,7 +2700,8 @@ declare namespace osAccount {
      * @returns { Uint8Array } Returns a context ID for cancellation.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid challenge, authType or authTrustLevel.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -3542,7 +3552,8 @@ declare namespace osAccount {
      * @returns { Promise<DomainServerConfig> } Returns the added domain server config.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid server config parameters.
@@ -3562,7 +3573,8 @@ declare namespace osAccount {
      * @returns { Promise<void> } Returns void.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300212 - Server config not found.
@@ -3581,7 +3593,8 @@ declare namespace osAccount {
      * @returns { Promise<DomainServerConfig> } Returns the domain server config.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300003 - Domain account not found.
@@ -3658,7 +3671,7 @@ declare namespace osAccount {
      * @returns { Promise<Uint8Array> } Returns a challenge value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12300008 - Restricted account.
@@ -3705,7 +3718,8 @@ declare namespace osAccount {
      * @param { IIdmCallback } callback - Indicates the callback to get results and acquireInfo.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid credentialInfo, i.e. authType or authSubType.
      * @throws { BusinessError } 12300101 - Token is invalid.

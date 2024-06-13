@@ -1073,7 +1073,7 @@ declare namespace connection {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2100002 - Failed to connect to the service.
      * @throws { BusinessError } 2100003 - System internal error.
-     * @throws { BusinessError } 2101008 - The callback does not exist.
+     * @throws { BusinessError } 2101008 - The callback already exists.
      * @throws { BusinessError } 2101022 - The number of requests exceeded the maximum allowed.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8
@@ -1086,7 +1086,7 @@ declare namespace connection {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2100002 - Failed to connect to the service.
      * @throws { BusinessError } 2100003 - System internal error.
-     * @throws { BusinessError } 2101008 - The callback does not exist.
+     * @throws { BusinessError } 2101008 - The callback already exists.
      * @throws { BusinessError } 2101022 - The number of requests exceeded the maximum allowed.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
@@ -1100,7 +1100,7 @@ declare namespace connection {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2100002 - Failed to connect to the service.
      * @throws { BusinessError } 2100003 - System internal error.
-     * @throws { BusinessError } 2101008 - The callback does not exist.
+     * @throws { BusinessError } 2101008 - The callback already exists.
      * @throws { BusinessError } 2101022 - The number of requests exceeded the maximum allowed.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
@@ -1116,7 +1116,7 @@ declare namespace connection {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2100002 - Failed to connect to the service.
      * @throws { BusinessError } 2100003 - System internal error.
-     * @throws { BusinessError } 2101007 - The callback is not exists.
+     * @throws { BusinessError } 2101007 - The callback does not exists.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8
      */
@@ -1127,7 +1127,7 @@ declare namespace connection {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2100002 - Failed to connect to the service.
      * @throws { BusinessError } 2100003 - System internal error.
-     * @throws { BusinessError } 2101007 - The callback is not exists.
+     * @throws { BusinessError } 2101007 - The callback does not exists.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
      * @since 10
@@ -1139,7 +1139,7 @@ declare namespace connection {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2100002 - Failed to connect to the service.
      * @throws { BusinessError } 2100003 - System internal error.
-     * @throws { BusinessError } 2101007 - The callback is not exists.
+     * @throws { BusinessError } 2101007 - The callback does not exists.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
      * @atomicservice
@@ -1151,7 +1151,7 @@ declare namespace connection {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2100002 - Failed to connect to the service.
      * @throws { BusinessError } 2100003 - System internal error.
-     * @throws { BusinessError } 2101007 - The callback is not exists.
+     * @throws { BusinessError } 2101007 - The callback does not exists.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
      * @atomicservice

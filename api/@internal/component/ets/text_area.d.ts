@@ -1541,6 +1541,50 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 12
    */
   fontFeature(value: string): TextAreaAttribute;
+
+  /**
+   * Get text value information when about to input.
+   *
+   * @param { Callback<InsertValue, boolean> } callback - The triggered function when text content is about to insert.
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onWillInsert(callback: Callback<InsertValue, boolean>): TextAreaAttribute;
+
+  /**
+   * Get text value information when completed input.
+   *
+   * @param { Callback<InsertValue> } callback - The triggered function when text content has been inserted.
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onDidInsert(callback: Callback<InsertValue>): TextAreaAttribute;
+
+  /**
+   * Get text value information when about to delete.
+   *
+   * @param { Callback<DeleteValue, boolean> } callback - The triggered function when text content is about to delete.
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onWillDelete(callback: Callback<DeleteValue, boolean>): TextAreaAttribute;
+
+  /**
+   * Get text value information when the deletion has been completed
+   *
+   * @param { Callback<DeleteValue> } callback - The triggered function when text content has been deleted.
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onDidDelete(callback: Callback<DeleteValue>): TextAreaAttribute;
 }
 
 /**

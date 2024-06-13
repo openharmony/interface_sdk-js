@@ -374,7 +374,8 @@ declare namespace userFileManager {
      * @param { string } userComment - user comment info
      * @param { AsyncCallback<void> } callback - Returns void.
      * @throws { BusinessError } 202 - Called by non-system application.
-     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
      * @since 10
@@ -387,7 +388,8 @@ declare namespace userFileManager {
      * @param { string } userComment - user comment info
      * @returns { Promise<void> } Returns void
      * @throws { BusinessError } 202 - Called by non-system application.
-     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
      * @since 10
@@ -1554,7 +1556,8 @@ declare namespace userFileManager {
      * @param { string } albumUri - The album uri.
      * @param { FetchOptions } options - fetch options
      * @param { AsyncCallback<number> } callback - Returns the index of the asset in the album
-     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
      * @since 10
@@ -1568,7 +1571,8 @@ declare namespace userFileManager {
      * @param { string } albumUri - The album uri.
      * @param { FetchOptions } options - fetch options
      * @returns { Promise<number> } - Returns the index of the asset in the album
-     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
      * @since 10
