@@ -2908,6 +2908,67 @@ export class UIContext {
   getWindowName(): string | undefined;
 
   /**
+   * Open the BindSheet.
+   *
+   * @param { ComponentContent<T> } bindSheetContent - The content of BindSheet.
+   * @param { SheetOptions } sheetOptions - The options of sheet.
+   * @param { number } targetId - The uniqueId of the FrameNode to which BindSheet is attached.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 120001 - The bindSheetContent is incorrect.
+   * @throws { BusinessError } 120002 - The bindSheetContent already exists.
+   * @throws { BusinessError } 120004 - The targetId does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  openBindSheet<T extends Object>(bindSheetContent: ComponentContent<T>, sheetOptions?: SheetOptions, targetId?: number): Promise<void>;
+
+  /**
+   * Update the BindSheet with sheetOptions.
+   *
+   * @param { ComponentContent<T> } bindSheetContent - The content of BindSheet.
+   * @param { SheetOptions } sheetOptions - The update options of sheet.
+   * @param { boolean } partialUpdate - If true, only the specified properties in the sheetOptions are updated,
+   *                                    otherwise the rest of the properties are overwritten with the default values.
+   *                                    Default value is false.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 120001 - The bindSheetContent is incorrect.
+   * @throws { BusinessError } 120003 - The bindSheetContent cannot be found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  updateBindSheet<T extends Object>(bindSheetContent: ComponentContent<T>, sheetOptions: SheetOptions, partialUpdate?: boolean): Promise<void>;
+
+  /**
+   * Close the BindSheet.
+   *
+   * @param { ComponentContent<T> } bindSheetContent - The content of BindSheet.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 120001 - The bindSheetContent is incorrect.
+   * @throws { BusinessError } 120003 - The bindSheetContent cannot be found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  closeBindSheet<T extends Object>(bindSheetContent: ComponentContent<T>): Promise<void>;
+
+  /**
    * Post a frame callback to run on the next frame.
    *
    * @param { FrameCallback } frameCallback - The frame callback to run on the next frame.
