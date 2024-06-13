@@ -282,6 +282,8 @@ declare namespace screenLock {
    * @since 9
    */
   function sendScreenLockEvent(event: String, parameter: number): Promise<boolean>;
+
+  function setScreenLockDisabled(disable: boolean, userId: number): Promise<boolean>;
 }
 
 export default screenLock;
