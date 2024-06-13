@@ -1663,7 +1663,7 @@ declare namespace formInfo {
      * @since 12
      */
     OTHER = -1,
-  
+
     /**
      * Form is on the desktop
      *
@@ -1672,7 +1672,7 @@ declare namespace formInfo {
      * @since 12
      */
     DESKTOP = 0,
-  
+
     /**
      * Form is on the form center.
      *
@@ -1681,7 +1681,7 @@ declare namespace formInfo {
      * @since 12
      */
     FORM_CENTER = 1,
-  
+
     /**
      * Form is on the form manager.
      *
@@ -1690,7 +1690,7 @@ declare namespace formInfo {
      * @since 12
      */
     FORM_MANAGER = 2,
-  
+
     /**
      * Form is on the negative screen.
      *
@@ -1699,7 +1699,7 @@ declare namespace formInfo {
      * @since 12
      */
     NEGATIVE_SCREEN = 3,
-  
+
     /**
      * Form is on the form center of negative screen.
      *
@@ -1708,7 +1708,7 @@ declare namespace formInfo {
      * @since 12
      */
     FORM_CENTER_NEGATIVE_SCREEN = 4,
-  
+
     /**
      * Form is on the form manager of negative screen.
      *
@@ -1717,7 +1717,7 @@ declare namespace formInfo {
      * @since 12
      */
     FORM_MANAGER_NEGATIVE_SCREEN = 5,
-  
+
     /**
      * Form is on the screen lock.
      *
@@ -1726,7 +1726,7 @@ declare namespace formInfo {
      * @since 12
      */
     SCREEN_LOCK = 6,
-  
+
     /**
      * Form is on the ai suggestion.
      *
