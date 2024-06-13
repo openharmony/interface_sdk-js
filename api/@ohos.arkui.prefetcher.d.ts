@@ -14,8 +14,7 @@
  */
 
 /**
- * Developers need to implement this interface to provide data to LazyForEach component.
- * The implementation of this interface supports data prefetching.
+ * Implement this interface to provide data prefetching for the LazyForEach component.
  *
  * @interface IDataSourcePrefetching
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -25,8 +24,8 @@
  */
 export interface IDataSourcePrefetching extends IDataSource {
   /**
-   * Prefetch data for specified element of collection.
-   * Method can be either synchronous or asynchronous.
+   * Prefetches data for the specified element in the data collection.
+   * This method can be either synchronous or asynchronous.
    *
    * @param { number } index - Collection element index.
    * @returns { Promise<void> | void }
@@ -38,8 +37,8 @@ export interface IDataSourcePrefetching extends IDataSource {
   prefetch(index: number): Promise<void> | void;
 
   /**
-   * Cancel prefetch data for specified element of collection.
-   * Method can be either synchronous or asynchronous.
+   * Cancels prefetching data for the specified element in the data collection.
+   * This method can be either synchronous or asynchronous.
    *
    * @param { number } index - Collection element index.
    * @returns { Promise<void> | void }
@@ -52,7 +51,7 @@ export interface IDataSourcePrefetching extends IDataSource {
 }
 
 /**
- * Developers need to implement this interface to provide prefetcher logic.
+ * Implement this interface to provide prefetcher logic.
  *
  * @interface IPrefetcher
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -62,7 +61,7 @@ export interface IDataSourcePrefetching extends IDataSource {
  */
 export interface IPrefetcher {
   /**
-   * Set data source. Call this method to bind prefetcher and data source.
+   * Sets the data source to bind to this prefetcher.
    *
    * @param { IDataSourcePrefetching } dataSource - Data source that supports prefetching.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -96,7 +95,7 @@ export interface IPrefetcher {
  */
 export class BasicPrefetcher implements IPrefetcher {
   /**
-   * Construct a basic prefetcher instance and optionally set data source.
+   * Constructs a basic prefetcher instance and optionally sets the data source.
    *
    * @param { ?IDataSourcePrefetching } dataSource - Data source that supports prefetching.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -107,9 +106,9 @@ export class BasicPrefetcher implements IPrefetcher {
   constructor(dataSource?: IDataSourcePrefetching);
 
   /**
-   * Set data source. Call this method to bind prefetcher and data source.
+   * Sets the data source to bind to this prefetcher.
    *
-   * @param { IDataSourcePrefetching } ds - Data source that supports prefetching.
+   * @param { IDataSourcePrefetching } dataSource - Data source that supports prefetching.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
