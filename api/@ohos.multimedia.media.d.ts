@@ -4439,6 +4439,14 @@ declare namespace media {
      * @since 12
      */
     CFT_MPEG_4A = 'm4a',
+
+    /**
+     * A audio container format type mp3.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 12
+     */
+    CFT_MP3 = 'mp3',
   }
 
   /**
@@ -5334,6 +5342,12 @@ declare namespace media {
      * @since 11
      */
     VIDEO_HEVC = 'video/hevc',
+    /**
+     * mp3 codec MIME type.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
+    AUDIO_MP3 = 'audio/mpeg',
   }
 
   /**
