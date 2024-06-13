@@ -64,21 +64,19 @@ export interface IPrefetcher {
   /**
    * Set data source. Call this method to bind prefetcher and data source.
    *
-   * @param { IDataSourcePrefetching } ds - Data source that supports prefetching.
-   * @returns { void }
+   * @param { IDataSourcePrefetching } dataSource - Data source that supports prefetching.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  setDataSource(ds: IDataSourcePrefetching): void;
+  setDataSource(dataSource: IDataSourcePrefetching): void;
 
   /**
    * Call this method when the visible area boundaries were changed.
    *
    * @param { number } minVisible - Index of the first visible data item.
    * @param { number } maxVisible - Index of the last visible data item.
-   * @returns { void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -100,32 +98,30 @@ export class BasicPrefetcher implements IPrefetcher {
   /**
    * Construct a basic prefetcher instance and optionally set data source.
    *
-   * @param { ?IDataSourcePrefetching } ds - Data source that supports prefetching.
+   * @param { ?IDataSourcePrefetching } dataSource - Data source that supports prefetching.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  constructor(ds?: IDataSourcePrefetching);
+  constructor(dataSource?: IDataSourcePrefetching);
 
   /**
    * Set data source. Call this method to bind prefetcher and data source.
    *
    * @param { IDataSourcePrefetching } ds - Data source that supports prefetching.
-   * @returns { void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  setDataSource(ds: IDataSourcePrefetching): void;
+  setDataSource(dataSource: IDataSourcePrefetching): void;
 
   /**
    * Call this method when the visible area changed.
    *
    * @param { number } minVisible - Index of the first visible data item.
    * @param { number } maxVisible - Index of the last visible data item.
-   * @returns { void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
