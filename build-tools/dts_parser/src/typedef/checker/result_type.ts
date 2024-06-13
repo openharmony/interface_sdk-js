@@ -81,6 +81,14 @@ export enum ErrorLevel {
   LOW = 1,
 }
 
+export enum ParticularErrorCode {
+  ERROR_CODE_201 = '201',
+  ERROR_CODE_202 = '202',
+  ERROR_CODE_401 = '401',
+  ERROR_PERMISSION = 'permission',
+  ERROR_SYSTEMAPI = 'systemapi'
+}
+
 /**
  * error message infomation
  * @enum { string }
@@ -107,6 +115,7 @@ export enum ErrorMessage {
   ERROR_INFO_VALUE1_THROWS = 'The type of the [$$] [throws] tag is incorrect. Please fill in [BusinessError].',
   ERROR_INFO_VALUE2_THROWS = 'The type of the [$$] [throws] tag is incorrect. Please check if the tag value is a numerical value.',
   ERROR_INFO_INHERIT = 'It was detected that there is an inheritable label [$$] in the current file, but there are child nodes without this label.',
+  ERROR_INFO_FOLLOW = 'It was detected that there is a following label [$$] in the current file, but the parent nodes without this label.',
   ERROR_ORDER = 'JSDoc label order error, please adjust the order of [$$] labels.',
   ERROR_LABELNAME = 'The [$$] tag does not exist. Please use a valid JSDoc tag.',
   ERROR_LOST_LABEL = 'JSDoc tag validity verification failed. Please confirm if the [$$] tag is missing.',
@@ -131,6 +140,7 @@ export enum ErrorMessage {
   ERROR_SMALL_HUMP_NAME = 'This name [$$] should be named by small hump.',
   ERROR_SMALL_HUMP_NAME_FILE = 'This API file should be named by small hump.',
   ERROR_LARGE_HUMP_NAME_FILE = 'This API file should be named by large hump.',
+  ERROR_ANONYMOUS_FUNCTION ='Anonymous functions or anonymous object that are not allowed are used in this api.',
   ERROR_CHANGES_JSDOC_LEVEL = 'Forbid changes: API defectLevel change to system.',
   ERROR_CHANGES_JSDOC_MODEL = 'Forbid changes: API mode change.',
   ERROR_CHANGES_JSDOC_CARD = 'Forbid changes: API card delete.',
@@ -412,7 +422,7 @@ export class ApiResultMessage {
   defectLevel: number = -1;
   defectType: string = '';
   description: string = '';
-  language: string = 'ts';
+  language: string = 'typescript';
   mainBuggyCode: string = '';
   mainBuggyLine: string = '';
 
