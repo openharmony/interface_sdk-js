@@ -33,22 +33,22 @@ export default class StartupTask {
    * Called when specific dependent task complete.
    *
    * @param { string } dependency - Indicates name of specific dependent startup task.
-   * @param { ESObject } result - Indicates result of specific dependent startup task.
+   * @param { Object } result - Indicates result of specific dependent startup task.
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
    * @since 12
    */
-  onDependencyCompleted?(dependency: string, result: ESObject): void;
+  onDependencyCompleted?(dependency: string, result: Object): void;
 
   /**
    * Initializes current startup task.
    * A developer could override this function to init current task and return a result for other tasks.
    *
    * @param { AbilityStageContext } context - Indicates ability stage context.
-   * @returns { Promise<ESObject> } The result of initialization.
+   * @returns { Promise<Object | void> } The result of initialization.
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
    * @since 12
    */
-  init(context: AbilityStageContext): Promise<ESObject>;
+  init(context: AbilityStageContext): Promise<Object | void>;
 }
