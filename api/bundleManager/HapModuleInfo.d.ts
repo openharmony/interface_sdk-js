@@ -457,9 +457,9 @@ export interface HapModuleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 12
    */
-  readonly nativeLibraryPath: string;  
+  readonly nativeLibraryPath: string;
 
-   /**
+     /**
    * Indicates the code path
    *
    * @type { string }
@@ -468,7 +468,7 @@ export interface HapModuleInfo {
    * @atomicservice
    * @since 12
    */
-   readonly codePath: string;
+     readonly codePath: string;
 }
 
 /**

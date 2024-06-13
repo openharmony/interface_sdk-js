@@ -627,7 +627,7 @@ declare namespace bundleManager {
      * @since 12
      */
     EMBEDDED_UI = 21,
-
+        
     /**
      * Indicates extension info with type of insight intent UI
      *
@@ -3107,7 +3107,7 @@ declare namespace bundleManager {
    * @since 12
    */
   function getDeveloperIds(appDistributionType?: number): Array<String>;
-
+  
   /**
    * Switch uninstall state of a specified application.
    *
@@ -3124,7 +3124,7 @@ declare namespace bundleManager {
    * @since 12
    */
   function switchUninstallState(bundleName: string, state: boolean): void;
-
+  
   /**
    * Obtains configuration information about an application.
    *
@@ -3263,7 +3263,7 @@ declare namespace bundleManager {
 
   /**
    * Obtains preload information about a module.
-   *
+   * 
    * @typedef { _HapModuleInfo.PreloadItem }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
@@ -3351,7 +3351,7 @@ declare namespace bundleManager {
 
   /**
    * Obtains extension information about a bundle.
-   *
+   * 
    * @typedef { _ExtensionAbilityInfo.ExtensionAbilityInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
@@ -3452,7 +3452,7 @@ declare namespace bundleManager {
    * @since 12
    */
   export type SkillUrl = _Skill.SkillUri;
-
+ 
   /**
    * Indicates the information of preinstalled application.
    *

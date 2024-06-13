@@ -126,7 +126,6 @@ export interface AppProvisionInfo {
    * @since 10
    */
   readonly issuer: string;
-
   /**
    * Globally unique identifier of an application, which is allocated by the cloud.
    * AppIdentifier does not change along the application lifecycle, including version updates, certificate changes,
