@@ -523,7 +523,7 @@ declare namespace colorSpaceManager {
    * Create a color space manager by provided color space type.
    * @param { ColorSpace } colorSpaceName - Indicates the type of color space
    * @returns { ColorSpaceManager } Returns a color space manager object created by provided type.
-   * @throws { BusinessError } 401 - Parameter error. 1.Incorrect parameter type.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Incorrect parameter type.
    *                                 2.Parameter verification failed.
    * @throws { BusinessError } 18600001 - Parameter value is abnormal.
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
@@ -533,7 +533,7 @@ declare namespace colorSpaceManager {
    * Create a color space manager by provided color space type.
    * @param { ColorSpace } colorSpaceName - Indicates the type of color space
    * @returns { ColorSpaceManager } Returns a color space manager object created by provided type.
-   * @throws { BusinessError } 401 - Parameter error. 1.Incorrect parameter type.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Incorrect parameter type.
    *                                 2.Parameter verification failed.
    * @throws { BusinessError } 18600001 - Parameter value is abnormal.
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
