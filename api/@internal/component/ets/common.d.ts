@@ -21876,6 +21876,53 @@ declare interface Callback<T, V = void> {
 declare type HoverCallback = (isHover: boolean, event: HoverEvent) => void
 
 /**
+ * Defines the options about VisibleAreaEvent.
+ *
+ * @interface VisibleAreaEventOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+ declare interface VisibleAreaEventOptions {
+  /**
+   * Each number in ratios indicates the value of visibility ratio. Each number in the Array value range in [0, 1].
+   *
+   * @type { Array<number> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  ratios: Array<number>;
+
+  /**
+   * The value of expectedUpdateInterval indicates desired update period(ms).
+   *
+   * @type { ?number }
+   * @default 1000
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  expectedUpdateInterval?: number;
+}
+
+/**
+ * Defines the callback type used in VisibleAreaChange events.
+ *
+ * @typedef { function } VisibleAreaChangeCallback
+ * @param { boolean } isVisible - Indicates the ratio of the visible area to its own area compared to the last change.
+ * It is true as the ratio increases and false as the ratio decreases.
+ * @param { number } currentRatio - The value of currentRatio indicates the visibility ratio of the current component.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type VisibleAreaChangeCallback = (isVisible: boolean, currentRatio: number) => void;
+
+/**
  * Defines a UICommonEvent which is used to set different common event to target component.
  *
  * @interface UICommonEvent
@@ -21995,6 +22042,19 @@ declare interface UICommonEvent {
   * @since 12
   */
   setOnSizeChange(callback: SizeChangeCallback | undefined): void;
+
+  /**
+   * Set or reset the callback which is triggered when the visibleArea of component changed.
+   *
+   * @param { VisibleAreaEventOptions } options - The options for the visibility event.
+   * @param { VisibleAreaChangeCallback | undefined } event - The callback will be triggered when the visibleArea of component changed and get close to any number in ratios defined by options.
+   * If set undefined will reset the target callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+   setOnVisibleAreaApproximateChange(options: VisibleAreaEventOptions, event: VisibleAreaChangeCallback | undefined): void;
 }
 
 /**
