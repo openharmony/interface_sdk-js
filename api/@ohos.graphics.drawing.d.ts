@@ -142,7 +142,7 @@ declare namespace drawing {
      */
     DARKEN = 16,
     /**
-     * Choose a lighter background and source color. 
+     * Choose a lighter background and source color.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
@@ -166,7 +166,7 @@ declare namespace drawing {
      */
     HARD_LIGHT = 20,
     /**
-     * Lightens or Darkens the colors, depending on the source. 
+     * Lightens or Darkens the colors, depending on the source.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
@@ -217,7 +217,7 @@ declare namespace drawing {
 
   /**
    * Describes a path object.
-   * 
+   *
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11
    */
@@ -247,7 +247,7 @@ declare namespace drawing {
     /**
      * This is done by using angle arc mode. In this mode, a rectangle that encloses an ellipse is specified first,
      * and then a start angle and a sweep angle are specified.
-     * The arc is a portion of the ellipse defined by the start angle and the sweep angle. 
+     * The arc is a portion of the ellipse defined by the start angle and the sweep angle.
      * By default, a line segment from the last point of the path to the start point of the arc is also added.
      * @param { number } x1 - Indicates the x coordinate of the upper left corner of the rectangle.
      * @param { number } y1 - Indicates the y coordinate of the upper left corner of the rectangle.
@@ -713,7 +713,7 @@ declare namespace drawing {
 
   /**
    * Provide a description of the text
-   * 
+   *
    * class TextBlob
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11
@@ -755,10 +755,10 @@ declare namespace drawing {
      */
     bounds(): common2D.Rect;
   }
-  
+
   /**
    * The Typeface class specifies the typeface and intrinsic style of a font.
-   * 
+   *
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11
    */
@@ -774,7 +774,7 @@ declare namespace drawing {
 
   /**
    * Font controls options applied when drawing and measuring text.
-   * 
+   *
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11
    */
@@ -788,6 +788,7 @@ declare namespace drawing {
      * @since 11
      */
     enableSubpixel(isSubpixel: boolean): void;
+
     /**
      * Increases stroke width when creating glyph bitmaps to approximate a bold typeface.
      * @param { boolean } isEmbolden - Setting for bold approximation.
@@ -797,6 +798,7 @@ declare namespace drawing {
      * @since 11
      */
     enableEmbolden(isEmbolden: boolean): void;
+
     /**
      * Requests linearly scalable font and glyph metrics.
      * @param { boolean } isLinearMetrics - Setting for linearly scalable font and glyph metrics.
@@ -806,6 +808,7 @@ declare namespace drawing {
      * @since 11
      */
     enableLinearMetrics(isLinearMetrics: boolean): void;
+
     /**
      * Sets text size in points. Has no effect if textSize is not greater than or equal to zero.
      * @param { number } textSize - Typographic height of text. The height of the text must be greater than 0.
@@ -815,6 +818,7 @@ declare namespace drawing {
      * @since 11
      */
     setSize(textSize: number): void;
+
     /**
      * Obtains the text size.
      * @returns { number } Text size.
@@ -822,6 +826,7 @@ declare namespace drawing {
      * @since 11
      */
     getSize(): number;
+
     /**
      * Sets Typeface to font.
      * @param { Typeface } typeface - Font and style used to draw text.
@@ -831,6 +836,7 @@ declare namespace drawing {
      * @since 11
      */
     setTypeface(typeface: Typeface): void;
+
     /**
      * Get Typeface to font.
      * @returns { Typeface } Typeface.
@@ -838,6 +844,7 @@ declare namespace drawing {
      * @since 11
      */
     getTypeface(): Typeface;
+
     /**
      * Get fontMetrics associated with typeface.
      * @returns { FontMetrics } The fontMetrics value returned to the caller.
@@ -845,6 +852,7 @@ declare namespace drawing {
      * @since 11
      */
     getMetrics(): FontMetrics;
+
     /**
      * Measure the width of text.
      * @param { string } text - Text Symbol Content.
@@ -968,7 +976,7 @@ declare namespace drawing {
 
   /**
    * ColorFilters are optional objects in the drawing pipeline.
-   * 
+   *
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11
    */
@@ -985,6 +993,7 @@ declare namespace drawing {
      * @since 11
      */
     static createBlendModeColorFilter(color: common2D.Color, mode: BlendMode): ColorFilter;
+
     /**
      * Create a color filter consisting of two filters.
      * @param { ColorFilter } outer - The filter is used next.
@@ -997,6 +1006,7 @@ declare namespace drawing {
      * @since 11
      */
     static createComposeColorFilter(outer: ColorFilter, inner: ColorFilter): ColorFilter;
+
     /**
      * Makes a color filter that converts between linear colors and sRGB colors.
      * @returns { ColorFilter } Colorfilter object.
@@ -1005,6 +1015,7 @@ declare namespace drawing {
      * @since 11
      */
     static createLinearToSRGBGamma(): ColorFilter;
+
     /**
      * Makes a color filter that converts between sRGB colors and linear colors.
      * @returns { ColorFilter } Colorfilter object.
@@ -1013,6 +1024,7 @@ declare namespace drawing {
      * @since 11
      */
     static createSRGBGammaToLinear(): ColorFilter;
+
     /**
      * Makes a color filter that multiplies the luma of its input into the alpha channel,
      * and sets the red, green, and blue channels to zero.
@@ -1133,46 +1145,47 @@ declare namespace drawing {
     * Set the color of the pen.
     * @param { common2D.Color } color - The range of color channels must be [0, 255].
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+    * <br>2. Incorrect parameter types.
     * @syscap SystemCapability.Graphics.Drawing
     * @since 11
     */
     setColor(color: common2D.Color): void;
     /**
     * Sets the thickness of the pen used by the paint to outline the shape.
-    * 
+    *
     * @param { number } width - Zero thickness for hairline; greater than zero for pen thickness.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+    * <br>2. Incorrect parameter types.
     * @syscap SystemCapability.Graphics.Drawing
     * @since 11
     */
     setStrokeWidth(width: number): void;
     /**
     * Requests, but does not require, that edge pixels draw opaque or with partial transparency.
+    *
     * @param { boolean } aa - Setting for antialiasing.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+    * <br>2. Incorrect parameter types.
     * @syscap SystemCapability.Graphics.Drawing
     * @since 11
     */
     setAntiAlias(aa: boolean): void;
     /**
     * Replaces alpha, leaving RGB
-    * 
+    *
     * @param { number } alpha - Alpha channel of color. The range of alpha must be [0, 255].
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
     * @syscap SystemCapability.Graphics.Drawing
     * @since 11
     */
     setAlpha(alpha: number): void;
     /**
     * Sets ColorFilter to pen
-    * 
+    *
     * @param { ColorFilter } filter - ColorFilter to apply to subsequent draw.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+    * <br>2. Incorrect parameter types.
     * @syscap SystemCapability.Graphics.Drawing
     * @since 11
     */
@@ -1209,20 +1222,20 @@ declare namespace drawing {
     setShadowLayer(shadowLayer: ShadowLayer): void;
     /**
     * Sets a blender that implements the specified blendmode enum.
-    * 
+    *
     * @param { BlendMode } mode - Blendmode.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+    * <br>2. Incorrect parameter types.
     * @syscap SystemCapability.Graphics.Drawing
     * @since 11
     */
     setBlendMode(mode: BlendMode): void;
     /**
     * Request color distribution error.
-    * 
+    *
     * @param { boolean } dither - Whether the color is distributed incorrectly.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+    * <br>2. Incorrect parameter types.
     * @syscap SystemCapability.Graphics.Drawing
     * @since 11
     */
