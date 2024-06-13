@@ -32,6 +32,7 @@ import { SyscapProcessorHelper } from '../coreImpl/diff/syscapFieldProcessor';
 import { FunctionUtils } from '../utils/FunctionUtils';
 import { ApiCountInfo } from '../typedef/count/ApiCount';
 import { ApiCountHelper } from '../coreImpl/count/count'
+import { CommonFunctions } from '../utils/checkUtils';
 
 /**
  * 工具名称的枚举值，用于判断执行哪个工具
@@ -328,23 +329,16 @@ function collectApiCallback(apiData: ApiStatisticsInfo[], sheet: ExcelJS.Workshe
  * @param { OptionObjType } options
  * @return { ToolNameValueType }
  */
-function checkApi(options: OptionObjType): ToolNameValueType {
-  let allApis: FilesMap;
+function checkApi(): ToolNameValueType {
   try {
-    let fileContent: ApiResultMessage[] = [];
-    if (process.env.NODE_ENV === 'development') {
-
-      fileContent = LocalEntry.checkEntryLocal([], [], '', 'false');
-    } else if (process.env.NODE_ENV === 'production') {
+    let mdApiFiles: string[] = [];
+    const filePathTxt: string = path.resolve(FileUtils.getBaseDirName(), '../mdFiles.txt');
+    if (fs.existsSync(filePathTxt)) {
+      mdApiFiles = CommonFunctions.getMdFiles(filePathTxt);
     }
-    let finalData: (string | ApiResultMessage)[] = [];
-    if (options.format === formatType.JSON) {
-      finalData = [JSON.stringify(fileContent, null, NumberConstant.INDENT_SPACE)];
-    } else {
-      finalData = fileContent;
-    }
+     LocalEntry.checkEntryLocal(mdApiFiles, ['all'], './result.json', 'true');
     return {
-      data: finalData,
+      data: [],
     };
   } catch (exception) {
     const error = exception as Error;
