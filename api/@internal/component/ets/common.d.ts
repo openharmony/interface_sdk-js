@@ -197,11 +197,12 @@ declare const Component: ClassDecorator & ((options: ComponentOptions) => ClassD
 /**
  * Defining ComponentV2 ClassDecorator
  *
+ * ComponentV2 is a ClassDecorator and it supports ComponentOptions as parameters.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
-declare const ComponentV2: ClassDecorator;
+declare const ComponentV2: ClassDecorator & ((options: ComponentOptions) => ClassDecorator);
 
 /**
  * Defines the options of Entry ClassDecorator.
@@ -8881,7 +8882,7 @@ declare type SizeChangeCallback = (oldValue: SizeOptions, newValue: SizeOptions)
  *
  * @typedef { function } GestureRecognizerJudgeBeginCallback
  * @param { BaseGestureEvent } event - the event information
- * @param { GestureRecognizer } currentRecognizer - the current gesture recognizer of the component
+ * @param { GestureRecognizer } current - the current gesture recognizer of the component
  * @param { Array<GestureRecognizer> } recognizers - the gesture recognizers of the component on the response chain
  * @returns { GestureJudgeResult } the gesture judge result
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10394,6 +10395,37 @@ declare enum SheetMode {
 }
 
 /**
+ * Define the scroll size mode of the sheet.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare enum ScrollSizeMode {
+  /**
+   * Sheet change scroll size after the slide ends.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  FOLLOW_DETENT = 0,
+
+  /**
+   * Sheet change scroll size during the sliding process.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  CONTINUOUS = 1,
+}
+
+/**
  * Component sheet dismiss
  *
  * @interface SheetDismiss
@@ -10437,6 +10469,7 @@ declare interface SheetDismiss {
  * @interface DismissSheetAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface DismissSheetAction {
@@ -10469,6 +10502,7 @@ declare interface DismissSheetAction {
  * @interface SpringBackAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface SpringBackAction {
@@ -10794,6 +10828,18 @@ declare interface SheetOptions extends BindOptions {
    * @since 12
    */
   mode?: SheetMode;
+
+  /**
+   * Determine sheet scroll size mode.
+   *
+   * @type { ?ScrollSizeMode }
+   * @default ScrollSizeMode.FELLOW_DETEND
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+    scrollSizeMode?: ScrollSizeMode;
 
   /**
    * Called when detents of the sheet changed
@@ -18279,6 +18325,7 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   clip(value: boolean): T;
@@ -18336,6 +18383,7 @@ declare class CommonMethod<T> {
   * @returns { T }
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
+  * @atomicservice
   * @since 12
   */
   clipShape(value: CircleShape | EllipseShape | PathShape | RectShape): T;
@@ -18347,6 +18395,7 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   mask(value: ProgressMask): T;
@@ -18400,6 +18449,7 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   maskShape(value: CircleShape | EllipseShape | PathShape | RectShape): T;
@@ -20766,6 +20816,15 @@ declare type NavigationInfo = import('../api/@ohos.arkui.observer').default.Navi
  * @crossplatform
  * @since 11
  */
+/**
+ * UIContext
+ *
+ * @typedef {import('../api/@ohos.arkui.UIContext').UIContext} UIContext
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare type UIContext = import('../api/@ohos.arkui.UIContext').UIContext;
 
 /**
@@ -20807,6 +20866,17 @@ declare type Filter = import('../api/@ohos.graphics.uiEffect').default.Filter;
  * @since 12
  */
 declare type ComponentContent = import('../api/arkui/ComponentContent').ComponentContent;
+
+/**
+ * Theme.
+ *
+ * @typedef {import('../api/@ohos.arkui.theme').Theme} Theme
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare type Theme = import('../api/@ohos.arkui.theme').Theme;
 
 /**
  * Custom Component
@@ -21863,34 +21933,6 @@ declare class DynamicNode<T> {
   onMove(handler: Optional<OnMoveHandler>): T;
 }
 
-declare module "SpecialEvent" {
-  module "SpecialEvent" {
-    // @ts-ignore
-    export { TouchObject, KeyEvent, MouseEvent };
-  }
-}
-
-declare module "AnimateToParam" {
-  module "AnimateToParam" {
-    // @ts-ignore
-    export type { AnimateParam, KeyframeAnimateParam, KeyframeState };
-  }
-}
-
-declare module 'DragControllerParam' {
-  module 'DragControllerParam' {
-    // @ts-ignore
-    export type { CustomBuilder, DragItemInfo, DragEvent, DragPreviewOptions };
-  }
-}
-
-declare module 'ExpectedFrameRateRange' {
-  module 'ExpectedFrameRateRange' {
-    // @ts-ignore
-    export type { ExpectedFrameRateRange };
-  }
-}
-
 /**
  * Define EdgeEffect Options.
  *
@@ -22211,12 +22253,6 @@ declare class WrappedBuilder<Args extends Object[]> {
   constructor(builder: (...args: Args) => void);
 }
 
-declare module "wrappedBuilderObject" {
-  module "wrappedBuilderObject" {
-    // @ts-ignore
-    export { WrappedBuilder };
-  }
-}
 
 /**
  * Defines the overall animation parameters of the keyframe animation.
@@ -22374,12 +22410,6 @@ declare interface KeyframeState {
   event: () => void;
 }
 
-declare module 'touchEvent'{
-  module 'touchEvent' {
-    // @ts-ignore
-    export { TouchEvent };
-  }
-}
 
 /**
  * Defines the basic callback.
@@ -22387,6 +22417,7 @@ declare module 'touchEvent'{
  * @typedef Callback
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface Callback<T, V = void> {
@@ -22397,6 +22428,7 @@ declare interface Callback<T, V = void> {
    * @returns { V } - Returns result of the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   (data: T): V;
@@ -22686,25 +22718,4 @@ declare interface SelectionOptions {
    * @since 12
    */
   menuPolicy?: MenuPolicy;
-}
-
-declare module 'commonEvent' {
-  module 'commonEvent' {
-    // @ts-ignore
-    export { UICommonEvent };
-  }
-}
-
-declare module 'commonAttribute'{
-  module 'commonAttribute' {
-    // @ts-ignore
-    export { CommonAttribute };
-  }
-}
-
-declare module "ClickEventModule" {
-  module "ClickEventModule" {
-    // @ts-ignore
-    export { ClickEvent };
-  }
 }

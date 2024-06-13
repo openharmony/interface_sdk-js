@@ -92,6 +92,18 @@ declare class ContainerSpanAttribute {
    * @since 12
    */
   textBackgroundStyle(style: TextBackgroundStyle): ContainerSpanAttribute;
+
+  /**
+   * Sets the attribute modifier.
+   * 
+   * @param { AttributeModifier<ContainerSpanAttribute> } modifier - The instance of contain span modifier.
+   * @returns { ContainerSpanAttribute } the attribute of the ContainerSpanAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  attributeModifier(modifier: AttributeModifier<ContainerSpanAttribute>): ContainerSpanAttribute;
 }
 
 /**

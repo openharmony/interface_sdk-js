@@ -1,3 +1,4 @@
+
 将相关文件按规则解析成特定格式，提供处理接口
 
 ## 目录
@@ -84,7 +85,6 @@
 ```
 node --nolazy -r ts-node/register ./src/main.ts -N checkOnline --path 待检查文件路径（非build-tools） --checker 检查规则 --prId 兼容性检查文件路径  --output 报告输出目录 --excel false
 ```
-
 
 ### check工具（线下版本）
 

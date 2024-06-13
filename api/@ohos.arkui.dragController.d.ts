@@ -18,18 +18,23 @@
  * @kit ArkUI
  */
 
-/// <reference path="../component/common.d.ts" />
+
 
 import type { AsyncCallback, BusinessError, Callback } from './@ohos.base';
 import type unifiedDataChannel from './@ohos.data.unifiedDataChannel';
-import type { CustomBuilder, DragItemInfo, DragEvent, DragPreviewOptions } from 'DragControllerParam';
-import type { ResourceColor, TouchPoint } from 'DragControllerUnitParam';
 
 /**
  * This module allows developers to trigger a drag event.
  * @namespace dragController
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
+ */
+/**
+ * This module allows developers to trigger a drag event.
+ * @namespace dragController
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 12
  */
 declare namespace dragController {
   /**
@@ -217,6 +222,14 @@ declare namespace dragController {
    * @interface DragInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * DragInfo object description
+   * 
+   * @interface DragInfo
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
    */
   interface DragInfo {
     /**

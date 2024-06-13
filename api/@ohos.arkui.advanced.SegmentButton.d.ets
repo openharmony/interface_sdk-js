@@ -18,9 +18,9 @@
  * @kit ArkUI
  */
 
-/// <reference path="../component/units.d.ts" />
 
-import { ResourceStr } from 'GlobalResource';
+
+
 
 /**
  * Defines text only item of SegmentButton.
@@ -588,6 +588,15 @@ interface TabSegmentButtonConstructionOptions extends CommonSegmentButtonOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * The items of tab type of SegmentButton.
+   *
+   * @type { ItemRestriction<SegmentButtonTextItem> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   buttons: ItemRestriction<SegmentButtonTextItem>;
 }

@@ -23,7 +23,7 @@ import Animator, { AnimatorOptions, AnimatorResult } from '@ohos.animator';
 import WindowExtensionAbility, { WindowExtensionContext } from '@ohos.application.WindowExtensionAbility';
 import {
   Chip, ChipOptions, ChipSize, IconCommonOptions, LabelMarginOptions, LabelOptions, PrefixIconOptions,
-  SuffixIconOptions, SymbolOptions
+  SuffixIconOptions
 } from '@ohos.arkui.advanced.Chip';
 import {
   IconOptions, LabelOptions as ChipItemLabelOptions, ChipGroupItemOptions, ChipItemStyle, ChipGroupSpaceOptions, IconItemOptions, IconGroupSuffix, ChipGroup
@@ -37,7 +37,7 @@ import {
   AlertDialog, ButtonOptions, ConfirmDialog, LoadingDialog, SelectDialog, TipsDialog, CustomContentDialog
 } from '@ohos.arkui.advanced.Dialog';
 import {
-  EditableLeftIconType, EditableTitleBar, EditableTitleBarMenuItem
+  EditableLeftIconType, EditableTitleBar, EditableTitleBarMenuItem, EditableTitleBarItem, EditableTitleBarOptions,
 } from '@ohos.arkui.advanced.EditableTitleBar';
 import { MarginType, PromptOptions, ExceptionPrompt } from '@ohos.arkui.advanced.ExceptionPrompt';
 import { Filter, FilterParams, FilterResult, FilterType } from '@ohos.arkui.advanced.Filter';
@@ -56,7 +56,7 @@ import {
 } from '@ohos.arkui.advanced.SelectionMenu';
 import { SelectTitleBar, SelectTitleBarMenuItem } from '@ohos.arkui.advanced.SelectTitleBar';
 import { SplitLayout } from '@ohos.arkui.advanced.SplitLayout';
-import { OperationOption, OperationType, SelectOptions, SubHeader } from '@ohos.arkui.advanced.SubHeader';
+import { OperationOption, OperationType, SelectOptions, SubHeader, SymbolOptions } from '@ohos.arkui.advanced.SubHeader';
 import { SwipeRefresher } from '@ohos.arkui.advanced.SwipeRefresher';
 import { TabTitleBar, TabTitleBarMenuItem, TabTitleBarTabItem } from '@ohos.arkui.advanced.TabTitleBar';
 import { ItemState, ToolBar, ToolBarOption, ToolBarOptions } from '@ohos.arkui.advanced.ToolBar';
@@ -104,6 +104,16 @@ import SystemRouter, {
   BackRouterOptions, DisableAlertBeforeBackPageOptions, EnableAlertBeforeBackPageOptions,
   RouterOptions, RouterState
 } from '@system.router';
+import { SymbolGlyphModifier } from '@ohos.arkui.modifier';
+import { Colors, CustomColors, Theme, ThemeControl, CustomTheme } from '@ohos.arkui.theme';
+import {
+  ExtraRegionPosition,
+  ExpandedRegionLayoutOptions,
+  SemiFoldedRegionLayoutOptions,
+  FoldedRegionLayoutOptions,
+  PresetSplitRatio,
+  FoldSplitContainer,
+} from '@ohos.arkui.advanced.FoldSplitContainer';
 import { IDataSourcePrefetching, IPrefetcher, BasicPrefetcher } from '@ohos.arkui.prefetcher';
 
 export {
@@ -112,7 +122,8 @@ export {
   CapsuleSegmentButtonConstructionOptions, CapsuleSegmentButtonOptions, Chip, ChipOptions, ChipSize, CircleShape, ComponentUtils,
   ComposeListItem, ComposeTitleBar, ComposeTitleBarMenuItem, Configuration, ConfirmDialog, ContentItem,
   CounterComponent, CounterOptions, CounterType, DateData, DisableAlertBeforeBackPageOptions, DragController,
-  DrawableDescriptor, DrawContext, EditableLeftIconType, EditableTitleBar, EditableTitleBarMenuItem, EditorEventInfo,
+  DrawableDescriptor, DrawContext, EditableLeftIconType, EditableTitleBar, EditableTitleBarItem,
+  EditableTitleBarOptions, EditableTitleBarMenuItem, EditorEventInfo,
   EditorMenuOptions, EllipseShape, EnableAlertBeforeBackPageOptions, ExceptionPrompt, ExpandedMenuOptions, Filter, FilterParams, FilterResult,
   FilterType, Font, FormMenuItemStyle, Frame, FrameNode, GridObjectSortComponent, GridObjectSortComponentItem, GridObjectSortComponentOptions,
   GridObjectSortComponentType, IconCommonOptions, IconType, ItemState, KeyboardAvoidMode, LabelMarginOptions,
@@ -131,5 +142,7 @@ export {
   font, inspector, matrix4, mediaquery, performanceMonitor, pluginComponentManager, prompt, promptAction, router,
   screen, screenshot, uiAppearance, uiExtensionHost, uiObserver, window, windowAnimationManager, CustomContentDialog,
   IconOptions, ChipItemLabelOptions, ChipGroupItemOptions, ChipItemStyle, ChipGroupSpaceOptions, IconItemOptions, IconGroupSuffix, ChipGroup,
+  SymbolGlyphModifier, Colors, CustomColors, Theme, ThemeControl, CustomTheme,
+  ExtraRegionPosition, ExpandedRegionLayoutOptions, SemiFoldedRegionLayoutOptions, FoldedRegionLayoutOptions, PresetSplitRatio, FoldSplitContainer,
   IDataSourcePrefetching, IPrefetcher, BasicPrefetcher
 };

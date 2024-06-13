@@ -402,6 +402,14 @@ declare namespace util {
      * @crossplatform
      * @since 10
      */
+    /**
+     * The textDecoder constructor.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     constructor();
 
     /**
@@ -1859,6 +1867,14 @@ declare namespace util {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
+   */
+  /**
+   * A type used to denote ScopeComparable or number.
+   *
+   * @typedef { ScopeComparable | number }
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 12
    */
   type ScopeType = ScopeComparable | number;
 

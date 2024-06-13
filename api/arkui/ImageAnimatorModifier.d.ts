@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-/// <reference path="../../component/common.d.ts" />
-/// <reference path="../../component/image_animator.d.ts" />
+
+
 
 /**
  * Defines ImageAnimator Modifier

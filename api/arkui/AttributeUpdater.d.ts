@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-/// <reference path="../../component/common.d.ts" />
+
 
 /**
  * function that returns a default param of AttributeUpdater.

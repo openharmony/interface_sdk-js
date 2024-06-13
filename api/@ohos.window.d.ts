@@ -642,6 +642,24 @@ declare namespace window {
      */
     enableNavigationBarAnimation?: boolean;
   }
+  
+  /**
+   * Properties of status bar, it couldn't update automatically
+   *
+   * @interface SystemBarStyle
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @atomicservice
+   * @since 12
+   */
+  interface SystemBarStyle {
+    /**
+     * The content color of the status bar
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 12
+     */
+    statusBarContentColor?: string;
+  }
 
   /**
    * System bar tint of region
@@ -2367,10 +2385,12 @@ declare namespace window {
    *
    * @param { number } windowId - Indicates target window id.
    * @returns { Promise<image.PixelMap> } - Promise that returns no value.
-   * @throws {BusinessError} 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-   * @throws {BusinessError} 1300002 - This window state is abnormal.
-   * @throws {BusinessError} 1300003 - This window manager service work abnormally.
-   * @throws {BusinessError} 1300004 - This operation is not access.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+   * @throws { BusinessError } 1300002 - This window state is abnormal.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @throws { BusinessError } 1300004 - This operation is not accessible.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 12
@@ -4309,6 +4329,19 @@ declare namespace window {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Register the callback of windowSizeChange
+     *
+     * @param { 'windowSizeChange' } type - The value is fixed at 'windowSizeChange', indicating the window size change event.
+     * @param { Callback<Size> } callback - Callback used to return the window size.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
+     *                                                                  2. Incorrect parameter types;
+     *                                                                  3. Parameter verification failed.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     on(type: 'windowSizeChange', callback: Callback<Size>): void;
 
     /**
@@ -4331,6 +4364,18 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Unregister the callback of windowSizeChange
+     *
+     * @param { 'windowSizeChange' } type - The value is fixed at 'windowSizeChange', indicating the window size change event.
+     * @param { Callback<Size> } callback - Callback used to return the window size.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types;
+     *                                                                  2. Parameter verification failed.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     off(type: 'windowSizeChange', callback?: Callback<Size>): void;
 
@@ -6794,6 +6839,15 @@ declare namespace window {
      * @since 12
      */
     isModal?: boolean;
+    /**
+     * Indicates whether subwindow is topmost
+     * 
+     * @type { ?boolean }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    isTopmost?: boolean;
   }
   /**
    * WindowStage

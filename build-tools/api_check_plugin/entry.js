@@ -58,7 +58,9 @@ function checkEntry(prId) {
       }
       newToolResultArr.forEach(newToolResultInfo => {
         const filePath = newToolResultInfo.buggyFilePath;
-        newToolResultInfo.buggyFilePath = filePath.slice(filePath.indexOf('api'), filePath.length);
+        const apiIndex = filePath.indexOf('api');
+        const arktsIndex = filePath.indexOf('arkts');
+        newToolResultInfo.buggyFilePath = filePath.slice(apiIndex !== -1 ? apiIndex : arktsIndex, filePath.length);
         newToolResult.push(newToolResultInfo);
       });
       newToolResult.push('api_check: false');

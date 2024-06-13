@@ -398,6 +398,7 @@ declare class DecorationStyle {
  * @interface DecorationStyleInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface DecorationStyleInterface {
@@ -407,6 +408,7 @@ declare interface DecorationStyleInterface {
      * @type { TextDecorationType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     type: TextDecorationType;
@@ -417,6 +419,7 @@ declare interface DecorationStyleInterface {
      * @type { ?ResourceColor }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     color?: ResourceColor;
@@ -427,6 +430,7 @@ declare interface DecorationStyleInterface {
      * @type { ?TextDecorationStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     style?: TextDecorationStyle;

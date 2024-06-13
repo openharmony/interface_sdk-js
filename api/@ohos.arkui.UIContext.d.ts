@@ -18,13 +18,6 @@
  * @kit ArkUI
  */
 
-/// <reference path="../component/common.d.ts" />
-/// <reference path="../component/enums.d.ts" />
-/// <reference path="../component/action_sheet.d.ts" />
-/// <reference path="../component/alert_dialog.d.ts" />
-/// <reference path="../component/date_picker.d.ts" />
-/// <reference path="../component/time_picker.d.ts" />
-/// <reference path="../component/text_picker.d.ts" />
 
 import font from './@ohos.font';
 import mediaQuery from './@ohos.mediaquery';
@@ -36,21 +29,10 @@ import type componentUtils from './@ohos.arkui.componentUtils';
 import { ComponentContent, FrameNode } from './@ohos.arkui.node';
 import type { AnimatorOptions, AnimatorResult } from './@ohos.animator';
 import type { Callback, AsyncCallback } from './@ohos.base';
-import type { Color, FontStyle, Nullable } from 'CommonEnums';
-import type { AnimateParam, KeyframeAnimateParam, KeyframeState } from 'AnimateToParam';
-import { ActionSheetOptions } from 'actionSheetParam';
-import { AlertDialogParamWithConfirm, AlertDialogParamWithButtons, DialogAlignment, DialogButtonDirection, AlertDialogParamWithOptions } from 'AlertDialogParam';
-import { DatePickerDialogOptions } from 'DatePickerDialogParam';
-import { TimePickerDialogOptions } from 'TimePickerDialogParam';
-import { TextPickerDialogOptions } from 'textPickerDialogParam';
-import type { CustomBuilder, DragItemInfo, DragEvent } from 'DragControllerParam';
 import { MeasureOptions } from './@ohos.measure';
 import type dragController from './@ohos.arkui.dragController';
 import image from './@ohos.multimedia.image';
-import { LocalStorage } from 'StateManagement';
 import type common from './@ohos.app.ability.common';
-import { GestureEvent } from 'GestureEventModule';
-import { ClickEvent } from 'ClickEventModule';
 import type pointer from './@ohos.multimodalInput.pointer';
 
 /**
@@ -1179,6 +1161,38 @@ declare type ClickEventListenerCallback = (event: ClickEvent, node?: FrameNode) 
 declare type GestureEventListenerCallback = (event: GestureEvent, node?: FrameNode) => void;
 
 /**
+ * Defines the PageInfo type.
+ * The value of routerPageInfo indicates the information of the router page, or undefined if the
+ * frameNode does not have router page information. And the value of navDestinationInfo indicates
+ * the information of the navDestination, or undefined if the frameNode does not have navDestination
+ * information.
+ * 
+ * @interface PageInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export interface PageInfo {
+  /**
+   * the property of router page information.
+   *
+   * @type { ?observer.RouterPageInfo }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  routerPageInfo?: observer.RouterPageInfo;
+
+  /**
+   * the property of navDestination information.
+   *
+   * @type { ?observer.NavDestinationInfo }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  navDestinationInfo?: observer.NavDestinationInfo;
+}
+
+/**
  * Register callbacks to observe ArkUI behavior.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1800,6 +1814,55 @@ export interface AtomicServiceBar {
    * @since 12
    */
   setIconColor(color: Nullable< Color | number | string>): void;
+}
+
+/**
+ * Represents a dynamic synchronization scene.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 12
+ */
+export class DynamicSyncScene {
+  /**
+   * Sets the FrameRateRange of the DynamicSyncScene.
+   * 
+   * @param { ExpectedFrameRateRange } range - The range of frameRate.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  setFrameRateRange(range: ExpectedFrameRateRange): void;
+
+  /**
+   * Gets the FrameRateRange of the DynamicSyncScene.
+   * 
+   * @returns { ExpectedFrameRateRange } The range of frameRate.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  getFrameRateRange(): ExpectedFrameRateRange;
+}
+
+/**
+ * Represents a dynamic synchronization scene of Swiper.
+ * 
+ * @extends DynamicSyncScene
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 12
+ */
+export class SwiperDynamicSyncScene extends DynamicSyncScene {
+  /**
+  * Type of the SwiperDynamicSyncSceneType.
+  * @type { SwiperDynamicSyncSceneType }
+  * @readonly
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @atomicservice
+  * @since 12
+  */
+  readonly type: SwiperDynamicSyncSceneType;
 }
 
 /**
@@ -2613,6 +2676,33 @@ export class UIContext {
   getFrameNodeByUniqueId(id: number): FrameNode | null;
 
   /**
+   * Get page information of the frameNode with uniqueId.
+   *
+   * @param { number } id - The uniqueId of the target FrameNode.
+   * @returns { PageInfo } - The page information of the frameNode with the target uniqueId, includes
+   * navDestination and router page information. If the frame node does not have navDestination and
+   * router page information, it will return an empty object.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full 
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  getPageInfoByUniqueId(id: number): PageInfo;
+
+  /**
+   * Get navigation information of the frameNode with uniqueId.
+   *
+   * @param { number } id - The uniqueId of the target FrameNode.
+   * @returns { observer.NavigationInfo | undefined } - The navigation information of the frameNode with the
+   * target uniqueId, or undefined if the frameNode is not existed or does not have navigation information.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full 
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  getNavigationInfoByUniqueId(id: number): observer.NavigationInfo | undefined;
+
+  /**
    * Get FocusController.
    * @returns { FocusController } the FocusController
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2779,6 +2869,17 @@ export class UIContext {
    * @since 12
    */
   postDelayedFrameCallback(frameCallback: FrameCallback, delayTime: number): void;
+
+  /**
+   * Require DynamicSyncScene by id.
+   *
+   * @param { string } id - The id of DynamicSyncScene.
+   * @returns { Array<DynamicSyncScene>} The instance of SwiperDynamicSyncScene.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  requireDynamicSyncScene(id: string): Array<DynamicSyncScene>;
 }
 
 /**
@@ -2809,4 +2910,32 @@ export const enum KeyboardAvoidMode {
    * @since 11
    */
   RESIZE = 1
+}
+
+/**
+ * Enum of SwiperDynamicSyncSceneType
+ * 
+ * @enum { number } SwiperDynamicSyncSceneType
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 12
+ */
+export const enum SwiperDynamicSyncSceneType {
+  /**
+   * Scene type is GESTURE.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  GESTURE = 0,
+
+  /**
+   * Scene type is ANIMATION.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  ANIMATION = 1
 }
