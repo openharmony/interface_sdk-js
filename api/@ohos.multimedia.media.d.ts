@@ -2273,6 +2273,7 @@ declare namespace media {
    * Media source descriptor. User can set media data information
    * @typedef MediaSource
    * @syscap SystemCapability.Multimedia.Media.Core
+   * @atomicservice
    * @since 12
    */
   interface MediaSource {
@@ -2280,6 +2281,7 @@ declare namespace media {
      * Set Media Mime Type to help player handle extended Media source.
      * @param { AVMimeTypes } mimeType - for MediaSource define. see @ AVMimeTypes.
      * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
      * @since 12
      */
     setMimeType(mimeType: AVMimeTypes): void;
@@ -2289,12 +2291,14 @@ declare namespace media {
    * Enumerates Media Mime types, used for MediaSource define;
    * @enum { string }
    * @syscap SystemCapability.Multimedia.Media.Core
+   * @atomicservice
    * @since 12
    */
   enum AVMimeTypes {
     /**
      * Indicate current file is index file for hls Media.
      * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
      * @since 12
      */
     APPLICATION_M3U8 = 'application/m3u8',
@@ -3824,13 +3828,30 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @since 12
      */
+    /**
+     * playback at 0.5x normal speed
+     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+     * @atomicservice
+     * @since 12
+     */
     SPEED_FORWARD_0_50_X = 5,
     /**
      * playback at 1.5x normal speed
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @since 12
      */
+    /**
+     * playback at 1.5x normal speed
+     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+     * @atomicservice
+     * @since 12
+     */
     SPEED_FORWARD_1_50_X = 6,
+    /**
+     * playback at 0.25x normal speed
+     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+     * @since 12
+     */
     /**
      * playback at 0.25x normal speed
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
@@ -3838,6 +3859,11 @@ declare namespace media {
      * @since 12
      */
     SPEED_FORWARD_0_25_X = 8,
+    /**
+     * playback at 0.125x normal speed
+     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+     * @since 12
+     */
     /**
      * playback at 0.125x normal speed
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
