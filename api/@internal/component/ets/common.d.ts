@@ -10008,6 +10008,37 @@ declare enum SheetMode {
 }
 
 /**
+ * Define the scroll size mode of the sheet.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare enum ScrollSizeMode {
+  /**
+   * Sheet change scroll size after the slide ends.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  FOLLOW_DETENT = 0,
+
+  /**
+   * Sheet change scroll size during the sliding process.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  CONTINUOUS = 1,
+}
+
+/**
  * Component sheet dismiss
  *
  * @interface SheetDismiss
@@ -10410,6 +10441,18 @@ declare interface SheetOptions extends BindOptions {
    * @since 12
    */
   mode?: SheetMode;
+
+  /**
+   * Determine sheet scroll size mode.
+   *
+   * @type { ?ScrollSizeMode }
+   * @default ScrollSizeMode.FELLOW_DETEND
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  scrollSizeMode?: ScrollSizeMode;
 
   /**
    * Called when detents of the sheet changed
