@@ -683,7 +683,7 @@ declare namespace drm {
      */
     pssh: Uint8Array;
   }
-  
+
 /**
    * Name and UUID of DRM plugin.
    * @interface MediaKeySystemDescription
