@@ -74,7 +74,7 @@ import performanceMonitor from '@ohos.arkui.performanceMonitor';
 import { RectShape, CircleShape, EllipseShape, PathShape } from '@ohos.arkui.shape';
 import {
   AtomicServiceBar, ComponentUtils, DragController, Font, KeyboardAvoidMode, MediaQuery, OverlayManager, PromptAction, Router,
-  UIContext, UIInspector, UIObserver
+  UIContext, UIInspector, UIObserver, PageInfo
 } from '@ohos.arkui.UIContext';
 import curves from '@ohos.curves';
 import dragInteraction from '@ohos.deviceStatus.dragInteraction';
@@ -136,7 +136,7 @@ export {
   ShowToastOptions, Size, SplitLayout, SubHeader, SuffixIconOptions, SwipeRefresher, SymbolOptions, SystemMediaQuery, SystemRouter,
   TabSegmentButtonConstructionOptions, TabSegmentButtonOptions, TabTitleBar, TabTitleBarMenuItem, TabTitleBarTabItem,
   TipsDialog, ToolBar, ToolBarOption, ToolBarOptions, Translation, TreeController, TreeListenType, TreeListener,
-  TreeListenerManager, TreeView, UIContext, UIInspector, UIObserver, WindowExtensionAbility, WindowExtensionContext, XComponentNode,
+  TreeListenerManager, TreeView, UIContext, UIInspector, UIObserver, PageInfo, WindowExtensionAbility, WindowExtensionContext, XComponentNode,
   LengthMetrics, LayoutConstraint, ComponentContent, componentSnapshot, componentUtils, curves, display, dragController, dragInteraction,
   font, inspector, matrix4, mediaquery, performanceMonitor, pluginComponentManager, prompt, promptAction, router,
   screen, screenshot, uiAppearance, uiExtensionHost, uiObserver, window, windowAnimationManager, CustomContentDialog,
