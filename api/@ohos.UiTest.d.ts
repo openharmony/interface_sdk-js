@@ -4452,7 +4452,7 @@ declare class UiWindow {
    * Resume this {@link UiWindow}.
    *
    * @returns { Promise<void> }
-   * @throws { BusinessError } The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @throws { BusinessError } 17000005 - This operation is not supported.
    * @syscap SystemCapability.Test.UiTest
