@@ -27,7 +27,7 @@ export interface IDataSourcePrefetching extends IDataSource {
    * Prefetches data for the specified element in the data collection.
    * This method can be either synchronous or asynchronous.
    *
-   * @param { number } index - Collection element index.
+   * @param { number } index - Index of the item in the collection.
    * @returns { Promise<void> | void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -40,7 +40,7 @@ export interface IDataSourcePrefetching extends IDataSource {
    * Cancels prefetching data for the specified element in the data collection.
    * This method can be either synchronous or asynchronous.
    *
-   * @param { number } index - Collection element index.
+   * @param { number } index - Index of the item in the collection.
    * @returns { Promise<void> | void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
