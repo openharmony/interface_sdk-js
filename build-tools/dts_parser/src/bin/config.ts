@@ -315,7 +315,7 @@ function collectApiCallback(apiData: ApiStatisticsInfo[], sheet: ExcelJS.Workshe
       apiInfo.getIsForm(),
       apiInfo.getIsAutomicService(),
       apiInfo.getDecorators()?.join(),
-      apiInfo.getKitInfo() === '' ? kitMap.get(apiInfo.getFilePath().replace(/\\/g, '/')) : apiInfo.getKitInfo() ,
+      apiInfo.getKitInfo() === '' ? kitMap.get(apiInfo.getFilePath().replace(/\\/g, '/')) : apiInfo.getKitInfo(),
       apiInfo.getFilePath(),
       subsystemMap.get(apiInfo.getFilePath().replace(/\\/g, '/')),
     ];
@@ -463,7 +463,7 @@ function detectionApi(options: OptionObjType): ToolNameValueType {
  * @returns { ToolNameValueType }
  */
 function countApi(options: OptionObjType): ToolNameValueType {
-  const fileDir: string = path.resolve(FileUtils.getBaseDirName(), '../../api')
+  const fileDir: string = path.resolve(FileUtils.getBaseDirName(), '../../api');
   let collectFile: string = '';
   if (options.collectFile !== '') {
     collectFile = path.resolve(FileUtils.getBaseDirName(), options.collectFile);
@@ -497,7 +497,7 @@ function countApi(options: OptionObjType): ToolNameValueType {
   }
 }
 
-function countApiCallback(data: ApiCountInfo[], sheet: ExcelJS.Worksheet) {
+function countApiCallback(data: ApiCountInfo[], sheet: ExcelJS.Worksheet): void {
   sheet.name = 'api数量';
   sheet.views = [{ xSplit: 1 }];
   sheet.getRow(1).values = ['子系统', 'kit', '文件', 'api数量'];
