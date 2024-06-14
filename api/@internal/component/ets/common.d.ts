@@ -9683,9 +9683,9 @@ declare interface KeyEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 11
    */
-  stopPropagation: Callback<void>;
+  stopPropagation: () => void;
 
   /**
    * Intention code of a key or modifier keys.
