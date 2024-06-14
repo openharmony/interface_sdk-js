@@ -187,6 +187,14 @@ declare namespace screenLock {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
+  /**
+   * Indicates the system event type related to the screenlock management service. Adding strongAuthChanged and screenlockDisableChanged.
+   *
+   * @syscap SystemCapability.MiscServices.ScreenLock
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+
   type EventType =
     'beginWakeUp'
     | 'endWakeUp'
@@ -201,7 +209,8 @@ declare namespace screenLock {
     | 'endSleep'
     | 'changeUser'
     | 'screenlockEnabled'
-    | 'serviceRestart';
+    | 'serviceRestart'
+    | 'screenlockDisableChanged';
 
   /**
    * Indicates the system event type and parameter related to the screenlock management service.
@@ -282,25 +291,6 @@ declare namespace screenLock {
    * @since 9
    */
   function sendScreenLockEvent(event: String, parameter: number): Promise<boolean>;
-
-  /**
-   * Disable screen lock showing for os account local userId. This only becomes effective when there is no password.
-   *
-   * @permission ohos.permission.ACCESS_SCREEN_LOCK
-   * @param { boolean } disable - disable or enable screen lock showing.
-   * @param { number } userId - Os account local userId.
-   * @param { AsyncCallback<boolean> } callback - the callback of setScreenLockDisabled.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 201 - permission denied.
-   * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
-   * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
-   * @syscap SystemCapability.MiscServices.ScreenLock
-   * @systemapi Hide this for inner system use.
-   * @since 12
-   */
-  function setScreenLockDisabled(disable: boolean, userId: number, callback: AsyncCallback<boolean>): void;
-
 
   /**
    * Disable screen lock showing for os account local userId. This only becomes effective when there is no password.
