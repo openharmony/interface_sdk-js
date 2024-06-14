@@ -289,7 +289,7 @@ declare namespace screenLock {
    * @permission ohos.permission.ACCESS_SCREEN_LOCK
    * @param { boolean } disable - disable or enable screen lock showing.
    * @param { number } userId - Os account local userId.
-   * @returns { Promise<boolean> } the promise returned by the function.
+   * @param { AsyncCallback<boolean> } callback - the callback of setScreenLockDisabled.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 201 - permission denied.
