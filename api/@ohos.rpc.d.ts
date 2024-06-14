@@ -2493,13 +2493,6 @@ declare namespace rpc {
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
      */
-    /**
-     * Indicates the wait time for RPC, in seconds. It is NOT used in IPC case.
-     *
-     * @default 8
-     * @syscap SystemCapability.Communication.IPC.Core
-     * @since 11
-     */
     TF_WAIT_TIME: number;
 
     /**
