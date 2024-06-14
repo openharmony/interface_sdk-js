@@ -17,6 +17,7 @@
  * Implement this interface to provide data prefetching for the LazyForEach component.
  *
  * @interface IDataSourcePrefetching
+ * @extends IDataSource
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
