@@ -484,5 +484,5 @@ export default class ApplicationContext extends Context {
    * @stagemodelonly
    * @since 12
    */
-    preloadUIExtensionAbility(want: Want): Promise<void>;
+  preloadUIExtensionAbility(want: Want): Promise<void>;
 }
