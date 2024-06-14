@@ -9765,7 +9765,7 @@ declare interface CrownEvent {
   /**
    * The behavior of rotating crown.
    *
-   * @enum { number }
+   * @type { CrownAction }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -9776,7 +9776,7 @@ declare interface CrownEvent {
    /**
    * The blocking event pops up.
    *
-   * @type { function }
+   * @type { Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
