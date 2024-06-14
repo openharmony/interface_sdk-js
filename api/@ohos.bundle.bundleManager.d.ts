@@ -627,7 +627,7 @@ declare namespace bundleManager {
      * @since 12
      */
     EMBEDDED_UI = 21,
-        
+
     /**
      * Indicates extension info with type of insight intent UI
      *
