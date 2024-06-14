@@ -97,7 +97,7 @@ export class BasicPrefetcher implements IPrefetcher {
   /**
    * Constructs a basic prefetcher instance and optionally sets the data source.
    *
-   * @param { ?IDataSourcePrefetching } dataSource - Data source that supports prefetching.
+   * @param { IDataSourcePrefetching } dataSource - Data source that supports prefetching.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
