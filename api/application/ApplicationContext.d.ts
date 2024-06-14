@@ -498,7 +498,7 @@ export default class ApplicationContext extends Context {
    * @stagemodelonly
    * @since 12
    */
-    preloadUIExtensionAbility(want: Want): Promise<void>;
+  preloadUIExtensionAbility(want: Want): Promise<void>;
 
   /**
    * Set the state about whether the application supports process cache or not.
