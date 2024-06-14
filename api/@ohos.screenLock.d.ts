@@ -283,7 +283,59 @@ declare namespace screenLock {
    */
   function sendScreenLockEvent(event: String, parameter: number): Promise<boolean>;
 
+  /**
+   * Disable screen lock showing for os account local userId. This only becomes effective when there is no password.
+   *
+   * @permission ohos.permission.ACCESS_SCREEN_LOCK
+   * @param { boolean } disable - disable or enable screen lock showing.
+   * @param { number } userId - Os account local userId.
+   * @returns { Promise<boolean> } the promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 201 - permission denied.
+   * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
+   * @syscap SystemCapability.MiscServices.ScreenLock
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  function setScreenLockDisabled(disable: boolean, userId: number, callback: AsyncCallback<boolean>): void;
+
+
+  /**
+   * Disable screen lock showing for os account local userId. This only becomes effective when there is no password.
+   *
+   * @permission ohos.permission.ACCESS_SCREEN_LOCK
+   * @param { boolean } disable - disable or enable screen lock showing.
+   * @param { number } userId - Os account local userId.
+   * @returns { Promise<boolean> } the promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 201 - permission denied.
+   * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
+   * @syscap SystemCapability.MiscServices.ScreenLock
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
   function setScreenLockDisabled(disable: boolean, userId: number): Promise<boolean>;
+
+  /**
+   * Check whether screen lock is disabled for os account local userId.
+   *
+   * @permission ohos.permission.ACCESS_SCREEN_LOCK
+   * @param { number } userId - Os account local userId.
+   * @returns { boolean } whether screen lock is disabled.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 201 - permission denied.
+   * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
+   * @syscap SystemCapability.MiscServices.ScreenLock
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  function isScreenLockDisabled(userId: number): boolean;
 }
 
 export default screenLock;
