@@ -228,14 +228,14 @@ export interface SuffixIconOptions extends IconCommonOptions {
 export interface PrefixIconOptions extends IconCommonOptions {}
 
 /**
- * Defines symbol options.
+ * Defines chip symbolglyph options.
  *
- * @interface SymbolOptions
+ * @interface ChipSymbolGlyphOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
-export interface SymbolOptions {
+export interface ChipSymbolGlyphOptions {
 
   /**
    * Symbol normal.
@@ -522,12 +522,12 @@ export interface ChipOptions {
   /**
    * Chip prefix symbol.
    *
-   * @type { ?SymbolOptions }
+   * @type { ?ChipSymbolGlyphOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  prefixSymbol?: SymbolOptions;
+  prefixSymbol?: ChipSymbolGlyphOptions;
 
   /**
    * Chip label.
@@ -570,12 +570,12 @@ export interface ChipOptions {
   /**
    * Chip suffix symbol.
    *
-   * @type { ?SymbolOptions }
+   * @type { ?ChipSymbolGlyphOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  suffixSymbol?: SymbolOptions;
+  suffixSymbol?: ChipSymbolGlyphOptions;
 
   /**
    * Show close icon.

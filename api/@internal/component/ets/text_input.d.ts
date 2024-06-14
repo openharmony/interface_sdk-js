@@ -1386,7 +1386,17 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @atomicservice
    * @since 11
    */
-  onChange(callback: (value: string) => void): TextInputAttribute;
+  /**
+   * Called when the input of the input box changes.
+   *
+   * @param { EditableTextOnChangeCallback } callback
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onChange(callback: EditableTextOnChangeCallback): TextInputAttribute;
 
   /**
    * Called when the text selection changes.
@@ -2392,6 +2402,18 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 12
    */
   selectionMenuOptions(expandedMenuOptions: Array<ExpandedMenuItemOptions>): TextInputAttribute;
+
+  /**
+   * Define the preview text mode of the text input.
+   *
+   * @param { boolean } enable - Indicates the preview text mode.
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  enablePreviewText(enable: boolean): TextInputAttribute;
 }
 
 /**
