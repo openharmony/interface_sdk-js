@@ -529,7 +529,7 @@ declare namespace avSession {
      * the application need get an AVCastController to control remote playback.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 11
+     * @since 12
      */
     TYPE_CAST_PLUS_STREAM = 2,
 
