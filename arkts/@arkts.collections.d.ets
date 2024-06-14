@@ -637,13 +637,11 @@ declare namespace collections {
      */
     concat(...items: ConcatArray<T>[]): Array<T>;
     /**
-     * Removes elements from the array and, if necessary, inserts new elements at the specified position.
+     * Removes elements from the array at the specified position.
      *
      * @param { number } start - The zero-based index at which to start changing the contents of the array.
-     * @param { number } [deleteCount] - The number of elements to remove from the array,
-     *    starting at the index specified by the start parameter.
-     *    If deleteCount is not specified, or its value is 0, no elements are removed.
-     * @returns { Array<T> } The modified array.
+     *    All the elements from start to the end of the array will be deleted.
+     * @returns { Array<T> } An array containing the deleted elements.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:
      *                                    1.Mandatory parameters are left unspecified.
      *                                    2.Incorrect parameter types.
@@ -652,7 +650,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @since 12
      */
-    splice(start: number, deleteCount?: number): Array<T>;
+    splice(start: number): Array<T>;
     /**
      * Removes elements from the array and, if necessary, inserts new elements at the specified position.
      *
@@ -661,7 +659,7 @@ declare namespace collections {
      *    starting at the index specified by the start parameter.
      * @param { T[] } items - An array of elements to insert into the array,
      *    starting at the index specified by the start parameter.
-     * @returns { Array<T> } The modified array.
+     * @returns { Array<T> } An array containing the deleted elements.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                    1.Mandatory parameters are left unspecified.
      *                                    2.Incorrect parameter types.
