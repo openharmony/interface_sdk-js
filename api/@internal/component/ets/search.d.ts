@@ -648,7 +648,17 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @atomicservice
    * @since 11
    */
-  searchIcon(value: IconOptions): SearchAttribute;
+  /**
+   * Set the search icon style
+   *
+   * @param { IconOptions | SymbolGlyphModifier } value - indicates the style of the search icon.
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  searchIcon(value: IconOptions | SymbolGlyphModifier): SearchAttribute;
 
   /**
    * Set the cancel button style
@@ -669,7 +679,17 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @atomicservice
    * @since 11
    */
-  cancelButton(value: { style?: CancelButtonStyle, icon?: IconOptions }): SearchAttribute;
+  /**
+   * Set the cancel button style
+   *
+   * @param { object } value - indicates the style of the cancel button.
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  cancelButton(value: { style?: CancelButtonStyle, icon?: IconOptions | SymbolGlyphModifier}): SearchAttribute;
 
   /**
    * Specify the indentation of the first line in a text-block.
