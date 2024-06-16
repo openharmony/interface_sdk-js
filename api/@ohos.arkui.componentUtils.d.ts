@@ -37,7 +37,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 12
  */
 declare namespace componentUtils {
 
@@ -60,7 +60,7 @@ declare namespace componentUtils {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
-  * @since 11
+  * @since 12
   */
   interface ComponentInfo {
 
@@ -268,7 +268,7 @@ declare namespace componentUtils {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
-  * @since 11
+  * @since 12
   */
   interface Size {
 
@@ -408,7 +408,7 @@ declare namespace componentUtils {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
-  * @since 11
+  * @since 12
   */
   interface TranslateResult {
 
@@ -501,7 +501,7 @@ declare namespace componentUtils {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
-  * @since 11
+  * @since 12
   */
   interface ScaleResult {
 
@@ -640,7 +640,7 @@ declare namespace componentUtils {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
-  * @since 11
+  * @since 12
   */
   interface RotateResult {
 
