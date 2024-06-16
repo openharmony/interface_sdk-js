@@ -33,7 +33,7 @@ import type observer from './@ohos.arkui.observer';
 import promptAction from './@ohos.promptAction';
 import router from './@ohos.router';
 import type componentUtils from './@ohos.arkui.componentUtils';
-import { ComponentContent } from './@ohos.arkui.node';
+import { ComponentContent, FrameNode } from './@ohos.arkui.node';
 import type { AnimatorOptions, AnimatorResult } from './@ohos.animator';
 import type { Callback, AsyncCallback } from './@ohos.base';
 import type { Color, FontStyle, Nullable } from 'CommonEnums';
@@ -47,10 +47,10 @@ import type { CustomBuilder, DragItemInfo, DragEvent } from 'DragControllerParam
 import { MeasureOptions } from './@ohos.measure';
 import type dragController from './@ohos.arkui.dragController';
 import image from './@ohos.multimedia.image';
-import { LocalStorage } from 'StateManagement';
-import type common from './@ohos.app.ability.common';
 import { GestureEvent } from 'GestureEventModule';
 import { ClickEvent } from 'ClickEventModule';
+import { LocalStorage } from 'StateManagement';
+import type common from './@ohos.app.ability.common';
 import type pointer from './@ohos.multimodalInput.pointer';
 
 /**
@@ -1451,7 +1451,8 @@ export class UIObserver {
    * Registers a callback function to be called when the navigation switched to a new navDestination.
    *
    * @param { 'navDestinationSwitch' } type - The type of event to listen for. Must be 'navDestinationSwitch'.
-   * @param { Callback<observer.NavDestinationSwitchInfo> } callback - The callback function to be called when the navigation switched to a new navDestination.
+   * @param { Callback<observer.NavDestinationSwitchInfo> } callback - The callback function to be called when 
+   *                                                                   the navigation switched to a new navDestination.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -1465,8 +1466,8 @@ export class UIObserver {
    * Removes a callback function that was previously registered with `on()`.
    *
    * @param { 'navDestinationSwitch' } type - The type of event to remove the listener for. Must be 'navDestinationSwitch'.
-   * @param { Callback<observer.NavDestinationSwitchInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
-   *                                                               will be removed.
+   * @param { Callback<observer.NavDestinationSwitchInfo> } [callback] - The callback function to remove. If not provided, 
+   *                                                                     all callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -1481,7 +1482,8 @@ export class UIObserver {
    *
    * @param { 'navDestinationSwitch' } type - The type of event to listen for. Must be 'navDestinationSwitch'.
    * @param { observer.NavDestinationSwitchObserverOptions } observerOptions - Options.
-   * @param { Callback<observer.NavDestinationSwitchInfo> } callback - The callback function to be called when the navigation switched to a new navDestination.
+   * @param { Callback<observer.NavDestinationSwitchInfo> } callback - The callback function to be called when the
+   *                                                                   navigation switched to a new navDestination.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -1497,8 +1499,8 @@ export class UIObserver {
    *
    * @param { 'navDestinationSwitch' } type - The type of event to remove the listener for. Must be 'navDestinationSwitch'.
    * @param { observer.NavDestinationSwitchObserverOptions } observerOptions - Options.
-   * @param { Callback<observer.NavDestinationSwitchInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
-   *                                                               will be removed.
+   * @param { Callback<observer.NavDestinationSwitchInfo> } [callback] - The callback function to remove. If not provided,
+   *                                                                     all callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -2556,6 +2558,15 @@ export class UIContext {
   keyframeAnimateTo(param: KeyframeAnimateParam, keyframes: Array<KeyframeState>): void;
 
   /**
+   * Get FocusController.
+   * @returns { FocusController } the FocusController
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  getFocusController(): FocusController;  
+
+  /**
    * Define animation functions for immediate distribution.
    *
    * @param { AnimateParam } param - Set animation effect parameters.
@@ -2592,14 +2603,17 @@ export class UIContext {
   getFrameNodeByUniqueId(id: number): FrameNode | null;
 
   /**
-   * Get FocusController.
-   * @returns { FocusController } the FocusController
+   * Dynamic dimming.
+   *
+   * @param { string } id - The id of FrameNode.
+   * @param { number } value - Compared to the original level of dimming.value range [0,1],
+   * set values less than 0 to 0 and values greater than 1 to 1.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
+   * @systemapi
    * @since 12
    */
-  getFocusController(): FocusController;
-
+  setDynamicDimming(id: string, value: number): void;
+  
   /**
    * Get object cursor controller.
    *
@@ -2714,18 +2728,6 @@ export class UIContext {
    * @since 12
    */
   getHostContext(): Context | undefined;
-
-  /**
-   * Dynamic dimming.
-   *
-   * @param { string } id - The id of FrameNode.
-   * @param { number } value - Compared to the original level of dimming.value range [0,1],
-   * set values less than 0 to 0 and values greater than 1 to 1.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 12
-   */
-  setDynamicDimming(id: string, value: number): void;
 
   /**
    * Get the name of current window.

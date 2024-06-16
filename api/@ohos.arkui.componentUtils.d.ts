@@ -31,6 +31,14 @@
  * @atomicservice
  * @since 11
  */
+/**
+ * This module provides functionality for component coordinates and sizes.
+ * @namespace componentUtils
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare namespace componentUtils {
 
   /**
@@ -43,6 +51,14 @@ declare namespace componentUtils {
   * Component information.
   * @typedef ComponentInfo
   * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @atomicservice
+  * @since 11
+  */
+  /**
+  * Component information.
+  * @typedef ComponentInfo
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
   * @atomicservice
   * @since 11
   */
@@ -246,6 +262,14 @@ declare namespace componentUtils {
   * @atomicservice
   * @since 11
   */
+  /**
+  * Defines the size property.
+  * @typedef Size
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @atomicservice
+  * @since 11
+  */
   interface Size {
 
     /**
@@ -378,6 +402,14 @@ declare namespace componentUtils {
   * @atomicservice
   * @since 11
   */
+  /**
+  * Translation Result
+  * @typedef TranslateResult
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @atomicservice
+  * @since 11
+  */
   interface TranslateResult {
 
     /**
@@ -460,6 +492,14 @@ declare namespace componentUtils {
   * Scale Result
   * @typedef ScaleResult
   * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @atomicservice
+  * @since 11
+  */
+  /**
+  * Scale Result
+  * @typedef ScaleResult
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
   * @atomicservice
   * @since 11
   */
@@ -591,6 +631,14 @@ declare namespace componentUtils {
   * Rotation Result.
   * @typedef RotateResult
   * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @atomicservice
+  * @since 11
+  */
+  /**
+  * Rotation Result.
+  * @typedef RotateResult
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
   * @atomicservice
   * @since 11
   */

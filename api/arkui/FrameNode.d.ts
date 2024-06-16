@@ -474,7 +474,7 @@ export class FrameNode {
   get commonAttribute(): CommonAttribute;
 
   /**
-   * Draw Method. Executed when the associated RenderNode in the current FrameNode is onDraw.
+   * Draw Method. Executed when the current FrameNode is rendering its content.
    *
    * @param { DrawContext } context - The DrawContext will be used when executed draw method.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -663,8 +663,7 @@ export interface TypedFrameNode<C, T> extends FrameNode {
   /**
    * Get attribute instance of FrameNode to set attributes.
    * 
-   * @type { T }
-   * @readonly
+   * @type { T } - Obtain the FrameNode instance corresponding to the declared type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
