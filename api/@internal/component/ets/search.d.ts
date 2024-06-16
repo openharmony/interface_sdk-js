@@ -552,6 +552,72 @@ interface SearchButtonOptions {
 }
 
 /**
+ * Defines the CancelButton options
+ *
+ * @interface CancelButtonOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+interface CancelButtonOptions {
+  /**
+   * Set the CancelButton style
+   *
+   * @type { ?CancelButtonStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  style?: CancelButtonStyle;
+
+  /**
+   * Set the CancelButton icon
+   *
+   * @type { ?IconOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  icon?: IconOptions;
+}
+
+/**
+ * Defines the CancelButton symbol options
+ *
+ * @interface CancelButtonSymbolOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+interface CancelButtonSymbolOptions {
+  /**
+   * Set the CancelButton style
+   *
+   * @type { ?CancelButtonStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  style?: CancelButtonStyle;
+
+  /**
+   * Set the CancelButton symbol icon
+   *
+   * @type { ?SymbolGlyphModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  icon?: SymbolGlyphModifier;
+}
+
+/**
  * The attribute function of search
  *
  * @extends CommonMethod<SearchAttribute>
@@ -682,14 +748,14 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   /**
    * Set the cancel button style
    *
-   * @param { object } value - indicates the style of the cancel button.
+   * @param { CancelButtonOptions | CancelButtonSymbolOptions } value - indicates the style of the cancel button.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  cancelButton(value: { style?: CancelButtonStyle, icon?: IconOptions | SymbolGlyphModifier}): SearchAttribute;
+  cancelButton(value: CancelButtonOptions | CancelButtonSymbolOptions): SearchAttribute;
 
   /**
    * Specify the indentation of the first line in a text-block.
