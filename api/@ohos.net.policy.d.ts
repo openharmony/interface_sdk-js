@@ -1187,5 +1187,6 @@ declare namespace policy {
      */
     NET_POLICY_REJECT_METERED_BACKGROUND = 1 << 1,
   }
+}
 
 export default policy;
