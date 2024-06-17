@@ -26,6 +26,11 @@ export class CheckErrorCode {
         return Array.isArray(arr) && arr.length > 0;
     }
 
+    /**
+     * 判断数组arr1中的每个数字是否在数组arr2中
+     * @param arr1
+     * @param arr2
+     */
     static hasNumberInArray(arr1: number[], arr2: number[]): boolean {
         return arr1.every(num => arr2.includes(num));
     }
