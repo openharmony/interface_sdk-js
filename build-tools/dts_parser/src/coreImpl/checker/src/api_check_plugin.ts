@@ -238,19 +238,7 @@ export class Check {
             singleApi.getDefinedText(),
             errorCodeResult.errorInfo,
             compositiveResult,
-            compositiveLocalResult
-          ErrorID.JSDOC_HAS_CHINESE,
-          ErrorLevel.MIDDLE,
-          singleApi.getFilePath(),
-          singleApi.getPos(),
-          ErrorType.JSDOC_HAS_CHINESE,
-          LogType.LOG_JSDOC,
-          toNumber(apiJsdoc.since),
-          singleApi.getApiName(),
-          singleApi.getDefinedText(),
-          chineseCheckResult.errorInfo,
-          compositiveResult,
-          compositiveLocalResult
+            compositiveLocalResult,
         );
       }
       tagInheritCheckResult.forEach((inheritCheckResult: ErrorTagFormat) => {
