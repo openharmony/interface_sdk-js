@@ -27,15 +27,6 @@
  * @since 8
  */
 
-/**
- * Provide interfaces related to debugger access and obtaining CPU,
- * memory and other virtual machine information during runtime for JS programs
- *
- * @namespace hidebug
- * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
- * @atomicservice
- * @since 12
- */
 
 declare namespace hidebug {
   /**
