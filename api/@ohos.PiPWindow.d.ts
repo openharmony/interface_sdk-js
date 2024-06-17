@@ -320,6 +320,129 @@ declare namespace PiPWindow {
   }
 
   /**
+   * Enum for control status.
+   *
+   * @enum { number }.
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 12
+   */
+  enum PiPControlStatus {
+    /**
+     * PLAY.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    PLAY = 1,
+
+    /**
+     * PAUSE.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    PAUSE = 0,
+
+    /**
+     * OPEN.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    OPEN = 1,
+
+    /**
+     * CLOSE.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    CLOSE = 0,
+  }
+
+  /**
+   * Enum for control type.
+   *
+   * @enum { number }.
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 12
+   */
+  enum PiPControlType {
+    /**
+     * PLAY_BACK.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    PLAY_BACK = 0,
+
+    /**
+     * VIDEO_PREVIOUS.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    VIDEO_PREVIOUS = 1,
+
+    /**
+     * VIDEO_NEXT.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    VIDEO_NEXT = 1,
+
+    /**
+     * FAST_FORWARD.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    FAST_FORWARD = 0,
+
+    /**
+     * FAST_BACKWARD.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    FAST_BACKWARD = 0,
+
+    /**
+     * HANG_UP.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    HANG_UP = 1,
+
+    /**
+     * MICROPHONE_SWITCH.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    MICROPHONE_SWITCH = 1,
+
+    /**
+     * CAMERA_SWITCH.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    CAMERA_SWITCH = 0,
+
+    /**
+     * MUTE_SWITCH.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    MUTE_SWITCH = 0,
+  }
+
+
+  /**
    * Describe picture-in-picture action event type.
    *
    * @typedef { PiPVideoActionEvent | PiPCallActionEvent | PiPMeetingActionEvent | PiPLiveActionEvent }
@@ -383,6 +506,17 @@ declare namespace PiPWindow {
   type ControlPanelActionEventCallback = (event: PiPActionEventType, status?: number) => void;
 
   /**
+   * Describe picture-in-picture control event callback.
+   *
+   * @typedef { function } ControlActionEventCallback
+   * @param { PiPControlType } event - the event from control
+   * @param { number } [status] - the status of control button
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 12
+   */
+  type ControlActionEventCallback = (controlType: PiPControlType, status?: number) => void;
+
+  /**
    * PiPController
    *
    * @interface PiPController
@@ -434,6 +568,30 @@ declare namespace PiPWindow {
     updateContentSize(width: number, height: number): void;
 
     /**
+     * Set Dashboard Control Status.
+     * @param { PiPControlType } controlType - Describe picture-in-picture control type.
+     * @param { boolean } isEnable - Describe picture-in-picture control Status.
+     * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
+     *                                                                2. Incorrect parameter types.
+     *                                                                3. Parameter verification failed
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    updateControlStatus(controlType: PiPControlType, status: PiPControlStatus): void;
+
+    /**
+     * Set Dashboard Control Enable Status.
+     * @param { PiPControlType } controlType - Describe picture-in-picture control type.
+     * @param { boolean } isEnable - Describe picture-in-picture control enable Status.
+     * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
+     *                                                                2. Incorrect parameter types.
+     *                                                                3. Parameter verification failed
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    SetPiPControlEnable(controlType: PiPControlType, isEnable: boolean): void;
+
+    /**
      * Register picture-in-picture control event listener.
      * @param { 'stateChange' } type - Registration type, PiP lifecycle state change, 'stateChange'
      * @param { function } callback - Used to handle {'stateChange'} command
@@ -474,6 +632,24 @@ declare namespace PiPWindow {
      * @since 11
      */
     off(type: 'controlPanelActionEvent'): void;
+
+    /**
+     * Register picture-in-picture control event listener.
+     *
+     * @param { 'controlActionEvent' } type - Registration type, user action event, 'controlActionEvent'
+     * @param { ControlActionEventCallback } callback - Used to handle {'controlActionEvent'} command.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    on(type: 'controlActionEvent', callback: ControlActionEventCallback): void;
+
+    /**
+     * Unregister picture-in-picture control event listener
+     * @param { 'controlActionEvent' } type - Used to unregister listener for {'controlActionEvent'} command
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    off(type: 'controlActionEvent'): void;
   }
 }
 
