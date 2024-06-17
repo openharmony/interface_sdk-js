@@ -2615,7 +2615,6 @@ declare interface GeometryTransitionOptions {
    * whether follow target for the component still in the hierarchy, default: false, stay current.
    *
    * @type { ?boolean }
-   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -7206,7 +7205,7 @@ declare interface BaseEvent {
   /**
    * the Horizontal axis coordinate.
    *
-   * @type { ?number }
+   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -7217,7 +7216,7 @@ declare interface BaseEvent {
   /**
    * the Vertical axis coordinate.
    *
-   * @type { ?number }
+   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -10458,7 +10457,6 @@ declare interface SheetOptions extends BindOptions {
    * Called when detents of the sheet changed
    *
    * @type { ?Callback<number> }
-   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -17591,10 +17589,7 @@ declare class CommonMethod<T> {
    */
   /**
    * Linear Gradient
-   * angle: Angle of Linear Gradient. The default value is 180;
-   * direction: Direction of Linear Gradient. The default value is GradientDirection.Bottom; 
-   * colors: Color description for gradients.
-   * repeating: repeating. The default value is false
+   * angle: Angle of Linear Gradient; direction:Direction of Linear Gradient;  colors:Color description for gradients,repeating:repeating.
    *
    * @param { object } value
    * @returns { T }
@@ -17680,12 +17675,12 @@ declare class CommonMethod<T> {
   /**
    * Angle Gradient
    * center:is the center point of the angle gradient
-   * start:Start point of angle gradient. The default value is 0
-   * end:End point of angle gradient. The default value is 0
+   * start:Start point of angle gradient
+   * end:End point of angle gradient
    * number:number
-   * rotating:rotating. The default value is 0
+   * rotating:rotating
    * colors:Color description for gradients
-   * repeating:repeating. The default value is false
+   * repeating:repeating
    *
    * @param { object } value
    * @returns { T }
@@ -17761,9 +17756,9 @@ declare class CommonMethod<T> {
   /**
    * Radial Gradient
    * center:Center point of radial gradient
-   * radius:Radius of Radial Gradient. value range [0, +∞)
+   * radius:Radius of Radial Gradient
    * colors:Color description for gradients
-   * repeating: Refill. The default value is false
+   * repeating: Refill
    *
    * @param { object } value
    * @returns { T }
@@ -20245,6 +20240,16 @@ declare interface MeasureResult extends SizeResult {
 }
 
 /**
+ * The router page information.
+ *
+ * @typedef {import('../api/@ohos.arkui.observer').default.RouterPageInfo} RouterPageInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type RouterPageInfo = import('../api/@ohos.arkui.observer').default.RouterPageInfo;
+
+/**
  * The navigation destination information.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -20253,15 +20258,6 @@ declare interface MeasureResult extends SizeResult {
  */
 declare type NavDestinationInfo = import('../api/@ohos.arkui.observer').default.NavDestinationInfo;
 
-/**
- * The router page information.
- *
- * @typedef {import('../api/@ohos.arkui.observer').default.RouterPageInfo} RouterPageInfo
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 12
- */
- declare type RouterPageInfo = import('../api/@ohos.arkui.observer').default.RouterPageInfo;
 
 /**
  * The navigation information.

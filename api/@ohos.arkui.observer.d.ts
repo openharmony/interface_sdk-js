@@ -69,7 +69,7 @@ declare namespace uiObserver {
      * @form
      */
     /**
-     * When the NavDestination is displayed.
+     * When the NavDestination displayed.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -480,6 +480,7 @@ declare namespace uiObserver {
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     uniqueId: number,

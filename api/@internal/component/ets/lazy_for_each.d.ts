@@ -406,12 +406,13 @@ interface DataReloadOperation {
 /**
  * All data operation type
  *
+ * @typedef DataOperation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
 declare type DataOperation =
-  DataAddOperation | DataDeleteOperation | DataChangeOperation | DataMoveOperation | DataExchangeOperation | DataReloadOperation
+  DataAddOperation | DataDeleteOperation | DataChangeOperation | DataMoveOperation | DataExchangeOperation | DataReloadOperation;
 
 /**
  * Data Change Listener.
