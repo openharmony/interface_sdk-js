@@ -2561,7 +2561,6 @@ export class UIContext {
    * Get FocusController.
    * @returns { FocusController } the FocusController
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
    * @since 12
    */
   getFocusController(): FocusController;  
