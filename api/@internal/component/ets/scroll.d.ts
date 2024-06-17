@@ -655,7 +655,6 @@ declare class Scroller {
    */
   scrollToIndex(value: number, smooth?: boolean, align?: ScrollAlign, options?: ScrollToIndexOptions);
 
-
   /**
    * Called when the setting slides by offset.
    *
