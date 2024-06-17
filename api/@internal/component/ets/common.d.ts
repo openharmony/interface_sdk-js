@@ -10051,6 +10051,72 @@ declare interface KeyEvent {
 }
 
 /**
+ * CrownEvent object description
+ *
+ * @interface CrownEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare interface CrownEvent {
+  /**
+   *The timestamp of the rotating crown event.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  timestamp: number;
+
+  /**
+   * The angular velocity of a rotating crown.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  angularVelocity: number;
+
+  /**
+   * The rotation angle of the rotating crown.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  degree: number;
+
+  /**
+   * The behavior of rotating crown.
+   *
+   * @type { CrownAction }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  action: CrownAction;
+
+   /**
+   * The blocking event pops up.
+   *
+   * @type { Callback<void> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  stopPropagation: Callback<void>;
+}
+
+/**
  * Overlay module options
  *
  * @interface BindOptions
@@ -15585,6 +15651,18 @@ declare class CommonMethod<T> {
    * @since 11
    */
   onKeyEvent(event: (event: KeyEvent) => void): T;
+
+  /**
+   * Digital crown input.
+   *
+   * @param { Callback<CrownEvent> } event
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onDigitalCrown(handler: Optional<Callback<CrownEvent>>): T;
 
   /**
    * Handle keyboard events before input method events.
