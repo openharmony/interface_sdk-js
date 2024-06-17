@@ -53,8 +53,8 @@ declare namespace identifier {
    * Reset the OAID.
    * A new OAID will be generated after reset.
    * @throws { BusinessError } 202 - Not system app error.
-   * @throws { BusinessError } 401 - Not in trust list error.
    * @throws { BusinessError } 17300001 - System internal error.
+   * @throws { BusinessError } 17300002 - Not in trust list error.
    * @syscap SystemCapability.Advertising.OAID
    * @systemapi
    * @since 10
