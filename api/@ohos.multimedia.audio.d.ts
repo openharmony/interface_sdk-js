@@ -646,6 +646,30 @@ declare namespace audio {
   }
 
   /**
+   * Enumerates type.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Volume
+   * @systemapi
+   * @since 12
+   */
+  enum PolicyType {
+    /**
+     * EDM type.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 12
+     */
+    EDM = 0,
+    /**
+     * PRIVACY type.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 12
+     */
+    PRIVACY = 1,
+  }
+ 
+  /**
    * Enumerates the audio sample formats.
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Audio.Core
@@ -3309,6 +3333,38 @@ declare namespace audio {
     setMicMute(mute: boolean): Promise<void>;
 
     /**
+     * Mutes or unmutes the microphone. This method uses a promise to return the result.
+     * @permission ohos.permission.MICROPHONE_CONTROL
+     * @param { boolean } mute - Mute status to set. The value true means to mute the microphone, and false means the opposite.
+     * @param { PolicyType } type - Mute status to set. This value represents the caller's type such as EDM or privacy.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters missing.
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 12
+     */
+    setMicMutePersistent(mute: boolean, type: PolicyType): Promise<void>;
+
+    /**
+     * Checks whether the persistent microphone status is muted.
+     * @permission ohos.permission.MICROPHONE_CONTROL
+     * @returns { boolean } Returns microphone persistent mute status.
+     *     true: The persistent mic mute is enabled in the current system.
+     *     false: The persistent mic mute is disabled in the current system.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system App.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 12
+     */
+    isPersistentMicMute(): boolean;
+
+    /**
      * Checks whether the microphone is muted. This method uses an asynchronous callback to return the query result.
      * @param { AsyncCallback<boolean> } callback - used to return the mute status of the microphone. The value
      * true means that the microphone is muted, and false means the opposite.
@@ -3345,6 +3401,19 @@ declare namespace audio {
      * @since 9
      */
     on(type: 'micStateChange', callback: Callback<MicStateChangeEvent>): void;
+
+    /**
+     * Unsubscribes to the microphone state change events.
+     * @param { 'micStateChange' } type - Type of the event to listen for. 
+     * @param { Callback<MicStateChangeEvent> } callback - Callback used to get the system microphone state change event.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters missing.
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 12
+     */
+    off(type: 'micStateChange', callback?: Callback<MicStateChangeEvent>): void;
 
     /**
      * Gets if this volume group is volume unadjustable.
