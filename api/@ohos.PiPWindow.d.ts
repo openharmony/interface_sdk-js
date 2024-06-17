@@ -390,7 +390,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    VIDEO_NEXT = 1,
+    VIDEO_NEXT = 2,
 
     /**
      * FAST_FORWARD.
@@ -398,7 +398,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    FAST_FORWARD = 0,
+    FAST_FORWARD = 3,
 
     /**
      * FAST_BACKWARD.
@@ -406,7 +406,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    FAST_BACKWARD = 0,
+    FAST_BACKWARD = 4,
 
     /**
      * HANG_UP.
@@ -414,7 +414,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    HANG_UP = 1,
+    HANG_UP = 5,
 
     /**
      * MICROPHONE_SWITCH.
@@ -422,7 +422,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    MICROPHONE_SWITCH = 1,
+    MICROPHONE_SWITCH = 6,
 
     /**
      * CAMERA_SWITCH.
@@ -430,7 +430,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    CAMERA_SWITCH = 0,
+    CAMERA_SWITCH = 7,
 
     /**
      * MUTE_SWITCH.
@@ -438,7 +438,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    MUTE_SWITCH = 0,
+    MUTE_SWITCH = 8,
   }
 
 
@@ -509,8 +509,8 @@ declare namespace PiPWindow {
    * Describe picture-in-picture control event callback.
    *
    * @typedef { function } ControlActionEventCallback
-   * @param { PiPControlType } event - the event from control
-   * @param { number } [status] - the status of control button
+   * @param { PiPControlType } controlType - the type of control
+   * @param { number } status - the status of control button
    * @syscap SystemCapability.Window.SessionManager
    * @since 12
    */
@@ -570,7 +570,7 @@ declare namespace PiPWindow {
     /**
      * Set Dashboard Control Status.
      * @param { PiPControlType } controlType - Describe picture-in-picture control type.
-     * @param { boolean } isEnable - Describe picture-in-picture control Status.
+     * @param { PiPControlStatus } status - Describe picture-in-picture control Status.
      * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
      *                                                                2. Incorrect parameter types.
      *                                                                3. Parameter verification failed
@@ -589,7 +589,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    SetPiPControlEnable(controlType: PiPControlType, isEnable: boolean): void;
+    setPiPControlEnable(controlType: PiPControlType, isEnable: boolean): void;
 
     /**
      * Register picture-in-picture control event listener.
