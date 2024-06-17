@@ -426,7 +426,7 @@ declare namespace backup {
      * @systemapi
      * @since 12
      */
-    onResultReport(bundName: string, result: string);
+    onResultReport(bundleName: string, result: string);
   }
 
   /**
