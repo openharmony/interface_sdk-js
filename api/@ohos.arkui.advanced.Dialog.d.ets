@@ -18,9 +18,9 @@
  * @kit ArkUI
  */
 
-/// <reference path="../component/units.d.ts" />
 
-import { ResourceStr } from 'GlobalResource';
+
+
 import { Theme, CustomTheme } from '@ohos.arkui.theme';
 
 /**
@@ -290,6 +290,16 @@ export declare struct TipsDialog {
    */
   theme?: Theme | CustomTheme;
   /**
+   * Sets the TipsDialog dark or light Mode.
+   *
+   * @type { ?ThemeColorMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  themeColorMode?: ThemeColorMode;
+  /**
    * Sets the TipsDialog CheckBox Callback.
    * @type { ?Callback<boolean> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -405,6 +415,16 @@ export declare struct SelectDialog {
    * @since 12
    */
   theme?: Theme | CustomTheme;
+  /**
+   * Sets the SelectDialog dark or light Mode.
+   *
+   * @type { ?ThemeColorMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  themeColorMode?: ThemeColorMode;
 }
 
 /**
@@ -529,6 +549,16 @@ export declare struct ConfirmDialog {
    */
   theme?: Theme | CustomTheme;
   /**
+   * Sets the ConfirmDialog dark or light Mode.
+   *
+   * @type { ?ThemeColorMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  themeColorMode?: ThemeColorMode;
+  /**
    * Sets the ConfirmDialog CheckBox Callback.
    * @type { ?Callback<boolean> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -632,6 +662,16 @@ export declare struct AlertDialog {
    * @since 12
    */
   theme?: Theme | CustomTheme;
+  /**
+   * Sets the AlertDialog dark or light Mode.
+   *
+   * @type { ?ThemeColorMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  themeColorMode?: ThemeColorMode;
 }
 
 /**
@@ -685,6 +725,16 @@ export declare struct LoadingDialog {
    * @since 12
    */
   theme?: Theme | CustomTheme;
+  /**
+   * Sets the LoadingDialog dark or light Mode.
+   *
+   * @type { ?ThemeColorMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  themeColorMode?: ThemeColorMode;
 }
 
 /**
@@ -753,6 +803,16 @@ export declare struct CustomContentDialog {
    * @since 12
    */
   theme?: Theme | CustomTheme;
+  /**
+   * Sets the CustomContentDialog dark or light Mode.
+   *
+   * @type { ?ThemeColorMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  themeColorMode?: ThemeColorMode;
 }
 
 /**

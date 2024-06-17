@@ -31,6 +31,11 @@ const copyRight = `/*
  */\n\n`;
  
  const label = `/**
+ * @file Defines all permissions.
+ * @kit AbilityKit
+ */
+
+ /**
  * Indicates permissions.
  *
  * @typedef Permissions

@@ -154,6 +154,19 @@ export default class ApplicationContext extends Context {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Unregister ability lifecycle callback.
+   *
+   * @param { 'abilityLifecycle' } type - abilityLifecycle.
+   * @param { number } callbackId - Indicates the number code of the callback.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12  
+   */
   off(type: 'abilityLifecycle', callbackId: number): Promise<void>;
 
   /**
@@ -485,7 +498,7 @@ export default class ApplicationContext extends Context {
    * @stagemodelonly
    * @since 12
    */
-    preloadUIExtensionAbility(want: Want): Promise<void>;
+  preloadUIExtensionAbility(want: Want): Promise<void>;
 
   /**
    * Set the state about whether the application supports process cache or not.

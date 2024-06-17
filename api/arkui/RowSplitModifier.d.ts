@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-/// <reference path="../../component/common.d.ts" />
-/// <reference path="../../component/row_split.d.ts" />
+
+
 
 /**
  * Defines RowSplit Modifier

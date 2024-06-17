@@ -28,21 +28,27 @@ export class OrderCheck {
       state: true,
       errorInfo: '',
     };
-    const tagsOrder: Comment.CommentTag[] | undefined = apiJsdoc.tags;
-    if (tagsOrder === undefined) {
+    const apiJsdocInfos: Comment.CommentTag[] | undefined = apiJsdoc.tags;
+    if (apiJsdocInfos === undefined) {
+      return orderCheckResult;
+    }
+    const tagsOrder: string[] = [];
+    apiJsdocInfos.forEach((apiJsdocInfo: Comment.CommentTag) => { tagsOrder.push(apiJsdocInfo.tag) });
+
+    if (tagsOrder.includes('deprecated')) {
       return orderCheckResult;
     }
     for (let tagIndex = 0; tagIndex < tagsOrder.length; tagIndex++) {
       if (tagIndex + 1 < tagsOrder.length) {
         // 获取前后两个tag下标
-        const firstIndex = tagsArrayOfOrder.indexOf(tagsOrder[tagIndex].tag);
-        const secondIndex = tagsArrayOfOrder.indexOf(tagsOrder[tagIndex + 1].tag);
+        const firstIndex = tagsArrayOfOrder.indexOf(tagsOrder[tagIndex]);
+        const secondIndex = tagsArrayOfOrder.indexOf(tagsOrder[tagIndex + 1]);
         // 判断标签是否为官方标签
-        const firstTag = CommonFunctions.isOfficialTag(tagsOrder[tagIndex].tag);
+        const firstTag = CommonFunctions.isOfficialTag(tagsOrder[tagIndex]);
         // 非自定义标签在前或数组降序时报错
         if ((firstTag && secondIndex > -1) || (firstIndex > secondIndex && secondIndex > -1)) {
           orderCheckResult.state = false;
-          orderCheckResult.errorInfo = CommonFunctions.createErrorInfo(ErrorMessage.ERROR_ORDER, [tagsOrder[tagIndex].tag]);
+          orderCheckResult.errorInfo = CommonFunctions.createErrorInfo(ErrorMessage.ERROR_ORDER, [tagsOrder[tagIndex]]);
           break;
         }
       }

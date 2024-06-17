@@ -110,8 +110,11 @@ export class CheckHump {
     }
     const apiType: string = apiInfo.getApiType();
     const filePath: string = apiInfo.getFilePath();
-    const apiName: string = apiInfo.getApiName();
+    let apiName: string = apiInfo.getApiName();
     let checkResult: string = '';
+    if (apiInfo.getIsJoinType()) {
+      apiName = apiName.split('_')[0];
+    }
     if (
       apiType === ApiType.ENUM_VALUE ||
       (apiType === ApiType.CONSTANT && filePath.indexOf(`component${path.sep}ets${path.sep}`) === -1)
@@ -181,10 +184,10 @@ export class CheckHump {
       apiInfos.forEach((apiInfo) => {
         if (!notJsDocApiTypes.has(apiInfo.getApiType())) {
           const jsDocInfos: Comment.JsDocInfo[] = (apiInfo as ApiInfo).getJsDocInfos();
-          version = jsDocInfos[0] ? jsDocInfos[0].getSince() : version;
+          version = jsDocInfos[0] ? CommonFunctions.getSinceVersion(jsDocInfos[0].getSince()) : version;
         }
         moduleName = apiInfo.getApiType() === ApiType.NAMESPACE ? apiInfo.getApiName() : moduleName;
-        exportAssignment = apiInfo.getApiType() === ApiType.EXPORT_DEFAULT ? apiInfo.getApiName() : exportAssignment;
+        exportAssignment = (apiInfo.getApiType() === ApiType.EXPORT_DEFAULT || apiInfo.getIsExport()) ? apiInfo.getApiName().replace(StringConstant.EXPORT_DEFAULT, '') : exportAssignment;
       });
     }
     const basename: string = path.basename(filePath).replace(new RegExp(StringConstant.DTS_EXTENSION, 'g'), '');

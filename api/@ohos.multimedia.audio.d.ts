@@ -24,6 +24,11 @@ import { ErrorCallback, AsyncCallback, Callback } from './@ohos.base';
  * @namespace audio
  * @since 7
  */
+/**
+ * @namespace audio
+ * @atomicservice
+ * @since 12
+ */
 declare namespace audio {
   /**
    * Enumerates audio errors.
@@ -641,6 +646,30 @@ declare namespace audio {
   }
 
   /**
+   * Enumerates type.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Volume
+   * @systemapi
+   * @since 12
+   */
+  enum PolicyType {
+    /**
+     * EDM type.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 12
+     */
+    EDM = 0,
+    /**
+     * PRIVACY type.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 12
+     */
+    PRIVACY = 1,
+  }
+ 
+  /**
    * Enumerates the audio sample formats.
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Audio.Core
@@ -970,11 +999,24 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @since 7
    */
+  /**
+   * Enumerates the stream usage.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @atomicservice
+   * @since 12
+   */
   enum StreamUsage {
     /**
      * Unknown usage.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 7
+     */
+    /**
+     * Unknown usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @atomicservice
+     * @since 12
      */
     STREAM_USAGE_UNKNOWN = 0,
     /**
@@ -993,11 +1035,23 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 10
      */
+    /**
+     * Music usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @atomicservice
+     * @since 12
+     */
     STREAM_USAGE_MUSIC = 1,
     /**
      * Voice communication usage.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 7
+     */
+    /**
+     * Voice communication usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @atomicservice
+     * @since 12
      */
     STREAM_USAGE_VOICE_COMMUNICATION = 2,
     /**
@@ -1005,17 +1059,35 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 9
      */
+    /**
+     * Voice assistant broadcast usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @atomicservice
+     * @since 12
+     */
     STREAM_USAGE_VOICE_ASSISTANT = 3,
     /**
      * Alarm usage.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 10
      */
+    /**
+     * Alarm usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @atomicservice
+     * @since 12
+     */
     STREAM_USAGE_ALARM = 4,
     /**
      * Voice message usage.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 10
+     */
+    /**
+     * Voice message usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @atomicservice
+     * @since 12
      */
     STREAM_USAGE_VOICE_MESSAGE = 5,
     /**
@@ -1031,17 +1103,35 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 10
      */
+    /**
+     * Ringtone usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @atomicservice
+     * @since 12
+     */
     STREAM_USAGE_RINGTONE = 6,
     /**
      * Notification usage.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 10
      */
+    /**
+     * Notification usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @atomicservice
+     * @since 12
+     */
     STREAM_USAGE_NOTIFICATION = 7,
     /**
      * Accessibility usage, such as screen reader.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 10
+     */
+    /**
+     * Accessibility usage, such as screen reader.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @atomicservice
+     * @since 12
      */
     STREAM_USAGE_ACCESSIBILITY = 8,
     /**
@@ -1056,11 +1146,23 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 10
      */
+    /**
+     * Movie or video usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @atomicservice
+     * @since 12
+     */
     STREAM_USAGE_MOVIE = 10,
     /**
      * Game sound effect usage.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 10
+     */
+    /**
+     * Game sound effect usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @atomicservice
+     * @since 12
      */
     STREAM_USAGE_GAME = 11,
     /**
@@ -1068,11 +1170,23 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 10
      */
+    /**
+     * Audiobook usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @atomicservice
+     * @since 12
+     */
     STREAM_USAGE_AUDIOBOOK = 12,
     /**
      * Navigation usage.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 10
+     */
+    /**
+     * Navigation usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @atomicservice
+     * @since 12
      */
     STREAM_USAGE_NAVIGATION = 13,
     /**
@@ -1099,6 +1213,7 @@ declare namespace audio {
     /**
      * Video call usage.
      * @syscap SystemCapability.Multimedia.Audio.Core
+     * @atomicservice
      * @since 12
      */
     STREAM_USAGE_VIDEO_COMMUNICATION = 17,
@@ -2919,6 +3034,19 @@ declare namespace audio {
      * @since 9
      */
     on(type: 'volumeChange', callback: Callback<VolumeEvent>): void;
+
+    /**
+     * Unsubscribes to the volume change events..
+     * @param { 'volumeChange' } type - Type of the event to be unsubscribed. Only the volumeChange event is supported.
+     * @param { Callback<VolumeEvent> } callback - Callback used to obtain the invoking volume change event.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters missing.
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 12
+     */
+    off(type: 'volumeChange', callback?: Callback<VolumeEvent>): void;
   }
 
   /**
@@ -3205,6 +3333,38 @@ declare namespace audio {
     setMicMute(mute: boolean): Promise<void>;
 
     /**
+     * Mutes or unmutes the microphone. This method uses a promise to return the result.
+     * @permission ohos.permission.MICROPHONE_CONTROL
+     * @param { boolean } mute - Mute status to set. The value true means to mute the microphone, and false means the opposite.
+     * @param { PolicyType } type - Mute status to set. This value represents the caller's type such as EDM or privacy.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters missing.
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 12
+     */
+    setMicMutePersistent(mute: boolean, type: PolicyType): Promise<void>;
+
+    /**
+     * Checks whether the persistent microphone status is muted.
+     * @permission ohos.permission.MICROPHONE_CONTROL
+     * @returns { boolean } Returns microphone persistent mute status.
+     *     true: The persistent mic mute is enabled in the current system.
+     *     false: The persistent mic mute is disabled in the current system.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system App.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 12
+     */
+    isPersistentMicMute(): boolean;
+
+    /**
      * Checks whether the microphone is muted. This method uses an asynchronous callback to return the query result.
      * @param { AsyncCallback<boolean> } callback - used to return the mute status of the microphone. The value
      * true means that the microphone is muted, and false means the opposite.
@@ -3241,6 +3401,19 @@ declare namespace audio {
      * @since 9
      */
     on(type: 'micStateChange', callback: Callback<MicStateChangeEvent>): void;
+
+    /**
+     * Unsubscribes to the microphone state change events.
+     * @param { 'micStateChange' } type - Type of the event to listen for. 
+     * @param { Callback<MicStateChangeEvent> } callback - Callback used to get the system microphone state change event.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters missing.
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 12
+     */
+    off(type: 'micStateChange', callback?: Callback<MicStateChangeEvent>): void;
 
     /**
      * Gets if this volume group is volume unadjustable.
@@ -4873,6 +5046,26 @@ declare namespace audio {
      * @since 11
      */
     setChannelBlendMode(mode: ChannelBlendMode): void;
+
+    /**
+     * Sets silent and mix with other stream for this stream.
+     * @param { boolean } on - Whether play silent and mix with other streams.
+     *     true: set the silent mode and mix with other streams.
+     *     false: unset the silent mode, current stream will trigger the audio focus internally.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 12
+     */
+    setSilentModeAndMixWithOthers(on: boolean): void;
+
+    /**
+     * Gets silent and mix with other stream status for this stream.
+     * @returns { boolean } Returns silent and mix with other stream status.
+     *     true: current stream is in the silent mode and mix with other streams.
+     *     false: current stream in in the normal playback mode
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 12
+     */
+    getSilentModeAndMixWithOthers(): boolean;
 
     /**
      * Listens for audio interrupt events. This method uses a callback to get interrupt events. The interrupt event is

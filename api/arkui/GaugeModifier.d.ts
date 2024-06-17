@@ -18,8 +18,7 @@
  * @kit ArkUI
  */
 
-/// <reference path="../../component/common.d.ts" />
-/// <reference path="../../component/gauge.d.ts" />
+
 
 /**
  * Defines Gauge Modifier

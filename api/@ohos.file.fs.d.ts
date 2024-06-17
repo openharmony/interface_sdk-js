@@ -5883,6 +5883,7 @@ declare function writeSync(
 /**
  * Connect Distributed File System.
  *
+ * @permission ohos.permission.DISTRIBUTED_DATASYNC
  * @param { string } networkId - The networkId of device.
  * @param { DfsListeners } listeners - The listeners of Distributed File System.
  * @returns { Promise<void> } The promise returned by the function.
@@ -5899,11 +5900,13 @@ declare function connectDfs(networkId: string, listeners: DfsListeners): Promise
 /**
  * Disconnect Distributed File System.
  *
+ * @permission ohos.permission.DISTRIBUTED_DATASYNC
  * @param { string } networkId - The networkId of device.
  * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 201 - Permission denied.
  * @throws { BusinessError } 401 - The parameter check failed.Possible causes:1.Mandatory parameters are left unspecified;
  * <br>2.Incorrect parameter types.
+ * @throws { BusinessError } 13600004 - Failed to unmount.
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
  */

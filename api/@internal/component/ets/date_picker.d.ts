@@ -960,9 +960,4 @@ declare const DatePicker: DatePickerInterface;
  */
 declare const DatePickerInstance: DatePickerAttribute;
 
-declare module "DatePickerDialogParam" {
-  module "DatePickerDialogParam"{
-    // @ts-ignore
-    export { DatePickerDialogOptions };
-  }
-}
+

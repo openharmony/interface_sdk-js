@@ -18,9 +18,9 @@
  * @kit ArkUI
  */
 
-/// <reference path="../component/units.d.ts" />
 
-import { ResourceStr } from 'GlobalResource';
+
+
 
 /**
  * Defines text only item of SegmentButton.
@@ -445,6 +445,7 @@ interface CommonSegmentButtonOptions {
    * {{ top: LengthMetrics.vp(6), end: LengthMetrics.vp(8), bottom: LengthMetrics.vp(6), start: LengthMetrics.vp(8) }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   localizedButtonPadding?: LocalizedPadding;
@@ -476,6 +477,7 @@ interface CommonSegmentButtonOptions {
    * @type { ?LocalizedPadding }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   localizedTextPadding?: LocalizedPadding;
@@ -505,6 +507,7 @@ interface CommonSegmentButtonOptions {
    * @type { ?Direction }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   direction?: Direction;
@@ -588,6 +591,15 @@ interface TabSegmentButtonConstructionOptions extends CommonSegmentButtonOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * The items of tab type of SegmentButton.
+   *
+   * @type { ItemRestriction<SegmentButtonTextItem> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   buttons: ItemRestriction<SegmentButtonTextItem>;
 }
@@ -1327,6 +1339,7 @@ declare class SegmentButtonOptions {
    * @type { ?LocalizedPadding }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   localizedButtonPadding?: LocalizedPadding;
@@ -1356,6 +1369,7 @@ declare class SegmentButtonOptions {
    * @type { ?LocalizedPadding }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   localizedTextPadding?: LocalizedPadding;
@@ -1450,6 +1464,7 @@ declare class SegmentButtonOptions {
    * @type { ?Direction }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   direction?: Direction;

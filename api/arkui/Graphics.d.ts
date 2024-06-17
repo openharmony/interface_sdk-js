@@ -19,7 +19,6 @@
  */
 import drawing from '../@ohos.graphics.drawing';
 import type common2D from '../@ohos.graphics.common2D';
-import { BorderStyle } from 'borderStyle'
 import { Resource } from '../global/resource';
 
 /**
@@ -360,6 +359,14 @@ export type Offset = Vector2;
  * @crossplatform
  * @since 11
  */
+/**
+ * Position info.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 export type Position = Vector2;
 
 /**
@@ -540,6 +547,7 @@ export declare interface Frame {
  * @interface Edges
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 export interface Edges<T> {
@@ -549,6 +557,7 @@ export interface Edges<T> {
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   left: T,
@@ -559,6 +568,7 @@ export interface Edges<T> {
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   right: T,
@@ -569,6 +579,7 @@ export interface Edges<T> {
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   top: T,
@@ -579,6 +590,7 @@ export interface Edges<T> {
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   bottom: T
@@ -590,6 +602,7 @@ export interface Edges<T> {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare enum LengthUnit {
@@ -600,6 +613,7 @@ declare enum LengthUnit {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   PX = 0,
@@ -609,6 +623,7 @@ declare enum LengthUnit {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   VP = 1,
@@ -619,6 +634,7 @@ declare enum LengthUnit {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   FP = 2,
@@ -629,6 +645,7 @@ declare enum LengthUnit {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   PERCENT = 3,
@@ -638,6 +655,7 @@ declare enum LengthUnit {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   LPX = 4,
@@ -649,6 +667,7 @@ declare enum LengthUnit {
  * @interface SizeT
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 export interface SizeT<T> {
@@ -658,6 +677,7 @@ export interface SizeT<T> {
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   width: T;
@@ -668,6 +688,7 @@ export interface SizeT<T> {
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   height: T;
@@ -707,6 +728,7 @@ export enum LengthMetricsUnit {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare class LengthMetrics {
@@ -717,6 +739,7 @@ declare class LengthMetrics {
    * @param { LengthUnit } [unit] - The length unit.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   constructor(value: number, unit?:LengthUnit);
@@ -729,6 +752,7 @@ declare class LengthMetrics {
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   static px(value: number): LengthMetrics;
@@ -741,6 +765,7 @@ declare class LengthMetrics {
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   static vp(value: number): LengthMetrics;
@@ -753,6 +778,7 @@ declare class LengthMetrics {
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   static fp(value: number): LengthMetrics;
@@ -765,6 +791,7 @@ declare class LengthMetrics {
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   static percent(value: number): LengthMetrics;
@@ -777,6 +804,7 @@ declare class LengthMetrics {
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   static lpx(value: number): LengthMetrics;
@@ -791,6 +819,7 @@ declare class LengthMetrics {
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   static resource(value: Resource): LengthMetrics;
@@ -802,6 +831,7 @@ declare class LengthMetrics {
    * @default VP
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   public unit: LengthUnit;
@@ -812,114 +842,120 @@ declare class LengthMetrics {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   public value: number;
 }
 
 /**
-* Defines the ColorMetrics class.
-* 
-* @syscap SystemCapability.ArkUI.ArkUI.Full
-* @crossplatform
-* @since 12
-*/
+ * Defines the ColorMetrics class.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
 declare class ColorMetrics {
   /**
-  * Instantiate the ColorMetrics class using color number 
-  * 
-  * @param { number } value - color number
-  * @returns { ColorMetrics } ColorMetrics class
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @since 12
-  */
+   * Instantiate the ColorMetrics class using color number
+   *
+   * @param { number } value - color number
+   * @returns { ColorMetrics } ColorMetrics class
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
   static numeric(value: number): ColorMetrics;
 
   /**
-  * Instantiate the ColorMetrics class using color rgb
-  * 
-  * @param { number } red - red value of rgba
-  * @param { number } green - green value of rgba
-  * @param { number } blue - blue value of rgba
-  * @param { number } alpha - opacity value of rgba
-  * @returns { ColorMetrics } ColorMetrics class
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @since 12
-  */
+   * Instantiate the ColorMetrics class using color rgb
+   *
+   * @param { number } red - red value of rgba
+   * @param { number } green - green value of rgba
+   * @param { number } blue - blue value of rgba
+   * @param { number } alpha - opacity value of rgba
+   * @returns { ColorMetrics } ColorMetrics class
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
   static rgba(red: number, green: number, blue: number, alpha?: number): ColorMetrics;
 
   /**
-  * Instantiate the ColorMetrics class using ResourceColor
-  * 
-  * @param { ResourceColor } color - resource color
-  * @returns { ColorMetrics } ColorMetrics class
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @since 12
-  */
+   * Instantiate the ColorMetrics class using ResourceColor
+   *
+   * @param { ResourceColor } color - resource color
+   * @returns { ColorMetrics } ColorMetrics class
+   * @throws { BusinessError } 180003 - Failed to obtain the color resource.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause:
+   * 1. The type of the input color parameter is not ResourceColor.
+   * 2. The format of the input color string is not RGB or RGBA.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
   static resourceColor(color: ResourceColor): ColorMetrics;
 	
   /**
-  * blend color
-  * 
-  * @param { ColorMetrics } overlayColor - overlay color
-  * @returns { ColorMetrics } ColorMetrics class
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @since 12
-  */
+   * blend color
+   *
+   * @param { ColorMetrics } overlayColor - overlay color
+   * @returns { ColorMetrics } ColorMetrics class
+   * @throws { BusinessError } 401 - Parameter error. The type of the input parameter is not ColorMetrics.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
   blendColor(overlayColor: ColorMetrics): ColorMetrics;
 	
   /**
-  * Get color of the ColorMetrics.
-  * 
-  * @returns { string } The color of the ColorMetrics.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @since 12
-  */
+   * Get color of the ColorMetrics.
+   *
+   * @returns { string } The color of the ColorMetrics.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
    get color(): string;
 
   /**
-  * Get red value of the ColorMetrics.
-  * 
-  * @returns { number } The red value of the ColorMetrics.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @since 12
-  */
+   * Get red value of the ColorMetrics.
+   *
+   * @returns { number } The red value of the ColorMetrics.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
    get red(): number;
 
   /**
-  * Get green value of the ColorMetrics.
-  * 
-  * @returns { number } The green value of the ColorMetrics.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @since 12
-  */
+   * Get green value of the ColorMetrics.
+   *
+   * @returns { number } The green value of the ColorMetrics.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
   get green(): number;
 
   /**
-  * Get blue value of the ColorMetrics.
-  * 
-  * @returns { number } The blue value of the ColorMetrics.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @since 12
-  */
+   * Get blue value of the ColorMetrics.
+   *
+   * @returns { number } The blue value of the ColorMetrics.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
   get blue(): number;
 
   /**
-  * Get opacity value of the ColorMetrics.
-  * 
-  * @returns { number } The opacity value of the ColorMetrics.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @since 12
-  */
+   * Get opacity value of the ColorMetrics.
+   *
+   * @returns { number } The opacity value of the ColorMetrics.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
   get alpha(): number;
 }
 

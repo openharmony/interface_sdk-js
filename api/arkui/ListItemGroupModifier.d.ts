@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-/// <reference path="../../component/common.d.ts" />
-/// <reference path="../../component/list_item_group.d.ts" />
+
+
 
 /**
  * Defines ListItemGroup Modifier

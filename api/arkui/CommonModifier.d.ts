@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 
-/// <reference path="../../component/common.d.ts" />
+
 
 /**
  * Defines Common Modifier

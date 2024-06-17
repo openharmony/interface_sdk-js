@@ -167,3 +167,4 @@ declare namespace screenLockFileManager {
    */
   function releaseAccess(dataType: DataType): ReleaseStatus;
 }
+export default screenLockFileManager;

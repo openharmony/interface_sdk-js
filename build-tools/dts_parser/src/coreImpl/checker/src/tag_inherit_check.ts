@@ -15,7 +15,7 @@
 
 import { ErrorMessage, ErrorTagFormat } from '../../../typedef/checker/result_type';
 import { Comment } from '../../../typedef/parser/Comment';
-import { CommonFunctions, inheritTagArr } from '../../../utils/checkUtils';
+import { CommonFunctions, inheritTagArr, followTagArr } from '../../../utils/checkUtils';
 import { ApiInfo, BasicApiInfo, ContainerApiInfo, containerApiTypes } from '../../../typedef/parser/ApiInfoDefination';
 
 export class TagInheritCheck {
@@ -24,11 +24,8 @@ export class TagInheritCheck {
    * @param { ApiInfo } singleApi
    * @returns { ErrorTagFormat }
    */
-  static tagInheritCheck(singleApi: ApiInfo): ErrorTagFormat {
-    const tagNameCheckResult: ErrorTagFormat = {
-      state: true,
-      errorInfo: '',
-    };
+  static tagInheritCheck(singleApi: ApiInfo): ErrorTagFormat[] {
+    const tagNameCheckResult: ErrorTagFormat[] = [];
     const apiJsdoc: Comment.JsDocInfo | undefined = singleApi.getLastJsDocInfo();
     if (apiJsdoc === undefined) {
       return tagNameCheckResult;
@@ -49,23 +46,46 @@ export class TagInheritCheck {
   }
 
   static checkParentJsdoc(basicApiInfo: BasicApiInfo | undefined, apiTagsName: string[],
-    tagNameCheckResult: ErrorTagFormat): boolean {
+    tagNameCheckResult: ErrorTagFormat[]): boolean {
     if (basicApiInfo === undefined || !containerApiTypes.has(basicApiInfo.getApiType())) {
       return true;
     }
     const parentApi = basicApiInfo as ContainerApiInfo;
     const parentApisJsdoc: Comment.CommentTag[] | undefined = parentApi.getLastJsDocInfo()?.tags;
+    const trueCheckResult: ErrorTagFormat = {
+      state: true,
+      errorInfo: '',
+    }
     if (parentApisJsdoc === undefined) {
       return true;
     }
     let currTag: string = '';
-    const hasInheritTag = parentApisJsdoc.some((parentApiJsdoc: Comment.CommentTag) => {
+    const hasInheritTag: boolean = parentApisJsdoc.some((parentApiJsdoc: Comment.CommentTag) => {
       currTag = parentApiJsdoc.tag;
       return inheritTagArr.includes(parentApiJsdoc.tag) && !apiTagsName.includes(parentApiJsdoc.tag);
     });
-    if (hasInheritTag) {
-      tagNameCheckResult.state = false;
-      tagNameCheckResult.errorInfo = CommonFunctions.createErrorInfo(ErrorMessage.ERROR_INFO_INHERIT, [currTag]);
+    const inheritCheckResult: ErrorTagFormat = hasInheritTag ? {
+      state: false,
+      errorInfo: CommonFunctions.createErrorInfo(ErrorMessage.ERROR_INFO_INHERIT, [currTag.toLocaleLowerCase()]),
+    } : trueCheckResult;
+
+    const parentApiTagName: string[] = [];
+    parentApisJsdoc.forEach(parentApiJsdoc => {
+      parentApiTagName.push(parentApiJsdoc.tag);
+    });
+    const hasFollowTag: boolean = apiTagsName.some((apiTagName: string) => {
+      currTag = apiTagName;
+      return followTagArr.includes(apiTagName) && !parentApiTagName.includes(apiTagName);
+    });
+    const followCheckResult: ErrorTagFormat = hasFollowTag ? {
+      state: false,
+      errorInfo: CommonFunctions.createErrorInfo(ErrorMessage.ERROR_INFO_FOLLOW, [currTag]),
+    } : trueCheckResult;
+
+    if (hasInheritTag || hasFollowTag) {
+      tagNameCheckResult.push(...(hasInheritTag ?
+        (hasFollowTag ? [followCheckResult, inheritCheckResult] : [inheritCheckResult]) :
+        [followCheckResult]));
       return false;
     }
     const parentApis: BasicApiInfo | undefined = parentApi.getParentApi();

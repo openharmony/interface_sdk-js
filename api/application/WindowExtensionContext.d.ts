@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkUI
+ */
+
 import { AsyncCallback } from '../@ohos.base';
 import ExtensionContext from './ExtensionContext';
 import Want from '../@ohos.application.Want';
