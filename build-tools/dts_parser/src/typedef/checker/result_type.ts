@@ -60,7 +60,7 @@ export enum ErrorID {
   TS_SYNTAX_ERROR_ID = 13,
   NO_JSDOC_ID = 14,
   JSDOC_HAS_CHINESE = 15,
-  ERROR_ERROR_CODE
+  ERROR_ERROR_CODE = 16
 }
 
 /**
