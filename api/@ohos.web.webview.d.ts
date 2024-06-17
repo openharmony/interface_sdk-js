@@ -18,15 +18,11 @@
  * @kit ArkWeb
  */
 
-/// <reference path="../component/units.d.ts" />
-
 import { AsyncCallback, BusinessError } from './@ohos.base';
 import { Callback } from './@ohos.base';
-import { Resource } from 'GlobalResource';
 import cert from './@ohos.security.cert';
 import image from './@ohos.multimedia.image';
 import type print from './@ohos.print';
-import './@internal/component/ets/units';
 import { WebNetErrorList } from './@ohos.web.netErrorList';
 
 /**
@@ -4860,6 +4856,53 @@ declare namespace webview {
      * @since 12
      */
     isAdsBlockEnabledForCurPage(): boolean;
+    
+    /**
+     * Get the ID of the surface created by ArkWeb. This ID can be used for web page screenshots.
+     *
+     * @returns { string } The ID of the surface created by ArkWeb.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    getSurfaceId(): string;
+
+    /**
+     * Set the URL trust list for the ArkWeb.
+     * When the URL trust list has been set, only the URLs in the list can be accessed.
+     *
+     * @param { string } urlTrustList - the URL trust list in JSON format.
+     *     An empty string means that all URLs are allowed to access.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Parameter string is too long. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100001 - Init error.
+     *     The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    setUrlTrustList(urlTrustList: string): void;
+
+    /**
+     * Set a path list, allowing cross-origin request access any origin when the file scheme URLs access resources in this
+     * path list. Also, When the path list is set, the file scheme URLs only allow access to resources within the path list.
+     * Path in the path list must meet one of the following path formats(sub path and module name must be provided):
+     * 
+     * 1. App bundle resource directory, like "/data/storage/el1/bundle/entry/resource/resfile".
+     *    You can get resource directory using Context.resourceDir in AbilityKit.
+     * 2. A sub path of app files directory, like "/data/storage/el2/base/files/example/"
+     *    or "/data/storage/el2/base/haps/entry/files/example".
+     *    You can get app files directory using Context.filesDir in AbilityKit.
+     * 
+     * @param { Array<string> } pathList - The path list allow universal access.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Parameter string is too long. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100001 - Init error.
+     *     The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    setPathAllowingUniversalAccess(pathList: Array<string>): void;
   }
 
   /**
@@ -6691,8 +6734,8 @@ declare namespace webview {
   class AdsBlockManager {
     /**
      * set Ads Block ruleset file, containing easylist rules.
-     * @param {string} rulesFile: absolute file path contains app customized ads block rules.
-     * @param {boolean} replace: (@code true)replace internal rules;(@code false) add to internal rules.
+     * @param {string} rulesFile - absolute file path contains app customized ads block rules.
+     * @param {boolean} replace - (@code true)replace internal rules;(@code false) add to internal rules.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -6701,7 +6744,7 @@ declare namespace webview {
 
     /**
      * Add items to Ads Block Disallow list.
-     * @param {Array<string>} domainSuffixes: list of domain suffix, if web page url matches someone in the list,
+     * @param { Array<string> } domainSuffixes - list of domain suffix, if web page url matches someone in the list,
      * Ads Block will be disallowed for the web page.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -6714,7 +6757,7 @@ declare namespace webview {
      * By default, ads block is allowed for all pages unless they are added to the
      * disallow list. The priority of allowlist is higher than the disallowlist. It is
      * used to re-enable ads block on the page that matches disallow list.
-     * @param {Array<string>} domainSuffixes: list of domain suffix, if web page url matches someone in the list,
+     * @param { Array<string> } domainSuffixes - list of domain suffix, if web page url matches someone in the list,
      * Ads Block will be allowed for the web page.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -6724,7 +6767,7 @@ declare namespace webview {
 
     /**
      * remove items from Ads Block Disallowed list.
-     * @param {Array<string>} domainSuffixes: list of domain suffix needed be removed from disallow list
+     * @param { Array<string> } domainSuffixes - list of domain suffix needed be removed from disallow list
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -6733,7 +6776,7 @@ declare namespace webview {
 
     /**
      * remove items from Ads Block Allowed list.
-     * @param {Array<string>} domainSuffixes: list of domain suffix needed be removed from allow list
+     * @param { Array<string> } domainSuffixes - list of domain suffix needed be removed from allow list
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -6741,22 +6784,20 @@ declare namespace webview {
     static removeAdsBlockAllowedList(domainSuffixes: Array<string>): void;
 
     /**
-     * remove items from Ads Block Allowed list.
-     * @param {Array<string>} domainSuffixes: list of domain suffix needed be removed from allow list
+     * clear Ads Block Disallowed list.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
      */
-    static clearAdsBlockDisallowedList(domainSuffixes: Array<string>): void;
+    static clearAdsBlockDisallowedList(): void;
 
     /**
-     * remove items from Ads Block Allowed list.
-     * @param {Array<string>} domainSuffixes: list of domain suffix needed be removed from allow list
+     * clear Ads Block Allowed list.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
      */
-    static clearAdsBlockAllowedList(domainSuffixes: Array<string>): void;
+    static clearAdsBlockAllowedList(): void;
   }
 
 }

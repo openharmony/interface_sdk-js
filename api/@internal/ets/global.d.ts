@@ -18,9 +18,7 @@
  * @kit ArkUI
  */
 
-/// <reference path="../../../component/common.d.ts" />
 
-import { TouchObject, KeyEvent, MouseEvent } from 'SpecialEvent';
 
 /**
  * Defines the console info.

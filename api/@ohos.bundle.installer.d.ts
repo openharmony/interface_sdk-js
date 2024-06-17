@@ -776,6 +776,42 @@ declare namespace installer {
      * @systemapi
      * @since 10
      */
+    /**
+     * Updates this enterprise application.
+     *
+     * @permission ohos.permission.INSTALL_SELF_BUNDLE
+     * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
+     * @param { InstallParam } installParam - Indicates other parameters required for the installation.
+     * @param { AsyncCallback<void> } callback - Indicates the callback used to return the HAP installation result.
+     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_SELF_BUNDLE'.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * 2. Incorrect parameter types; 3. Parameter hapFiles is needed for code signature;
+     * 4. The size of specifiedDistributionType is greater than 128; 5. The size of additionalInfo is greater than 3000.
+     * @throws { BusinessError } 17700004 - The specified user ID is not found.
+     * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
+     * @throws { BusinessError } 17700011 - Failed to install the HAP because the HAP signature fails to be verified.
+     * @throws { BusinessError } 17700012 - Failed to install the HAP because the HAP path is invalid or the HAP is too large.
+     * @throws { BusinessError } 17700015 - Failed to install the HAPs because they have different configuration information.
+     * @throws { BusinessError } 17700016 - Failed to install the HAP because of insufficient system disk space.
+     * @throws { BusinessError } 17700017 - Failed to install the HAP since the version of the HAP to install is too early.
+     * @throws { BusinessError } 17700018 - Failed to install because the dependent module does not exist.
+     * @throws { BusinessError } 17700039 - Failed to install because disallow install a shared bundle by hapFilePaths.
+     * @throws { BusinessError } 17700041 - Failed to install because enterprise device management disallow install.
+     * @throws { BusinessError } 17700042 - Failed to install the HAP because of incorrect URI in the data proxy.
+     * @throws { BusinessError } 17700043 - Failed to install the HAP because of low APL in the non-system data proxy
+     * (required APL: system_basic or system_core).
+     * @throws { BusinessError } 17700044 - Failed to install the HAP because the isolationMode configured is not supported.
+     * @throws { BusinessError } 17700047 - Failed to install the HAP because the VersionCode to be updated is not greater than the current VersionCode.
+     * @throws { BusinessError } 17700048 - Failed to install the HAP because the code signature verification is failed.
+     * @throws { BusinessError } 17700049 - Failed to install the HAP because the bundleName is different from the bundleName of the caller application.
+     * @throws { BusinessError } 17700050 - Failed to install the HAP because enterprise normal/MDM bundle cannot be installed on non-enterprise device.
+     * @throws { BusinessError } 17700051 - Failed to install the HAP because the distribution type of caller application is not enterprise_mdm.
+     * @throws { BusinessError } 17700068 - Failed to install the HAP because the maximum count of clone app cannot be reduced.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
     updateBundleForSelf(hapFilePaths: Array<string>, installParam: InstallParam, callback: AsyncCallback<void>): void;
 
     /**
@@ -808,6 +844,38 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10
+     */
+    /**
+     * Updates this enterprise application.
+     *
+     * @permission ohos.permission.INSTALL_SELF_BUNDLE
+     * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
+     * @param { AsyncCallback<void> } callback - Indicates the callback used to return the HAP installation result.
+     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_SELF_BUNDLE'.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
+     * @throws { BusinessError } 17700011 - Failed to install the HAP because the HAP signature fails to be verified.
+     * @throws { BusinessError } 17700012 - Failed to install the HAP because the HAP path is invalid or the HAP is too large.
+     * @throws { BusinessError } 17700015 - Failed to install the HAPs because they have different configuration information.
+     * @throws { BusinessError } 17700016 - Failed to install the HAP because of insufficient system disk space.
+     * @throws { BusinessError } 17700017 - Failed to install the HAP since the version of the HAP to install is too early.
+     * @throws { BusinessError } 17700018 - Failed to install because the dependent module does not exist.
+     * @throws { BusinessError } 17700039 - Failed to install because disallow install a shared bundle by hapFilePaths.
+     * @throws { BusinessError } 17700041 - Failed to install because enterprise device management disallow install.
+     * @throws { BusinessError } 17700042 - Failed to install the HAP because of incorrect URI in the data proxy.
+     * @throws { BusinessError } 17700043 - Failed to install the HAP because of low APL in the non-system data proxy
+     * (required APL: system_basic or system_core).
+     * @throws { BusinessError } 17700044 - Failed to install the HAP because the isolationMode configured is not supported.
+     * @throws { BusinessError } 17700047 - Failed to install the HAP because the VersionCode to be updated is not greater than the current VersionCode.
+     * @throws { BusinessError } 17700048 - Failed to install the HAP because the code signature verification is failed.
+     * @throws { BusinessError } 17700049 - Failed to install the HAP because the bundleName is different from the bundleName of the caller application.
+     * @throws { BusinessError } 17700050 - Failed to install the HAP because enterprise normal/MDM bundle cannot be installed on non-enterprise device.
+     * @throws { BusinessError } 17700051 - Failed to install the HAP because the distribution type of caller application is not enterprise_mdm.
+     * @throws { BusinessError } 17700068 - Failed to install the HAP because the maximum count of clone app cannot be reduced.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
      */
     updateBundleForSelf(hapFilePaths: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -845,6 +913,42 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10
+     */
+    /**
+     * Updates this enterprise application.
+     *
+     * @permission ohos.permission.INSTALL_SELF_BUNDLE
+     * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
+     * @param { InstallParam } installParam - Indicates other parameters required for the installation.
+     * @returns { Promise<void> }
+     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_SELF_BUNDLE'.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * 2. Incorrect parameter types; 3. Parameter hapFiles is needed for code signature;
+     * 4. The size of specifiedDistributionType is greater than 128; 5. The size of additionalInfo is greater than 3000.
+     * @throws { BusinessError } 17700004 - The specified user ID is not found.
+     * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
+     * @throws { BusinessError } 17700011 - Failed to install the HAP because the HAP signature fails to be verified.
+     * @throws { BusinessError } 17700012 - Failed to install the HAP because the HAP path is invalid or the HAP is too large.
+     * @throws { BusinessError } 17700015 - Failed to install the HAPs because they have different configuration information.
+     * @throws { BusinessError } 17700016 - Failed to install the HAP because of insufficient system disk space.
+     * @throws { BusinessError } 17700017 - Failed to install the HAP since the version of the HAP to install is too early.
+     * @throws { BusinessError } 17700018 - Failed to install because the dependent module does not exist.
+     * @throws { BusinessError } 17700039 - Failed to install because disallow install a shared bundle by hapFilePaths.
+     * @throws { BusinessError } 17700041 - Failed to install because enterprise device management disallow install.
+     * @throws { BusinessError } 17700042 - Failed to install the HAP because of incorrect URI in the data proxy.
+     * @throws { BusinessError } 17700043 - Failed to install the HAP because of low APL in the non-system data proxy
+     * (required APL: system_basic or system_core).
+     * @throws { BusinessError } 17700044 - Failed to install the HAP because the isolationMode configured is not supported.
+     * @throws { BusinessError } 17700047 - Failed to install the HAP because the VersionCode to be updated is not greater than the current VersionCode.
+     * @throws { BusinessError } 17700048 - Failed to install the HAP because the code signature verification is failed.
+     * @throws { BusinessError } 17700049 - Failed to install the HAP because the bundleName is different from the bundleName of the caller application.
+     * @throws { BusinessError } 17700050 - Failed to install the HAP because enterprise normal/MDM bundle cannot be installed on non-enterprise device.
+     * @throws { BusinessError } 17700051 - Failed to install the HAP because the distribution type of caller application is not enterprise_mdm.
+     * @throws { BusinessError } 17700068 - Failed to install the HAP because the maximum count of clone app cannot be reduced.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
      */
     updateBundleForSelf(hapFilePaths: Array<string>, installParam?: InstallParam): Promise<void>;
 

@@ -18,10 +18,9 @@
  * @kit ArkUI
  */
 
-/// <reference path="../component/units.d.ts" />
+
 
 import { AsyncCallback } from './@ohos.base';
-import { Resource } from 'GlobalResource';
 
 /**
  * @namespace promptAction

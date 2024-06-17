@@ -467,9 +467,15 @@ export class PropertyInfo extends ApiInfo {
   isReadOnly: boolean = false; // 属性是否为只读
   isRequired: boolean = false; // 属性是否为必选
   isStatic: boolean = false; // 属性是否为静态
-  typeKind: ts.SyntaxKind = -1; //type类型的kind值
+  typeKind: ts.SyntaxKind = ts.SyntaxKind.Unknown; //type类型的kind值
   typeLocations: TypeLocationInfo[] = []; // 参数、返回值的JsDoc信息
   objLocations: TypeLocationInfo[] = []; // 匿名类型的JsDoc信息
+  
+  constructor(apiType: string = '', node: ts.Node, parentApi: BasicApiInfo | undefined) {
+    super(apiType, node, parentApi);
+    let propertyNode: PropertyNode = node as PropertyNode;
+    this.setTypeKind(propertyNode.type ? propertyNode.type.kind : ts.SyntaxKind.Unknown);
+  }
 
   addType(type: string[]): void {
     this.type.push(...type);
@@ -503,8 +509,8 @@ export class PropertyInfo extends ApiInfo {
     return this.isStatic;
   }
 
-  setTypeKind(typeKind: ts.SyntaxKind): void {
-    this.typeKind = typeKind;
+  setTypeKind(typeKind: ts.SyntaxKind | undefined): void {
+    this.typeKind = typeKind ? typeKind : ts.SyntaxKind.Unknown;
   }
 
   getTypeKind(): ts.SyntaxKind {
@@ -547,7 +553,7 @@ export class TypeAliasInfo extends ApiInfo {
   type: string[] = []; // type定义的类型
   typeName: TypeAliasType = '' as TypeAliasType; //type的类型
   returnType: string = ''; //type类型为function时的返回值
-  paramInfos: ParamInfo[] = []; //type类型为function时的参数名和参数类型
+  paramInfos: TypeParamInfo[] = []; //type类型为function时的参数名和参数类型
   typeIsFunction: boolean = false; //type类型是否为function
 
   addType(type: string[]): void {
@@ -576,11 +582,11 @@ export class TypeAliasInfo extends ApiInfo {
     return this.returnType;
   }
 
-  setParamInfos(paramInfo: ParamInfo) {
+  setParamInfos(paramInfo: TypeParamInfo) {
     this.paramInfos.push(paramInfo);
   }
 
-  getParamInfos(): ParamInfo[] {
+  getParamInfos(): TypeParamInfo[] {
     return this.paramInfos;
   }
 
@@ -643,9 +649,9 @@ export class MethodInfo extends ApiInfo {
   returnValue: string[] = []; // 方法的返回值类型
   isStatic: boolean = false; // 方法是否是静态
   sync: string = ''; //同步函数标志
-  returnValueType: ts.SyntaxKind = -1;
-  typeLocations: TypeLocationInfo[] = []; // 参数、返回值的JsDoc信息
-  objLocations: TypeLocationInfo[] = []; // 匿名类型的JsDoc信息
+  returnValueType: ts.SyntaxKind = ts.SyntaxKind.Unknown;
+  typeLocations: Comment.JsDocInfo[] = []; // 参数、返回值的JsDoc信息
+  objLocations: Comment.JsDocInfo[] = []; // 匿名类型的JsDoc信息
 
   setCallForm(callForm: string): void {
     this.callForm = callForm;
@@ -687,19 +693,19 @@ export class MethodInfo extends ApiInfo {
     return this.isStatic;
   }
 
-  addTypeLocations(typeLocation: TypeLocationInfo): void {
+  addTypeLocations(typeLocation: Comment.JsDocInfo): void {
     this.typeLocations.push(typeLocation);
   }
 
-  getTypeLocations(): TypeLocationInfo[] {
+  getTypeLocations(): Comment.JsDocInfo[] {
     return this.typeLocations;
   }
 
-  addObjLocations(ObjLocation: TypeLocationInfo): void {
+  addObjLocations(ObjLocation: Comment.JsDocInfo): void {
     this.objLocations.push(ObjLocation);
   }
 
-  getObjLocations(): TypeLocationInfo[] {
+  getObjLocations(): Comment.JsDocInfo[] {
     return this.objLocations;
   }
 
@@ -727,12 +733,12 @@ export class TypeLocationInfo extends Comment.JsDocInfo {
 export class ParamInfo {
   apiType: string = ''; // api的类型为方法参数
   apiName: string = ''; // 参数名
-  paramType: ts.SyntaxKind = -1; // 参数类型的kind
+  paramType: ts.SyntaxKind = ts.SyntaxKind.Unknown; // 参数类型的kind
   type: string[] = []; // 参数的类型
   isRequired: boolean = false; // 参数是否必选
   definedText: string = '';
-  typeLocations: TypeLocationInfo[] = []; // 参数、返回值的JsDoc信息
-  objLocations: TypeLocationInfo[] = []; // 匿名类型的JsDoc信息
+  typeLocations: Comment.JsDocInfo[] = []; // 参数、返回值的JsDoc信息
+  objLocations: Comment.JsDocInfo[] = []; // 匿名类型的JsDoc信息
 
   constructor(apiType: string) {
     this.apiType = apiType;
@@ -758,8 +764,8 @@ export class ParamInfo {
     return this.paramType;
   }
 
-  setParamType(paramType: ts.SyntaxKind): void {
-    this.paramType = paramType;
+  setParamType(paramType: ts.SyntaxKind | undefined): void {
+    this.paramType = paramType ? paramType : ts.SyntaxKind.Unknown;
   }
 
   getType(): string[] {
@@ -782,19 +788,19 @@ export class ParamInfo {
     return this.definedText;
   }
 
-  addTypeLocations(typeLocation: TypeLocationInfo): void {
+  addTypeLocations(typeLocation: Comment.JsDocInfo): void {
     this.typeLocations.push(typeLocation);
   }
 
-  getTypeLocations(): TypeLocationInfo[] {
+  getTypeLocations(): Comment.JsDocInfo[] {
     return this.typeLocations;
   }
 
-  addObjLocations(ObjLocation: TypeLocationInfo): void {
+  addObjLocations(ObjLocation: Comment.JsDocInfo): void {
     this.objLocations.push(ObjLocation);
   }
 
-  getObjLocations(): TypeLocationInfo[] {
+  getObjLocations(): Comment.JsDocInfo[] {
     return this.objLocations;
   }
 }

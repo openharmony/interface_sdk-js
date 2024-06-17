@@ -263,6 +263,28 @@ declare interface ScrollEdgeOptions {
 }
 
 /**
+ * Define scrollToIndex options
+ *
+ * @interface ScrollToIndexOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare interface ScrollToIndexOptions {
+  /**
+   * The extra offset of scrolling to the index, unit is vp.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  extraOffset?: LengthMetrics;
+}
+
+/**
  * Provides custom animation parameters.
  *
  * @interface ScrollAnimationOptions
@@ -628,7 +650,19 @@ declare class Scroller {
    * @atomicservice
    * @since 11
    */
-  scrollToIndex(value: number, smooth?: boolean, align?: ScrollAlign);
+  /**
+   * Scroll to the specified index.
+   *
+   * @param { number } value - Index to jump to.
+   * @param { boolean } [smooth] - If true, scroll to index item with animation. If false, scroll to index item without animation.
+   * @param { ScrollAlign } [align] - Sets the alignment mode of a specified index.
+   * @param { options } [ScrollToIndexOptions] - Sets the options of a specified index, such as extra offset.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  scrollToIndex(value: number, smooth?: boolean, align?: ScrollAlign, options?: ScrollToIndexOptions);
 
   /**
    * Called when the setting slides by offset.
@@ -710,10 +744,11 @@ declare class Scroller {
   getItemRect(index: number): RectResult;
 }
 
-/*
+/**
  * Define scroll page options
  * @interface ScrollPageOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
  */
 declare interface ScrollPageOptions {
@@ -723,6 +758,7 @@ declare interface ScrollPageOptions {
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   next: boolean;
@@ -734,6 +770,7 @@ declare interface ScrollPageOptions {
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   animation?: boolean;

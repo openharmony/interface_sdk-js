@@ -9161,12 +9161,6 @@ declare enum EllipsisMode {
  */
 declare type Nullable<T> = T | undefined;
 
-declare module 'CommonEnums' {
-  module 'CommonEnums' {
-    // @ts-ignore
-    export type { Color, FontStyle, Nullable };
-  }
-}
 
 /**
  * Decide whether the width of select menu fit the trigger or content 
@@ -9547,9 +9541,3 @@ declare enum TextSelectableMode {
   UNSELECTABLE = 2,
 }
 
-declare module 'borderStyle' {
-  module 'borderStyle' {
-    // @ts-ignore
-    export type { BorderStyle };
-  }
-}

@@ -198,7 +198,7 @@ declare namespace mindSporeLite {
      * @stagemodelonly
      * @since 12
      */
-    learningRate?: number,
+    learningRate?: number;
 
     /**
      * The running mode of the model
@@ -207,7 +207,7 @@ declare namespace mindSporeLite {
      * @stagemodelonly
      * @since 12
      */
-    trainMode?: boolean,
+    trainMode?: boolean;
 
     /**
      * Get model input tensors.

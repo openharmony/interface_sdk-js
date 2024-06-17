@@ -408,3 +408,4 @@ export interface SoundPool {
    */
   off(type: 'error'): void;
 }
+

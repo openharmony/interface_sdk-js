@@ -1026,7 +1026,17 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @atomicservice
    * @since 11
    */
-  onChange(callback: (value: string) => void): TextAreaAttribute;
+  /**
+   * Called when the input changes.
+   *
+   * @param { EditableTextOnChangeCallback } callback
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onChange(callback: EditableTextOnChangeCallback): TextAreaAttribute;
 
   /**
    * Called when the text selection changes.
@@ -1585,6 +1595,30 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 12
    */
   onDidDelete(callback: Callback<DeleteValue>): TextAreaAttribute;
+
+  /**
+   * Set the custom text menu.
+   *
+   * @param { Array<ExpandedMenuItemOptions> } expandedMenuOptions - Customize text menu options.
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  selectionMenuOptions(expandedMenuOptions: Array<ExpandedMenuItemOptions>): TextAreaAttribute;
+
+  /**
+   * Define the preview text mode of the text input.
+   *
+   * @param { boolean } enable - Indicates the preview text mode.
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  enablePreviewText(enable: boolean): TextAreaAttribute;
 }
 
 /**

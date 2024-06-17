@@ -17,7 +17,7 @@ import path from 'path';
 import fs from 'fs';
 import { FileUtils } from './FileUtils';
 import { NumberConstant } from './Constant';
-import  { data } from '../../kit.json'
+import { data } from '../../kit.json'
 
 export class FunctionUtils {
   /**
