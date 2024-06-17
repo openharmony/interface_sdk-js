@@ -87,6 +87,10 @@ export interface IPrefetcher {
 
 /**
  * Basic implementation of {@link IPrefetcher}.
+ * It provides an intelligent data prefetching algorithm to make decisions about which data
+ * items should be prefetched in response to the real-time changes of visible on-screen area
+ * and changes in the duration of the prefetching. It also determines which prefetch requests
+ * should be canceled based on user scrolling actions.
  *
  * @implements IPrefetcher
  * @syscap SystemCapability.ArkUI.ArkUI.Full
