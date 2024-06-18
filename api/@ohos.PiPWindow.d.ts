@@ -284,6 +284,14 @@ declare namespace PiPWindow {
      * @since 12
      */
     CAMERA_SWITCH = 203,
+
+    /**
+     * Turn on/off the speaker sound
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    EXTERNAL_MUTE_BUTTON = 204,
   }
 
   /**
@@ -295,12 +303,20 @@ declare namespace PiPWindow {
    */
   enum VideoMeetingControlGroup {
     /**
+     * Mute switch.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    MUTE_SWITCH = 301,
+
+    /**
      * Hang up.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    HANG_UP_BUTTON = 301,
+    HANG_UP_BUTTON = 302,
 
     /**
      * Turn on/off the camera
@@ -308,15 +324,40 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    CAMERA_SWITCH = 302,
+    CAMERA_SWITCH = 303,
 
     /**
-     * Mute switch.
+     * Turn on/off the micprophone mute
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    MUTE_SWITCH = 303,
+    MICROPHONE_MUTE_BUTTON = 304,    
+  }
+
+  /**
+   * Enum for video Live PiP window custom controls.
+   *
+   * @enum { number }.
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 12
+   */
+  enum VideoLiveControlGroup {
+    /**
+     * Turn on/off the pause
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    PAUSE_BUTTON = 401,
+
+    /**
+     * Turn on/off the speaker sound
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    EXTERNAL_MUTE_BUTTON = 402,
   }
 
   /**
