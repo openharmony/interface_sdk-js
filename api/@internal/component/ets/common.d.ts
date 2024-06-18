@@ -18565,7 +18565,7 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 12
    */
-  geometryTransition(id: string, options?: Options): T;
+  geometryTransition(id: string, options?: GeometryTransitionOptions): T;
 
   /**
    * Popup control
