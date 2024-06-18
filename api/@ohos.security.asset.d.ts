@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Asset Store Kit
+ * @kit AssetStoreKit
  */
 
 /**
