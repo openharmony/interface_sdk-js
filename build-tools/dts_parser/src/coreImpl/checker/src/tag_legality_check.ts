@@ -197,6 +197,7 @@ export class LegalityCheck {
     const hasSystemapiTag: boolean = apiTagsName.includes(ParticularErrorCode.ERROR_SYSTEMAPI);
     const hasError201: boolean = apiThrowsCode.includes(ParticularErrorCode.ERROR_CODE_201);
     const hasError202: boolean = apiThrowsCode.includes(ParticularErrorCode.ERROR_CODE_202);
+    const hasError401: boolean = apiThrowsCode.includes(ParticularErrorCode.ERROR_CODE_401);
     // check permission 201
     if (hasPermissionTag !== hasError201) {
       apiLostPermissionTag.state = false;
@@ -206,6 +207,11 @@ export class LegalityCheck {
     if (hasSystemapiTag !== hasError202) {
       apiLostSystemapiTag.state = false;
       apiLostSystemapiTag.errorInfo = CommonFunctions.createErrorInfo(ErrorMessage.ERROR_LOST_LABEL, [hasSystemapiTag ? 'throws 202' : ParticularErrorCode.ERROR_SYSTEMAPI]);
+    }
+    // check systemapi 401
+    if (hasError401 && paramApiNumber===0) {
+      apiRedundantThrows.state = false;
+      apiRedundantThrows.errorInfo = CommonFunctions.createErrorInfo(ErrorMessage.ERROR_REPEATLABEL, ['throws']);
     }
     // check repeat throws
     const orderedThrowsCode: string[] = apiThrowsCode.sort();
