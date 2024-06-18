@@ -510,7 +510,7 @@ declare namespace PiPWindow {
    *
    * @typedef { function } ControlActionEventCallback
    * @param { PiPControlType } controlType - the type of control
-   * @param { number } status - the status of control button
+   * @param { number } [status] - the status of control button
    * @syscap SystemCapability.Window.SessionManager
    * @since 12
    */
