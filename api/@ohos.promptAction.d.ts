@@ -1116,6 +1116,39 @@ declare namespace promptAction {
   function showToast(options: ShowToastOptions): void;
 
   /**
+   * Displays the notification text.
+   *
+   * @param { ShowToastOptions } options - Options.
+   * @returns { Promise<number> } return the toast id that will be used by closeToast.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  function openToast(options: ShowToastOptions): Promise<number>;
+
+  /**
+   * Close the notification text.
+   *
+   * @param { number } toastId - the toast id that returned by openToast.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  function closeToast(toastId: number): void;
+
+  /**
    * Displays the dialog box.
    *
    * @param { ShowDialogOptions } options - Options.
