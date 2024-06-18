@@ -560,7 +560,7 @@
     { "filePath": "@ohos.screenLock.d.ts", "kitName": "BasicServicesKit", "subSystem": "主题" },
     { "filePath": "@ohos.screenshot.d.ts", "kitName": "ArkUI", "subSystem": "窗口管理" },
     { "filePath": "@ohos.secureElement.d.ts", "kitName": "ConnectivityKit", "subSystem": "基础通信" },
-    { "filePath": "@ohos.security.asset.d.ts", "kitName": "AssetStoreKit", "subSystem": "安全基础能力" },
+    { "filePath": "@ohos.security.asset.d.ts", "kitName": "Asset Store Kit", "subSystem": "安全基础能力" },
     { "filePath": "@ohos.security.cert.d.ts", "kitName": "DeviceCertificateKit", "subSystem": "安全基础能力" },
     { "filePath": "@ohos.security.certManager.d.ts", "kitName": "DeviceCertificateKit", "subSystem": "安全基础能力" },
     {
