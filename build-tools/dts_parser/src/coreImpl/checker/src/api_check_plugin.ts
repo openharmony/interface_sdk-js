@@ -211,34 +211,34 @@ export class Check {
       }
       if (!chineseCheckResult.state) {
         AddErrorLogs.addAPICheckErrorLogs(
-            ErrorID.JSDOC_HAS_CHINESE,
-            ErrorLevel.MIDDLE,
-            singleApi.getFilePath(),
-            singleApi.getPos(),
-            ErrorType.JSDOC_HAS_CHINESE,
-            LogType.LOG_JSDOC,
-            toNumber(apiJsdoc.since),
-            singleApi.getApiName(),
-            singleApi.getDefinedText(),
-            chineseCheckResult.errorInfo,
-            compositiveResult,
-            compositiveLocalResult
+          ErrorID.JSDOC_HAS_CHINESE,
+          ErrorLevel.MIDDLE,
+          singleApi.getFilePath(),
+          singleApi.getPos(),
+          ErrorType.JSDOC_HAS_CHINESE,
+          LogType.LOG_JSDOC,
+          toNumber(apiJsdoc.since),
+          singleApi.getApiName(),
+          singleApi.getDefinedText(),
+          chineseCheckResult.errorInfo,
+          compositiveResult,
+          compositiveLocalResult
         );
       }
       if (!errorCodeResult.state) {
         AddErrorLogs.addAPICheckErrorLogs(
-            ErrorID.ERROR_ERROR_CODE,
-            ErrorLevel.MIDDLE,
-            singleApi.getFilePath(),
-            singleApi.getPos(),
-            ErrorType.ERROR_ERROR_CODE,
-            LogType.LOG_JSDOC,
-            toNumber(apiJsdoc.since),
-            singleApi.getApiName(),
-            singleApi.getDefinedText(),
-            errorCodeResult.errorInfo,
-            compositiveResult,
-            compositiveLocalResult,
+          ErrorID.ERROR_ERROR_CODE,
+          ErrorLevel.MIDDLE,
+          singleApi.getFilePath(),
+          singleApi.getPos(),
+          ErrorType.ERROR_ERROR_CODE,
+          LogType.LOG_JSDOC,
+          toNumber(apiJsdoc.since),
+          singleApi.getApiName(),
+          singleApi.getDefinedText(),
+          errorCodeResult.errorInfo,
+          compositiveResult,
+          compositiveLocalResult,
         );
       }
       tagInheritCheckResult.forEach((inheritCheckResult: ErrorTagFormat) => {
