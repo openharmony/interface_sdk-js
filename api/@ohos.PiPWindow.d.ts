@@ -369,12 +369,12 @@ declare namespace PiPWindow {
    */
   enum PiPControlType {
     /**
-     * PLAY_BACK.
+     * VIDEO_PLAY_PAUSE.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    PLAY_BACK = 0,
+    VIDEO_PLAY_PAUSE = 0,
 
     /**
      * VIDEO_PREVIOUS.
@@ -508,13 +508,13 @@ declare namespace PiPWindow {
   /**
    * Describe picture-in-picture control event callback.
    *
-   * @typedef { function } ControlActionEventCallback
+   * @typedef { function } ControlEventCallback
    * @param { PiPControlType } controlType - the type of control
    * @param { number } [status] - the status of control button
    * @syscap SystemCapability.Window.SessionManager
    * @since 12
    */
-  type ControlActionEventCallback = (controlType: PiPControlType, status?: number) => void;
+  type ControlEventCallback = (controlType: PiPControlType, status?: number) => void;
 
   /**
    * PiPController
@@ -577,7 +577,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    updateControlStatus(controlType: PiPControlType, status: PiPControlStatus): void;
+    updatePiPControlStatus(controlType: PiPControlType, status: PiPControlStatus): void;
 
     /**
      * Set Dashboard Control Enable Status.
@@ -636,20 +636,21 @@ declare namespace PiPWindow {
     /**
      * Register picture-in-picture control event listener.
      *
-     * @param { 'controlActionEvent' } type - Registration type, user action event, 'controlActionEvent'
-     * @param { ControlActionEventCallback } callback - Used to handle {'controlActionEvent'} command.
+     * @param { 'controlEvent' } type - Registration type, user action event, 'controlEvent'
+     * @param { ControlEventCallback } callback - Used to handle {'controlEvent'} command.
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    on(type: 'controlActionEvent', callback: ControlActionEventCallback): void;
+    on(type: 'controlEvent', callback: ControlEventCallback): void;
 
     /**
      * Unregister picture-in-picture control event listener
-     * @param { 'controlActionEvent' } type - Used to unregister listener for {'controlActionEvent'} command
+     * @param { 'controlEvent' } type - Used to unregister listener for {'controlEvent'} command
+     * @param { ControlEventCallback } callback - Used to handle {'controlEvent'} command.
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    off(type: 'controlActionEvent'): void;
+    off(type: 'controlEvent', callback?: ControlEventCallback): void;
   }
 }
 
