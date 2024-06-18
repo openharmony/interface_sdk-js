@@ -328,7 +328,7 @@ declare namespace PiPWindow {
    */
   enum PiPControlStatus {
     /**
-     * PLAY.
+     * The video is in play mode.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
@@ -336,7 +336,7 @@ declare namespace PiPWindow {
     PLAY = 1,
 
     /**
-     * PAUSE.
+     * The video is in pause mode.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
@@ -344,7 +344,7 @@ declare namespace PiPWindow {
     PAUSE = 0,
 
     /**
-     * OPEN.
+     * A control with both open and closed states is in an open state.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
@@ -352,7 +352,7 @@ declare namespace PiPWindow {
     OPEN = 1,
 
     /**
-     * CLOSE.
+     * A control with both open and closed states is in a close state.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
@@ -369,7 +369,7 @@ declare namespace PiPWindow {
    */
   enum PiPControlType {
     /**
-     * VIDEO_PLAY_PAUSE.
+     * Video play/pause control.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
@@ -377,7 +377,7 @@ declare namespace PiPWindow {
     VIDEO_PLAY_PAUSE = 0,
 
     /**
-     * VIDEO_PREVIOUS.
+     * Previous video control.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
@@ -385,7 +385,7 @@ declare namespace PiPWindow {
     VIDEO_PREVIOUS = 1,
 
     /**
-     * VIDEO_NEXT.
+     * Next video control.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
@@ -393,7 +393,7 @@ declare namespace PiPWindow {
     VIDEO_NEXT = 2,
 
     /**
-     * FAST_FORWARD.
+     * Fast-forward control.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
@@ -401,7 +401,7 @@ declare namespace PiPWindow {
     FAST_FORWARD = 3,
 
     /**
-     * FAST_BACKWARD.
+     * Fast-backward control.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
@@ -409,7 +409,7 @@ declare namespace PiPWindow {
     FAST_BACKWARD = 4,
 
     /**
-     * HANG_UP.
+     * Hang-up control.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
@@ -417,7 +417,7 @@ declare namespace PiPWindow {
     HANG_UP = 5,
 
     /**
-     * MICROPHONE_SWITCH.
+     * Microphone state switching control.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
@@ -425,7 +425,7 @@ declare namespace PiPWindow {
     MICROPHONE_SWITCH = 6,
 
     /**
-     * CAMERA_SWITCH.
+     * Camera state switching control.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
@@ -433,7 +433,7 @@ declare namespace PiPWindow {
     CAMERA_SWITCH = 7,
 
     /**
-     * MUTE_SWITCH.
+     * Mute state switching control.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
@@ -568,7 +568,7 @@ declare namespace PiPWindow {
     updateContentSize(width: number, height: number): void;
 
     /**
-     * Set Dashboard Control Status.
+     * Set dashboard control status.
      * @param { PiPControlType } controlType - Describe picture-in-picture control type.
      * @param { PiPControlStatus } status - Describe picture-in-picture control Status.
      * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -580,7 +580,7 @@ declare namespace PiPWindow {
     updatePiPControlStatus(controlType: PiPControlType, status: PiPControlStatus): void;
 
     /**
-     * Set Dashboard Control Enable Status.
+     * Set Dashboard control enable status.
      * @param { PiPControlType } controlType - Describe picture-in-picture control type.
      * @param { boolean } isEnable - Describe picture-in-picture control enable Status.
      * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
