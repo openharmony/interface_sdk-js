@@ -52,12 +52,20 @@ declare namespace identifier {
   /**
    * Reset the OAID.
    * A new OAID will be generated after reset.
+   * @throws { BusinessError } 17300001 - System internal error.
+   * @syscap SystemCapability.Advertising.OAID
+   * @systemapi
+   * @since 10
+   */
+  /**
+   * Reset the OAID.
+   * A new OAID will be generated after reset.
    * @throws { BusinessError } 202 - Not system app error.
    * @throws { BusinessError } 17300001 - System internal error.
    * @throws { BusinessError } 17300002 - Not in trust list error.
    * @syscap SystemCapability.Advertising.OAID
    * @systemapi
-   * @since 10
+   * @since 12
    */
   function resetOAID(): void;
 }
