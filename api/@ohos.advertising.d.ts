@@ -551,7 +551,7 @@ declare namespace advertising {
      * @param { AdLoadListener } listener - Indicates the listener to be registered that use to load ad.
      * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed
-     * @throws { BusinessError } 801 - Device not support.
+     * @throws { BusinessError } 801 - Device not supported.
      * @throws { BusinessError } 21800001 - System internal error.
      * @throws { BusinessError } 21800003 - Failed to load the ad request.
      * @syscap SystemCapability.Advertising.Ads
@@ -581,7 +581,7 @@ declare namespace advertising {
      * @param { MultiSlotsAdLoadListener } listener - Indicates the listener to be registered that use to load ad.
      * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed
-     * @throws { BusinessError } 801 - Device not support.
+     * @throws { BusinessError } 801 - Device not supported.
      * @throws { BusinessError } 21800001 - System internal error.
      * @throws { BusinessError } 21800003 - Failed to load the ad request.
      * @syscap SystemCapability.Advertising.Ads
@@ -597,7 +597,7 @@ declare namespace advertising {
    * @param { AdOptions } adOptions - Indicates the ad options.
    * @returns { Promise<string> } The promise of ad request message body.
    * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * @throws { BusinessError } 801 - Device not support.
+   * @throws { BusinessError } 801 - Device not supported.
    * @throws { BusinessError } 21800001 - System internal error.
    * @syscap SystemCapability.Advertising.Ads
    * @since 12
@@ -610,7 +610,7 @@ declare namespace advertising {
    * @param { MultiSlotsAdLoadListener } listener - Indicates the listener to be registered that use to load ad.
    * @param { common.UIAbilityContext } context - Indicates the ui ability context of the media application.
    * @throws { BusinessError } 401 - Invalid input parameter.Possible causes: 1. Mandatory parameters are left unspecified.
-   * @throws { BusinessError } 801 - Device not support.
+   * @throws { BusinessError } 801 - Device not supported.
    * @throws { BusinessError } 21800001 - System internal error.
    * @throws { BusinessError } 21800005 - Failed to parse the ad response.
    * @syscap SystemCapability.Advertising.Ads
