@@ -1952,7 +1952,7 @@ export class DragController {
    * Execute a drag event.
    * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
    * @param { dragController.DragInfo } dragInfo - Information about the drag event.
-   * @param { AsyncCallback<{ event: DragEvent, extraParams: string }> } callback - Callback that contains 
+   * @param { AsyncCallback<dragController.DragEventParam> } callback - Callback that contains 
    * the drag event information.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
    * <br> 1. Mandatory parameters are left unspecified.
@@ -1963,9 +1963,8 @@ export class DragController {
    * @atomicservice
    * @since 12
    */
-  executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: dragController.DragInfo, callback: AsyncCallback<{
-    event: DragEvent, extraParams: string
-  }>): void;
+  executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: dragController.DragInfo,
+    callback: AsyncCallback<dragController.DragEventParam>): void;
 
   /**
    * Execute a drag event.
@@ -1984,7 +1983,7 @@ export class DragController {
    * Execute a drag event.
    * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
    * @param { dragController.DragInfo } dragInfo - Information about the drag event.
-   * @returns { Promise<{ event: DragEvent, extraParams: string }> } A Promise with the drag event information.
+   * @returns { Promise<dragController.DragEventParam> } A Promise with the drag event information.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -1994,9 +1993,8 @@ export class DragController {
    * @atomicservice
    * @since 12
    */
-  executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: dragController.DragInfo): Promise<{
-    event: DragEvent, extraParams: string
-  }>;
+  executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: dragController.DragInfo)
+    : Promise<dragController.DragEventParam>;
 
   /**
    * Create one drag action object, which can be used for starting drag later or monitoring the drag status after drag started.
