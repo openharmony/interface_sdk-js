@@ -291,7 +291,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    EXTERNAL_MUTE_BUTTON = 204,
+    MUTE_BUTTON = 204,
   }
 
   /**
@@ -357,7 +357,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    EXTERNAL_MUTE_BUTTON = 402,
+    MUTE_BUTTON = 402,
   }
 
   /**
