@@ -25,7 +25,6 @@
  * @param { number } start - the start index of the display area.
  * @param { number } end - the end index of the display area.
  * @param { number } center - the center index of the display area.
- * @returns { void }
  * @syscap SystemCapability.ArkUI.ArkUI.Arc
  * @crossplatform
  * @atomicservice
