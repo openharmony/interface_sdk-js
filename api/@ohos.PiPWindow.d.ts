@@ -645,11 +645,12 @@ declare namespace PiPWindow {
 
     /**
      * Unregister picture-in-picture control event listener
-     * @param { 'controlEvent' } type - Used to unregister listener for {'controlEvent'} command.
+     * @param { 'controlEvent' } type - Used to unregister listener for {'controlEvent'} command
+     * @param { ControlEventCallback } callback - Used to handle {'controlEvent'} command.
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    off(type: 'controlEvent'): void;
+    off(type: 'controlEvent', callback?: ControlEventCallback): void;
   }
 }
 
