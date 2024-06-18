@@ -2623,6 +2623,17 @@ declare interface GeometryTransitionOptions {
    * @since 12
    */
   follow?: boolean;
+  /**
+   * whether make target and source share higher level of both in the hierarchy, default: true.
+   *
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  share?: boolean;
 }
 
 /**
@@ -18554,7 +18565,7 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 12
    */
-  geometryTransition(id: string, options?: GeometryTransitionOptions): T;
+  geometryTransition(id: string, options?: Options): T;
 
   /**
    * Popup control
