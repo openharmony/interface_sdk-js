@@ -382,15 +382,15 @@ declare interface RichEditorTextStyle {
    * @since 11
    */
   /**
-   * font decoration.
+   * Font decoration.
    *
-   * @type { ?RichEditorDecoration }
+   * @type { ?DecorationStyleInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  decoration?: RichEditorDecoration;
+  decoration?: DecorationStyleInterface;
 
   /**
    * Text shadow
@@ -1071,15 +1071,15 @@ declare interface RichEditorTextStyleResult {
    * @since 11
    */
   /**
-   * font decoration.
+   * Font decoration.
    *
-   * @type { RichEditorDecorationResult }
+   * @type { DecorationStyleResult }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  decoration: RichEditorDecorationResult;
+  decoration: DecorationStyleResult;
 
   /**
    * letter spacing.
@@ -2701,7 +2701,7 @@ declare interface SelectionMenuOptions {
    * @atomicservice
    * @since 12
    */
-  onDisappear?: Callback<void> ;
+  onDisappear?: Callback<void>;
 }
 
 /**
@@ -3258,14 +3258,14 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   /**
    * Get text value information when about to input.
    *
-   * @param { Callback<RichEditorInsertValue> } callback - The triggered function when text content is about to insert.
+   * @param { Callback<RichEditorInsertValue, boolean> } callback - The triggered function when text content is about to insert.
    * @returns { RichEditorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  aboutToIMEInput(callback: Callback<RichEditorInsertValue>): RichEditorAttribute;
+  aboutToIMEInput(callback: Callback<RichEditorInsertValue, boolean>): RichEditorAttribute;
 
   /**
    * Get text value information when completed input.
@@ -3318,14 +3318,14 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   /**
    * Get text value information when about to delete.
    *
-   * @param { Callback<RichEditorDeleteValue> } callback - The triggered function when text content is about to delete.
+   * @param { Callback<RichEditorDeleteValue, boolean> } callback - The triggered function when text content is about to delete.
    * @returns { RichEditorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  aboutToDelete(callback: Callback<RichEditorDeleteValue>): RichEditorAttribute;
+  aboutToDelete(callback: Callback<RichEditorDeleteValue, boolean>): RichEditorAttribute;
 
   /**
    * Notify that the deletion has been completed
@@ -3461,14 +3461,14 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    /**
     * Defines onPaste callback.
     *
-    * @param { Callback<PasteEvent> } callback Executed when a paste operation is performed.
+    * @param { PasteEventCallback } callback Executed when a paste operation is performed.
     * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
     * @since 12
     */
-  onPaste(callback: Callback<PasteEvent>): RichEditorAttribute;
+  onPaste(callback: PasteEventCallback): RichEditorAttribute;
 
   /**
    * Enable data detector.
@@ -3713,6 +3713,18 @@ declare type SubmitCallback = (enterKey: EnterKeyType, event: SubmitEvent) => vo
 declare type MenuOnAppearCallback = (start: number, end: number) => void;
 
 /**
+ * Callback function when a paste operation is performed.
+ *
+ * @typedef { function } PasteEventCallback
+ * @param { PasteEvent } [event] - The paste event.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare type PasteEventCallback = (event?: PasteEvent) => void;
+
+/**
  * Provides an interface for writing texts.
  *
  * @interface RichEditorInterface
@@ -3759,73 +3771,6 @@ interface RichEditorInterface {
    * @since 12
    */
   (options: RichEditorStyledStringOptions): RichEditorAttribute;
-}
-
-
-/**
- * Defines the richEditor font decoration.
- *
- * @interface RichEditorDecoration
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 12
- */
-interface RichEditorDecoration {
-  /**
-   * font decoration type.
-   *
-   * @type { TextDecorationType }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  type: TextDecorationType;
-
-  /**
-   * font decoration color.
-   *
-   * @type { ?ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  color?: ResourceColor;
-}
-
-/**
- * Defines the richEditor font decoration result.
- *
- * @interface RichEditorDecorationResult
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 12
- */
-interface RichEditorDecorationResult {
-  /**
-   * font decoration type.
-   *
-   * @type { TextDecorationType }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  type: TextDecorationType;
-
-  /**
-   * font decoration color.
-   *
-   * @type { ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  color: ResourceColor;
 }
 
 /**

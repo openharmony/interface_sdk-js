@@ -681,3 +681,47 @@ declare interface ExpandedMenuItemOptions {
    */
   action: Callback<TextRange>;
 }
+
+/**
+ * Defines the font decoration result.
+ *
+ * @interface DecorationStyleResult
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+interface DecorationStyleResult {
+  /**
+   * Font decoration type.
+   *
+   * @type { TextDecorationType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  type: TextDecorationType;
+
+  /**
+   * Font decoration color.
+   *
+   * @type { ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  color: ResourceColor;
+
+  /**
+   * The style value of the decoration property object.
+   *
+   * @type { ?TextDecorationStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  style?: TextDecorationStyle;
+}
