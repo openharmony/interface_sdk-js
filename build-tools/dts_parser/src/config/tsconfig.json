@@ -101,7 +101,8 @@
         "Web",
         "XComponent",
         "GridRow",
-        "GridCol"
+        "GridCol",
+        "ArcSwiper"
       ],
       "extend": {
         "decorator": "Extend",
@@ -580,6 +581,11 @@
             "name": "GridCol",
             "type": "GridColAttribute",
             "instance": "GridColInterface"
+          },
+          {
+            "name": "ArcSwiper",
+            "type": "ArcSwiperAttribute",
+            "instance": "ArcSwiperInstance"
           }
         ]
       },

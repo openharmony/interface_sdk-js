@@ -9553,3 +9553,85 @@ declare module 'borderStyle' {
     export type { BorderStyle };
   }
 }
+
+/**
+ * Rotating crown event behavior.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare enum CrownAction {
+  /**
+   * Rotation crown behavior begins.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  BEGIN = 0,
+
+  /**
+   * Rotation crown behavior update.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  UPDATE = 1,
+
+  /**
+   * The rotation crown behavior ends.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  END = 2
+}
+
+/**
+ * Sensitivity of rotating crown.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare enum CrownSensitivity {
+  /**
+   * Low sensitivity.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  LOW = 0,
+
+  /**
+   * Medium sensitivity.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  MEDIUM = 1,
+
+  /**
+   * High sensitivity.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  HIGH = 2
+}
