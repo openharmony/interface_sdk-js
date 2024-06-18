@@ -663,7 +663,8 @@ export interface TypedFrameNode<C, T> extends FrameNode {
   /**
    * Get attribute instance of FrameNode to set attributes.
    * 
-   * @type { T } - Obtain the FrameNode instance corresponding to the declared type.
+   * @type { T }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
