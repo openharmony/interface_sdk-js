@@ -145,7 +145,8 @@ declare namespace bundleResourceManager {
    *
    * @permission ohos.permission.GET_BUNDLE_RESOURCES
    * @param { string } bundleName - Indicates the bundle name of the application.
-   * @param { number } [resourceFlags] - Indicates the flag used to specify information contained in the LauncherAbilityResourceInfo object that will be returned.
+   * @param { number } [resourceFlags] - Indicates the flag used to specify information
+   * <br>contained in the LauncherAbilityResourceInfo object that will be returned.
    * @param { number } [appIndex] - Indicates the index of the bundle.
    * @returns { Array<LauncherAbilityResourceInfo> } Returns a list of LauncherAbilityResourceInfo objects.
    * @throws { BusinessError } 201 - Permission denied.

@@ -524,12 +524,20 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 11
      */
+    /**
+     * The Cast+ Stream indicating the media is presenting on a different device
+     * the application need get an AVCastController to control remote playback.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 12
+     */
     TYPE_CAST_PLUS_STREAM = 2,
 
     /**
      * The DLNA type indicates the device supports DLNA protocol,
      * the application needs to get an AVCastController to control remote playback.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
      * @since 12
      */
     TYPE_DLNA = 4,
@@ -2216,6 +2224,7 @@ declare namespace avSession {
      * 2.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
      * @since 12
      */
     processMediaKeyResponse(assetId: string, response: Uint8Array): Promise<void>;
@@ -4124,6 +4133,7 @@ declare namespace avSession {
      * The drm capability supported by current device, each drm is represented by uuid.
      * @type { ?Array<string> }
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
      * @since 12
      */
     supportedDrmCapabilities?: Array<string>;

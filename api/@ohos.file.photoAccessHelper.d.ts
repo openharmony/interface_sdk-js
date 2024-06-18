@@ -4175,6 +4175,16 @@ declare namespace photoAccessHelper {
     saveCameraPhoto(): void;
 
     /**
+     * Discard the photo asset captured by camera.
+     *
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @throws { BusinessError } 14000016 - Operation Not Support
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    discardCameraPhoto(): void;
+
+    /**
      * Set effect mode of moving photo.
      *
      * @param { MovingPhotoEffectMode } mode - the new effect mode of the moving photo

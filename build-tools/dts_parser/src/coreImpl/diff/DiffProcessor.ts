@@ -42,10 +42,9 @@ import {
 import { StringUtils } from '../../utils/StringUtils';
 import { CharMapType, CompareReturnObjType, PermissionsProcessorHelper, RangeChange } from './PermissionsProcessor';
 import { DecoratorInfo } from '../../typedef/parser/Decorator';
-import { ApiStatisticsHelper } from '../statistics/Statistics';
-import { FunctionUtils } from '../../utils/FunctionUtils';
 import { CommonFunctions } from '../../utils/checkUtils';
 import { NumberConstant } from '../../utils/Constant';
+import { CommentHelper } from '../parser/JsDocProcessor';
 
 export namespace DiffProcessorHelper {
   /**
@@ -468,7 +467,22 @@ export namespace DiffProcessorHelper {
       const currentVersion: string = CommonFunctions.getCheckApiVersion().toString();
       const oldJsDocTextArr: Array<string> = oldApiInfo.getJsDocText().split('*/');
       const newJsDocTextArr: Array<string> = newApiInfo.getJsDocText().split('*/');
+      const clonedOldJsDocTextArr: Array<string> = oldJsDocTextArr;
+      const clonedNewJsDocTextArr: Array<string> = newJsDocTextArr;
       const diffTypeInfo: DiffTypeInfo = new DiffTypeInfo();
+
+      if (StringUtils.hasSubstring(clonedOldJsDocTextArr[1], CommentHelper.fileJsDoc)) {
+        oldJsDocTextArr.splice(1, 1);
+      }
+      if (StringUtils.hasSubstring(clonedNewJsDocTextArr[1], CommentHelper.fileJsDoc)) {
+        newJsDocTextArr.splice(1, 1);
+      }
+      if (StringUtils.hasSubstring(clonedOldJsDocTextArr[0], CommentHelper.licenseKeyword)) {
+        oldJsDocTextArr.splice(0, 1);
+      }
+      if (StringUtils.hasSubstring(clonedNewJsDocTextArr[0], CommentHelper.licenseKeyword)) {
+        newJsDocTextArr.splice(0, 1);
+      }
       if (oldApiInfo.getCurrentVersion() === currentVersion) {
         oldJsDocTextArr.splice(NumberConstant.DELETE_CURRENT_JS_DOC);
       } else {
@@ -488,7 +502,7 @@ export namespace DiffProcessorHelper {
         return;
       }
       for (let i = 0; i < oldJsDocTextArr.length; i++) {
-        if (oldJsDocTextArr[i].replace(/\r\n/g, '') !== newJsDocTextArr[i].replace(/\r\n/g, '')) {
+        if (oldJsDocTextArr[i].replace(/\r\n|\n|\s+/g, '') !== newJsDocTextArr[i].replace(/\r\n|\n|\s+/g, '')) {
           diffTypeInfo.setDiffType(ApiDiffType.HISTORICAL_JSDOC_CHANGE);
           const diffInfo: BasicDiffInfo = DiffProcessorHelper.wrapDiffInfo(oldApiInfo, newApiInfo, diffTypeInfo);
           diffInfos.push(diffInfo);
@@ -711,8 +725,8 @@ export namespace DiffProcessorHelper {
     static diffMethodParamType(oldApiInfo: ParamInfo, newApiInfo: ParamInfo): ApiDiffType | undefined {
       const oldParamType: string[] = oldApiInfo.getType();
       const newParamType: string[] = newApiInfo.getType();
-      const oldParamTypeStr: string = oldParamType.toString().replace(/\r|\n|\s+|'|"/g, '');
-      const newParamTypeStr: string = newParamType.toString().replace(/\r|\n|\s+|'|"/g, '');
+      const oldParamTypeStr: string = oldParamType.toString().replace(/\r|\n|\s+|'|"/g, '').replace(/\|/g, "\\|");
+      const newParamTypeStr: string = newParamType.toString().replace(/\r|\n|\s+|'|"/g, '').replace(/\|/g, "\\|");
       if (oldParamTypeStr === newParamTypeStr) {
         return undefined;
       }
