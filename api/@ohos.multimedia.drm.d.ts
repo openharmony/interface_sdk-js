@@ -51,7 +51,7 @@ declare namespace drm {
      */
     MAX_SESSION_NUM_REACHED = 24700104,
     /**
-     * Service fatal error e.g. service died.
+     * Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 11
      */
@@ -714,7 +714,7 @@ declare namespace drm {
    * @throws { BusinessError } 401 - The parameter check failed.Possibly because:
    * <br>1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
    * @throws { BusinessError } 24700101 - All unknown errors.
-   * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
+   * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @since 12
    */
@@ -724,7 +724,7 @@ declare namespace drm {
    * Get all media key systems supported.
    * @returns { MediaKeySystemDescription[] } The MediaKeySystem name and uuid info list.
    * @throws { BusinessError } 24700101 - All unknown errors.
-   * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
+   * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @since 12
    */
@@ -738,7 +738,7 @@ declare namespace drm {
    * 1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
    * @throws { BusinessError } 24700101 - All unknown errors.
    * @throws { BusinessError } 24700103 - Meet max MediaKeySystem num limit.
-   * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
+   * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @since 11
    */
@@ -754,7 +754,7 @@ declare namespace drm {
    * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * 3.Parameter verification failed.
    * @throws { BusinessError } 24700101 - All unknown errors.
-   * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
+   * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @since 11
    */
@@ -769,7 +769,7 @@ declare namespace drm {
    * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * 3.Parameter verification failed.
    * @throws { BusinessError } 24700101 - All unknown errors.
-   * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
+   * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @since 11
    */
@@ -783,7 +783,7 @@ declare namespace drm {
    * 1.Mandatory parameters are left unspecified. 2.Parameter verification failed,
    * the param name's length is zero or too big(exceeds 4096 Bytes).
    * @throws { BusinessError } 24700101 - All unknown errors.
-   * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
+   * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @since 11
    */
@@ -806,7 +806,7 @@ declare namespace drm {
      * 1.Mandatory parameters are left unspecified. 2.Parameter verification failed,
      * the param's length is zero or too big(exceeds 4096 Bytes).
      * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
+     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 11
      */
@@ -820,7 +820,7 @@ declare namespace drm {
      * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
      * 3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
+     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 11
      */
@@ -833,7 +833,7 @@ declare namespace drm {
      * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
      * 1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
+     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 11
      */
@@ -847,7 +847,7 @@ declare namespace drm {
      * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
      * 3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
+     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 11
      */
@@ -858,7 +858,7 @@ declare namespace drm {
      * and errorDecryptNumber.
      * @returns { StatisticKeyValue[] } A list that includes performance index and corresponding statistics.
      * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
+     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 11
      */
@@ -868,7 +868,7 @@ declare namespace drm {
      * Get max content protection level the device supports.
      * @returns { ContentProtectionLevel } The max content protection level of the MediaKeySystem instance.
      * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
+     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 11
      */
@@ -878,7 +878,7 @@ declare namespace drm {
      * Generate a media key system provision request.
      * @returns { Promise<ProvisionRequest> } Promise with ProvisionRequest used to return the result.
      * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
+     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 11
      */
@@ -893,7 +893,7 @@ declare namespace drm {
      * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
      * 3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
+     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 11
      */
@@ -903,7 +903,7 @@ declare namespace drm {
      * Get certificate status of the MediaKeySystem.
      * @returns { CertificateStatus } Certificate Status of the MediaKeySystem instance.
      * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
+     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 11
      */
@@ -942,7 +942,7 @@ declare namespace drm {
      * please use value in ContentProtectionLevel.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700104 - Meet max MediaKeySession num limit.
-     * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
+     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 11
      */
@@ -953,7 +953,7 @@ declare namespace drm {
      * @returns { MediaKeySession } A MediaKeySession instance.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700104 - Meet max MediaKeySession num limit.
-     * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
+     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 11
      */
@@ -963,7 +963,7 @@ declare namespace drm {
      * Get the list of offline MediaKeyIds.
      * @returns { Uint8Array[] } The list of offline MediaKeyIds.
      * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
+     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 11
      */
@@ -977,7 +977,7 @@ declare namespace drm {
      * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
      * 3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
+     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 11
      */
@@ -989,7 +989,7 @@ declare namespace drm {
      * @throws { BusinessError } 401 - The parameter check failed.Possibly because:
      * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
      * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
+     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 11
      */
@@ -997,7 +997,7 @@ declare namespace drm {
     /**
      * Release the resource before the MediaKeySystem gonna be unused.
      * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
+     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 11
      */
@@ -1032,7 +1032,7 @@ declare namespace drm {
      * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
      * 3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
+     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 11
      */
@@ -1047,7 +1047,7 @@ declare namespace drm {
      * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
      * 3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
+     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12
@@ -1062,7 +1062,7 @@ declare namespace drm {
      * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
      * 3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
+     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 11
      */
@@ -1074,7 +1074,7 @@ declare namespace drm {
      * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
      * 3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
+     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12
@@ -1085,7 +1085,7 @@ declare namespace drm {
      * Check the media key status
      * @returns { MediaKeyStatus[] } A list of media key status description pairs.
      * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
+     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 11
      */
@@ -1093,7 +1093,7 @@ declare namespace drm {
      * Check the media key status
      * @returns { MediaKeyStatus[] } A list of media key status description pairs.
      * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
+     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12
@@ -1103,14 +1103,14 @@ declare namespace drm {
     /**
      * Remove media key.
      * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
+     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 11
      */
     /**
      * Remove media key.
      * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
+     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12
@@ -1126,7 +1126,7 @@ declare namespace drm {
      * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
      * 3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
+     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 11
      */
@@ -1139,7 +1139,7 @@ declare namespace drm {
      * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
      * 3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
+     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12
@@ -1155,7 +1155,7 @@ declare namespace drm {
      * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
      * 3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
+     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 11
      */
@@ -1168,7 +1168,7 @@ declare namespace drm {
      * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
      * 3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
+     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12
@@ -1183,7 +1183,7 @@ declare namespace drm {
      * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
      * 3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
+     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 11
      */
@@ -1195,7 +1195,7 @@ declare namespace drm {
      * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
      * 3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
+     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12
@@ -1206,7 +1206,7 @@ declare namespace drm {
      * Get content protection level.
      * @returns { ContentProtectionLevel } MediaKeySession content protection level.
      * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
+     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 11
      */
@@ -1214,7 +1214,7 @@ declare namespace drm {
      * Get content protection level.
      * @returns { ContentProtectionLevel } MediaKeySession content protection level.
      * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
+     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12
@@ -1229,7 +1229,7 @@ declare namespace drm {
      * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
      * 3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
+     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 11
      */
@@ -1241,7 +1241,7 @@ declare namespace drm {
      * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
      * 3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
+     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12
@@ -1501,14 +1501,14 @@ declare namespace drm {
     /**
      * Release the resource before the session gonna be unused.
      * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
+     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 11
      */
     /**
      * Release the resource before the session gonna be unused.
      * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
+     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12
