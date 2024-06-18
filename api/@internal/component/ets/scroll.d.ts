@@ -248,6 +248,7 @@ declare interface OffsetResult {
  * @interface ScrollEdgeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface ScrollEdgeOptions {
@@ -257,6 +258,7 @@ declare interface ScrollEdgeOptions {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   velocity?: number;
