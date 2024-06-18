@@ -303,20 +303,12 @@ declare namespace PiPWindow {
    */
   enum VideoMeetingControlGroup {
     /**
-     * Mute switch.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @since 12
-     */
-    MUTE_SWITCH = 301,
-
-    /**
      * Hang up.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    HANG_UP_BUTTON = 302,
+    HANG_UP_BUTTON = 301,
 
     /**
      * Turn on/off the camera
@@ -324,7 +316,15 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    CAMERA_SWITCH = 303,
+    CAMERA_SWITCH = 302,
+
+    /**
+     * Mute switch.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    MUTE_SWITCH = 303,
 
     /**
      * Turn on/off the micprophone mute
@@ -332,7 +332,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    MICROPHONE_MUTE_BUTTON = 304,    
+    MICROPHONE_SWITCH = 304,    
   }
 
   /**
