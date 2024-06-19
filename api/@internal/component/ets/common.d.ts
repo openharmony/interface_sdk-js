@@ -2624,7 +2624,8 @@ declare interface GeometryTransitionOptions {
    */
   follow?: boolean;
   /**
-   * whether make target and source share higher level of both in the hierarchy and isolate target from its parent component during geometry transition, default true.
+   * whether make target and source share higher level of both in the hierarchy,
+   * and isolate target from its parent component during geometry transition, default true.
    *
    * @type { ?boolean }
    * @default true
