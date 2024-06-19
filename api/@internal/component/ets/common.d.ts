@@ -2624,16 +2624,17 @@ declare interface GeometryTransitionOptions {
    */
   follow?: boolean;
   /**
-   * whether make target and source share higher level of both in the hierarchy, default: true.
+   * whether make target and source share higher level of both in the hierarchy and isolate target from its parent component during geometry transition, default true.
    *
    * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
+   * @systemapi
    * @since 12
    */
-  share?: boolean;
+  isolate?: boolean;
 }
 
 /**
