@@ -28,7 +28,6 @@ import { Callback } from '@ohos.base';
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
  * @atomicservice
  * @since 12
  */
@@ -37,7 +36,6 @@ export declare enum ExtraRegionPosition {
      * The extra region position is in the top.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -46,7 +44,6 @@ export declare enum ExtraRegionPosition {
      * The extra region position is in the bottom.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -57,7 +54,6 @@ export declare enum ExtraRegionPosition {
  *
  * @interface ExpandedRegionLayoutOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
  * @atomicservice
  * @since 12
  */
@@ -67,7 +63,6 @@ export interface ExpandedRegionLayoutOptions {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -77,7 +72,6 @@ export interface ExpandedRegionLayoutOptions {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -87,7 +81,6 @@ export interface ExpandedRegionLayoutOptions {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -97,7 +90,6 @@ export interface ExpandedRegionLayoutOptions {
      *
      * @type { ?ExtraRegionPosition }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -108,7 +100,6 @@ export interface ExpandedRegionLayoutOptions {
  *
  * @interface SemiFoldedRegionLayoutOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
  * @atomicservice
  * @since 12
  */
@@ -118,7 +109,6 @@ export interface HoverModeRegionLayoutOptions {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -128,7 +118,6 @@ export interface HoverModeRegionLayoutOptions {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -138,7 +127,6 @@ export interface HoverModeRegionLayoutOptions {
      *
      * @type { ?ExtraRegionPosition }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -149,7 +137,6 @@ export interface HoverModeRegionLayoutOptions {
  *
  * @interface FoldedRegionLayoutOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
  * @atomicservice
  * @since 12
  */
@@ -159,7 +146,6 @@ export interface FoldedRegionLayoutOptions {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -170,7 +156,6 @@ export interface FoldedRegionLayoutOptions {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
  * @atomicservice
  * @since 12
  */
@@ -179,7 +164,6 @@ export declare enum PresetSplitRatio {
      * 1:1
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -188,7 +172,6 @@ export declare enum PresetSplitRatio {
      * 2:3
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -197,7 +180,6 @@ export declare enum PresetSplitRatio {
      * 3:2
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -208,7 +190,6 @@ export declare enum PresetSplitRatio {
  *
  * @interface HoverStatus
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
  * @atomicservice
  * @since 12
  */
@@ -218,7 +199,6 @@ export interface HoverModeStatus {
      *
      * @type { display.FoldStatus }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -229,7 +209,6 @@ export interface HoverModeStatus {
      *
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -239,7 +218,6 @@ export interface HoverModeStatus {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -249,7 +227,6 @@ export interface HoverModeStatus {
      *
      * @type { window.WindowStatusType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -261,7 +238,6 @@ export interface HoverModeStatus {
  * @typedef { function } OnHoverStatusChangeHandler
  * @param { HoverModeStatus } status - The status of hover mode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
  * @atomicservice
  * @since 12
  */
@@ -271,7 +247,6 @@ export type OnHoverStatusChangeHandler = (status: HoverModeStatus) => void;
  *
  * @interface FoldSplitContainer
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
  * @atomicservice
  * @since 12
  */
@@ -282,7 +257,6 @@ export declare struct FoldSplitContainer {
      *
      * @type { Callback<void> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -293,7 +267,6 @@ export declare struct FoldSplitContainer {
      *
      * @type { Callback<void> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -304,7 +277,6 @@ export declare struct FoldSplitContainer {
      *
      * @type { ?Callback<void> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -315,7 +287,6 @@ export declare struct FoldSplitContainer {
      *
      * @type { ExpandedRegionLayoutOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -326,7 +297,6 @@ export declare struct FoldSplitContainer {
      *
      * @type { HoverModeRegionLayoutOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -337,7 +307,6 @@ export declare struct FoldSplitContainer {
      *
      * @type { FoldedRegionLayoutOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -348,7 +317,6 @@ export declare struct FoldSplitContainer {
      *
      * @type { ?(AnimateParam | null) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -360,7 +328,6 @@ export declare struct FoldSplitContainer {
      *
      * @type { ?OnHoverStatusChangeHandler }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
