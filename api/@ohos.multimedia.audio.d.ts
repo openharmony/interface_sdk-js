@@ -115,7 +115,11 @@ declare namespace audio {
   function getAudioManager(): AudioManager;
 
   /**
-   * Obtains an {@link AudioCapturer} instance. This method uses an asynchronous callback to return the capturer instance.
+   * Obtains an {@link AudioCapturer} instance.
+   * Success: This method uses an asynchronous callback to return the capturer instance.
+   * Failure: This method uses an asynchronous callback to return the error instance. Possible causes:
+   *          6800301: Parameter verification failed, Permission denied, System error;
+   *          6800101: Mandatory parameters are left unspecified, Incorrect parameter types.
    * @param { AudioCapturerOptions } options - Capturer configurations.
    * @param { AsyncCallback<AudioCapturer> } callback - Callback used to return the audio capturer instance.
    * @syscap SystemCapability.Multimedia.Audio.Capturer
@@ -124,7 +128,11 @@ declare namespace audio {
   function createAudioCapturer(options: AudioCapturerOptions, callback: AsyncCallback<AudioCapturer>): void;
 
   /**
-   * Obtains an {@link AudioCapturer} instance. This method uses a promise to return the capturer instance.
+   * Obtains an {@link AudioCapturer} instance.
+   * Success: This method uses a promise to return the capturer instance.
+   * Failure: This method uses a promise to return the error instance. Possible causes:
+   *          6800301: Parameter verification failed, Permission denied, System error;
+   *          6800101: Mandatory parameters are left unspecified, Incorrect parameter types.
    * @param { AudioCapturerOptions } options - Capturer configurations.
    * @returns { Promise<AudioCapturer> } Promise used to return the audio capturer instance.
    * @syscap SystemCapability.Multimedia.Audio.Capturer
@@ -4653,14 +4661,20 @@ declare namespace audio {
     setAudioEffectMode(mode: AudioEffectMode): Promise<void>;
 
     /**
-     * Starts the renderer. This method uses an asynchronous callback to return the result.
+     * Starts the renderer.
+     * Success: This method uses an asynchronous callback to return the result.
+     * Failure: This method uses an asynchronous callback to return the error instance. Possible causes:
+     *          6800301: Unsupported state, Audio focus request failed, System error.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
      */
     start(callback: AsyncCallback<void>): void;
     /**
-     * Starts the renderer. This method uses a promise to return the result.
+     * Starts the renderer.
+     * Success: This method uses a promise to return the result.
+     * Failure: This method uses a promise to return the error instance. Possible causes:
+     *          6800301: Unsupported state, Audio focus request failed, System error.
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
@@ -5474,14 +5488,20 @@ declare namespace audio {
     getAudioStreamIdSync(): number;
 
     /**
-     * Starts capturing. This method uses an asynchronous callback to return the result.
+     * Starts capturing.
+     * Success: This method uses an asynchronous callback to return the result.
+     * Failure: This method uses an asynchronous callback to return the error instance. Possible causes:
+     *          6800301: Unsupported state, Audio focus request failed, System error.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
      */
     start(callback: AsyncCallback<void>): void;
     /**
-     * Starts capturing. This method uses a promise to return the result.
+     * Starts capturing.
+     * Success: This method uses a promise to return the result.
+     * Failure: This method uses a promise to return the error instance. Possible causes:
+     *          6800301: Unsupported state, Audio focus request failed, System error.
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
