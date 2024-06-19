@@ -2604,7 +2604,7 @@ declare interface sharedTransitionOptions {
  */
 declare interface GeometryTransitionOptions {
   /**
-   * whether follow target for the component still in the hierarchy, default: false, stay current.
+   * Whether follow target for the component still in the hierarchy, default: false, stay current.
    *
    * @type { ?boolean }
    * @default false
@@ -2613,7 +2613,7 @@ declare interface GeometryTransitionOptions {
    * @since 11
    */
   /**
-   * whether follow target for the component still in the hierarchy, default: false, stay current.
+   * Whether follow target for the component still in the hierarchy, default: false, stay current.
    *
    * @type { ?boolean }
    * @default false
@@ -2624,7 +2624,7 @@ declare interface GeometryTransitionOptions {
    */
   follow?: boolean;
   /**
-   * whether make target and source share higher level of both in the hierarchy,
+   * Whether make target and source share higher level of both in the hierarchy,
    * and isolate target from its parent component during geometry transition, default true.
    *
    * @type { ?boolean }
