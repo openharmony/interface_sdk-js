@@ -115,7 +115,7 @@ import {
   FoldSplitContainer,
 } from '@ohos.arkui.advanced.FoldSplitContainer';
 import { AppStorageV2, PersistenceV2, Type } from '@ohos.arkui.StateManagement';
-import { IDataSourcePrefetching, IPrefetcher, BasicPrefetcher } from '@ohos.arkui.prefetcher';
+import { IDataSourcePrefetching, IPrefetcher, BasicPrefetcher } from '@ohos.arkui.Prefetcher';
 
 export {
   AddFormMenuItem, AddFormOptions, AlertDialog, Animator, AnimatorOptions, AnimatorResult, App, AppResponse, AtomicServiceBar,
