@@ -357,16 +357,31 @@ declare namespace utils {
      */
     type ISendable = lang.ISendable;
     /**
+    * The type of conversion result function.
+    *
+    * @typedef { function } Transformer
+    * @param { ISendable } this - The ISendable to which the parsed key value pair belongs.
+    * @param { string } key - Attribute name.
+    * @param { ISendable | undefined | null } value - The value of the parsed key value pair.
+    * @returns { ISendable | undefined | null } Return the modified ISendable or undefined or null.
+    * @syscap SystemCapability.Utils.Lang
+    * @since 12
+    */
+    type Transformer = (this: ISendable, key: string,
+      value: ISendable | undefined | null) => ISendable | undefined | null
+    /**
      * Converts a JavaScript Object Notation (JSON) string into an ArkTS Value.
      *
      * @param { string } text - A valid JSON string.
+     * @param { Transformer } [reviver] - A function that transforms the results.
+     * @param {ParseOptions} [options] - The config of parse.
      * @returns { ISendable | null } Return an ArkTS Value.
      * @throws { BusinessError } 401 - Parameter error. Invalid JSON string.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
      * @since 12
      */
-    function parse(text: string): ISendable | null;
+    function parse(text: string, reviver?: Transformer, options?: ParseOptions): ISendable | null;
     /**
      * Converts an ArkTS value to a JavaScript Object Notation (JSON) string.
      *
@@ -378,6 +393,96 @@ declare namespace utils {
      * @since 12
      */
     function stringify(value: ISendable | null | undefined): string;
+
+    /**
+    * Enum defining modes for handling bigint.
+    *
+    * @enum { number } BigIntMode
+    * @syscap SystemCapability.Utils.Lang
+    * @atomicservice
+    * @since 12
+    */
+    const enum BigIntMode {
+      /**
+      * BigInt is not supported.
+      *
+      * @syscap SystemCapability.Utils.Lang
+      * @atomicservice
+      * @since 12
+      */
+      DEFAULT = 0,
+      /**
+      * Parse as BigInt when number less than -(2^53 – 1) or greater than (2^53 – 1).
+      *
+      * @syscap SystemCapability.Utils.Lang
+      * @atomicservice
+      * @since 12
+      */
+      PARSE_AS_BIGINT = 1,
+      /**
+      * All numbers parse as BigInt.
+      *
+      * @syscap SystemCapability.Utils.Lang
+      * @atomicservice
+      * @since 12
+      */
+      ALWAYS_PARSE_AS_BIGINT = 2,
+    }
+
+    /**
+    * The return types for parsing.
+    *
+    * @enum { number } ParseReturnType
+    * @syscap SystemCapability.Utils.Lang
+    * @atomicservice
+    * @since 12
+    */
+    const enum ParseReturnType {
+      /**
+      * Return type is object.
+      *
+      * @syscap SystemCapability.Utils.Lang
+      * @atomicservice
+      * @since 12
+      */
+      OBJECT = 0,
+      /**
+      * Return type is map.
+      *
+      * @syscap SystemCapability.Utils.Lang
+      * @atomicservice
+      * @since 12
+      */
+      MAP = 1,
+    }
+    /**
+    * Parse's options
+    *
+    * @typedef ParseOptions
+    * @syscap SystemCapability.Utils.Lang
+    * @atomicservice
+    * @since 12
+    */
+    interface ParseOptions {
+      /**
+      * Enum defining modes for handling bigint.
+      *
+      * @type { BigIntMode }
+      * @syscap SystemCapability.Utils.Lang
+      * @atomicservice
+      * @since 12
+      */
+      bigIntMode: BigIntMode;
+      /**
+      * The return types for parsing.
+      *
+      * @type { ParseReturnType }
+      * @syscap SystemCapability.Utils.Lang
+      * @atomicservice
+      * @since 12
+      */
+      parseReturnType: ParseReturnType;
+    }
   }
 }
 export default utils;

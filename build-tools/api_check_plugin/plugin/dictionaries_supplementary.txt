@@ -1151,3 +1151,6 @@ allowlist
 disallowlist
 adblock
 enqueued
+acquires
+reenter
+redefines
