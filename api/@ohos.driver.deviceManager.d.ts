@@ -58,7 +58,7 @@ declare namespace deviceManager {
    * @since 10
    */
   function bindDevice(deviceId: number, onDisconnect: AsyncCallback<number>,
-    callback: AsyncCallback<{deviceId: number, remote: rpc.IRemoteObject}>): void;
+    callback: AsyncCallback<{deviceId: number; remote: rpc.IRemoteObject;}>): void;
 
   /**
    * Bind the device based on the device information returned by queryDevices().
@@ -93,8 +93,8 @@ declare namespace deviceManager {
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 10
    */
-  function bindDevice(deviceId: number, onDisconnect: AsyncCallback<number>): Promise<{deviceId: number,
-    remote: rpc.IRemoteObject}>;
+  function bindDevice(deviceId: number, onDisconnect: AsyncCallback<number>): Promise<{deviceId: number;
+    remote: rpc.IRemoteObject;}>;
 
   /**
    * Bind the device based on the device information returned by queryDevices().
