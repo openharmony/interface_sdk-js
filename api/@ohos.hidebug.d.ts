@@ -192,7 +192,7 @@ declare namespace hidebug {
    * @throws {BusinessError} 401 - the parameter check failed, Possible causes:
    *                               1.the parameter type error
    *                               2.the args parameter is not string array
-   * @throws {BusinessError} 11400101 - the service id is invalid
+   * @throws {BusinessError} 11400101 - ServiceId invalid. The system ability does not exist.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 9
    */
@@ -202,7 +202,7 @@ declare namespace hidebug {
    * Obtains the cpu usage of system.
    *
    * @returns { number } Returns the cpu usage of system.
-   * @throws { BusinessError } 11400104 - The status of the system cpu usage is abnormal
+   * @throws { BusinessError } 11400104 - The status of the system CPU usage is abnormal.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12
    */
@@ -756,9 +756,9 @@ declare namespace hidebug {
    *                           1.The limit parameter is too small
    *                           2.The parameter is not within the enumeration type
    *                           3.The parameter type error or parameter order error
-   * @throws { BusinessError } 11400102 - Have already capture trace
-   * @throws { BusinessError } 11400103 - Without write permission on the file
-   * @throws { BusinessError } 11400104 - The status of the trace is abnormal
+   * @throws { BusinessError } 11400102 - Capture trace already enabled.
+   * @throws { BusinessError } 11400103 - No write permission on the file.
+   * @throws { BusinessError } 11400104 - Abnormal trace status.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12
    */
