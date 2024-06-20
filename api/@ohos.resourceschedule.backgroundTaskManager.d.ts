@@ -21,7 +21,7 @@
 import { AsyncCallback, Callback } from './@ohos.base';
 import { WantAgent } from './@ohos.wantAgent';
 import Context from './application/BaseContext';
-import notificationManager from './@ohos.notificationManager';
+import type notificationManager from './@ohos.notificationManager';
 
 /**
  * Manages background tasks.
