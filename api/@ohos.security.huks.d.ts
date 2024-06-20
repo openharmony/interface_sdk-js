@@ -4066,7 +4066,30 @@ declare namespace huks {
      */
     HUKS_AUTH_ACCESS_ALWAYS_VALID = 1 << 2
   }
+ 
+  /**
+   * Enum for huks user auth mode.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 12
+   */
+export enum HuksUserAuthMode {
+  /**
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 12
+   */
+  HUKS_USER_AUTH_MODE_LOCAL = 0,
+  /**
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 12
+   */
+  HUKS_USER_AUTH_MODE_COAUTH = 1,
 
+}
   /**
    * Enum for huks key file storage authentication level.
    *
