@@ -286,7 +286,7 @@ declare namespace PiPWindow {
     CAMERA_SWITCH = 203,
 
     /**
-     * Turn on/off the speaker sound.
+     * Mute switch.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
@@ -327,7 +327,7 @@ declare namespace PiPWindow {
     MUTE_SWITCH = 303,
 
     /**
-     * Turn on/off the micprophone mute.
+     * Turn on/off the microphone.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
@@ -344,15 +344,15 @@ declare namespace PiPWindow {
    */
   enum VideoLiveControlGroup {
     /**
-     * Turn on/off the pause.
+     * Video play/pause control.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    VIDEO_PLAY_PAUSE_BUTTON = 401,
+    VIDEO_PLAY_PAUSE = 401,
 
     /**
-     * Turn on/off the speaker sound.
+     * Mute switch.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
