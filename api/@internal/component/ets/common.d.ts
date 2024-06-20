@@ -2630,7 +2630,6 @@ declare interface GeometryTransitionOptions {
    * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @systemapi
    * @since 12
