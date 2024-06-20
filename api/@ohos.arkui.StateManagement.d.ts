@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file State management API file
  * @kit ArkUI
  */
 
@@ -75,7 +75,7 @@ export declare class AppStorageV2 {
    * @atomicservice
    * @since 12
    */
-  static keys() : Array<string>
+  static keys() : Array<string>;
 }
 
 /**
@@ -83,14 +83,14 @@ export declare class AppStorageV2 {
  *
  * @typedef { function } PersistenceErrorCallback
  * @param { string } key persisted key when error
- * @param { "quota" | "serialization" | "unknown" } reason reason type when error
+ * @param { 'quota' | 'serialization' | 'unknown' } reason reason type when error
  * @param { string } message more message when error
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 12
  */
-export declare type PersistenceErrorCallback = (key: string, reason: "quota" | "serialization" | "unknown", message: string) => void;
+export declare type PersistenceErrorCallback = (key: string, reason: 'quota' | 'serialization' | 'unknown', message: string) => void;
 
 /**
  * PersistenceV2 is for UI state of app-wide access, available on app re-start,
