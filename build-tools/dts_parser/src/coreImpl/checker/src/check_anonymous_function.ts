@@ -16,8 +16,9 @@
 
 import ts from 'typescript';
 import { ErrorMessage, ErrorTagFormat } from '../../../typedef/checker/result_type';
-import { ApiInfo, ApiType, MethodInfo, ParamInfo, PropertyInfo, TypeAliasInfo } from '../../../typedef/parser/ApiInfoDefination';
-import { compositiveResult, compositiveLocalResult } from '../../../utils/checkUtils';
+import { ApiInfo, ApiType, MethodInfo, ParamInfo, PropertyInfo } from '../../../typedef/parser/ApiInfoDefination';
+import { CommonFunctions } from '../../../utils/checkUtils';
+import { Comment } from '../../../typedef/parser/Comment';
 
 export class AnonymousFunctionCheck {
   static checkAnonymousFunction(singleApi: ApiInfo): ErrorTagFormat {
@@ -25,6 +26,11 @@ export class AnonymousFunctionCheck {
       state: true,
       errorInfo: '',
     };
+    const jsDocInfo: Comment.JsDocInfo[] = singleApi.getJsDocInfos();
+    const publishVersion: string = CommonFunctions.getSinceVersion(jsDocInfo[0].getSince());
+    const apiVersionToBeVerified: string = CommonFunctions.getCheckApiVersion();
+    if (publishVersion !== apiVersionToBeVerified) { return anonymousFunctionCheckResult };
+
     let IllegalType: ts.SyntaxKind[] = [ts.SyntaxKind.FunctionType, ts.SyntaxKind.TypeLiteral];
     let returnValueIsFunction: boolean = false;
     let paramTypeIsFunction: boolean = false;
