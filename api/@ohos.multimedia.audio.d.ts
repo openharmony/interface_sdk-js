@@ -5165,6 +5165,18 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 10
      */
+    /**
+     * Unsubscribes output device change event callback.
+     * @param { 'outputDeviceChange' } type - Type of the event to listen for.
+     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used in subscribe.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @crossplatform
+     * @since 12
+     */
     off(type: 'outputDeviceChange', callback?: Callback<AudioDeviceDescriptors>): void;
 
     /**
@@ -5177,6 +5189,18 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 11
+     */
+    /**
+     * Unsubscribes output device change event callback.
+     * @param { 'outputDeviceChangeWithInfo' } type - Type of the event to listen for.
+     * @param { Callback<AudioStreamDeviceChangeInfo> } callback - Callback used in subscribe.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @crossplatform
+     * @since 12
      */
     off(type: 'outputDeviceChangeWithInfo', callback?: Callback<AudioStreamDeviceChangeInfo>): void;
 
@@ -5202,6 +5226,7 @@ declare namespace audio {
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @crossplatform
      * @since 12
      */
     on(type: 'writeData', callback: AudioRendererWriteDataCallback): void;
@@ -5226,6 +5251,7 @@ declare namespace audio {
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @crossplatform
      * @since 12
      */
     off(type: 'writeData', callback?: AudioRendererWriteDataCallback): void;
@@ -5236,6 +5262,13 @@ declare namespace audio {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @since 8
+   */
+  /**
+   * Enumerates source types.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @crossplatform
+   * @since 12
    */
   enum SourceType {
     /**
@@ -5249,11 +5282,23 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 8
      */
+    /**
+     * Mic source type.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
+     */
     SOURCE_TYPE_MIC = 0,
     /**
      * Voice recognition source type.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 9
+     */
+    /**
+     * Voice recognition source type.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
      */
     SOURCE_TYPE_VOICE_RECOGNITION = 1,
     /**
@@ -5287,6 +5332,12 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 8
      */
+    /**
+     * Voice communication source type.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
+     */
     SOURCE_TYPE_VOICE_COMMUNICATION = 7,
 
     /**
@@ -5303,17 +5354,36 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @since 8
    */
+  /**
+   * Describes audio capturer information.
+   * @typedef AudioCapturerInfo
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @crossplatform
+   * @since 12
+   */
   interface AudioCapturerInfo {
     /**
      * Audio source type.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 8
      */
+    /**
+     * Audio source type.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
+     */
     source: SourceType;
     /**
      * Audio capturer flags.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 8
+     */
+    /**
+     * Audio capturer flags.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
      */
     capturerFlags: number;
   }
@@ -5324,17 +5394,36 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @since 8
    */
+  /**
+   * Describes audio capturer configuration options.
+   * @typedef AudioCapturerOptions
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   * @crossplatform
+   * @since 12
+   */
   interface AudioCapturerOptions {
     /**
      * Stream information.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
      */
+    /**
+     * Stream information.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @crossplatform
+     * @since 12
+     */
     streamInfo: AudioStreamInfo;
     /**
      * Capturer information.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
+     */
+    /**
+     * Capturer information.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @crossplatform
+     * @since 12
      */
     capturerInfo: AudioCapturerInfo;
     /**
@@ -5397,11 +5486,24 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @since 8
    */
+  /**
+   * Provides APIs for audio recording.
+   * @typedef AudioCapturer
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   * @crossplatform
+   * @since 12
+   */
   interface AudioCapturer {
     /**
      * Defines the current capture state.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
+     */
+    /**
+     * Defines the current capture state.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @crossplatform
+     * @since 12
      */
     readonly state: AudioState;
 
@@ -5412,6 +5514,14 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
      */
+    /**
+     * Obtains the capturer information provided while creating a capturer instance. This method uses an asynchronous
+     * callback to return the result.
+     * @param { AsyncCallback<AudioCapturerInfo> } callback - Callback used to return the capturer information.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @crossplatform
+     * @since 12
+     */
     getCapturerInfo(callback: AsyncCallback<AudioCapturerInfo>): void;
     /**
      * Obtains the capturer information provided while creating a capturer instance. This method uses a promise to
@@ -5420,12 +5530,27 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
      */
+    /**
+     * Obtains the capturer information provided while creating a capturer instance. This method uses a promise to
+     * return the result.
+     * @returns { Promise<AudioCapturerInfo> } Promise used to return the capturer information.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @crossplatform
+     * @since 12
+     */
     getCapturerInfo(): Promise<AudioCapturerInfo>;
     /**
      * Obtains the capturer information provided while creating a capturer instance.
      * @returns { AudioCapturerInfo } The capturer information.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 10
+     */
+    /**
+     * Obtains the capturer information provided while creating a capturer instance.
+     * @returns { AudioCapturerInfo } The capturer information.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @crossplatform
+     * @since 12
      */
     getCapturerInfoSync(): AudioCapturerInfo;
 
@@ -5435,6 +5560,13 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
      */
+    /**
+     * Obtains the capturer stream information. This method uses an asynchronous callback to return the result.
+     * @param { AsyncCallback<AudioStreamInfo> } callback - Callback used to return the stream information.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @crossplatform
+     * @since 12
+     */
     getStreamInfo(callback: AsyncCallback<AudioStreamInfo>): void;
     /**
      * Obtains the capturer stream information. This method uses a promise to return the result.
@@ -5442,12 +5574,26 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
      */
+    /**
+     * Obtains the capturer stream information. This method uses a promise to return the result.
+     * @returns { Promise<AudioStreamInfo> } Promise used to return the stream information.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @crossplatform
+     * @since 12
+     */
     getStreamInfo(): Promise<AudioStreamInfo>;
     /**
      * Obtains the capturer stream information.
      * @returns { AudioStreamInfo } The stream information.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 10
+     */
+    /**
+     * Obtains the capturer stream information.
+     * @returns { AudioStreamInfo } The stream information.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @crossplatform
+     * @since 12
      */
     getStreamInfoSync(): AudioStreamInfo;
 
@@ -5457,6 +5603,13 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 9
      */
+    /**
+     * Obtains the capturer stream id. This method uses an asynchronous callback to return the result.
+     * @param { AsyncCallback<number> } callback - Callback used to return the stream id.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @crossplatform
+     * @since 12
+     */
     getAudioStreamId(callback: AsyncCallback<number>): void;
     /**
      * Obtains the capturer stream id. This method uses a promise to return the result.
@@ -5464,12 +5617,26 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 9
      */
+    /**
+     * Obtains the capturer stream id. This method uses a promise to return the result.
+     * @returns { Promise<number> } Promise used to return the stream id.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @crossplatform
+     * @since 12
+     */
     getAudioStreamId(): Promise<number>;
     /**
      * Obtains the capturer stream id.
      * @returns { number } The stream id.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 10
+     */
+    /**
+     * Obtains the capturer stream id.
+     * @returns { number } The stream id.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @crossplatform
+     * @since 12
      */
     getAudioStreamIdSync(): number;
 
@@ -5479,12 +5646,26 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
      */
+    /**
+     * Starts capturing. This method uses an asynchronous callback to return the result.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @crossplatform
+     * @since 12
+     */
     start(callback: AsyncCallback<void>): void;
     /**
      * Starts capturing. This method uses a promise to return the result.
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
+     */
+    /**
+     * Starts capturing. This method uses a promise to return the result.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @crossplatform
+     * @since 12
      */
     start(): Promise<void>;
 
@@ -5519,6 +5700,14 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
      */
+    /**
+     * Obtains the timestamp in Unix epoch time (starts from January 1, 1970), in nanoseconds. This method uses an
+     * asynchronous callback to return the result.
+     * @param { AsyncCallback<number> } callback - Callback used to return the timestamp.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @crossplatform
+     * @since 12
+     */
     getAudioTime(callback: AsyncCallback<number>): void;
     /**
      * Obtains the timestamp in Unix epoch time (starts from January 1, 1970), in nanoseconds. This method uses a
@@ -5527,12 +5716,27 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
      */
+    /**
+     * Obtains the timestamp in Unix epoch time (starts from January 1, 1970), in nanoseconds. This method uses a
+     * promise to return the result.
+     * @returns { Promise<number> } Promise used to return the timestamp.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @crossplatform
+     * @since 12
+     */
     getAudioTime(): Promise<number>;
     /**
      * Obtains the timestamp in Unix epoch time (starts from January 1, 1970), in nanoseconds.
      * @returns { number } The audio timestamp.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 10
+     */
+    /**
+     * Obtains the timestamp in Unix epoch time (starts from January 1, 1970), in nanoseconds.
+     * @returns { number } The audio timestamp.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @crossplatform
+     * @since 12
      */
     getAudioTimeSync(): number;
 
@@ -5542,12 +5746,26 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
      */
+    /**
+     * Stops capturing. This method uses an asynchronous callback to return the result.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @crossplatform
+     * @since 12
+     */
     stop(callback: AsyncCallback<void>): void;
     /**
      * Stops capturing. This method uses a promise to return the result.
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
+     */
+    /**
+     * Stops capturing. This method uses a promise to return the result.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @crossplatform
+     * @since 12
      */
     stop(): Promise<void>;
 
@@ -5557,12 +5775,26 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
      */
+    /**
+     * Releases the capturer. This method uses an asynchronous callback to return the result.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @crossplatform
+     * @since 12
+     */
     release(callback: AsyncCallback<void>): void;
     /**
      * Releases the capturer. This method uses a promise to return the result.
      * @returns { Promise<void> } - Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
+     */
+    /**
+     * Releases the capturer. This method uses a promise to return the result.
+     * @returns { Promise<void> } - Promise used to return the result.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @crossplatform
+     * @since 12
      */
     release(): Promise<void>;
 
@@ -5573,6 +5805,14 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
      */
+    /**
+     * Obtains a reasonable minimum buffer size in bytes for capturing. This method uses an asynchronous callback to
+     * return the result.
+     * @param { AsyncCallback<number> } callback - Callback used to return the buffer size.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @crossplatform
+     * @since 12
+     */
     getBufferSize(callback: AsyncCallback<number>): void;
     /**
      * Obtains a reasonable minimum buffer size in bytes for capturing. This method uses a promise to return the result.
@@ -5580,12 +5820,26 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
      */
+    /**
+     * Obtains a reasonable minimum buffer size in bytes for capturing. This method uses a promise to return the result.
+     * @returns { Promise<number> } Promise used to return the buffer size.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @crossplatform
+     * @since 12
+     */
     getBufferSize(): Promise<number>;
     /**
      * Obtains a reasonable minimum buffer size in bytes for capturing.
      * @returns { number } Promise used to return the buffer size.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 10
+     */
+    /**
+     * Obtains a reasonable minimum buffer size in bytes for capturing.
+     * @returns { number } Promise used to return the buffer size.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @crossplatform
+     * @since 12
      */
     getBufferSizeSync(): number;
 
@@ -5595,6 +5849,13 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 11
      */
+    /**
+     * Gets the input device or devices for this stream.
+     * @returns { AudioDeviceDescriptors } Descriptors of input devices.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @crossplatform
+     * @since 12
+     */
     getCurrentInputDevices(): AudioDeviceDescriptors;
 
     /**
@@ -5602,6 +5863,13 @@ declare namespace audio {
      * @returns { AudioCapturerChangeInfo } Full capture info.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 11
+     */
+    /**
+     * Gets full capturer info for this stream.
+     * @returns { AudioCapturerChangeInfo } Full capture info.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @crossplatform
+     * @since 12
      */
     getCurrentAudioCapturerChangeInfo(): AudioCapturerChangeInfo;
 
@@ -5630,12 +5898,29 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
      */
+    /**
+     * Subscribes to mark reached events. When the number of frames captured reaches the value of the frame parameter,
+     * the callback is invoked.
+     * @param { 'markReach' } type - Type of the event to listen for. Only the markReach event is supported.
+     * @param { number } frame - Number of frames to trigger the event. The value must be greater than 0.
+     * @param { Callback<number> } callback - Callback invoked when the event is triggered.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @crossplatform
+     * @since 12
+     */
     on(type: 'markReach', frame: number, callback: Callback<number>): void;
     /**
      * Unsubscribes from the mark reached events.
      * @param { 'markReach' } type - Type of the event to listen for. Only the markReach event is supported.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
+     */
+    /**
+     * Unsubscribes from the mark reached events.
+     * @param { 'markReach' } type - Type of the event to listen for. Only the markReach event is supported.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @crossplatform
+     * @since 12
      */
     off(type: 'markReach'): void;
 
@@ -5648,12 +5933,29 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
      */
+    /**
+     * Subscribes to period reached events. When the period of frame capturing reaches the value of frame parameter,
+     * the callback is invoked.
+     * @param { 'periodReach' } type - Type of the event to listen for. Only the periodReach event is supported.
+     * @param { number } frame - Period during which frame capturing is listened. The value must be greater than 0.
+     * @param { Callback<number> } callback - Callback invoked when the event is triggered.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @crossplatform
+     * @since 12
+     */
     on(type: 'periodReach', frame: number, callback: Callback<number>): void;
     /**
      * Unsubscribes from period reached events.
      * @param { 'periodReach' } type - Type of the event to listen for. Only the periodReach event is supported.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
+     */
+    /**
+     * Unsubscribes from period reached events.
+     * @param { 'periodReach' } type - Type of the event to listen for. Only the periodReach event is supported.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @crossplatform
+     * @since 12
      */
     off(type: 'periodReach'): void;
 
@@ -5663,6 +5965,14 @@ declare namespace audio {
      * @param { Callback<AudioState> } callback - Callback used to listen for the audio state change event.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
+     */
+    /**
+     * Subscribes audio state change event callback.
+     * @param { 'stateChange' } type - Type of the event to listen for. Only the stateChange event is supported.
+     * @param { Callback<AudioState> } callback - Callback used to listen for the audio state change event.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @crossplatform
+     * @since 12
      */
     on(type: 'stateChange', callback: Callback<AudioState>): void;
 
@@ -5678,6 +5988,19 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Interrupt
      * @since 10
      */
+    /**
+     * Listens for audio interrupt events. This method uses a callback to get interrupt events. The interrupt event is
+     * triggered when audio recording is interrupted.
+     * @param { 'audioInterrupt' } type - Type of the event to listen for. Only the audioInterrupt event is supported.
+     * @param { Callback<InterruptEvent> } callback - Callback used to listen for interrupt callback.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Interrupt
+     * @crossplatform
+     * @since 12
+     */
     on(type: 'audioInterrupt', callback: Callback<InterruptEvent>): void;
 
     /**
@@ -5689,6 +6012,17 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Interrupt
      * @since 10
+     */
+    /**
+     * UnSubscribes to audio interrupt events.
+     * @param { 'audioInterrupt' } type - Type of the event to listen for. Only the audioInterrupt event is supported.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Interrupt
+     * @crossplatform
+     * @since 12
      */
     off(type: 'audioInterrupt'): void;
 
@@ -5704,6 +6038,19 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 11
      */
+    /**
+     * Subscribes input device change event callback.
+     * The event is triggered when input device change for this stream.
+     * @param { 'inputDeviceChange' } type - Type of the event to listen for.
+     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to listen device change event.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @crossplatform
+     * @since 12
+     */
     on(type: 'inputDeviceChange', callback: Callback<AudioDeviceDescriptors>): void;
     /**
      * Unsubscribes input device change event callback.
@@ -5715,6 +6062,18 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 11
+     */
+    /**
+     * Unsubscribes input device change event callback.
+     * @param { 'inputDeviceChange' } type - Type of the event to listen for.
+     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used in subscribe.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @crossplatform
+     * @since 12
      */
     off(type: 'inputDeviceChange', callback?: Callback<AudioDeviceDescriptors>): void;
 
@@ -5730,6 +6089,19 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 11
      */
+    /**
+     * Subscribes audio capturer info change event callback.
+     * The event is triggered when input device change for this stream.
+     * @param { 'audioCapturerChange' } type - Type of the event to listen for.
+     * @param { Callback<AudioCapturerChangeInfo> } callback - Callback used to listen device change event.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @crossplatform
+     * @since 12
+     */
     on(type: 'audioCapturerChange', callback: Callback<AudioCapturerChangeInfo>): void;
     /**
      * Unsubscribes audio capturer info change event callback.
@@ -5741,6 +6113,18 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 11
+     */
+    /**
+     * Unsubscribes audio capturer info change event callback.
+     * @param { 'audioCapturerChange' } type - Type of the event to listen for.
+     * @param { Callback<AudioCapturerChangeInfo> } callback - Callback used in subscribe.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @crossplatform
+     * @since 12
      */
     off(type: 'audioCapturerChange', callback?: Callback<AudioCapturerChangeInfo>): void;
 
@@ -5756,6 +6140,19 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 11
      */
+    /**
+     * Subscribes audio data callback.
+     * The event is triggered when audio buffer is available for reading more data.
+     * @param { 'readData' } type - Type of the event to listen for.
+     * @param { Callback<ArrayBuffer> } callback - Callback with the buffer to read.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @crossplatform
+     * @since 12
+     */
     on(type: 'readData', callback: Callback<ArrayBuffer>): void;
 
     /**
@@ -5768,6 +6165,18 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 11
+     */
+    /**
+     * Unsubscribes audio data callback.
+     * @param { 'readData' } type - Type of the event to listen for.
+     * @param { Callback<ArrayBuffer> } callback - Callback used in subscribe.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @crossplatform
+     * @since 12
      */
     off(type: 'readData', callback?: Callback<ArrayBuffer>): void;
   }
@@ -6395,11 +6804,25 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @since 11
    */
+  /**
+   * Audio AudioChannel Layout
+   * A 64-bit integer indicates that the appearance and order of the speakers for recording or playback.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @crossplatform
+   * @since 12
+   */
   enum AudioChannelLayout {
     /**
      * Unknown Channel Layout
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 11
+     */
+    /**
+     * Unknown Channel Layout
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
      */
     CH_LAYOUT_UNKNOWN = 0x0,
     /**
@@ -6408,12 +6831,26 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 11
      */
+    /**
+     * Channel Layout For Mono, 1 channel in total
+     * Speaker layout: front center(FC)
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
+     */
     CH_LAYOUT_MONO = 0x4,
     /**
      * Channel Layout For Stereo, 2 channels in total
      * Speaker layout: front left(FL), front right(FR)
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 11
+     */
+    /**
+     * Channel Layout For Stereo, 2 channels in total
+     * Speaker layout: front left(FL), front right(FR)
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
      */
     CH_LAYOUT_STEREO = 0x3,
     /**
@@ -6429,12 +6866,26 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 11
      */
+    /**
+     * Channel Layout For 2.1, 3 channels in total
+     * Speaker layout: Stereo plus low-frequency effects(LFE)
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
+     */
     CH_LAYOUT_2POINT1 = 0xB,
     /**
      * Channel Layout For 3.0, 3 channels in total
      * Speaker layout: Stereo plus back center(BC)
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 11
+     */
+    /**
+     * Channel Layout For 3.0, 3 channels in total
+     * Speaker layout: Stereo plus back center(BC)
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
      */
     CH_LAYOUT_3POINT0 = 0x103,
     /**
@@ -6443,12 +6894,26 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 11
      */
+    /**
+     * Channel Layout For Surround, 3 channels in total
+     * Speaker layout: Stereo plus FC
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
+     */
     CH_LAYOUT_SURROUND = 0x7,
     /**
      * Channel Layout For 3.1, 4 channels in total
      * Speaker layout: Surround plus LFE
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 11
+     */
+    /**
+     * Channel Layout For 3.1, 4 channels in total
+     * Speaker layout: Surround plus LFE
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
      */
     CH_LAYOUT_3POINT1 = 0xF,
     /**
@@ -6457,12 +6922,26 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 11
      */
+    /**
+     * Channel Layout For 4.0, 4 channels in total
+     * Speaker layout: Surround plus BC
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
+     */
     CH_LAYOUT_4POINT0 = 0x107,
     /**
      * Channel Layout For Quad, 4 channels in total
      * Speaker layout: Stereo plus left and right back speakers
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 11
+     */
+    /**
+     * Channel Layout For Quad, 4 channels in total
+     * Speaker layout: Stereo plus left and right back speakers
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
      */
     CH_LAYOUT_QUAD = 0x33,
     /**
@@ -6477,6 +6956,13 @@ declare namespace audio {
      * Speaker layout: Stereo plus left and right top side speakers
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 11
+     */
+    /**
+     * Channel Layout For 2.0.2, 4 channels in total
+     * Speaker layout: Stereo plus left and right top side speakers
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
      */
     CH_LAYOUT_2POINT0POINT2 = 0x3000000003,
     /**
@@ -6506,12 +6992,26 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 11
      */
+    /**
+     * Channel Layout For 4.1, 5 channels in total
+     * Speaker layout: 4.0 plus LFE
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
+     */
     CH_LAYOUT_4POINT1 = 0x10F,
     /**
      * Channel Layout For 5.0, 5 channels in total
      * Speaker layout: Surround plus two side speakers
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 11
+     */
+    /**
+     * Channel Layout For 5.0, 5 channels in total
+     * Speaker layout: Surround plus two side speakers
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
      */
     CH_LAYOUT_5POINT0 = 0x607,
     /**
@@ -6541,6 +7041,13 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 11
      */
+    /**
+     * Channel Layout For 5.1, 6 channels in total
+     * Speaker layout: 5.0 plus LFE
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
+     */
     CH_LAYOUT_5POINT1 = 0x60F,
     /**
      * Channel Layout For 5.1-Back, 6 channels in total
@@ -6555,12 +7062,26 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 11
      */
+    /**
+     * Channel Layout For 6.0, 6 channels in total
+     * Speaker layout: 5.0 plus BC
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
+     */
     CH_LAYOUT_6POINT0 = 0x707,
     /**
      * Channel Layout For Hexagonal, 6 channels in total
      * Speaker layout: 5.0-Back plus BC
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 11
+     */
+    /**
+     * Channel Layout For Hexagonal, 6 channels in total
+     * Speaker layout: 5.0-Back plus BC
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
      */
     CH_LAYOUT_HEXAGONAL = 0x137,
     /**
@@ -6583,6 +7104,13 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 11
      */
+    /**
+     * Channel Layout For 6.1, 7 channels in total
+     * Speaker layout: 5.1 plus BC
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
+     */
     CH_LAYOUT_6POINT1 = 0x70F,
     /**
      * Channel Layout For 6.1-Back, 7 channels in total
@@ -6604,12 +7132,26 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 11
      */
+    /**
+     * Channel Layout For 7.0, 7 channels in total
+     * Speaker layout: 5.0 plus two back speakers
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
+     */
     CH_LAYOUT_7POINT0 = 0x637,
     /**
      * Channel Layout For 7.0-Front, 7 channels in total
      * Speaker layout: 5.0 plus left and right front center speakers
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 11
+     */
+    /**
+     * Channel Layout For 7.0-Front, 7 channels in total
+     * Speaker layout: 5.0 plus left and right front center speakers
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
      */
     CH_LAYOUT_7POINT0_FRONT = 0x6C7,
     /**
@@ -6618,6 +7160,13 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 11
      */
+    /**
+     * Channel Layout For 7.1, 8 channels in total
+     * Speaker layout: 5.1 plus two back speakers
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
+     */
     CH_LAYOUT_7POINT1 = 0x63F,
     /**
      * Channel Layout For Octagonal, 8 channels in total
@@ -6625,12 +7174,26 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 11
      */
+    /**
+     * Channel Layout For Octagonal, 8 channels in total
+     * Speaker layout: 5.0 plus BL, BR and BC.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
+     */
     CH_LAYOUT_OCTAGONAL = 0x737,
     /**
      * Channel Layout For 5.1.2, 8 channels in total
      * Speaker layout: 5.1 plus two top side speakers.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 11
+     */
+    /**
+     * Channel Layout For 5.1.2, 8 channels in total
+     * Speaker layout: 5.1 plus two top side speakers.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
      */
     CH_LAYOUT_5POINT1POINT2 = 0x300000060F,
     /**
@@ -6674,12 +7237,26 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 11
      */
+    /**
+     * Channel Layout For 5.1.4, 10 channels in total
+     * Speaker layout: 5.1 plus four top speakers(TFL, TFR, TBL, TBR)
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
+     */
     CH_LAYOUT_5POINT1POINT4 = 0x2D60F,
     /**
      * Channel Layout For 7.1.2, 10 channels in total
      * Speaker layout: 7.1 plus two top side speakers
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 11
+     */
+    /**
+     * Channel Layout For 7.1.2, 10 channels in total
+     * Speaker layout: 7.1 plus two top side speakers
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
      */
     CH_LAYOUT_7POINT1POINT2 = 0x300000063F,
     /**
@@ -6688,12 +7265,26 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 11
      */
+    /**
+     * Channel Layout For 7.1.4, 12 channels in total
+     * Speaker layout: 7.1 plus four top speakers
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
+     */
     CH_LAYOUT_7POINT1POINT4 = 0x2D63F,
     /**
      * Channel Layout For 10.2, 12 channels in total
      * Speaker layout: FL, FR, FC, TFL, TFR, BL, BR, BC, SL, SR, wide left(WL), and wide right(WR)
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 11
+     */
+    /**
+     * Channel Layout For 10.2, 12 channels in total
+     * Speaker layout: FL, FR, FC, TFL, TFR, BL, BR, BC, SL, SR, wide left(WL), and wide right(WR)
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
      */
     CH_LAYOUT_10POINT2 = 0x180005737,
     /**
@@ -6709,12 +7300,26 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 11
      */
+    /**
+     * Channel Layout For 9.1.6, 16 channels in total
+     * Speaker layout: 9.1.4 plus two top side speakers
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
+     */
     CH_LAYOUT_9POINT1POINT6 = 0x318002D63F,
     /**
      * Channel Layout For Hexadecagonal, 16 channels in total
      * Speaker layout: Octagonal plus two wide speakers, six top speakers(TFL, TFR, TFC, TBL, TBR, TBC)
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 11
+     */
+    /**
+     * Channel Layout For Hexadecagonal, 16 channels in total
+     * Speaker layout: Octagonal plus two wide speakers, six top speakers(TFL, TFR, TFC, TBL, TBR, TBC)
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
      */
     CH_LAYOUT_HEXADECAGONAL = 0x18003F737,
     /**
@@ -6723,12 +7328,26 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 11
      */
+    /**
+     * Channel Layout For ORDER3-ACN-N3D HOA, 16 channels in total
+     * Third order, ACN format, N3D
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
+     */
     CH_LAYOUT_AMB_ORDER3_ACN_N3D = 0x100000000003,
     /**
      * Channel Layout For ORDER3-ACN-SN3D HOA, 16 channels in total
      * Third order, ACN format, N3D
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 11
+     */
+    /**
+     * Channel Layout For ORDER3-ACN-SN3D HOA, 16 channels in total
+     * Third order, ACN format, N3D
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
      */
     CH_LAYOUT_AMB_ORDER3_ACN_SN3D = 0x100000001003,
     /**
