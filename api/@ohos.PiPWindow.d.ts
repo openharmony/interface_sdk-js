@@ -388,29 +388,29 @@ declare namespace PiPWindow {
   /**
    * Describe picture-in-picture call template action event type.
    *
-   * @typedef { 'hangUp' | 'micStateChanged' | 'videoStateChanged' }
+   * @typedef { 'hangUp' | 'micStateChanged' | 'videoStateChanged' | 'voiceStateChanged' }
    * @syscap SystemCapability.Window.SessionManager
    * @since 11
    */
-  type PiPCallActionEvent = 'hangUp' | 'micStateChanged' | 'videoStateChanged';
+  type PiPCallActionEvent = 'hangUp' | 'micStateChanged' | 'videoStateChanged' | 'voiceStateChanged';
 
   /**
    * Describe picture-in-picture meeting template action event type.
    *
-   * @typedef { 'hangUp' | 'voiceStateChanged' | 'videoStateChanged' }
+   * @typedef { 'hangUp' | 'voiceStateChanged' | 'videoStateChanged' | 'micStateChanged' }
    * @syscap SystemCapability.Window.SessionManager
    * @since 11
    */
-  type PiPMeetingActionEvent = 'hangUp' | 'voiceStateChanged' | 'videoStateChanged';
+  type PiPMeetingActionEvent = 'hangUp' | 'voiceStateChanged' | 'videoStateChanged' | 'micStateChanged';
 
   /**
    * Describe picture-in-picture live template action event type.
    *
-   * @typedef { 'playbackStateChanged' }
+   * @typedef { 'playbackStateChanged' | 'voiceStateChanged' }
    * @syscap SystemCapability.Window.SessionManager
    * @since 11
    */
-  type PiPLiveActionEvent = 'playbackStateChanged';
+  type PiPLiveActionEvent = 'playbackStateChanged' | 'voiceStateChanged';
 
   /**
    * Describe picture-in-picture control panel action event callback.
