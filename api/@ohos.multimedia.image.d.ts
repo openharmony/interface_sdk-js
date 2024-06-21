@@ -3166,6 +3166,15 @@ declare namespace image {
      * @since 12
      */
     desiredDynamicRange?: PackingDynamicRange;
+
+    /**
+     * Whether the image properties can be saved, like Exif.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @since 12
+     */
+    needsPackProperties?: boolean;
   }
 
   /**
