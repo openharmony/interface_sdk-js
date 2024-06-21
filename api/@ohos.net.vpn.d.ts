@@ -425,10 +425,9 @@ declare namespace vpn {
     vpnName?: string;
 
     /**
-     * The type for the VPN network. For example：
-     * enum VpnType {IKEV2_IPSEC_MSCHAPv2 = 1, IKEV2_IPSEC_PSK, IKEV2_IPSEC_RSA,
-     * L2TP_IPSEC_PSK, L2TP_IPSEC_RSA, IPSEC_XAUTH_PSK, IPSEC_XAUTH_RSA, IPSEC_HYBRID_RSA, OPENVPN};
-     * @type {?number}
+     * The type for the VPN network.
+     * @type {?VpnType}
+     * See {@link VpnType}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12
@@ -875,6 +874,87 @@ declare namespace vpn {
      * @since 12
      */
     l2tpSharedKey?: string;
+  }
+
+  /**
+   * Defines the type for the VPN network.
+   * @enum {number}
+   * @syscap SystemCapability.Communication.NetManager.Vpn
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  export enum VpnType {
+    /**
+     * The type for the IKEv2/IPsec MSCHAPv2 VPN network.
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    IKEV2_IPSEC_MSCHAPv2 = 1,
+
+    /**
+     * The type for the IKEv2/IPsec PSK VPN network.
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    IKEV2_IPSEC_PSK = 2,
+
+    /**
+     * The type for the IKEv2/IPsec RSA VPN network.
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    IKEV2_IPSEC_RSA = 3,
+
+    /**
+     * The type for the L2TP/IPsec PSK VPN network.
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    L2TP_IPSEC_PSK = 4,
+
+    /**
+     * The type for the L2TP/IPsec RSA VPN network.
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    L2TP_IPSEC_RSA = 5,
+
+    /**
+     * The type for the IPsec XAUTH PSK VPN network.
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    IPSEC_XAUTH_PSK = 6,
+
+    /**
+     * The type for the IPsec XAUTH RSA VPN network.
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    IPSEC_XAUTH_RSA = 7,
+
+    /**
+     * The type for the IPsec HYBRID RSA VPN network.
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    IPSEC_HYBRID_RSA = 8,
+
+    /**
+     * The type for the OpenVpn network.
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    OPENVPN = 9
   }
 }
 export default vpn;
