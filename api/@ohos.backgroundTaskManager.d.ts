@@ -15,7 +15,6 @@
 
 /**
  * @file
- * @deprecated since 9
  */
 
 import { AsyncCallback, Callback } from './@ohos.base';
