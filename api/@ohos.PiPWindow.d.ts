@@ -18,6 +18,7 @@
  * @kit ArkUI
  */
 
+import type AsyncCallback from "./@ohos.base";
 import type BaseContext from './application/BaseContext';
 
 /**
@@ -508,13 +509,30 @@ declare namespace PiPWindow {
   /**
    * Describe picture-in-picture control event callback.
    *
-   * @typedef { function } ControlEventCallback
-   * @param { PiPControlType } controlType - the type of control
-   * @param { PiPControlStatus } status - the status of control
+   * @interface ControlEventCallback
    * @syscap SystemCapability.Window.SessionManager
    * @since 12
    */
-  type ControlEventCallback = (controlType: PiPControlType, status?: PiPControlStatus) => void;
+  interface ControlEventCallback {
+    /**
+     * The type of control.
+     *
+     * @type { PiPControlType }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    controlType: PiPControlType;
+
+    /**
+     * The status of control.
+     *
+     * @type { PiPControlStatus }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    status?: PiPControlStatus;
+
+  }
 
   /**
    * PiPController
@@ -637,20 +655,20 @@ declare namespace PiPWindow {
      * Register picture-in-picture control event listener.
      *
      * @param { 'controlEvent' } type - Registration type, user action event, 'controlEvent'
-     * @param { ControlEventCallback } callback - Used to handle {'controlEvent'} command.
+     * @param { AsyncCallback<ControlEventCallback> } callback - Used to handle {'controlEvent'} command.
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    on(type: 'controlEvent', callback: ControlEventCallback): void;
+    on(type: 'controlEvent', callback: AsyncCallback<ControlEventCallback>): void;
 
     /**
      * Unregister picture-in-picture control event listener
      * @param { 'controlEvent' } type - Used to unregister listener for {'controlEvent'} command
-     * @param { ControlEventCallback } callback - Used to handle {'controlEvent'} command.
+     * @param { AsyncCallback<ControlEventCallback> } callback - Used to handle {'controlEvent'} command.
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    off(type: 'controlEvent', callback?: ControlEventCallback): void;
+    off(type: 'controlEvent', callback?: AsyncCallback<ControlEventCallback>): void;
   }
 }
 
