@@ -112,6 +112,19 @@ declare namespace socket {
   function constructTLSSocketInstance(): TLSSocket;
 
   /**
+   * Creates a TLSSocket object with a TCPSocket object.
+   * @param { TCPSocket } tcpSocket - Parameter for creating a TLSSocket object.
+   * @returns { TLSSocket } the TLSSocket of the constructTLSSocketInstance.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2300002 - System internal error.
+   * @throws { BusinessError } 2303601 - Invalid socket FD.
+   * @throws { BusinessError } 2303602 - Socket is not connected.
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 12
+   */
+  function constructTLSSocketInstance(tcpSocket: TCPSocket): TLSSocket;
+
+  /**
    * Creates a TCPSocketServer object.
    * @returns { TCPSocketServer } the TCPSocketServer of the constructTCPSocketServerInstance.
    * @syscap SystemCapability.Communication.NetStack
