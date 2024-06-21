@@ -531,7 +531,6 @@ declare namespace PiPWindow {
      * @since 12
      */
     status?: PiPControlStatus;
-
   }
 
   /**
