@@ -63,7 +63,7 @@ declare namespace vpn {
   function createVpnConnection(context: AbilityContext): VpnConnection;
  
   /**
-   * Subscribes to vpn state changes.
+   * Subscribes to vpn connect state changes.
    * @permission ohos.permission.MANAGE_VPN
    * @param { 'connect' } type - Indicates vpn connect state changes.
    * @param { Callback<VpnConnectState> } callback - The callback of the vpn connect state.
@@ -80,7 +80,7 @@ declare namespace vpn {
   function on(type: 'connect', callback: Callback<VpnConnectState>): void;
 
   /**
-   * Unsubscribes from vpn state changes.
+   * Unsubscribes from vpn connect state changes.
    * @permission ohos.permission.MANAGE_VPN
    * @param { 'connect' } type - Indicates vpn connect state changes.
    * @param { Callback<VpnConnectState> } callback - The callback of the vpn connect state.
@@ -429,7 +429,9 @@ declare namespace vpn {
     vpnName?: string;
 
     /**
-     * The type for the VPN network.
+     * The type for the VPN network. For example：
+     * enum VpnType {IKEV2_IPSEC_MSCHAPv2 = 1, IKEV2_IPSEC_PSK, IKEV2_IPSEC_RSA,
+     * L2TP_IPSEC_PSK, L2TP_IPSEC_RSA, IPSEC_XAUTH_PSK, IPSEC_XAUTH_RSA, IPSEC_HYBRID_RSA, OPENVPN};
      * @type {?number}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
