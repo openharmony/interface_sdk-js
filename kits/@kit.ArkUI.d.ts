@@ -115,6 +115,7 @@ import {
   FoldSplitContainer,
 } from '@ohos.arkui.advanced.FoldSplitContainer';
 import { AppStorageV2, PersistenceV2, Type } from '@ohos.arkui.StateManagement';
+import { IDataSourcePrefetching, IPrefetcher, BasicPrefetcher } from '@ohos.arkui.Prefetcher';
 
 export {
   AddFormMenuItem, AddFormOptions, AlertDialog, Animator, AnimatorOptions, AnimatorResult, App, AppResponse, AtomicServiceBar,
@@ -144,5 +145,6 @@ export {
   IconOptions, ChipItemLabelOptions, ChipGroupItemOptions, ChipItemStyle, ChipGroupSpaceOptions, IconItemOptions, IconGroupSuffix, ChipGroup,
   SymbolGlyphModifier, Colors, CustomColors, Theme, ThemeControl, CustomTheme, ChipSymbolGlyphOptions,
   ExtraRegionPosition, ExpandedRegionLayoutOptions, SemiFoldedRegionLayoutOptions, FoldedRegionLayoutOptions, PresetSplitRatio, FoldSplitContainer,
-  AppStorageV2, PersistenceV2, Type
+  AppStorageV2, PersistenceV2, Type,
+  IDataSourcePrefetching, IPrefetcher, BasicPrefetcher
 };
