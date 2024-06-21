@@ -4075,21 +4075,21 @@ declare namespace huks {
    * @atomicservice
    * @since 12
    */
-export enum HuksUserAuthMode {
-  /**
-   * @syscap SystemCapability.Security.Huks.Extension
-   * @atomicservice
-   * @since 12
-   */
-  HUKS_USER_AUTH_MODE_LOCAL = 0,
-  /**
-   * @syscap SystemCapability.Security.Huks.Extension
-   * @atomicservice
-   * @since 12
-   */
-  HUKS_USER_AUTH_MODE_COAUTH = 1,
+  export enum HuksUserAuthMode {
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @atomicservice
+     * @since 12
+     */
+    HUKS_USER_AUTH_MODE_LOCAL = 0,
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @atomicservice
+     * @since 12
+     */
+    HUKS_USER_AUTH_MODE_COAUTH = 1,
 
-}
+  }
   /**
    * Enum for huks key file storage authentication level.
    *
@@ -4886,6 +4886,14 @@ export enum HuksUserAuthMode {
      * @since 12
      */
     HUKS_TAG_AUTH_STORAGE_LEVEL = HuksTagType.HUKS_TAG_TYPE_UINT | 316,
+
+    /**
+     * Authentication mode of the user authtoken，whose optional values are from enum HuksUserAuthMode.
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @atomicservice
+     * @since 12
+     */
+    HUKS_TAG_USER_AUTH_MODE = HuksTagType.HUKS_TAG_TYPE_UINT | 319,
 
     /* Attestation related TAG: 501 - 600 */
     /**
