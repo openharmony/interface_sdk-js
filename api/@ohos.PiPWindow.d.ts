@@ -526,7 +526,7 @@ declare namespace PiPWindow {
     /**
      * The status of control.
      *
-     * @type { PiPControlStatus }
+     * @type { ?PiPControlStatus }
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
