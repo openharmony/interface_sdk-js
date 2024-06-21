@@ -27,7 +27,7 @@ import { LocalEntry } from '../coreImpl/checker/local_entry';
 import { ApiResultMessage, ApiResultSimpleInfo } from '../typedef/checker/result_type';
 import { NumberConstant } from '../utils/Constant';
 import { ApiStatisticsHelper } from '../coreImpl/statistics/Statistics';
-import { ApiStatisticsInfo } from '../typedef/statistics/ApiStatistics';
+import { ApiStatisticsInfo, StatisticsInfoValueType } from '../typedef/statistics/ApiStatistics';
 import { SyscapProcessorHelper } from '../coreImpl/diff/syscapFieldProcessor';
 import { FunctionUtils } from '../utils/FunctionUtils';
 import { ApiCountInfo } from '../typedef/count/ApiCount';
@@ -249,10 +249,12 @@ function collectApi(options: OptionObjType): ToolNameValueType {
     } else {
       allApis = Parser.parseFile(path.resolve(fileDir, '..'), fileDir);
     }
-    const fileContent: string = Parser.getParseResults(allApis);
+	const statisticsInfosObject: StatisticsInfoValueType = ApiStatisticsHelper.getApiStatisticsInfos(allApis)
+  const fileContent: string = Parser.getParseResults(allApis);
+	let data: ApiStatisticsInfo[] | string [] = [fileContent];
     if (options.format === 'excel') {
-      const allApiStatisticsInfos: ApiStatisticsInfo[] | undefined =
-        ApiStatisticsHelper.getApiStatisticsInfos(allApis).allApiStatisticsInfos;
+      const allApiStatisticsInfos: ApiStatisticsInfo[] | undefined = statisticsInfosObject.allApiStatisticsInfos;
+      data = statisticsInfosObject.apiStatisticsInfos
       if (allApiStatisticsInfos) {
         WriterHelper.ExcelReporter(
           allApiStatisticsInfos,
@@ -264,10 +266,7 @@ function collectApi(options: OptionObjType): ToolNameValueType {
     }
 
     return {
-      data:
-        options.format === 'excel'
-          ? ApiStatisticsHelper.getApiStatisticsInfos(allApis).apiStatisticsInfos
-          : [fileContent],
+      data: data,
       callback: collectApiCallback as ToolNameExcelCallback,
     };
   } catch (exception) {
