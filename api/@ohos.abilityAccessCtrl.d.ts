@@ -538,28 +538,32 @@ declare namespace abilityAccessCtrl {
      * <br> The context must belong to the Stage model and only supports UIAbilityContext and UIExtensionContext.
      * @param { Array<Permissions> } permissionNameList - Indicates the list of permission to be requested. This parameter cannot be null or empty.
      * @returns { Promise<Array<GrantStatus>> } Returns the list of status of the specified permission.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12100001 - Invalid parameter. The context is invalid when it does not belong to the application itself.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 12100001 - Invalid parameter. Possible causes: 1. The context is invalid because it does not belong to the application itself;
+     *  2. The permission list contains the permission that is not declared in the module.json file; 3. The permission list is invalid because the permissions in it do not belong to the same permission group.
+     * @throws { BusinessError } 12100010 - The request already exists.
+     * @throws { BusinessError } 12100011 - All permissions in the permission list have been granted.
+     * @throws { BusinessError } 12100012 - The permission list contains the permission that has not been revoked by the user.
      * @syscap SystemCapability.Security.AccessToken
      * @stagemodelonly
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
     requestPermissionOnSetting(context: Context, permissionNameList: Array<Permissions>): Promise<Array<GrantStatus>>;
 
     /**
-     * Requests certain glo on setting from the user.
+     * Requests certain global switch status on setting from the user.
      *
      * @param { Context } context - The context that initiates the permission request.
      * <br> The context must belong to the Stage model and only supports UIAbilityContext and UIExtensionContext.
      * @param { SwitchType } type - Indicates the type of global switch to be requested. This parameter cannot be null or empty.
      * @returns { Promise<boolean> } Returns the status of the specified global switch.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12100001 - Invalid parameter. The context is invalid when it does not belong to the application itself.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 12100001 - Invalid parameter. Possible causes: 1. The context is invalid because it does not belong to the application itself; 2. The type of global switch is not support.
+     * @throws { BusinessError } 12100010 - The request already exists.
+     * @throws { BusinessError } 12100013 - The specific global switch is already open.
      * @syscap SystemCapability.Security.AccessToken
      * @stagemodelonly
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -788,7 +792,6 @@ declare namespace abilityAccessCtrl {
    *
    * @enum { number }
    * @syscap SystemCapability.Security.AccessToken
-   * @systemapi
    * @since 12
    */
     export enum SwitchType {
@@ -796,7 +799,6 @@ declare namespace abilityAccessCtrl {
        * switch of camera
        *
        * @syscap SystemCapability.Security.AccessToken
-       * @systemapi
        * @since 12
        */
       CAMERA = 0,
@@ -804,7 +806,6 @@ declare namespace abilityAccessCtrl {
        * switch of microphone
        *
        * @syscap SystemCapability.Security.AccessToken
-       * @systemapi
        * @since 12
        */
       MICROPHONE = 1,
@@ -812,7 +813,6 @@ declare namespace abilityAccessCtrl {
        * switch of location
        *
        * @syscap SystemCapability.Security.AccessToken
-       * @systemapi
        * @since 12
        */
       LOCATION = 2,
