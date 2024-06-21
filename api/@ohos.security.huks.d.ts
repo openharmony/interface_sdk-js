@@ -4888,7 +4888,7 @@ declare namespace huks {
     HUKS_TAG_AUTH_STORAGE_LEVEL = HuksTagType.HUKS_TAG_TYPE_UINT | 316,
 
     /**
-     * Authentication mode of the user authtoken，whose optional values are from enum HuksUserAuthMode.
+     * Authentication mode of the user authtoken, whose optional values are from enum HuksUserAuthMode.
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
      * @since 12
