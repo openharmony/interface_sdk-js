@@ -25,8 +25,9 @@ import Context from './application/BaseContext';
 /**
  * Manages background tasks.
  *
- * @since 7
+ * @namespace backgroundTaskManager
  * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
+ * @since 7
  * @deprecated since 9
  * @useinstead ohos.resourceschedule.backgroundTaskManager
  */
