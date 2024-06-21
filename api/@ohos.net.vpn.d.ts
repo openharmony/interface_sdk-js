@@ -97,7 +97,7 @@ declare namespace vpn {
   function off(type: 'connect', callback?: Callback<VpnConnectState>): void;
 
   /**
-   * add the VPN config.
+   * Add a system VPN network configuration.
    * @permission ohos.permission.MANAGE_VPN
    * @param { SysVpnConfig } config - Indicates the {@link SysVpnConfig} configuration of the VPN network.
    * @returns { Promise<void> } The promise returned by the function.
@@ -114,9 +114,9 @@ declare namespace vpn {
   function addSysVpnConfig(config: SysVpnConfig): Promise<void>;
 
   /**
-   * delete the VPN config.
+   * Delete the configuration of system VPN network by the specified vpnId.
    * @permission ohos.permission.MANAGE_VPN
-   * @param { string } vpnId - Indicates the uuid of the VPN network.
+   * @param { string } vpnId - Indicates the uuid of the VPN network configuration.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -131,9 +131,9 @@ declare namespace vpn {
   function deleteSysVpnConfig(vpnId: string): Promise<void>;
 
   /**
-   * get the VPN config list.
+   * Get all system VPN network configuration.
    * @permission ohos.permission.MANAGE_VPN
-   * @returns { Promise<Array<SysVpnConfig>> } The promise returned by the all VPN network..
+   * @returns { Promise<Array<SysVpnConfig>> } The promise returned by the all VPN network configuration.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -147,10 +147,10 @@ declare namespace vpn {
   function getSysVpnConfigList(): Promise<Array<SysVpnConfig>>;
 
   /**
-   * get the VPN config.
+   * Get the configuration of system VPN network by the specified vpnId.
    * @permission ohos.permission.MANAGE_VPN
    * @param { string } vpnId - Indicates the uuid of the VPN network.
-   * @returns { Promise<SysVpnConfig> } The promise returned by the VPN network.
+   * @returns { Promise<SysVpnConfig> } The promise returned by the VPN network configuration.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -164,9 +164,9 @@ declare namespace vpn {
   function getSysVpnConfig(vpnId: string): Promise<SysVpnConfig>;
 
   /**
-   * get the connected VPN config.
+   * Get the connected VPN network configuration.
    * @permission ohos.permission.MANAGE_VPN
-   * @returns { Promise<SysVpnConfig> } The promise returned by the connected VPN network.
+   * @returns { Promise<SysVpnConfig> } The promise returned by the connected VPN network configuration.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -411,7 +411,7 @@ declare namespace vpn {
    */
   export interface SysVpnConfig extends VpnConfig {
     /**
-     * The uuid of the VPN network.
+     * The uuid for the VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -420,7 +420,7 @@ declare namespace vpn {
     vpnId?: string;
 
     /**
-     * The name of the VPN network.
+     * The name for the VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -429,7 +429,7 @@ declare namespace vpn {
     vpnName?: string;
 
     /**
-     * The type of the VPN network.
+     * The type for the VPN network.
      * @type {?number}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -438,7 +438,7 @@ declare namespace vpn {
     vpnType?: number;
 
     /**
-     * The vpn user name
+     * The user name for the VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -447,7 +447,7 @@ declare namespace vpn {
     userName?: string;
 
     /**
-     * The vpn user password
+     * The user password for the VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -456,7 +456,7 @@ declare namespace vpn {
     password?: string;
 
     /**
-     * whether save login name and password
+     * Whether the VPN network save login name and password. The default value is false.
      * @type {?boolean}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -465,7 +465,7 @@ declare namespace vpn {
     saveLogin?: boolean;
 
     /**
-     * user id for system multi-user
+     * The system user id for the VPN network.
      * @type {?number}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -474,7 +474,7 @@ declare namespace vpn {
     userId?: number;
 
     /**
-     * forwarding routes for system multi-user
+     * The forwarding routes for the VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -492,7 +492,7 @@ declare namespace vpn {
    */
   export interface OpenVpnConfig extends SysVpnConfig {
     /**
-     * The openvpn port
+     * The port for the openvpn VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -501,7 +501,7 @@ declare namespace vpn {
     ovpnPort?: string;
 
     /**
-     * The openvpn protocol
+     * The protocol for the openvpn VPN network.
      * @type {?number}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -510,7 +510,7 @@ declare namespace vpn {
     ovpnProtocol?: number;
 
     /**
-     * The openvpn config
+     * The config for the openvpn VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -519,7 +519,7 @@ declare namespace vpn {
     ovpnConfig?: string;
 
     /**
-     * The openvpn auth type
+     * The auth type for the openvpn VPN network.
      * @type {?number}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -528,7 +528,7 @@ declare namespace vpn {
     ovpnAuthType?: number;
 
     /**
-     * The openvpn ask pass
+     * The ask pass for the openvpn VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -537,7 +537,7 @@ declare namespace vpn {
     askpass?: string;
 
     /**
-     * The openvpn config file path
+     * The config file path for the openvpn VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -546,7 +546,7 @@ declare namespace vpn {
     ovpnConfigFilePath?: string;
 
     /**
-     * The openvpn ca cert file path
+     * The ca cert file path for the openvpn VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -555,7 +555,7 @@ declare namespace vpn {
     ovpnCaCertFilePath?: string;
 
     /**
-     * The openvpn user cert file path
+     * The user cert file path for the openvpn VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -564,7 +564,7 @@ declare namespace vpn {
     ovpnUserCertFilePath?: string;
 
     /**
-     * The openvpn private key file path
+     * The private key file path for the openvpn VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -582,7 +582,7 @@ declare namespace vpn {
    */
   export interface IpsecVpnConfig extends SysVpnConfig {
     /**
-     * The ipsec vpn pre share key
+     * The pre share key for the ipsec VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -591,7 +591,7 @@ declare namespace vpn {
     ipsecPreSharedKey?: string;
 
     /**
-     * The ipsec vpn id
+     * The identifier for the ipsec VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -600,7 +600,7 @@ declare namespace vpn {
     ipsecIdentifier?: string;
 
     /**
-     * The ipsec vpn swanctl config
+     * The swanctl config for the ipsec VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -609,7 +609,7 @@ declare namespace vpn {
     swanctlConf?: string;
 
     /**
-     * The ipsec vpn strongswan config
+     * The strongswan config for the ipsec VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -618,7 +618,7 @@ declare namespace vpn {
     strongswanConf?: string;
 
     /**
-     * The ipsec vpn ca cert config
+     * The ca cert config for the ipsec VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -627,7 +627,7 @@ declare namespace vpn {
     ipsecCaCertConf?: string;
 
     /**
-     * The ipsec vpn private user cert config
+     * The private user cert config for the ipsec VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -636,7 +636,7 @@ declare namespace vpn {
     ipsecPrivateUserCertConf?: string;
 
     /**
-     * The ipsec vpn public user cert config
+     * The public user cert config for the ipsec VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -645,7 +645,7 @@ declare namespace vpn {
     ipsecPublicUserCertConf_?: string;
 
     /**
-     * The ipsec vpn private server cert config
+     * The private server cert config for the ipsec VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -654,7 +654,7 @@ declare namespace vpn {
     ipsecPrivateServerCertConf?: string;
 
     /**
-     * The ipsec vpn public server cert config
+     * The public server cert config for the ipsec VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -663,7 +663,7 @@ declare namespace vpn {
     ipsecPublicServerCertConf?: string;
 
     /**
-     * The ipsec vpn ca cert file path
+     * The ca cert file path for the ipsec VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -672,7 +672,7 @@ declare namespace vpn {
     ipsecCaCertFilePath?: string;
 
     /**
-     * The ipsec vpn private user cert file path
+     * The private user cert file path for the ipsec VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -681,7 +681,7 @@ declare namespace vpn {
     ipsecPrivateUserCertFilePath?: string;
 
     /**
-     * The ipsec vpn public user cert file path
+     * The public user cert file path for the ipsec VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -690,7 +690,7 @@ declare namespace vpn {
     ipsecPublicUserCertFilePath?: string;
 
     /**
-     * The ipsec vpn private server cert file path
+     * The private server cert file path for the ipsec VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -699,7 +699,7 @@ declare namespace vpn {
     ipsecPrivateServerCertFilePath?: string;
 
     /**
-     * The ipsec vpn public server cert file path
+     * The public server cert file path for the ipsec VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -717,7 +717,7 @@ declare namespace vpn {
    */
   export interface L2tpVpnConfig extends SysVpnConfig {
     /**
-     * The ipsec vpn pre share key
+     * The pre share key for the l2tp VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -726,7 +726,7 @@ declare namespace vpn {
     ipsecPreSharedKey?: string;
 
     /**
-     * The ipsec vpn id
+     * The identifier for the l2tp VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -735,7 +735,7 @@ declare namespace vpn {
     ipsecIdentifier?: string;
 
     /**
-     * The ipsec vpn strongswan config
+     * The strongswan config for the l2tp VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -744,7 +744,7 @@ declare namespace vpn {
     strongswanConf?: string;
 
     /**
-     * The ipsec vpn ca cert config
+     * The ca cert config for the l2tp VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -753,7 +753,7 @@ declare namespace vpn {
     ipsecCaCertConf?: string;
 
     /**
-     * The ipsec vpn private user cert config
+     * The private user cert config for the l2tp VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -762,7 +762,7 @@ declare namespace vpn {
     ipsecPrivateUserCertConf?: string;
 
     /**
-     * The ipsec vpn public user cert config
+     * The public user cert config for the l2tp VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -771,7 +771,7 @@ declare namespace vpn {
     ipsecPublicUserCertConf_?: string;
 
     /**
-     * The ipsec vpn private server cert config
+     * The private server cert config for the l2tp VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -780,7 +780,7 @@ declare namespace vpn {
     ipsecPrivateServerCertConf?: string;
 
     /**
-     * The ipsec vpn public server cert config
+     * The public server cert config for the l2tp VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -789,7 +789,7 @@ declare namespace vpn {
     ipsecPublicServerCertConf?: string;
 
     /**
-     * The ipsec vpn ca cert file path
+     * The ca cert file path for the l2tp VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -798,7 +798,7 @@ declare namespace vpn {
     ipsecCaCertFilePath?: string;
 
     /**
-     * The ipsec vpn private user cert file path
+     * The private user cert file path for the l2tp VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -807,7 +807,7 @@ declare namespace vpn {
     ipsecPrivateUserCertFilePath?: string;
 
     /**
-     * The ipsec vpn public user cert file path
+     * The public user cert file path for the l2tp VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -816,7 +816,7 @@ declare namespace vpn {
     ipsecPublicUserCertFilePath?: string;
 
     /**
-     * The ipsec vpn private server cert file path
+     * The private server cert file path for the l2tp VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -825,7 +825,7 @@ declare namespace vpn {
     ipsecPrivateServerCertFilePath?: string;
 
     /**
-     * The ipsec vpn public server cert file path
+     * The public server cert file path for the l2tp VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -834,7 +834,7 @@ declare namespace vpn {
     ipsecPublicServerCertFilePath?: string;
 
     /**
-     * The L2TP/IPSec vpn config
+     * The config for the l2tp VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -843,7 +843,7 @@ declare namespace vpn {
     ipsecConf?: string;
 
     /**
-     * The L2TP/IPSec vpn secrets
+     * The secrets for the l2tp VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -852,7 +852,7 @@ declare namespace vpn {
     ipsecSecrets?: string;
 
     /**
-     * The L2TP/IPSec vpn client options
+     * The client options for the l2tp VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -861,7 +861,7 @@ declare namespace vpn {
     optionsL2tpdClient?: string;
 
     /**
-     * The L2TP/IPSec vpn xl2tpd config
+     * The xl2tpd config for the l2tp VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
@@ -870,7 +870,7 @@ declare namespace vpn {
     xl2tpdConf?: string;
 
     /**
-     * The L2TP/IPSec vpn shared key
+     * The shared key for the l2tp VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
