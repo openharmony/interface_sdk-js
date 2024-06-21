@@ -159,6 +159,7 @@ declare namespace promptAction {
      * @type { ?ToastShowMode }
      * @default ToastShowMode.DEFAULT
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -195,6 +196,7 @@ declare namespace promptAction {
    *
    * @enum { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -209,6 +211,7 @@ declare namespace promptAction {
      * Toast shows in app.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -224,6 +227,7 @@ declare namespace promptAction {
      * Toast shows at the top.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
      * @atomicservice
      * @since 12
      */
