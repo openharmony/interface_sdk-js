@@ -4026,7 +4026,22 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
-    scrollTo(x: number, y: number): void;
+    /**
+     * Scroll to the position.
+     *
+     * @param { number } x - the x of the position.
+     * @param { number } y - the y of the position.
+     * @param { number } duration - the scroll animation duration. Unit: millisecond.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    scrollTo(x: number, y: number, duration?: number): void;
 
     /**
      * Scroll by the delta position.
@@ -4053,7 +4068,22 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
-    scrollBy(deltaX: number, deltaY: number): void;
+    /**
+     * Scroll by the delta position.
+     *
+     * @param { number } deltaX - the delta x of the position.
+     * @param { number } deltaY - the delta y of the position.
+     * @param { number } duration - the scroll animation duration. Unit: millisecond.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    scrollBy(deltaX: number, deltaY: number, duration?: number): void;
 
     /**
      * Slide by the speed.
