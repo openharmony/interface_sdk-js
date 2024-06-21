@@ -426,13 +426,13 @@ declare namespace vpn {
 
     /**
      * The type for the VPN network.
-     * @type {?VpnType}
-     * See {@link VpnType}
+     * @type {?SysVpnType}
+     * See {@link SysVpnType}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    vpnType?: number;
+    vpnType?: SysVpnType;
 
     /**
      * The user name for the VPN network.
@@ -883,7 +883,7 @@ declare namespace vpn {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  export enum VpnType {
+  export enum SysVpnType {
     /**
      * The type for the IKEv2/IPsec MSCHAPv2 VPN network.
      * @syscap SystemCapability.Communication.NetManager.Vpn
