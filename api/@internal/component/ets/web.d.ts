@@ -5972,6 +5972,16 @@ declare interface JavaScriptProxy {
    * @since 12
    */
   asyncMethodList?: Array<string>;
+  /**
+   * permission configuration defining web page URLs that can access JavaScriptProxy methods.
+   * The configuration can be defined at two levels, object level and method level.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  permission?: string;
 }
 
 /**
