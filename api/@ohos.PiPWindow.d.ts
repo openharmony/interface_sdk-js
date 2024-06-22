@@ -415,7 +415,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    HANG_UP = 5,
+    HANG_UP_BUTTON = 5,
 
     /**
      * Microphone state switching control.
