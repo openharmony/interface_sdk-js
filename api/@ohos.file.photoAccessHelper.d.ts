@@ -3524,6 +3524,26 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     isOriginalSupported?: boolean;
+
+    /**
+     * SubWindowName
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    subWindowName?: string;
+
+    /**
+     * Theme color
+     *
+     * @type { ?CustomColors }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    themeColor?: CustomColors;
   }
 
   /**
