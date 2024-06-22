@@ -262,22 +262,22 @@ export class Check {
             compositiveLocalResult
           );
         }
-          if (!errorCodeResult.state) {
-              AddErrorLogs.addAPICheckErrorLogs(
-                  ErrorID.ERROR_ERROR_CODE,
-                  ErrorLevel.MIDDLE,
-                  singleApi.getFilePath(),
-                  singleApi.getPos(),
-                  ErrorType.ERROR_ERROR_CODE,
-                  LogType.LOG_JSDOC,
-                  toNumber(apiJsdoc.since),
-                  singleApi.getApiName(),
-                  singleApi.getDefinedText(),
-                  errorCodeResult.errorInfo,
-                  compositiveResult,
-                  compositiveLocalResult,
-              );
-          }
+        if (!errorCodeResult.state) {
+          AddErrorLogs.addAPICheckErrorLogs(
+            ErrorID.ERROR_ERROR_CODE,
+            ErrorLevel.MIDDLE,
+            singleApi.getFilePath(),
+            singleApi.getPos(),
+            ErrorType.ERROR_ERROR_CODE,
+            LogType.LOG_JSDOC,
+            toNumber(apiJsdoc.since),
+            singleApi.getApiName(),
+            singleApi.getDefinedText(),
+            errorCodeResult.errorInfo,
+            compositiveResult,
+            compositiveLocalResult,
+          );
+        }
         tagInheritCheckResult.forEach((InheritCheckResult: ErrorTagFormat) => {
           if (!InheritCheckResult.state) {
             AddErrorLogs.addAPICheckErrorLogs(
