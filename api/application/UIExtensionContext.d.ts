@@ -512,7 +512,7 @@ export default class UIExtensionContext extends ExtensionContext {
   startAbilityForResultAsCaller(want: Want, options?: StartOptions): Promise<AbilityResult>;
 
   /**
-   * Connects the current ability to an service extension ability using the AbilityInfo.AbilityType.SERVICE template.
+   * Connects the current ability to an service extension ability.
    * If the target service extension ability is visible, you can connect the target service extension ability;
    * If the target service extension ability is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to connect target invisible service extension ability.

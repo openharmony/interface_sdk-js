@@ -486,12 +486,8 @@ export declare struct SubHeader {
   /**
    * Set the content margin.
    * @type { ?LocalizedMargin }
-   * @default set different default values according to the width of the subHeader:
-   * <br> When the subHeader width is <600vp, the default value is
-   * <br> {start: LengthMetrics.vp(16), end: LengthMetrics.vp(16)};
-   * <br> When the subHeader width is >=600vp and <840vp, the default value is
-   * <br> {start: LengthMetrics.vp(24), end: LengthMetrics.vp(24)};
-   * <br> Otherwise, the default value is {start: LengthMetrics.vp(32), end: LengthMetrics.vp(32)}.
+   * @default {start: LengthMetrics.resource($r('sys.float.margin_left')),
+   * <br> end: LengthMetrics.resource($r('sys.float.margin_right'))}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 12
    */

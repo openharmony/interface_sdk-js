@@ -94,6 +94,7 @@ import StartupConfigEntry from '@ohos.app.appstartup.StartupConfigEntry';
 import StartupListener from '@ohos.app.appstartup.StartupListener';
 import StartupTask from '@ohos.app.appstartup.StartupTask';
 import startupManager from '@ohos.app.appstartup.startupManager';
+import screenLockFileManager from "@ohos.ability.screenLockFileManager";
 
 export {
   Ability, AbilityConstant, AbilityLifecycleCallback, AbilityStage, ActionExtensionAbility,
@@ -109,5 +110,6 @@ export {
   distributedBundleManager, distributedMissionManager, errorManager, featureAbility, freeInstall,
   innerBundleManager, insightIntent, insightIntentDriver, installer, launcherBundleManager, missionManager,
   overlay, particleAbility, quickFixManager, uriPermissionManager, wantAgent, wantConstant, privacyManager,
-  EmbeddedUIExtensionAbility, StartupConfig, StartupConfigEntry, StartupListener, StartupTask, startupManager
+  EmbeddedUIExtensionAbility, StartupConfig, StartupConfigEntry, StartupListener, StartupTask, startupManager,
+  screenLockFileManager
 };

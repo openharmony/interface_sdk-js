@@ -6458,18 +6458,21 @@ declare namespace webview {
    * Enum type for indicating the media type of native media player.
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 12
    */
   enum MediaType {
     /**
      * Media type is video.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 12
      */
     VIDEO = 0,
     /**
      * Media type is audio.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 12
      */
     AUDIO
