@@ -25,14 +25,14 @@
  */
 export interface StartBLEScanOptions {
     /**
-     * StartBLEScanOptions completed
+     * Initializes the connected NFC tag.
      *
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, or the permissionName exceeds 256 characters.
-     * @syscap SystemCapability.Communication.Bluetooth.Lite
-     * @since 6
+     * @throws { BusinessError } 209 - Capability not supported.
+     * @throws { BusinessError } 3200101 - Connected NFC tag running state is abnormal in service.
+     * @syscap SystemCapability.Communication.ConnectedTag
+     * @since 9
      */
-    complete: () => void;
+    initialize(): void;
 }
 
 
