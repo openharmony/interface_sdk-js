@@ -599,14 +599,14 @@ declare namespace PiPWindow {
     /**
      * Set Dashboard control enable status.
      * @param { PiPControlType } controlType - Describe picture-in-picture control type.
-     * @param { boolean } isEnable - Describe picture-in-picture control enable Status.
+     * @param { boolean } enabled - Describe picture-in-picture control enable Status.
      * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
      *                                                                2. Incorrect parameter types.
      *                                                                3. Parameter verification failed
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    setPiPControlEnable(controlType: PiPControlType, isEnable: boolean): void;
+    setPiPControlEnable(controlType: PiPControlType, enabled: boolean): void;
 
     /**
      * Register picture-in-picture control event listener.
