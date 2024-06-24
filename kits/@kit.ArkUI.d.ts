@@ -109,10 +109,12 @@ import { Colors, CustomColors, Theme, ThemeControl, CustomTheme } from '@ohos.ar
 import {
   ExtraRegionPosition,
   ExpandedRegionLayoutOptions,
-  SemiFoldedRegionLayoutOptions,
+  HoverModeRegionLayoutOptions,
   FoldedRegionLayoutOptions,
   PresetSplitRatio,
   FoldSplitContainer,
+  HoverModeStatus,
+  OnHoverStatusChangeHandler,
 } from '@ohos.arkui.advanced.FoldSplitContainer';
 import { AppStorageV2, PersistenceV2, Type } from '@ohos.arkui.StateManagement';
 import { IDataSourcePrefetching, IPrefetcher, BasicPrefetcher } from '@ohos.arkui.Prefetcher';
@@ -144,7 +146,8 @@ export {
   screen, screenshot, uiAppearance, uiExtensionHost, uiObserver, window, windowAnimationManager, CustomContentDialog,
   IconOptions, ChipItemLabelOptions, ChipGroupItemOptions, ChipItemStyle, ChipGroupSpaceOptions, IconItemOptions, IconGroupSuffix, ChipGroup,
   SymbolGlyphModifier, Colors, CustomColors, Theme, ThemeControl, CustomTheme, ChipSymbolGlyphOptions,
-  ExtraRegionPosition, ExpandedRegionLayoutOptions, SemiFoldedRegionLayoutOptions, FoldedRegionLayoutOptions, PresetSplitRatio, FoldSplitContainer,
+  ExtraRegionPosition, ExpandedRegionLayoutOptions, HoverModeRegionLayoutOptions, FoldedRegionLayoutOptions, PresetSplitRatio, FoldSplitContainer,
+  HoverModeStatus,  OnHoverStatusChangeHandler,
   AppStorageV2, PersistenceV2, Type,
   IDataSourcePrefetching, IPrefetcher, BasicPrefetcher
 };
