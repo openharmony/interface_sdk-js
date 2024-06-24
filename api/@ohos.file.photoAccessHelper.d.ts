@@ -22,7 +22,7 @@ import type { AsyncCallback, Callback } from './@ohos.base';
 import type Context from './application/Context';
 import type image from './@ohos.multimedia.image';
 import type dataSharePredicates from './@ohos.data.dataSharePredicates';
-import { CustomColors } from './@ohos.arkui.theme';
+import type { CustomColors } from './@ohos.arkui.theme';
 
 /**
  * Helper functions to access image and video assets
@@ -3527,7 +3527,7 @@ declare namespace photoAccessHelper {
     isOriginalSupported?: boolean;
 
     /**
-     * SubWindowName
+     * SubWindow name
      *
      * @type { ?string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
