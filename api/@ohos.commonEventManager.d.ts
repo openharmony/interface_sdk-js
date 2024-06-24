@@ -2167,6 +2167,18 @@ declare namespace commonEventManager {
     COMMON_EVENT_MINORSMODE_OFF = 'usual.event.MINORSMODE_OFF',
 
     /**
+     * Indicates the action of a common event that the bundle resources have been changed.
+     * To subscribe to this common event, your application must have the ohos.permission.GET_BUNDLE_RESOURCES
+     * permission.
+     * This is a protected common event, which can be sent only by the system.
+     * 
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @since 12
+     */
+    COMMON_EVENT_BUNDLE_RESOURCES_CHANGED = "usual.event.BUNDLE_RESOURCES_CHANGED",    
+
+    /**
      * This common event means that datashare is ready.
      * This is a protected common event that can only be sent by system.
      *
