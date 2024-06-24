@@ -22,6 +22,8 @@ import { AsyncCallback, Callback } from './@ohos.base';
 
 /**
  * Providers interfaces to creat a {@link KVManager} instance.
+ *
+ * @namespace distributedData
  * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
  * @since 7
  * @deprecated since 9
@@ -103,6 +105,7 @@ declare namespace distributedData {
   /**
    * KVStore constants
    *
+   * @namespace Constants
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
    * @since 7
    * @deprecated since 9
