@@ -606,7 +606,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    setPiPControlEnable(controlType: PiPControlType, enabled: boolean): void;
+    setPiPControlEnabled(controlType: PiPControlType, enabled: boolean): void;
 
     /**
      * Register picture-in-picture control event listener.
