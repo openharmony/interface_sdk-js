@@ -567,6 +567,18 @@ declare namespace drawing {
     save(): number;
 
     /**
+     * Saves matrix and clip, and allocates a bitmap for subsequent drawing.
+     * Calling restore discards changes to matrix and clip, and draws the bitmap.
+     * @param { common2D.Rect | null} rect - Optional layer size. The default value is null.
+     * @param { Brush | null} brush - Optional brush effect used to draw the layer. The default value is null.
+     * @returns { number } Return the number of saved states before this call.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    saveLayer(rect?: common2D.Rect | null, brush?: Brush | null): number;
+
+    /**
      * Restores the canvas status (canvas matrix) saved on the top of the stack.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12

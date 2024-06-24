@@ -228,6 +228,7 @@ disables
 disallowed
 disallowing
 disallows
+discards
 discharging
 disconnecting
 disconnection
