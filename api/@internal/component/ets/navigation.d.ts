@@ -1936,6 +1936,30 @@ declare interface NavigationTitleOptions {
    * @since 12
    */
   barStyle?: BarStyle;
+
+  /**
+   * Set title bar start padding.
+   *
+   * @type { ?LengthMetrics }
+   * @default LengthMetrics.resource($r('sys.float.margin_left'))
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  paddingStart?: LengthMetrics;
+
+  /**
+   * Set title bar end padding.
+   *
+   * @type { ?LengthMetrics }
+   * @default LengthMetrics.resource($r('sys.float.margin_right'))
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  paddingEnd?: LengthMetrics;
 }
 
 /**
