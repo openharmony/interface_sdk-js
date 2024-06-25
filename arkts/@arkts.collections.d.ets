@@ -132,6 +132,7 @@ declare namespace collections {
    * @interface ConcatArray
    * @extends ISendable
    * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
    * @since 12
    */
   interface ConcatArray<T> extends ISendable {
