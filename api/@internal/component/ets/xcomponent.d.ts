@@ -334,15 +334,7 @@ interface XComponentInterface {
    * @returns { XComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
-   */
-  /**
-   * Constructor parameters
-   *
-   * @param { object } value - Indicates the options of the xcomponent.
-   * @returns { XComponentAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
+   * @deprecated since 12
    */
   (value: { id: string; type: string; libraryname?: string; controller?: XComponentController }): XComponentAttribute;
 
@@ -365,16 +357,6 @@ interface XComponentInterface {
    * @since 12
    */
   (value: { id: string; type: XComponentType; libraryname?: string; controller?: XComponentController }): XComponentAttribute;
-
-  /**
-   * Constructor parameters
-   *
-   * @param { object } value - Indicates the options of the xcomponent.
-   * @returns { XComponentAttribute } The attribute of the xcomponent.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 12
-   */
-  (value: { id: string; type: XComponentType; imageAIOptions: ImageAIOptions; libraryname?: string; controller?: XComponentController }): XComponentAttribute;
 
   /**
    * Constructor parameters
