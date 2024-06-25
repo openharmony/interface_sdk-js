@@ -2604,7 +2604,7 @@ declare interface sharedTransitionOptions {
  */
 declare interface GeometryTransitionOptions {
   /**
-   * Whether follow target for the component still in the hierarchy, default: false, stay current.
+   * whether follow target for the component still in the hierarchy, default: false, stay current.
    *
    * @type { ?boolean }
    * @default false
@@ -2613,7 +2613,7 @@ declare interface GeometryTransitionOptions {
    * @since 11
    */
   /**
-   * Whether follow target for the component still in the hierarchy, default: false, stay current.
+   * whether follow target for the component still in the hierarchy, default: false, stay current.
    *
    * @type { ?boolean }
    * @default false
