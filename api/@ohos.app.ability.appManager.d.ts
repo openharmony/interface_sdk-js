@@ -905,6 +905,25 @@ declare namespace appManager {
   function isAppRunning(bundleName: string, appCloneIndex?: number): Promise<boolean>;
 
   /**
+   * Clear up application data by bundle name
+   *
+   * @permission ohos.permission.CLEAN_APPLICATION_DATA
+   * @param { string } bundleName - bundle name.
+   * @param { number } [appCloneIndex] - app clone index
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *    2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000073 - The app clone index does not exist.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 12
+   */
+  function clearUpAppData(bundleName: string, appCloneIndex?: number): Promise<void>;
+
+  /**
    * The ability or extension state data.
    *
    * @typedef { _AbilityStateData.default }
