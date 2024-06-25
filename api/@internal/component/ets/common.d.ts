@@ -2623,40 +2623,50 @@ declare interface GeometryTransitionOptions {
    * @since 12
    */
   follow?: boolean;
-
   /**
-   * HierarchyStrategy enumeration description.
    * Defines movement strategy of source and target in the hierarchy during geometry transition.
-   *
-   * @enum { number }
+   * 
+   * @type { ?HierarchyStrategy }
+   * @default HierarchyStrategy.NONE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @systemapi
    * @since 12
    */
-  enum HierarchyStrategy {
-    /**
-     * None mode.
-     * Default, no elevation to source and target in the hierarchy.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @systemapi
-     * @since 12
-     */
-    NONE = 0,
+  hierarchyStrategy?: HierarchyStrategy
+}
 
-    /**
-     * ADAPTIVE mode.
-     * One of the lower level in the source and target is elevated to higher level of both. 
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @systemapi
-     * @since 12
-     */
-    ADAPTIVE = 1,
-  }
+/**
+ * HierarchyStrategy enumeration description.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @systemapi
+ * @since 12
+ */
+declare enum HierarchyStrategy {
+  /**
+   * None mode.
+   * Default, no elevation to source and target in the hierarchy.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @systemapi
+   * @since 12
+   */
+  NONE = 0,
+
+  /**
+   * ADAPTIVE mode.
+   * One of the lower level in the source and target is elevated to higher level of both. 
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @systemapi
+   * @since 12
+   */
+  ADAPTIVE = 1,
 }
 
 /**
