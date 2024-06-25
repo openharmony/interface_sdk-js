@@ -19049,6 +19049,19 @@ declare class CommonMethod<T> {
   accessibilityText(value: string): T;
 
   /**
+   * Sets accessibilityText
+   *
+   * @param { Resource } text - set accessibility text
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  accessibilityText(text: Resource): T;
+
+  /**
    * Sets accessibilityTextHint
    *
    * @param { string } value - set accessibility text hint
@@ -19092,6 +19105,19 @@ declare class CommonMethod<T> {
    * @since 12
    */
   accessibilityDescription(value: string): T;
+
+  /**
+   * Sets accessibilityDescription
+   *
+   * @param { Resource } description - set description of accessibility
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  accessibilityDescription(description: Resource): T;
 
   /**
    * Sets accessibilityLevel
