@@ -2716,6 +2716,46 @@ declare namespace wifiManager {
      * @since 10
      */
     proxyConfig?: WifiProxyConfig;
+
+    /**
+     * WAPI config info.
+     * @type { ?WifiWapiConfig }
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 12
+     */
+    wapiConfig?: WifiWapiConfig;
+  }
+
+  /**
+   * Wi-Fi WAPI config.
+   * @typedef WifiWapiConfig
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @since 12
+   */
+  interface WifiWapiConfig {
+    /**
+     * WAPI pre-shared key type.
+     * @type { WapiPskType }
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 12
+     */
+    wapiPskType: WapiPskType;
+
+    /**
+     * WAPI AS certification.
+     * @type { string }
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 12
+     */
+    wapiAsCert: string;
+
+    /**
+     * WAPI user certification.
+     * @type { string }
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 12
+     */
+    wapiUserCert: string;
   }
 
   /**
@@ -3124,6 +3164,30 @@ declare namespace wifiManager {
      * @since 9
      */
     WIFI_SEC_TYPE_WAPI_PSK = 9
+  }
+
+  /**
+   * Describes the WAPI pre-shared key Type.
+   * @enum { number }
+   * @syscap SystemCapability.Communication.WiFi.Core
+   * @since 12
+   */
+  enum WapiPskType {
+    /**
+     * ASCII character type of WAPI pre-shared key.
+     *
+     * @syscap SystemCapability.Communication.WiFi.Core
+     * @since 12
+     */
+    WAPI_PSK_ASCII = 0,
+
+    /**
+     * HEX character type of WAPI pre-shared key.
+     *
+     * @syscap SystemCapability.Communication.WiFi.Core
+     * @since 12
+     */
+    WAPI_PSK_HEX = 1
   }
 
   /**
