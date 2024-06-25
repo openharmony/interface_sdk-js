@@ -2629,8 +2629,8 @@ declare interface GeometryTransitionOptions {
    * @type { ?HierarchyStrategy }
    * @default HierarchyStrategy.NONE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
    * @systemapi
+   * @atomicservice
    * @since 12
    */
   hierarchyStrategy?: HierarchyStrategy
@@ -2641,8 +2641,8 @@ declare interface GeometryTransitionOptions {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
  * @systemapi
+ * @atomicservice
  * @since 12
  */
 declare enum HierarchyStrategy {
@@ -2651,8 +2651,8 @@ declare enum HierarchyStrategy {
    * Default, no elevation to source and target in the hierarchy.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
    * @systemapi
+   * @atomicservice
    * @since 12
    */
   NONE = 0,
@@ -2662,8 +2662,8 @@ declare enum HierarchyStrategy {
    * One of the lower level in the source and target is elevated to higher level of both. 
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
    * @systemapi
+   * @atomicservice
    * @since 12
    */
   ADAPTIVE = 1,
