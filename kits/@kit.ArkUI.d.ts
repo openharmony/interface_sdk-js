@@ -84,7 +84,7 @@ import matrix4 from '@ohos.matrix4';
 import MeasureText, { MeasureOptions } from '@ohos.measure';
 import mediaquery from '@ohos.mediaquery';
 import PiPWindow from '@ohos.PiPWindow';
-import pluginComponentManager from '@ohos.pluginComponent';
+import pluginComponentManager, { PluginComponentTemplate } from '@ohos.pluginComponent';
 import prompt from '@ohos.prompt';
 import promptAction from '@ohos.promptAction';
 import router from '@ohos.router';
@@ -142,7 +142,7 @@ export {
   TipsDialog, ToolBar, ToolBarOption, ToolBarOptions, Translation, TreeController, TreeListenType, TreeListener,
   TreeListenerManager, TreeView, UIContext, UIInspector, UIObserver, PageInfo, WindowExtensionAbility, WindowExtensionContext, XComponentNode,
   LengthMetrics, LayoutConstraint, ComponentContent, componentSnapshot, componentUtils, curves, display, dragController, dragInteraction,
-  font, inspector, matrix4, mediaquery, performanceMonitor, pluginComponentManager, prompt, promptAction, router,
+  font, inspector, matrix4, mediaquery, performanceMonitor, pluginComponentManager, PluginComponentTemplate, prompt, promptAction, router,
   screen, screenshot, uiAppearance, uiExtensionHost, uiObserver, window, windowAnimationManager, CustomContentDialog,
   IconOptions, ChipItemLabelOptions, ChipGroupItemOptions, ChipItemStyle, ChipGroupSpaceOptions, IconItemOptions, IconGroupSuffix, ChipGroup,
   SymbolGlyphModifier, Colors, CustomColors, Theme, ThemeControl, CustomTheme, ChipSymbolGlyphOptions,
