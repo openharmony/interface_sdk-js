@@ -4443,7 +4443,6 @@ declare namespace media {
     /**
      * A audio container format type mp3.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @atomicservice
      * @since 12
      */
     CFT_MP3 = 'mp3',
