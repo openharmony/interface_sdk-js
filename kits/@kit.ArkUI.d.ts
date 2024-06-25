@@ -151,5 +151,5 @@ export {
   ExtraRegionPosition, ExpandedRegionLayoutOptions, HoverModeRegionLayoutOptions, FoldedRegionLayoutOptions, PresetSplitRatio, FoldSplitContainer,
   HoverModeStatus,  OnHoverStatusChangeHandler,
   AppStorageV2, PersistenceV2, Type,
-  IDataSourcePrefetching, IPrefetcher, BasicPrefetcher,uiExtension, FullScreenLaunchComponent
+  IDataSourcePrefetching, IPrefetcher, BasicPrefetcher, uiExtension, FullScreenLaunchComponent
 };
