@@ -2626,18 +2626,18 @@ declare interface GeometryTransitionOptions {
   /**
    * Defines movement strategy of source and target in the hierarchy during geometry transition.
    * 
-   * @type { ?HierarchyStrategy }
-   * @default HierarchyStrategy.ADAPTIVE
+   * @type { ?TransitionHierarchyStrategy }
+   * @default TransitionHierarchyStrategy.ADAPTIVE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @atomicservice
    * @since 12
    */
-  hierarchyStrategy?: HierarchyStrategy
+  transitionHierarchyStrategy?: TransitionHierarchyStrategy
 }
 
 /**
- * HierarchyStrategy enumeration description.
+ * TransitionHierarchyStrategy enumeration description.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2645,7 +2645,7 @@ declare interface GeometryTransitionOptions {
  * @atomicservice
  * @since 12
  */
-declare enum HierarchyStrategy {
+declare enum TransitionHierarchyStrategy {
   /**
    * None mode.
    * No elevation to source and target in the hierarchy.
