@@ -1,2 +1,0 @@
-# api absolute path
-Z:\root\interface\sdk-js\api\xxx.d.ts
