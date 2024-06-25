@@ -13,12 +13,12 @@
  * limitations under the License.
  */
 
-import StartupListener from './@ohos.app.appstartup.StartupListener';
-
 /**
  * @file
  * @kit AbilityKit
  */
+
+import StartupListener from './@ohos.app.appstartup.StartupListener';
 
 /**
  * The interface of configuration for running startup tasks.

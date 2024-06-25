@@ -116,6 +116,7 @@ declare class TextClockController {
  * TextClockConfiguration used by text clock content modifier
  *
  * @interface TextClockConfiguration
+ * @extends CommonConfiguration<TextClockConfiguration>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
@@ -547,6 +548,19 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @since 12
    */
   contentModifier(modifier: ContentModifier<TextClockConfiguration>): TextClockAttribute;
+
+  /**
+   * Set hour format
+   *
+   * @param { Optional<DateTimeOptions> } dateTimeOptions - Indicates whether a leading 0 is required for the hour.
+   * @returns { TextClockAttribute } the attribute of the text clock
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  dateTimeOptions(dateTimeOptions: Optional<DateTimeOptions>): TextClockAttribute;
 }
 
 /**

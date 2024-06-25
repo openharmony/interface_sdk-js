@@ -14,11 +14,6 @@
  */
 
 /**
- * @file
- * @kit NetworkKit
- */
-
-/**
  * This module provides the Fetch Response.
  * @interface FetchResponse
  * @syscap SystemCapability.Communication.NetStack

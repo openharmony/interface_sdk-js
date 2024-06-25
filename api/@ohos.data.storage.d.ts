@@ -23,6 +23,7 @@ import { AsyncCallback, Callback } from './@ohos.base';
 /**
  * Provides interfaces to obtain and modify storage data.
  *
+ * @namespace storage
  * @name storage
  * @since 6
  * @deprecated since 9
