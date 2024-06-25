@@ -2633,7 +2633,7 @@ declare interface GeometryTransitionOptions {
    * @atomicservice
    * @since 12
    */
-  transitionHierarchyStrategy?: TransitionHierarchyStrategy
+  hierarchyStrategy?: TransitionHierarchyStrategy
 }
 
 /**
