@@ -4903,6 +4903,27 @@ declare namespace webview {
      * @since 12
      */
     setPathAllowingUniversalAccess(pathList: Array<string>): void;
+
+    /**
+     * Enable the BackForwardCache.
+     * Default is disabled.
+     *
+     * @param { BackForwardCacheSupportFeatures } options - The features that supports BackForwardCache.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    static enableBackForwardCache(features: BackForwardCacheSupportFeatures): void;
+
+    /**
+     * Configure the BackForwardCache.
+     *
+     * @param { BackForwardCacheOptions } options - The configuration of BackForwardCache.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    setBackForwardCacheOptions(options: BackForwardCacheOptions): void;
   }
 
   /**
@@ -6716,6 +6737,50 @@ declare namespace webview {
      * @since 12
      */
     attributes: Record<string, string>,
+  }
+
+  interface BackForwardCacheSupportFeatures {
+    /**
+     * Whether cache the pages that use native embed.
+     * Default is false;
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    NativeEmbed?: boolean;
+
+    /**
+     * Whether cache the pages that use media intercpet.
+     * Default is false;
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    MediaIntercept?: boolean;
+  }
+
+  interface BackForwardCacheOptions {
+    /**
+     * Set the maximum size of pages that can cache.
+     * Default is 1;
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    size?: number;
+
+    /**
+     * Set the lifetime in seconds in the BackForwardCache.
+     * Default is 600.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    timeToLive? : number;
   }
 
   /**
