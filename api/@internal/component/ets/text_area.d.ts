@@ -394,6 +394,16 @@ declare enum TextAreaType {
    * @since 12
    */
   NUMBER_DECIMAL = 12,
+
+  /**
+   * URL entry mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  URL = 13,
 }
 
 /**
@@ -681,7 +691,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   /**
    * Called when the type of soft keyboard input button is set.
    *
-   * @param { EnterKeyType } value: the type of soft keyboard
+   * @param { EnterKeyType } value the type of soft keyboard
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -690,7 +700,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   /**
    * Called when the type of soft keyboard input button is set.
    *
-   * @param { EnterKeyType } value: the type of soft keyboard
+   * @param { EnterKeyType } value the type of soft keyboard
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
