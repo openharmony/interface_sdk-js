@@ -246,6 +246,51 @@ declare namespace wantConstant {
      * @since 12
      */
     APP_CLONE_INDEX_KEY = 'ohos.extra.param.key.appCloneIndex',
+
+    /**
+     * Indicates the param of page path.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @atomicservice
+     * @since 12
+     */
+    PAGE_PATH = 'ohos.param.atomicservice.pagePath',
+
+    /**
+     * Indicates the param of router name.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @atomicservice
+     * @since 12
+     */
+    ROUTER_NAME = 'ohos.param.atomicservice.routerName',
+
+    /**
+     * Indicates the param of page source file.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @atomicservice
+     * @since 12
+     */
+    PAGE_SOURCE_FILE = 'ohos.param.atomicservice.pageSourceFile',
+
+    /**
+     * Indicates the param of build function.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @atomicservice
+     * @since 12
+     */
+    BUILD_FUNCTION = 'ohos.param.atomicservice.buildFunction',
+  
+    /**
+     * Indicates the param of subpackage name.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @atomicservice
+     * @since 12
+     */
+    SUB_PACKAGE_NAME = 'ohos.param.atomicservice.subpackageName',
   }
 
   /**
