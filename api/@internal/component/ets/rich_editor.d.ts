@@ -1055,6 +1055,17 @@ declare interface RichEditorTextStyleResult {
   decoration: { type: TextDecorationType; color: ResourceColor; };
 
   /**
+   * Text shadow
+   *
+   * @type { Array<ShadowOptions> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  textShadow?: Array<ShadowOptions>;
+
+  /**
    * letter spacing.
    *
    * @type { ?number } 
