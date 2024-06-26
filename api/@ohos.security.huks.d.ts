@@ -4077,18 +4077,21 @@ declare namespace huks {
    */
   export enum HuksUserAuthMode {
     /**
+     * Auth mode for local scenarios.
+     * 
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
      * @since 12
      */
     HUKS_USER_AUTH_MODE_LOCAL = 0,
     /**
+     * Auth mode for co-auth scenarios.
+     * 
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
      * @since 12
      */
     HUKS_USER_AUTH_MODE_COAUTH = 1,
-
   }
   /**
    * Enum for huks key file storage authentication level.
