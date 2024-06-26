@@ -22,6 +22,9 @@ import windowAnimationManager from '@ohos.animation.windowAnimationManager';
 import Animator, { AnimatorOptions, AnimatorResult } from '@ohos.animator';
 import WindowExtensionAbility, { WindowExtensionContext } from '@ohos.application.WindowExtensionAbility';
 import {
+    ArcButton, ArcButtonOptions, ArcButtonTypeMode, ArcButtonStyleMode, ArcButtonStatus, ArkButtonClickEffectStyle,
+} from '@ohos.arkui.advanced.ArcButton';
+import {
   Chip, ChipOptions, ChipSize, IconCommonOptions, LabelMarginOptions, LabelOptions, PrefixIconOptions,
   SuffixIconOptions, SymbolOptions
 } from '@ohos.arkui.advanced.Chip';
@@ -108,7 +111,8 @@ import SystemRouter, {
 export {
   AddFormMenuItem, AddFormOptions, AlertDialog, Animator, AnimatorOptions, AnimatorResult, App, AppResponse, AtomicServiceBar,
   BackRouterOptions, BuilderNode, Button, ButtonOptions, CallbackParam,
-  CapsuleSegmentButtonConstructionOptions, CapsuleSegmentButtonOptions, Chip, ChipOptions, ChipSize, CircleShape, ComponentUtils,
+  CapsuleSegmentButtonConstructionOptions, CapsuleSegmentButtonOptions, ArcButton, ArcButtonOptions, ArcButtonTypeMode, ArcButtonStyleMode,
+  ArcButtonStatus, ArkButtonClickEffectStyle, Chip, ChipOptions, ChipSize, CircleShape, ComponentUtils,
   ComposeListItem, ComposeTitleBar, ComposeTitleBarMenuItem, Configuration, ConfirmDialog, ContentItem,
   CounterComponent, CounterOptions, CounterType, DateData, DisableAlertBeforeBackPageOptions, DragController,
   DrawableDescriptor, DrawContext, EditableLeftIconType, EditableTitleBar, EditableTitleBarMenuItem, EditorEventInfo,
