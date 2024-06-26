@@ -68,13 +68,13 @@ import componentUtils from '@ohos.arkui.componentUtils';
 import dragController from '@ohos.arkui.dragController';
 import { DrawableDescriptor, LayeredDrawableDescriptor } from '@ohos.arkui.drawableDescriptor';
 import inspector from '@ohos.arkui.inspector';
-import { NodeRenderType, RenderOptions, BuilderNode, NodeController, FrameNode, DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation, Frame, RenderNode, XComponentNode, LengthMetrics, LayoutConstraint, ComponentContent } from '@ohos.arkui.node';
+import { NodeRenderType, RenderOptions, BuilderNode, NodeController, FrameNode, DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation, Frame, RenderNode, XComponentNode, LengthMetrics, LayoutConstraint, ComponentContent, NodeContent } from '@ohos.arkui.node';
 import uiObserver from '@ohos.arkui.observer';
 import performanceMonitor from '@ohos.arkui.performanceMonitor';
 import { RectShape, CircleShape, EllipseShape, PathShape } from '@ohos.arkui.shape';
 import {
   AtomicServiceBar, ComponentUtils, DragController, Font, KeyboardAvoidMode, MediaQuery, OverlayManager, PromptAction, Router,
-  UIContext, UIInspector, UIObserver, PageInfo
+  UIContext, UIInspector, UIObserver, PageInfo, SwiperDynamicSyncScene, SwiperDynamicSyncSceneType
 } from '@ohos.arkui.UIContext';
 import curves from '@ohos.curves';
 import dragInteraction from '@ohos.deviceStatus.dragInteraction';
@@ -141,7 +141,7 @@ export {
   TabSegmentButtonConstructionOptions, TabSegmentButtonOptions, TabTitleBar, TabTitleBarMenuItem, TabTitleBarTabItem,
   TipsDialog, ToolBar, ToolBarOption, ToolBarOptions, Translation, TreeController, TreeListenType, TreeListener,
   TreeListenerManager, TreeView, UIContext, UIInspector, UIObserver, PageInfo, WindowExtensionAbility, WindowExtensionContext, XComponentNode,
-  LengthMetrics, LayoutConstraint, ComponentContent, componentSnapshot, componentUtils, curves, display, dragController, dragInteraction,
+  LengthMetrics, LayoutConstraint, ComponentContent, NodeContent, componentSnapshot, componentUtils, curves, display, dragController, dragInteraction,
   font, inspector, matrix4, mediaquery, performanceMonitor, pluginComponentManager, PluginComponentTemplate, prompt, promptAction, router,
   screen, screenshot, uiAppearance, uiExtensionHost, uiObserver, window, windowAnimationManager, CustomContentDialog,
   IconOptions, ChipItemLabelOptions, ChipGroupItemOptions, ChipItemStyle, ChipGroupSpaceOptions, IconItemOptions, IconGroupSuffix, ChipGroup,
@@ -149,5 +149,5 @@ export {
   ExtraRegionPosition, ExpandedRegionLayoutOptions, HoverModeRegionLayoutOptions, FoldedRegionLayoutOptions, PresetSplitRatio, FoldSplitContainer,
   HoverModeStatus,  OnHoverStatusChangeHandler,
   AppStorageV2, PersistenceV2, Type,
-  IDataSourcePrefetching, IPrefetcher, BasicPrefetcher
+  IDataSourcePrefetching, IPrefetcher, BasicPrefetcher, SwiperDynamicSyncScene, SwiperDynamicSyncSceneType
 };

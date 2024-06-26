@@ -30,19 +30,21 @@ import { FrameNode } from './FrameNode';
  * @extends FrameNode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 11
-*/
+ * @deprecated since 12
+ */
 export declare class XComponentNode extends FrameNode {
   /**
-    * constructor.
-    *
-    * @param { UIContext } uiContext - UIContext used to create the FrameNode
-    * @param { RenderOptions } options - Render options of the Builder Node
-    * @param { string } id - XComponent id defined by the application
-    * @param { XComponentType } type - XComponent type
-    * @param { string } libraryName - The name of the library to be loaded by XComponent
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 11
-    */
+   * constructor.
+   *
+   * @param { UIContext } uiContext - UIContext used to create the FrameNode
+   * @param { RenderOptions } options - Render options of the Builder Node
+   * @param { string } id - XComponent id defined by the application
+   * @param { XComponentType } type - XComponent type
+   * @param { string } libraryName - The name of the library to be loaded by XComponent
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   * @deprecated since 12
+   */
   constructor(uiContext: UIContext, options: RenderOptions,
     id: string, type: XComponentType, libraryName?: string);
 
@@ -52,6 +54,7 @@ export declare class XComponentNode extends FrameNode {
    * @param { Object } event - event from native when the library loaded
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
+   * @deprecated since 12
    */
   onCreate(event?: Object): void;
 
@@ -60,16 +63,18 @@ export declare class XComponentNode extends FrameNode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
+   * @deprecated since 12
    */
   onDestroy(): void;
 
   /**
-  * Set the render type of the builderNode.
-  *
-  * @param { NodeRenderType } type - render type
-  * @returns { boolean } - Returns if change the render type successfully.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @since 11
-  */
+   * Set the render type of the builderNode.
+   *
+   * @param { NodeRenderType } type - render type
+   * @returns { boolean } - Returns if change the render type successfully.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   * @deprecated since 12
+   */
   changeRenderType(type: NodeRenderType): boolean;
 }
