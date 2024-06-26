@@ -32,10 +32,11 @@ export default class PhotoEditorExtensionContext extends ExtensionContext {
      *
      * @param { string } uri Image editing URI.
      * @param { AsyncCallback<AbilityResult> } callback Callback used to return the result of save.
-     * @throws { BusinessError } 29600001 - Invalid input parameter.
-     * @throws { BusinessError } 29600002 - Internal error.
-     * @throws { BusinessError } 29600003 - Image input error.
-     * @throws { BusinessError } 29600004 - Image too big error.
+     * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * <br>2.Incorrect parameter types.
+     * @throws { BusinessError } 29600001 - Internal error.
+     * @throws { BusinessError } 29600002 - Image input error.
+     * @throws { BusinessError } 29600003 - Image too big error.
      * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
      * @since 12
      */
@@ -46,10 +47,11 @@ export default class PhotoEditorExtensionContext extends ExtensionContext {
      *
      * @param { string } uri Image editing URI.
      * @returns { Promise<AbilityResult> } Returns the result of save.
-     * @throws { BusinessError } 29600001 - Invalid input parameter.
-     * @throws { BusinessError } 29600002 - Internal error.
-     * @throws { BusinessError } 29600003 - Image input error.
-     * @throws { BusinessError } 29600004 - Image too big error.
+     * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * <br>2.Incorrect parameter types.
+     * @throws { BusinessError } 29600001 - Internal error.
+     * @throws { BusinessError } 29600002 - Image input error.
+     * @throws { BusinessError } 29600003 - Image too big error.
      * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
      * @since 12
      */
@@ -61,10 +63,11 @@ export default class PhotoEditorExtensionContext extends ExtensionContext {
      * @param { image.PixelMap } image Image pixmap.
      * @param { image.PackingOption } option Option for image packing.
      * @param { AsyncCallback<AbilityResult> } callback Callback used to return the result of save.
-     * @throws { BusinessError } 29600001 - Invalid input parameter.
-     * @throws { BusinessError } 29600002 - Internal error.
-     * @throws { BusinessError } 29600003 - Image input error.
-     * @throws { BusinessError } 29600004 - Image too big error.
+     * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * <br>2.Incorrect parameter types.
+     * @throws { BusinessError } 29600001 - Internal error.
+     * @throws { BusinessError } 29600002 - Image input error.
+     * @throws { BusinessError } 29600003 - Image too big error.
      * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
      * @since 12
      */
@@ -77,10 +80,11 @@ export default class PhotoEditorExtensionContext extends ExtensionContext {
      * @param { image.PixelMap } image Image pixmap.
      * @param { image.PackingOption } option Option for image packing.
      * @returns { Promise<AbilityResult> } Returns the result of save.
-     * @throws { BusinessError } 29600001 - Invalid input parameter.
-     * @throws { BusinessError } 29600002 - Internal error.
-     * @throws { BusinessError } 29600003 - Image input error.
-     * @throws { BusinessError } 29600004 - Image too big error.
+     * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * <br>2.Incorrect parameter types.
+     * @throws { BusinessError } 29600001 - Internal error.
+     * @throws { BusinessError } 29600002 - Image input error.
+     * @throws { BusinessError } 29600003 - Image too big error.
      * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
      * @since 12
      */
