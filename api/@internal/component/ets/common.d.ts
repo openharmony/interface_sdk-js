@@ -2637,7 +2637,10 @@ declare interface GeometryTransitionOptions {
 }
 
 /**
- * TransitionHierarchyStrategy enumeration description.
+ * Source and target are two matched elements during the geometry transition.
+ * The animation starts at the source and ends at the target.
+ * TransitionHierarchyStrategy enumeration defines how levels of source and target elements
+ * would be changed in the hierarchy during the geometry transition.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2648,7 +2651,7 @@ declare interface GeometryTransitionOptions {
 declare enum TransitionHierarchyStrategy {
   /**
    * None mode.
-   * No elevation to source and target in the hierarchy.
+   * Source and target staty in the original level in the hierarchy during geometry transition.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2659,7 +2662,8 @@ declare enum TransitionHierarchyStrategy {
 
   /**
    * ADAPTIVE mode.
-   * Default, one of the lower level in the source and target is elevated to higher level of both. 
+   * Lower level one of source and target is elevated to higher level of both,
+   * indicating that two elements are in same high level.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
