@@ -161,13 +161,6 @@ declare class XComponentController {
    * @param { object } value - surface size
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
-   */
-  /**
-   * Set the surface size created by XComponent.
-   *
-   * @param { object } value - surface size
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
    * @deprecated since 12
    * @useinstead setXComponentSurfaceRect
    */
