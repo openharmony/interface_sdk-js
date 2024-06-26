@@ -747,6 +747,15 @@ declare namespace calendarManager {
      * @since 12
      */
     identifier?: string;
+
+    /**
+     * Whether the event is lunar.
+     * @type { ?boolean }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 12
+     */
+    isLunar?: boolean;  
   }
 
   /**
