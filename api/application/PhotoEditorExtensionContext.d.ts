@@ -60,7 +60,7 @@ export default class PhotoEditorExtensionContext extends ExtensionContext {
     /**
      * Save image data by image pixmap.
      *
-     * @param { image.PixelMap } image Image pixmap.
+     * @param { image.PixelMap } pixeMap Image pixmap.
      * @param { image.PackingOption } option Option for image packing.
      * @param { AsyncCallback<AbilityResult> } callback Callback used to return the result of save.
      * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified.
@@ -71,13 +71,13 @@ export default class PhotoEditorExtensionContext extends ExtensionContext {
      * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
      * @since 12
      */
-    saveEditedContentWithImage(image: image.PixelMap, option: image.PackingOption,
+    saveEditedContentWithImage(pixeMap: image.PixelMap, option: image.PackingOption,
         callback: AsyncCallback<AbilityResult>): void;
 
     /**
      * Save image data by image pixmap.
      *
-     * @param { image.PixelMap } image Image pixmap.
+     * @param { image.PixelMap } pixeMap Image pixmap.
      * @param { image.PackingOption } option Option for image packing.
      * @returns { Promise<AbilityResult> } Returns the result of save.
      * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified.
@@ -88,5 +88,5 @@ export default class PhotoEditorExtensionContext extends ExtensionContext {
      * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
      * @since 12
      */
-    saveEditedContentWithImage(image: image.PixelMap, option: image.PackingOption): Promise<AbilityResult>;
+    saveEditedContentWithImage(pixeMap: image.PixelMap, option: image.PackingOption): Promise<AbilityResult>;
 }
