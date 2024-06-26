@@ -3826,6 +3826,15 @@ declare class GestureRecognizer {
    * @since 12
    */
   getEventTargetInfo(): EventTargetInfo;
+  /**
+   * Returns whether the gesture recognizer is valid.
+   * 
+   * @returns { boolean } - true is valid, false is invalid
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  isValid(): boolean;
 }
 
 /**
