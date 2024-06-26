@@ -25,7 +25,7 @@
  * @param { number } start - the start index of the display area.
  * @param { number } end - the end index of the display area.
  * @param { number } center - the center index of the display area.
- * @syscap SystemCapability.ArkUI.ArkUI.Arc
+ * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
  * @since 12
@@ -36,7 +36,7 @@ declare type ArcScrollIndexHandler = (start: number, end: number, center: number
  * Defines the arc list options.
  *
  * @interface ArkListOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Arc
+ * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
  * @since 12
@@ -46,7 +46,7 @@ declare interface ArkListOptions {
    * Describes the index of initial item, the default value is 0.
    *
    * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Arc
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
    * @since 12
@@ -57,7 +57,7 @@ declare interface ArkListOptions {
    * Describes the controller for scrollable container.
    *
    * @type { ?Scroller }
-   * @syscap SystemCapability.ArkUI.ArkUI.Arc
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
    * @since 12
@@ -68,7 +68,7 @@ declare interface ArkListOptions {
    * Describes the header.
    *
    * @type { ?ComponentContent }
-   * @syscap SystemCapability.ArkUI.ArkUI.Arc
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
    * @since 12
@@ -80,18 +80,18 @@ declare interface ArkListOptions {
  * Defines the arc list component.
  *
  * @interface ArcListInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Arc
+ * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
  * @since 12
  */
-interface ArcListInterface {
+export interface ArcListInterface {
   /**
    * Creates the arc list component.
    *
    * @param { ArkListOptions } options
    * @returns { ArcListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Arc
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
    * @since 12
@@ -100,10 +100,32 @@ interface ArcListInterface {
 }
 
 /**
+ * Defines the arc list item component.
+ *
+ * @interface ArcListItemInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Circle
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+export interface ArcListItemInterface {
+  /**
+   * Creates the arc list item component.
+   *
+   * @returns { ArcListItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  (): ArcListItemAttribute;
+}
+
+/**
  * Defines the arc list attribute functions.
  * 
  * @extends CommonMethod<ArcListAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Arc
+ * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
  * @since 12
@@ -114,7 +136,7 @@ declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
    *
    * @param { Optional<CrownSensitivity> } sensitivity
    * @returns { ArcListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Arc
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
    * @since 12
@@ -126,7 +148,7 @@ declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
    *
    * @param { Optional<LengthMetrics> } space - The space between items.
    * @returns { ArcListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Arc
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
    * @since 12
@@ -138,7 +160,7 @@ declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
    *
    * @param { Optional<BarState> } status
    * @returns { ArcListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Arc
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
    * @since 12
@@ -150,7 +172,7 @@ declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
    *
    * @param { Optional<ColorMetrics> } color  - Color of the scrollbar.
    * @returns { ArcListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Arc
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
    * @since 12
@@ -162,7 +184,7 @@ declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
    *
    * @param { Optional<LengthMetrics> } width  - Width of the scrollbar.
    * @returns { ArcListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Arc
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
    * @since 12
@@ -174,7 +196,7 @@ declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
    *
    * @param { Optional<number> } count
    * @returns { ArcListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Arc
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
    * @since 12
@@ -186,7 +208,7 @@ declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
    *
    * @param { Optional<boolean> } enable
    * @returns { ArcListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Arc
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
    * @since 12
@@ -198,7 +220,7 @@ declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
    *
    * @param { Optional<ChildrenMainSize> } size - children main size for arc list
    * @returns { ArcListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Arc
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
    * @since 12
@@ -210,7 +232,7 @@ declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
    *
    * @param { Optional<boolean> } enable
    * @returns { ArcListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Arc
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
    * @since 12
@@ -222,7 +244,7 @@ declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
    *
    * @param { Optional<boolean> } enable
    * @returns { ArcListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Arc
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
    * @since 12
@@ -234,7 +256,7 @@ declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
    *
    * @param { Optional<number> } friction - friction coefficient.
    * @returns { ArcListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Arc
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
    * @since 12
@@ -247,7 +269,7 @@ declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
    * @param { Optional<number> } speed - Max fling speed, the minimum value is 0, the maximum value is not limited.
    *                             The unit is vp/s.
    * @returns { ArcListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Arc
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
    * @since 12
@@ -259,7 +281,7 @@ declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
    *
    * @param { Optional<ArcScrollIndexHandler> } handler
    * @returns { ArcListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Arc
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
    * @since 12
@@ -271,7 +293,7 @@ declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
    *
    * @param { Optional<VoidCallback> } handler
    * @returns { ArcListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Arc
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
    * @since 12
@@ -283,7 +305,7 @@ declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
    *
    * @param { Optional<VoidCallback> } handler
    * @returns { ArcListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Arc
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
    * @since 12
@@ -295,7 +317,7 @@ declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
    *
    * @param { Optional<VoidCallback> } handler
    * @returns { ArcListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Arc
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
    * @since 12
@@ -307,7 +329,7 @@ declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
    *
    * @param { Optional<VoidCallback> } handler
    * @returns { ArcListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Arc
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
    * @since 12
@@ -319,7 +341,7 @@ declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
    *
    * @param { Optional<OnWillScrollCallback> } handler - callback of scrollable.
    * @returns { ArcListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Arc
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
    * @since 12
@@ -332,7 +354,7 @@ declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
    * @param { Optional<OnScrollCallback> } handler - callback of scrollable,
    * scrollOffset is offset this frame did scroll, scrollState is current scroll state.
    * @returns { ArcListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Arc
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
    * @since 12
@@ -341,9 +363,64 @@ declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
 }
 
 /**
+ * Defines the arc list item attribute functions.
+ * 
+ * @extends CommonMethod<ArcListItemAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Circle
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare class ArcListItemAttribute extends CommonMethod<ArcListItemAttribute> {
+  /**
+   * Whether to enable auto scale when layout.
+   *
+   * @param { Optional<boolean> } enable
+   * @returns { ArcListItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  autoScale(enable: Optional<boolean>): ArcListItemAttribute;
+
+  /**
+   * Sets the action item that appears when the list item slides in the cross axis direction of the list.
+   *
+   * @param { Optional<SwipeActionOptions> } options - items defines in the SwipeActionOption.
+   * @returns { ArcListItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  swipeAction(options: Optional<SwipeActionOptions>): ArcListItemAttribute;
+}
+
+/**
+ * Defines ArcList Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Circle
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare const ArcListInstance: ArcListAttribute;
+
+/**
+ * Defines ArcListItem Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Circle
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare const ArcListItemInstance: ArcListItemAttribute;
+
+/**
  * Defines ArcList Component.
  *
- * @syscap SystemCapability.ArkUI.ArkUI.Arc
+ * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
  * @since 12
@@ -351,11 +428,11 @@ declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
 declare const ArcList: ArcListInterface;
 
 /**
- * Defines ArcList Component instance.
+ * Defines ArcListItem Component.
  *
- * @syscap SystemCapability.ArkUI.ArkUI.Arc
+ * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
  * @since 12
  */
-declare const ArcListInstance: ArcListAttribute;
+declare const ArcListItem: ArcListItemInterface;
