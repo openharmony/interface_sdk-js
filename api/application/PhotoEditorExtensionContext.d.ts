@@ -21,6 +21,7 @@ import image from '../@ohos.multimedia.image';
 /**
  * The context of Photo Editor extension. It allows access to PhotoEditorExtension-specific resources.
  *
+ * @extends ExtensionContext
  * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
  * @StageModelOnly
  * @since 12
@@ -58,7 +59,7 @@ export default class PhotoEditorExtensionContext extends ExtensionContext {
      * Save image data by image pixmap.
      *
      * @param { image.PixelMap } image Image pixmap.
-     * @param { PackingOption } option Option for image packing.
+     * @param { image.PackingOption } option Option for image packing.
      * @param { AsyncCallback<AbilityResult> } callback Callback used to return the result of save.
      * @throws { BusinessError } 29600001 - Invalid input parameter.
      * @throws { BusinessError } 29600002 - Internal error.
@@ -74,7 +75,7 @@ export default class PhotoEditorExtensionContext extends ExtensionContext {
      * Save image data by image pixmap.
      *
      * @param { image.PixelMap } image Image pixmap.
-     * @param { PackingOption } option Option for image packing.
+     * @param { image.PackingOption } option Option for image packing.
      * @returns { Promise<AbilityResult> } Returns the result of save.
      * @throws { BusinessError } 29600001 - Invalid input parameter.
      * @throws { BusinessError } 29600002 - Internal error.
