@@ -2952,6 +2952,8 @@ export class UIContext {
    * @throws { BusinessError } 120001 - The bindSheetContent is incorrect.
    * @throws { BusinessError } 120002 - The bindSheetContent already exists.
    * @throws { BusinessError } 120004 - The targetId does not exist.
+   * @throws { BusinessError } 120005 - The node of targetId is not in the component tree.
+   * @throws { BusinessError } 120006 - The node of targetId is not a child of the page node or NavDestination node.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
