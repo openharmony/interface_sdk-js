@@ -36,7 +36,7 @@ export default class PhotoEditorExtensionContext extends ExtensionContext {
      * <br>2.Incorrect parameter types.
      * @throws { BusinessError } 29600001 - Internal error.
      * @throws { BusinessError } 29600002 - Image input error.
-     * @throws { BusinessError } 29600003 - Image too big error.
+     * @throws { BusinessError } 29600003 - Image too big.
      * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
      * @since 12
      */
@@ -51,7 +51,7 @@ export default class PhotoEditorExtensionContext extends ExtensionContext {
      * <br>2.Incorrect parameter types.
      * @throws { BusinessError } 29600001 - Internal error.
      * @throws { BusinessError } 29600002 - Image input error.
-     * @throws { BusinessError } 29600003 - Image too big error.
+     * @throws { BusinessError } 29600003 - Image too big.
      * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
      * @since 12
      */
@@ -67,7 +67,7 @@ export default class PhotoEditorExtensionContext extends ExtensionContext {
      * <br>2.Incorrect parameter types.
      * @throws { BusinessError } 29600001 - Internal error.
      * @throws { BusinessError } 29600002 - Image input error.
-     * @throws { BusinessError } 29600003 - Image too big error.
+     * @throws { BusinessError } 29600003 - Image too big.
      * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
      * @since 12
      */
@@ -84,7 +84,7 @@ export default class PhotoEditorExtensionContext extends ExtensionContext {
      * <br>2.Incorrect parameter types.
      * @throws { BusinessError } 29600001 - Internal error.
      * @throws { BusinessError } 29600002 - Image input error.
-     * @throws { BusinessError } 29600003 - Image too big error.
+     * @throws { BusinessError } 29600003 - Image too big.
      * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
      * @since 12
      */
