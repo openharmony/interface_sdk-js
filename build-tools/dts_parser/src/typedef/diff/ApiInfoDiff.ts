@@ -385,6 +385,7 @@ export enum ApiStatusCode {
   DELETE_DECORATOR = 24,
   KIT_CHANGE = 26,
   ATOMICSERVICE_CHANGE = 27,
+  ERRORCODE_DELETE = 28,
 }
 
 export enum ApiDiffType {
@@ -709,4 +710,5 @@ export const incompatibleApiDiffTypes: Set<ApiDiffType> = new Set([
   ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_TYPE_ADD,
   ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_CHANGE,
   ApiDiffType.ATOMIC_SERVICE_HAVE_TO_NA,
+  ApiDiffType.DELETE_DECORATOR,
 ]);

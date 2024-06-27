@@ -73,6 +73,11 @@ export namespace DiffProcessorHelper {
       const oldJsDocInfo: Comment.JsDocInfo | undefined = oldApiInfo.getLastJsDocInfo();
       const newJsDocInfo: Comment.JsDocInfo | undefined = newApiInfo.getLastJsDocInfo();
       JsDocDiffHelper.diffSinceVersion(oldApiInfo, newApiInfo, diffInfos);
+      const allDiffTypeInfo: DiffTypeInfo[] | undefined = JsDocDiffHelper.diffErrorCodes(oldJsDocInfo, newJsDocInfo);
+      allDiffTypeInfo?.forEach((diffType: DiffTypeInfo) => {
+        const diffInfo: BasicDiffInfo = DiffProcessorHelper.wrapDiffInfo(oldApiInfo, newApiInfo, diffType);
+        diffInfos.push(diffInfo);
+      });
       for (let i = 0; i < jsDocDiffProcessors.length; i++) {
         const jsDocDiffProcessor: JsDocDiffProcessor | undefined = jsDocDiffProcessors[i];
         const diffType: DiffTypeInfo | undefined = jsDocDiffProcessor(oldJsDocInfo, newJsDocInfo);
@@ -194,7 +199,6 @@ export namespace DiffProcessorHelper {
       return diffTypeInfo.setDiffType(ApiDiffType.CARD_TO_NA);
     }
 
-
     static diffIsCrossPlatForm(
       oldJsDocInfo: Comment.JsDocInfo | undefined,
       newJsDocInfo: Comment.JsDocInfo | undefined
@@ -213,6 +217,26 @@ export namespace DiffProcessorHelper {
         return diffTypeInfo.setDiffType(ApiDiffType.NA_TO_CROSS_PLATFORM);
       }
       return diffTypeInfo.setDiffType(ApiDiffType.CROSS_PLATFORM_TO_NA);
+    }
+
+    static diffAtomicService(
+      oldJsDocInfo: Comment.JsDocInfo | undefined,
+      newJsDocInfo: Comment.JsDocInfo | undefined
+    ): DiffTypeInfo | undefined {
+      const diffTypeInfo: DiffTypeInfo = new DiffTypeInfo();
+      const isAtomicServiceOfOld: boolean | undefined = oldJsDocInfo ? oldJsDocInfo.getIsAtomicService() : false;
+      const isAtomicServiceOfNew: boolean | undefined = newJsDocInfo ? newJsDocInfo.getIsAtomicService() : false;
+      diffTypeInfo
+        .setStatusCode(ApiStatusCode.ATOMICSERVICE_CHANGE)
+        .setOldMessage(StringUtils.transformBooleanToTag(isAtomicServiceOfOld, Comment.JsDocTag.ATOMIC_SERVICE))
+        .setNewMessage(StringUtils.transformBooleanToTag(isAtomicServiceOfNew, Comment.JsDocTag.ATOMIC_SERVICE));
+      if (isAtomicServiceOfOld === isAtomicServiceOfNew) {
+        return undefined;
+      }
+      if (isAtomicServiceOfNew) {
+        return diffTypeInfo.setDiffType(ApiDiffType.ATOMIC_SERVICE_NA_TO_HAVE);
+      }
+      return diffTypeInfo.setDiffType(ApiDiffType.ATOMIC_SERVICE_HAVE_TO_NA);
     }
 
     static diffPermissions(
@@ -251,12 +275,16 @@ export namespace DiffProcessorHelper {
     static diffErrorCodes(
       oldJsDocInfo: Comment.JsDocInfo | undefined,
       newJsDocInfo: Comment.JsDocInfo | undefined
-    ): DiffTypeInfo | undefined {
+    ): DiffTypeInfo[] | undefined {
       const diffTypeInfo: DiffTypeInfo = new DiffTypeInfo();
       const errorCodesOfOld: number[] = oldJsDocInfo ? oldJsDocInfo.getErrorCode().sort() : [];
       const errorCodesOfNew: number[] = newJsDocInfo ? newJsDocInfo.getErrorCode().sort() : [];
+      const errorCodeSetOfOld: Set<number> = new Set(errorCodesOfOld);
+      const errorCodeSetOfNew: Set<number> = new Set(errorCodesOfNew);
+      const allErrorCodes: Set<number> = new Set(errorCodesOfNew.concat(errorCodesOfOld));
       const errorCodesStringOfOld: string = errorCodesOfOld.toString();
       const errorCodesStringOfNew: string = errorCodesOfNew.toString();
+      const allDiffTypeInfo: DiffTypeInfo[] = [];
       diffTypeInfo
         .setStatusCode(ApiStatusCode.ERRORCODE_CHANGES)
         .setOldMessage(errorCodesStringOfOld)
@@ -265,36 +293,41 @@ export namespace DiffProcessorHelper {
         return undefined;
       }
       if (errorCodesOfOld.length === 0 && errorCodesOfNew.length !== 0) {
-        return diffTypeInfo.setStatusCode(ApiStatusCode.NEW_ERRORCODE).setDiffType(ApiDiffType.ERROR_CODE_NA_TO_HAVE);
+        allDiffTypeInfo.push(
+          diffTypeInfo.setStatusCode(ApiStatusCode.NEW_ERRORCODE).setDiffType(ApiDiffType.ERROR_CODE_NA_TO_HAVE)
+        );
+        return allDiffTypeInfo;
       }
-      if (StringUtils.hasSubstring(errorCodesStringOfNew, errorCodesStringOfOld)) {
-        return diffTypeInfo.setStatusCode(ApiStatusCode.NEW_ERRORCODE).setDiffType(ApiDiffType.ERROR_CODE_ADD);
+      const oldChangeErrorCodes: number[] = [];
+      const newChangeErrorCodes: number[] = [];
+      allErrorCodes.forEach((errorCode: number) => {
+        if (!errorCodeSetOfOld.has(errorCode)) {
+          oldChangeErrorCodes.push(errorCode);
+        }
+        if (!errorCodeSetOfNew.has(errorCode)) {
+          newChangeErrorCodes.push(errorCode);
+        }
+      });
+      if (oldChangeErrorCodes.length !== 0) {
+        const oldDiffTypeInfo: DiffTypeInfo = new DiffTypeInfo();
+        oldDiffTypeInfo
+          .setOldMessage('NA')
+          .setNewMessage(oldChangeErrorCodes.join())
+          .setStatusCode(ApiStatusCode.NEW_ERRORCODE)
+          .setDiffType(ApiDiffType.ERROR_CODE_ADD);
+        allDiffTypeInfo.push(oldDiffTypeInfo);
       }
-      if (StringUtils.hasSubstring(errorCodesStringOfOld, errorCodesStringOfNew)) {
-        return diffTypeInfo.setDiffType(ApiDiffType.ERROR_CODE_REDUCE);
+      if (newChangeErrorCodes.length !== 0) {
+        const newDiffTypeInfo: DiffTypeInfo = new DiffTypeInfo();
+        newDiffTypeInfo
+          .setOldMessage(newChangeErrorCodes.join())
+          .setNewMessage('NA')
+          .setStatusCode(ApiStatusCode.ERRORCODE_DELETE)
+          .setDiffType(ApiDiffType.ERROR_CODE_REDUCE);
+        allDiffTypeInfo.push(newDiffTypeInfo);
       }
-      return diffTypeInfo.setDiffType(ApiDiffType.ERROR_CODE_CHANGE);
+      return allDiffTypeInfo;
     }
-
-    static diffAtomicService(
-      oldJsDocInfo: Comment.JsDocInfo | undefined,
-      newJsDocInfo: Comment.JsDocInfo | undefined
-      ): DiffTypeInfo | undefined {
-        const diffTypeInfo: DiffTypeInfo = new DiffTypeInfo();
-        const isAtomicServiceOfOld: boolean | undefined = oldJsDocInfo? oldJsDocInfo.getIsAtomicService() : false;
-        const isAtomicServiceOfNew: boolean | undefined = newJsDocInfo? newJsDocInfo.getIsAtomicService() : false;
-        diffTypeInfo
-          .setStatusCode(ApiStatusCode.ATOMICSERVICE_CHANGE)
-          .setOldMessage(StringUtils.transformBooleanToTag(isAtomicServiceOfOld, Comment.JsDocTag.ATOMIC_SERVICE))
-          .setNewMessage(StringUtils.transformBooleanToTag(isAtomicServiceOfNew, Comment.JsDocTag.ATOMIC_SERVICE));
-        if (isAtomicServiceOfOld === isAtomicServiceOfNew) {
-          return undefined;
-        }
-        if (isAtomicServiceOfNew) {
-          return diffTypeInfo.setDiffType(ApiDiffType.ATOMIC_SERVICE_NA_TO_HAVE);
-        }
-        return diffTypeInfo.setDiffType(ApiDiffType.ATOMIC_SERVICE_HAVE_TO_NA);
-      }
 
     static diffSyscap(
       oldJsDocInfo: Comment.JsDocInfo | undefined,
@@ -472,22 +505,8 @@ export namespace DiffProcessorHelper {
       const currentVersion: string = CommonFunctions.getCheckApiVersion().toString();
       const oldJsDocTextArr: Array<string> = oldApiInfo.getJsDocText().split('*/');
       const newJsDocTextArr: Array<string> = newApiInfo.getJsDocText().split('*/');
-      const clonedOldJsDocTextArr: Array<string> = oldJsDocTextArr;
-      const clonedNewJsDocTextArr: Array<string> = newJsDocTextArr;
       const diffTypeInfo: DiffTypeInfo = new DiffTypeInfo();
 
-      if (StringUtils.hasSubstring(clonedOldJsDocTextArr[1], CommentHelper.fileJsDoc)) {
-        oldJsDocTextArr.splice(1, 1);
-      }
-      if (StringUtils.hasSubstring(clonedNewJsDocTextArr[1], CommentHelper.fileJsDoc)) {
-        newJsDocTextArr.splice(1, 1);
-      }
-      if (StringUtils.hasSubstring(clonedOldJsDocTextArr[0], CommentHelper.licenseKeyword)) {
-        oldJsDocTextArr.splice(0, 1);
-      }
-      if (StringUtils.hasSubstring(clonedNewJsDocTextArr[0], CommentHelper.licenseKeyword)) {
-        newJsDocTextArr.splice(0, 1);
-      }
       if (oldApiInfo.getCurrentVersion() === currentVersion) {
         oldJsDocTextArr.splice(NumberConstant.DELETE_CURRENT_JS_DOC);
       } else {
@@ -818,7 +837,6 @@ export namespace DiffProcessorHelper {
       diffTypeInfos.push(diffTypeInfo);
     }
 
-    
     /**
      * 函数新增可选参数
      *
@@ -1005,7 +1023,6 @@ export namespace DiffProcessorHelper {
       });
     }
 
-
     /**
      * 处理方法节点的参数名称
      *
@@ -1032,8 +1049,14 @@ export namespace DiffProcessorHelper {
     static diffMethodParamType(oldApiInfo: ParamInfo, newApiInfo: ParamInfo): ApiDiffType | undefined {
       const oldParamType: string[] = oldApiInfo.getType();
       const newParamType: string[] = newApiInfo.getType();
-      const oldParamTypeStr: string = oldParamType.toString().replace(/\r|\n|\s+|'|"/g, '').replace(/\|/g, "\\|");
-      const newParamTypeStr: string = newParamType.toString().replace(/\r|\n|\s+|'|"/g, '').replace(/\|/g, "\\|");
+      const oldParamTypeStr: string = oldParamType
+        .toString()
+        .replace(/\r|\n|\s+|'|"/g, '')
+        .replace(/\|/g, '\\|');
+      const newParamTypeStr: string = newParamType
+        .toString()
+        .replace(/\r|\n|\s+|'|"/g, '')
+        .replace(/\|/g, '\\|');
       if (oldParamTypeStr === newParamTypeStr) {
         return undefined;
       }
@@ -1498,6 +1521,7 @@ export namespace DiffProcessorHelper {
    * @returns {*} {string} 字符串拼接后的节点信息
    */
   function stitchMethodParameters(methodParams: ParamInfo[]): string {
+    if (methodParams.length <= 1) return methodParams[0].getDefinedText();
     return methodParams.reduce((preStr: string, curItem: ParamInfo, idx: number) => {
       let curStr: string = curItem.getDefinedText();
       if (idx !== methodParams.length - 1) {
@@ -1523,7 +1547,8 @@ export namespace DiffProcessorHelper {
     const newPropertyInfo = newApiInfo as PropertyInfo;
     let isCompatible = true;
     if (
-      newApiInfo?.getParentApiType() === ApiType.INTERFACE && diffTypeInfo.getDiffType() === ApiDiffType.ADD &&
+      newApiInfo?.getParentApiType() === ApiType.INTERFACE &&
+      diffTypeInfo.getDiffType() === ApiDiffType.ADD &&
       ((newApiInfo?.getApiType() === ApiType.PROPERTY && newPropertyInfo.getIsRequired()) ||
         newApiInfo?.getApiType() === ApiType.METHOD)
     ) {
@@ -1541,7 +1566,7 @@ export namespace DiffProcessorHelper {
       .setDiffType(diffType)
       .setDiffMessage(diffMap.get(diffType) as string)
       .setStatusCode(diffTypeInfo.getStatusCode())
-      .setIsCompatible(!isCompatible ? false: !incompatibleApiDiffTypes.has(diffType))
+      .setIsCompatible(!isCompatible ? false : !incompatibleApiDiffTypes.has(diffType))
       .setOldDescription(diffTypeInfo.getOldMessage())
       .setNewDescription(diffTypeInfo.getNewMessage());
     return diffInfo;
@@ -1613,7 +1638,6 @@ export namespace DiffProcessorHelper {
     JsDocDiffHelper.diffSyscap,
     JsDocDiffHelper.diffDeprecated,
     JsDocDiffHelper.diffPermissions,
-    JsDocDiffHelper.diffErrorCodes,
     JsDocDiffHelper.diffIsForm,
     JsDocDiffHelper.diffIsCrossPlatForm,
     JsDocDiffHelper.diffModelLimitation,

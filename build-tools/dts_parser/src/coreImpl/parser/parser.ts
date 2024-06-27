@@ -40,7 +40,7 @@ export class Parser {
   static parseDir(fileDir: string, collectFile: string = ''): FilesMap {
     const files: Array<string> = FileUtils.readFilesInDir(fileDir, (name) => {
       return name.endsWith(StringConstant.DTS_EXTENSION) || name.endsWith(StringConstant.DETS_EXTENSION);
-    }); 
+    });
     if (Boolean(process.env.NEED_DETECTION)) {
       parserParam.setFileDir(fileDir);
       parserParam.setRootNames(files);
