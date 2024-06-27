@@ -19,7 +19,7 @@ import type UIExtensionContentSession from './@ohos.app.ability.UIExtensionConte
 import type Want from './@ohos.app.ability.Want';
 
 /**
- * The class of Photo editor extension ability.
+ * Class of the photo editor ExtensionAbility, which provides APIs for you to edit photos.
  *
  * @extends ExtensionAbility
  * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
