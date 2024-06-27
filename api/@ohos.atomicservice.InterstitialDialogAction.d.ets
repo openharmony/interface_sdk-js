@@ -147,7 +147,7 @@ export declare interface DialogOptions {
     /**
      * The color of the title.
      *
-     * @type { ?ResourceStr | Color }
+     * @type { ?(ResourceStr | Color) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 12
@@ -156,7 +156,7 @@ export declare interface DialogOptions {
     /**
      * The color of the subtitle.
      *
-     * @type { ?ResourceStr | Color }
+     * @type { ?(ResourceStr | Color) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 12
