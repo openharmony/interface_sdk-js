@@ -63,6 +63,7 @@ import { ItemState, ToolBar, ToolBarOption, ToolBarOptions } from '@ohos.arkui.a
 import {
   CallbackParam, NodeParam, TreeController, TreeListenType, TreeListener, TreeListenerManager, TreeView
 } from '@ohos.arkui.advanced.TreeView';
+import { InterstitialDialogAction, IconStyle, TitlePosition, BottomOffset } from '@ohos.atomicservice.InterstitialDialogAction';
 import componentSnapshot from '@ohos.arkui.componentSnapshot';
 import componentUtils from '@ohos.arkui.componentUtils';
 import dragController from '@ohos.arkui.dragController';
@@ -132,6 +133,7 @@ export {
   EditorMenuOptions, EllipseShape, EnableAlertBeforeBackPageOptions, ExceptionPrompt, ExpandedMenuOptions, Filter, FilterParams, FilterResult,
   FilterType, Font, FormMenuItemStyle, Frame, FrameNode, GridObjectSortComponent, GridObjectSortComponentItem, GridObjectSortComponentOptions,
   GridObjectSortComponentType, IconCommonOptions, IconType, ItemState, KeyboardAvoidMode, LabelMarginOptions,
+  InterstitialDialogAction, IconStyle, TitlePosition, BottomOffset,
   LabelOptions, LayeredDrawableDescriptor, LoadingDialog, LocaleResponse, MarginType, Matrix4, MeasureOptions, MeasureText,
   MediaQuery, MediaQueryEvent, MediaQueryList, NodeController, NodeParam, NodeRenderType, Offset, OperateButton, OperateCheck, OperateIcon,
   OperateItem, OperationOption, OperationType, OverlayManager, PathShape, PiPWindow, Pivot, Popup, PopupButtonOptions, PopupIconOptions, PopupOptions,
