@@ -1145,6 +1145,17 @@ declare namespace text {
     paint(canvas: drawing.Canvas, x: number, y: number): void;
 
     /**
+     * Draw the laid out text onto the supplied canvas along the path and offset.
+     * @param { drawing.Canvas } canvas - Canvas used to carry the drawn content and drawing status.
+     * @param { drawing.Path } path - Path used to determine the position of the text.
+     * @param { number } hOffset - Horizontal offset along the path.
+     * @param { number } vOffset - Vertical offset along the path.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    paintOnPath(canvas: drawing.Canvas, path: drawing.Path, hOffset: number, vOffset: number): void;
+
+    /**
      * Get max width of horizontal space this paragraph occupied.
      * @returns { number } Max width of horizontal space.
      * @syscap SystemCapability.Graphics.Drawing
