@@ -120,6 +120,7 @@ import { AppStorageV2, PersistenceV2, Type } from '@ohos.arkui.StateManagement';
 import { IDataSourcePrefetching, IPrefetcher, BasicPrefetcher } from '@ohos.arkui.Prefetcher';
 import uiExtension from '@ohos.arkui.uiExtension';
 import { FullScreenLaunchComponent } from '@ohos.arkui.advanced.FullScreenLaunchComponent';
+import { AtomicServiceTabs, TabBarOptions, TabBarPosition } from '@ohos.atomicservice.AtomicServiceTabs';
 
 export {
   AddFormMenuItem, AddFormOptions, AlertDialog, Animator, AnimatorOptions, AnimatorResult, App, AppResponse, AtomicServiceBar,
@@ -146,7 +147,9 @@ export {
   LengthMetrics, LengthMetricsUnit, LengthUnit, LayoutConstraint, ComponentContent, NodeContent, componentSnapshot, componentUtils, curves, display, dragController, dragInteraction,
   font, inspector, matrix4, mediaquery, performanceMonitor, pluginComponentManager, PluginComponentTemplate, prompt, promptAction, router,
   screen, screenshot, uiAppearance, uiExtensionHost, uiObserver, window, windowAnimationManager, CustomContentDialog,
+  AtomicServiceTabs, TabBarOptions, TabBarPosition,
   IconOptions, ChipItemLabelOptions, ChipGroupItemOptions, ChipItemStyle, ChipGroupSpaceOptions, IconItemOptions, IconGroupSuffix, ChipGroup,
+  AtomicServiceTabs, TabBarOptions, TabBarPosition,
   SymbolGlyphModifier, Colors, CustomColors, Theme, ThemeControl, CustomTheme, ChipSymbolGlyphOptions,
   ExtraRegionPosition, ExpandedRegionLayoutOptions, HoverModeRegionLayoutOptions, FoldedRegionLayoutOptions, PresetSplitRatio, FoldSplitContainer,
   HoverModeStatus,  OnHoverStatusChangeHandler,
