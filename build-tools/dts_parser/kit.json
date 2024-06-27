@@ -1,5 +1,5 @@
 {
-  "data": [
+  "kitData": [
     { "filePath": "@internal/component/ets/ability_component.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "@internal/component/ets/action_sheet.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "@internal/component/ets/alert_dialog.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },

@@ -46,13 +46,36 @@ export class OrderCheck {
         // 判断标签是否为官方标签
         const firstTag = CommonFunctions.isOfficialTag(tagsOrder[tagIndex]);
         // 非自定义标签在前或数组降序时报错
-        if ((firstTag && secondIndex > -1) || (firstIndex > secondIndex && secondIndex > -1)) {
+        if (tagsOrder[tagIndex].tag !== 'form' && tagsOrder[tagIndex + 1].tag !== 'form' &&
+          ((firstTag && secondIndex > -1) || (firstIndex > secondIndex && secondIndex > -1))) {
           orderCheckResult.state = false;
           orderCheckResult.errorInfo = CommonFunctions.createErrorInfo(ErrorMessage.ERROR_ORDER, [tagsOrder[tagIndex]]);
           break;
+        } else if (tagsOrder[tagIndex].tag === 'form') {
+          orderCheckResult.state = OrderCheck.formOrderCheck(tagsOrder, tagIndex, firstIndex, secondIndex);
+          orderCheckResult.errorInfo = CommonFunctions.createErrorInfo(ErrorMessage.ERROR_ORDER, [tagsOrder[tagIndex].tag]);
         }
       }
     }
     return orderCheckResult;
   }
+
+  /**
+ * 对form标签的顺序做兼容处理
+ */
+  static formOrderCheck(tags: Comment.CommentTag[], tagIndex: number, firstIndex: number, secondIndex: number): boolean {
+    const frontFirstIndex = tagIndex - 1 > -1 ? tagsArrayOfOrder.indexOf(tags[tagIndex - 1].tag) : 0;
+    const formNeighborArr = [frontFirstIndex, firstIndex];
+    const newTagIndex = tagsArrayOfOrder.lastIndexOf(tags[tagIndex].tag);
+    const newFormNeighborArr = [frontFirstIndex, newTagIndex];
+    if (secondIndex > -1) {
+      formNeighborArr.push(secondIndex);
+      newFormNeighborArr.push(secondIndex);
+    }
+    if (!CommonFunctions.isAscending(formNeighborArr) && !CommonFunctions.isAscending(newFormNeighborArr)) {
+      return false;
+    }
+    return true;
+  }
+
 }
