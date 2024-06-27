@@ -344,12 +344,20 @@ declare namespace PiPWindow {
    */
   enum VideoLiveControlGroup {
     /**
+     * Video play/pause control.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    VIDEO_PLAY_PAUSE = 401,
+
+    /**
      * Mute switch.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    MUTE_SWITCH = 401,
+    MUTE_SWITCH = 402,
   }
 
   /**
@@ -398,11 +406,11 @@ declare namespace PiPWindow {
   /**
    * Describe picture-in-picture live template action event type.
    *
-   * @typedef { 'voiceStateChanged' }
+   * @typedef { 'playbackStateChanged' | 'voiceStateChanged' }
    * @syscap SystemCapability.Window.SessionManager
    * @since 11
    */
-  type PiPLiveActionEvent = 'voiceStateChanged';
+  type PiPLiveActionEvent = 'playbackStateChanged' | 'voiceStateChanged';
 
   /**
    * Describe picture-in-picture control panel action event callback.
