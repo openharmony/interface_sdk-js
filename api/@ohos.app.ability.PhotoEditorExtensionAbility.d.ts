@@ -27,6 +27,14 @@ import type Want from './@ohos.app.ability.Want';
  * @since 12
  */
 export default class PhotoEditorExtensionAbility extends ExtensionAbility {
+    /**
+     * Indicates configuration information about an Photo editor extension ability context.
+     *
+     * @type { PhotoEditorExtensionContext }
+     * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
+     * @StageModelOnly
+     * @since 12
+     */
     context: PhotoEditorExtensionContext;
 
     /**
