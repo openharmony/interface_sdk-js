@@ -116,30 +116,30 @@ export declare struct AtomicServiceTabs {
   /**
    * onChange callback of tabs when tabs changed.
    *
-   * @type { ?(index: number) => void }.
+   * @type { ?Callback<number> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
    */
-  onChange?: ((index: number) => void);
+  onChange?: Callback<number>;
   /**
    * onTabBarClick callback of tabs when tabbar is clicked.
    *
-   * @type { ?(index: number) => void }.
+   * @type { ?Callback<number> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
    */
-  onTabBarClick?: ((index: number) => void);
+  onTabBarClick?: Callback<number>;
   /**
    * onContentWillChange callback of tabs when tabbar is clicked.
    *
-   * @type { ?(currentIndex: number, comingIndex: number) => boolean }.
+   * @type { ?OnContentWillChangeCallback }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
    */
-  onContentWillChange?: ((currentIndex: number, comingIndex: number) => boolean);
+  onContentWillChange?: OnContentWillChangeCallback;
 }
 
 /**
@@ -197,8 +197,19 @@ export declare enum TabBarPosition {
 /**
  * CustomBuilder for tabContent
  *
+ * @typedef { function } TabContentBuilder
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
  */
 export type TabContentBuilder = () => void;
+
+/**
+ * Callback for OnContentWillChange
+ *
+ * @typedef { function } OnContentWillChange
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 12
+ */
+export type OnContentWillChangeCallback = (currentIndex: number, comingIndex: number) => boolean;
