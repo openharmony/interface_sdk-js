@@ -2769,6 +2769,37 @@ declare namespace window {
   }
 
   /**
+   * Enum for window maximize persentation
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 12
+   */
+  enum MaximizePresentation {
+    /**
+     * The value means follow immersive state which set by app
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    FOLLOW_APP_IMMERSIVE_SETTING = 0,
+    /**
+     * The value means exit immersive state 
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    EXIT_IMMERSIVE = 1,
+    /**
+     * The value means enter immersive state 
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    ENTER_IMMERSIVE = 2,
+  }
+
+  /**
    * Specific system bar type.
    *
    * @syscap SystemCapability.Window.SessionManager
@@ -5792,7 +5823,7 @@ declare namespace window {
 
     /**
      * Maximize app main window.
-     *
+     * @param { MaximizePresentation } presentation - set window presentation when maximize.
      * @returns { Promise<void> } - The promise returned by the function.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -5802,7 +5833,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    maximize(): Promise<void>;
+    maximize(presentation?: MaximizePresentation): Promise<void>;
 
     /**
      * Set whether to enable a window to resize by drag.
