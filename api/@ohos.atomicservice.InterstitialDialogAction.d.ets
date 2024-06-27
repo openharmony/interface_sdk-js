@@ -152,7 +152,7 @@ export declare interface DialogOptions {
      * @atomicservice
      * @since 12
      */
-    titleColor: ResourceStr | Color;
+    titleColor?: ResourceStr | Color;
     /**
      * The color of the subtitle.
      *
@@ -161,7 +161,7 @@ export declare interface DialogOptions {
      * @atomicservice
      * @since 12
      */
-    subtitleColor: ResourceStr | Color;
+    subtitleColor?: ResourceStr | Color;
     /**
      * The background of the dialog.
      *
