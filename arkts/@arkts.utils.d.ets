@@ -40,7 +40,6 @@ declare namespace utils {
      * Type of callback for asyncLock operation.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -50,7 +49,6 @@ declare namespace utils {
      * Class to execute an asynchronous operation under lock.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -60,7 +58,6 @@ declare namespace utils {
        * Default constructor.
        *
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 12
        */
@@ -72,7 +69,6 @@ declare namespace utils {
        * @returns { AsyncLock } Returns an instance of AsyncLock.
        * @static
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 12
        */
@@ -87,7 +83,6 @@ declare namespace utils {
        * @throws { BusinessError } 10200030 - The lock does not exist.
        * @static
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 12
        */
@@ -99,7 +94,6 @@ declare namespace utils {
        * @returns { AsyncLockState[] } Returns an array of AsyncLockState.
        * @static
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 12
        */
@@ -115,7 +109,6 @@ declare namespace utils {
        * @throws { BusinessError } 401 - The input parameters are invalid.
        * @throws { BusinessError } 10200030 - The lock does not exist.
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 12
        */
@@ -132,7 +125,6 @@ declare namespace utils {
        * @throws { BusinessError } 401 - The input parameters are invalid.
        * @throws { BusinessError } 10200030 - The lock does not exist.
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 12
        */
@@ -156,7 +148,6 @@ declare namespace utils {
        * @throws { BusinessError } 10200030 - The lock does not exist.
        * @throws { BusinessError } 10200031 - Timeout exceeded.
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 12
        */
@@ -169,7 +160,6 @@ declare namespace utils {
        * @type { string }
        * @readonly
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 12
        */
@@ -181,7 +171,6 @@ declare namespace utils {
      *
      * @enum { number } AsyncLockMode
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -191,7 +180,6 @@ declare namespace utils {
        * The operation could reenter in the same thread if this mode is specified. 
        *
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 12
        */
@@ -201,7 +189,6 @@ declare namespace utils {
        * If this mode is specified, the operation is executed only when the lock is acquired exclusively.
        *
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 12
        */
@@ -212,7 +199,6 @@ declare namespace utils {
      * Lock operation's options
      *
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -221,7 +207,6 @@ declare namespace utils {
        * Default constructor.
        *
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 12
        */
@@ -232,7 +217,6 @@ declare namespace utils {
        *
        * @type { boolean }
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 12
        */
@@ -242,7 +226,6 @@ declare namespace utils {
        *
        * @type { AbortSignal<T> | null }
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 12
        */
@@ -253,7 +236,6 @@ declare namespace utils {
        *
        * @type { number }
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 12
        */
@@ -264,7 +246,6 @@ declare namespace utils {
      * Information about all lock operations on the AsyncLock instance.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -274,7 +255,6 @@ declare namespace utils {
        *
        * @type { AsyncLockInfo[] }
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 12
        */
@@ -284,7 +264,6 @@ declare namespace utils {
        *
        * @type { AsyncLockInfo[] }
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 12
        */
@@ -295,7 +274,6 @@ declare namespace utils {
      * Information about a lock.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -305,7 +283,6 @@ declare namespace utils {
        *
        * @type { string }
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 12
        */
@@ -315,7 +292,6 @@ declare namespace utils {
        *
        * @type { AsyncLockMode }
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 12
        */
@@ -325,7 +301,6 @@ declare namespace utils {
        *
        * @type { number }
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 12
        */
@@ -338,7 +313,6 @@ declare namespace utils {
      * Access to fields of this class from another thread is undefined behaviour.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -348,7 +322,6 @@ declare namespace utils {
        *
        * @type { boolean }
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 12
        */
@@ -359,7 +332,6 @@ declare namespace utils {
        *
        * @type { T }
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 12
        */
@@ -380,7 +352,6 @@ declare namespace utils {
      *
      * @typedef { lang.ISendable } ISendable
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -392,7 +363,6 @@ declare namespace utils {
      * @returns { ISendable | null } Return an ArkTS Value.
      * @throws { BusinessError } 401 - Parameter error. Invalid JSON string.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -404,7 +374,6 @@ declare namespace utils {
      * @returns { string } The JSON string representation of the value.
      * @throws { BusinessError } 401 - Parameter error. Invalid ArkTS value.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
