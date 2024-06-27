@@ -692,7 +692,7 @@ declare namespace netFirewall {
   /**
    * Interception Record.
    *
-   * @interface NetFirewallRule
+   * @interface InterceptRecord
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @systemapi Hide this for inner system use.
    * @since 12
