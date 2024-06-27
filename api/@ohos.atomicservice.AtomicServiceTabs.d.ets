@@ -35,7 +35,7 @@ export declare struct AtomicServiceTabs {
   /**
    * The TabContent array of tabs.
    *
-   * @type { ?[?TabContentBuilder, ?TabContentBuilder, ?TabContentBuilder, ?TabContentBuilder, ?TabContentBuilder] }.
+   * @type { ?[TabContentBuilder?, TabContentBuilder?, TabContentBuilder?, TabContentBuilder?, TabContentBuilder?] }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
@@ -51,7 +51,7 @@ export declare struct AtomicServiceTabs {
   /**
    * The tabBar array of tabs.
    *
-   * @type { [TabBarOption, TabBarOption, ?TabBarOption, ?TabBarOption, ?TabBarOption] }.
+   * @type { [TabBarOptions, TabBarOptions, TabBarOptions?, TabBarOptions?, TabBarOptions?] }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
@@ -121,7 +121,7 @@ export declare struct AtomicServiceTabs {
    * @atomicservice
    * @since 12
    */
-  onChange?: (index: number) => void;
+  onChange?: ((index: number) => void);
   /**
    * onTabBarClick callback of tabs when tabbar is clicked.
    *
@@ -130,7 +130,7 @@ export declare struct AtomicServiceTabs {
    * @atomicservice
    * @since 12
    */
-  onTabBarClick?: (index: number) => void;
+  onTabBarClick?: ((index: number) => void);
   /**
    * onContentWillChange callback of tabs when tabbar is clicked.
    *
@@ -139,7 +139,7 @@ export declare struct AtomicServiceTabs {
    * @atomicservice
    * @since 12
    */
-  onContentWillChange?: (currentIndex: number, comingIndex: number) => boolean;
+  onContentWillChange?: ((currentIndex: number, comingIndex: number) => boolean);
 }
 
 /**
@@ -168,7 +168,7 @@ export declare class TabBarOptions {
 /**
  * the enum for TabBarOption.
  *
- * @enum { TabBarPosition }.
+ * @enum { number }.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
