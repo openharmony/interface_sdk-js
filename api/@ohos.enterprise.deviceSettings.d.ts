@@ -185,7 +185,7 @@ declare namespace deviceSettings {
    * @param { number } time - screen off time. The minimum value is 15000. It is recommended that the time
    *                          is consistent with the optional screen-off time of the device.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -206,7 +206,7 @@ declare namespace deviceSettings {
    *                         The admin must have the corresponding permission.
    * @param { AsyncCallback<number> } callback - the callback of getScreenOffTime.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -227,7 +227,7 @@ declare namespace deviceSettings {
    *                         The admin must have the corresponding permission.
    * @returns { Promise<number> } the promise returned by the getScreenOffTime.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -249,7 +249,7 @@ declare namespace deviceSettings {
    * @param { CertBlob } certificate - certificate file content and alias. It cannot be empty or more than 40 characters.
    * @param { AsyncCallback<string> } callback - The callback carries the uri of the certificate used to uninstall
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9201001 - Failed to manage the certificate.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -272,7 +272,7 @@ declare namespace deviceSettings {
    * @param { CertBlob } certificate - certificate file content and alias. It cannot be empty or more than 40 characters.
    * @returns { Promise<string> } the promise carries the uri of the certificate used to uninstall
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9201001 - Failed to manage the certificate.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -295,7 +295,7 @@ declare namespace deviceSettings {
    * @param { string } certUri - uri of the certificate. It cannot be empty or more than 64 characters.
    * @param { AsyncCallback<void> } callback - the callback of uninstallUserCertificate.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9201001 - Failed to manage the certificate.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -318,7 +318,7 @@ declare namespace deviceSettings {
    * @param { string } certUri - uri of the certificate. It cannot be empty or more than 64 characters.
    * @returns { Promise<void> } the promise returned by the uninstallUserCertificate.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9201001 - Failed to manage the certificate.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -341,7 +341,7 @@ declare namespace deviceSettings {
    * @param { PowerScene } powerScene - the scene to execute power policy. Only timeout scenario is supported now.
    * @param { PowerPolicy } powerPolicy - device power policy.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -363,7 +363,7 @@ declare namespace deviceSettings {
    * @param { PowerScene } powerScene - the scene to execute power policy. Only timeout scenario is supported now.
    * @returns { PowerPolicy } device power policy.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -390,7 +390,7 @@ declare namespace deviceSettings {
    *                           When the screen off time is set, the minimum value is 15000. It is recommended that
    *                           the time is consistent with the optional screen-off time of the device.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -398,7 +398,7 @@ declare namespace deviceSettings {
    * @stagemodelonly
    * @since 12
    */
-  function setValue(admin: Want, item: string, value: string): void
+  function setValue(admin: Want, item: string, value: string): void;
 
   /**
    * Gets the device settings value.
@@ -411,7 +411,7 @@ declare namespace deviceSettings {
    *                          screenOff means the device screen off time, powerPolicy means the device power policy.
    * @returns { string } device settings policy.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -419,7 +419,7 @@ declare namespace deviceSettings {
    * @stagemodelonly
    * @since 12
    */
-  function getValue(admin: Want, item: string): string
+  function getValue(admin: Want, item: string): string;
 }
 
 export default deviceSettings;

@@ -137,6 +137,14 @@ export interface Event {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Type of the Event.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   readonly type: string;
 
   /**
@@ -151,6 +159,14 @@ export interface Event {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Timestamp(accurate to millisecond) when the event is created.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   readonly timeStamp: number;
 }
@@ -294,13 +310,13 @@ export interface ErrorEvent extends Event {
 }
 
 /**
- * @typedef MessageEvent
+ * @typedef MessageEvent<T>
  * Holds the data transferred between worker threads.
  * @syscap SystemCapability.Utils.Lang
  * @since 7
  */
 /**
- * @typedef MessageEvent
+ * @typedef MessageEvent<T>
  * Holds the data transferred between worker threads.
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
@@ -499,6 +515,14 @@ export interface WorkerEventListener {
  * @crossplatform
  * @since 10
  */
+/**
+ * Type of message, only "message" and "messageerror".
+ *
+ * @typedef { 'message' | 'messageerror' }
+ * @syscap SystemCapability.Utils.Lang
+ * @crossplatform
+ * @since 12
+ */
 type MessageType = 'message' | 'messageerror';
 
 /**
@@ -622,6 +646,22 @@ export interface WorkerEventTarget {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Adds an event listener to the worker.
+   *
+   * @param { string } type - type Type of the event to listen for.
+   * @param { WorkerEventListener } listener - listener Callback to invoke when an event of the specified type occurs.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types;
+   * 3.Parameter verification failed.
+   * @throws { BusinessError } 10200004 - Worker instance is not running.
+   * @throws { BusinessError } 10200005 - The invoked API is not supported in workers.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   addEventListener(type: string, listener: WorkerEventListener): void;
   /**
    * Handle the event defined for the worker.
@@ -649,6 +689,21 @@ export interface WorkerEventTarget {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Handle the event defined for the worker.
+   *
+   * @param { Event } event - event Event to dispatch.
+   * @returns { boolean }
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types;
+   * 3.Parameter verification failed.
+   * @throws { BusinessError } 10200004 - Worker instance is not running.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   dispatchEvent(event: Event): boolean;
   /**
@@ -678,6 +733,21 @@ export interface WorkerEventTarget {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Remove an event defined for the worker.
+   *
+   * @param { string } type - type Type of the event for which the event listener is cancelled.
+   * @param { WorkerEventListener } [callback] - callback Callback of the event listener to remove.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types;
+   * 3.Parameter verification failed.
+   * @throws { BusinessError } 10200004 - Worker instance is not running.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   removeEventListener(type: string, callback?: WorkerEventListener): void;
   /**
    * Remove all event listeners for the worker.
@@ -693,6 +763,15 @@ export interface WorkerEventTarget {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Remove all event listeners for the worker.
+   *
+   * @throws { BusinessError } 10200004 - Worker instance is not running.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   removeAllListener(): void;
 }

@@ -197,11 +197,12 @@ declare const Component: ClassDecorator & ((options: ComponentOptions) => ClassD
 /**
  * Defining ComponentV2 ClassDecorator
  *
+ * ComponentV2 is a ClassDecorator and it supports ComponentOptions as parameters.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
-declare const ComponentV2: ClassDecorator;
+declare const ComponentV2: ClassDecorator & ((options: ComponentOptions) => ClassDecorator);
 
 /**
  * Defines the options of Entry ClassDecorator.
@@ -2622,6 +2623,54 @@ declare interface GeometryTransitionOptions {
    * @since 12
    */
   follow?: boolean;
+  /**
+   * Defines movement strategy of source and target in the hierarchy during geometry transition.
+   * 
+   * @type { ?TransitionHierarchyStrategy }
+   * @default TransitionHierarchyStrategy.ADAPTIVE
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @atomicservice
+   * @since 12
+   */
+  hierarchyStrategy?: TransitionHierarchyStrategy
+}
+
+/**
+ * Source and target are two matched elements during the geometry transition.
+ * The animation starts at the source and ends at the target.
+ * TransitionHierarchyStrategy enumeration defines how levels of source and target elements
+ * would be changed in the hierarchy during the geometry transition.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @atomicservice
+ * @since 12
+ */
+declare enum TransitionHierarchyStrategy {
+  /**
+   * None mode.
+   * Source and target staty in the original level in the hierarchy during geometry transition.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @atomicservice
+   * @since 12
+   */
+  NONE = 0,
+
+  /**
+   * ADAPTIVE mode.
+   * Lower level one of source and target is elevated to higher level of both,
+   * indicating that two elements are in same high level.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @atomicservice
+   * @since 12
+   */
+  ADAPTIVE = 1,
 }
 
 /**
@@ -3204,6 +3253,161 @@ declare interface AlignRuleOption {
    * @atomicservice
    * @since 12
    * @form
+   */
+  bias?: Bias;
+}
+
+/**
+ * Defines the localized horizontal align param of relative container.
+ *
+ * @interface LocalizedHorizontalAlignParam
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare interface LocalizedHorizontalAlignParam {
+  /**
+   * The anchor of localized align param.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */  
+  anchor: string;
+
+  /**
+   * The align of localized align param.
+   *
+   * @type { HorizontalAlign }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */    
+  align: HorizontalAlign;
+}
+
+/**
+ * Defines the localized vertical align param of relative container.
+ *
+ * @interface LocalizedVerticalAlignParam
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare interface LocalizedVerticalAlignParam {
+  /**
+   * The anchor of localized align param.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */  
+  anchor: string;
+
+  /**
+   * The align of localized align param.
+   *
+   * @type { VerticalAlign }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */    
+  align: VerticalAlign;
+}
+
+/**
+ * Defines the Localized align rule options of relative container.
+ *
+ * @interface LocalizedAlignRuleOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare interface LocalizedAlignRuleOptions {
+  /**
+   * The param of start align.
+   *
+   * @type { ?LocalizedHorizontalAlignParam }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  start?: LocalizedHorizontalAlignParam;
+
+  /**
+   * The param of end align.
+   *
+   * @type { ?LocalizedHorizontalAlignParam }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  end?: LocalizedHorizontalAlignParam;
+
+  /**
+   * The param of middle align.
+   *
+   * @type { ?LocalizedHorizontalAlignParam }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  middle?: LocalizedHorizontalAlignParam;
+
+  /**
+   * The param of top align.
+   *
+   * @type { ?LocalizedVerticalAlignParam }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  top?: LocalizedVerticalAlignParam;
+
+  /**
+   * The param of bottom align.
+   *
+   * @type { ?LocalizedVerticalAlignParam }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  bottom?: LocalizedVerticalAlignParam;
+
+  /**
+   * The param of center align.
+   *
+   * @type { ?LocalizedVerticalAlignParam }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  center?: LocalizedVerticalAlignParam;
+
+  /**
+   * Defines the bias ratio in horizontal and vertical direction.
+   *
+   * @type { ?Bias }
+   * @default {horizontal:0.5,vertical:0.5}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   bias?: Bias;
 }
@@ -7139,6 +7343,7 @@ declare enum SafeAreaEdge {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare enum LayoutSafeAreaType {
@@ -7147,6 +7352,7 @@ declare enum LayoutSafeAreaType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   SYSTEM = 0,
@@ -7158,6 +7364,7 @@ declare enum LayoutSafeAreaType {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare enum LayoutSafeAreaEdge {
@@ -7166,6 +7373,7 @@ declare enum LayoutSafeAreaEdge {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   TOP = 0,
@@ -7175,6 +7383,7 @@ declare enum LayoutSafeAreaEdge {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   BOTTOM = 1,
@@ -8711,9 +8920,50 @@ declare interface TouchEvent extends BaseEvent {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
+ * @atomicservice
  * @since 12
  */
 declare type SizeChangeCallback = (oldValue: SizeOptions, newValue: SizeOptions) => void;
+
+/**
+ * Defines the callback type used in onGestureRecognizerJudgeBegin.
+ *
+ * @typedef { function } GestureRecognizerJudgeBeginCallback
+ * @param { BaseGestureEvent } event - the event information
+ * @param { GestureRecognizer } current - the current gesture recognizer of the component
+ * @param { Array<GestureRecognizer> } recognizers - the gesture recognizers of the component on the response chain
+ * @returns { GestureJudgeResult } the gesture judge result
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type GestureRecognizerJudgeBeginCallback = (event: BaseGestureEvent, current: GestureRecognizer, recognizers: Array<GestureRecognizer>) => GestureJudgeResult;
+
+/**
+ * Defines the callback type used in shouldBuiltInRecognizerParallelWith.
+ *
+ * @typedef { function } ShouldBuiltInRecognizerParallelWithCallback
+ * @param { GestureRecognizer } current - the current gesture recognizer of the component
+ * @param { Array<GestureRecognizer> } others - the gesture recognizers of the component on the response chain
+ * @returns { GestureRecognizer } gesture recognizer of the component
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type ShouldBuiltInRecognizerParallelWithCallback = (current: GestureRecognizer, others: Array<GestureRecognizer>) => GestureRecognizer;
+
+/**
+ * Defines the finish callback type used in transition.
+ * 
+ * @typedef { function } TransitionFinishCallback
+ * @param { boolean } transitionIn - a boolean value indicates whether it is the callback of transitionIn or transitionOut.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 12
+ */
+declare type TransitionFinishCallback = (transitionIn: boolean) => void;
 
 /**
  * Defines the PixelMap type object for ui component.
@@ -10206,6 +10456,37 @@ declare enum SheetMode {
 }
 
 /**
+ * Define the scroll size mode of the sheet.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare enum ScrollSizeMode {
+  /**
+   * Sheet change scroll size after the slide ends.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  FOLLOW_DETENT = 0,
+
+  /**
+   * Sheet change scroll size during the sliding process.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  CONTINUOUS = 1,
+}
+
+/**
  * Component sheet dismiss
  *
  * @interface SheetDismiss
@@ -10249,6 +10530,7 @@ declare interface SheetDismiss {
  * @interface DismissSheetAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface DismissSheetAction {
@@ -10281,6 +10563,7 @@ declare interface DismissSheetAction {
  * @interface SpringBackAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface SpringBackAction {
@@ -10606,6 +10889,18 @@ declare interface SheetOptions extends BindOptions {
    * @since 12
    */
   mode?: SheetMode;
+
+  /**
+   * Determine sheet scroll size mode.
+   *
+   * @type { ?ScrollSizeMode }
+   * @default ScrollSizeMode.FELLOW_DETEND
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+    scrollSizeMode?: ScrollSizeMode;
 
   /**
    * Called when detents of the sheet changed
@@ -14709,6 +15004,51 @@ declare class CommonMethod<T> {
    */
   foregroundEffect(options: ForegroundEffectOptions): T;
 
+
+  /**
+   * Unified visual effect interface.
+   *
+   * @param { VisualEffect } effect - Visual effect parameters.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  visualEffect(effect: VisualEffect): T;
+
+  /**
+   * Filter applied to the background layer of the component.
+   *
+   * @param { Filter } filter - Filter effect parameters.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  backgroundFilter(filter: Filter): T;
+
+  /**
+   * Filter applied to the foreground layer of the component.
+   *
+   * @param { Filter } filter - Filter effect parameters.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  foregroundFilter(filter: Filter): T;
+
+  /**
+   * Filter applied to the compositing layer of the component.
+   *
+   * @param { Filter } filter - Filter effect parameters.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  compositingFilter(filter: Filter): T;
+
   /**
    * Foreground blur style.
    * blurStyle:Blur style type.
@@ -15681,6 +16021,20 @@ declare class CommonMethod<T> {
    * @form
    */
   transition(value: TransitionOptions | TransitionEffect): T;
+
+  /**
+   * Set the transition effect of component when it appears and disappears.
+   *
+   * @param { TransitionEffect } effect - transition effect
+   * @param { Optional<TransitionFinishCallback> } onFinish - transition finish callback.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  transition(effect: TransitionEffect, onFinish: Optional<TransitionFinishCallback>): T;
 
   /**
    * Bind gesture recognition.
@@ -17353,6 +17707,19 @@ declare class CommonMethod<T> {
   alignRules(value: AlignRuleOption): T;
 
   /**
+   * Specifies the localized alignRules of relative container
+   *
+   * @param { LocalizedAlignRuleOptions } alignRule
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  alignRules(alignRule: LocalizedAlignRuleOptions): T;
+
+  /**
    * Specifies the direction and style of chain in relative container
    *
    * @param { Axis } value - indicates direction of the chain
@@ -18033,6 +18400,7 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   clip(value: boolean): T;
@@ -18090,6 +18458,7 @@ declare class CommonMethod<T> {
   * @returns { T }
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
+  * @atomicservice
   * @since 12
   */
   clipShape(value: CircleShape | EllipseShape | PathShape | RectShape): T;
@@ -18101,6 +18470,7 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   mask(value: ProgressMask): T;
@@ -18154,6 +18524,7 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   maskShape(value: CircleShape | EllipseShape | PathShape | RectShape): T;
@@ -18950,6 +19321,29 @@ declare class CommonMethod<T> {
    * @since 12
    */
   onGestureJudgeBegin(callback: (gestureInfo: GestureInfo, event: BaseGestureEvent) => GestureJudgeResult): T;
+
+  /**
+   * When a gesture bound to this component will be accepted, a user-defined callback is triggered to get the result
+   *
+   * @param { GestureRecognizerJudgeBeginCallback } callback - A callback instance used when a gesture bound to this component will be accepted.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onGestureRecognizerJudgeBegin(callback: GestureRecognizerJudgeBeginCallback): T;
+
+  /**
+   * In the touch test phase, the recognizer is selected to form a parallel relationship with other recognizers on the response chain.
+   *
+   * @param { ShouldBuiltInRecognizerParallelWithCallback } callback - A callback instance used when a component is doing touch test.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  shouldBuiltInRecognizerParallelWith(callback: ShouldBuiltInRecognizerParallelWithCallback): T;
 
   /**
    * Events are monopolized by components.
@@ -20497,6 +20891,15 @@ declare type NavigationInfo = import('../api/@ohos.arkui.observer').default.Navi
  * @crossplatform
  * @since 11
  */
+/**
+ * UIContext
+ *
+ * @typedef {import('../api/@ohos.arkui.UIContext').UIContext} UIContext
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare type UIContext = import('../api/@ohos.arkui.UIContext').UIContext;
 
 /**
@@ -20509,6 +20912,27 @@ declare type UIContext = import('../api/@ohos.arkui.UIContext').UIContext;
 declare type DrawContext = import('../api/arkui/Graphics').DrawContext;
 
 /**
+ * VisualEffect
+ *
+ * @typedef { import('../api/@ohos.graphics.uiEffect').default.VisualEffect } VisualEffect
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type VisualEffect = import('../api/@ohos.graphics.uiEffect').default.VisualEffect;
+
+
+/**
+ * Filter
+ *
+ * @typedef { import('../api/@ohos.graphics.uiEffect').default.Filter } Filter
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type Filter = import('../api/@ohos.graphics.uiEffect').default.Filter;
+
+/**
  * ComponentContent.
  *
  * @typedef {import('../api/arkui/ComponentContent').ComponentContent} ComponentContent
@@ -20517,6 +20941,17 @@ declare type DrawContext = import('../api/arkui/Graphics').DrawContext;
  * @since 12
  */
 declare type ComponentContent = import('../api/arkui/ComponentContent').ComponentContent;
+
+/**
+ * Theme.
+ *
+ * @typedef {import('../api/@ohos.arkui.theme').Theme} Theme
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare type Theme = import('../api/@ohos.arkui.theme').Theme;
 
 /**
  * Custom Component
@@ -21573,34 +22008,6 @@ declare class DynamicNode<T> {
   onMove(handler: Optional<OnMoveHandler>): T;
 }
 
-declare module "SpecialEvent" {
-  module "SpecialEvent" {
-    // @ts-ignore
-    export { TouchObject, KeyEvent, MouseEvent };
-  }
-}
-
-declare module "AnimateToParam" {
-  module "AnimateToParam" {
-    // @ts-ignore
-    export type { AnimateParam, KeyframeAnimateParam, KeyframeState };
-  }
-}
-
-declare module 'DragControllerParam' {
-  module 'DragControllerParam' {
-    // @ts-ignore
-    export type { CustomBuilder, DragItemInfo, DragEvent, DragPreviewOptions };
-  }
-}
-
-declare module 'ExpectedFrameRateRange' {
-  module 'ExpectedFrameRateRange' {
-    // @ts-ignore
-    export type { ExpectedFrameRateRange };
-  }
-}
-
 /**
  * Define EdgeEffect Options.
  *
@@ -21921,12 +22328,6 @@ declare class WrappedBuilder<Args extends Object[]> {
   constructor(builder: (...args: Args) => void);
 }
 
-declare module "wrappedBuilderObject" {
-  module "wrappedBuilderObject" {
-    // @ts-ignore
-    export { WrappedBuilder };
-  }
-}
 
 /**
  * Defines the overall animation parameters of the keyframe animation.
@@ -22084,12 +22485,6 @@ declare interface KeyframeState {
   event: () => void;
 }
 
-declare module 'touchEvent'{
-  module 'touchEvent' {
-    // @ts-ignore
-    export { TouchEvent };
-  }
-}
 
 /**
  * Defines the basic callback.
@@ -22097,6 +22492,7 @@ declare module 'touchEvent'{
  * @typedef Callback
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface Callback<T, V = void> {
@@ -22107,6 +22503,7 @@ declare interface Callback<T, V = void> {
    * @returns { V } - Returns result of the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   (data: T): V;
@@ -22130,6 +22527,7 @@ declare type HoverCallback = (isHover: boolean, event: HoverEvent) => void
  * @interface VisibleAreaEventOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface VisibleAreaEventOptions {
@@ -22139,6 +22537,7 @@ declare interface VisibleAreaEventOptions {
    * @type { Array<number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   ratios: Array<number>;
@@ -22150,6 +22549,7 @@ declare interface VisibleAreaEventOptions {
    * @default 1000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   expectedUpdateInterval?: number;
@@ -22159,7 +22559,8 @@ declare interface VisibleAreaEventOptions {
  * Defines the callback type used in VisibleAreaChange events.
  *
  * @typedef { function } VisibleAreaChangeCallback
- * @param { boolean } isVisible - The value of isVisible indicates whether the component is visible.
+ * @param { boolean } isVisible - Indicates the ratio of the visible area to its own area compared to the last change.
+ * It is true as the ratio increases and false as the ratio decreases.
  * @param { number } currentRatio - The value of currentRatio indicates the visibility ratio of the current component.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -22173,6 +22574,7 @@ declare type VisibleAreaChangeCallback = (isVisible: boolean, currentRatio: numb
  * @interface UICommonEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface UICommonEvent {
@@ -22182,6 +22584,7 @@ declare interface UICommonEvent {
    * @param { Callback<ClickEvent> | undefined } callback - The callback about the click event. If set undefined will reset the target callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   setOnClick(callback: Callback<ClickEvent> | undefined): void;
@@ -22192,6 +22595,7 @@ declare interface UICommonEvent {
    * @param { Callback<TouchEvent> | undefined } callback - The callback about the touch event. If set undefined will reset the target callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   setOnTouch(callback: Callback<TouchEvent> | undefined): void;
@@ -22202,6 +22606,7 @@ declare interface UICommonEvent {
    * @param { Callback<void> | undefined } callback - The callback will be triggered when a component mounts a display. If set undefined will reset the target callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   setOnAppear(callback: Callback<void> | undefined): void;
@@ -22212,6 +22617,7 @@ declare interface UICommonEvent {
    * @param { Callback<void> | undefined } callback - The callback will be triggered when component uninstallation disappears. If set undefined will reset the target callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   setOnDisappear(callback: Callback<void> | undefined): void;
@@ -22223,6 +22629,7 @@ declare interface UICommonEvent {
    * @param { Callback<KeyEvent> | undefined } callback - The callback will be triggered when has keyboard input. If set undefined will reset the target callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   setOnKeyEvent(callback: Callback<KeyEvent> | undefined): void;
@@ -22233,6 +22640,7 @@ declare interface UICommonEvent {
    * @param { Callback<void> | undefined } callback - The callback will be triggered when a component get focus. If set undefined will reset the target callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   setOnFocus(callback: Callback<void> | undefined): void;
@@ -22243,6 +22651,7 @@ declare interface UICommonEvent {
    * @param { Callback<void> | undefined } callback - The callback will be triggered when a component lose focus. If set undefined will reset the target callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   setOnBlur(callback: Callback<void> | undefined): void;
@@ -22253,6 +22662,7 @@ declare interface UICommonEvent {
    * @param { HoverCallback | undefined } callback - The callback will be triggered when has a hover event. If set undefined will reset the target callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   setOnHover(callback: HoverCallback | undefined): void;
@@ -22263,6 +22673,7 @@ declare interface UICommonEvent {
   * @param { Callback<MouseEvent> | undefined } callback - The callback will be triggered when has mouse input. If set undefined will reset the target callback.
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
+  * @atomicservice
   * @since 12
   */
   setOnMouse(callback: Callback<MouseEvent> | undefined): void;
@@ -22273,6 +22684,7 @@ declare interface UICommonEvent {
   * @param { SizeChangeCallback | undefined } callback - The callback will be triggered when the size of component changed. If set undefined will reset the target callback.
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
+  * @atomicservice
   * @since 12
   */
   setOnSizeChange(callback: SizeChangeCallback | undefined): void;
@@ -22285,6 +22697,7 @@ declare interface UICommonEvent {
    * If set undefined will reset the target callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   setOnVisibleAreaApproximateChange(options: VisibleAreaEventOptions, event: VisibleAreaChangeCallback | undefined): void;
@@ -22380,25 +22793,4 @@ declare interface SelectionOptions {
    * @since 12
    */
   menuPolicy?: MenuPolicy;
-}
-
-declare module 'commonEvent' {
-  module 'commonEvent' {
-    // @ts-ignore
-    export { UICommonEvent };
-  }
-}
-
-declare module 'commonAttribute'{
-  module 'commonAttribute' {
-    // @ts-ignore
-    export { CommonAttribute };
-  }
-}
-
-declare module "ClickEventModule" {
-  module "ClickEventModule" {
-    // @ts-ignore
-    export { ClickEvent };
-  }
 }

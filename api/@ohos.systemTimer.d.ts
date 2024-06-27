@@ -75,8 +75,9 @@ declare namespace systemTimer {
    *
    * @param { TimerOptions } options - The timer options.
    * @param { AsyncCallback<number> } callback - {number} is the timer ID.
-   * @throws { BusinessError } 202 - permission denied, Non system application use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;
+   *     3.Parameter verification failed.
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
    * @since 7
@@ -88,8 +89,9 @@ declare namespace systemTimer {
    *
    * @param { TimerOptions } options - The timer options.
    * @returns { Promise<number> } the timer ID.
-   * @throws { BusinessError } 202 - permission denied, Non system application use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;
+   *     3.Parameter verification failed.
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
    * @since 7
@@ -104,7 +106,7 @@ declare namespace systemTimer {
    *                   The time will be automatically set to 5000 milliseconds after the current time if the passed
    *                   value is smaller than the current time plus 5000 milliseconds.
    * @param { AsyncCallback<void> } callback - The callback function.
-   * @throws { BusinessError } 202 - permission denied, Non system application use system APIs.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
@@ -120,7 +122,7 @@ declare namespace systemTimer {
    *                   The time will be automatically set to 5000 milliseconds after the current time if the passed
    *                   value is smaller than the current time plus 5000 milliseconds.
    * @returns { Promise<void> } return a promise object.
-   * @throws { BusinessError } 202 - permission denied, Non system application use system APIs.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
@@ -133,7 +135,7 @@ declare namespace systemTimer {
    *
    * @param { number } timer - The timer ID.
    * @param { AsyncCallback<void> } callback - The callback function.
-   * @throws { BusinessError } 202 - permission denied, Non system application use system APIs.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
@@ -146,7 +148,7 @@ declare namespace systemTimer {
    *
    * @param { number } timer - The timer ID.
    * @returns { Promise<void> } return a promise object.
-   * @throws { BusinessError } 202 - permission denied, Non system application use system APIs.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
@@ -159,7 +161,7 @@ declare namespace systemTimer {
    *
    * @param { number } timer - The timer ID.
    * @param { AsyncCallback<void> } callback - The callback function.
-   * @throws { BusinessError } 202 - permission denied, Non system application use system APIs.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
@@ -172,7 +174,7 @@ declare namespace systemTimer {
    *
    * @param { number } timer - The timer ID.
    * @returns { Promise<void> } return a promise object.
-   * @throws { BusinessError } 202 - permission denied, Non system application use system APIs.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.

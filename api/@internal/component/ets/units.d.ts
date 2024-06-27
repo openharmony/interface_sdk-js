@@ -404,6 +404,7 @@ declare type Padding = {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
+ * @atomicservice
  * @since 12
  */
 declare interface LocalizedPadding {
@@ -414,6 +415,7 @@ declare interface LocalizedPadding {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   top?: LengthMetrics;
@@ -425,6 +427,7 @@ declare interface LocalizedPadding {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   end?: LengthMetrics;
@@ -436,6 +439,7 @@ declare interface LocalizedPadding {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   bottom?: LengthMetrics;
@@ -447,6 +451,7 @@ declare interface LocalizedPadding {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   start?: LengthMetrics;
@@ -650,6 +655,7 @@ declare type EdgeWidths = {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
+ * @atomicservice
  * @since 12
  */
 declare interface LocalizedEdgeWidths {
@@ -660,6 +666,7 @@ declare interface LocalizedEdgeWidths {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   top?: LengthMetrics;
@@ -671,6 +678,7 @@ declare interface LocalizedEdgeWidths {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   end?: LengthMetrics;
@@ -682,6 +690,7 @@ declare interface LocalizedEdgeWidths {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   bottom?: LengthMetrics;
@@ -693,6 +702,7 @@ declare interface LocalizedEdgeWidths {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   start?: LengthMetrics;
@@ -910,6 +920,7 @@ declare type BorderRadiuses = {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
+ * @atomicservice
  * @since 12
  */
 declare interface LocalizedBorderRadiuses  {
@@ -920,6 +931,7 @@ declare interface LocalizedBorderRadiuses  {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   topStart?: LengthMetrics;
@@ -931,6 +943,7 @@ declare interface LocalizedBorderRadiuses  {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   topEnd?: LengthMetrics;
@@ -942,6 +955,7 @@ declare interface LocalizedBorderRadiuses  {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   bottomStart?: LengthMetrics;
@@ -953,6 +967,7 @@ declare interface LocalizedBorderRadiuses  {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   bottomEnd?: LengthMetrics;
@@ -1230,6 +1245,7 @@ declare interface LocalizedEdgeColors  {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
+ * @atomicservice
  * @since 12
 */
 declare type LocalizedMargin = LocalizedPadding;
@@ -1647,6 +1663,7 @@ declare type VoidCallback  = () => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
+ * @atomicservice
  * @since 12
  */
 declare type LengthMetricsUnit = import('../api/arkui/Graphics').LengthMetricsUnit;
@@ -1657,6 +1674,7 @@ declare type LengthMetricsUnit = import('../api/arkui/Graphics').LengthMetricsUn
  * @typedef { import('../api/arkui/Graphics').LengthMetrics } LengthMetrics
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare type LengthMetrics = import('../api/arkui/Graphics').LengthMetrics;
@@ -1667,6 +1685,7 @@ declare type LengthMetrics = import('../api/arkui/Graphics').LengthMetrics;
  * @typedef { import('../api/arkui/Graphics').ColorMetrics } ColorMetrics
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare type ColorMetrics = import('../api/arkui/Graphics').ColorMetrics;
@@ -2095,6 +2114,7 @@ declare interface Position {
  * @interface LocalizedPosition
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface LocalizedPosition {
@@ -2104,6 +2124,7 @@ declare interface LocalizedPosition {
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   start?: LengthMetrics;
@@ -2114,6 +2135,7 @@ declare interface LocalizedPosition {
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   top?: LengthMetrics;
@@ -2185,6 +2207,7 @@ declare interface Edges {
  * @interface LocalizedEdges
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface LocalizedEdges {
@@ -2194,6 +2217,7 @@ declare interface LocalizedEdges {
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   top?: LengthMetrics;
@@ -2204,6 +2228,7 @@ declare interface LocalizedEdges {
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   start?: LengthMetrics;
@@ -2214,6 +2239,7 @@ declare interface LocalizedEdges {
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   bottom?: LengthMetrics;
@@ -2224,6 +2250,7 @@ declare interface LocalizedEdges {
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   end?: LengthMetrics;
@@ -2236,6 +2263,16 @@ declare interface LocalizedEdges {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
+ * @form
+ */
+/**
+ * Defines the Bias.
+ *
+ * @interface Bias
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
  * @form
  */
 declare interface Bias {
@@ -2608,6 +2645,16 @@ declare interface SizeOptions {
  * @since 11
  * @form
  */
+/**
+ * Defines the options of border.
+ *
+ * @interface BorderOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ * @form
+ */
 declare interface BorderOptions {
   /**
    * Defines the border width.
@@ -2782,6 +2829,28 @@ declare interface BorderOptions {
    * @form
    */
   style?: EdgeStyles | BorderStyle;
+
+  /**
+   * Defines the gap of dash when BorderStyle is dashed.
+   *
+   * @type { ?(EdgeWidths | LengthMetrics | LocalizedEdgeWidths) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  dashGap?: EdgeWidths | LengthMetrics | LocalizedEdgeWidths;
+
+  /**
+   * Defines the length of dash when BorderStyle is dashed.
+   *
+   * @type { ?(EdgeWidths | LengthMetrics | LocalizedEdgeWidths) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  dashWidth?: EdgeWidths | LengthMetrics | LocalizedEdgeWidths;
 }
 
 /**
@@ -3078,6 +3147,7 @@ declare interface TouchPoint {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
+ * @atomicservice
  * @since 12
  */
 declare interface DirectionalEdgesT<T> {
@@ -3088,6 +3158,7 @@ declare interface DirectionalEdgesT<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   start: T;
@@ -3099,6 +3170,7 @@ declare interface DirectionalEdgesT<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   end: T;
@@ -3110,6 +3182,7 @@ declare interface DirectionalEdgesT<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   top: T;
@@ -3121,6 +3194,7 @@ declare interface DirectionalEdgesT<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   bottom: T;
@@ -3132,6 +3206,7 @@ declare interface DirectionalEdgesT<T> {
  * @interface DividerStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface DividerStyleOptions {
@@ -3141,6 +3216,7 @@ declare interface DividerStyleOptions {
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   strokeWidth?: LengthMetrics;
@@ -3151,6 +3227,7 @@ declare interface DividerStyleOptions {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   color?: ResourceColor;
@@ -3161,6 +3238,7 @@ declare interface DividerStyleOptions {
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   startMargin?: LengthMetrics;
@@ -3171,21 +3249,8 @@ declare interface DividerStyleOptions {
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   endMargin?: LengthMetrics;
-}
-
-declare module "GlobalResource" {
-  module "GlobalResource" {
-    // @ts-ignore
-    export type { Resource, ResourceStr };
-  }
-}
-
-declare module 'DragControllerUnitParam' {
-  module 'DragControllerUnitParam' {
-    // @ts-ignore
-    export type {ResourceColor, TouchPoint };
-  }
 }

@@ -20,6 +20,7 @@ import { ApiResultSimpleInfo, ApiResultInfo, ApiResultMessage } from '../typedef
 import { ApiInfo, ClassInfo, ParentClass } from '../typedef/parser/ApiInfoDefination';
 import { FileUtils } from './FileUtils';
 import { ApiCheckVersion } from '../coreImpl/checker/config/api_check_version.json';
+import { PunctuationMark } from './Constant';
 
 
 export class PosOfNode {
@@ -121,8 +122,8 @@ export class GenerateFile {
       const apiData: ApiResultInfo = apiCheckArr[i - 1];
       sheet.getRow(i + 1).values = [
         i,
-        apiData.getErrorType(),
         apiData.getLevel(),
+        apiData.getErrorType(),
         apiData.getLocation(),
         apiData.getApiName(),
         apiData.getApiFullText(),
@@ -168,6 +169,12 @@ export class ObtainFullPath {
 }
 
 export class CommonFunctions {
+  
+  static getSinceVersion(sinceValue: string): string {
+    return sinceValue.indexOf(PunctuationMark.LEFT_PARENTHESES) !== -1 ?
+      sinceValue.substring(sinceValue.indexOf(PunctuationMark.LEFT_PARENTHESES) + 1,
+        sinceValue.indexOf(PunctuationMark.RIGHT_PARENTHESES)) : sinceValue;
+  }
   /**
    * 判断标签是否为官方标签
    */
@@ -290,7 +297,9 @@ export const officialTagArr: string[] = [
  * Inherit tag
  */
 export const inheritTagArr: string[] = ['test', 'famodelonly', 'FAModelOnly', 'stagemodelonly', 'StageModelOnly',
-  'deprecated', 'systemapi', 'atomicservice', 'form'];
+  'deprecated', 'systemapi'];
+
+export const followTagArr: string[] = ['atomicservice', 'form'];
 
 /**
  * Optional tag
@@ -302,7 +311,7 @@ export const optionalTags: string[] = [
 /**
  * conditional optional tag
  */
-export const conditionalOptionalTags: string[] = ['default', 'readonly', 'permission', 'throws', 'constant'];
+export const conditionalOptionalTags: string[] = ['default', 'permission', 'throws'];
 
 /**
  * All api types that can use the permission tag.
@@ -334,7 +343,7 @@ export const apiLegalityCheckTypeMap: Map<ts.SyntaxKind, string[]> = new Map([
   [ts.SyntaxKind.PropertyDeclaration, ['type', 'default', 'permission', 'throws', 'readonly', 'syscap', 'since']],
   [ts.SyntaxKind.PropertySignature, ['type', 'default', 'permission', 'throws', 'readonly', 'syscap', 'since']],
   [ts.SyntaxKind.VariableStatement, ['constant', 'default', 'permission', 'throws', 'syscap', 'since']],
-  [ts.SyntaxKind.TypeAliasDeclaration, ['syscap', 'since', 'typedef']],
+  [ts.SyntaxKind.TypeAliasDeclaration, ['syscap', 'since', 'typedef', 'param', 'returns', 'throws']],
   [ts.SyntaxKind.EnumMember, ['syscap', 'since']],
   [ts.SyntaxKind.NamespaceExportDeclaration, ['syscap', 'since']],
   [ts.SyntaxKind.TypeLiteral, ['syscap', 'since']],

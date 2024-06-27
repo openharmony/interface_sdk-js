@@ -19,6 +19,15 @@
  */
 
 /**
+ * Import the SystemBarStyle type for Navigation.
+ *
+ * @typedef { import('../api/@ohos.window').default.SystemBarStyle } SystemBarStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+declare type SystemBarStyle = import('../api/@ohos.window').default.SystemBarStyle;
+
+/**
  * Defines the navigation common title.
  *
  * @interface NavigationCommonTitle
@@ -729,7 +738,7 @@ declare class NavPathInfo {
  */
 declare enum LaunchMode {
   /**
-   * There will always be a new NavDestination created.
+   * The default mode of stack operation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -739,7 +748,7 @@ declare enum LaunchMode {
 
   /**
    * When the NavDestination with a specified name exists, it will be moved to top of stack,
-   * otherwise a new NavDestination will be created.
+   * otherwise, the behavior will be consistent with the STANDARD mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -749,7 +758,7 @@ declare enum LaunchMode {
 
   /**
    * When the NavDestination with a specified name exists, the stack will pop until that NavDestination,
-   * otherwise a new NavDestination will be created.
+   * otherwise, the behavior will be consistent with the STANDARD mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -2571,6 +2580,16 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @since 12
    */
   ignoreLayoutSafeArea(types?: Array<LayoutSafeAreaType>, edges?: Array<LayoutSafeAreaEdge>): NavigationAttribute;
+
+  /**
+   * Set the style of system bar
+   *
+   * @param { Optional<SystemBarStyle> } style - The properties of system bar
+   * @returns { NavigationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  systemBarStyle(style: Optional<SystemBarStyle>): NavigationAttribute;
 }
 
 /**
@@ -2628,6 +2647,17 @@ declare interface NavigationAnimatedTransition {
    * @since 12
    */
   timeout?: number;
+
+  /**
+   * Indicates whether it is an interactive transition.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  isInteractive?: boolean;
 
   /**
    * Configure the animations associated with custom transition.
@@ -2706,6 +2736,17 @@ declare interface NavigationTransitionProxy {
   to: NavContentInfo;
 
   /**
+   * Indicates whether it is an interactive transition.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  isInteractive?: boolean;
+
+  /**
    * Notification system transition animation completed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2721,6 +2762,25 @@ declare interface NavigationTransitionProxy {
    * @since 12
    */
   finishTransition(): void;
+
+  /**
+   * Notification system transition animation canceled.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  cancelTransition?(): void;
+
+  /**
+   * Notification system transition animation update.
+   *
+   * @param { number } progress - The progress of transition animation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  updateTransition?(progress: number): void;
 }
 
 /**
@@ -2797,6 +2857,26 @@ declare interface NavContentInfo {
    * @since 12
    */
   mode?: NavDestinationMode;
+
+  /**
+   * Navigation content param.
+   *
+   * @type { ?Object }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  param?: Object;
+
+  /**
+   * The unique id of NavDestination.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  navDestinationId?: string;
 }
 
 /**

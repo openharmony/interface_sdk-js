@@ -32,24 +32,17 @@ import {
 import { ApiDiffType } from '../../../typedef/diff/ApiInfoDiff';
 
 export class ApiChangeCheck {
-  static checkApiChange(prId: string): void {
-    let rootDir: string = '';
-    const onlineDir: string = path.resolve(
+  static checkApiChange(prId?: string): void {
+    const rootDir = path.resolve(
       FileUtils.getBaseDirName(),
       `../../../../../Archive/patch_info/openharmony_interface_sdk-js_${prId}`
     );
-    const localDir: string = path.resolve(FileUtils.getBaseDirName(), prId);
-
-    if (fs.existsSync(onlineDir)) {
-      rootDir = onlineDir;
-    } else if (fs.existsSync(localDir)) {
-      rootDir = localDir;
+    if (!fs.existsSync(rootDir)) {
+      return;
     }
     const oldFileDir: string = path.resolve(rootDir, './old');
     const newFileDir: string = path.resolve(rootDir, './new');
-    if (!fs.existsSync(oldFileDir) || !fs.existsSync(newFileDir)) {
-      return;
-    }
+
     const status: fs.Stats = fs.statSync(oldFileDir);
     let diffInfos: BasicDiffInfo[] = [];
     if (status.isDirectory()) {
@@ -67,7 +60,7 @@ export class ApiChangeCheck {
       }
       const errorInfo: ErrorMessage | undefined = incompatibleApiDiffTypes.get(diffInfo.getDiffType());
       if (diffInfo.getDiffType() === ApiDiffType.REDUCE) {
-        const dtsName = path.resolve(oldFileDir, diffInfo.getOldDtsName());
+        const dtsName = path.basename(diffInfo.getOldDtsName());
         AddErrorLogs.addAPICheckErrorLogs(
           ErrorID.API_CHANGE_ERRORS_ID,
           ErrorLevel.MIDDLE,
@@ -83,7 +76,7 @@ export class ApiChangeCheck {
           compositiveLocalResult
         );
       } else {
-        const dtsName = path.resolve(newFileDir, diffInfo.getNewDtsName());
+        const dtsName = path.basename(diffInfo.getNewDtsName());
         AddErrorLogs.addAPICheckErrorLogs(
           ErrorID.API_CHANGE_ERRORS_ID,
           ErrorLevel.MIDDLE,

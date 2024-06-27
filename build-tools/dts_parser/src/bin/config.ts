@@ -27,9 +27,11 @@ import { LocalEntry } from '../coreImpl/checker/local_entry';
 import { ApiResultMessage, ApiResultSimpleInfo } from '../typedef/checker/result_type';
 import { NumberConstant } from '../utils/Constant';
 import { ApiStatisticsHelper } from '../coreImpl/statistics/Statistics';
-import { ApiStatisticsInfo } from '../typedef/statistics/ApiStatistics';
+import { ApiStatisticsInfo, StatisticsInfoValueType } from '../typedef/statistics/ApiStatistics';
 import { SyscapProcessorHelper } from '../coreImpl/diff/syscapFieldProcessor';
 import { FunctionUtils } from '../utils/FunctionUtils';
+import { ApiCountInfo } from '../typedef/count/ApiCount';
+import { ApiCountHelper } from '../coreImpl/count/count'
 import { CommonFunctions } from '../utils/checkUtils';
 
 /**
@@ -51,10 +53,6 @@ export enum toolNameType {
    */
   CHECKONLINE = 'checkOnline',
   /**
-   * 兼容性变更检查工具 线上版
-   */
-  APICHANGECHECK = 'apiChangeCheck',
-  /**
    * diff工具
    */
   DIFF = 'diff',
@@ -62,6 +60,10 @@ export enum toolNameType {
    * 标签漏标检查
    */
   LABELDETECTION = 'detection',
+  /**
+   * API个数统计
+   */
+  COUNT = 'count'
 }
 
 /**
@@ -122,10 +124,6 @@ export const Plugin: PluginType = {
       },
       {
         isRequiredOption: false,
-        options: ['--prId <string>', 'check api prId', ''],
-      },
-      {
-        isRequiredOption: false,
         options: ['--excel <string>', 'check api excel', 'false'],
       },
       {
@@ -177,7 +175,6 @@ export const Plugin: PluginType = {
       isOH: argv.isOH,
       path: argv.path,
       checker: argv.checker,
-      prId: argv.prId,
       old: argv.old,
       new: argv.new,
       oldVersion: argv.oldVersion,
@@ -206,15 +203,20 @@ let startTime = Date.now();
  */
 function outputInfos(infos: ToolReturnData, options: OptionObjType, callback: ToolNameExcelCallback | undefined): void {
   const format = options.format;
+  let jsonFileName = `${options.toolName}_${options.oldVersion}_${options.newVersion}.json`;
+
   if (!format) {
     return;
+  }
+  if (options.toolName === toolNameType.COUNT) {
+    jsonFileName = 'api_kit_js.json';
   }
   switch (format) {
     case formatType.JSON:
       WriterHelper.JSONReporter(
         String(infos[0]),
         options.output,
-        `${options.toolName}_${options.oldVersion}_${options.newVersion}.json`
+        jsonFileName
       );
       break;
     case formatType.EXCEL:
@@ -247,10 +249,12 @@ function collectApi(options: OptionObjType): ToolNameValueType {
     } else {
       allApis = Parser.parseFile(path.resolve(fileDir, '..'), fileDir);
     }
-    const fileContent: string = Parser.getParseResults(allApis);
+	const statisticsInfosObject: StatisticsInfoValueType = ApiStatisticsHelper.getApiStatisticsInfos(allApis)
+  const fileContent: string = Parser.getParseResults(allApis);
+	let data: ApiStatisticsInfo[] | string [] = [fileContent];
     if (options.format === 'excel') {
-      const allApiStatisticsInfos: ApiStatisticsInfo[] | undefined =
-        ApiStatisticsHelper.getApiStatisticsInfos(allApis).allApiStatisticsInfos;
+      const allApiStatisticsInfos: ApiStatisticsInfo[] | undefined = statisticsInfosObject.allApiStatisticsInfos;
+      data = statisticsInfosObject.apiStatisticsInfos
       if (allApiStatisticsInfos) {
         WriterHelper.ExcelReporter(
           allApiStatisticsInfos,
@@ -262,10 +266,7 @@ function collectApi(options: OptionObjType): ToolNameValueType {
     }
 
     return {
-      data:
-        options.format === 'excel'
-          ? ApiStatisticsHelper.getApiStatisticsInfos(allApis).apiStatisticsInfos
-          : [fileContent],
+      data: data,
       callback: collectApiCallback as ToolNameExcelCallback,
     };
   } catch (exception) {
@@ -280,7 +281,9 @@ function collectApi(options: OptionObjType): ToolNameValueType {
 
 function collectApiCallback(apiData: ApiStatisticsInfo[], sheet: ExcelJS.Worksheet): void {
   const apiRelationsSet: Set<string> = new Set();
-  const subsystemMap: Map<string, string> = FunctionUtils.readSubsystemFile().subsystemMap;
+  const kitObject = FunctionUtils.readKitFile();
+  const subsystemMap: Map<string, string> = kitObject.subsystemMap;
+  const kitMap: Map<string, string> = kitObject.kitNameMap;
   sheet.name = 'JsApi';
   sheet.views = [{ xSplit: 1 }];
   sheet.getRow(1).values = ['模块名', '类名', '方法名', '函数', '类型',
@@ -311,16 +314,16 @@ function collectApiCallback(apiData: ApiStatisticsInfo[], sheet: ExcelJS.Workshe
       apiInfo.getIsForm(),
       apiInfo.getIsAutomicService(),
       apiInfo.getDecorators()?.join(),
-      apiInfo.getKitInfo(),
+      apiInfo.getKitInfo() === '' ? kitMap.get(apiInfo.getFilePath().replace(/\\/g, '/')) : apiInfo.getKitInfo(),
       apiInfo.getFilePath(),
-      subsystemMap.get(FunctionUtils.handleSyscap(apiInfo.getSyscap())),
+      subsystemMap.get(apiInfo.getFilePath().replace(/\\/g, '/')),
     ];
     lineNumber++;
     apiRelationsSet.add(apiRelations);
   });
 }
 /**
- * api检查工具调用方法
+ * 收集api工具调用方法
  *
  * @param { OptionObjType } options
  * @return { ToolNameValueType }
@@ -332,7 +335,7 @@ function checkApi(): ToolNameValueType {
     if (fs.existsSync(filePathTxt)) {
       mdApiFiles = CommonFunctions.getMdFiles(filePathTxt);
     }
-     LocalEntry.checkEntryLocal(mdApiFiles, ['all'], './result.json', '', 'true');
+     LocalEntry.checkEntryLocal(mdApiFiles, ['all'], './result.json', 'true');
     return {
       data: [],
     };
@@ -345,7 +348,7 @@ function checkApi(): ToolNameValueType {
   }
 }
 /**
- * api检查工具调用方法
+ * 收集api工具调用方法
  *
  * @param { OptionObjType } options
  * @return { ToolNameValueType }
@@ -353,37 +356,13 @@ function checkApi(): ToolNameValueType {
 function checkOnline(options: OptionObjType): ToolNameValueType {
   options.format = formatType.NULL;
   try {
-    LocalEntry.checkEntryLocal(options.path.split(','), options.checker.split(','), options.output, options.prId,
-      options.excel);
+    LocalEntry.checkEntryLocal(options.path.split(','), options.checker.split(','), options.output, options.excel);
     return {
       data: [],
     };
   } catch (exception) {
     const error = exception as Error;
     LogUtil.e('error check', error.stack ? error.stack : error.message);
-  } finally {
-  }
-  return {
-    data: [],
-  };
-}
-
-/**
- * api检查工具调用方法
- *
- * @param { OptionObjType } options
- * @return { ToolNameValueType }
- */
-function apiChangeCheck(options: OptionObjType): ToolNameValueType {
-  options.format = formatType.NULL;
-  try {
-    LocalEntry.apiChangeCheckEntryLocal(options.prId, options.checker.split(','), options.output, options.excel);
-    return {
-      data: [],
-    };
-  } catch (exception) {
-    const error = exception as Error;
-    LogUtil.e('error api change check', error.stack ? error.stack : error.message);
   } finally {
   }
   return {
@@ -477,6 +456,61 @@ function detectionApi(options: OptionObjType): ToolNameValueType {
 }
 
 /**
+ * api个数统计工具的入口函数
+ * 
+ * @param { OptionObjType } options 
+ * @returns { ToolNameValueType }
+ */
+function countApi(options: OptionObjType): ToolNameValueType {
+  const fileDir: string = path.resolve(FileUtils.getBaseDirName(), '../../api');
+  let collectFile: string = '';
+  if (options.collectFile !== '') {
+    collectFile = path.resolve(FileUtils.getBaseDirName(), options.collectFile);
+  }
+  let allApis: FilesMap;
+  try {
+    if (FileUtils.isDirectory(fileDir)) {
+      allApis = Parser.parseDir(fileDir, collectFile);
+    } else {
+      allApis = Parser.parseFile(path.resolve(fileDir, '..'), fileDir);
+    }
+    const statisticApiInfos: ApiStatisticsInfo[] = ApiStatisticsHelper.getApiStatisticsInfos(allApis).apiStatisticsInfos;
+    const apiCountInfos: ApiCountInfo[] = ApiCountHelper.countApi(statisticApiInfos);
+    let finalData: (string | ApiCountInfo)[] = [];
+    if (options.format === formatType.JSON) {
+      finalData = [JSON.stringify(apiCountInfos, null, NumberConstant.INDENT_SPACE)];
+    }else {
+      finalData = apiCountInfos;
+    }
+    return {
+      data: finalData,
+      callback: countApiCallback as ToolNameExcelCallback,
+    };
+  } catch (exception) {
+    const error = exception as Error;
+    LogUtil.e(`error count`, error.stack ? error.stack : error.message);
+    return {
+      data: [],
+      callback: countApiCallback as ToolNameExcelCallback,
+    };
+  }
+}
+
+function countApiCallback(data: ApiCountInfo[], sheet: ExcelJS.Worksheet): void {
+  sheet.name = 'api数量';
+  sheet.views = [{ xSplit: 1 }];
+  sheet.getRow(1).values = ['子系统', 'kit', '文件', 'api数量'];
+  data.forEach((countInfo: ApiCountInfo, index: number) => {
+    sheet.getRow(index + NumberConstant.LINE_IN_EXCEL).values = [
+      countInfo.getsubSystem(),
+      countInfo.getKitName(),
+      countInfo.getFilePath(),
+      countInfo.getApiNumber()      
+    ];
+  });
+}
+
+/**
  * diffApi工具导出excel时的回调方法
  *
  * @param {BasicDiffInfo[]} data diffApi工具获取到的数据
@@ -539,9 +573,9 @@ export const toolNameMethod: Map<string, ToolNameMethodType> = new Map([
   [toolNameType.COLLECT, collectApi],
   [toolNameType.CHECK, checkApi],
   [toolNameType.CHECKONLINE, checkOnline],
-  [toolNameType.APICHANGECHECK, apiChangeCheck],
   [toolNameType.DIFF, diffApi],
   [toolNameType.LABELDETECTION, detectionApi],
+  [toolNameType.COUNT, countApi]
 ]);
 
 /**
@@ -549,13 +583,12 @@ export const toolNameMethod: Map<string, ToolNameMethodType> = new Map([
  */
 export type OptionObjType = {
   toolName: toolNameType;
-  path: string;
-  checker: string;
-  prId: string;
   collectPath: string;
   collectFile: string;
   checkLabels: string;
   isOH: string;
+  path: string;
+  checker: string;
   old: string;
   new: string;
   oldVersion: string;
@@ -592,7 +625,7 @@ export type ToolNameValueType = {
    */
   callback?: ToolNameExcelCallback;
 };
-export type ToolReturnData = (string | ApiStatisticsInfo | ApiResultMessage | BasicDiffInfo)[];
+export type ToolReturnData = (string | ApiStatisticsInfo | ApiResultMessage | BasicDiffInfo | ApiCountInfo)[];
 
 /**
  * 各个工具调用方法

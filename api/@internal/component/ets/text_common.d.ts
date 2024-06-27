@@ -289,6 +289,19 @@ declare interface DeleteValue {
 declare type OnDidChangeCallback = (rangeBefore: TextRange, rangeAfter: TextRange) => void;
 
 /**
+ * Callback when input sometimes has info of previewText.
+ *
+ * @typedef { function } EditableTextOnChangeCallback
+ * @param { string } value - Value of all text.
+ * @param { TextRange } [previewRange] - index of previewText in content.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare type EditableTextOnChangeCallback = (value: string, previewRange?: TextRange) => void;
+
+/**
  * Define the text selection controller.
  *
  * @interface TextBaseController
@@ -317,6 +330,17 @@ declare interface TextBaseController {
    * @since 12
    */
   closeSelectionMenu(): void;
+
+  /**
+   * Get LayoutManager.
+   *
+   * @returns { LayoutManager } - Return the LayoutManager.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  getLayoutManager(): LayoutManager;
 }
 
 /**
@@ -457,7 +481,120 @@ interface StyledStringChangeValue {
    * @since 12
    */
   replacementString: StyledString;
+
+  /**
+   * Preview StyledString
+   *
+   * @type { ?StyledString }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  previewText?: StyledString;
 }
+
+/**
+ * Define the LayoutManager for querying layout information.
+ *
+ * @interface LayoutManager
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare interface LayoutManager {
+  /**
+   * Get the line count.
+   * 
+   * @returns { number } The line count value returned to the caller.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  getLineCount(): number;
+
+  /**
+   * Get the glyph position at coordinate.
+   * 
+   * @param { number } x - the positionX of typography.
+   * @param { number } y - the positionY of typography.
+   * @returns { PositionWithAffinity } TextBlob object.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  getGlyphPositionAtCoordinate(x: number, y: number): PositionWithAffinity;
+
+  /**
+   * Get LineMetrics.
+   * 
+   * @param { number } lineNumber - the number of line.
+   * @returns { LineMetrics } The line Metrics.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  getLineMetrics(lineNumber: number): LineMetrics;
+}
+
+/**
+ * Position and affinity.
+ * 
+ * @typedef PositionWithAffinity
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+interface PositionWithAffinity {
+  /**
+   * Position of text.
+   * 
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  position: number;
+
+  /**
+   * Affinity of text.
+   * 
+   * @type { Affinity }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  affinity: Affinity;
+}
+
+/**
+ * Define the Affinity type.
+ * 
+ * @typedef { import('../api/@ohos.graphics.text').default.Affinity } Affinity
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare type Affinity = import('../api/@ohos.graphics.text').default.Affinity;
+
+/**
+ * Define the LineMetrics type.
+ * 
+ * @typedef { import('../api/@ohos.graphics.text').default.LineMetrics } LineMetrics
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare type LineMetrics = import('../api/@ohos.graphics.text').default.LineMetrics; 
 
 /**
  * Defines the cursor style
@@ -514,4 +651,46 @@ interface CaretStyle {
    * @since 11
    */
   color?: ResourceColor,
+}
+
+/**
+ * ExpandedMenuItemOptions
+ *
+ * @interface ExpandedMenuItemOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare interface ExpandedMenuItemOptions {
+  /**
+   * Customize what the menu displays.
+   *
+   * @type { ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  content: ResourceStr;
+  /**
+   * Customize the icon before the menu displays content.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  startIcon?: ResourceStr;
+  /**
+   * Get the selected text information.
+   *
+   * @type { Callback<TextRange> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  action: Callback<TextRange>;
 }

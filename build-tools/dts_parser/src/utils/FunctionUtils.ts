@@ -17,6 +17,7 @@ import path from 'path';
 import fs from 'fs';
 import { FileUtils } from './FileUtils';
 import { NumberConstant } from './Constant';
+import { data } from '../../kit.json'
 
 export class FunctionUtils {
   /**
@@ -70,6 +71,23 @@ export class FunctionUtils {
       fileNameMap: fileNameMap,
     };
   }
+
+  /**
+   * 遍历kit配置文件
+   * 
+   * @returns 
+   */
+  static readKitFile(): KitData {
+    const subsystemMap: Map<string, string> = new Map();
+    const kitNameMap: Map<string, string> = new Map();
+    const filePathSet: Set<string> = new Set();
+    data.forEach((subSystemInfo: KitInfo) => {
+      subsystemMap.set(subSystemInfo.filePath, subSystemInfo.subSystem);
+      kitNameMap.set(subSystemInfo.filePath, subSystemInfo.kitName);
+      filePathSet.add(subSystemInfo.filePath);
+    });
+    return { subsystemMap, kitNameMap, filePathSet };
+  }
 }
 
 /**
@@ -90,3 +108,21 @@ type SubSystemData = {
   subsystemMap: Map<string, string>;
   fileNameMap: Map<string, string>;
 };
+
+/**
+ * 读取kit配置文件返回的数据格式
+ */
+export type KitData = {
+  subsystemMap: Map<string, string>;
+  kitNameMap: Map<string, string>;
+  filePathSet: Set<string>;
+};
+
+/**
+ * kit配置文件里的信息项
+ */
+class KitInfo {
+  filePath: string = '';
+  subSystem: string = '';
+  kitName: string = '';
+}

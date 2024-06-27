@@ -228,6 +228,7 @@ disables
 disallowed
 disallowing
 disallows
+discards
 discharging
 disconnecting
 disconnection
@@ -759,6 +760,7 @@ removable
 renderbuffer
 renderbuffertarget
 renegotiation
+repaired
 repayment
 repeates
 replacer
@@ -814,6 +816,7 @@ sdr
 searchsetter
 sece
 secinfo
+securityguard
 seeked
 semicircles
 sendable
@@ -873,6 +876,7 @@ statfs
 stopcd
 storei
 storge
+strikethrough
 strm
 stroked
 stuffit

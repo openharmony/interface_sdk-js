@@ -86,4 +86,14 @@ export class ComponentContent<T extends Object> extends Content{
    * @since 12
    */
   recycle(): void;
+
+  /**
+   * Dispose the ComponentContent immediately.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  dispose(): void;
 }

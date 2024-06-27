@@ -1252,6 +1252,7 @@ declare class ParticleAttribute extends CommonMethod<ParticleAttribute> {
    * @returns { ParticleAttribute } Returns the particle attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   emitter(value : Array<EmitterProperty>) : ParticleAttribute;
@@ -1263,6 +1264,7 @@ declare class ParticleAttribute extends CommonMethod<ParticleAttribute> {
   * @returns { ParticleAttribute } Returns the particle attribute.
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
+  * @atomicservice
   * @since 12
   */
   disturbanceFields(fields: Array<DisturbanceFieldOptions>): ParticleAttribute;

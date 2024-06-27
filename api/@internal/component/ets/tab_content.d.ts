@@ -714,6 +714,18 @@ declare class SubTabBarStyle {
   padding(value: Padding | Dimension): SubTabBarStyle;
 
   /**
+   * Set the padding of the sub tab bar
+   *
+   * @param { LocalizedPadding } padding - indicates the padding of the sub tab bar
+   * @returns { SubTabBarStyle } the style of the sub tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  padding(padding: LocalizedPadding): SubTabBarStyle;
+
+  /**
    * Set an id to the sub tab bar to identify it
    *
    * @param { string } value - id of the sub tab bar to identify it
@@ -791,6 +803,7 @@ declare class BottomTabBarStyle {
    * @param { ResourceStr } text - indicates the text of the bottom tab bar
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   constructor(icon: ResourceStr | TabBarSymbol, text: ResourceStr);
@@ -827,6 +840,7 @@ declare class BottomTabBarStyle {
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   static of(icon: ResourceStr | TabBarSymbol, text: ResourceStr): BottomTabBarStyle;
@@ -878,6 +892,7 @@ declare class BottomTabBarStyle {
    * @returns { BottomTabBarStyle } the style of the bottom tab bar
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   padding(value: Padding | Dimension | LocalizedPadding): BottomTabBarStyle;

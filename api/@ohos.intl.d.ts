@@ -42,6 +42,16 @@
  * @form
  * @since 11
  */
+/**
+ * Provides internationalization related APIs.
+ *
+ * @namespace intl
+ * @syscap SystemCapability.Global.I18n
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 12
+ */
 declare namespace intl {
   /**
    * Provides the options of Locale.
@@ -66,6 +76,16 @@ declare namespace intl {
    * @crossplatform
    * @form
    * @since 11
+   */
+  /**
+   * Provides the options of Locale.
+   *
+   * @interface LocaleOptions
+   * @syscap SystemCapability.Global.I18n
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
    */
   export interface LocaleOptions {
     /**
@@ -98,6 +118,16 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @since 11
+     */
+    /**
+     * Indicates the calendar.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
      */
     calendar?: string;
 
@@ -132,6 +162,16 @@ declare namespace intl {
      * @form
      * @since 11
      */
+    /**
+     * Indicates the collation.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
+     */
     collation?: string;
 
     /**
@@ -164,6 +204,16 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @since 11
+     */
+    /**
+     * Indicates the hourCycle.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
      */
     hourCycle?: string;
 
@@ -198,6 +248,16 @@ declare namespace intl {
      * @form
      * @since 11
      */
+    /**
+     * Indicates the numberingSystem.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
+     */
     numberingSystem?: string;
 
     /**
@@ -230,6 +290,16 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @since 11
+     */
+    /**
+     * Indicates the numeric.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
      */
     numeric?: boolean;
 
@@ -264,6 +334,16 @@ declare namespace intl {
      * @form
      * @since 11
      */
+    /**
+     * Indicates the caseFirst.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
+     */
     caseFirst?: string;
   }
 
@@ -288,6 +368,15 @@ declare namespace intl {
    * @form
    * @since 11
    */
+  /**
+   * Provides APIs for obtaining locale information.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
   export class Locale {
     /**
      * A constructor used to create a Locale object.
@@ -309,6 +398,15 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @since 11
+     */
+    /**
+     * A constructor used to create a Locale object.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
      */
     constructor();
 
@@ -342,6 +440,18 @@ declare namespace intl {
      * @form
      * @since 11
      */
+    /**
+     * A constructor used to create a Locale object.
+     *
+     * @param { string } locale - Indicates a character string containing the locale information, including
+     *               the language and optionally the script and region.
+     * @param { LocaleOptions } options - Indicates Locale option object use to initialize the Locale object.
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
+     */
     constructor(locale: string, options?: LocaleOptions);
 
     /**
@@ -364,6 +474,15 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @since 11
+     */
+    /**
+     * Indicates the language of the locale.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
      */
     language: string;
 
@@ -388,6 +507,15 @@ declare namespace intl {
      * @form
      * @since 11
      */
+    /**
+     * Indicates the script of the locale.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
+     */
     script: string;
 
     /**
@@ -410,6 +538,15 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @since 11
+     */
+    /**
+     * Indicates the region of the locale.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
      */
     region: string;
 
@@ -437,6 +574,16 @@ declare namespace intl {
      * @form
      * @since 11
      */
+    /**
+     * Indicates the basic locale information, which is returned as a substring of
+     * a complete locale string.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
+     */
     baseName: string;
 
     /**
@@ -459,6 +606,15 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @since 11
+     */
+    /**
+     * Indicates the case first style of the locale.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
      */
     caseFirst: string;
 
@@ -483,6 +639,15 @@ declare namespace intl {
      * @form
      * @since 11
      */
+    /**
+     * Indicates the calendar.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
+     */
     calendar: string;
 
     /**
@@ -505,6 +670,15 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @since 11
+     */
+    /**
+     * Indicates the collation.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
      */
     collation: string;
 
@@ -529,6 +703,15 @@ declare namespace intl {
      * @form
      * @since 11
      */
+    /**
+     * Indicates the hour cycle.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
+     */
     hourCycle: string;
 
     /**
@@ -552,6 +735,15 @@ declare namespace intl {
      * @form
      * @since 11
      */
+    /**
+     * Indicates the numbering system.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
+     */
     numberingSystem: string;
 
     /**
@@ -574,6 +766,15 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @since 11
+     */
+    /**
+     * Indicates whether it is numeric.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
      */
     numeric: boolean;
 
@@ -601,6 +802,16 @@ declare namespace intl {
      * @form
      * @since 11
      */
+    /**
+     * Convert the locale information to string.
+     *
+     * @returns { string } locale information in string form.
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
+     */
     toString(): string;
 
     /**
@@ -626,6 +837,16 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @since 11
+     */
+    /**
+     * Maximize the locale's base information.
+     *
+     * @returns { Locale } maximized locale.
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
      */
     maximize(): Locale;
 
@@ -653,6 +874,16 @@ declare namespace intl {
      * @form
      * @since 11
      */
+    /**
+     * Minimize the locale's base information.
+     *
+     * @returns { Locale } minimized locale.
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
+     */
     minimize(): Locale;
   }
 
@@ -679,6 +910,16 @@ declare namespace intl {
    * @crossplatform
    * @form
    * @since 11
+   */
+  /**
+   * Provides the options of date time format.
+   *
+   * @interface DateTimeOptions
+   * @syscap SystemCapability.Global.I18n
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
    */
   export interface DateTimeOptions {
     /**
@@ -712,6 +953,16 @@ declare namespace intl {
      * @form
      * @since 11
      */
+    /**
+     * Indicates the locale.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
+     */
     locale?: string;
 
     /**
@@ -744,6 +995,16 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @since 11
+     */
+    /**
+     * Indicates the dateStyle.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
      */
     dateStyle?: string;
 
@@ -778,6 +1039,16 @@ declare namespace intl {
      * @form
      * @since 11
      */
+    /**
+     * Indicates the timeStyle.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
+     */
     timeStyle?: string;
 
     /**
@@ -810,6 +1081,16 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @since 11
+     */
+    /**
+     * Indicates the hourCycle.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
      */
     hourCycle?: string;
 
@@ -844,6 +1125,16 @@ declare namespace intl {
      * @form
      * @since 11
      */
+    /**
+     * Indicates the timeZone.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
+     */
     timeZone?: string;
 
     /**
@@ -877,6 +1168,16 @@ declare namespace intl {
      * @form
      * @since 11
      */
+    /**
+     * Indicates the numberingSystem.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
+     */
     numberingSystem?: string;
 
     /**
@@ -909,6 +1210,16 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @since 11
+     */
+    /**
+     * Indicates the hour12.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
      */
     hour12?: boolean;
 
@@ -943,6 +1254,16 @@ declare namespace intl {
      * @form
      * @since 11
      */
+    /**
+     * Indicates the weekday.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
+     */
     weekday?: string;
 
     /**
@@ -975,6 +1296,16 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @since 11
+     */
+    /**
+     * Indicates the era.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
      */
     era?: string;
 
@@ -1009,6 +1340,16 @@ declare namespace intl {
      * @form
      * @since 11
      */
+    /**
+     * Indicates the year.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
+     */
     year?: string;
 
     /**
@@ -1041,6 +1382,16 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @since 11
+     */
+    /**
+     * Indicates the month.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
      */
     month?: string;
 
@@ -1075,6 +1426,16 @@ declare namespace intl {
      * @form
      * @since 11
      */
+    /**
+     * Indicates the day.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
+     */
     day?: string;
 
     /**
@@ -1107,6 +1468,16 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @since 11
+     */
+    /**
+     * Indicates the hour.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
      */
     hour?: string;
 
@@ -1141,6 +1512,16 @@ declare namespace intl {
      * @form
      * @since 11
      */
+    /**
+     * Indicates the minute.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
+     */
     minute?: string;
 
     /**
@@ -1173,6 +1554,16 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @since 11
+     */
+    /**
+     * Indicates the second.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
      */
     second?: string;
 
@@ -1207,6 +1598,16 @@ declare namespace intl {
      * @form
      * @since 11
      */
+    /**
+     * Indicates the timeZoneName.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
+     */
     timeZoneName?: string;
 
     /**
@@ -1239,6 +1640,16 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @since 11
+     */
+    /**
+     * Indicates the dayPeriod.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
      */
     dayPeriod?: string;
 
@@ -1273,6 +1684,16 @@ declare namespace intl {
      * @form
      * @since 11
      */
+    /**
+     * Indicates the localeMatcher.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
+     */
     localeMatcher?: string;
 
     /**
@@ -1306,6 +1727,16 @@ declare namespace intl {
      * @form
      * @since 11
      */
+    /**
+     * Indicates the formatMatcher.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
+     */
     formatMatcher?: string;
   }
 
@@ -1330,6 +1761,15 @@ declare namespace intl {
    * @form
    * @since 11
    */
+  /**
+   * Provides the API for formatting date strings.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
   export class DateTimeFormat {
     /**
      * A constructor used to create a DateTimeFormat object.
@@ -1351,6 +1791,15 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @since 11
+     */
+    /**
+     * A constructor used to create a DateTimeFormat object.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
      */
     constructor();
 
@@ -1384,6 +1833,18 @@ declare namespace intl {
      * @form
      * @since 11
      */
+    /**
+     * A constructor used to create a DateTimeFormat object.
+     *
+     * @param { string | Array<string> } locale - Indicates character string containing the locale information, including
+     *               the language and optionally the script and region, for the DateTimeFormat object.
+     * @param { DateTimeOptions } [options] - Indicates the options used to format the date.
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
+     */
     constructor(locale: string | Array<string>, options?: DateTimeOptions);
 
     /**
@@ -1412,6 +1873,17 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @since 11
+     */
+    /**
+     * Obtains the formatted date strings.
+     *
+     * @param { Date } date - Indicates the Date object to be formatted.
+     * @returns { string } a date string formatted based on the specified locale.
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
      */
     format(date: Date): string;
 
@@ -1445,6 +1917,18 @@ declare namespace intl {
      * @form
      * @since 11
      */
+    /**
+     * Obtains the formatted date strings of a date range.
+     *
+     * @param { Date } startDate - Indicates the start date of the date range.
+     * @param { Date } endDate - Indicates the end date of the date range.
+     * @returns { string } a date string formatted based on the specified locale.
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
+     */
     formatRange(startDate: Date, endDate: Date): string;
 
     /**
@@ -1471,6 +1955,16 @@ declare namespace intl {
      * @form
      * @since 11
      */
+    /**
+     * Obtains the options of the DateTimeFormat object.
+     *
+     * @returns { DateTimeOptions } the options of the DateTimeFormat object.
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
+     */
     resolvedOptions(): DateTimeOptions;
   }
 
@@ -1488,6 +1982,15 @@ declare namespace intl {
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Provides the options of number format.
+   *
+   * @interface NumberOptions
+   * @syscap SystemCapability.Global.I18n
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   export interface NumberOptions {
     /**
@@ -1511,6 +2014,15 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Indicates the locale.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     locale?: string;
 
@@ -1536,6 +2048,15 @@ declare namespace intl {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Indicates the currency.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     currency?: string;
 
     /**
@@ -1559,6 +2080,15 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Indicates the currencySign.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     currencySign?: string;
 
@@ -1584,6 +2114,15 @@ declare namespace intl {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Indicates the currencyDisplay.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     currencyDisplay?: string;
 
     /**
@@ -1607,6 +2146,15 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Indicates the unit.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     unit?: string;
 
@@ -1632,6 +2180,15 @@ declare namespace intl {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Indicates the unitDisplay.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     unitDisplay?: string;
 
     /**
@@ -1655,6 +2212,15 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Indicates the unitUsage.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     unitUsage?: string;
 
@@ -1680,6 +2246,15 @@ declare namespace intl {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Indicates the signDisplay.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     signDisplay?: string;
 
     /**
@@ -1703,6 +2278,15 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Indicates the compactDisplay.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     compactDisplay?: string;
 
@@ -1728,6 +2312,15 @@ declare namespace intl {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Indicates the notation.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     notation?: string;
 
     /**
@@ -1751,6 +2344,15 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Indicates the localeMatcher.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     localeMatcher?: string;
 
@@ -1776,6 +2378,15 @@ declare namespace intl {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Indicates the style.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     style?: string;
 
     /**
@@ -1799,6 +2410,15 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Indicates the numberingSystem.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     numberingSystem?: string;
 
@@ -1824,6 +2444,15 @@ declare namespace intl {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Indicates the useGrouping.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     useGrouping?: boolean;
 
     /**
@@ -1847,6 +2476,15 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Indicates the minimumIntegerDigits.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     minimumIntegerDigits?: number;
 
@@ -1872,6 +2510,15 @@ declare namespace intl {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Indicates the minimumFractionDigits.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     minimumFractionDigits?: number;
 
     /**
@@ -1895,6 +2542,15 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Indicates the maximumFractionDigits.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     maximumFractionDigits?: number;
 
@@ -1920,6 +2576,15 @@ declare namespace intl {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Indicates the minimumSignificantDigits.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     minimumSignificantDigits?: number;
 
     /**
@@ -1944,6 +2609,15 @@ declare namespace intl {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Indicates the maximumSignificantDigits.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     maximumSignificantDigits?: number;
   }
 
@@ -1960,6 +2634,14 @@ declare namespace intl {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Provides the API for formatting number strings.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   export class NumberFormat {
     /**
      * A constructor used to create a NumberFormat object.
@@ -1973,6 +2655,14 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 10
+     */
+    /**
+     * A constructor used to create a NumberFormat object.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     constructor();
 
@@ -1995,6 +2685,17 @@ declare namespace intl {
      * @crossplatform
      * @since 10
      */
+    /**
+     * A constructor used to create a NumberFormat object.
+     *
+     * @param { string | Array<string> } locale - Indicates a character string containing the locale information, including
+     *               the language and optionally the script and region, for the NumberFormat object.
+     * @param { NumberOptions } [options] - Indicates the options used to format the number.
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     constructor(locale: string | Array<string>, options?: NumberOptions);
 
     /**
@@ -2014,6 +2715,16 @@ declare namespace intl {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Obtains the formatted number string.
+     *
+     * @param { number } number Indicates the number to be formatted.
+     * @returns { string } a number string formatted based on the specified locale.
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     format(number: number): string;
 
     /**
@@ -2030,6 +2741,15 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Obtains the options of the NumberFormat object.
+     *
+     * @returns { NumberOptions } the options of the NumberFormat object.
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     resolvedOptions(): NumberOptions;
   }
@@ -2048,6 +2768,15 @@ declare namespace intl {
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Provides the options of Collator
+   *
+   * @interface CollatorOptions
+   * @syscap SystemCapability.Global.I18n
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   export interface CollatorOptions {
     /**
@@ -2075,6 +2804,16 @@ declare namespace intl {
      * @crossplatform
      * @since 10
      */
+    /**
+     * The locale matching algorithm to use.
+     * Possible values are "lookup" and "best fit"; the default is "best fit".
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     localeMatcher?: string;
 
     /**
@@ -2101,6 +2840,16 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Whether the comparison is for sorting or for searching for matching strings.
+     * Possible values are "sort" and "search"; the default is "sort".
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     usage?: string;
 
@@ -2147,6 +2896,22 @@ declare namespace intl {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Which differences in the strings should lead to non-zero result values.
+     * Possible values are "base", "accent", "case", "variant".
+     * "base" are used when only strings that differ in base letters compare as unequal.
+     * "accent" are used when only strings that differ in base letters or accents and
+     *  other diacritic marks compare as unequal.
+     * "case" are used when only strings that differ in base letters or case compare as unequal.
+     * "variant" are used when Strings that differ in base letters, accents and other diacritic marks,
+     *  or case compare as unequal.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     sensitivity?: string;
 
     /**
@@ -2170,6 +2935,15 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Whether punctuation should be ignored. Default value is false.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     ignorePunctuation?: boolean;
 
@@ -2195,6 +2969,15 @@ declare namespace intl {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Variant collations for certain locales.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     collation?: string;
 
     /**
@@ -2218,6 +3001,15 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Whether numeric collation should be used. Default value is false.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     numeric?: boolean;
 
@@ -2246,6 +3038,16 @@ declare namespace intl {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Whether upper case or lower case should sort first.
+     * Possible values are "upper", "lower", or "false" (use the locale's default).
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     caseFirst?: string;
   }
 
@@ -2262,6 +3064,14 @@ declare namespace intl {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Enable language-sensitive string comparison.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   export class Collator {
     /**
      * A constructor used to create Collator object.
@@ -2275,6 +3085,14 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 10
+     */
+    /**
+     * A constructor used to create Collator object.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     constructor();
     /**
@@ -2295,6 +3113,17 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 10
+     */
+    /**
+     * A constructor used to create Collator Object;
+     *
+     * @param { string | Array<string> } locale - Indicates a character string containing the locale information, including
+     *               the language and optionally the script and region, for the Collator object.
+     * @param { CollatorOptions } [options] - Indicates the options used to initialize Collator object.
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     constructor(locale: string | Array<string>, options?: CollatorOptions);
 
@@ -2323,6 +3152,20 @@ declare namespace intl {
      * @crossplatform
      * @since 10
      */
+    /**
+     * compares two strings according to the sort order of this Collator object
+     *
+     * @param { string } first - The first string to compare.
+     * @param { string } second - The second string to compare.
+     * @returns { number } a number indicating how first compare to second:
+     *         a negative value if string1 comes before string2;
+     *         a positive value if string1 comes after string2;
+     *         0 if they are considered equal.
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     compare(first: string, second: string): number;
 
     /**
@@ -2342,6 +3185,16 @@ declare namespace intl {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Returns a new object with properties that reflect the locale and collation options computed
+     * during initialization of the object.
+     *
+     * @returns { CollatorOptions } a CollatorOptions object with properties that reflect the properties of this object.
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     resolvedOptions(): CollatorOptions;
   }
 
@@ -2359,6 +3212,15 @@ declare namespace intl {
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Provides the options of PluralRules
+   *
+   * @interface PluralRulesOptions
+   * @syscap SystemCapability.Global.I18n
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   export interface PluralRulesOptions {
     /**
@@ -2386,6 +3248,16 @@ declare namespace intl {
      * @crossplatform
      * @since 10
      */
+    /**
+     * The locale matching algorithm to use.
+     * Possible values are "lookup" and "best fit"; the default is "best fit".
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     localeMatcher?: string;
 
     /**
@@ -2409,6 +3281,15 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 10
+     */
+    /**
+     * The type to use. Possible values are: "cardinal", "ordinal"
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     type?: string;
 
@@ -2437,6 +3318,16 @@ declare namespace intl {
      * @crossplatform
      * @since 10
      */
+    /**
+     * The minimum number of integer digits to use.
+     * Possible values are from 1 to 21; the default is 1.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     minimumIntegerDigits?: number;
 
     /**
@@ -2463,6 +3354,16 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 10
+     */
+    /**
+     * The minimum number of fraction digits to use.
+     * Possible values are from 0 to 20; the default for plain number and percent formatting is 0;
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     minimumFractionDigits?: number;
 
@@ -2494,6 +3395,17 @@ declare namespace intl {
      * @crossplatform
      * @since 10
      */
+    /**
+     * The maximum number of fraction digits to use.
+     * Possible values are from 0 to 20;
+     * the default for plain number formatting is the larger of minimumFractionDigits and 3;
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     maximumFractionDigits?: number;
 
     /**
@@ -2520,6 +3432,16 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 10
+     */
+    /**
+     * The minimum number of significant digits to use.
+     * Possible values are from 1 to 21; the default is 1.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     minimumSignificantDigits?: number;
 
@@ -2548,6 +3470,16 @@ declare namespace intl {
      * @crossplatform
      * @since 10
      */
+    /**
+     * The maximum number of significant digits to use.
+     * Possible values are from 1 to 21; the default is 21.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     maximumSignificantDigits?: number;
   }
 
@@ -2564,6 +3496,14 @@ declare namespace intl {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Enables plural-sensitive formatting and plural-related language rules.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   export class PluralRules {
     /**
      * A constructor used to create PluralRules object.
@@ -2577,6 +3517,14 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 10
+     */
+    /**
+     * A constructor used to create PluralRules object.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     constructor();
 
@@ -2599,6 +3547,17 @@ declare namespace intl {
      * @crossplatform
      * @since 10
      */
+    /**
+     * A constructor used to create PluralRules object.
+     *
+     * @param { string | Array<string> } locale - Indicates a character string containing the locale information, including
+     *               the language and optionally the script and region, for the PluralRules object.
+     * @param { PluralRulesOptions } [options] - Indicates the options used to initialize PluralRules object.
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     constructor(locale: string | Array<string>, options?: PluralRulesOptions);
 
     /**
@@ -2620,6 +3579,17 @@ declare namespace intl {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Returns a string indicating which plural rule to use for locale-aware formatting.
+     *
+     * @param { number } n - The number to get a plural rule for.
+     * @returns { string } A string representing the pluralization category of the number,
+     *         can be one of zero, one, two, few, many or other.
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     select(n: number): string;
   }
 
@@ -2637,6 +3607,15 @@ declare namespace intl {
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Provides the input options of RelativeTimeFormat.
+   *
+   * @interface RelativeTimeFormatInputOptions
+   * @syscap SystemCapability.Global.I18n
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   export interface RelativeTimeFormatInputOptions {
     /**
@@ -2663,6 +3642,16 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 10
+     */
+    /**
+     * The locale matching algorithm to use.
+     * Possible values are: lookup, best fit
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     localeMatcher?: string;
 
@@ -2691,6 +3680,16 @@ declare namespace intl {
      * @crossplatform
      * @since 10
      */
+    /**
+     * The format of output message.
+     * Possible values are: always, auto
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     numeric?: string;
 
     /**
@@ -2718,6 +3717,16 @@ declare namespace intl {
      * @crossplatform
      * @since 10
      */
+    /**
+     * The length of the internationalized message.
+     * Possible values are: long, short, narrow
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     style?: string;
   }
 
@@ -2736,6 +3745,15 @@ declare namespace intl {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Provides the resolved options of RelativeTimeFormat.
+   *
+   * @interface RelativeTimeFormatResolvedOptions
+   * @syscap SystemCapability.Global.I18n
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   export interface RelativeTimeFormatResolvedOptions {
     /**
      * The BCP 47 language tag for the locale actually used.
@@ -2749,6 +3767,14 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 10
+     */
+    /**
+     * The BCP 47 language tag for the locale actually used.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     locale: string;
 
@@ -2767,6 +3793,15 @@ declare namespace intl {
      * @crossplatform
      * @since 10
      */
+    /**
+     * The length of the internationalized message.
+     * Possible values are: long, short, narrow
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     style: string;
 
     /**
@@ -2784,6 +3819,15 @@ declare namespace intl {
      * @crossplatform
      * @since 10
      */
+    /**
+     * The format of output message.
+     * Possible values are: always, auto
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     numeric: string;
 
     /**
@@ -2798,6 +3842,14 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 10
+     */
+    /**
+     * The value requested using the Unicode extension key "nu" or filled in as a default.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     numberingSystem: string;
   }
@@ -2817,6 +3869,15 @@ declare namespace intl {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Given a Time period length value and a unit, RelativeTimeFormat object enables
+   * language-sensitive relative time formatting.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   export class RelativeTimeFormat {
     /**
      * A constructor used to create RelativeTimeFormat object.
@@ -2830,6 +3891,14 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 10
+     */
+    /**
+     * A constructor used to create RelativeTimeFormat object.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     constructor();
 
@@ -2851,6 +3920,17 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 10
+     */
+    /**
+     * A constructor used to create RelativeTimeFormat object.
+     *
+     * @param { string | Array<string> } locale - Indicates a character string containing the locale information, including
+     *               the language and optionally the script and region, for the RelativeTimeFormat object.
+     * @param { RelativeTimeFormatInputOptions } [options] - Indicates the options used to initialize RelativeTimeFormat object.
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     constructor(locale: string | Array<string>, options?: RelativeTimeFormatInputOptions);
 
@@ -2874,6 +3954,18 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 10
+     */
+    /**
+     * formats a value and unit according to the locale and formatting options of this object.
+     *
+     * @param { number } value - Numeric value to use in the internationalized relative time message.
+     * @param { string } unit - Unit to use in the relative time internationalized message.
+     *             Possible values are: year, quarter, month, week, day, hour, minute, second.
+     * @returns { string } formatted language-sensitive relative time.
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     format(value: number, unit: string): string;
 
@@ -2900,6 +3992,19 @@ declare namespace intl {
      * @crossplatform
      * @since 10
      */
+    /**
+     * returns an Array of objects representing the relative time format in parts that can be used for
+     * custom locale-aware formatting
+     *
+     * @param { number } value - Numeric value to use in the internationalized relative time message.
+     * @param { string } unit - to use in the relative time internationalized message.
+     *             Possible values are: year, quarter, month, week, day, hour, minute, second.
+     * @returns { Array<object> } an Array of objects representing the relative time format in parts
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     formatToParts(value: number, unit: string): Array<object>;
 
     /**
@@ -2918,6 +4023,16 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Returns a new object with properties that reflect the locale and formatting options computed during
+     * initialization of the object.
+     *
+     * @returns { RelativeTimeFormatResolvedOptions } RelativeTimeFormatOptions which reflect the locale and formatting options of the object.
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     resolvedOptions(): RelativeTimeFormatResolvedOptions;
   }

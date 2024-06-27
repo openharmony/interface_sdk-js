@@ -18,8 +18,7 @@
  * @kit ArkUI
  */
 
-/// <reference path="../../component/common.d.ts" />
-/// <reference path="../../component/calendar_picker.d.ts" />
+
 
 /**
  * Defines CalendarPicker Modifier

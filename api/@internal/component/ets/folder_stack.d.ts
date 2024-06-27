@@ -19,12 +19,13 @@
  */
 
 /**
- * Import the WindowMode type object for onHoverStatusChange.
+ * Import the WindowStatusType type object for onHoverStatusChange.
  *
+ * @typedef {import('../api/@ohos.window').default.WindowStatusType} WindowStatusType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 12
  */
-declare type WindowMode = import('../api/@ohos.window').WindowMode;
+declare type WindowStatusType = import('../api/@ohos.window').default.WindowStatusType;
 
 /**
  * Provides ports for stacking containers.
@@ -224,13 +225,13 @@ declare interface HoverEventParam {
   appRotation: AppRotation
 
   /**
-   * Window mode
+   * Window status type
    *
-   * @type { WindowMode }
+   * @type { WindowStatusType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 12
    */
-  windowMode: WindowMode
+  windowStatusType: WindowStatusType
 }
 /**
  * Defines FolderStack Component.

@@ -337,6 +337,23 @@ declare namespace wifiManager {
   * @syscap SystemCapability.Communication.WiFi.STA
   * @since 9
   */
+
+  /**
+  * Add a specified candidate hotspot configuration and returns the networkId.
+  * This method adds one configuration at a time. After this configuration is added,
+  *     your device will determine whether to connect to the hotspot.
+  * @permission ohos.permission.SET_WIFI_INFO
+  * @param { WifiDeviceConfig } config - candidate config.
+  * @param { AsyncCallback<number> } callback - Indicates call back of addCandidateConfig.
+  * @throws {BusinessError} 201 - Permission denied.
+  * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+  *     2. Incorrect parameter types. 3.Parameter verification failed.
+  * @throws {BusinessError} 801 - Capability not supported.
+  * @throws {BusinessError} 2501000 - Operation failed.
+  * @syscap SystemCapability.Communication.WiFi.STA
+  * @atomicservice
+  * @since 12
+  */
   function addCandidateConfig(config: WifiDeviceConfig, callback: AsyncCallback<number>): void;
 
   /**
@@ -384,6 +401,22 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9
+   */
+
+  /**
+   * Remove a specified candidate hotspot configuration, only the configuration which is added by ourself is allowed
+   * to be removed.
+   * @permission ohos.permission.SET_WIFI_INFO
+   * @param { number } networkId - Network ID which will be removed.
+   * @param { AsyncCallback<void> } callback - Indicates call back of removeCandidateConfig.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types. 3.Parameter verification failed.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @atomicservice
+   * @since 12
    */
   function removeCandidateConfig(networkId: number, callback: AsyncCallback<void>): void;
 
@@ -2035,11 +2068,26 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.Core
    * @since 10
    */
+
+  /**
+   * Wi-Fi device address( mac / bssid ) type.
+   * @enum { number }
+   * @syscap SystemCapability.Communication.WiFi.Core
+   * atomicservice
+   * @since 12
+   */
   enum DeviceAddressType {
     /**
      * random device address
      * @syscap SystemCapability.Communication.WiFi.Core
      * @since 10
+     */
+
+    /**
+     * random device address
+     * @syscap SystemCapability.Communication.WiFi.Core
+     * atomicservice
+     * @since 12
      */
     RANDOM_DEVICE_ADDRESS,
 
@@ -2047,6 +2095,13 @@ declare namespace wifiManager {
      * real device address
      * @syscap SystemCapability.Communication.WiFi.Core
      * @since 10
+     */
+
+    /**
+     * real device address
+     * @syscap SystemCapability.Communication.WiFi.Core
+     * atomicservice
+     * @since 12
      */
     REAL_DEVICE_ADDRESS,
   }
@@ -2661,6 +2716,46 @@ declare namespace wifiManager {
      * @since 10
      */
     proxyConfig?: WifiProxyConfig;
+
+    /**
+     * WAPI config info.
+     * @type { ?WifiWapiConfig }
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 12
+     */
+    wapiConfig?: WifiWapiConfig;
+  }
+
+  /**
+   * Wi-Fi WAPI config.
+   * @typedef WifiWapiConfig
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @since 12
+   */
+  interface WifiWapiConfig {
+    /**
+     * WAPI pre-shared key type.
+     * @type { WapiPskType }
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 12
+     */
+    wapiPskType: WapiPskType;
+
+    /**
+     * WAPI AS certification.
+     * @type { string }
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 12
+     */
+    wapiAsCert: string;
+
+    /**
+     * WAPI user certification.
+     * @type { string }
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 12
+     */
+    wapiUserCert: string;
   }
 
   /**
@@ -3069,6 +3164,30 @@ declare namespace wifiManager {
      * @since 9
      */
     WIFI_SEC_TYPE_WAPI_PSK = 9
+  }
+
+  /**
+   * Describes the WAPI pre-shared key Type.
+   * @enum { number }
+   * @syscap SystemCapability.Communication.WiFi.Core
+   * @since 12
+   */
+  enum WapiPskType {
+    /**
+     * ASCII character type of WAPI pre-shared key.
+     *
+     * @syscap SystemCapability.Communication.WiFi.Core
+     * @since 12
+     */
+    WAPI_PSK_ASCII = 0,
+
+    /**
+     * HEX character type of WAPI pre-shared key.
+     *
+     * @syscap SystemCapability.Communication.WiFi.Core
+     * @since 12
+     */
+    WAPI_PSK_HEX = 1
   }
 
   /**

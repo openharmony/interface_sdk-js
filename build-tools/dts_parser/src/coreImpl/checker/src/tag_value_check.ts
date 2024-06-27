@@ -16,7 +16,7 @@
 import { ErrorTagFormat, ErrorMessage, PermissionData } from '../../../typedef/checker/result_type';
 import { Comment } from '../../../typedef/parser/Comment';
 import { CommonFunctions } from '../../../utils/checkUtils';
-import { ApiInfo, ApiType, ClassInfo, GenericInfo } from '../../../typedef/parser/ApiInfoDefination';
+import { ApiInfo, ApiType, ClassInfo, GenericInfo, TypeAliasInfo, TypeAliasType, TypeParamInfo } from '../../../typedef/parser/ApiInfoDefination';
 import { MethodInfo, PropertyInfo, ParamInfo } from '../../../typedef/parser/ApiInfoDefination';
 import { PunctuationMark } from '../../../utils/Constant';
 import { SystemCapability } from '../config/syscapConfigFile.json';
@@ -37,6 +37,9 @@ export class TagValueCheck {
     if (tagsName === undefined) {
       return tagValueError;
     }
+    const tagsTag: string[] = [];
+    tagsName.forEach((tagName: Comment.CommentTag) => { tagsTag.push(tagName.tag) });
+    const isDeprecated: boolean = tagsTag.includes('deprecated');
     tagsName.forEach((tag) => {
       let errorTagInfo: ErrorTagFormat = {
         state: true,
@@ -48,43 +51,43 @@ export class TagValueCheck {
           break;
         case 'extends':
         case 'implements':
-          errorTagInfo = TagValueCheck.extendsTagValueCheck(singleApi, tag);
+          errorTagInfo = !isDeprecated ? TagValueCheck.extendsTagValueCheck(singleApi, tag) : errorTagInfo;
           break;
         case 'enum':
-          errorTagInfo = TagValueCheck.enumTagValueCheck(tag);
+          errorTagInfo = !isDeprecated ? TagValueCheck.enumTagValueCheck(tag) : errorTagInfo;
           break;
         case 'returns':
-          errorTagInfo = TagValueCheck.returnsTagValueCheck(singleApi, tag);
+          errorTagInfo = !isDeprecated ? TagValueCheck.returnsTagValueCheck(singleApi, tag) : errorTagInfo;
           break;
         case 'namespace':
         case 'typedef':
         case 'struct':
-          errorTagInfo = TagValueCheck.outerTagValueCheck(singleApi as ClassInfo, tag);
+          errorTagInfo = !isDeprecated ? TagValueCheck.outerTagValueCheck(singleApi as ClassInfo, tag) : errorTagInfo;
           break;
         case 'type':
-          errorTagInfo = TagValueCheck.typeTagValueCheck(singleApi, tag);
+          errorTagInfo = !isDeprecated ? TagValueCheck.typeTagValueCheck(singleApi, tag) : errorTagInfo;
           break;
         case 'syscap':
           errorTagInfo = TagValueCheck.syscapTagValueCheck(tag);
           break;
         case 'default':
-          errorTagInfo = TagValueCheck.defaultTagValueCheck(tag);
+          errorTagInfo = !isDeprecated ? TagValueCheck.defaultTagValueCheck(tag) : errorTagInfo;
           break;
         case 'deprecated':
           errorTagInfo = TagValueCheck.deprecatedTagValueCheck(tag);
           break;
         case 'permission':
-          errorTagInfo = TagValueCheck.permissionTagValueCheck(tag);
+          errorTagInfo = !isDeprecated ? TagValueCheck.permissionTagValueCheck(tag) : errorTagInfo;
           break;
         case 'throws':
           if (singleApi.getLastJsDocInfo()?.deprecatedVersion === '-1') {
             throwsIndex += 1;
-            errorTagInfo = TagValueCheck.throwsTagValueCheck(tag, throwsIndex, tagsName);
+            errorTagInfo = !isDeprecated ? TagValueCheck.throwsTagValueCheck(tag, throwsIndex, tagsName) : errorTagInfo;
           }
           break;
         case 'param':
           paramIndex += 1;
-          errorTagInfo = TagValueCheck.paramTagValueCheck(singleApi, tag, paramIndex);
+          errorTagInfo = !isDeprecated ? TagValueCheck.paramTagValueCheck(singleApi, tag, paramIndex) : errorTagInfo;
           break;
         case 'useinstead':
           errorTagInfo = TagValueCheck.useinsteadTagValueCheck(tag);
@@ -109,8 +112,10 @@ export class TagValueCheck {
       state: true,
       errorInfo: '',
     };
-    const sinceValue: boolean = /^\d+$/.test(tag.name);
-    if (!sinceValue) {
+    const sinceValue: string = CommonFunctions.getSinceVersion(tag.name);
+    const sinceValueIsNumber: boolean = /^\d+$/.test(sinceValue);
+
+    if (!sinceValueIsNumber) {
       sinceValueCheckResult.state = false;
       sinceValueCheckResult.errorInfo = ErrorMessage.ERROR_INFO_VALUE_SINCE;
     }
@@ -176,14 +181,15 @@ export class TagValueCheck {
     const returnsTagValue: string = tag.type.replace(/\s/g, '');
 
     let returnsApiValue: string[] = [];
-    if (singleApi.getApiType() !== ApiType.METHOD) {
-      return returnsValueCheckResult;
+    const legalApiArr: string[] = [ApiType.METHOD, ApiType.TYPE_ALIAS];
+    if (!legalApiArr.includes(singleApi.getApiType())) {
+      return returnsValueCheckResult
     }
     const spacealCase: string[] = CommonFunctions.judgeSpecialCase((singleApi as MethodInfo).returnValueType);
-    if (spacealCase.length > 0) {
-      returnsApiValue = spacealCase;
+    if (singleApi.getApiType() === ApiType.TYPE_ALIAS) {
+      returnsApiValue.push((singleApi as TypeAliasInfo).getReturnType());
     } else {
-      returnsApiValue = (singleApi as MethodInfo).getReturnValue();
+      returnsApiValue = spacealCase.length > 0 ? spacealCase : (singleApi as MethodInfo).getReturnValue();
     }
     if (returnsApiValue.length === 0) {
       returnsValueCheckResult.state = false;
@@ -207,6 +213,7 @@ export class TagValueCheck {
       errorInfo: '',
     };
     let tagValue: string = tag.name;
+    let tagType: string = tag.type;
     let apiValue: string = singleApi.getApiName();
     const definedText: string = singleApi.getDefinedText();
     if (tag.tag === 'namespace' && tagValue !== apiValue) {
@@ -214,25 +221,29 @@ export class TagValueCheck {
       outerValueCheckResult.errorInfo = ErrorMessage.ERROR_INFO_VALUE_NAMESPACE;
     }
     if (tag.tag === 'typedef') {
-      const genericArr: GenericInfo[] = singleApi.getGenericInfo();
-      if (genericArr.length > 0) {
-        let genericInfo = genericArr.map((generic) => {
-          return generic.getGenericContent();
-        }).join(',');
-        apiValue = apiValue + '<' + genericInfo + '>';
+      if (singleApi.getApiType() === ApiType.TYPE_ALIAS) {
+        const ordinaryTagValue: string = (singleApi as ApiInfo as TypeAliasInfo).getType().join('|').replace(/\s/g, '');
+        const typeIsFuction: boolean = (singleApi as ApiInfo as TypeAliasInfo).getTypeIsFunction();
+        const typeIsObject: boolean = (singleApi as ApiInfo as TypeAliasInfo).getTypeName() === TypeAliasType.OBJECT_TYPE;
+        apiValue = typeIsFuction ? 'function' : typeIsObject ? 'object' : ordinaryTagValue;
+      } else {
+        const genericArr: GenericInfo[] = singleApi.getGenericInfo();
+        if (genericArr.length > 0) {
+          let genericInfo = genericArr.map((generic) => {
+            return generic.getGenericContent()
+          }).join(',');
+          apiValue = apiValue + '<' + genericInfo + '>';
+        }
       }
       if (singleApi.getApiType() === 'Interface' && tagValue !== apiValue) {
         outerValueCheckResult.state = false;
         outerValueCheckResult.errorInfo = ErrorMessage.ERROR_INFO_VALUE_TYPEDEF;
-      } else if (singleApi.getApiType() === 'TypeAlias') {
-        const typeContent: string = definedText.substring(definedText.indexOf('=') + 1, definedText.length);
-        if (tag.type !== typeContent.replace(/\s|\;/g, '')) {
-          outerValueCheckResult.state = false;
-          outerValueCheckResult.errorInfo = ErrorMessage.ERROR_INFO_VALUE_TYPEDEF;
-        }
+      } else if (singleApi.getApiType() === ApiType.TYPE_ALIAS && tagType.replace(/\s/g, '') !== apiValue) {
+        outerValueCheckResult.state = false;
+        outerValueCheckResult.errorInfo = ErrorMessage.ERROR_INFO_VALUE_TYPEDEF;
       }
     }
-    if (tag.tag === 'struct' && tagValue !== apiValue) {
+    if (tag.tag === 'struct' && tagType !== apiValue) {
       outerValueCheckResult.state = false;
       outerValueCheckResult.errorInfo = ErrorMessage.ERROR_INFO_VALUE_STRUCT;
     }
@@ -322,7 +333,8 @@ export class TagValueCheck {
       errorInfo: '',
     };
     const deprecatedFixedField: string = tag.name;
-    const deprecatedVersion: string = tag.description;
+
+    const deprecatedVersion: string = CommonFunctions.getSinceVersion(tag.description);
     const isNumber: boolean = /^\d+$/.test(deprecatedVersion);
     if (deprecatedFixedField !== 'since' || !isNumber) {
       deprecatedValueCheckResult.state = false;
@@ -408,20 +420,27 @@ export class TagValueCheck {
       state: true,
       errorInfo: '',
     };
-    if (singleApi.getApiType() !== ApiType.METHOD) {
+    const legalApiArr: string[] = [ApiType.METHOD, ApiType.TYPE_ALIAS];
+    if (!legalApiArr.includes(singleApi.getApiType())) {
       return paramValueCheckResult;
     }
     const paramTagType: string = tag.type.replace(/\s/g, '');
     const paramTagName: string = tag.name;
-    const paramApiInfos: ParamInfo[] = (singleApi as MethodInfo).getParams();
-    const paramApiName: string = paramApiInfos[paramIndex]?.getApiName();
+
+
+    let paramApiName: string = '';
     let paramApiType: string[] = [];
-    const spacealCase: string[] = paramApiInfos[paramIndex] ?
-      CommonFunctions.judgeSpecialCase(paramApiInfos[paramIndex].paramType) : [];
-    if (spacealCase.length > 0) {
-      paramApiType = spacealCase;
+
+    if (singleApi.getApiType() === ApiType.TYPE_ALIAS) {
+      const typeParams: TypeParamInfo[] = (singleApi as TypeAliasInfo).getParamInfos();
+      paramApiName = typeParams.length > paramIndex ? typeParams[paramIndex].getParamName() : '';
+      paramApiType.push(typeParams.length > paramIndex ? JSON.stringify(typeParams[paramIndex].getParamType()) : '');
     } else {
-      paramApiType = paramApiInfos[paramIndex]?.getType();
+      const paramApiInfos: ParamInfo[] = (singleApi as MethodInfo).getParams();
+      paramApiName = paramApiInfos[paramIndex]?.getApiName();
+      const spacealCase: string[] = paramApiInfos[paramIndex] ?
+        CommonFunctions.judgeSpecialCase(paramApiInfos[paramIndex].paramType) : [];
+      paramApiType = spacealCase.length > 0 ? spacealCase : paramApiInfos[paramIndex]?.getType();
     }
 
     if (paramTagName !== paramApiName) {

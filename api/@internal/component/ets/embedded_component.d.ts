@@ -18,8 +18,6 @@
  * @kit ArkUI
  */
 
-/// <reference path="../../../../api/@internal/component/ets/common.d.ts" />
-/// <reference path="../../../../api/@internal/component/ets/enums.d.ts" />
 
 /**
  * Provide an interface for the EmbeddedComponent, which is used

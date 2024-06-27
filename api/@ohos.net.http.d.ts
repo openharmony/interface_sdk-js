@@ -491,6 +491,15 @@ declare namespace http {
      * @since 12
      */
     multiFormDataList?: Array<MultiFormData>;
+
+    /**
+     * Certificate pinning option. If server certificate's digest does not match
+     * {@link CertificatePinning.publicKeyHash}, request will fail.
+     * @type {?CertificatePinning | CertificatePinning[]}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 12
+     */
+    certificatePinning?: CertificatePinning | CertificatePinning[];
   }
 
   /**
@@ -718,6 +727,29 @@ declare namespace http {
      * @since 12
      */
     keyPassword?: string;
+  }
+
+  /**
+   * Certificate pinning option.
+   * @interface CertificatePinning
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 12
+   */
+  interface CertificatePinning {
+    /**
+     * Public key hash.
+     * @type {string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 12
+     */
+    publicKeyHash: string;
+    /**
+     * Certificate public key hash algorithm.
+     * @type {'SHA-256'}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 12
+     */
+    hashAlgorithm: 'SHA-256';
   }
 
   /**

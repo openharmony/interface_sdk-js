@@ -91,6 +91,47 @@ declare enum BarMode {
 }
 
 /**
+ * Declare the animation mode of tab content.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare enum AnimationMode {
+  /**
+   * Start animation after tabcontent is fully measured.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  CONTENT_FIRST = 0,
+
+  /**
+   * Start animation before tabcontent is fully measured.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  ACTION_FIRST = 1,
+
+  /**
+   * Disable default animation.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  NO_ANIMATION = 2,
+}
+
+/**
  * Declare the location of the bar chart.
  *
  * @enum { number }
@@ -302,6 +343,22 @@ declare class TabsController {
    * @since 11
    */
   changeIndex(value: number): void;
+
+  /**
+   * Called when need to preload specified tab content.
+   *
+   * @param { Optional<Array<number>> } indices - Indices of tab content to be preloaded.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter invalid. Possible causes:
+   * <br> 1. The parameter type is not Array<number>.
+   * <br> 2. The parameter is an empty array.
+   * <br> 3. The parameter contains an invalid index.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  preloadItems(indices: Optional<Array<number>>): Promise<void>;
 }
 
 /**
@@ -1012,6 +1069,18 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @since 11
    */
   animationDuration(value: number): TabsAttribute;
+
+  /**
+   * Set animation mode.
+   *
+   * @param { Optional<AnimationMode> } mode - animation mode for tabs switch animation
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  animationMode(mode: Optional<AnimationMode>): TabsAttribute;
 
   /**
    * Called when the tab is switched.

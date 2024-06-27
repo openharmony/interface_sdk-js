@@ -4957,7 +4957,7 @@ declare namespace request {
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @throws { BusinessError } 13400001 - file operation error.
      * @throws { BusinessError } 13400003 - task service ability error.
-     * @throws { BusinessError } 21900004 - application task queue full error.
+     * @throws { BusinessError } 21900004 - the application task queue is full.
      * @throws { BusinessError } 21900005 - task mode error.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
@@ -4976,7 +4976,7 @@ declare namespace request {
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @throws { BusinessError } 13400001 - file operation error.
      * @throws { BusinessError } 13400003 - task service ability error.
-     * @throws { BusinessError } 21900004 - application task queue full error.
+     * @throws { BusinessError } 21900004 - the application task queue is full.
      * @throws { BusinessError } 21900005 - task mode error.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
@@ -5002,7 +5002,7 @@ declare namespace request {
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @throws { BusinessError } 13400001 - file operation error.
      * @throws { BusinessError } 13400003 - task service ability error.
-     * @throws { BusinessError } 21900004 - application task queue full error.
+     * @throws { BusinessError } 21900004 - the application task queue is full.
      * @throws { BusinessError } 21900005 - task mode error.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
@@ -5021,7 +5021,7 @@ declare namespace request {
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @throws { BusinessError } 13400001 - file operation error.
      * @throws { BusinessError } 13400003 - task service ability error.
-     * @throws { BusinessError } 21900004 - application task queue full error.
+     * @throws { BusinessError } 21900004 - the application task queue is full.
      * @throws { BusinessError } 21900005 - task mode error.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
@@ -5040,7 +5040,7 @@ declare namespace request {
      * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @throws { BusinessError } 13400003 - task service ability error.
-     * @throws { BusinessError } 21900006 - task not found error.
+     * @throws { BusinessError } 21900006 - task not found.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 11
      */
@@ -5055,7 +5055,7 @@ declare namespace request {
      * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type.
      * @throws { BusinessError } 13400003 - task service ability error.
-     * @throws { BusinessError } 21900006 - task not found error.
+     * @throws { BusinessError } 21900006 - task not found.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
@@ -5068,7 +5068,7 @@ declare namespace request {
      * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type.
      * @throws { BusinessError } 13400003 - task service ability error.
-     * @throws { BusinessError } 21900006 - task not found error.
+     * @throws { BusinessError } 21900006 - task not found.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @atomicservice
@@ -5085,7 +5085,7 @@ declare namespace request {
      * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type.
      * @throws { BusinessError } 13400003 - task service ability error.
-     * @throws { BusinessError } 21900006 - task not found error.
+     * @throws { BusinessError } 21900006 - task not found.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
@@ -5098,7 +5098,7 @@ declare namespace request {
      * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type.
      * @throws { BusinessError } 13400003 - task service ability error.
-     * @throws { BusinessError } 21900006 - task not found error.
+     * @throws { BusinessError } 21900006 - task not found.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @atomicservice
@@ -5114,7 +5114,7 @@ declare namespace request {
      * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type.
      * @throws { BusinessError } 13400003 - task service ability error.
-     * @throws { BusinessError } 21900006 - task not found error.
+     * @throws { BusinessError } 21900006 - task not found.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
@@ -5126,7 +5126,7 @@ declare namespace request {
      * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type.
      * @throws { BusinessError } 13400003 - task service ability error.
-     * @throws { BusinessError } 21900006 - task not found error.
+     * @throws { BusinessError } 21900006 - task not found.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @since 11
@@ -5141,7 +5141,7 @@ declare namespace request {
      * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type.
      * @throws { BusinessError } 13400003 - task service ability error.
-     * @throws { BusinessError } 21900006 - task not found error.
+     * @throws { BusinessError } 21900006 - task not found.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
@@ -5153,7 +5153,7 @@ declare namespace request {
      * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type.
      * @throws { BusinessError } 13400003 - task service ability error.
-     * @throws { BusinessError } 21900006 - task not found error.
+     * @throws { BusinessError } 21900006 - task not found.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @since 11
@@ -5169,7 +5169,7 @@ declare namespace request {
      * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @throws { BusinessError } 13400003 - task service ability error.
-     * @throws { BusinessError } 21900006 - task not found error.
+     * @throws { BusinessError } 21900006 - task not found.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
@@ -5182,7 +5182,7 @@ declare namespace request {
      * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @throws { BusinessError } 13400003 - task service ability error.
-     * @throws { BusinessError } 21900006 - task not found error.
+     * @throws { BusinessError } 21900006 - task not found.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @since 11
@@ -5198,7 +5198,7 @@ declare namespace request {
      * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @throws { BusinessError } 13400003 - task service ability error.
-     * @throws { BusinessError } 21900006 - task not found error.
+     * @throws { BusinessError } 21900006 - task not found.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
@@ -5211,7 +5211,7 @@ declare namespace request {
      * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @throws { BusinessError } 13400003 - task service ability error.
-     * @throws { BusinessError } 21900006 - task not found error.
+     * @throws { BusinessError } 21900006 - task not found.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @since 11
@@ -5302,7 +5302,7 @@ declare namespace request {
      * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type.
      * @throws { BusinessError } 13400003 - task service ability error.
-     * @throws { BusinessError } 21900006 - task not found error.
+     * @throws { BusinessError } 21900006 - task not found.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -5320,7 +5320,7 @@ declare namespace request {
      * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type.
      * @throws { BusinessError } 13400003 - task service ability error.
-     * @throws { BusinessError } 21900006 - task not found error.
+     * @throws { BusinessError } 21900006 - task not found.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @systemapi Hide this for inner system use.
      * @since 10

@@ -18,10 +18,9 @@
  * @kit ArkUI
  */
 
-/// <reference path="../component/units.d.ts" />
+
 
 import { AsyncCallback } from './@ohos.base';
-import { Resource } from 'GlobalResource';
 
 /**
  * @namespace promptAction
@@ -160,6 +159,7 @@ declare namespace promptAction {
      * @type { ?ToastShowMode }
      * @default ToastShowMode.DEFAULT
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -196,6 +196,7 @@ declare namespace promptAction {
    *
    * @enum { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -210,6 +211,7 @@ declare namespace promptAction {
      * Toast shows in app.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -225,10 +227,21 @@ declare namespace promptAction {
      * Toast shows at the top.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
      * @atomicservice
      * @since 12
      */
-    TOP_MOST = 1
+    TOP_MOST = 1,
+
+    /**
+     * Toast shows in SYSTEM_TOAST window.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @atomicservice
+     * @since 12
+     */
+    SYSTEM_TOP_MOST = 2
   }
 
   /**
@@ -1104,6 +1117,39 @@ declare namespace promptAction {
    * @since 11
    */
   function showToast(options: ShowToastOptions): void;
+
+  /**
+   * Displays the notification text.
+   *
+   * @param { ShowToastOptions } options - Options.
+   * @returns { Promise<number> } return the toast id that will be used by closeToast.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  function openToast(options: ShowToastOptions): Promise<number>;
+
+  /**
+   * Close the notification text.
+   *
+   * @param { number } toastId - the toast id that returned by openToast.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  function closeToast(toastId: number): void;
 
   /**
    * Displays the dialog box.

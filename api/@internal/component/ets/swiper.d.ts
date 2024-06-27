@@ -541,6 +541,17 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * @form
    */
   selectedColor(value: ResourceColor): DotIndicator;
+
+  /**
+   * Set the Indicator maxDisplayCount when selected.
+   *
+   * @param { number } maxDisplayCount - the indicator item maxDisplayCount when selected.
+   * @returns { DotIndicator } return the DotIndicator
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  maxDisplayCount(maxDisplayCount: number): DotIndicator;
 }
 
 /**

@@ -1083,6 +1083,30 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 12
    */
   privacySensitive(supported: boolean): TextAttribute;
+
+  /**
+   * set text selectable and focusable
+   *
+   * @param { TextSelectableMode } mode
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  textSelectable(mode: TextSelectableMode): TextAttribute;
+
+  /**
+   * Set the custom text menu.
+   *
+   * @param { Array<ExpandedMenuItemOptions> } expandedMenuOptions - Customize text menu options.
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  selectionMenuOptions(expandedMenuOptions: Array<ExpandedMenuItemOptions>): TextAttribute;
 }
 
 /**
@@ -1514,4 +1538,15 @@ declare class TextController {
    * @since 12
    */
   setStyledString(value: StyledString): void;
+
+  /**
+   * Get LayoutManager.
+   *
+   * @returns { LayoutManager } - Return the LayoutManager.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  getLayoutManager(): LayoutManager;
 }

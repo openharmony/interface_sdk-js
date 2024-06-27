@@ -22,6 +22,7 @@ import type { AsyncCallback, Callback } from './@ohos.base';
 import type Context from './application/Context';
 import type image from './@ohos.multimedia.image';
 import type dataSharePredicates from './@ohos.data.dataSharePredicates';
+import type { CustomColors } from './@ohos.arkui.theme';
 
 /**
  * Helper functions to access image and video assets
@@ -1564,7 +1565,15 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12
      */
-    PHOTO_SUBTYPE = 'subtype'
+    PHOTO_SUBTYPE = 'subtype',
+    /**
+     * Effect mode of moving photo, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    MOVING_PHOTO_EFFECT_MODE = 'moving_photo_effect_mode'
   }
 
   /**
@@ -3463,6 +3472,16 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     preselectedUris?: Array<string>;
+
+    /**
+     * Support preview in single selection mode or not
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    isPreviewForSingleSelectionSupported?: boolean;
   }
 
   /**
@@ -3496,6 +3515,36 @@ declare namespace photoAccessHelper {
      * @since 11
      */
     isEditSupported?: boolean;
+
+    /**
+     * Support select original photo or not
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    isOriginalSupported?: boolean;
+
+    /**
+     * SubWindow name
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    subWindowName?: string;
+
+    /**
+     * Theme color
+     *
+     * @type { ?CustomColors }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    themeColor?: CustomColors;
   }
 
   /**
@@ -3773,6 +3822,61 @@ declare namespace photoAccessHelper {
      * @since 11
      */
     PHOTO_PROXY = 3
+  }
+
+  /**
+   * Enumeration of moving photo effect mode.
+   *
+   * @enum { number } MovingPhotoEffectMode
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 12
+   */
+  enum MovingPhotoEffectMode {
+    /**
+     * Default
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    DEFAULT = 0,
+
+    /**
+     * Bounce play
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    BOUNCE_PLAY = 1,
+
+    /**
+     * Loop play
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    LOOP_PLAY = 2,
+
+    /**
+     * Long exposure
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    LONG_EXPOSURE = 3,
+
+    /**
+     * Multi exposure
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    MULTI_EXPOSURE = 4
   }
 
   /**
@@ -4090,6 +4194,31 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     saveCameraPhoto(): void;
+
+    /**
+     * Discard the photo asset captured by camera.
+     *
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @throws { BusinessError } 14000016 - Operation Not Support
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    discardCameraPhoto(): void;
+
+    /**
+     * Set effect mode of moving photo.
+     *
+     * @param { MovingPhotoEffectMode } mode - the new effect mode of the moving photo
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @throws { BusinessError } 14000016 - Operation Not Support
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    setEffectMode(mode: MovingPhotoEffectMode): void;
   }
 
   /**

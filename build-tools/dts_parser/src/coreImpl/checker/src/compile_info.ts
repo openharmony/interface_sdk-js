@@ -13,7 +13,8 @@
  * limitations under the License.
  */
 import ts from 'typescript';
-import { ApiResultSimpleInfo, ApiResultInfo } from '../../../typedef/checker/result_type';
+import { ApiResultSimpleInfo, ApiResultInfo, ErrorMessage } from '../../../typedef/checker/result_type';
+import { CommonFunctions } from '../../../utils/checkUtils';
 
 export class AddErrorLogs {
   /**
@@ -58,14 +59,32 @@ export class AddErrorLogs {
     const apiCheckErrorLog: ApiResultInfo = new ApiResultInfo();
     apiCheckErrorLog
       .setErrorType(errorType)
-      .setLocation(location)
+      .setLocation(filePath.slice(filePath.indexOf('api'), filePath.length) + `(line: ${location})`)
       .setApiType(apiType)
       .setMessage(errorMessage)
       .setVersion(version)
       .setLevel(level)
       .setApiName(apiName)
       .setApiFullText(apiFullText)
-      .setBaseName(filePath.substring(filePath.lastIndexOf('/') + 1, filePath.length));
+      .setBaseName(filePath.slice(filePath.lastIndexOf('\\') + 1, filePath.length));
+    let isLostKitErrorInfo: boolean = message === CommonFunctions.createErrorInfo(ErrorMessage.ERROR_LOST_LABEL, ['kit']);
+    let isLostFileErrorInfo: boolean = message === CommonFunctions.createErrorInfo(ErrorMessage.ERROR_LOST_LABEL, ['file']);
+    let hasLostKitErrorInfo: string[] = [];
+    let hasLostfileErrorInfo: string[] = [];
+
+    checkErrorInfos.forEach((checkErrorInfo: ApiResultSimpleInfo) => {
+      const checkErrorMessage: string = checkErrorInfo.getMessage().replace(/API check error of \[.*\]: /g, '');
+      if (checkErrorMessage === CommonFunctions.createErrorInfo(ErrorMessage.ERROR_LOST_LABEL, ['kit'])) {
+        hasLostKitErrorInfo.push(checkErrorInfo.getMessage());
+      }
+      if (checkErrorMessage === CommonFunctions.createErrorInfo(ErrorMessage.ERROR_LOST_LABEL, ['file'])) {
+        hasLostfileErrorInfo.push(checkErrorInfo.getMessage());
+      }
+    });
+    if ((isLostKitErrorInfo && hasLostKitErrorInfo.length !== 0) ||
+      (isLostFileErrorInfo && hasLostfileErrorInfo.length !== 0)) {
+      return;
+    }
     checkErrorInfos.push(apiChecktSimpleErrorLog);
     checkErrorAllInfos.push(apiCheckErrorLog);
   }

@@ -22,7 +22,7 @@
  * @since 12
  * @form
  */
- interface RepeatItem<T> {
+interface RepeatItem<T> {
   /**
    * The origin data.
    *
@@ -46,15 +46,84 @@
 }
 
 /**
+ * Define the options of repeat virtualScroll to implemation reuse and lazy loading.
+ *
+ * @interface VirtualScrollOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+interface VirtualScrollOptions {
+  /**
+   * Total data count.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  totalCount?: number;
+}
+
+/**
+ * Define a builder template option parameter.
+ *
+ * @interface TemplateOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+interface TemplateOptions {
+  /**
+   * The cached number of each template.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  cachedCount?: number
+}
+
+/**
+ * Function that return typed string to render one template.
+ *
+ * @typedef {function} TemplateTypedFunc<T>
+ * @param { T } item - data item.
+ * @param {number} index - data index number in array.
+ * @returns { string } template type.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare type TemplateTypedFunc<T> = (item : T, index : number) => string;
+
+/**
+ * Define builder function to render one template type.
+ *
+ * @typedef {function} RepeatItemBuilder<T>
+ * @param { RepeatItem<T> } repeatItem - the repeat item builder function.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare type RepeatItemBuilder<T> = (repeatItem: RepeatItem<T>) => void;
+
+/**
  * Defines the Repeat component attribute functions.
  *
- * @extends DynamicNode<RepeatAttribute<T>>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  * @form
  */
-declare class RepeatAttribute<T> extends DynamicNode<RepeatAttribute<T>> {
+declare class RepeatAttribute<T> {
   /**
    * Executes itemGenerator of each item.
    *
@@ -77,6 +146,41 @@ declare class RepeatAttribute<T> extends DynamicNode<RepeatAttribute<T>> {
    * @form
    */
   key(keyGenerator: (item: T, index: number) => string): RepeatAttribute<T>;
+  /**
+   * Enable UI lazy loading when scroll up or down.
+   *
+   * @param { VirtualScrollOptions } virtualScrollOptions that defines the options of repeat virtual scroll to implement reuse and lazy loading.
+   * @returns { RepeatAttribute<T> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  virtualScroll(virtualScrollOptions?: VirtualScrollOptions): RepeatAttribute<T>;
+  /**
+   * Type builder function to render specific type of data item.
+   *
+   * @param { string } type that defines the template id.
+   * @param { RepeatItemBuilder<T> } itemBuilder that defines UI builder function.
+   * @param { TemplateOptions } templateOptions that defines a builder template option parameter.
+   * @returns { RepeatAttribute<T> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  template(type : string, itemBuilder: RepeatItemBuilder<T>, templateOptions?: TemplateOptions): RepeatAttribute<T>;
+  /**
+   * Typed function to render specific type of data item.
+   *
+   * @param { TemplateTypedFunc<T> } typedFunc that define template typed function.
+   * @returns { RepeatAttribute<T> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  templateId(typedFunc: TemplateTypedFunc<T>): RepeatAttribute<T>;
 }
 
 /**

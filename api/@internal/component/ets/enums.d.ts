@@ -8446,6 +8446,7 @@ declare enum XComponentType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   * @deprecated since 12
    */
   COMPONENT,
 
@@ -9161,12 +9162,6 @@ declare enum EllipsisMode {
  */
 declare type Nullable<T> = T | undefined;
 
-declare module 'CommonEnums' {
-  module 'CommonEnums' {
-    // @ts-ignore
-    export type { Color, FontStyle, Nullable };
-  }
-}
 
 /**
  * Decide whether the width of select menu fit the trigger or content 
@@ -9506,9 +9501,44 @@ declare enum TextDecorationStyle {
   WAVY = 4,
 }
 
-declare module 'borderStyle' {
-  module 'borderStyle' {
-    // @ts-ignore
-    export type { BorderStyle };
-  }
+/**
+ * Type of text selectable.
+ *
+ * @enum {number}
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare enum TextSelectableMode {
+  /**
+   * set text selectable and unfocusable.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  SELECTABLE_UNFOCUSABLE = 0,
+
+  /**
+   * set text selectable and focusable.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  SELECTABLE_FOCUSABLE = 1,
+
+  /**
+   * set text unselectable and unfocusable.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  UNSELECTABLE = 2,
 }
+

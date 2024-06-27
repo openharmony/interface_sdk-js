@@ -36,7 +36,7 @@ declare namespace systemTime {
    * @permission ohos.permission.SET_TIME
    * @param { number } time - Target time stamp (ms)
    * @param { AsyncCallback<void> } callback
-   * @throws { BusinessError } -1 - the parameter check failed or permission denied or system error.
+   * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @since 7
    * @deprecated since 9
@@ -49,7 +49,7 @@ declare namespace systemTime {
    * @permission ohos.permission.SET_TIME
    * @param { number } time - Target time stamp (ms)
    * @returns { Promise<void> }
-   * @throws { BusinessError } -1 - the parameter check failed or permission denied or system error.
+   * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @since 7
    * @deprecated since 9
@@ -61,7 +61,7 @@ declare namespace systemTime {
    *
    * @param { boolean } isNano
    * @param { AsyncCallback<number> } callback
-   * @throws { BusinessError } -1 - the parameter check failed or system error.
+   * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @since 8
    * @deprecated since 9
@@ -73,7 +73,7 @@ declare namespace systemTime {
    * Obtains the number of milliseconds that have elapsed since the Unix epoch.
    *
    * @param { AsyncCallback<number> } callback
-   * @throws { BusinessError } -1 - the parameter check failed or system error.
+   * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @since 8
    * @deprecated since 9
@@ -86,7 +86,7 @@ declare namespace systemTime {
    *
    * @param { boolean } isNano
    * @returns { Promise<number> }
-   * @throws { BusinessError } -1 - the parameter check failed or system error.
+   * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @since 8
    * @deprecated since 9
@@ -99,7 +99,7 @@ declare namespace systemTime {
    *
    * @param { boolean } isNano
    * @param { AsyncCallback<number> } callback
-   * @throws { BusinessError } -1 - the parameter check failed or system error.
+   * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @since 8
    * @deprecated since 9
@@ -111,7 +111,7 @@ declare namespace systemTime {
    * Obtains the number of milliseconds elapsed since the system was booted, not including deep sleep time.
    *
    * @param { AsyncCallback<number> } callback
-   * @throws { BusinessError } -1 - the parameter check failed or system error.
+   * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @since 8
    * @deprecated since 9
@@ -124,7 +124,7 @@ declare namespace systemTime {
    *
    * @param { boolean } isNano
    * @returns { Promise<number> }
-   * @throws { BusinessError } -1 - the parameter check failed or system error.
+   * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @since 8
    * @deprecated since 9
@@ -137,7 +137,7 @@ declare namespace systemTime {
    *
    * @param { boolean } isNano
    * @param { AsyncCallback<number> } callback
-   * @throws { BusinessError } -1 - the parameter check failed or system error.
+   * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @since 8
    * @deprecated since 9
@@ -149,7 +149,7 @@ declare namespace systemTime {
    * Obtains the number of milliseconds elapsed since the system was booted, including deep sleep time.
    *
    * @param { AsyncCallback<number> } callback
-   * @throws { BusinessError } -1 - the parameter check failed or system error.
+   * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @since 8
    * @deprecated since 9
@@ -162,7 +162,7 @@ declare namespace systemTime {
    *
    * @param { boolean } isNano
    * @returns { Promise<number> }
-   * @throws { BusinessError } -1 - the parameter check failed or system error.
+   * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @since 8
    * @deprecated since 9
@@ -176,7 +176,7 @@ declare namespace systemTime {
    * @permission ohos.permission.SET_TIME
    * @param { Date } date - The target date
    * @param { AsyncCallback<void> } callback
-   * @throws { BusinessError } -1 - the parameter check failed or permission denied or system error.
+   * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @since 7
    * @deprecated since 9
@@ -189,7 +189,7 @@ declare namespace systemTime {
    * @permission ohos.permission.SET_TIME
    * @param { Date } date - The target date
    * @returns { Promise<void> }
-   * @throws { BusinessError } -1 - the parameter check failed or permission denied or system error.
+   * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @since 7
    * @deprecated since 9
@@ -200,7 +200,7 @@ declare namespace systemTime {
    * Obtains the system date.
    *
    * @param { AsyncCallback<Date> } callback
-   * @throws { BusinessError } -1 - the parameter check failed or system error.
+   * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @since 8
    * @deprecated since 9
@@ -212,7 +212,7 @@ declare namespace systemTime {
    * Obtains the system date.
    *
    * @returns { Promise<Date> }
-   * @throws { BusinessError } -1 - the parameter check failed or system error.
+   * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @since 8
    * @deprecated since 9
@@ -226,7 +226,7 @@ declare namespace systemTime {
    * @permission ohos.permission.SET_TIME_ZONE
    * @param { string } timezone - The system timezone
    * @param { AsyncCallback<void> } callback
-   * @throws { BusinessError } -1 - the parameter check failed or permission denied or system error.
+   * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @since 7
    * @deprecated since 9
@@ -239,7 +239,7 @@ declare namespace systemTime {
    * @permission ohos.permission.SET_TIME_ZONE
    * @param { string } timezone - The system timezone
    * @returns { Promise<void> }
-   * @throws { BusinessError } -1 - the parameter check failed or permission denied or system error.
+   * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @since 7
    * @deprecated since 9
@@ -250,7 +250,7 @@ declare namespace systemTime {
    * Obtains the system timezone.
    *
    * @param { AsyncCallback<string> } callback
-   * @throws { BusinessError } -1 - the parameter check failed or system error.
+   * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @since 8
    * @deprecated since 9
@@ -262,7 +262,7 @@ declare namespace systemTime {
    * Obtains the system timezone.
    *
    * @returns { Promise<string> }
-   * @throws { BusinessError } -1 - the parameter check failed or system error.
+   * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @since 8
    * @deprecated since 9
