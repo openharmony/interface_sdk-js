@@ -97,7 +97,7 @@ export declare struct AtomicServiceTabs {
   /**
    * set if need overlap, default value is true.
    *
-   * @type { ?number }.
+   * @type { ?boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
@@ -153,10 +153,10 @@ export declare class TabBarOptions {
   /**
    * constructor to init the tabbar.incluing icon, text, unselectedColor and selectedColor.
    *
-   * @param { ResourceStr | TabBarSymbol } - icon, cannot be empty
-   * @param { ResourceStr } - text of tabar, cannot be empty
-   * @param { ?ResourceColor } - the color of icon and text when tabbar is unselected
-   * @param { ?ResourceColor } - the color of icon and text when tabbar is selected
+   * @param { ResourceStr | TabBarSymbol } - icon - cannot be empty
+   * @param { ResourceStr } - text - cannot be empty
+   * @param { ?ResourceColor } - unselectedColor - the color of icon and text when tabbar is unselected
+   * @param { ?ResourceColor } - selectedColor - the color of icon and text when tabbar is selected
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
