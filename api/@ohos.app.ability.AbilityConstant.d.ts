@@ -296,7 +296,17 @@ declare namespace AbilityConstant {
      * @atomicservice
      * @since 11
      */
-    INSIGHT_INTENT = 9
+    INSIGHT_INTENT = 9,
+
+    /**
+     * Prepare start ability through cross-end device migration.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 12
+     */
+    PREPARE_CONTINUATION = 10,
   }
 
   /**
