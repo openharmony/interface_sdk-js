@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-/// <reference path="../../component/common.d.ts" />
-/// <reference path="../../component/date_picker.d.ts" />
+
+
 
 /**
  * Defines DatePicker Modifier

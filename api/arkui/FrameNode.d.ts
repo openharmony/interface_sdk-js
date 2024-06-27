@@ -21,8 +21,6 @@
 import { UIContext } from '../@ohos.arkui.UIContext';
 import { RenderNode } from './RenderNode';
 import { Size, Position, Edges, LengthMetrics, SizeT } from './Graphics';
-import { UICommonEvent } from 'commonEvent';
-import { CommonAttribute } from 'commonAttribute';
 import { DrawContext } from './Graphics';
 import { ComponentContent } from './ComponentContent';
 
@@ -32,6 +30,7 @@ import { ComponentContent } from './ComponentContent';
  * @interface LayoutConstraint
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface LayoutConstraint {
@@ -41,6 +40,7 @@ declare interface LayoutConstraint {
    * @type { Size }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   maxSize: Size;
@@ -51,6 +51,7 @@ declare interface LayoutConstraint {
    * @type { Size }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   minSize: Size;
@@ -62,6 +63,7 @@ declare interface LayoutConstraint {
    * @type { Size }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   percentReference: Size;
@@ -127,6 +129,7 @@ export class FrameNode {
    * @returns { boolean } - Returns true if the FrameNode can be modified, otherwise return false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   isModifiable(): boolean;
@@ -138,6 +141,7 @@ export class FrameNode {
    * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   appendChild(node: FrameNode): void;
@@ -150,6 +154,7 @@ export class FrameNode {
    * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   insertChildAfter(child: FrameNode, sibling: FrameNode | null): void;
@@ -161,6 +166,7 @@ export class FrameNode {
    * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   removeChild(node: FrameNode): void;
@@ -171,6 +177,7 @@ export class FrameNode {
    * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   clearChildren(): void;
@@ -182,6 +189,7 @@ export class FrameNode {
    * @returns { FrameNode | null } - Returns a FrameNode. When the required node does not exist, returns null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getChild(index: number): FrameNode | null;
@@ -193,6 +201,7 @@ export class FrameNode {
    * If current FrameNode does not have child node, returns null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getFirstChild(): FrameNode | null;
@@ -203,6 +212,7 @@ export class FrameNode {
    * @returns { FrameNode | null } - Returns a FrameNode. If current FrameNode does not have next sibling node, returns null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getNextSibling(): FrameNode | null;
@@ -213,6 +223,7 @@ export class FrameNode {
    * @returns { FrameNode | null } - Returns a FrameNode. If current FrameNode does not have previous sibling node, returns null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getPreviousSibling(): FrameNode | null;
@@ -223,6 +234,7 @@ export class FrameNode {
    * @returns { FrameNode | null } - Returns a FrameNode. If current FrameNode does not have parent node, returns null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getParent(): FrameNode | null;
@@ -233,6 +245,7 @@ export class FrameNode {
    * @returns { number } - Returns the number of the children of the current FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getChildrenCount(): number;
@@ -242,6 +255,7 @@ export class FrameNode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   dispose(): void;
@@ -252,6 +266,7 @@ export class FrameNode {
    * @returns { Position } - Returns position of the node relative to window.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getPositionToWindow(): Position;
@@ -262,6 +277,7 @@ export class FrameNode {
    * @returns { Position } - Returns position of the node relative to its parent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getPositionToParent(): Position;
@@ -272,6 +288,7 @@ export class FrameNode {
    * @returns { Size } - Returns the size of the FrameNode after measure, with unit PX.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getMeasuredSize(): Size;
@@ -282,6 +299,7 @@ export class FrameNode {
    * @returns { Position } - Returns the offset to the parent of the FrameNode after layout, with unit PX.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getLayoutPosition(): Position;
@@ -292,6 +310,7 @@ export class FrameNode {
    * @returns { Edges<LengthMetrics> } - Returns the user config border width of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getUserConfigBorderWidth(): Edges<LengthMetrics>;
@@ -302,6 +321,7 @@ export class FrameNode {
    * @returns { Edges<LengthMetrics> } - Returns the user config padding of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getUserConfigPadding(): Edges<LengthMetrics>;
@@ -312,6 +332,7 @@ export class FrameNode {
    * @returns { Edges<LengthMetrics> } - Returns the user config margin of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getUserConfigMargin(): Edges<LengthMetrics>;
@@ -322,6 +343,7 @@ export class FrameNode {
    * @returns { SizeT<LengthMetrics> } - Returns the user config size of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getUserConfigSize(): SizeT<LengthMetrics>;
@@ -332,6 +354,7 @@ export class FrameNode {
    * @returns { string } - Returns the id of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getId(): string;
@@ -342,6 +365,7 @@ export class FrameNode {
    * @returns { number } - Returns the unique id of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getUniqueId(): number;
@@ -353,6 +377,7 @@ export class FrameNode {
    * @returns { string } - Returns the type of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getNodeType(): string;
@@ -363,6 +388,7 @@ export class FrameNode {
    * @returns { number } - Returns the opacity of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getOpacity(): number;
@@ -373,6 +399,7 @@ export class FrameNode {
    * @returns { boolean } - Returns if the FrameNode is visible.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   isVisible(): boolean;
@@ -383,6 +410,7 @@ export class FrameNode {
    * @returns { boolean } - Returns if the FrameNode is clip to frame.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   isClipToFrame(): boolean;
@@ -393,6 +421,7 @@ export class FrameNode {
    * @returns { boolean } - Returns if the FrameNode is attached.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   isAttached(): boolean;
@@ -403,6 +432,7 @@ export class FrameNode {
    * @returns { Object } - Returns the inspector information of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getInspectorInfo(): Object;
@@ -414,6 +444,7 @@ export class FrameNode {
    * @returns { Object | undefined } - Returns the value of the custom property.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getCustomProperty(name: string): Object | undefined;
@@ -424,6 +455,7 @@ export class FrameNode {
    * @returns { UICommonEvent } - Returns a Object inside the FrameNode, which is used to set callbacks about different events.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   get commonEvent(): UICommonEvent;
@@ -434,6 +466,7 @@ export class FrameNode {
    * @returns { CommonAttribute } - Returns the CommonAttribute which is used to modify the common attributes of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   get commonAttribute(): CommonAttribute;
@@ -444,6 +477,7 @@ export class FrameNode {
    * @param { DrawContext } context - The DrawContext will be used when executed draw method.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onDraw?(context: DrawContext): void;
@@ -456,6 +490,7 @@ export class FrameNode {
    * method.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onMeasure(constraint: LayoutConstraint): void;
@@ -467,6 +502,7 @@ export class FrameNode {
    * @param { Position } position - The position of the node, will be used when executed layout method.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onLayout(position: Position): void;
@@ -477,6 +513,7 @@ export class FrameNode {
    * @param { Size } size - The size of the FrameNode after measure.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   setMeasuredSize(size: Size): void;
@@ -487,6 +524,7 @@ export class FrameNode {
    * @param { Position } position - The position to the parent of the FrameNode after layout.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   setLayoutPosition(position: Position): void;
@@ -498,6 +536,7 @@ export class FrameNode {
    * @param { LayoutConstraint } constraint - The layout constraint of the node, supplied by the parent node.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   measure(constraint: LayoutConstraint): void;
@@ -510,6 +549,7 @@ export class FrameNode {
    * @param { Position } position - The position of the node, will be used when executed the layout method.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   layout(position: Position): void;
@@ -519,6 +559,7 @@ export class FrameNode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   setNeedsLayout(): void;
@@ -528,6 +569,7 @@ export class FrameNode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   invalidate(): void;
@@ -538,6 +580,7 @@ export class FrameNode {
    * @returns { Position } - Returns position of the node relative to screen.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getPositionToScreen(): Position;
@@ -548,6 +591,7 @@ export class FrameNode {
    * @returns { Position } - Returns position of the node relative to window with transform.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getPositionToWindowWithTransform(): Position;
@@ -558,6 +602,7 @@ export class FrameNode {
    * @returns { Position } - Returns position of the node relative to its parent with transform.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getPositionToParentWithTransform(): Position;
@@ -568,6 +613,7 @@ export class FrameNode {
    * @returns { Position } - Returns position of the node relative to screen with transform.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getPositionToScreenWithTransform(): Position;
@@ -577,6 +623,7 @@ export class FrameNode {
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   disposeTree(): void;
@@ -587,6 +634,7 @@ export class FrameNode {
    * @param { ComponentContent<T> } content - Newly added ComponentContent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   addComponentContent<T>(content: ComponentContent<T>): void;
@@ -1008,4 +1056,46 @@ export namespace typeNode {
    * @since 12
    */
   function createNode(context: UIContext, nodeType: 'ListItem'): ListItem;
+
+  /**
+   * Define the FrameNode type for TextInput.
+   * 
+   * @typedef { TypedFrameNode<TextInputInterface, TextInputAttribute> } TextInput
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  type TextInput = TypedFrameNode<TextInputInterface, TextInputAttribute>;
+
+  /**
+   * Create a FrameNode of TextInput type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'TextInput' } nodeType - node type.
+   * @returns { TextInput } - Return TextInput type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  function createNode(context: UIContext, nodeType: 'TextInput'): TextInput;
+
+  /**
+   * Define the FrameNode type for Button.
+   * 
+   * @typedef { TypedFrameNode<ButtonInterface, ButtonAttribute> } Button
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  type Button = TypedFrameNode<ButtonInterface, ButtonAttribute>;
+
+  /**
+   * Create a FrameNode of Button type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Button' } nodeType - node type.
+   * @returns { Button } - Return Button type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  function createNode(context: UIContext, nodeType: 'Button'): Button;
 }

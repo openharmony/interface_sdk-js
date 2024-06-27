@@ -48,6 +48,19 @@ interface WindowSceneInterface {
  * @since 10
  */
 declare class WindowSceneAttribute extends CommonMethod<WindowSceneAttribute> {
+  /**
+   * Set the attraction deformation effect of WindowScene.
+   * The window produces nonlinear deformation effect under the action of attraction point.
+   *
+   * @param { Position } destination - The position of the attraction target point in the component coordinate system.
+   * @param { number } fraction - The fraction of attraction deformation. The range of value is [0, 1].
+   * <br> 0 means not attracted to the target point, 1 means attracted to the target point completely.
+   * @returns { WindowSceneAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 12
+   */
+  attractionEffect(destination: Position, fraction: number): WindowSceneAttribute;
 }
 
 /**

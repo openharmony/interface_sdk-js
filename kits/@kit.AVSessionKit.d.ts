@@ -19,8 +19,8 @@
  */
 
 import AVCastPicker from '@ohos.multimedia.avCastPicker';
-import { AVCastPickerState } from '@ohos.multimedia.avCastPickerParam';
+import { AVCastPickerState, AVCastPickerStyle, AVCastPickerColorMode } from '@ohos.multimedia.avCastPickerParam';
 import avSession from '@ohos.multimedia.avsession';
 import MediaControlExtensionAbility from '@ohos.app.ability.MediaControlExtensionAbility';
 
-export { AVCastPicker, AVCastPickerState, avSession, MediaControlExtensionAbility };
+export { AVCastPicker, AVCastPickerState, AVCastPickerStyle, AVCastPickerColorMode, avSession, MediaControlExtensionAbility };

@@ -2165,6 +2165,16 @@ declare namespace commonEventManager {
      * @since 12
      */
     COMMON_EVENT_MINORSMODE_OFF = 'usual.event.MINORSMODE_OFF',
+
+    /**
+     * This common event means that datashare is ready.
+     * This is a protected common event that can only be sent by system.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @atomicservice
+     * @since 12
+     */
+    COMMON_EVENT_DATA_SHARE_READY = 'usual.event.DATA_SHARE_READY',
   }
 
   /**

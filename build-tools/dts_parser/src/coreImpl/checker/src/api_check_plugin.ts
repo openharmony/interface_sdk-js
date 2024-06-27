@@ -44,16 +44,16 @@ import { ApiChangeCheck } from './check_api_diff';
 import { TagInheritCheck } from './tag_inherit_check';
 import { ChineseCheck } from "./check_chinese";
 import { AnonymousFunctionCheck } from './check_anonymous_function';
-
 export let currentFilePath: string = '';
+import {CheckErrorCode} from "./check_error_code";
 
 export class Check {
   /**
    * checker tool main entrance
    * @param { string[] } files -File path for storing file information.
    */
-  static scanEntry(files: string[], prId: string): void {
-    ApiChangeCheck.checkApiChange(prId);
+  static scanEntry(files: string[]): void {
+    ApiChangeCheck.checkApiChange();
     files.forEach((filePath: string, index: number) => {
       currentFilePath = filePath;
       if (filePath.indexOf('build-tools') !== -1) {
@@ -166,6 +166,10 @@ export class Check {
         const orderCheckResult: ErrorTagFormat = OrderCheck.orderCheck(singleApi, apiJsdoc);
         // api naming check
         const namingCheckResult: ErrorTagFormat = ApiNamingCheck.namingCheck(singleApi);
+        // check jsdoc chinese
+        const chineseCheckResult: ErrorTagFormat = ChineseCheck.checkChinese(apiJsdoc);
+          // check error code
+          const errorCodeResult: ErrorTagFormat = CheckErrorCode.checkErrorCode(apiJsdoc);
         // tags name check
         const tagNamseCheckResult: ErrorTagFormat = TagNameCheck.tagNameCheck(apiJsdoc);
         // tags inherit check
@@ -177,8 +181,7 @@ export class Check {
         // api forbidden wors check
         const forbiddenWorsCheckResult: ErrorTagFormat = ForbiddenWordsCheck.forbiddenWordsCheck(singleApi as ClassInfo);
 
-        const anonymousFunction: ErrorTagFormat  = AnonymousFunctionCheck.checkAnonymousFunction(singleApi);
-        // console.log(anonymousFunction)
+        const anonymousFunction: ErrorTagFormat = AnonymousFunctionCheck.checkAnonymousFunction(singleApi);
         if (!orderCheckResult.state) {
           AddErrorLogs.addAPICheckErrorLogs(
             ErrorID.WRONG_ORDER_ID,
@@ -243,7 +246,39 @@ export class Check {
             compositiveLocalResult
           );
         }
-        tagInheritCheckResult.forEach((InheritCheckResult) => {
+        if (!chineseCheckResult.state) {
+          AddErrorLogs.addAPICheckErrorLogs(
+            ErrorID.JSDOC_HAS_CHINESE,
+            ErrorLevel.MIDDLE,
+            singleApi.getFilePath(),
+            singleApi.getPos(),
+            ErrorType.JSDOC_HAS_CHINESE,
+            LogType.LOG_JSDOC,
+            toNumber(apiJsdoc.since),
+            singleApi.getApiName(),
+            singleApi.getDefinedText(),
+            chineseCheckResult.errorInfo,
+            compositiveResult,
+            compositiveLocalResult
+          );
+        }
+        if (!errorCodeResult.state) {
+          AddErrorLogs.addAPICheckErrorLogs(
+            ErrorID.ERROR_ERROR_CODE,
+            ErrorLevel.MIDDLE,
+            singleApi.getFilePath(),
+            singleApi.getPos(),
+            ErrorType.ERROR_ERROR_CODE,
+            LogType.LOG_JSDOC,
+            toNumber(apiJsdoc.since),
+            singleApi.getApiName(),
+            singleApi.getDefinedText(),
+            errorCodeResult.errorInfo,
+            compositiveResult,
+            compositiveLocalResult,
+          );
+        }
+        tagInheritCheckResult.forEach((InheritCheckResult: ErrorTagFormat) => {
           if (!InheritCheckResult.state) {
             AddErrorLogs.addAPICheckErrorLogs(
               ErrorID.WRONG_SCENE_ID,

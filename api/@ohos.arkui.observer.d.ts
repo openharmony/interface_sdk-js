@@ -959,7 +959,7 @@ declare namespace uiObserver {
    *
    * @param { 'densityUpdate' } type - The type of event to listen for. Must be 'densityUpdate'.
    * @param { UIContext } context - The context scope of the observer.
-   * @param { Callback<DensityInfo> } callback - The callback function to be called when the router page is updated.
+   * @param { Callback<DensityInfo> } callback - The callback function to be called when the screen density is updated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice

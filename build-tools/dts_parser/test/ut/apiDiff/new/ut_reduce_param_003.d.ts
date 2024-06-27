@@ -1,1 +1,0 @@
-declare function testFun(b: string, c: boolean): void;

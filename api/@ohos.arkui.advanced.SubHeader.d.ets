@@ -18,10 +18,8 @@
  * @kit ArkUI
  */
 
-/// <reference path="../component/units.d.ts" />
-
-import { ResourceStr } from 'GlobalResource';
 import { TextModifier } from './@ohos.arkui.modifier';
+
 
 /**
  * Control style of operation element
@@ -212,6 +210,7 @@ export declare class SelectOptions {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare enum SymbolRenderingStrategy {
@@ -220,6 +219,7 @@ declare enum SymbolRenderingStrategy {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   SINGLE = 0,
@@ -229,6 +229,7 @@ declare enum SymbolRenderingStrategy {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   MULTIPLE_COLOR = 1,
@@ -238,6 +239,7 @@ declare enum SymbolRenderingStrategy {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   MULTIPLE_OPACITY = 2,
@@ -249,6 +251,7 @@ declare enum SymbolRenderingStrategy {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare enum SymbolEffectStrategy {
@@ -257,6 +260,7 @@ declare enum SymbolEffectStrategy {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   NONE = 0,
@@ -266,6 +270,7 @@ declare enum SymbolEffectStrategy {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   SCALE = 1,
@@ -275,6 +280,7 @@ declare enum SymbolEffectStrategy {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   HIERARCHICAL = 2,
@@ -480,12 +486,8 @@ export declare struct SubHeader {
   /**
    * Set the content margin.
    * @type { ?LocalizedMargin }
-   * @default set different default values according to the width of the subHeader:
-   * <br> When the subHeader width is <600vp, the default value is
-   * <br> {start: LengthMetrics.vp(16), end: LengthMetrics.vp(16)};
-   * <br> When the subHeader width is >=600vp and <840vp, the default value is
-   * <br> {start: LengthMetrics.vp(24), end: LengthMetrics.vp(24)};
-   * <br> Otherwise, the default value is {start: LengthMetrics.vp(32), end: LengthMetrics.vp(32)}.
+   * @default {start: LengthMetrics.resource($r('sys.float.margin_left')),
+   * <br> end: LengthMetrics.resource($r('sys.float.margin_right'))}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 12
    */

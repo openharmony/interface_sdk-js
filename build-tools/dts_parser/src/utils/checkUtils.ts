@@ -122,8 +122,8 @@ export class GenerateFile {
       const apiData: ApiResultInfo = apiCheckArr[i - 1];
       sheet.getRow(i + 1).values = [
         i,
-        apiData.getErrorType(),
         apiData.getLevel(),
+        apiData.getErrorType(),
         apiData.getLocation(),
         apiData.getApiName(),
         apiData.getApiFullText(),

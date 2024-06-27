@@ -22,6 +22,7 @@ import type { AsyncCallback, Callback } from './@ohos.base';
 import type Context from './application/Context';
 import type image from './@ohos.multimedia.image';
 import type dataSharePredicates from './@ohos.data.dataSharePredicates';
+import type { CustomColors } from './@ohos.arkui.theme';
 
 /**
  * Helper functions to access image and video assets
@@ -3471,6 +3472,16 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     preselectedUris?: Array<string>;
+
+    /**
+     * Support preview in single selection mode or not
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    isPreviewForSingleSelectionSupported?: boolean;
   }
 
   /**
@@ -3504,6 +3515,36 @@ declare namespace photoAccessHelper {
      * @since 11
      */
     isEditSupported?: boolean;
+
+    /**
+     * Support select original photo or not
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    isOriginalSupported?: boolean;
+
+    /**
+     * SubWindow name
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    subWindowName?: string;
+
+    /**
+     * Theme color
+     *
+     * @type { ?CustomColors }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    themeColor?: CustomColors;
   }
 
   /**
@@ -4153,6 +4194,16 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     saveCameraPhoto(): void;
+
+    /**
+     * Discard the photo asset captured by camera.
+     *
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @throws { BusinessError } 14000016 - Operation Not Support
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    discardCameraPhoto(): void;
 
     /**
      * Set effect mode of moving photo.

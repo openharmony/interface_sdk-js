@@ -94,6 +94,9 @@ import StartupConfigEntry from '@ohos.app.appstartup.StartupConfigEntry';
 import StartupListener from '@ohos.app.appstartup.StartupListener';
 import StartupTask from '@ohos.app.appstartup.StartupTask';
 import startupManager from '@ohos.app.appstartup.startupManager';
+import screenLockFileManager from "@ohos.ability.screenLockFileManager";
+import AtomicServiceOptions from "@ohos.app.ability.AtomicServiceOptions";
+import EmbeddableUIAbility from '@ohos.app.ability.EmbeddableUIAbility';
 
 export {
   Ability, AbilityConstant, AbilityLifecycleCallback, AbilityStage, ActionExtensionAbility,
@@ -101,13 +104,14 @@ export {
   CalleeCallback, Caller, CheckPackageHasInstalledOptions, CheckPackageHasInstalledResponse,
   ChildProcess, Configuration, ConfigurationConstant, Context, EnvironmentCallback, ErrorCode,
   ExtensionAbility, InsightIntentContext, InsightIntentExecutor, OnReleaseCallback, OnRemoteStateChangeCallback,
-  Package, PermissionRequestResult, Permissions, ServiceExtensionAbility, ShareExtensionAbility, StartOptions,
-  UIAbility, UIExtensionAbility, UIExtensionContentSession, Want, WantAgent, ability, abilityAccessCtrl,
+  OpenLinkOptions, Package, PermissionRequestResult, Permissions, ServiceExtensionAbility, ShareExtensionAbility,
+  StartOptions, UIAbility, UIExtensionAbility, UIExtensionContentSession, Want, WantAgent, ability, abilityAccessCtrl,
   abilityManager, appControl, appManager, appRecovery, autoFillManager, autoStartupManager, bundle, bundleManager,
   bundleMonitor, bundleResourceManager, businessAbilityRouter, childProcessManager, common, contextConstant,
   continuationManager, dataUriUtils, defaultAppManager, dialogRequest, dialogSession, distributedBundle,
   distributedBundleManager, distributedMissionManager, errorManager, featureAbility, freeInstall,
   innerBundleManager, insightIntent, insightIntentDriver, installer, launcherBundleManager, missionManager,
   overlay, particleAbility, quickFixManager, uriPermissionManager, wantAgent, wantConstant, privacyManager,
-  EmbeddedUIExtensionAbility, StartupConfig, StartupConfigEntry, StartupListener, StartupTask, startupManager
+  EmbeddedUIExtensionAbility, StartupConfig, StartupConfigEntry, StartupListener, StartupTask, startupManager,
+  screenLockFileManager, AtomicServiceOptions, EmbeddableUIAbility
 };

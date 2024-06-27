@@ -56,6 +56,21 @@ declare namespace uiEffect {
      * @since 12
      */
     blur(blurRadius: number): Filter;
+
+    /**
+     * Set waterRipple effect of the Component.
+     *
+     * @param { number } progress - Indicates the ripple progress. The value 1 indicates that ripples are displayed on all screens.
+     * @param { number } waveCount - The number of waves when the water ripples. The maximum count of waves is 3, the minimum value is 1,  default is 2.
+     * @param { number } x - Represents the X-axis position of center point  where the water ripple first appears on the screen.
+     * @param { number } y - Represents the Y-axis position of center point  where the water ripple first appears on the screen.
+     * @returns { Filter } - Returns  water ripple Filter.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 12
+     */
+    waterRipple(progress: number, waveCount: number, x: number, y: number): Filter;
   }
 
   /**

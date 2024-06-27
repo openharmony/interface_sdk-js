@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 
-/// <reference path="../component/units.d.ts" />
+
 
 /**
  * Interface for shape size properties.

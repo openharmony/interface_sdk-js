@@ -13,12 +13,12 @@
  * limitations under the License.
  */
 
-import type { AbilityResult } from '../ability/abilityResult';
-
 /**
  * @file
  * @kit AbilityKit
  */
+
+import type { AbilityResult } from '../ability/abilityResult';
 
 /**
  * The callback of UIAbility or UIExtensionAbility.

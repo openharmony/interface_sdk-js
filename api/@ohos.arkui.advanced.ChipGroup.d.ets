@@ -18,10 +18,8 @@
  * @kit ArkUI
  */
 
-/// <reference path="../component/units.d.ts" />
 
-import { ResourceStr } from 'GlobalResource';
-import { ChipSize, SymbolOptions } from '@ohos.arkui.advanced.Chip';
+import { ChipSize, ChipSymbolGlyphOptions } from '@ohos.arkui.advanced.Chip';
 import { SymbolGlyphModifier } from './@ohos.arkui.modifier';
 
 /**
@@ -100,12 +98,12 @@ export interface ChipGroupItemOptions {
     /**
      * Prefix symbol.
      *
-     * @type { ?SymbolOptions }
+     * @type { ?ChipSymbolGlyphOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
      */
-    prefixSymbol?: SymbolOptions;
+    prefixSymbol?: ChipSymbolGlyphOptions;
 
     /**
      * Chip label.
@@ -130,12 +128,12 @@ export interface ChipGroupItemOptions {
     /**
      * suffix symbol.
      *
-     * @type { ?SymbolOptions }
+     * @type { ?ChipSymbolGlyphOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
      */
-    suffixSymbol?: SymbolOptions;
+    suffixSymbol?: ChipSymbolGlyphOptions;
 
     /**
      * Allow close.

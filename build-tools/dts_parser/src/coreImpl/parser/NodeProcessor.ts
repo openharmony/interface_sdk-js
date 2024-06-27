@@ -588,7 +588,7 @@ export class NodeProcessorHelper {
         false
       );
     }
-    propertyInfo.setTypeKind(propertyNode.type ? propertyNode.type.kind : -1);
+    propertyInfo.setTypeKind(propertyNode.type?.kind);
     return propertyInfo;
   }
 
@@ -670,7 +670,7 @@ export class NodeProcessorHelper {
     paramInfo.setApiName(param.name.getText());
     paramInfo.setIsRequired(!param.questionToken ? true : false);
     paramInfo.setDefinedText(param.getText());
-    paramInfo.setParamType(param.type ? param.type.kind : -1);
+    paramInfo.setParamType(param.type?.kind);
     if (param.type === undefined) {
       return paramInfo;
     }
@@ -958,10 +958,9 @@ export class NodeProcessorHelper {
     if (ts.isFunctionTypeNode(nodeType)) {
       const typeParameters = nodeType.parameters;
       typeParameters.forEach((typeParameter: ts.ParameterDeclaration) => {
-        const typeParamInfo: ParamInfo = NodeProcessorHelper.processParam(
-          typeParameter,
-          new MethodInfo(ApiType.METHOD, node, parentApi)
-        );
+        const typeParamInfo: TypeParamInfo = new TypeParamInfo();
+        typeParamInfo.setParamName(typeParameter.name.getText());
+        typeParamInfo.setParamType(typeParameter.type?.getText());
         typeAliasInfo.setParamInfos(typeParamInfo);
       });
       typeAliasInfo.setReturnType(nodeType.type.getText());

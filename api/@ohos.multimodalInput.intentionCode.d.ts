@@ -25,12 +25,27 @@
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 10
  */
+/**
+ * IntentionCode
+ *
+ * @enum { number }
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @atomicservice
+ * @since 12
+ */
 export declare enum IntentionCode {
   /**
    * INTENTION_UNKNOWN
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10
+   */
+  /**
+   * INTENTION_UNKNOWN
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @atomicservice
+   * @since 12
    */
   INTENTION_UNKNOWN = -1,
 
@@ -40,6 +55,13 @@ export declare enum IntentionCode {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10
    */
+  /**
+   * INTENTION_UP
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @atomicservice
+   * @since 12
+   */
   INTENTION_UP = 1,
 
   /**
@@ -47,6 +69,13 @@ export declare enum IntentionCode {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10
+   */
+  /**
+   * INTENTION_DOWN
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @atomicservice
+   * @since 12
    */
   INTENTION_DOWN = 2,
 
@@ -56,6 +85,13 @@ export declare enum IntentionCode {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10
    */
+  /**
+   * INTENTION_LEFT
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @atomicservice
+   * @since 12
+   */
   INTENTION_LEFT = 3,
 
   /**
@@ -63,6 +99,13 @@ export declare enum IntentionCode {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10
+   */
+  /**
+   * INTENTION_RIGHT
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @atomicservice
+   * @since 12
    */
   INTENTION_RIGHT = 4,
 
@@ -72,6 +115,13 @@ export declare enum IntentionCode {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10
    */
+  /**
+   * INTENTION_SELECT
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @atomicservice
+   * @since 12
+   */
   INTENTION_SELECT = 5,
 
   /**
@@ -79,6 +129,13 @@ export declare enum IntentionCode {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10
+   */
+  /**
+   * INTENTION_ESCAPE
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @atomicservice
+   * @since 12
    */
   INTENTION_ESCAPE = 6,
 
@@ -88,6 +145,13 @@ export declare enum IntentionCode {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10
    */
+  /**
+   * INTENTION_BACK
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @atomicservice
+   * @since 12
+   */
   INTENTION_BACK = 7,
 
   /**
@@ -95,6 +159,13 @@ export declare enum IntentionCode {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10
+   */
+  /**
+   * INTENTION_FORWARD
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @atomicservice
+   * @since 12
    */
   INTENTION_FORWARD = 8,
 
@@ -104,6 +175,13 @@ export declare enum IntentionCode {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10
    */
+  /**
+   * INTENTION_MENU
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @atomicservice
+   * @since 12
+   */
   INTENTION_MENU = 9,
 
   /**
@@ -111,6 +189,13 @@ export declare enum IntentionCode {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10
+   */
+  /**
+   * INTENTION_PAGE_UP
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @atomicservice
+   * @since 12
    */
   INTENTION_PAGE_UP = 11,
 
@@ -120,6 +205,13 @@ export declare enum IntentionCode {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10
    */
+  /**
+   * INTENTION_PAGE_DOWN
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @atomicservice
+   * @since 12
+   */
   INTENTION_PAGE_DOWN = 12,
 
   /**
@@ -128,6 +220,13 @@ export declare enum IntentionCode {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10
    */
+  /**
+   * INTENTION_ZOOM_OUT
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @atomicservice
+   * @since 12
+   */
   INTENTION_ZOOM_OUT = 13,
 
   /**
@@ -135,6 +234,13 @@ export declare enum IntentionCode {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10
+   */
+  /**
+   * INTENTION_ZOOM_IN
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @atomicservice
+   * @since 12
    */
   INTENTION_ZOOM_IN = 14
 }

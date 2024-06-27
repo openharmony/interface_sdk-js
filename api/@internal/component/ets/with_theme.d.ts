@@ -13,6 +13,18 @@
  * limitations under the License.
  */
 
+
+/**
+ * CustomTheme.
+ *
+ * @typedef {import('../api/@ohos.arkui.theme').CustomTheme} CustomTheme
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare type CustomTheme = import('../api/@ohos.arkui.theme').CustomTheme;
+
 /**
  * Defines the struct of WithThemeOptions.
  *
