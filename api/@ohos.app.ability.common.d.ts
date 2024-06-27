@@ -84,6 +84,7 @@ declare namespace common {
   /**
    * The context of an ability. It allows access to ability-specific resources.
    *
+   * @typedef { _UIAbilityContext.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @crossplatform
@@ -110,6 +111,7 @@ declare namespace common {
   /**
    * The context of an abilityStage. It allows access to abilityStage-specific resources.
    *
+   * @typedef { _AbilityStageContext.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @crossplatform
@@ -136,6 +138,7 @@ declare namespace common {
   /**
    * The context of an application. It allows access to application-specific resources.
    *
+   * @typedef { _ApplicationContext.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @crossplatform
@@ -162,6 +165,7 @@ declare namespace common {
   /**
    * The base context of 'app.Context' for FA Mode or 'application.Context' for Stage Mode.
    *
+   * @typedef { _BaseContext.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @crossplatform
@@ -191,6 +195,7 @@ declare namespace common {
    * The base context of an ability or an application. It allows access to
    * application-specific resources.
    *
+   * @typedef { _Context.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @crossplatform
@@ -209,6 +214,7 @@ declare namespace common {
   /**
    * The context of an extension. It allows access to extension-specific resources.
    *
+   * @typedef { _ExtensionContext.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @atomicservice
@@ -228,6 +234,7 @@ declare namespace common {
    * The context of form extension. It allows access to
    * formExtension-specific resources.
    *
+   * @typedef { _FormExtensionContext.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @atomicservice
@@ -239,6 +246,7 @@ declare namespace common {
    * The context of service extension. It allows access to
    * serviceExtension-specific resources.
    *
+   * @typedef { _ServiceExtensionContext.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
@@ -264,6 +272,7 @@ declare namespace common {
   /**
    * The event center of a context, support the subscription and publication of events.
    *
+   * @typedef { _EventHub.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @crossplatform
@@ -282,6 +291,7 @@ declare namespace common {
   /**
    * Defines a PacMap object for storing a series of values.
    *
+   * @typedef { _PacMap }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 11
@@ -298,6 +308,7 @@ declare namespace common {
   /**
    * Indicates the result of startAbility.
    *
+   * @typedef { _AbilityResult }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @atomicservice
@@ -308,6 +319,7 @@ declare namespace common {
   /**
    * Indicates the callback of connection
    *
+   * @typedef { _ConnectOptions }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 9
@@ -318,6 +330,7 @@ declare namespace common {
    * The context of UI extension. It allows access to
    * UIExtension-specific resources.
    *
+   * @typedef { _UIExtensionContext.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 10
@@ -328,6 +341,7 @@ declare namespace common {
    * The context of auto fill extension. It allows access to
    * AutoFillExtension-specific resources.
    *
+   * @typedef { _AutoFillExtensionContext.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
@@ -338,6 +352,7 @@ declare namespace common {
   /**
    * The function Called when some error occurred except disconnected from UIAbility or UIExtensionAbility
    *
+   * @typedef { _AbilityStartCallback }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @atomicservice
@@ -348,6 +363,7 @@ declare namespace common {
   /**
    * The class of auto startup info.
    *
+   * @typedef { _AutoStartupInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
@@ -358,6 +374,7 @@ declare namespace common {
   /**
    * The class of auto startup callback.
    *
+   * @typedef { _AutoStartupCallback }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
@@ -370,6 +387,7 @@ declare namespace common {
    * vpnExtension-specific resources.
    * The class of auto startup info.
    *
+   * @typedef { _VpnExtensionContext.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 11
@@ -379,6 +397,7 @@ declare namespace common {
   /**
    * The context of an embeddable UIAbility.
    *
+   * @typedef { _EmbeddableUIAbilityContext.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
@@ -389,6 +408,7 @@ declare namespace common {
   /**
    * The context of an photo editor extension ability.
    *
+   * @typedef { _PhotoEditorExtensionContext.default }
    * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
    * @stagemodelonly
    * @since 12
