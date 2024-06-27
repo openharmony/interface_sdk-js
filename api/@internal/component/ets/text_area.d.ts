@@ -1599,14 +1599,14 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   /**
    * Set the custom text menu.
    *
-   * @param { Array<ExpandedMenuItemOptions> } expandedMenuOptions - Customize text menu options.
+   * @param { EditMenuOptions } editMenu - Customize text menu options.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  selectionMenuOptions(expandedMenuOptions: Array<ExpandedMenuItemOptions>): TextAreaAttribute;
+  editMenuOptions(editMenu: EditMenuOptions): TextAreaAttribute;
 
   /**
    * Define the preview text mode of the text input.
