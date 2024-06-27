@@ -118,6 +118,8 @@ import {
 } from '@ohos.arkui.advanced.FoldSplitContainer';
 import { AppStorageV2, PersistenceV2, Type } from '@ohos.arkui.StateManagement';
 import { IDataSourcePrefetching, IPrefetcher, BasicPrefetcher } from '@ohos.arkui.Prefetcher';
+import uiExtension from '@ohos.arkui.uiExtension';
+import { FullScreenLaunchComponent } from '@ohos.arkui.advanced.FullScreenLaunchComponent';
 
 export {
   AddFormMenuItem, AddFormOptions, AlertDialog, Animator, AnimatorOptions, AnimatorResult, App, AppResponse, AtomicServiceBar,
@@ -149,5 +151,5 @@ export {
   ExtraRegionPosition, ExpandedRegionLayoutOptions, HoverModeRegionLayoutOptions, FoldedRegionLayoutOptions, PresetSplitRatio, FoldSplitContainer,
   HoverModeStatus,  OnHoverStatusChangeHandler,
   AppStorageV2, PersistenceV2, Type,
-  IDataSourcePrefetching, IPrefetcher, BasicPrefetcher, SwiperDynamicSyncScene, SwiperDynamicSyncSceneType
+  IDataSourcePrefetching, IPrefetcher, BasicPrefetcher, SwiperDynamicSyncScene, SwiperDynamicSyncSceneType, uiExtension, FullScreenLaunchComponent
 };
