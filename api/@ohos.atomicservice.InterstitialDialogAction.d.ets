@@ -103,6 +103,7 @@ export declare enum BottomOffset {
  * Defines the properties required by the dialog.
  *
  * @interface DialogOptions
+ * @typedef DialogOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
