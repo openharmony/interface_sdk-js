@@ -303,6 +303,15 @@ declare namespace drawing {
      * @since 11
      */
     reset(): void;
+
+    /**
+     * Get path length.
+     * @param { boolean } forceClosed - Whether to close the Path.
+     * @returns { number } Return path length.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    getLength(forceClosed: boolean): number;
   }
 
   /**

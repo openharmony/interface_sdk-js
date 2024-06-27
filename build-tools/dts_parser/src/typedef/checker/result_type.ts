@@ -35,7 +35,8 @@ export enum ErrorType {
   API_CHANGE_ERRORS = 'api change errors',
   TS_SYNTAX_ERROR = 'TS syntax error',
   NO_JSDOC = 'No jsdoc',
-  JSDOC_HAS_CHINESE = 'JSDOC_HAS_CHINESE'
+  JSDOC_HAS_CHINESE = 'JSDOC_HAS_CHINESE',
+  ERROR_ERROR_CODE = 'error_error_code'
 }
 
 /**
@@ -58,7 +59,8 @@ export enum ErrorID {
   API_CHANGE_ERRORS_ID = 12,
   TS_SYNTAX_ERROR_ID = 13,
   NO_JSDOC_ID = 14,
-  JSDOC_HAS_CHINESE = 15
+  JSDOC_HAS_CHINESE = 15,
+  ERROR_ERROR_CODE = 16
 }
 
 /**
@@ -160,7 +162,7 @@ export enum ErrorMessage {
   ERROR_NO_JSDOC = 'Jsdoc needs to be added to the current API.',
   ERROR_NO_JSDOC_TAG = 'add  tags to the Jsdoc.',
   ERROR_HAS_CHINESE= 'Jsdoc has chinese.',
-
+  ERROR_ERROR_CODE = 'The generic error code does not contain the current error code.'
 }
 
 export const incompatibleApiDiffTypes: Map<ApiDiffType, ErrorMessage> = new Map([
