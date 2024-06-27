@@ -640,6 +640,29 @@ declare namespace text {
   }
 
   /**
+   * Describes font variation of text.
+   * @typedef FontVariation
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  interface FontVariation {
+    /**
+     * The axis of font variation.
+     * @type { string } variation axis
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    axis: string;
+    /**
+     * The value of font variation.
+     * @type { number } variation value
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    value: number;
+  }
+
+  /**
    * Describes text style.
    * @typedef TextStyle
    * @syscap SystemCapability.Graphics.Drawing
@@ -799,6 +822,14 @@ declare namespace text {
      * @since 12
      */
     backgroundRect?: RectStyle;
+
+    /**
+     * Text Style available font variations.
+     * @type { ?Array<FontVariation> } A collection of font variations.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    fontVariations?: Array<FontVariation>;
   }
 
   /**
@@ -913,7 +944,7 @@ declare namespace text {
     heightOverride?: boolean;
 
     /**
-     * Whether the halfleading is enable.
+     * Whether the half leading is enable.
      * @type { ?boolean } it is boolean type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
