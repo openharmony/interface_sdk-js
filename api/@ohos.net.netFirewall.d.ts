@@ -84,7 +84,6 @@ declare namespace netFirewall {
    * @throws { BusinessError } 29400003 - The number of port rules in the firewall rule exceeds the maximum.
    * @throws { BusinessError } 29400004 - The number of domain rules in the firewall rule exceeds the maximum.
    * @throws { BusinessError } 29400005 - The number of domain rules exceeds the maximum.
-   * @throws { BusinessError } 29400006 - The specified rule does not exist.
    * @throws { BusinessError } 29400007 - The dns rule is duplication.
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @systemapi Hide this for inner system use.
@@ -235,7 +234,7 @@ declare namespace netFirewall {
    */
   enum FirewallRuleAction {
     /**
-     * allow access.
+     * Allow access.
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
@@ -243,7 +242,7 @@ declare namespace netFirewall {
      */
     RULE_ALLOW = 0,
     /**
-     * deny access.
+     * Deny access.
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
@@ -262,7 +261,7 @@ declare namespace netFirewall {
    */
   enum NetFirewallRuleType {
     /**
-     * IP.
+     * IP type rules.
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
@@ -270,7 +269,7 @@ declare namespace netFirewall {
      */
     RULE_IP = 1,
     /**
-     * Domain.
+     * Domain type rules.
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
@@ -278,7 +277,7 @@ declare namespace netFirewall {
      */
     RULE_DOMAIN = 2,
     /**
-     * DNS.
+     * DNS type rules.
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
@@ -391,15 +390,6 @@ declare namespace netFirewall {
    */
   interface NetFirewallIpParam {
     /**
-     * IPv4=1, IPv6=2, default IPv4.
-     *
-     * @type {?number}
-     * @syscap SystemCapability.Communication.NetManager.NetFirewall
-     * @systemapi Hide this for inner system use.
-     * @since 12
-     */
-    family?: number;
-    /**
      * 1: IP address or subnet, when using a single IP, the mask is 32,2: IP segment.
      *
      * @type {number}
@@ -408,6 +398,15 @@ declare namespace netFirewall {
      * @since 12
      */
     type: number;
+    /**
+     * IPv4=1, IPv6=2, default IPv4.
+     *
+     * @type {?number}
+     * @syscap SystemCapability.Communication.NetManager.NetFirewall
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    family?: number;
     /**
      * IP address: Valid when type equals 1, otherwise it will be ignored.
      *
@@ -494,7 +493,7 @@ declare namespace netFirewall {
      */
     isWildcard: boolean;
     /**
-     * domain:When isWildcard is false, the complete domain that needs to be determined;
+     * Domain:When isWildcard is false, the complete domain that needs to be determined;
      * When isWildcard is true, fuzzy domain only support domains like *.huawei.com; *.com.
      *
      * @type {string}
@@ -544,15 +543,6 @@ declare namespace netFirewall {
    */
   interface NetFirewallRule {
     /**
-     * Rule id: When a rule is added to the system, the system generates a rule ID.
-     *
-     * @type {?number}
-     * @syscap SystemCapability.Communication.NetManager.NetFirewall
-     * @systemapi Hide this for inner system use.
-     * @since 12
-     */
-    id?: number;
-    /**
      * Rule name.
      *
      * @type {string}
@@ -561,15 +551,6 @@ declare namespace netFirewall {
      * @since 12
      */
     name: string;
-    /**
-     * Rule description.
-     *
-     * @type {?string}
-     * @syscap SystemCapability.Communication.NetManager.NetFirewall
-     * @systemapi Hide this for inner system use.
-     * @since 12
-     */
-    description?: string;
     /**
      * Rule direction, inbound or outbound.
      *
@@ -606,6 +587,33 @@ declare namespace netFirewall {
      * @since 12
      */
     isEnabled: boolean;
+    /**
+     * User id.
+     *
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetManager.NetFirewall
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    userId: number;
+    /**
+     * Rule id: When a rule is added to the system, the system generates a rule ID.
+     *
+     * @type {?number}
+     * @syscap SystemCapability.Communication.NetManager.NetFirewall
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    id?: number;
+    /**
+     * Rule description.
+     *
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.NetFirewall
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    description?: string;
     /**
      * Application or Service UID.
      *
@@ -678,15 +686,6 @@ declare namespace netFirewall {
      * @since 12
      */
     dns?: NetFirewallDnsParam;
-    /**
-     * User id.
-     *
-     * @type {number}
-     * @syscap SystemCapability.Communication.NetManager.NetFirewall
-     * @systemapi Hide this for inner system use.
-     * @since 12
-     */
-    userId: number;
   }
 
   /**
