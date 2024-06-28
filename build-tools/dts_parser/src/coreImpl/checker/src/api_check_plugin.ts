@@ -23,6 +23,8 @@ import {
   ErrorLevel,
   ErrorTagFormat,
   ErrorMessage,
+  ApiCheckInfo,
+  ErrorBaseInfo,
 } from '../../../typedef/checker/result_type';
 import { ClassInfo } from '../../../typedef/parser/ApiInfoDefination';
 import { Comment } from '../../../typedef/parser/Comment';
@@ -45,14 +47,15 @@ import { TagInheritCheck } from './tag_inherit_check';
 import { ChineseCheck } from "./check_chinese";
 import { AnonymousFunctionCheck } from './check_anonymous_function';
 export let currentFilePath: string = '';
+import { CheckErrorCode } from "./check_error_code";
 
 export class Check {
   /**
    * checker tool main entrance
    * @param { string[] } files -File path for storing file information.
    */
-  static scanEntry(files: string[]): void {
-    ApiChangeCheck.checkApiChange();
+  static scanEntry(files: string[], prId: string): void {
+    ApiChangeCheck.checkApiChange(prId);
     files.forEach((filePath: string, index: number) => {
       currentFilePath = filePath;
       if (filePath.indexOf('build-tools') !== -1) {
@@ -112,52 +115,41 @@ export class Check {
         return;
       }
       if (apiJsdoc === undefined) {
-        AddErrorLogs.addAPICheckErrorLogs(
-          ErrorID.NO_JSDOC_ID,
-          ErrorLevel.MIDDLE,
-          currentFilePath,
-          singleApi.getPos(),
-          ErrorType.NO_JSDOC,
-          LogType.LOG_JSDOC,
-          -1,
-          singleApi.getApiName(),
-          singleApi.getJsDocText() + singleApi.getDefinedText(),
-          ErrorMessage.ERROR_NO_JSDOC,
-          compositiveResult,
-          compositiveLocalResult
-        );
+        const errorBaseInfo: ErrorBaseInfo = new ErrorBaseInfo();
+        errorBaseInfo
+          .setErrorID(ErrorID.NO_JSDOC_ID)
+          .setErrorLevel(ErrorLevel.MIDDLE)
+          .setErrorType(ErrorType.NO_JSDOC)
+          .setLogType(LogType.LOG_JSDOC)
+          .setErrorInfo(ErrorMessage.ERROR_NO_JSDOC);
+        const apiInfoNojsdoc: ApiCheckInfo = CommonFunctions.getErrorInfo(singleApi, apiJsdoc, currentFilePath,
+          errorBaseInfo);
+        AddErrorLogs.addAPICheckErrorLogs(apiInfoNojsdoc, compositiveResult, compositiveLocalResult);
       } else {
         if (apiJsdoc.getKit().length === 0) {
-          AddErrorLogs.addAPICheckErrorLogs(
-            ErrorID.WRONG_SCENE_ID,
-            ErrorLevel.MIDDLE,
-            currentFilePath,
-            { line: 0, character: 0 },
-            ErrorType.WRONG_SCENE,
-            LogType.LOG_JSDOC,
-            -1,
-            singleApi.getFilePath(),
-            singleApi.getFilePath(),
-            CommonFunctions.createErrorInfo(ErrorMessage.ERROR_LOST_LABEL, ['kit']),
-            compositiveResult,
-            compositiveLocalResult
-          );
+          const errorBaseInfo: ErrorBaseInfo = new ErrorBaseInfo();
+          errorBaseInfo
+            .setErrorID(ErrorID.WRONG_SCENE_ID)
+            .setErrorLevel(ErrorLevel.MIDDLE)
+            .setErrorType(ErrorType.WRONG_SCENE)
+            .setLogType(LogType.LOG_JSDOC)
+            .setErrorInfo(CommonFunctions.createErrorInfo(ErrorMessage.ERROR_LOST_LABEL, ['kit']));
+          const apiInfoNoKit: ApiCheckInfo = CommonFunctions.getErrorInfo(singleApi, apiJsdoc, currentFilePath,
+            errorBaseInfo);
+          AddErrorLogs.addAPICheckErrorLogs(apiInfoNoKit, compositiveResult, compositiveLocalResult);
         }
         if (!apiJsdoc.getIsFile()) {
-          AddErrorLogs.addAPICheckErrorLogs(
-            ErrorID.WRONG_SCENE_ID,
-            ErrorLevel.MIDDLE,
-            currentFilePath,
-            { line: 0, character: 0 },
-            ErrorType.WRONG_SCENE,
-            LogType.LOG_JSDOC,
-            -1,
-            singleApi.getFilePath(),
-            singleApi.getFilePath(),
-            CommonFunctions.createErrorInfo(ErrorMessage.ERROR_LOST_LABEL, ['file']),
-            compositiveResult,
-            compositiveLocalResult
-          );
+          const apiInfo: ApiCheckInfo = new ApiCheckInfo();
+          const errorBaseInfo: ErrorBaseInfo = new ErrorBaseInfo();
+          errorBaseInfo
+            .setErrorID(ErrorID.WRONG_SCENE_ID)
+            .setErrorLevel(ErrorLevel.MIDDLE)
+            .setErrorType(ErrorType.WRONG_SCENE)
+            .setLogType(LogType.LOG_JSDOC)
+            .setErrorInfo(CommonFunctions.createErrorInfo(ErrorMessage.ERROR_LOST_LABEL, ['file']));
+          const apiInfoNoFile: ApiCheckInfo = CommonFunctions.getErrorInfo(singleApi, apiJsdoc, currentFilePath,
+            errorBaseInfo);
+          AddErrorLogs.addAPICheckErrorLogs(apiInfoNoFile, compositiveResult, compositiveLocalResult);
         }
         // legality check
         const tagLegalityCheckResult: ErrorTagFormat[] = LegalityCheck.apiLegalityCheck(singleApi, apiJsdoc);
@@ -167,8 +159,10 @@ export class Check {
         const namingCheckResult: ErrorTagFormat = ApiNamingCheck.namingCheck(singleApi);
         // check jsdoc chinese
         const chineseCheckResult: ErrorTagFormat = ChineseCheck.checkChinese(apiJsdoc);
+        // check error code
+        const errorCodeResult: ErrorTagFormat = CheckErrorCode.checkErrorCode(apiJsdoc);
         // tags name check
-        const tagNamseCheckResult: ErrorTagFormat = TagNameCheck.tagNameCheck(apiJsdoc);
+        const tagNameCheckResult: ErrorTagFormat = TagNameCheck.tagNameCheck(apiJsdoc);
         // tags inherit check
         const tagInheritCheckResult: ErrorTagFormat[] = TagInheritCheck.tagInheritCheck(singleApi);
         // tags value check
@@ -176,176 +170,149 @@ export class Check {
         // tags repeat check
         const tagRepeatCheckResult: ErrorTagFormat[] = TagRepeatCheck.tagRepeatCheck(apiJsdoc);
         // api forbidden wors check
-        const forbiddenWorsCheckResult: ErrorTagFormat = ForbiddenWordsCheck.forbiddenWordsCheck(singleApi as ClassInfo);
+        const forbiddenWordsCheckResult: ErrorTagFormat = ForbiddenWordsCheck.forbiddenWordsCheck(singleApi as ClassInfo);
 
         const anonymousFunction: ErrorTagFormat = AnonymousFunctionCheck.checkAnonymousFunction(singleApi);
+        // console.log(anonymousFunction)
         if (!orderCheckResult.state) {
-          AddErrorLogs.addAPICheckErrorLogs(
-            ErrorID.WRONG_ORDER_ID,
-            ErrorLevel.MIDDLE,
-            currentFilePath,
-            singleApi.getPos(),
-            ErrorType.WRONG_ORDER,
-            LogType.LOG_JSDOC,
-            toNumber(apiJsdoc.since),
-            singleApi.getApiName(),
-            singleApi.getDefinedText(),
-            orderCheckResult.errorInfo,
-            compositiveResult,
-            compositiveLocalResult
-          );
+          const errorBaseInfo: ErrorBaseInfo = new ErrorBaseInfo();
+          errorBaseInfo
+            .setErrorID(ErrorID.WRONG_ORDER_ID)
+            .setErrorLevel(ErrorLevel.MIDDLE)
+            .setErrorType(ErrorType.WRONG_ORDER)
+            .setLogType(LogType.LOG_JSDOC)
+            .setErrorInfo(orderCheckResult.errorInfo);
+          const apiInfoOrder: ApiCheckInfo = CommonFunctions.getErrorInfo(singleApi, apiJsdoc, currentFilePath,
+            errorBaseInfo);
+          AddErrorLogs.addAPICheckErrorLogs(apiInfoOrder, compositiveResult, compositiveLocalResult);
         }
-        if (!tagNamseCheckResult.state) {
-          AddErrorLogs.addAPICheckErrorLogs(
-            ErrorID.UNKNOW_DECORATOR_ID,
-            ErrorLevel.MIDDLE,
-            currentFilePath,
-            singleApi.getPos(),
-            ErrorType.UNKNOW_DECORATOR,
-            LogType.LOG_JSDOC,
-            toNumber(apiJsdoc.since),
-            singleApi.getApiName(),
-            singleApi.getDefinedText(),
-            tagNamseCheckResult.errorInfo,
-            compositiveResult,
-            compositiveLocalResult
-          );
+        if (!tagNameCheckResult.state) {
+          const errorBaseInfo: ErrorBaseInfo = new ErrorBaseInfo();
+          errorBaseInfo
+            .setErrorID(ErrorID.UNKNOW_DECORATOR_ID)
+            .setErrorLevel(ErrorLevel.MIDDLE)
+            .setErrorType(ErrorType.UNKNOW_DECORATOR)
+            .setLogType(LogType.LOG_JSDOC)
+            .setErrorInfo(tagNameCheckResult.errorInfo);
+          const apiInfoName: ApiCheckInfo = CommonFunctions.getErrorInfo(singleApi, apiJsdoc, currentFilePath,
+            errorBaseInfo);
+          AddErrorLogs.addAPICheckErrorLogs(apiInfoName, compositiveResult, compositiveLocalResult);
         }
-        if (!forbiddenWorsCheckResult.state) {
-          AddErrorLogs.addAPICheckErrorLogs(
-            ErrorID.FORBIDDEN_WORDS_ID,
-            ErrorLevel.MIDDLE,
-            currentFilePath,
-            singleApi.getPos(),
-            ErrorType.FORBIDDEN_WORDS,
-            LogType.LOG_API,
-            toNumber(apiJsdoc.since),
-            singleApi.getApiName(),
-            singleApi.getDefinedText(),
-            forbiddenWorsCheckResult.errorInfo,
-            compositiveResult,
-            compositiveLocalResult
-          );
+        if (!forbiddenWordsCheckResult.state) {
+          const errorBaseInfo: ErrorBaseInfo = new ErrorBaseInfo();
+          errorBaseInfo
+            .setErrorID(ErrorID.FORBIDDEN_WORDS_ID)
+            .setErrorLevel(ErrorLevel.MIDDLE)
+            .setErrorType(ErrorType.FORBIDDEN_WORDS)
+            .setLogType(LogType.LOG_JSDOC)
+            .setErrorInfo(forbiddenWordsCheckResult.errorInfo);
+          const apiInfoForbiddenWords: ApiCheckInfo = CommonFunctions.getErrorInfo(singleApi, apiJsdoc, currentFilePath,
+            errorBaseInfo);
+          AddErrorLogs.addAPICheckErrorLogs(apiInfoForbiddenWords, compositiveResult, compositiveLocalResult);
         }
         if (!namingCheckResult.state) {
-          AddErrorLogs.addAPICheckErrorLogs(
-            ErrorID.NAMING_ERRORS_ID,
-            ErrorLevel.MIDDLE,
-            currentFilePath,
-            singleApi.getPos(),
-            ErrorType.NAMING_ERRORS,
-            LogType.LOG_API,
-            toNumber(apiJsdoc.since),
-            singleApi.getApiName(),
-            singleApi.getDefinedText(),
-            namingCheckResult.errorInfo,
-            compositiveResult,
-            compositiveLocalResult
-          );
+          const errorBaseInfo: ErrorBaseInfo = new ErrorBaseInfo();
+          errorBaseInfo
+            .setErrorID(ErrorID.NAMING_ERRORS_ID)
+            .setErrorLevel(ErrorLevel.MIDDLE)
+            .setErrorType(ErrorType.NAMING_ERRORS)
+            .setLogType(LogType.LOG_JSDOC)
+            .setErrorInfo(namingCheckResult.errorInfo);
+          const apiInfoNaming: ApiCheckInfo = CommonFunctions.getErrorInfo(singleApi, apiJsdoc, currentFilePath,
+            errorBaseInfo);
+          AddErrorLogs.addAPICheckErrorLogs(apiInfoNaming, compositiveResult, compositiveLocalResult);
         }
         if (!chineseCheckResult.state) {
-          AddErrorLogs.addAPICheckErrorLogs(
-            ErrorID.JSDOC_HAS_CHINESE,
-            ErrorLevel.MIDDLE,
-            singleApi.getFilePath(),
-            singleApi.getPos(),
-            ErrorType.JSDOC_HAS_CHINESE,
-            LogType.LOG_JSDOC,
-            toNumber(apiJsdoc.since),
-            singleApi.getApiName(),
-            singleApi.getDefinedText(),
-            chineseCheckResult.errorInfo,
-            compositiveResult,
-            compositiveLocalResult
-          );
+          const errorBaseInfo: ErrorBaseInfo = new ErrorBaseInfo();
+          errorBaseInfo
+            .setErrorID(ErrorID.JSDOC_HAS_CHINESE)
+            .setErrorLevel(ErrorLevel.MIDDLE)
+            .setErrorType(ErrorType.JSDOC_HAS_CHINESE)
+            .setLogType(LogType.LOG_JSDOC)
+            .setErrorInfo(chineseCheckResult.errorInfo);
+          const apiInfoChineseCheck: ApiCheckInfo = CommonFunctions.getErrorInfo(singleApi, apiJsdoc, currentFilePath,
+            errorBaseInfo);
+          AddErrorLogs.addAPICheckErrorLogs(apiInfoChineseCheck, compositiveResult, compositiveLocalResult);
         }
-        tagInheritCheckResult.forEach((InheritCheckResult: ErrorTagFormat) => {
-          if (!InheritCheckResult.state) {
-            AddErrorLogs.addAPICheckErrorLogs(
-              ErrorID.WRONG_SCENE_ID,
-              ErrorLevel.MIDDLE,
-              currentFilePath,
-              singleApi.getPos(),
-              ErrorType.WRONG_SCENE,
-              LogType.LOG_JSDOC,
-              toNumber(apiJsdoc.since),
-              singleApi.getApiName(),
-              singleApi.getDefinedText(),
-              InheritCheckResult.errorInfo,
-              compositiveResult,
-              compositiveLocalResult
-            );
+        if (!errorCodeResult.state) {
+          const errorBaseInfo: ErrorBaseInfo = new ErrorBaseInfo();
+          errorBaseInfo
+            .setErrorID(ErrorID.ERROR_ERROR_CODE)
+            .setErrorLevel(ErrorLevel.MIDDLE)
+            .setErrorType(ErrorType.ERROR_ERROR_CODE)
+            .setLogType(LogType.LOG_JSDOC)
+            .setErrorInfo(errorCodeResult.errorInfo);
+          const apiInfoErrorCode: ApiCheckInfo = CommonFunctions.getErrorInfo(singleApi, apiJsdoc, currentFilePath,
+            errorBaseInfo);
+          AddErrorLogs.addAPICheckErrorLogs(apiInfoErrorCode, compositiveResult, compositiveLocalResult);
+        }
+        tagInheritCheckResult.forEach((inheritCheckResult: ErrorTagFormat) => {
+          if (!inheritCheckResult.state) {
+            const errorBaseInfo: ErrorBaseInfo = new ErrorBaseInfo();
+            errorBaseInfo
+              .setErrorID(ErrorID.WRONG_SCENE_ID)
+              .setErrorLevel(ErrorLevel.MIDDLE)
+              .setErrorType(ErrorType.WRONG_SCENE)
+              .setLogType(LogType.LOG_JSDOC)
+              .setErrorInfo(inheritCheckResult.errorInfo);
+            const apiInfoInherit: ApiCheckInfo = CommonFunctions.getErrorInfo(singleApi, apiJsdoc, currentFilePath,
+              errorBaseInfo);
+            AddErrorLogs.addAPICheckErrorLogs(apiInfoInherit, compositiveResult, compositiveLocalResult);
           }
         });
         tagLegalityCheckResult.forEach((legalityResult) => {
           if (legalityResult.state === false) {
-            AddErrorLogs.addAPICheckErrorLogs(
-              ErrorID.WRONG_SCENE_ID,
-              ErrorLevel.MIDDLE,
-              currentFilePath,
-              singleApi.getPos(),
-              ErrorType.WRONG_SCENE,
-              LogType.LOG_JSDOC,
-              toNumber(apiJsdoc.since),
-              singleApi.getApiName(),
-              singleApi.getDefinedText(),
-              legalityResult.errorInfo,
-              compositiveResult,
-              compositiveLocalResult
-            );
+            const errorBaseInfo: ErrorBaseInfo = new ErrorBaseInfo();
+            errorBaseInfo
+              .setErrorID(ErrorID.WRONG_SCENE_ID)
+              .setErrorLevel(ErrorLevel.MIDDLE)
+              .setErrorType(ErrorType.WRONG_SCENE)
+              .setLogType(LogType.LOG_JSDOC)
+              .setErrorInfo(legalityResult.errorInfo);
+            const apiInfoInherit: ApiCheckInfo = CommonFunctions.getErrorInfo(singleApi, apiJsdoc, currentFilePath,
+              errorBaseInfo);
+            AddErrorLogs.addAPICheckErrorLogs(apiInfoInherit, compositiveResult, compositiveLocalResult);
           }
         });
         tagValueCheckResult.forEach((valueResult) => {
           if (valueResult.state === false) {
-            AddErrorLogs.addAPICheckErrorLogs(
-              ErrorID.WRONG_VALUE_ID,
-              ErrorLevel.MIDDLE,
-              currentFilePath,
-              singleApi.getPos(),
-              ErrorType.WRONG_VALUE,
-              LogType.LOG_JSDOC,
-              toNumber(apiJsdoc.since),
-              singleApi.getApiName(),
-              singleApi.getDefinedText(),
-              valueResult.errorInfo,
-              compositiveResult,
-              compositiveLocalResult
-            );
+            const errorBaseInfo: ErrorBaseInfo = new ErrorBaseInfo();
+            errorBaseInfo
+              .setErrorID(ErrorID.WRONG_VALUE_ID)
+              .setErrorLevel(ErrorLevel.MIDDLE)
+              .setErrorType(ErrorType.WRONG_VALUE)
+              .setLogType(LogType.LOG_JSDOC)
+              .setErrorInfo(valueResult.errorInfo);
+            const apiInfoValue: ApiCheckInfo = CommonFunctions.getErrorInfo(singleApi, apiJsdoc, currentFilePath,
+              errorBaseInfo);
+            AddErrorLogs.addAPICheckErrorLogs(apiInfoValue, compositiveResult, compositiveLocalResult);
           }
         });
         tagRepeatCheckResult.forEach((repeatResult) => {
           if (repeatResult.state === false) {
-            AddErrorLogs.addAPICheckErrorLogs(
-              ErrorID.WRONG_SCENE_ID,
-              ErrorLevel.MIDDLE,
-              currentFilePath,
-              singleApi.getPos(),
-              ErrorType.WRONG_SCENE,
-              LogType.LOG_JSDOC,
-              toNumber(apiJsdoc.since),
-              singleApi.getApiName(),
-              singleApi.getDefinedText(),
-              repeatResult.errorInfo,
-              compositiveResult,
-              compositiveLocalResult
-            );
+            const errorBaseInfo: ErrorBaseInfo = new ErrorBaseInfo();
+            errorBaseInfo
+              .setErrorID(ErrorID.WRONG_SCENE_ID)
+              .setErrorLevel(ErrorLevel.MIDDLE)
+              .setErrorType(ErrorType.WRONG_SCENE)
+              .setLogType(LogType.LOG_JSDOC)
+              .setErrorInfo(repeatResult.errorInfo);
+            const apiInfoRepeat: ApiCheckInfo = CommonFunctions.getErrorInfo(singleApi, apiJsdoc, currentFilePath,
+              errorBaseInfo);
+            AddErrorLogs.addAPICheckErrorLogs(apiInfoRepeat, compositiveResult, compositiveLocalResult);
           }
         });
         if (!anonymousFunction.state) {
-          AddErrorLogs.addAPICheckErrorLogs(
-            ErrorID.WRONG_SCENE_ID,
-            ErrorLevel.MIDDLE,
-            currentFilePath,
-            singleApi.getPos(),
-            ErrorType.WRONG_SCENE,
-            LogType.LOG_JSDOC,
-            toNumber(apiJsdoc.since),
-            singleApi.getApiName(),
-            singleApi.getDefinedText(),
-            anonymousFunction.errorInfo,
-            compositiveResult,
-            compositiveLocalResult
-          );
+          const errorBaseInfo: ErrorBaseInfo = new ErrorBaseInfo();
+          errorBaseInfo
+            .setErrorID(ErrorID.WRONG_SCENE_ID)
+            .setErrorLevel(ErrorLevel.MIDDLE)
+            .setErrorType(ErrorType.WRONG_SCENE)
+            .setLogType(LogType.LOG_JSDOC)
+            .setErrorInfo(anonymousFunction.errorInfo);
+          const apiInfoAnonymousFunction: ApiCheckInfo = CommonFunctions.getErrorInfo(singleApi, apiJsdoc, currentFilePath,
+            errorBaseInfo);
+          AddErrorLogs.addAPICheckErrorLogs(apiInfoAnonymousFunction, compositiveResult, compositiveLocalResult);
         }
       }
     });

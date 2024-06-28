@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -1935,4 +1935,27 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @since 12
    */
   requestModalUIExtension(pickerWant: Want): Promise<void>;
+
+  /**
+   * preStartMission opens an atomic service window without popping up a loading window
+   *
+   * @permission ohos.permission.PRE_START_ATOMIC_SERVICE
+   * @param { string } bundleName - The bundle name of the atomic service.
+   * @param { string } moduleName - The module name of the atomic service.
+   * @param { string } abilityName - The ability name of the atomic service.
+   * @param { string } startTime - The start time of the atomic service.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16300007 - The target free install task does not exist.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+  preStartMission(bundleName: string, moduleName: string, abilityName: string, startTime: string): Promise<void>;
 }

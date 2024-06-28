@@ -959,6 +959,39 @@ export class PromptAction {
   showToast(options: promptAction.ShowToastOptions): void;
 
   /**
+   * Displays the notification text.
+   *
+   * @param { promptAction.ShowToastOptions } options - Options.
+   * @returns { Promise<number> } return the toast id that will be used by closeToast.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  openToast(options: promptAction.ShowToastOptions): Promise<number>;
+
+  /**
+   * Close the notification text.
+   *
+   * @param { number } toastId - the toast id that returned by openToast.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  closeToast(toastId: number): void;
+
+  /**
    * Displays the dialog box.
    *
    * @param { promptAction.ShowDialogOptions } options - Options.
@@ -1952,7 +1985,7 @@ export class DragController {
    * Execute a drag event.
    * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
    * @param { dragController.DragInfo } dragInfo - Information about the drag event.
-   * @param { AsyncCallback<{ event: DragEvent, extraParams: string }> } callback - Callback that contains 
+   * @param { AsyncCallback<dragController.DragEventParam> } callback - Callback that contains 
    * the drag event information.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
    * <br> 1. Mandatory parameters are left unspecified.
@@ -1963,9 +1996,8 @@ export class DragController {
    * @atomicservice
    * @since 12
    */
-  executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: dragController.DragInfo, callback: AsyncCallback<{
-    event: DragEvent, extraParams: string
-  }>): void;
+  executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: dragController.DragInfo,
+    callback: AsyncCallback<dragController.DragEventParam>): void;
 
   /**
    * Execute a drag event.
@@ -1984,7 +2016,7 @@ export class DragController {
    * Execute a drag event.
    * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
    * @param { dragController.DragInfo } dragInfo - Information about the drag event.
-   * @returns { Promise<{ event: DragEvent, extraParams: string }> } A Promise with the drag event information.
+   * @returns { Promise<dragController.DragEventParam> } A Promise with the drag event information.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -1994,9 +2026,8 @@ export class DragController {
    * @atomicservice
    * @since 12
    */
-  executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: dragController.DragInfo): Promise<{
-    event: DragEvent, extraParams: string
-  }>;
+  executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: dragController.DragInfo)
+    : Promise<dragController.DragEventParam>;
 
   /**
    * Create one drag action object, which can be used for starting drag later or monitoring the drag status after drag started.
@@ -2906,6 +2937,67 @@ export class UIContext {
    * @since 12
    */
   getWindowName(): string | undefined;
+
+  /**
+   * Open the BindSheet.
+   *
+   * @param { ComponentContent<T> } bindSheetContent - The content of BindSheet.
+   * @param { SheetOptions } sheetOptions - The options of sheet.
+   * @param { number } targetId - The uniqueId of the FrameNode to which BindSheet is attached.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 120001 - The bindSheetContent is incorrect.
+   * @throws { BusinessError } 120002 - The bindSheetContent already exists.
+   * @throws { BusinessError } 120004 - The targetId does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  openBindSheet<T extends Object>(bindSheetContent: ComponentContent<T>, sheetOptions?: SheetOptions, targetId?: number): Promise<void>;
+
+  /**
+   * Update the BindSheet with sheetOptions.
+   *
+   * @param { ComponentContent<T> } bindSheetContent - The content of BindSheet.
+   * @param { SheetOptions } sheetOptions - The update options of sheet.
+   * @param { boolean } partialUpdate - If true, only the specified properties in the sheetOptions are updated,
+   *                                    otherwise the rest of the properties are overwritten with the default values.
+   *                                    Default value is false.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 120001 - The bindSheetContent is incorrect.
+   * @throws { BusinessError } 120003 - The bindSheetContent cannot be found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  updateBindSheet<T extends Object>(bindSheetContent: ComponentContent<T>, sheetOptions: SheetOptions, partialUpdate?: boolean): Promise<void>;
+
+  /**
+   * Close the BindSheet.
+   *
+   * @param { ComponentContent<T> } bindSheetContent - The content of BindSheet.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 120001 - The bindSheetContent is incorrect.
+   * @throws { BusinessError } 120003 - The bindSheetContent cannot be found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  closeBindSheet<T extends Object>(bindSheetContent: ComponentContent<T>): Promise<void>;
 
   /**
    * Post a frame callback to run on the next frame.

@@ -57,6 +57,16 @@ declare namespace identifier {
    * @systemapi
    * @since 10
    */
+  /**
+   * Reset the OAID.
+   * A new OAID will be generated after reset.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 17300001 - System internal error.
+   * @throws { BusinessError } 17300002 - Not in the trust list.
+   * @syscap SystemCapability.Advertising.OAID
+   * @systemapi
+   * @since 12
+   */
   function resetOAID(): void;
 }
 export default identifier;

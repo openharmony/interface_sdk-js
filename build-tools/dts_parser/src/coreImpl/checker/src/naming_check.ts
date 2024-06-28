@@ -20,7 +20,8 @@ import {
 } from '../../../typedef/checker/result_type';
 import { ApiInfo } from '../../../typedef/parser/ApiInfoDefination';
 import { Comment } from '../../../typedef/parser/Comment';
-import { CommonFunctions } from '../../../utils/checkUtils';
+import { CommonFunctions, punctuationMarkSet } from '../../../utils/checkUtils';
+import { WordsCheck } from './words_check';
 const nameDictionary = require('../config/name_dictionary.json');
 const nameScenarioScope = require('../config/name_scenario_scope.json');
 
@@ -38,12 +39,23 @@ export class ApiNamingCheck {
     const jsDocInfo: Comment.JsDocInfo[] = singleApi.getJsDocInfos();
     const publishVersion: string = CommonFunctions.getSinceVersion(jsDocInfo[0].getSince());
     const apiVersionToBeVerified: string = CommonFunctions.getCheckApiVersion();
-    const lowIdentifier: string = singleApi.getDefinedText().toLowerCase();
-    const fileName:string=singleApi.getFilePath().toLowerCase();
-    if (publishVersion === apiVersionToBeVerified) {
-      ApiNamingCheck.checkApiNamingWords(lowIdentifier, tagNameCheckResult);
-      ApiNamingCheck.checkApiNamingScenario(fileName, tagNameCheckResult, singleApi);
-    }
+    const fileName: string = singleApi.getFilePath().toLowerCase();
+    const reg = /\s{2,}/g;
+    const regx = /(\/\*|\*\/|\*)|\n|\r/g;
+    let apiText: string = singleApi.getDefinedText().replace(regx, ' ');
+    punctuationMarkSet.forEach(punctuationMark => {
+      const punctuationMarkReg = new RegExp(punctuationMark, 'g');
+      if (punctuationMarkReg.test(apiText)) { apiText = apiText.replace(punctuationMarkReg, ' ').replace(reg, ' '); }
+    });
+    let apiWordsArr = apiText.split(/\s/g);
+    let basicWords: string[] = [];
+    apiWordsArr.forEach((apiWord) => { basicWords = WordsCheck.splitComplexWords(apiWord); });
+    basicWords.forEach((basicWord: string) => {
+      if (publishVersion === apiVersionToBeVerified) {
+        ApiNamingCheck.checkApiNamingWords(basicWord, tagNameCheckResult);
+        ApiNamingCheck.checkApiNamingScenario(fileName, tagNameCheckResult, singleApi);
+      }
+    });
     return tagNameCheckResult;
   }
 
