@@ -603,7 +603,7 @@ declare namespace vpn {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    swanctlConf?: string;
+    swanctlConfig?: string;
 
     /**
      * The strongSwan config for the ipsec VPN network.
@@ -612,7 +612,7 @@ declare namespace vpn {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    strongSwanConf?: string;
+    strongSwanConfig?: string;
 
     /**
      * The ca cert config for the ipsec VPN network.
@@ -621,7 +621,7 @@ declare namespace vpn {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    ipsecCaCertConf?: string;
+    ipsecCaCertConfig?: string;
 
     /**
      * The private user cert config for the ipsec VPN network.
@@ -630,7 +630,7 @@ declare namespace vpn {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    ipsecPrivateUserCertConf?: string;
+    ipsecPrivateUserCertConfig?: string;
 
     /**
      * The public user cert config for the ipsec VPN network.
@@ -639,7 +639,7 @@ declare namespace vpn {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    ipsecPublicUserCertConf?: string;
+    ipsecPublicUserCertConfig?: string;
 
     /**
      * The private server cert config for the ipsec VPN network.
@@ -648,7 +648,7 @@ declare namespace vpn {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    ipsecPrivateServerCertConf?: string;
+    ipsecPrivateServerCertConfig?: string;
 
     /**
      * The public server cert config for the ipsec VPN network.
@@ -657,7 +657,7 @@ declare namespace vpn {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    ipsecPublicServerCertConf?: string;
+    ipsecPublicServerCertConfig?: string;
 
     /**
      * The ca cert file path for the ipsec VPN network.
@@ -738,7 +738,7 @@ declare namespace vpn {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    strongSwanConf?: string;
+    strongSwanConfig?: string;
 
     /**
      * The ca cert config for the l2tp VPN network.
@@ -747,7 +747,7 @@ declare namespace vpn {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    ipsecCaCertConf?: string;
+    ipsecCaCertConfig?: string;
 
     /**
      * The private user cert config for the l2tp VPN network.
@@ -756,7 +756,7 @@ declare namespace vpn {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    ipsecPrivateUserCertConf?: string;
+    ipsecPrivateUserCertConfig?: string;
 
     /**
      * The public user cert config for the l2tp VPN network.
@@ -765,7 +765,7 @@ declare namespace vpn {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    ipsecPublicUserCertConf?: string;
+    ipsecPublicUserCertConfig?: string;
 
     /**
      * The private server cert config for the l2tp VPN network.
@@ -774,7 +774,7 @@ declare namespace vpn {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    ipsecPrivateServerCertConf?: string;
+    ipsecPrivateServerCertConfig?: string;
 
     /**
      * The public server cert config for the l2tp VPN network.
@@ -783,7 +783,7 @@ declare namespace vpn {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    ipsecPublicServerCertConf?: string;
+    ipsecPublicServerCertConfig?: string;
 
     /**
      * The ca cert file path for the l2tp VPN network.
@@ -837,7 +837,7 @@ declare namespace vpn {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    ipsecConf?: string;
+    ipsecConfig?: string;
 
     /**
      * The secrets for the l2tp VPN network.
@@ -864,7 +864,7 @@ declare namespace vpn {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    xl2tpdConf?: string;
+    xl2tpdConfig?: string;
 
     /**
      * The shared key for the l2tp VPN network.
