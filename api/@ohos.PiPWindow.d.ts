@@ -427,11 +427,11 @@ declare namespace PiPWindow {
   /**
    * Describe picture-in-picture live template action event type.
    *
-   * @typedef { PiPLiveActionEvent }
+   * @typedef { "playbackStateChanged" | "voiceStateChanged" }
    * @syscap SystemCapability.Window.SessionManager
    * @since 12
    */
-  type PiPLiveActionEvent = 'playbackStateChanged' | 'voiceStateChanged';
+  type PiPLiveActionEvent = "playbackStateChanged" | "voiceStateChanged";
 
   /**
    * Describe picture-in-picture control panel action event callback.
