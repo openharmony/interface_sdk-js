@@ -226,8 +226,7 @@ declare namespace PiPWindow {
    * @syscap SystemCapability.Window.SessionManager
    * @since 12
    */
-  type PiPControlGroup = VideoPlayControlGroup | VideoCallControlGroup | VideoMeetingControlGroup
-    | VideoLiveControlGroup;
+  type PiPControlGroup = VideoPlayControlGroup | VideoCallControlGroup | VideoMeetingControlGroup | VideoLiveControlGroup;
 
   /**
    * Enum for video play PiP window custom controls.
@@ -389,9 +388,16 @@ declare namespace PiPWindow {
   /**
    * Describe picture-in-picture call template action event type.
    *
-   * @typedef { 'hangUp' | 'micStateChanged' | 'videoStateChanged' | 'voiceStateChanged' }
+   * @typedef { 'hangUp' | 'micStateChanged' | 'videoStateChanged' }
    * @syscap SystemCapability.Window.SessionManager
    * @since 11
+   */
+  /**
+   * Describe picture-in-picture call template action event type.
+   *
+   * @typedef { 'hangUp' | 'micStateChanged' | 'videoStateChanged' | 'voiceStateChanged' }
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 12
    */
   type PiPCallActionEvent = 'hangUp' | 'micStateChanged' | 'videoStateChanged' | 'voiceStateChanged';
 
@@ -402,6 +408,13 @@ declare namespace PiPWindow {
    * @syscap SystemCapability.Window.SessionManager
    * @since 11
    */
+  /**
+   * Describe picture-in-picture meeting template action event type.
+   *
+   * @typedef { 'hangUp' | 'voiceStateChanged' | 'videoStateChanged' }
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 12
+   */
   type PiPMeetingActionEvent = 'hangUp' | 'voiceStateChanged' | 'videoStateChanged' | 'micStateChanged';
 
   /**
@@ -409,7 +422,7 @@ declare namespace PiPWindow {
    *
    * @typedef { 'playbackStateChanged' | 'voiceStateChanged' }
    * @syscap SystemCapability.Window.SessionManager
-   * @since 11
+   * @since 12
    */
   type PiPLiveActionEvent = 'playbackStateChanged' | 'voiceStateChanged';
 
