@@ -542,7 +542,7 @@ declare namespace uiObserver {
   /**
    * TabContent info.
    *
-   * @interface TabContentInfo
+   * @typedef TabContentInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
