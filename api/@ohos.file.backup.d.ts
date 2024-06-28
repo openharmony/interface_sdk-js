@@ -414,6 +414,8 @@ declare namespace backup {
      * The first return string parameter indicates the bundleName that triggers the callback.
      * The second return string parameter indicates the result of the bundle.
      *
+     * @param { string } bundleName the bundleName that triggers the callback.
+     * @param { string } result the result of the bundle.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
