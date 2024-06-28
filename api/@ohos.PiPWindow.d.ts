@@ -404,14 +404,14 @@ declare namespace PiPWindow {
   /**
    * Describe picture-in-picture meeting template action event type.
    *
-   * @typedef { 'hangUp' | 'voiceStateChanged' | 'videoStateChanged' | 'micStateChanged' }
+   * @typedef { 'hangUp' | 'voiceStateChanged' | 'videoStateChanged' }
    * @syscap SystemCapability.Window.SessionManager
    * @since 11
    */
   /**
    * Describe picture-in-picture meeting template action event type.
    *
-   * @typedef { 'hangUp' | 'voiceStateChanged' | 'videoStateChanged' }
+   * @typedef { 'hangUp' | 'voiceStateChanged' | 'videoStateChanged' | 'micStateChanged' }
    * @syscap SystemCapability.Window.SessionManager
    * @since 12
    */
