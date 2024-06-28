@@ -37,7 +37,7 @@ declare namespace brightness {
    * @throws { BusinessError } 202 - If the system permission is denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types;
-   * @throws { BusinessError } 4700101 - If connecting to the service failed.
+   * @throws { BusinessError } 4700101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.DisplayPowerManager
    * @systemapi
    * @since 7
@@ -56,7 +56,7 @@ declare namespace brightness {
    * @throws { BusinessError } 202 - If the system permission is denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types;
-   * @throws { BusinessError } 4700101 - If connecting to the service failed.
+   * @throws { BusinessError } 4700101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.DisplayPowerManager
    * @systemapi
    * @since 11
