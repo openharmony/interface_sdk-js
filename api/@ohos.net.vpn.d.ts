@@ -606,13 +606,13 @@ declare namespace vpn {
     swanctlConf?: string;
 
     /**
-     * The strongswan config for the ipsec VPN network.
+     * The strongSwan config for the ipsec VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    strongswanConf?: string;
+    strongSwanConf?: string;
 
     /**
      * The ca cert config for the ipsec VPN network.
@@ -732,13 +732,13 @@ declare namespace vpn {
     ipsecIdentifier?: string;
 
     /**
-     * The strongswan config for the l2tp VPN network.
+     * The strongSwan config for the l2tp VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    strongswanConf?: string;
+    strongSwanConf?: string;
 
     /**
      * The ca cert config for the l2tp VPN network.
