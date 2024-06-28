@@ -2577,7 +2577,7 @@ declare namespace webview {
 
   /**
    * Define offline resource's content and info.
-   * @interface OfflineResourceMap
+   * @typedef OfflineResourceMap
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12
    */
@@ -4727,6 +4727,12 @@ declare namespace webview {
      *
      * @param { Array<OfflineResourceMap> } resourceMaps - Array of offline resource info maps.
      *    The count of array must between 1 and 30.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     *    Possible causes: 1. Mandatory parameters are left unspecified.
+     *    2. Incorrect parameter types. 3. Parameter verification failed.
+     * @throws { BusinessError } 17100001 - Init error.
+     *    The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 17100002 - Invalid url.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12
      */
