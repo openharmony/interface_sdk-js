@@ -222,11 +222,11 @@ declare namespace PiPWindow {
   /**
    * Describe PiP window custom controls.
    * 
-   * @typedef { VideoPlayControlGroup | VideoCallControlGroup | VideoMeetingControlGroup }
+   * @typedef { VideoPlayControlGroup | VideoCallControlGroup | VideoMeetingControlGroup | VideoLiveControlGroup }
    * @syscap SystemCapability.Window.SessionManager
    * @since 12
    */
-  type PiPControlGroup = VideoPlayControlGroup | VideoCallControlGroup | VideoMeetingControlGroup;
+  type PiPControlGroup = VideoPlayControlGroup | VideoCallControlGroup | VideoMeetingControlGroup | VideoLiveControlGroup;
 
   /**
    * Enum for video play PiP window custom controls.
