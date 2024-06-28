@@ -639,7 +639,7 @@ declare namespace vpn {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    ipsecPublicUserCertConf_?: string;
+    ipsecPublicUserCertConf?: string;
 
     /**
      * The private server cert config for the ipsec VPN network.
@@ -765,7 +765,7 @@ declare namespace vpn {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    ipsecPublicUserCertConf_?: string;
+    ipsecPublicUserCertConf?: string;
 
     /**
      * The private server cert config for the l2tp VPN network.
