@@ -17,7 +17,8 @@ import path from 'path';
 import fs from 'fs';
 import { FileUtils } from './FileUtils';
 import { NumberConstant } from './Constant';
-import { data } from '../../kit.json'
+import { kitData } from '../../kit.json'
+import { fileContent } from '../../subsystem.json'
 
 export class FunctionUtils {
   /**
@@ -57,8 +58,6 @@ export class FunctionUtils {
   }
 
   static readSubsystemFile(): SubSystemData {
-    const subsystemFilePath: string = path.join(FileUtils.getBaseDirName(), 'subsystem.json');
-    const fileContent: Array<SubSystemInfo> = JSON.parse(fs.readFileSync(subsystemFilePath, 'utf-8'));
     const subsystemMap: Map<string, string> = new Map();
     const fileNameMap: Map<string, string> = new Map();
 
@@ -81,7 +80,7 @@ export class FunctionUtils {
     const subsystemMap: Map<string, string> = new Map();
     const kitNameMap: Map<string, string> = new Map();
     const filePathSet: Set<string> = new Set();
-    data.forEach((subSystemInfo: KitInfo) => {
+    kitData.forEach((subSystemInfo: KitInfo) => {
       subsystemMap.set(subSystemInfo.filePath, subSystemInfo.subSystem);
       kitNameMap.set(subSystemInfo.filePath, subSystemInfo.kitName);
       filePathSet.add(subSystemInfo.filePath);

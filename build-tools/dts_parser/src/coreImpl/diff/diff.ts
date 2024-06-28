@@ -30,6 +30,8 @@ import { DiffProcessorHelper } from './DiffProcessor';
 import { FunctionUtils } from '../../utils/FunctionUtils';
 import { Comment } from '../../typedef/parser/Comment';
 import { notJsDocApiTypes } from '../../typedef/parser/ApiInfoDefination';
+import { StringUtils } from '../../utils/StringUtils';
+import { CommentHelper } from '../parser/JsDocProcessor';
 
 export class DiffHelper {
   /**
@@ -263,13 +265,14 @@ export class DiffHelper {
   static getApiLocations(apiMap: FilesMap, isCheck?: boolean): Map<string, string[]> {
     const apiLocations: Map<string, string[]> = new Map();
     for (const filePath of apiMap.keys()) {
+      const index: number = 0;
       const fileMap: FileInfoMap = apiMap.get(filePath) as FileInfoMap;
-      DiffHelper.processFileApiMap(fileMap, apiLocations, isCheck);
+      DiffHelper.processFileApiMap(fileMap, apiLocations, index, isCheck);
     }
     return apiLocations;
   }
 
-  static processFileApiMap(fileMap: FileInfoMap, apiLocations: Map<string, string[]>, isCheck?: boolean): void {
+  static processFileApiMap(fileMap: FileInfoMap, apiLocations: Map<string, string[]>, index: number, isCheck?: boolean): void {
     for (const apiKey of fileMap.keys()) {
       if (apiKey === StringConstant.SELF) {
         continue;
@@ -277,18 +280,48 @@ export class DiffHelper {
       const apiInfoMap: ApiInfosMap = fileMap.get(apiKey) as ApiInfosMap;
       const apiInfos: BasicApiInfo[] = apiInfoMap.get(StringConstant.SELF) as BasicApiInfo[];
       apiInfos.forEach((apiInfo: BasicApiInfo) => {
-        DiffHelper.processApiInfo(apiInfo, apiLocations, isCheck);
+        DiffHelper.processApiInfo(apiInfo, apiLocations, index, isCheck);
+        index++;
       });
     }
   }
 
-  static processApiInfo(basicApiInfo: BasicApiInfo, apiLocations: Map<string, string[]>, isCheck?: boolean): void {
+  /**
+   * 删除最外层第一个API的jsdocText中，版权头和kit相关jsdoc
+   * 
+   * @param apiInfo 
+   * @returns 
+   */
+  static deleteUselessJsdoc(apiInfo: BasicApiInfo): string {
+    const jsdocTextArr: string[] = apiInfo.getJsDocText().split('*/');
+    const clonedJsdocTextArr: string[] = jsdocTextArr;
+    if (clonedJsdocTextArr[1] && StringUtils.hasSubstring(clonedJsdocTextArr[1], CommentHelper.fileJsDoc)) {
+      jsdocTextArr.splice(1,1);
+    }
+
+    if (clonedJsdocTextArr[0] && StringUtils.hasSubstring(clonedJsdocTextArr[0], CommentHelper.fileJsDoc)) {
+      jsdocTextArr.splice(0,1);
+    }
+
+    if (clonedJsdocTextArr[0] && StringUtils.hasSubstring(clonedJsdocTextArr[0], CommentHelper.licenseKeyword)) {
+      jsdocTextArr.splice(0,1);
+    }
+
+    return jsdocTextArr.join('*/');
+  }
+
+  static processApiInfo(basicApiInfo: BasicApiInfo, apiLocations: Map<string, string[]>, index: number, isCheck?: boolean): void {
     const apiNode: ts.Node | undefined = basicApiInfo.getNode();
     if (isCheck) {
       const jsDocText: string | undefined = apiNode?.getFullText().replace(apiNode.getText(), '');
       if (jsDocText) {
         basicApiInfo.setJsDocText(jsDocText);
       }
+    }
+
+    if (index === 0 && basicApiInfo.getParentApiType() === ApiType.SOURCE_FILE) {
+      const jsDocText: string = DiffHelper.deleteUselessJsdoc(basicApiInfo);
+      basicApiInfo.setJsDocText(jsDocText);
     }
 
     basicApiInfo.setSyscap(DiffHelper.getSyscapField(basicApiInfo));
@@ -309,7 +342,7 @@ export class DiffHelper {
     }
     const containerApiInfo: ContainerApiInfo = apiInfo as ContainerApiInfo;
     containerApiInfo.getChildApis().forEach((childApiInfo: BasicApiInfo) => {
-      DiffHelper.processApiInfo(childApiInfo, apiLocations, isCheck);
+      DiffHelper.processApiInfo(childApiInfo, apiLocations, 1, isCheck);
     });
   }
 

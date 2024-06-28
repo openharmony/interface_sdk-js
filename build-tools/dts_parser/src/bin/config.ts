@@ -53,6 +53,10 @@ export enum toolNameType {
    */
   CHECKONLINE = 'checkOnline',
   /**
+   * 兼容性变更检查工具 线上版
+   */
+  APICHANGECHECK = 'apiChangeCheck',
+  /**
    * diff工具
    */
   DIFF = 'diff',
@@ -124,6 +128,10 @@ export const Plugin: PluginType = {
       },
       {
         isRequiredOption: false,
+        options: ['--prId <string>', 'check api prId', ''],
+      },
+      {
+        isRequiredOption: false,
         options: ['--excel <string>', 'check api excel', 'false'],
       },
       {
@@ -175,6 +183,7 @@ export const Plugin: PluginType = {
       isOH: argv.isOH,
       path: argv.path,
       checker: argv.checker,
+      prId: argv.prId,
       old: argv.old,
       new: argv.new,
       oldVersion: argv.oldVersion,
@@ -323,7 +332,7 @@ function collectApiCallback(apiData: ApiStatisticsInfo[], sheet: ExcelJS.Workshe
   });
 }
 /**
- * 收集api工具调用方法
+ * api检查工具调用方法
  *
  * @param { OptionObjType } options
  * @return { ToolNameValueType }
@@ -335,7 +344,7 @@ function checkApi(): ToolNameValueType {
     if (fs.existsSync(filePathTxt)) {
       mdApiFiles = CommonFunctions.getMdFiles(filePathTxt);
     }
-     LocalEntry.checkEntryLocal(mdApiFiles, ['all'], './result.json', 'true');
+     LocalEntry.checkEntryLocal(mdApiFiles, ['all'], './result.json', '', 'true');
     return {
       data: [],
     };
@@ -348,7 +357,7 @@ function checkApi(): ToolNameValueType {
   }
 }
 /**
- * 收集api工具调用方法
+ * api检查工具调用方法
  *
  * @param { OptionObjType } options
  * @return { ToolNameValueType }
@@ -356,13 +365,37 @@ function checkApi(): ToolNameValueType {
 function checkOnline(options: OptionObjType): ToolNameValueType {
   options.format = formatType.NULL;
   try {
-    LocalEntry.checkEntryLocal(options.path.split(','), options.checker.split(','), options.output, options.excel);
+    LocalEntry.checkEntryLocal(options.path.split(','), options.checker.split(','), options.output, options.prId,
+      options.excel);
     return {
       data: [],
     };
   } catch (exception) {
     const error = exception as Error;
     LogUtil.e('error check', error.stack ? error.stack : error.message);
+  } finally {
+  }
+  return {
+    data: [],
+  };
+}
+
+/**
+ * api检查工具调用方法
+ *
+ * @param { OptionObjType } options
+ * @return { ToolNameValueType }
+ */
+function apiChangeCheck(options: OptionObjType): ToolNameValueType {
+  options.format = formatType.NULL;
+  try {
+    LocalEntry.apiChangeCheckEntryLocal(options.prId, options.checker.split(','), options.output, options.excel);
+    return {
+      data: [],
+    };
+  } catch (exception) {
+    const error = exception as Error;
+    LogUtil.e('error api change check', error.stack ? error.stack : error.message);
   } finally {
   }
   return {
@@ -573,6 +606,7 @@ export const toolNameMethod: Map<string, ToolNameMethodType> = new Map([
   [toolNameType.COLLECT, collectApi],
   [toolNameType.CHECK, checkApi],
   [toolNameType.CHECKONLINE, checkOnline],
+  [toolNameType.APICHANGECHECK, apiChangeCheck],
   [toolNameType.DIFF, diffApi],
   [toolNameType.LABELDETECTION, detectionApi],
   [toolNameType.COUNT, countApi]
@@ -583,12 +617,13 @@ export const toolNameMethod: Map<string, ToolNameMethodType> = new Map([
  */
 export type OptionObjType = {
   toolName: toolNameType;
+  path: string;
+  checker: string;
+  prId: string;
   collectPath: string;
   collectFile: string;
   checkLabels: string;
   isOH: string;
-  path: string;
-  checker: string;
   old: string;
   new: string;
   oldVersion: string;

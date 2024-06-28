@@ -21,6 +21,8 @@ import {
   ErrorLevel,
   ErrorTagFormat,
   ErrorMessage,
+  ApiCheckInfo,
+  ErrorBaseInfo,
 } from '../../../typedef/checker/result_type';
 import { BasicApiInfo } from '../../../typedef/parser/ApiInfoDefination';
 import { tagsArrayOfOrder, officialTagArr, CommonFunctions } from '../../../utils/checkUtils';
@@ -85,20 +87,16 @@ export class WordsCheck {
             state: false,
             errorInfo: CommonFunctions.createErrorInfo(ErrorMessage.ERROR_WORD, [apiWord, basicWord]),
           };
-          AddErrorLogs.addAPICheckErrorLogs(
-            ErrorID.MISSPELL_WORDS_ID,
-            ErrorLevel.MIDDLE,
-            baseInfo.getFilePath(),
-            baseInfo.getPos(),
-            ErrorType.MISSPELL_WORDS,
-            LogType.LOG_JSDOC,
-            -1,
-            baseInfo.getApiName(),
-            baseInfo.getDefinedText(),
-            wordsCheckFormat.errorInfo,
-            compositiveResult,
-            compositiveLocalResult
-          );
+          const errorBaseInfo: ErrorBaseInfo = new ErrorBaseInfo();
+          errorBaseInfo
+            .setErrorID(ErrorID.MISSPELL_WORDS_ID)
+            .setErrorLevel(ErrorLevel.MIDDLE)
+            .setErrorType(ErrorType.MISSPELL_WORDS)
+            .setLogType(LogType.LOG_JSDOC)
+            .setErrorInfo(wordsCheckFormat.errorInfo);
+          const apiInfoSpell: ApiCheckInfo = CommonFunctions.getErrorInfo(baseInfo, undefined, baseInfo.getFilePath(),
+            errorBaseInfo);
+          AddErrorLogs.addAPICheckErrorLogs(apiInfoSpell, compositiveResult, compositiveLocalResult);
         }
       });
     });
