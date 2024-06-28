@@ -59,7 +59,7 @@ declare namespace netFirewall {
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 29400000 - The specified user does not exit.
+   * @throws { BusinessError } 29400000 - The specified user does not exist.
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @systemapi Hide this for inner system use.
    * @since 12
@@ -78,7 +78,7 @@ declare namespace netFirewall {
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 29400000 - The specified user does not exit.
+   * @throws { BusinessError } 29400000 - The specified user does not exist.
    * @throws { BusinessError } 29400001 - The number of firewall rules exceeds the maximum.
    * @throws { BusinessError } 29400002 - The number of IP address rules in the firewall rule exceeds the maximum.
    * @throws { BusinessError } 29400003 - The number of port rules in the firewall rule exceeds the maximum.
@@ -102,7 +102,7 @@ declare namespace netFirewall {
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 29400000 - The specified user does not exit.
+   * @throws { BusinessError } 29400000 - The specified user does not exist.
    * @throws { BusinessError } 29400002 - The number of IP address rules in the firewall rule exceeds the maximum.
    * @throws { BusinessError } 29400003 - The number of port rules in the firewall rule exceeds the maximum.
    * @throws { BusinessError } 29400004 - The number of domain rules in the firewall rule exceeds the maximum.
@@ -127,7 +127,7 @@ declare namespace netFirewall {
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 29400000 - The specified user does not exit.
+   * @throws { BusinessError } 29400000 - The specified user does not exist.
    * @throws { BusinessError } 29400006 - The specified rule does not exist.
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @systemapi Hide this for inner system use.
@@ -148,7 +148,7 @@ declare namespace netFirewall {
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 29400000 - The specified user does not exit.
+   * @throws { BusinessError } 29400000 - The specified user does not exist.
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @systemapi Hide this for inner system use.
    * @since 12
@@ -168,7 +168,7 @@ declare namespace netFirewall {
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 29400000 - The specified user does not exit.
+   * @throws { BusinessError } 29400000 - The specified user does not exist.
    * @throws { BusinessError } 29400006 - The specified rule does not exist.
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @systemapi Hide this for inner system use.
@@ -189,7 +189,7 @@ declare namespace netFirewall {
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 29400000 - The specified user does not exit.
+   * @throws { BusinessError } 29400000 - The specified user does not exist.
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @systemapi Hide this for inner system use.
    * @since 12
