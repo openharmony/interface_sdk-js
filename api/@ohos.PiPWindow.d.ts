@@ -427,7 +427,7 @@ declare namespace PiPWindow {
   /**
    * Describe picture-in-picture live template action event type.
    *
-   * @typedef PiPLiveActionEvent 
+   * @typedef { PiPLiveActionEvent }
    * @syscap SystemCapability.Window.SessionManager
    * @since 12
    */
