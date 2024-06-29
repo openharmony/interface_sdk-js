@@ -17,8 +17,7 @@
  * @file
  * @kit ArkUI
  */
-
-import { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation, Frame, BorderRadiuses, ShapeMask, Edges, LengthMetricsUnit } from './Graphics';
+import { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation, Frame, BorderRadiuses, ShapeMask, ShapeClip, Edges, LengthMetricsUnit } from './Graphics';
 
 /**
  * Defines RenderNode. Contains node tree operations and render property operations on node.
@@ -942,12 +941,34 @@ export class RenderNode {
   /**
    * Get shape mask of the RenderNode.
    *
-   * @returns { BorderRadiuses } - Returns the shape mask of the RenderNode.
+   * @returns { ShapeMask } - Returns the shape mask of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
   get shapeMask(): ShapeMask;
+
+  /**
+   * Set shape clip of the RenderNode.
+   *
+   * @param { ShapeClip } shapeClip - the shape clip of the RenderNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  set shapeClip(shapeClip: ShapeClip);
+
+  /**
+   * Get shape clip of the RenderNode.
+   *
+   * @returns { ShapeClip } - Returns the shape clip of the RenderNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.clip
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  get shapeClip(): ShapeClip;
 
   /**
    * Mark whether to preferentially draw the node and its children.

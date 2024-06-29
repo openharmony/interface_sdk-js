@@ -1238,6 +1238,82 @@ export declare class ShapeMask {
   strokeWidth: number;
 }
 
+
+/**
+ * Define ShapeClip. Record the type and parameters of the shape used for clipping.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+export declare class ShapeClip {
+  /**
+   * Constructor.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  constructor();
+
+  /**
+   * Set the rect shape of the ShapeClip.
+   *
+   * @param { Rect } rect - The rect shape will be set.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  setRectShape(rect: Rect): void;
+
+  /**
+   * Set the round rect shape of the ShapeClip.
+   *
+   * @param { RoundRect } roundRect - The round rect shape will be set.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  setRoundRectShape(roundRect: RoundRect): void;
+
+  /**
+   * Set the circle shape of the ShapeClip.
+   *
+   * @param { Circle } circle - The circle shape will be set.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  setCircleShape(circle: Circle): void;
+
+  /**
+   * Set the oval shape of the ShapeClip.
+   *
+   * @param { Rect } oval - The oval shape will be set.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  setOvalShape(oval: Rect): void;
+
+  /**
+   * Set the command path of the ShapeClip.
+   *
+   * @param { CommandPath } path - The command path will be set.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  setCommandPath(path: CommandPath): void;
+}
+
 /**
  * Obtain a object with all edges are set to the same color.
  *
