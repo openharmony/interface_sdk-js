@@ -103,7 +103,8 @@
         "XComponent",
         "GridRow",
         "GridCol",
-        "ArcSwiper"
+        "ArcSwiper",
+        "ArcAlphabetIndexer"
       ],
       "extend": {
         "decorator": "Extend",
@@ -592,7 +593,12 @@
             "name": "ArcSwiper",
             "type": "ArcSwiperAttribute",
             "instance": "ArcSwiperInstance"
-          }
+          },
+          {
+            "name": "ArcAlphabetIndexer",
+            "type": "ArcAlphabetIndexerAttribute",
+            "instance": "ArcAlphabetIndexerInstance"
+          },
         ]
       },
       "styles": {
