@@ -39,6 +39,8 @@ import autoFillManager from '@ohos.app.ability.autoFillManager';
 import autoStartupManager from '@ohos.app.ability.autoStartupManager';
 import ChildProcess from '@ohos.app.ability.ChildProcess';
 import childProcessManager from '@ohos.app.ability.childProcessManager';
+import { ChildProcessArgs } from '@ohos.app.ability.ChildProcessArgs';
+import { ChildProcessOptions } from '@ohos.app.ability.ChildProcessOptions';
 import common from '@ohos.app.ability.common';
 import { Configuration } from '@ohos.app.ability.Configuration';
 import ConfigurationConstant from '@ohos.app.ability.ConfigurationConstant';
@@ -113,5 +115,5 @@ export {
   innerBundleManager, insightIntent, insightIntentDriver, installer, launcherBundleManager, missionManager,
   overlay, particleAbility, quickFixManager, uriPermissionManager, wantAgent, wantConstant, privacyManager,
   EmbeddedUIExtensionAbility, StartupConfig, StartupConfigEntry, StartupListener, StartupTask, startupManager,
-  screenLockFileManager, AtomicServiceOptions, EmbeddableUIAbility
+  screenLockFileManager, AtomicServiceOptions, EmbeddableUIAbility, ChildProcessArgs, ChildProcessOptions
 };

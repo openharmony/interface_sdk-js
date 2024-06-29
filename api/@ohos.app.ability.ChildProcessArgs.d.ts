@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,32 +18,33 @@
  * @kit AbilityKit
  */
 
-import type { ChildProcessArgs } from './@ohos.app.ability.ChildProcessArgs';
-
 /**
- * The class of child process.
- * Child process to be started can inherit this class.
+ * Define args to pass to child process.
  *
+ * @interface ChildProcessArgs
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
- * @since 11
+ * @since 12
  */
-export default class ChildProcess {
-
+export interface ChildProcessArgs {
   /**
-   * Called when the child process is started.
+   * Custom parameters define by developer.
+   * The parameters will be passed to child process entry function onStart(args).
    *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @since 11
-  */
-  /**
-   * Called when the child process is started.
-   *
-   * @param { ChildProcessArgs } [args] - Indicates args passed to child process.
+   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12
-  */
-  onStart(args?: ChildProcessArgs): void;
+   */
+  entryParams?: string;
+
+  /**
+   * Indicates file descriptors that use to communicate between two processes.
+   *
+   * @type { ?Record<string, number> }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 12
+   */
+  fds?: Record<string, number>;
 }
