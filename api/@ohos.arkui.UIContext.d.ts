@@ -30,6 +30,7 @@ import { ComponentContent, FrameNode } from './@ohos.arkui.node';
 import type { AnimatorOptions, AnimatorResult } from './@ohos.animator';
 import type { Callback, AsyncCallback } from './@ohos.base';
 import { MeasureOptions } from './@ohos.measure';
+import type componentSnapshot from './@ohos.arkui.componentSnapshot';
 import type dragController from './@ohos.arkui.dragController';
 import image from './@ohos.multimedia.image';
 import type common from './@ohos.app.ability.common';
@@ -2309,48 +2310,78 @@ export class ComponentSnapshot {
      *
      * @param { string } id - Target component ID, set by developer through .id attribute.
      * @param { AsyncCallback<image.PixelMap> } callback - Callback that contains the snapshot in PixelMap format.
+     * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
+     * @throws { BusinessError } 100001 - Invalid ID.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 12
      */
-  get(id: string, callback: AsyncCallback<image.PixelMap>): void;
+  get(id: string, callback: AsyncCallback<image.PixelMap>, options?: componentSnapshot.SnapshotOptions): void;
 
   /**
    * Get a component snapshot by component id.
    *
    * @param { string } id - Target component ID, set by developer through .id attribute.
+   * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
    * @returns { Promise<image.PixelMap> } A Promise with the snapshot in PixelMap format.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Invalid ID.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  get(id: string): Promise<image.PixelMap>;
+  get(id: string, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>;
 
   /**
    * Generate a snapshot from a custom component builder.
    *
    * @param { CustomBuilder } builder - Builder function of a custom component.
    * @param { AsyncCallback<image.PixelMap> } callback - Callback that contains the snapshot in PixelMap format.
+   * @param { number } [delay] - Defines the delay time to render the snapshot.
+   * @param { boolean } [checkImageStatus] - Defines if check the image decoding status before taking snapshot.
+   * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - The builder is not a valid build function.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  createFromBuilder(builder: CustomBuilder, callback: AsyncCallback<image.PixelMap>): void;
+  createFromBuilder(builder: CustomBuilder, callback: AsyncCallback<image.PixelMap>,
+    delay?: number, checkImageStatus?: boolean, options?: componentSnapshot.SnapshotOptions): void;
 
   /**
    * Generate a snapshot from a custom component builder.
    *
    * @param { CustomBuilder } builder - Builder function of a custom component.
+   * @param { number } [delay] - Defines the delay time to render the snapshot.
+   * @param { boolean } [checkImageStatus] - Defines if check the image decoding status before taking snapshot.
+   * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
    * @returns { Promise<image.PixelMap> } A Promise with the snapshot in PixelMap format.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - The builder is not a valid build function.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  createFromBuilder(builder: CustomBuilder): Promise<image.PixelMap>;
+  createFromBuilder(builder: CustomBuilder, delay?: number,
+    checkImageStatus?: boolean, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>;
 }
 
 /**
