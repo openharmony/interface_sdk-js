@@ -7455,86 +7455,117 @@ declare namespace window {
     setDefaultDensityEnabled(enabled: boolean): void;
   }
 
-  /**
-   * The attribute of a windowStage.
+   /**
+   * The attribute of a window for UiServiceExtensionAbility.
    *
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
-   * @atomicservice
    * @since 12
    */
-  enum WindowStageAttribute {
-    /**
-     * System windowStage.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @systemapi Hide this for inner system use.
-     * @stagemodelonly
-     * @atomicservice
-     * @since 12
-     */
-    SYSTEM_WINDOW_STAGE,
+   enum ExtensionWindowAttribute {
 
     /**
-     * Sub windowStage.
+     * System window.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @atomicservice
      * @since 12
      */
-    SUB_WINDOW_STAGE
+    SYSTEM_WINDOW,
+
+    /**
+     * Sub window.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 12
+     */
+    SUB_WINDOW
   }
 
   /**
-   * Configuration of windowStage.
+   * Options for system window creation
    *
-   * @interface WindowStageConfig
+   * @interface SystemWindowOptions
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
-   * @atomicservice
    * @since 12
    */
-  interface WindowStageConfig {
+  interface SystemWindowOptions {
+
     /**
-     * The attribute of windowStage.
+     * Indicates window type
      *
-     * @type { WindowStageAttribute }
+     * @type { WindowType }
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @atomicservice
      * @since 12
      */
-    windowStageAttribute: WindowStageAttribute;
+    windowType: WindowType;
+  }
+
+  interface ExtensionWindowConfig {
 
     /**
-     * The position and size of windowStage.
+     * Window name
+     *
+     * @type { string }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 12
+     */
+    windowName: string;
+
+    /**
+     * Defines whether the window is a subwindow or a system window.
+     *
+     * @type { ExtensionWindowAttribute }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 12
+     */
+    windowAttribute: ExtensionWindowAttribute;
+
+    /**
+     * The position and size of window.
      *
      * @type { Rect }
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @atomicservice
      * @since 12
      */
-    windowStageRect: Rect;
+    windowRect: Rect;
 
     /**
-     * The options of sub windowStage creation.
+     * The options of sub window creation.
      *
      * @type { SubWindowOptions }
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @atomicservice
      * @since 12
      */
     subWindowOptions?: SubWindowOptions;
+
+    /**
+     * The options of system window creation.
+     *
+     * @type { SystemWindowOptions }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 12
+     */
+    systemWindowOptions?: SystemWindowOptions;
   }
 }
 
