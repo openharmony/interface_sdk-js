@@ -34,7 +34,6 @@ import { TagNameCheck } from './tag_name_check';
 import { LegalityCheck } from './tag_legality_check';
 import { TagRepeatCheck } from './tag_repeat_check';
 import { AddErrorLogs } from './compile_info';
-import { toNumber } from 'lodash';
 import { TagValueCheck } from './tag_value_check';
 import { WordsCheck } from './words_check';
 import { ForbiddenWordsCheck } from './forbidden_words_check';
@@ -46,8 +45,9 @@ import { ApiChangeCheck } from './check_api_diff';
 import { TagInheritCheck } from './tag_inherit_check';
 import { ChineseCheck } from "./check_chinese";
 import { AnonymousFunctionCheck } from './check_anonymous_function';
-export let currentFilePath: string = '';
 import { CheckErrorCode } from "./check_error_code";
+
+export let currentFilePath: string = '';
 
 export class Check {
   /**
@@ -107,7 +107,6 @@ export class Check {
   static checkNodeInfos(baseInfos: ClassInfo[]): void {
     let allNodeInfos: ApiInfo[] = [];
     Check.getHasJsdocApiInfos(baseInfos, allNodeInfos);
-
     // for all nodes of the current file
     allNodeInfos.forEach((singleApi: ApiInfo) => {
       const apiJsdoc: Comment.JsDocInfo | undefined = singleApi.getLastJsDocInfo();
@@ -173,7 +172,7 @@ export class Check {
         const forbiddenWordsCheckResult: ErrorTagFormat = ForbiddenWordsCheck.forbiddenWordsCheck(singleApi as ClassInfo);
 
         const anonymousFunction: ErrorTagFormat = AnonymousFunctionCheck.checkAnonymousFunction(singleApi);
-        // console.log(anonymousFunction)
+        
         if (!orderCheckResult.state) {
           const errorBaseInfo: ErrorBaseInfo = new ErrorBaseInfo();
           errorBaseInfo
@@ -310,9 +309,9 @@ export class Check {
             .setErrorType(ErrorType.WRONG_SCENE)
             .setLogType(LogType.LOG_JSDOC)
             .setErrorInfo(anonymousFunction.errorInfo);
-          const apiInfoAnonymousFunction: ApiCheckInfo = CommonFunctions.getErrorInfo(singleApi, apiJsdoc, currentFilePath,
+          const apiInfoAnonymous: ApiCheckInfo = CommonFunctions.getErrorInfo(singleApi, apiJsdoc, currentFilePath,
             errorBaseInfo);
-          AddErrorLogs.addAPICheckErrorLogs(apiInfoAnonymousFunction, compositiveResult, compositiveLocalResult);
+          AddErrorLogs.addAPICheckErrorLogs(apiInfoAnonymous, compositiveResult, compositiveLocalResult);
         }
       }
     });

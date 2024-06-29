@@ -14,7 +14,7 @@
  */
 
 import ts from 'typescript';
-import { ApiInfo, MethodInfo } from '../parser/ApiInfoDefination';
+import { ApiInfo, MethodInfo, ApiType  } from '../parser/ApiInfoDefination';
 import { Comment } from '../parser/Comment';
 import { NumberConstant } from '../../utils/Constant';
 export class BasicDiffInfo {
@@ -60,7 +60,7 @@ export class BasicDiffInfo {
   newSyscapField: string = '';
   //kit信息
   oldKitInfo: string = '';
-  newKitInfo: string = '';
+  newKitInfo:string = '';
 
   setApiType(apiType: string): BasicDiffInfo {
     if (apiType) {
@@ -341,8 +341,147 @@ export class DiffTypeInfo {
     return this;
   }
 }
+
+export class DiffNumberInfo {
+  apiName: string = '';
+  kitName: string = '';
+  subsystem: string = '';
+  apiType: string = '';
+  allDiffType: string[] = [];
+  allChangeType: string[] = [];
+  compatibleInfo: object = {};
+  oldDiffMessage: string[] = [];
+  newDiffMessage: string[] = [];
+  allCompatible: boolean[] = [];
+  diffTypeNumber: number = 0;
+  isApi: boolean = true;
+  apiRelation: string = '';
+
+  setApiName(apiName: string): DiffNumberInfo {
+    this.apiName = apiName;
+    return this;
+  }
+
+  getApiName(): string {
+    return this.apiName;
+  }
+
+  setKitName(kitName: string | undefined): DiffNumberInfo {
+    if (!kitName) {
+      return this;
+    }
+    this.kitName = kitName;
+    return this;
+  }
+
+  getKitName(): string {
+    return this.kitName;
+  }
+
+  setSubsystem(subsystem: string | undefined): DiffNumberInfo {
+    if (!subsystem) {
+      return this;
+    }
+    this.subsystem = subsystem;
+    return this;
+  }
+
+  getSubsystem(): string {
+    return this.subsystem;
+  }
+
+  setApiType(apiType: string): DiffNumberInfo {
+    this.apiType = apiType;
+    return this;
+  }
+
+  getApiType(): string {
+    return this.apiType;
+  }
+
+  setAllDiffType(diffType: string): DiffNumberInfo{
+    this.allDiffType.push(diffType);
+    return this;
+  }
+
+  getAllDiffType(): string[] {
+    return this.allDiffType;
+  }
+
+  setOldDiffMessage(oldDiffMessage: string): DiffNumberInfo {
+    if (oldDiffMessage === '-1') {
+      return this;
+    }
+    this.oldDiffMessage.push(oldDiffMessage);
+    return this;
+  }
+
+  getOldDiffMessage(): string[] {
+    return this.oldDiffMessage;
+  }
+
+  setNewDiffMessage(newDiffMessage: string): DiffNumberInfo {
+    if (newDiffMessage === '-1') {
+      return this;
+    }
+    this.newDiffMessage.push(newDiffMessage);
+    return this;
+  }
+
+  getNewDiffMessage(): string[] {
+    return this.newDiffMessage;
+  }
+
+  setAllChangeType(changeType: string | undefined): DiffNumberInfo{
+    if (!changeType) {
+      return this
+    }
+    this.allChangeType.push(changeType);
+    return this;
+  }
+
+  getAllChangeType(): string[] {
+    return this.allChangeType;
+  }
+
+  setAllCompatible(isCompatible: boolean): DiffNumberInfo{
+    this.allCompatible.push(isCompatible);
+    return this;
+  }
+
+  getAllCompatible(): boolean[] {
+    return this.allCompatible;
+  }
+  setDiffTypeNumber(diffTypeNumber: number): DiffNumberInfo {
+    this.diffTypeNumber = diffTypeNumber;
+    return this;
+  }
+
+  getDiffTypeNumber(): number {
+    return this.diffTypeNumber;
+  }
+
+  setIsApi(isApi: boolean) {
+    this.isApi = isApi;
+    return this;
+  }
+
+  getIsApi(): boolean {
+    return this.isApi;
+  }
+
+  setApiRelation(apiRelation: string) {
+    this.apiRelation = apiRelation;
+    return this;
+  }
+
+  getApiRelation(): string{
+    return this.apiRelation;
+  }
+}
+
 export interface JsDocDiffProcessor {
-  (oldJsDocInfo: Comment.JsDocInfo | undefined, newJsDocInfo: Comment.JsDocInfo | undefined): DiffTypeInfo | undefined;
+  (oldJsDocInfo: Comment.JsDocInfo | undefined, newJsDocInfo: Comment.JsDocInfo | undefined, isAllDeprecated?: boolean, isAllSheet?: boolean): DiffTypeInfo | undefined;
 }
 
 export interface ApiSceneDiffProcessor {
@@ -408,6 +547,7 @@ export enum ApiDiffType {
   DEPRECATED_NA_TO_HAVE,
   DEPRECATED_HAVE_TO_NA,
   DEPRECATED_A_TO_B,
+  DEPRECATED_NOT_All,
   ERROR_CODE_NA_TO_HAVE,
   ERROR_CODE_ADD,
   ERROR_CODE_REDUCE,
@@ -447,6 +587,8 @@ export enum ApiDiffType {
   /**  函数的参数类型范围缩小 */
   FUNCTION_PARAM_TYPE_REDUCE,
   FUNCTION_PARAM_CHANGE,
+  /** 同名函数变更类型 */
+  FUNCTION_CHANGES,
   PROPERTY_READONLY_TO_UNREQUIRED,
   PROPERTY_READONLY_TO_REQUIRED,
   PROPERTY_WRITABLE_TO_UNREQUIRED,
@@ -512,6 +654,7 @@ export const diffTypeMap: Map<ApiDiffType, string> = new Map([
   [ApiDiffType.SYSCAP_A_TO_B, 'syscap变更'],
   [ApiDiffType.DEPRECATED_NA_TO_HAVE, 'API废弃版本变更'],
   [ApiDiffType.DEPRECATED_HAVE_TO_NA, 'API废弃版本变更'],
+  [ApiDiffType.DEPRECATED_NOT_All, 'API废弃版本变更'],
   [ApiDiffType.DEPRECATED_A_TO_B, 'API废弃版本变更'],
   [ApiDiffType.ERROR_CODE_NA_TO_HAVE, '错误码变更'],
   [ApiDiffType.ERROR_CODE_ADD, '错误码变更'],
@@ -540,6 +683,7 @@ export const diffTypeMap: Map<ApiDiffType, string> = new Map([
   [ApiDiffType.FUNCTION_PARAM_TYPE_ADD, '函数变更'],
   [ApiDiffType.FUNCTION_PARAM_TYPE_REDUCE, '函数变更'],
   [ApiDiffType.FUNCTION_PARAM_CHANGE, '函数变更'],
+  [ApiDiffType.FUNCTION_CHANGES, '函数变更'],
   [ApiDiffType.PROPERTY_READONLY_TO_UNREQUIRED, '属性变更'],
   [ApiDiffType.PROPERTY_READONLY_TO_REQUIRED, '属性变更'],
   [ApiDiffType.PROPERTY_WRITABLE_TO_UNREQUIRED, '属性变更'],
@@ -597,6 +741,7 @@ export const diffMap: Map<ApiDiffType, string> = new Map([
   [ApiDiffType.SYSCAP_A_TO_B, 'syscap发生改变'],
   [ApiDiffType.DEPRECATED_NA_TO_HAVE, '接口变更为废弃'],
   [ApiDiffType.DEPRECATED_HAVE_TO_NA, '废弃接口变更为不废弃'],
+  [ApiDiffType.DEPRECATED_NOT_All, '接口变更为废弃'],
   [ApiDiffType.DEPRECATED_A_TO_B, '接口废弃版本发生变化'],
   [ApiDiffType.ERROR_CODE_NA_TO_HAVE, '错误码从无到有'],
   [ApiDiffType.ERROR_CODE_ADD, '错误码增加'],
@@ -625,6 +770,7 @@ export const diffMap: Map<ApiDiffType, string> = new Map([
   [ApiDiffType.FUNCTION_PARAM_TYPE_ADD, '函数的参数类型范围扩大'],
   [ApiDiffType.FUNCTION_PARAM_TYPE_REDUCE, '函数的参数类型范围缩小'],
   [ApiDiffType.FUNCTION_PARAM_CHANGE, '函数的参数变更'],
+  [ApiDiffType.FUNCTION_CHANGES, '函数有变化'],
   [ApiDiffType.PROPERTY_READONLY_TO_UNREQUIRED, '只读属性由必选变为可选'],
   [ApiDiffType.PROPERTY_READONLY_TO_REQUIRED, '只读属性由可选变为必选'],
   [ApiDiffType.PROPERTY_WRITABLE_TO_UNREQUIRED, '可写属性由必选变为可选'],
@@ -666,6 +812,80 @@ export const diffMap: Map<ApiDiffType, string> = new Map([
   [ApiDiffType.ATOMIC_SERVICE_NA_TO_HAVE, 'API从不支持元服务到支持元服务'],
 ]);
 
+export const apiChangeMap: Map<ApiDiffType, string> = new Map([
+  [ApiDiffType.SYSTEM_TO_PUBLIC, 'API修改（约束变化）'],
+  [ApiDiffType.PUBLIC_TO_SYSTEM, 'API修改（约束变化）'],
+  [ApiDiffType.NA_TO_STAGE, 'API修改（约束变化）'],
+  [ApiDiffType.NA_TO_FA, 'API修改（约束变化）'],
+  [ApiDiffType.FA_TO_STAGE, 'API修改（约束变化）'],
+  [ApiDiffType.STAGE_TO_FA, 'API修改（约束变化）'],
+  [ApiDiffType.STAGE_TO_NA, 'API修改（约束变化）'],
+  [ApiDiffType.FA_TO_NA, 'API修改（约束变化）'],
+  [ApiDiffType.NA_TO_CARD, 'API修改（约束变化）'],
+  [ApiDiffType.CARD_TO_NA, 'API修改（约束变化）'],
+  [ApiDiffType.NA_TO_CROSS_PLATFORM, 'API修改（约束变化）'],
+  [ApiDiffType.CROSS_PLATFORM_TO_NA, 'API修改（约束变化）'],
+  [ApiDiffType.SYSCAP_NA_TO_HAVE, 'API修改（约束变化）'],
+  [ApiDiffType.SYSCAP_HAVE_TO_NA, 'API修改（约束变化）'],
+  [ApiDiffType.SYSCAP_A_TO_B, 'API修改（约束变化）'],
+  [ApiDiffType.DEPRECATED_NA_TO_HAVE, 'API废弃'],
+  [ApiDiffType.DEPRECATED_HAVE_TO_NA, 'API废弃'],
+  [ApiDiffType.DEPRECATED_NOT_All, 'API修改（约束变化）'],
+  [ApiDiffType.DEPRECATED_A_TO_B, 'API废弃'],
+  [ApiDiffType.ERROR_CODE_NA_TO_HAVE, 'API修改（约束变化）'],
+  [ApiDiffType.ERROR_CODE_ADD, 'API修改（原型修改）'],
+  [ApiDiffType.ERROR_CODE_REDUCE, 'API修改（原型修改）'],
+  [ApiDiffType.ERROR_CODE_CHANGE, 'API修改（原型修改）'],
+  [ApiDiffType.PERMISSION_NA_TO_HAVE, 'API修改（约束变化）'],
+  [ApiDiffType.PERMISSION_HAVE_TO_NA, 'API修改（约束变化）'],
+  [ApiDiffType.PERMISSION_RANGE_BIGGER, 'API修改（约束变化）'],
+  [ApiDiffType.PERMISSION_RANGE_SMALLER, 'API修改（约束变化）'],
+  [ApiDiffType.PERMISSION_RANGE_CHANGE, 'API修改（约束变化）'],
+  [ApiDiffType.TYPE_RANGE_BIGGER, 'API修改（原型修改）'],
+  [ApiDiffType.TYPE_RANGE_SMALLER, 'API修改（原型修改）'],
+  [ApiDiffType.TYPE_RANGE_CHANGE, 'API修改（原型修改）'],
+  [ApiDiffType.API_NAME_CHANGE, 'API修改（原型修改）'],
+  [ApiDiffType.FUNCTION_RETURN_TYPE_ADD, 'API修改（原型修改）'],
+  [ApiDiffType.FUNCTION_RETURN_TYPE_REDUCE, 'API修改（原型修改）'],
+  [ApiDiffType.FUNCTION_RETURN_TYPE_CHANGE, 'API修改（原型修改）'],
+  [ApiDiffType.FUNCTION_PARAM_POS_CHANGE, 'API修改（原型修改）'],
+  [ApiDiffType.FUNCTION_PARAM_UNREQUIRED_ADD, 'API修改（原型修改）'],
+  [ApiDiffType.FUNCTION_PARAM_REQUIRED_ADD, 'API修改（原型修改）'],
+  [ApiDiffType.FUNCTION_PARAM_REDUCE, 'API修改（原型修改）'],
+  [ApiDiffType.FUNCTION_PARAM_TO_UNREQUIRED, 'API修改（原型修改）'],
+  [ApiDiffType.FUNCTION_PARAM_TO_REQUIRED, 'API修改（原型修改）'],
+  [ApiDiffType.FUNCTION_PARAM_NAME_CHANGE, 'API修改（原型修改）'],
+  [ApiDiffType.FUNCTION_PARAM_TYPE_CHANGE, 'API修改（原型修改）'],
+  [ApiDiffType.FUNCTION_PARAM_TYPE_ADD, 'API修改（原型修改）'],
+  [ApiDiffType.FUNCTION_PARAM_TYPE_REDUCE, 'API修改（原型修改）'],
+  [ApiDiffType.FUNCTION_CHANGES, 'API修改（原型修改）'],
+  [ApiDiffType.PROPERTY_READONLY_TO_UNREQUIRED, 'API修改（约束变化）'],
+  [ApiDiffType.PROPERTY_READONLY_TO_REQUIRED, 'API修改（约束变化）'],
+  [ApiDiffType.PROPERTY_WRITABLE_TO_UNREQUIRED, 'API修改（约束变化）'],
+  [ApiDiffType.PROPERTY_WRITABLE_TO_REQUIRED, 'API修改（约束变化）'],
+  [ApiDiffType.PROPERTY_TYPE_CHANGE, 'API修改（原型修改）'],
+  [ApiDiffType.PROPERTY_READONLY_ADD, 'API修改（约束变化）'],
+  [ApiDiffType.PROPERTY_READONLY_REDUCE, 'API修改（约束变化）'],
+  [ApiDiffType.PROPERTY_WRITABLE_ADD, 'API修改（约束变化）'],
+  [ApiDiffType.PROPERTY_WRITABLE_REDUCE, 'API修改（约束变化）'],
+  [ApiDiffType.CONSTANT_VALUE_CHANGE, 'API修改（原型修改）'],
+  [ApiDiffType.TYPE_ALIAS_CHANGE, 'API修改（原型修改）'],
+  [ApiDiffType.TYPE_ALIAS_ADD, 'API修改（原型修改）'],
+  [ApiDiffType.TYPE_ALIAS_REDUCE, 'API修改（原型修改）'],
+  [ApiDiffType.ENUM_MEMBER_VALUE_CHANGE, 'API修改（原型修改）'],
+  [ApiDiffType.ADD, 'API新增'],
+  [ApiDiffType.REDUCE, 'API删除'],
+  [ApiDiffType.DELETE_DECORATOR, 'API修改（约束变化）'],
+  [ApiDiffType.NEW_DECORATOR, 'API修改（约束变化）'],
+  [ApiDiffType.SINCE_VERSION_A_TO_B, 'API修改（约束变化）'],
+  [ApiDiffType.SINCE_VERSION_HAVE_TO_NA, 'API修改（约束变化）'],
+  [ApiDiffType.SINCE_VERSION_NA_TO_HAVE, 'API修改（约束变化）'],
+  [ApiDiffType.KIT_CHANGE, '非API变更'],
+]);
+
+/**
+ * 非兼容性变更类型
+ */
 export const incompatibleApiDiffTypes: Set<ApiDiffType> = new Set([
   ApiDiffType.PUBLIC_TO_SYSTEM,
   ApiDiffType.NA_TO_STAGE,
@@ -689,6 +909,7 @@ export const incompatibleApiDiffTypes: Set<ApiDiffType> = new Set([
   ApiDiffType.FUNCTION_PARAM_TYPE_CHANGE,
   ApiDiffType.FUNCTION_PARAM_TYPE_REDUCE,
   ApiDiffType.FUNCTION_PARAM_CHANGE,
+  ApiDiffType.FUNCTION_CHANGES,
   ApiDiffType.PROPERTY_READONLY_TO_REQUIRED,
   ApiDiffType.PROPERTY_WRITABLE_TO_UNREQUIRED,
   ApiDiffType.PROPERTY_WRITABLE_TO_REQUIRED,
@@ -712,3 +933,9 @@ export const incompatibleApiDiffTypes: Set<ApiDiffType> = new Set([
   ApiDiffType.ATOMIC_SERVICE_HAVE_TO_NA,
   ApiDiffType.DELETE_DECORATOR,
 ]);
+
+export const isNotApiSet: Set<string> = new Set([
+  ApiType.NAMESPACE,
+  ApiType.ENUM,
+  ApiType.SOURCE_FILE,
+])

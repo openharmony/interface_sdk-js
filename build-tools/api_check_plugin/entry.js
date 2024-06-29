@@ -34,7 +34,7 @@ function checkEntry(prId) {
           timeout: 120000,
         });
         execute = true;
-      } catch (error) {}
+      } catch (error) { }
     } while (++i < MAX_TIMES && !execute);
     if (!execute) {
       throw 'npm install timeout';
@@ -60,7 +60,8 @@ function checkEntry(prId) {
         const filePath = newToolResultInfo.buggyFilePath;
         const apiIndex = filePath.indexOf('api');
         const arktsIndex = filePath.indexOf('arkts');
-        newToolResultInfo.buggyFilePath = filePath.slice(apiIndex !== -1 ? apiIndex : arktsIndex, filePath.length);
+        newToolResultInfo.buggyFilePath = filePath.slice(apiIndex !== -1 ? apiIndex : arktsIndex !== -1 ? arktsIndex : 0, filePath.length);
+        newToolResult.push('filePath==', filePath, 'apiIndex=', apiIndex, 'arktsIndex==', arktsIndex, 'buggyFilePath==', newToolResultInfo.buggyFilePath);
         newToolResult.push(newToolResultInfo);
       });
       newToolResult.push('api_check: false');

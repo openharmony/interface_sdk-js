@@ -96,6 +96,7 @@ export class Parser {
     }
     const sourceFileInfo: ApiInfo = new ApiInfo(ApiType.SOURCE_FILE, sourceFile, undefined);
     sourceFileInfo.setFilePath(relFilePath);
+    sourceFileInfo.setFileAbsolutePath(filePath);
     sourceFileInfo.setApiName(relFilePath);
     sourceFileInfo.setIsStruct(filePath.endsWith(StringConstant.ETS_EXTENSION));
     const currentApiMap: FileInfoMap = new Map();

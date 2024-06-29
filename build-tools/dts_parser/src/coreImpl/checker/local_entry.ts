@@ -34,6 +34,7 @@ export class LocalEntry {
       LogUtil.e('API_CHECK_ERROR', error);
     } finally {
       GenerateFile.writeFile(apiCheckResult, output, {});
+      
       if (excel === 'true') {
         GenerateFile.writeExcelFile(apiCheckResult);
       }

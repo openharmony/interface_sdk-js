@@ -116,7 +116,7 @@ declare namespace batteryStats {
    *
    * @returns { Promise<Array<BatteryStatsInfo>> } Power consumption information list.
    * @throws { BusinessError } 202 - If the system permission is denied.
-   * @throws { BusinessError } 4600101 - If connecting to the service failed.
+   * @throws { BusinessError } 4600101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.BatteryStatistics
    * @systemapi
    * @since 8
@@ -130,7 +130,7 @@ declare namespace batteryStats {
    * AsyncCallback encapsulates an interface of BatteryStatsInfo type.
    * @throws { BusinessError } 202 - If the system permission is denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
-   * @throws { BusinessError } 4600101 - If connecting to the service failed.
+   * @throws { BusinessError } 4600101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.BatteryStatistics
    * @systemapi
    * @since 8
@@ -143,7 +143,7 @@ declare namespace batteryStats {
    * @param { number } uid Indicates the uid.
    * @returns { number } Power consumption information(mAh).
    * @throws { BusinessError } 202 - If the system permission is denied.
-   * @throws { BusinessError } 4600101 - If connecting to the service failed.
+   * @throws { BusinessError } 4600101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.BatteryStatistics
    * @systemapi
    * @since 8
@@ -156,7 +156,7 @@ declare namespace batteryStats {
    * @param { number } uid Indicates the uid.
    * @returns { number } Power consumption information(Percent).
    * @throws { BusinessError } 202 - If the system permission is denied.
-   * @throws { BusinessError } 4600101 - If connecting to the service failed.
+   * @throws { BusinessError } 4600101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.BatteryStatistics
    * @systemapi
    * @since 8
@@ -171,7 +171,7 @@ declare namespace batteryStats {
    * @returns { number } Power consumption information(mAh).
    * @throws { BusinessError } 202 - If the system permission is denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
-   * @throws { BusinessError } 4600101 - If connecting to the service failed.
+   * @throws { BusinessError } 4600101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.BatteryStatistics
    * @systemapi
    * @since 8
@@ -186,7 +186,7 @@ declare namespace batteryStats {
    * @returns { number } Power consumption information(Percent).
    * @throws { BusinessError } 202 - If the system permission is denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
-   * @throws { BusinessError } 4600101 - If connecting to the service failed.
+   * @throws { BusinessError } 4600101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.BatteryStatistics
    * @systemapi
    * @since 8

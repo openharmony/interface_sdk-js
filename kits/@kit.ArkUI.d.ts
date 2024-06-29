@@ -70,14 +70,14 @@ import { DrawableDescriptor, LayeredDrawableDescriptor } from '@ohos.arkui.drawa
 import inspector from '@ohos.arkui.inspector';
 import {
   NodeRenderType, RenderOptions, BuilderNode, NodeController, FrameNode, DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation,
-  Frame, RenderNode, XComponentNode, LengthMetrics, LengthMetricsUnit, LengthUnit, LayoutConstraint, ComponentContent, NodeContent, Content
+  Frame, RenderNode, XComponentNode, LengthMetrics, LengthMetricsUnit, LengthUnit, LayoutConstraint, ComponentContent, NodeContent, Content, typeNode
 } from '@ohos.arkui.node';
 import uiObserver from '@ohos.arkui.observer';
 import performanceMonitor from '@ohos.arkui.performanceMonitor';
 import { RectShape, CircleShape, EllipseShape, PathShape } from '@ohos.arkui.shape';
 import {
   AtomicServiceBar, ComponentUtils, ContextMenuController, CursorController, DragController, Font, KeyboardAvoidMode, MediaQuery, OverlayManager, PromptAction, Router,
-  UIContext, UIInspector, UIObserver, PageInfo, SwiperDynamicSyncScene, SwiperDynamicSyncSceneType, MeasureUtils
+  UIContext, UIInspector, UIObserver, PageInfo, SwiperDynamicSyncScene, SwiperDynamicSyncSceneType, FrameCallback, MeasureUtils
 } from '@ohos.arkui.UIContext';
 import curves from '@ohos.curves';
 import dragInteraction from '@ohos.deviceStatus.dragInteraction';
@@ -133,7 +133,7 @@ export {
   DrawableDescriptor, DrawContext, EditableLeftIconType, EditableTitleBar, EditableTitleBarItem,
   EditableTitleBarOptions, EditableTitleBarMenuItem, EditorEventInfo,
   EditorMenuOptions, EllipseShape, EnableAlertBeforeBackPageOptions, ExceptionPrompt, ExpandedMenuOptions, Filter, FilterParams, FilterResult,
-  FilterType, Font, FormMenuItemStyle, Frame, FrameNode, GridObjectSortComponent, GridObjectSortComponentItem, GridObjectSortComponentOptions,
+  FilterType, Font, FormMenuItemStyle, Frame, FrameCallback, FrameNode, GridObjectSortComponent, GridObjectSortComponentItem, GridObjectSortComponentOptions,
   GridObjectSortComponentType, IconCommonOptions, IconType, ItemState, KeyboardAvoidMode, LabelMarginOptions,
   LabelOptions, LayeredDrawableDescriptor, LoadingDialog, LocaleResponse, MarginType, Matrix4, MeasureOptions, MeasureText,
   MediaQuery, MediaQueryEvent, MediaQueryList, NodeController, NodeParam, NodeRenderType, Offset, OperateButton, OperateCheck, OperateIcon,
@@ -153,7 +153,6 @@ export {
   SymbolGlyphModifier, Colors, CustomColors, Theme, ThemeControl, CustomTheme, ChipSymbolGlyphOptions,
   ExtraRegionPosition, ExpandedRegionLayoutOptions, HoverModeRegionLayoutOptions, FoldedRegionLayoutOptions, PresetSplitRatio, FoldSplitContainer,
   HoverModeStatus,  OnHoverStatusChangeHandler,
-  AppStorageV2, PersistenceV2, Type,
-  IDataSourcePrefetching, IPrefetcher, BasicPrefetcher, SwiperDynamicSyncScene, SwiperDynamicSyncSceneType, uiExtension, FullScreenLaunchComponent,
-  MeasureUtils
+  AppStorageV2, PersistenceV2, Type, typeNode,
+  IDataSourcePrefetching, IPrefetcher, BasicPrefetcher, SwiperDynamicSyncScene, SwiperDynamicSyncSceneType, uiExtension, FullScreenLaunchComponent, MeasureUtils
 };

@@ -67,6 +67,7 @@ export class BasicApiInfo {
   isJoinType: boolean = false;
   genericInfo: GenericInfo[] = [];
   parentApiType: string | undefined = '';
+  fileAbsolutePath: string = ''; //绝对路径
 
   constructor(apiType: string = '', node: ts.Node, parentApi: BasicApiInfo | undefined) {
     this.node = node;
@@ -74,6 +75,7 @@ export class BasicApiInfo {
     this.setParentApiType(parentApi?.getApiType())
     if (parentApi) {
       this.setFilePath(parentApi.getFilePath());
+      this.setFileAbsolutePath(parentApi.getFileAbsolutePath())
       this.setIsStruct(parentApi.getIsStruct());
     }
     this.setApiType(apiType);
@@ -104,6 +106,14 @@ export class BasicApiInfo {
 
   getFilePath(): string {
     return this.filePath;
+  }
+
+  setFileAbsolutePath(absolutePath: string): void {
+    this.fileAbsolutePath = absolutePath;
+  }
+
+  getFileAbsolutePath(): string {
+    return this.fileAbsolutePath;
   }
 
   setApiType(apiType: string): void {

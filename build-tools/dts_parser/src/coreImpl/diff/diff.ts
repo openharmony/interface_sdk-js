@@ -41,7 +41,7 @@ export class DiffHelper {
    * @param { FilesMap } newSDKApiMap 新版本SDK解析后的结果
    * @returns { BasicDiffInfo[] } 差异结果集
    */
-  static diffSDK(oldSDKApiMap: FilesMap, newSDKApiMap: FilesMap, isCheck?: boolean): BasicDiffInfo[] {
+  static diffSDK(oldSDKApiMap: FilesMap, newSDKApiMap: FilesMap, isAllSheet: boolean, isCheck?: boolean): BasicDiffInfo[] {
     const clonedOldSDKApiMap: FilesMap = _.cloneDeep(oldSDKApiMap);
     const clonedNewSDKApiMap: FilesMap = _.cloneDeep(newSDKApiMap);
     const diffInfos: BasicDiffInfo[] = [];
@@ -67,7 +67,7 @@ export class DiffHelper {
       }
       // 新旧版本均存在，则进行对比
       const newApiInfos: ApiInfo[] = Parser.getApiInfo(apiLocation, clonedNewSDKApiMap) as ApiInfo[];
-      DiffHelper.diffApis(oldApiInfos, newApiInfos, diffInfos, isCheck);
+      DiffHelper.diffApis(oldApiInfos, newApiInfos, diffInfos, isAllSheet, isCheck);
       // 对比完则将新版本中的对应API进行删除
       newSDKApiLocations.delete(key);
     }
@@ -152,7 +152,7 @@ export class DiffHelper {
    * @param { ApiInfo[] } newApiInfos 新版本API信息
    * @param { BasicDiffInfo[] } diffInfos api差异结果集
    */
-  static diffApis(oldApiInfos: ApiInfo[], newApiInfos: ApiInfo[], diffInfos: BasicDiffInfo[], isCheck?: boolean): void {
+  static diffApis(oldApiInfos: ApiInfo[], newApiInfos: ApiInfo[], diffInfos: BasicDiffInfo[], isAllSheet: boolean, isCheck?: boolean): void {
     const diffSets: Map<string, ApiInfo>[] = DiffHelper.getDiffSet(oldApiInfos, newApiInfos);
     const oldReduceNewMap: Map<string, ApiInfo> = diffSets[0];
     const newReduceOldMap: Map<string, ApiInfo> = diffSets[1];
@@ -180,7 +180,58 @@ export class DiffHelper {
       });
       return;
     }
-    DiffHelper.diffSameNumberFunction(oldApiInfos, newApiInfos, diffInfos, isCheck);
+
+    if (isAllSheet) {
+      DiffHelper.diffSameFunction(oldApiInfos, newApiInfos, diffInfos, isAllSheet, isCheck);
+    } else {
+      DiffHelper.diffSameNumberFunction(oldApiInfos, newApiInfos, diffInfos, isCheck);
+    }
+    
+  }
+
+  /**
+   * 比较同名函数，定制比较
+   * @param oldApiInfos 
+   * @param newApiInfos 
+   * @param diffInfos 
+   * @param isCheck 
+   */
+  static diffSameFunction(
+    oldApiInfos: ApiInfo[],
+    newApiInfos: ApiInfo[],
+    diffInfos: BasicDiffInfo[],
+    isAllSheet: boolean,
+    isCheck?: boolean
+  ): void {
+    const isAllDeprecated: boolean =  DiffHelper.judgeIsAllDeprecated(newApiInfos);
+    if (oldApiInfos.length === newApiInfos.length) {  
+      const apiNumber: number = oldApiInfos.length;
+      for (let i = 0; i < apiNumber; i++) {
+        DiffProcessorHelper.JsDocDiffHelper.diffJsDocInfo(oldApiInfos[i], newApiInfos[i], diffInfos, isAllDeprecated, isAllSheet);
+        DiffProcessorHelper.ApiDecoratorsDiffHelper.diffDecorator(oldApiInfos[i], newApiInfos[i], diffInfos);
+        DiffProcessorHelper.ApiNodeDiffHelper.diffNodeInfo(oldApiInfos[i], newApiInfos[i], diffInfos, isCheck);
+      }
+    } else {
+      const newMethodInfoMap: Map<string, ApiInfo> = DiffHelper.setmethodInfoMap(newApiInfos);
+      const oldMethodInfoMap: Map<string, ApiInfo> = DiffHelper.setmethodInfoMap(oldApiInfos);
+      oldApiInfos.forEach((oldApiInfo: ApiInfo) => {
+        const newApiInfo: ApiInfo | undefined = newMethodInfoMap.get(oldApiInfo.getDefinedText());
+        if (newApiInfo) {
+          DiffProcessorHelper.JsDocDiffHelper.diffJsDocInfo(oldApiInfo, newApiInfo, diffInfos, isAllDeprecated);
+          DiffProcessorHelper.ApiDecoratorsDiffHelper.diffDecorator(oldApiInfo, newApiInfo, diffInfos);
+          newMethodInfoMap.delete(oldApiInfo.getDefinedText());
+          oldMethodInfoMap.delete(oldApiInfo.getDefinedText());
+        }
+      });
+      const oldApiDefinedText = this.joinApiText(oldMethodInfoMap);
+      const newApiDefinedText = this.joinApiText(newMethodInfoMap);
+      const diffTypeInfo: DiffTypeInfo = new DiffTypeInfo();
+      diffTypeInfo
+        .setOldMessage(oldApiDefinedText)
+        .setNewMessage(newApiDefinedText)
+        .setDiffType(ApiDiffType.FUNCTION_CHANGES);
+      diffInfos.push(DiffProcessorHelper.wrapDiffInfo(oldApiInfos[0], newApiInfos[0], diffTypeInfo));
+    }
   }
 
   static diffSameNumberFunction(
@@ -227,6 +278,55 @@ export class DiffHelper {
     }
   }
 
+  static judgeIsAllDeprecated(apiInfos: ApiInfo[]): boolean {
+    let isAllDeprecated: boolean = true;
+    apiInfos.forEach((apiInfo: ApiInfo)=>{
+      const deprecatedVersion = apiInfo.getLastJsDocInfo()?.getDeprecatedVersion();
+      if (deprecatedVersion === '-1' || !deprecatedVersion) {
+        isAllDeprecated = false;
+      }
+    });
+    return isAllDeprecated;
+  }
+
+  static handleDeprecatedVersion(apiInfos: ApiInfo[]) {
+    let isAllDeprecated: boolean = true;
+    apiInfos.forEach((apiInfo: ApiInfo)=>{
+      const deprecatedVersion = apiInfo.getLastJsDocInfo()?.getDeprecatedVersion();
+      if (deprecatedVersion === '-1' || !deprecatedVersion) {
+        isAllDeprecated = false;
+      }
+    });
+    if (isAllDeprecated) {
+      return;
+    }
+    apiInfos.forEach((apiInfo: ApiInfo)=>{
+      apiInfo.getLastJsDocInfo()?.setDeprecatedVersion('-1');
+    })
+  }
+
+
+  /**
+   * 拼接同名函数的API声明
+   * 
+   * @param methodInfoMap 
+   * @returns 
+   */
+  static joinApiText(methodInfoMap: Map<string, ApiInfo>): string {
+    let allApiText: string = '';
+    const apiTextArr: string[] = [];
+    for (const apiText of methodInfoMap.keys()) {
+      apiTextArr.push(apiText);
+    }
+    return apiTextArr.join(' #&# ');
+  }
+
+  /**
+   * 生成map，key为API声明，value为API信息
+   *
+   * @param apiInfos
+   * @returns
+   */
   static setmethodInfoMap(apiInfos: ApiInfo[]): Map<string, ApiInfo> {
     const methodInfoMap: Map<string, ApiInfo> = new Map();
     apiInfos.forEach((apiInfo: ApiInfo) => {
@@ -235,6 +335,13 @@ export class DiffHelper {
     return methodInfoMap;
   }
 
+  /**
+   * 删除新旧版本里所有信息一样的API
+   *
+   * @param oldApiInfos
+   * @param newApiInfos
+   * @returns
+   */
   static getDiffSet(oldApiInfos: ApiInfo[], newApiInfos: ApiInfo[]): Map<string, ApiInfo>[] {
     const oldApiInfoMap: Map<string, ApiInfo> = new Map();
     const newApiInfoMap: Map<string, ApiInfo> = new Map();
@@ -353,7 +460,7 @@ export class DiffHelper {
       if (/\@[S|s][Y|y][S|s][C|c][A|a][P|p]\s*((\w|\.|\/|\{|\@|\}|\s)+)/g.test(sourceFileContent)) {
         sourceFileContent.replace(
           /\@[S|s][Y|y][S|s][C|c][A|a][P|p]\s*((\w|\.|\/|\{|\@|\}|\s)+)/g,
-          (sysCapInfo: string, args:[]) => {
+          (sysCapInfo: string, args: []) => {
             syscap = sysCapInfo.replace(/\@[S|s][Y|y][S|s][C|c][A|a][P|p]/g, '').trim();
             return syscap;
           }
