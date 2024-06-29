@@ -30,6 +30,8 @@ import { DiffProcessorHelper } from './DiffProcessor';
 import { FunctionUtils } from '../../utils/FunctionUtils';
 import { Comment } from '../../typedef/parser/Comment';
 import { notJsDocApiTypes } from '../../typedef/parser/ApiInfoDefination';
+import { StringUtils } from '../../utils/StringUtils';
+import { CommentHelper } from '../parser/JsDocProcessor';
 
 export class DiffHelper {
   /**
@@ -39,7 +41,7 @@ export class DiffHelper {
    * @param { FilesMap } newSDKApiMap 新版本SDK解析后的结果
    * @returns { BasicDiffInfo[] } 差异结果集
    */
-  static diffSDK(oldSDKApiMap: FilesMap, newSDKApiMap: FilesMap, isCheck?: boolean): BasicDiffInfo[] {
+  static diffSDK(oldSDKApiMap: FilesMap, newSDKApiMap: FilesMap, isAllSheet: boolean, isCheck?: boolean): BasicDiffInfo[] {
     const clonedOldSDKApiMap: FilesMap = _.cloneDeep(oldSDKApiMap);
     const clonedNewSDKApiMap: FilesMap = _.cloneDeep(newSDKApiMap);
     const diffInfos: BasicDiffInfo[] = [];
@@ -65,7 +67,7 @@ export class DiffHelper {
       }
       // 新旧版本均存在，则进行对比
       const newApiInfos: ApiInfo[] = Parser.getApiInfo(apiLocation, clonedNewSDKApiMap) as ApiInfo[];
-      DiffHelper.diffApis(oldApiInfos, newApiInfos, diffInfos, isCheck);
+      DiffHelper.diffApis(oldApiInfos, newApiInfos, diffInfos, isAllSheet, isCheck);
       // 对比完则将新版本中的对应API进行删除
       newSDKApiLocations.delete(key);
     }
@@ -150,7 +152,7 @@ export class DiffHelper {
    * @param { ApiInfo[] } newApiInfos 新版本API信息
    * @param { BasicDiffInfo[] } diffInfos api差异结果集
    */
-  static diffApis(oldApiInfos: ApiInfo[], newApiInfos: ApiInfo[], diffInfos: BasicDiffInfo[], isCheck?: boolean): void {
+  static diffApis(oldApiInfos: ApiInfo[], newApiInfos: ApiInfo[], diffInfos: BasicDiffInfo[], isAllSheet: boolean, isCheck?: boolean): void {
     const diffSets: Map<string, ApiInfo>[] = DiffHelper.getDiffSet(oldApiInfos, newApiInfos);
     const oldReduceNewMap: Map<string, ApiInfo> = diffSets[0];
     const newReduceOldMap: Map<string, ApiInfo> = diffSets[1];
@@ -178,7 +180,58 @@ export class DiffHelper {
       });
       return;
     }
-    DiffHelper.diffSameNumberFunction(oldApiInfos, newApiInfos, diffInfos, isCheck);
+
+    if (isAllSheet) {
+      DiffHelper.diffSameFunction(oldApiInfos, newApiInfos, diffInfos, isAllSheet, isCheck);
+    } else {
+      DiffHelper.diffSameNumberFunction(oldApiInfos, newApiInfos, diffInfos, isCheck);
+    }
+    
+  }
+
+  /**
+   * 比较同名函数，定制比较
+   * @param oldApiInfos 
+   * @param newApiInfos 
+   * @param diffInfos 
+   * @param isCheck 
+   */
+  static diffSameFunction(
+    oldApiInfos: ApiInfo[],
+    newApiInfos: ApiInfo[],
+    diffInfos: BasicDiffInfo[],
+    isAllSheet: boolean,
+    isCheck?: boolean
+  ): void {
+    const isAllDeprecated: boolean =  DiffHelper.judgeIsAllDeprecated(newApiInfos);
+    if (oldApiInfos.length === newApiInfos.length) {  
+      const apiNumber: number = oldApiInfos.length;
+      for (let i = 0; i < apiNumber; i++) {
+        DiffProcessorHelper.JsDocDiffHelper.diffJsDocInfo(oldApiInfos[i], newApiInfos[i], diffInfos, isAllDeprecated, isAllSheet);
+        DiffProcessorHelper.ApiDecoratorsDiffHelper.diffDecorator(oldApiInfos[i], newApiInfos[i], diffInfos);
+        DiffProcessorHelper.ApiNodeDiffHelper.diffNodeInfo(oldApiInfos[i], newApiInfos[i], diffInfos, isCheck);
+      }
+    } else {
+      const newMethodInfoMap: Map<string, ApiInfo> = DiffHelper.setmethodInfoMap(newApiInfos);
+      const oldMethodInfoMap: Map<string, ApiInfo> = DiffHelper.setmethodInfoMap(oldApiInfos);
+      oldApiInfos.forEach((oldApiInfo: ApiInfo) => {
+        const newApiInfo: ApiInfo | undefined = newMethodInfoMap.get(oldApiInfo.getDefinedText());
+        if (newApiInfo) {
+          DiffProcessorHelper.JsDocDiffHelper.diffJsDocInfo(oldApiInfo, newApiInfo, diffInfos, isAllDeprecated);
+          DiffProcessorHelper.ApiDecoratorsDiffHelper.diffDecorator(oldApiInfo, newApiInfo, diffInfos);
+          newMethodInfoMap.delete(oldApiInfo.getDefinedText());
+          oldMethodInfoMap.delete(oldApiInfo.getDefinedText());
+        }
+      });
+      const oldApiDefinedText = this.joinApiText(oldMethodInfoMap);
+      const newApiDefinedText = this.joinApiText(newMethodInfoMap);
+      const diffTypeInfo: DiffTypeInfo = new DiffTypeInfo();
+      diffTypeInfo
+        .setOldMessage(oldApiDefinedText)
+        .setNewMessage(newApiDefinedText)
+        .setDiffType(ApiDiffType.FUNCTION_CHANGES);
+      diffInfos.push(DiffProcessorHelper.wrapDiffInfo(oldApiInfos[0], newApiInfos[0], diffTypeInfo));
+    }
   }
 
   static diffSameNumberFunction(
@@ -225,6 +278,55 @@ export class DiffHelper {
     }
   }
 
+  static judgeIsAllDeprecated(apiInfos: ApiInfo[]): boolean {
+    let isAllDeprecated: boolean = true;
+    apiInfos.forEach((apiInfo: ApiInfo)=>{
+      const deprecatedVersion = apiInfo.getLastJsDocInfo()?.getDeprecatedVersion();
+      if (deprecatedVersion === '-1' || !deprecatedVersion) {
+        isAllDeprecated = false;
+      }
+    });
+    return isAllDeprecated;
+  }
+
+  static handleDeprecatedVersion(apiInfos: ApiInfo[]) {
+    let isAllDeprecated: boolean = true;
+    apiInfos.forEach((apiInfo: ApiInfo)=>{
+      const deprecatedVersion = apiInfo.getLastJsDocInfo()?.getDeprecatedVersion();
+      if (deprecatedVersion === '-1' || !deprecatedVersion) {
+        isAllDeprecated = false;
+      }
+    });
+    if (isAllDeprecated) {
+      return;
+    }
+    apiInfos.forEach((apiInfo: ApiInfo)=>{
+      apiInfo.getLastJsDocInfo()?.setDeprecatedVersion('-1');
+    })
+  }
+
+
+  /**
+   * 拼接同名函数的API声明
+   * 
+   * @param methodInfoMap 
+   * @returns 
+   */
+  static joinApiText(methodInfoMap: Map<string, ApiInfo>): string {
+    let allApiText: string = '';
+    const apiTextArr: string[] = [];
+    for (const apiText of methodInfoMap.keys()) {
+      apiTextArr.push(apiText);
+    }
+    return apiTextArr.join(' #&# ');
+  }
+
+  /**
+   * 生成map，key为API声明，value为API信息
+   *
+   * @param apiInfos
+   * @returns
+   */
   static setmethodInfoMap(apiInfos: ApiInfo[]): Map<string, ApiInfo> {
     const methodInfoMap: Map<string, ApiInfo> = new Map();
     apiInfos.forEach((apiInfo: ApiInfo) => {
@@ -233,6 +335,13 @@ export class DiffHelper {
     return methodInfoMap;
   }
 
+  /**
+   * 删除新旧版本里所有信息一样的API
+   *
+   * @param oldApiInfos
+   * @param newApiInfos
+   * @returns
+   */
   static getDiffSet(oldApiInfos: ApiInfo[], newApiInfos: ApiInfo[]): Map<string, ApiInfo>[] {
     const oldApiInfoMap: Map<string, ApiInfo> = new Map();
     const newApiInfoMap: Map<string, ApiInfo> = new Map();
@@ -263,13 +372,14 @@ export class DiffHelper {
   static getApiLocations(apiMap: FilesMap, isCheck?: boolean): Map<string, string[]> {
     const apiLocations: Map<string, string[]> = new Map();
     for (const filePath of apiMap.keys()) {
+      const index: number = 0;
       const fileMap: FileInfoMap = apiMap.get(filePath) as FileInfoMap;
-      DiffHelper.processFileApiMap(fileMap, apiLocations, isCheck);
+      DiffHelper.processFileApiMap(fileMap, apiLocations, index, isCheck);
     }
     return apiLocations;
   }
 
-  static processFileApiMap(fileMap: FileInfoMap, apiLocations: Map<string, string[]>, isCheck?: boolean): void {
+  static processFileApiMap(fileMap: FileInfoMap, apiLocations: Map<string, string[]>, index: number, isCheck?: boolean): void {
     for (const apiKey of fileMap.keys()) {
       if (apiKey === StringConstant.SELF) {
         continue;
@@ -277,18 +387,48 @@ export class DiffHelper {
       const apiInfoMap: ApiInfosMap = fileMap.get(apiKey) as ApiInfosMap;
       const apiInfos: BasicApiInfo[] = apiInfoMap.get(StringConstant.SELF) as BasicApiInfo[];
       apiInfos.forEach((apiInfo: BasicApiInfo) => {
-        DiffHelper.processApiInfo(apiInfo, apiLocations, isCheck);
+        DiffHelper.processApiInfo(apiInfo, apiLocations, index, isCheck);
+        index++;
       });
     }
   }
 
-  static processApiInfo(basicApiInfo: BasicApiInfo, apiLocations: Map<string, string[]>, isCheck?: boolean): void {
+  /**
+   * 删除最外层第一个API的jsdocText中，版权头和kit相关jsdoc
+   * 
+   * @param apiInfo 
+   * @returns 
+   */
+  static deleteUselessJsdoc(apiInfo: BasicApiInfo): string {
+    const jsdocTextArr: string[] = apiInfo.getJsDocText().split('*/');
+    const clonedJsdocTextArr: string[] = jsdocTextArr;
+    if (clonedJsdocTextArr[1] && StringUtils.hasSubstring(clonedJsdocTextArr[1], CommentHelper.fileJsDoc)) {
+      jsdocTextArr.splice(1,1);
+    }
+
+    if (clonedJsdocTextArr[0] && StringUtils.hasSubstring(clonedJsdocTextArr[0], CommentHelper.fileJsDoc)) {
+      jsdocTextArr.splice(0,1);
+    }
+
+    if (clonedJsdocTextArr[0] && StringUtils.hasSubstring(clonedJsdocTextArr[0], CommentHelper.licenseKeyword)) {
+      jsdocTextArr.splice(0,1);
+    }
+
+    return jsdocTextArr.join('*/');
+  }
+
+  static processApiInfo(basicApiInfo: BasicApiInfo, apiLocations: Map<string, string[]>, index: number, isCheck?: boolean): void {
     const apiNode: ts.Node | undefined = basicApiInfo.getNode();
     if (isCheck) {
       const jsDocText: string | undefined = apiNode?.getFullText().replace(apiNode.getText(), '');
       if (jsDocText) {
         basicApiInfo.setJsDocText(jsDocText);
       }
+    }
+
+    if (index === 0 && basicApiInfo.getParentApiType() === ApiType.SOURCE_FILE) {
+      const jsDocText: string = DiffHelper.deleteUselessJsdoc(basicApiInfo);
+      basicApiInfo.setJsDocText(jsDocText);
     }
 
     basicApiInfo.setSyscap(DiffHelper.getSyscapField(basicApiInfo));
@@ -309,7 +449,7 @@ export class DiffHelper {
     }
     const containerApiInfo: ContainerApiInfo = apiInfo as ContainerApiInfo;
     containerApiInfo.getChildApis().forEach((childApiInfo: BasicApiInfo) => {
-      DiffHelper.processApiInfo(childApiInfo, apiLocations, isCheck);
+      DiffHelper.processApiInfo(childApiInfo, apiLocations, 1, isCheck);
     });
   }
 
@@ -320,7 +460,7 @@ export class DiffHelper {
       if (/\@[S|s][Y|y][S|s][C|c][A|a][P|p]\s*((\w|\.|\/|\{|\@|\}|\s)+)/g.test(sourceFileContent)) {
         sourceFileContent.replace(
           /\@[S|s][Y|y][S|s][C|c][A|a][P|p]\s*((\w|\.|\/|\{|\@|\}|\s)+)/g,
-          (sysCapInfo: string, args:[]) => {
+          (sysCapInfo: string, args: []) => {
             syscap = sysCapInfo.replace(/\@[S|s][Y|y][S|s][C|c][A|a][P|p]/g, '').trim();
             return syscap;
           }

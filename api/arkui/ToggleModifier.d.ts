@@ -13,8 +13,13 @@
  * limitations under the License.
  */
 
-/// <reference path="../../component/common.d.ts" />
-/// <reference path="../../component/toggle.d.ts" />
+/**
+ * @file
+ * @kit ArkUI
+ */
+
+
+
 
 /**
  * Defines Toggle Modifier

@@ -13,8 +13,13 @@
  * limitations under the License.
  */
 
-/// <reference path="../../component/common.d.ts" />
-/// <reference path="../../component/search.d.ts" />
+/**
+ * @file
+ * @kit ArkUI
+ */
+
+
+
 
 /**
  * Defines Search Modifier

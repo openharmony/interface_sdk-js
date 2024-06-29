@@ -20,6 +20,7 @@
 
 import type { Callback } from './@ohos.base';
 import type UIAbilityContext from './application/UIAbilityContext';
+import type { NavigationOperation, NavBar } from '../component/navigation';
 
 /**
  * Register callbacks to observe ArkUI behavior.
@@ -28,6 +29,15 @@ import type UIAbilityContext from './application/UIAbilityContext';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
+ */
+/**
+ * Register callbacks to observe ArkUI behavior.
+ *
+ * @namespace uiObserver
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
  */
 declare namespace uiObserver {
   /**
@@ -39,26 +49,131 @@ declare namespace uiObserver {
    * @since 11
    * @form
    */
+  /**
+   * NavDestination state.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
   export enum NavDestinationState {
     /**
-     * When the NavDestination show.
+     * When the NavDestination is displayed.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
+     * @form
+     */
+    /**
+     * When the NavDestination is displayed.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      * @form
      */
     ON_SHOWN = 0,
 
     /**
-     * When the NavDestination hidden.
+     * When the NavDestination is hidden.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
      * @form
      */
-    ON_HIDDEN = 1
+    /**
+     * When the NavDestination is hidden.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     * @form
+     */
+    ON_HIDDEN = 1,
+
+    /**
+     * When the NavDestination appear.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     * @form
+     */
+    ON_APPEAR = 2,
+
+    /**
+     * When the NavDestination disappear.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     * @form
+     */
+    ON_DISAPPEAR = 3,
+
+    /**
+     * Before the NavDestination is displayed.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
+     */
+    ON_WILL_SHOW = 4,
+
+    /**
+     * Before the NavDestination is hidden.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
+     */
+    ON_WILL_HIDE = 5,
+
+    /**
+     * Before the NavDestination is appeared.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
+     */
+    ON_WILL_APPEAR = 6,
+
+    /**
+     * Before the NavDestination is disappeared.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
+     */
+    ON_WILL_DISAPPEAR = 7,
+
+    /**
+     * When back press event happened in NavDestination.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     * @form
+     */
+    ON_BACKPRESS = 100
   }
 
   /**
@@ -69,6 +184,15 @@ declare namespace uiObserver {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Router page state.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   export enum RouterPageState {
     /**
      * When the router page create.
@@ -76,6 +200,14 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
+     */
+    /**
+     * When the router page create.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     ABOUT_TO_APPEAR = 0,
 
@@ -86,6 +218,14 @@ declare namespace uiObserver {
      * @crossplatform
      * @since 11
      */
+    /**
+     * When the router page destroy.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     ABOUT_TO_DISAPPEAR = 1,
 
     /**
@@ -94,6 +234,14 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
+     */
+    /**
+     * When the router page show.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     ON_PAGE_SHOW = 2,
 
@@ -104,6 +252,14 @@ declare namespace uiObserver {
      * @crossplatform
      * @since 11
      */
+    /**
+     * When the router page hide.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     ON_PAGE_HIDE = 3,
 
     /**
@@ -112,6 +268,14 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
+     */
+    /**
+     * When back press event happened in the router page.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     ON_BACK_PRESS = 4
   }
@@ -122,6 +286,7 @@ declare namespace uiObserver {
    * @enum { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
     export enum ScrollEventType {
@@ -130,6 +295,7 @@ declare namespace uiObserver {
        *
        * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @crossplatform
+       * @atomicservice
        * @since 12
        */
       SCROLL_START = 0,
@@ -139,10 +305,42 @@ declare namespace uiObserver {
        *
        * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @crossplatform
+       * @atomicservice
        * @since 12
        */
       SCROLL_STOP = 1
     }
+
+  /**
+   * TabContent state.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  export enum TabContentState {
+    /**
+     * When the TabContent hidden.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    ON_SHOW = 0,
+
+    /**
+     * When the TabContent hidden.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    ON_HIDE = 1
+  }
 
   /**
    * NavDestination info.
@@ -152,6 +350,15 @@ declare namespace uiObserver {
    * @crossplatform
    * @since 11
    */
+  /**
+   * NavDestination info.
+   *
+   * @interface NavDestinationInfo
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   export interface NavDestinationInfo {
     /**
      * Navigation id.
@@ -160,6 +367,15 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Navigation id.
+     *
+     * @type { ResourceStr }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     navigationId: ResourceStr,
 
@@ -171,6 +387,15 @@ declare namespace uiObserver {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Changed NavDestination name.
+     *
+     * @type { ResourceStr }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     name: ResourceStr,
 
     /**
@@ -181,7 +406,82 @@ declare namespace uiObserver {
      * @crossplatform
      * @since 11
      */
-    state: NavDestinationState
+    /**
+     * Changed NavDestination state.
+     *
+     * @type { NavDestinationState }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    state: NavDestinationState,
+
+    /**
+     * NavDestination index.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    index: number;
+
+    /**
+     * The detailed parameter of NavDestination.
+     *
+     * @type { ?Object }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    param?: Object;
+
+    /**
+     * Auto-generated navDestination id, which is different from common property id of Component.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    navDestinationId: string;
+  }
+
+  /**
+   * Navigation info.
+   * 
+   * @interface NavigationInfo
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  export interface NavigationInfo {
+    /**
+     * Navigation id.
+     * 
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    navigationId: string;
+    
+    /**
+     * Navigation path stack.
+     * 
+     * @type { NavPathStack }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    pathStack: NavPathStack;
   }
 
   /**
@@ -190,6 +490,7 @@ declare namespace uiObserver {
    * @interface ScrollEventInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   export interface ScrollEventInfo {
@@ -199,9 +500,21 @@ declare namespace uiObserver {
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     id: string,
+
+    /**
+     * The uniqueId of the scrollable component.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    uniqueId: number,
 
     /**
      * Changed ScrollEvent type.
@@ -209,6 +522,7 @@ declare namespace uiObserver {
      * @type { ScrollEventType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     scrollEvent: ScrollEventType,
@@ -219,19 +533,98 @@ declare namespace uiObserver {
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     offset: number
   }
 
-    /**
-   * observer options.
+  /**
+   * TabContent info.
    *
-   * @interface ObserverOptions
+   * @typedef TabContentInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
+  export interface TabContentInfo {
+    /**
+     * TabContent id.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    tabContentId: string,
+
+    /**
+     * TabContent uniqueId.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    tabContentUniqueId: number,
+
+    /**
+     * The state of TabContent.
+     *
+     * @type { TabContentState }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    state: TabContentState,
+
+    /**
+     * The index of TabContent in Tabs.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    index: number,
+
+    /**
+     * Tabs id.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    id: string,
+
+    /**
+     * Tabs uniqueId.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    uniqueId: number
+  }
+
+    /**
+     * observer options.
+     *
+     * @interface ObserverOptions
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     export interface ObserverOptions {
       /**
        * component id.
@@ -239,6 +632,7 @@ declare namespace uiObserver {
        * @type { string }
        * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @crossplatform
+       * @atomicservice
        * @since 12
        */
       id: string
@@ -251,6 +645,14 @@ declare namespace uiObserver {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Router page info.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   export class RouterPageInfo {
     /**
      * The context of the changed router page.
@@ -259,6 +661,15 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
+     */
+    /**
+     * The context of the changed router page.
+     *
+     * @type { UIAbilityContext | UIContext }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     context: UIAbilityContext | UIContext;
 
@@ -270,6 +681,15 @@ declare namespace uiObserver {
      * @crossplatform
      * @since 11
      */
+    /**
+     * The index of the changed router page in router stack.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     index: number;
 
     /**
@@ -279,6 +699,15 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
+     */
+    /**
+     * The name of the changed router page.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     name: string;
 
@@ -290,6 +719,15 @@ declare namespace uiObserver {
      * @crossplatform
      * @since 11
      */
+    /**
+     * The path of the changed router page.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     path: string;
 
     /**
@@ -300,7 +738,27 @@ declare namespace uiObserver {
      * @crossplatform
      * @since 11
      */
+    /**
+     * The state of the changed router page.
+     *
+     * @type { RouterPageState }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     state: RouterPageState;
+
+    /**
+     * The unique identifier of the router page.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+     pageId: string;
   }
 
   /**
@@ -308,6 +766,7 @@ declare namespace uiObserver {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   export class DensityInfo {
@@ -317,6 +776,7 @@ declare namespace uiObserver {
      * @type { UIContext }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     context: UIContext;
@@ -327,9 +787,87 @@ declare namespace uiObserver {
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     density: number;
+  }
+
+  /**
+   * NavDestination switch info
+   *
+   * @interface NavDestinationSwitchInfo
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  export interface NavDestinationSwitchInfo {
+    /**
+     * The context of the navigation operation.
+     *
+     * @type { UIAbilityContext | UIContext }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    context: UIAbilityContext | UIContext;
+
+    /**
+     * From navigation content info.
+     *
+     * @type { NavDestinationInfo | NavBar }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    from: NavDestinationInfo | NavBar;
+
+    /**
+     * To navigation content info.
+     *
+     * @type { NavDestinationInfo | NavBar }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    to: NavDestinationInfo | NavBar;
+
+    /**
+     * The operation type.
+     *
+     * @type { NavigationOperation }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    operation: NavigationOperation;
+  }
+
+  /**
+   * Indicates the options of NavDestination switch.
+   *
+   * @interface NavDestinationSwitchObserverOptions
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  export interface NavDestinationSwitchObserverOptions {
+    /**
+     * The navigationId that need observation
+     *
+     * @type { ResourceStr }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    navigationId: ResourceStr;
   }
 
   /**
@@ -341,6 +879,17 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Registers a callback function to be called when the navigation destination is updated.
+   *
+   * @param { 'navDestinationUpdate' } type - The type of event to listen for. Must be 'navDestinationUpdate'.
+   * @param { object } options - The options object.
+   * @param { Callback<NavDestinationInfo> } callback - The callback function to be called when the navigation destination is updated.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   export function on(type: 'navDestinationUpdate', options: { navigationId: ResourceStr }, callback: Callback<NavDestinationInfo>): void;
 
@@ -355,6 +904,18 @@ declare namespace uiObserver {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'navDestinationUpdate' } type - The type of event to remove the listener for. Must be 'navDestinationUpdate'.
+   * @param { object } options - The options object.
+   * @param { Callback<NavDestinationInfo> } callback - The callback function to remove. If not provided, all callbacks for the given event type and
+   *                                                    navigation ID will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   export function off(type: 'navDestinationUpdate', options: { navigationId: ResourceStr }, callback?: Callback<NavDestinationInfo>): void;
 
   /**
@@ -365,6 +926,16 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Registers a callback function to be called when the navigation destination is updated.
+   *
+   * @param { 'navDestinationUpdate' } type - The type of event to listen for. Must be 'navDestinationUpdate'.
+   * @param { Callback<NavDestinationInfo> } callback - The callback function to be called when the navigation destination is updated.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   export function on(type: 'navDestinationUpdate', callback: Callback<NavDestinationInfo>): void;
 
@@ -378,6 +949,17 @@ declare namespace uiObserver {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'navDestinationUpdate'} type - The type of event to remove the listener for. Must be 'navDestinationUpdate'.
+   * @param { Callback<NavDestinationInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+   *                                                      will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   export function off(type: 'navDestinationUpdate', callback?: Callback<NavDestinationInfo>): void;
 
   /**
@@ -388,6 +970,7 @@ declare namespace uiObserver {
    * @param { Callback<ScrollEventInfo> } callback - The callback function to be called when the scroll event start or stop.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   export function on(type: 'scrollEvent', options: ObserverOptions, callback: Callback<ScrollEventInfo>): void;
@@ -401,6 +984,7 @@ declare namespace uiObserver {
    *                                                    scroll ID will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   export function off(type: 'scrollEvent', options: ObserverOptions, callback?: Callback<ScrollEventInfo>): void;
@@ -412,6 +996,7 @@ declare namespace uiObserver {
    * @param { Callback<ScrollEventInfo> } callback - The callback function to be called when the scroll event start or stop.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   export function on(type: 'scrollEvent', callback: Callback<ScrollEventInfo>): void;
@@ -424,6 +1009,7 @@ declare namespace uiObserver {
    *                                                      will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   export function off(type: 'scrollEvent', callback?: Callback<ScrollEventInfo>): void;
@@ -438,6 +1024,17 @@ declare namespace uiObserver {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Registers a callback function to be called when the router page is updated.
+   *
+   * @param { 'routerPageUpdate' } type - The type of event to listen for. Must be 'routerPageUpdate'.
+   * @param { UIAbilityContext | UIContext } context - The context scope of the observer.
+   * @param { Callback<RouterPageInfo> } callback - The callback function to be called when the router page is updated.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   export function on(type: 'routerPageUpdate', context: UIAbilityContext | UIContext, callback: Callback<RouterPageInfo>): void;
 
   /**
@@ -451,6 +1048,18 @@ declare namespace uiObserver {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'routerPageUpdate' } type - The type of event to remove the listener for. Must be 'routerPageUpdate'.
+   * @param { UIAbilityContext | UIContext } context - The context scope of the observer.
+   * @param { Callback<RouterPageInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+   *                                                               will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   export function off(type: 'routerPageUpdate', context: UIAbilityContext | UIContext, callback?: Callback<RouterPageInfo>): void;
 
   /**
@@ -458,9 +1067,10 @@ declare namespace uiObserver {
    *
    * @param { 'densityUpdate' } type - The type of event to listen for. Must be 'densityUpdate'.
    * @param { UIContext } context - The context scope of the observer.
-   * @param { Callback<DensityInfo> } callback - The callback function to be called when the router page is updated.
+   * @param { Callback<DensityInfo> } callback - The callback function to be called when the screen density is updated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   export function on(type: 'densityUpdate', context: UIContext, callback: Callback<DensityInfo>): void;
@@ -474,9 +1084,190 @@ declare namespace uiObserver {
    *                                               will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   export function off(type: 'densityUpdate', context: UIContext, callback?: Callback<DensityInfo>): void;
+
+  /**
+   * Registers a callback function to be called when the draw command will be drawn.
+   *
+   * @param { 'willDraw' } type - The type of event to listen for. Must be 'willDraw'.
+   * @param { UIContext } context - The context scope of the observer.
+   * @param { Callback<void> } callback - The callback function to be called when the draw command will be drawn.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  export function on(type: 'willDraw', context: UIContext, callback: Callback<void>): void;
+
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'willDraw' } type - The type of event to remove the listener for. Must be 'willDraw'.
+   * @param { UIContext } context - The context scope of the observer.
+   * @param { Callback<void> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+   *                                               will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  export function off(type: 'willDraw', context: UIContext, callback?: Callback<void>): void;
+
+  /**
+   * Registers a callback function to be called when the layout is done.
+   *
+   * @param { 'didLayout' } type - The type of event to listen for. Must be 'didLayout'.
+   * @param { UIContext } context - The context scope of the observer.
+   * @param { Callback<void> } callback - The callback function to be called when the layout is done.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  export function on(type: 'didLayout', context: UIContext, callback: Callback<void>): void;
+
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'didLayout' } type - The type of event to remove the listener for. Must be 'didLayout'.
+   * @param { UIContext } context - The context scope of the observer.
+   * @param { Callback<void> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+   *                                               will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  export function off(type: 'didLayout', context: UIContext, callback?: Callback<void>): void;
+
+  /**
+   * Registers a callback function to be called when the tabContent is showed or hidden.
+   *
+   * @param { 'tabContentUpdate' } type - The type of event to listen for. Must be 'tabContentUpdate'.
+   * @param { ObserverOptions } options - The options object.
+   * @param { Callback<TabContentInfo> } callback - The callback function to be called when when the tabContent is showed or hidden.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  export function on(type: 'tabContentUpdate', options: ObserverOptions, callback: Callback<TabContentInfo>): void;
+
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'tabContentUpdate' } type - The type of event to remove the listener for. Must be 'tabContentUpdate'.
+   * @param { ObserverOptions } options - The options object.
+   * @param { Callback<TabContentInfo> } callback - The callback function to remove. If not provided, all callbacks for the given event type and
+   *                                                    Tabs ID will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  export function off(type: 'tabContentUpdate', options: ObserverOptions, callback?: Callback<TabContentInfo>): void;
+
+  /**
+   * Registers a callback function to be called when the tabContent is showed or hidden.
+   *
+   * @param { 'tabContentUpdate' } type - The type of event to listen for. Must be 'tabContentUpdate'.
+   * @param { Callback<TabContentInfo> } callback - The callback function to be called when the tabContent is showed or hidden.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  export function on(type: 'tabContentUpdate', callback: Callback<TabContentInfo>): void;
+
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'tabContentUpdate'} type - The type of event to remove the listener for. Must be 'tabContentUpdate'.
+   * @param { Callback<TabContentInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+   *                                                      will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  export function off(type: 'tabContentUpdate', callback?: Callback<TabContentInfo>): void;
+
+  /**
+   * Registers a callback function to be called when the navigation switched to a new navDestination.
+   *
+   * @param { 'navDestinationSwitch' } type - The type of event to listen for. Must be 'navDestinationSwitch'.
+   * @param { UIAbilityContext | UIContext } context - The context scope of the observer.
+   * @param { Callback<NavDestinationSwitchInfo> } callback - The callback function to be called when the navigation switched to a new navDestination.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  export function on(
+    type: 'navDestinationSwitch',
+    context: UIAbilityContext | UIContext,
+    callback: Callback<NavDestinationSwitchInfo>
+  ): void;
+
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'navDestinationSwitch' } type - The type of event to remove the listener for. Must be 'navDestinationSwitch'.
+   * @param { UIAbilityContext | UIContext } context - The context scope of the observer.
+   * @param { Callback<NavDestinationSwitchInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+   *                                                               will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  export function off(
+    type: 'navDestinationSwitch',
+    context: UIAbilityContext | UIContext,
+    callback?: Callback<NavDestinationSwitchInfo>
+  ): void;
+
+  /**
+   * Registers a callback function to be called when the navigation switched to a new navDestination.
+   *
+   * @param { 'navDestinationSwitch' } type - The type of event to listen for. Must be 'navDestinationSwitch'.
+   * @param { UIAbilityContext | UIContext } context - The context scope of the observer.
+   * @param { NavDestinationSwitchObserverOptions } observerOptions - Options.
+   * @param { Callback<NavDestinationSwitchInfo> } callback - The callback function to be called when the navigation switched to a new navDestination.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  export function on(
+    type: 'navDestinationSwitch',
+    context: UIAbilityContext | UIContext,
+    observerOptions: NavDestinationSwitchObserverOptions,
+    callback: Callback<NavDestinationSwitchInfo>
+  ): void;
+
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'navDestinationSwitch' } type - The type of event to remove the listener for. Must be 'navDestinationSwitch'.
+   * @param { UIAbilityContext | UIContext } context - The context scope of the observer.
+   * @param { NavDestinationSwitchObserverOptions } observerOptions - Options.
+   * @param { Callback<NavDestinationSwitchInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+   *                                                               will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  export function off(
+    type: 'navDestinationSwitch',
+    context: UIAbilityContext | UIContext,
+    observerOptions: NavDestinationSwitchObserverOptions,
+    callback?: Callback<NavDestinationSwitchInfo>
+  ): void;
 }
 
 export default uiObserver;

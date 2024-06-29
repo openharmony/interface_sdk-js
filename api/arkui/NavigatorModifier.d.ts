@@ -13,8 +13,13 @@
  * limitations under the License.
  */
 
-/// <reference path="../../component/common.d.ts" />
-/// <reference path="../../component/navigator.d.ts" />
+/**
+ * @file
+ * @kit ArkUI
+ */
+
+
+
 
 /**
  * Defines Navigator Modifier

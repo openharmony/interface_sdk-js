@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * The alignment of dialog,
  *
  * @enum { number }
@@ -495,6 +500,37 @@ declare interface AlertDialogButtonOptions {
    * @since 11
    */
   action: () => void;
+  /**
+   * Define whether the button responds to Enter/Space key by default.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+    primary?: boolean;
+}
+
+/**
+ * Defines TextStyle in the AlertDialog.
+ *
+ * @interface TextStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare interface TextStyle {
+  /**
+   * Set the word break type.
+   *
+   * @type { ?WordBreak }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  wordBreak?: WordBreak;
 }
 
 /**
@@ -749,6 +785,16 @@ declare interface AlertDialogParam {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Whether to display in the sub window.
+   * 
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   showInSubWindow?: boolean;
 
   /**
@@ -758,6 +804,15 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Whether it is a modal dialog
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   isModal?: boolean;
 
@@ -770,6 +825,16 @@ declare interface AlertDialogParam {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Defines the alertDialog's background color
+   *
+   * @type { ?ResourceColor }
+   * @default Color.Transparent
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   backgroundColor?: ResourceColor;
 
   /**
@@ -781,17 +846,27 @@ declare interface AlertDialogParam {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Defines the alertDialog's background blur Style
+   *
+   * @type { ?BlurStyle }
+   * @default BlurStyle.COMPONENT_ULTRA_THICK
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   backgroundBlurStyle?: BlurStyle;
 
     /**
    * Callback function when the dialog interactive dismiss
    *
-   * @type { ?function }
+   * @type { ?Callback<DismissDialogAction> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  onWillDismiss?: (dismissDialog: DismissDialog) => void;
+  onWillDismiss?: Callback<DismissDialogAction>;
 
   /**
    * Transition parameters of opening/closing AlertDialog.
@@ -806,12 +881,12 @@ declare interface AlertDialogParam {
   /**
    * Defines the alertDialog's corner radius.
    *
-   * @type { ?(Dimension | BorderRadiuses) }
+   * @type { ?(Dimension | BorderRadiuses | LocalizedBorderRadiuses) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  cornerRadius?: Dimension | BorderRadiuses;
+  cornerRadius?: Dimension | BorderRadiuses | LocalizedBorderRadiuses;
 
   /**
    * Defines the alertDialog's width.
@@ -836,22 +911,22 @@ declare interface AlertDialogParam {
   /**
    * Defines the alertDialog's border width.
    *
-   * @type { ?(Dimension | EdgeWidths) }
+   * @type { ?(Dimension | EdgeWidths | LocalizedEdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  borderWidth?: Dimension | EdgeWidths;
+  borderWidth?: Dimension | EdgeWidths | LocalizedEdgeWidths;
 
   /**
    * Defines the alertDialog's border color.
    *
-   * @type { ?(ResourceColor | EdgeColors) }
+   * @type { ?(ResourceColor | EdgeColors | LocalizedEdgeColors) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  borderColor?: ResourceColor | EdgeColors;
+  borderColor?: ResourceColor | EdgeColors | LocalizedEdgeColors;
 
   /**
    * Defines the alertDialog's border style.
@@ -872,6 +947,17 @@ declare interface AlertDialogParam {
    * @since 12
    */
   shadow?: ShadowOptions | ShadowStyle;
+
+  /**
+   * Set the alertDialog's textStyle.
+   *
+   * @type { ?TextStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  textStyle?: TextStyle;
 }
 
 /**
@@ -1088,23 +1174,23 @@ declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
 }
 
 /**
- * Component dialog dismiss
+ * Component dialog dismiss action.
  *
- * @interface DismissDialog
+ * @interface DismissDialogAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
-declare interface DismissDialog {
+declare interface DismissDialogAction {
   /**
    * Defines dialog dismiss function.
    *
-   * @type { function  }
+   * @type { Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  dismiss: () => void;
+  dismiss: Callback<void>;
   
   /**
    * Dismiss reason type.
@@ -1621,9 +1707,3 @@ declare class AlertDialog {
   static show(value: AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions);
 }
 
-declare module "AlertDialogParam" {
-  module "AlertDialogParam" {
-    // @ts-ignore
-    export { AlertDialogParamWithConfirm, AlertDialogParamWithButtons, DialogAlignment, DialogButtonDirection, AlertDialogParamWithOptions };
-  }
-}

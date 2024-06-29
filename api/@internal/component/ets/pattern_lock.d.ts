@@ -14,6 +14,11 @@
   */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * The challenge result based on input pattern for control pattern lock component.
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -35,6 +40,46 @@ declare enum PatternLockChallengeResult {
    * @since 11
    */
   WRONG = 2
+}
+
+/**
+ * Defines the options of active circle style.
+ *
+ * @interface CircleStyleOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface CircleStyleOptions {
+  /**
+   * The circle color when cell is active state.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  color?: ResourceColor;
+
+  /**
+   * The circle radius when cell is active state.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  radius?: LengthMetrics;
+
+  /**
+   * Enable the wave effect when cell is active.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  enableWaveEffect?: boolean;
 }
 
 /**
@@ -342,6 +387,17 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @since 11
    */
   onDotConnect(callback: import('../api/@ohos.base').Callback<number>): PatternLockAttribute;
+  
+  /**
+   * The activate circle style.
+   *
+   * @param { Optional<CircleStyleOptions> } options - the circle style setting options
+   * @returns { PatternLockAttribute } PatternLockAttribute
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  activateCircleStyle(options: Optional<CircleStyleOptions>): PatternLockAttribute;
 }
 
 /**

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,19 +14,31 @@
  */
 
 /**
+ * @file Defines 3D component
+ * @kit ArkUI
+ */
+
+/**
+ * Provides methods for controlling the 3d scene 
+ *
+ * @typedef { import('../api/@ohos.graphics.scene').Scene }
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 12 
+ */
+declare type Scene = import('../api/@ohos.graphics.scene').Scene
+
+/**
  * The enum of model type
  * @enum { number }
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @systemapi
- * @since 11
+ * @since 12
  */
 declare enum ModelType {
   /**
    * Render to texture, gpu would compose this texture to screen.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @systemapi
-   * @since 11
+   * @since 12
    */
   TEXTURE = 0,
 
@@ -34,8 +46,7 @@ declare enum ModelType {
    * Render to surface, special hardware would compose this surface to screen.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @systemapi
-   * @since 11
+   * @since 12
    */
   SURFACE = 1,
 }
@@ -45,19 +56,17 @@ declare enum ModelType {
  *
  * @interface SceneOptions
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @systemapi
- * @since 11
+ * @since 12
  */
 declare interface SceneOptions {
   /**
-   * Scene resource when 3D rendering 
+   * Resource type for 3D rendering, Scene type for 3d scene controlling
    *
-   * @type { ?Resource }
+   * @type { ?(Resource | Scene) }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @systemapi
-   * @since 11
+   * @since 12
    */
-  scene?: Resource;
+  scene?: Resource | Scene;
 
   /**
    * Scene type when 3D rendering
@@ -65,20 +74,17 @@ declare interface SceneOptions {
    * @type { ?ModelType }
    * @default ModelType.SURFACE 
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @systemapi
-   * @since 11
+   * @since 12
    */
   modelType?: ModelType; 
 }
-
 
 /**
  * Defines Component3D. 
  *
  * @interface Component3DInterface
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @systemapi
- * @since 11
+ * @since 12
  */
 interface Component3DInterface {
   /**
@@ -87,8 +93,7 @@ interface Component3DInterface {
    * @param { SceneOptions } sceneOptions - The 3D scene controller
    * @returns { Component3DAttribute }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @systemapi
-   * @since 11
+   * @since 12
    */
   (sceneOptions?: SceneOptions): Component3DAttribute;
 }
@@ -96,8 +101,7 @@ interface Component3DInterface {
 /**
  * @extends CommonMethod<Component3DAttribute>
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @systemapi
- * @since 11
+ * @since 12
  */
 declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
   /**
@@ -106,8 +110,7 @@ declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
    * @param { Resource } uri - The path of 3D environment resource
    * @returns { Component3DAttribute } The attribute of the component3D
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @systemapi
-   * @since 11
+   * @since 12
    */
   environment(uri: Resource): Component3DAttribute;
 
@@ -118,8 +121,7 @@ declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
    * @param { boolean } selfRenderUpdate - Trigger rendering every frame
    * @returns { Component3DAttribute } The attribute of the component3D
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @systemapi
-   * @since 11
+   * @since 12
    */
   customRender(uri: Resource, selfRenderUpdate: boolean): Component3DAttribute;
 
@@ -129,8 +131,7 @@ declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
    * @param { Resource } uri - The path of custom shader
    * @returns { Component3DAttribute } The attribute of the component3D
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @systemapi
-   * @since 11
+   * @since 12
    */
   shader(uri: Resource): Component3DAttribute;
 
@@ -140,8 +141,7 @@ declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
    * @param { Resource } uri - The path of texture used by shader
    * @returns { Component3DAttribute } The attribute of the component3D
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @systemapi
-   * @since 11
+   * @since 12
    */
   shaderImageTexture(uri: Resource): Component3DAttribute;
   
@@ -151,8 +151,7 @@ declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
    * @param { Array<number> } buffer - The uniform buffer of shader input
    * @returns { Component3DAttribute } The attribute of the component3D
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @systemapi
-   * @since 11
+   * @since 12
    */
   shaderInputBuffer(buffer: Array<number>): Component3DAttribute;
 
@@ -162,8 +161,7 @@ declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
    * @param { Dimension } value - Width of gpu render target, target would upscale or downscale to view's width.
    * @returns { Component3DAttribute } The attribute of the component3D
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @systemapi
-   * @since 11
+   * @since 12
    */
   renderWidth(value: Dimension): Component3DAttribute;
 
@@ -173,8 +171,7 @@ declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
    * @param { Dimension } value - Height of gpu render target, target would upscale or downscale to view's height.
    * @returns { Component3DAttribute } The attribute of the component3D
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @systemapi
-   * @since 11
+   * @since 12
    */
   renderHeight(value: Dimension): Component3DAttribute;
 }
@@ -183,8 +180,7 @@ declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
  * Defines Component3D component. 
  *
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @systemapi
- * @since 11
+ * @since 12
  */
 declare const Component3D: Component3DInterface;
 
@@ -192,7 +188,6 @@ declare const Component3D: Component3DInterface;
  * Defines Component3D instance.
  *
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @systemapi
- * @since 11
+ * @since 12
  */
 declare const Component3DInstance: Component3DAttribute;

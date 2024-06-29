@@ -114,6 +114,188 @@ declare namespace systemSoundManager {
   }
 
   /**
+   * Enum for tone customized type.
+   * @enum {number}
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @systemapi
+   * @since 12
+   */
+  enum ToneCustomizedType {
+    /**
+     * Pre-installed tone type.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 12
+     */
+    PRE_INSTALLED = 0,
+    /**
+     * Customized tone type.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 12
+     */
+    CUSTOMIZED = 1,
+  }
+
+  /**
+   * Define the ringtone category.
+   * @constant
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @systemapi
+   * @since 12
+   */
+  const TONE_CATEGORY_RINGTONE: number;
+
+  /**
+   * Define the text message tone category.
+   * @constant
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @systemapi
+   * @since 12
+   */
+  const TONE_CATEGORY_TEXT_MESSAGE:number;
+
+  /**
+   * Define the notification tone category.
+   * @constant
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @systemapi
+   * @since 12
+   */
+  const TONE_CATEGORY_NOTIFICATION:number;
+
+  /**
+   * Define the alarm tone category.
+   * @constant
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @systemapi
+   * @since 12
+   */
+  const TONE_CATEGORY_ALARM:number;
+
+  /**
+   * Tone attributes.
+   * @typedef ToneAttrs
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @systemapi
+   * @since 12
+   */
+  interface ToneAttrs {
+    /**
+     * Gets title of tone.
+     * @returns { string } title.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 12
+     */
+    getTitle(): string;
+
+    /**
+     * Sets title of tone.
+     * @param { string } title - Title of tone.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 12
+     */
+    setTitle(title: string): void;
+
+    /**
+     * Gets file name of tone.
+     * @returns { string } file name.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 12
+     */
+    getFileName(): string;
+
+    /**
+     * Sets file name of tone.
+     * @param { string } name - file name.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 12
+     */
+    setFileName(name: string): void;
+
+    /**
+     * Gets uri of tone.
+     * @returns { string } uri.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 12
+     */
+    getUri(): string;
+
+    /**
+     * Gets customized type of tone.
+     * @returns { ToneCustomizedType } Customized type of tone.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 12
+     */
+    getCustomizedType(): ToneCustomizedType;
+
+    /**
+     * Sets tone category.
+     * @param { number } category - tone category. This parameter can be one of {@link TONE_CATEGORY_RINGTONE},
+     * {@link TONE_CATEGORY_TEXT_MESSAGE}, {@link TONE_CATEGORY_NOTIFICATION}, {@link TONE_CATEGORY_ALARM}.
+     * In addition, this parameter can be result of OR logical operator of these constants.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 12
+     */
+    setCategory(category: number): void;
+
+    /**
+     * Gets tone category.
+     * @returns { number } Tone category. This value can be one of {@link TONE_CATEGORY_RINGTONE},
+     * {@link TONE_CATEGORY_TEXT_MESSAGE}, {@link TONE_CATEGORY_NOTIFICATION}, {@link TONE_CATEGORY_ALARM}.
+     * In addition, this value can be result of OR logical operator of these constants.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 12
+     */
+    getCategory(): number;
+  }
+
+  /**
+   * Array of tone attributes.
+   *
+   * @typedef {Array<ToneAttrs>} ToneAttrsArray
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @systemapi
+   * @since 12
+   */
+  type ToneAttrsArray = Array<ToneAttrs>;
+
+  /**
+   * Create customized tone attributes.
+   * @returns { ToneAttrs } Tone attributes created.
+   * @throws { BusinessError } 202 - Caller is not a system application.
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @systemapi
+   * @since 12
+   */
+  function createCustomizedToneAttrs(): ToneAttrs;
+
+  /**
    * Gets system sound manager for all type sound.
    * @returns { SystemSoundManager } SystemSoundManager instance.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
@@ -165,7 +347,9 @@ declare namespace systemSoundManager {
      * @param { RingtoneType } type - Ringtone type to set.
      * @returns { Promise<void> } Promise used to return the set uri result.
      * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 401 - The parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *         1.Mandatory parameters are left unspecified;
+     *         2.Incorrect parameter types.
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
@@ -205,13 +389,47 @@ declare namespace systemSoundManager {
      * @param { RingtoneType } type - Ringtone type to get.
      * @returns { Promise<string> } Promise used to return the ringtone uri maintained in system.
      * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 401 - The parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
      * @since 11
      */
     getRingtoneUri(context: BaseContext, type: RingtoneType): Promise<string>;
+
+    /**
+     * Gets attributes of the default ringtone.
+     * @param { BaseContext } context - Current application context.
+     * @param { RingtoneType } type - Ringtone type to get.
+     * @returns { Promise<ToneAttrs> } Promise used to return attributes of the default ringtone.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 12
+     */
+    getDefaultRingtoneAttrs(context: BaseContext, type: RingtoneType): Promise<ToneAttrs>;
+
+    /**
+     * Gets attribute list of ringtones.
+     * @param { BaseContext } context - Current application context.
+     * @param { RingtoneType } type - Ringtone type to get.
+     * @returns { Promise<ToneAttrsArray> } Promise used to return attribute list of ringtone.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 12
+     */
+    getRingtoneAttrList(context: BaseContext, type: RingtoneType): Promise<ToneAttrsArray>;
 
     /**
      * Gets the ringtone player.
@@ -245,7 +463,9 @@ declare namespace systemSoundManager {
      * @param { RingtoneType } type - Ringtone type to get.
      * @returns { Promise<RingtonePlayer> } Promise used to return a ringtone player instance.
      * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 401 - The parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
      * @since 11
@@ -259,7 +479,9 @@ declare namespace systemSoundManager {
      * @param { SystemToneType } type - System tone type to set.
      * @returns { Promise<void> } Promise used to return the result of set system tone uri.
      * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 401 - The parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
@@ -273,7 +495,9 @@ declare namespace systemSoundManager {
      * @param { SystemToneType } type - System tone type to get.
      * @returns { Promise<string> } Promise used to return the system tone maintained in system.
      * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 401 - The parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
@@ -282,21 +506,218 @@ declare namespace systemSoundManager {
     getSystemToneUri(context: BaseContext, type: SystemToneType): Promise<string>;
 
     /**
+     * Gets attributes of the default system tone.
+     *
+     * @param { BaseContext } context - Current application context.
+     * @param { SystemToneType } type - system tone type to get.
+     * @returns { Promise<ToneAttrs> } Promise used to return attributes of the default system tone.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 12
+     */
+    getDefaultSystemToneAttrs(context: BaseContext, type: SystemToneType): Promise<ToneAttrs>;
+
+    /**
+     * Gets attribute list of alarm tones.
+     * @param { BaseContext } context - Current application context.
+     * @param { SystemToneType } type - System tone type to get.
+     * @returns { Promise<ToneAttrsArray> } Promise used to return attribute list of system tone.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 12
+     */
+    getSystemToneAttrList(context: BaseContext, type: SystemToneType): Promise<ToneAttrsArray>;
+
+    /**
      * Gets the system tone player.
      * @param { BaseContext } context - Current application context.
      * @param { SystemToneType } type - System tone type to get.
      * @returns { Promise<SystemTonePlayer> } Promise used to return the SystemTonePlayer.
      * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 401 - The parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
      * @since 11
      */
     getSystemTonePlayer(context: BaseContext, type: SystemToneType): Promise<SystemTonePlayer>;
+
+    /**
+     * Gets attributes of the default alarm tone.
+     *
+     * @param { BaseContext } context - Current application context.
+     * @returns { Promise<ToneAttrs> } Promise used to return attributes of the default alarm tone.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 12
+     */
+    getDefaultAlarmToneAttrs(context: BaseContext): Promise<ToneAttrs>;
+
+    /**
+     * Sets uri of the current alarm tone.
+     *
+     * @param { BaseContext } context - Current application context.
+     * @param { string } uri - Alarm tone uri.
+     * @returns { Promise<void> } Promise used to return result of set alarm tone.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @throws { BusinessError } 20700001 - Tone type mismatch, e.g. tone of input uri is not an alarm tone.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 12
+     */
+    setAlarmToneUri(context: BaseContext, uri: string): Promise<void>;
+
+    /**
+     * Gets uri of the current alarm tone.
+     *
+     * @param { BaseContext } context - Current application context.
+     * @returns { Promise<string> } Promise used to return uri of current alarm tone.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 12
+     */
+    getAlarmToneUri(context: BaseContext): Promise<string>;
+
+    /**
+     * Gets attribute list of alarm tones.
+     * @param { BaseContext } context - Current application context.
+     * @returns { Promise<ToneAttrsArray> } Promise used to return attribute list of system tone.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 12
+     */
+    getAlarmToneAttrList(context: BaseContext): Promise<ToneAttrsArray>;
+
+    /**
+     * Open alarm tone file.
+     * @param { BaseContext } context - Current application context.
+     * @param { string } uri - Uri of alarm tone to open.
+     * @returns { Promise<number> } Promise used to return fd.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @throws { BusinessError } 20700001 - Tone type mismatch, e.g. tone of uri is notification instead of alarm.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 12
+     */
+    openAlarmTone(context: BaseContext, uri: string): Promise<number>
+
+    /**
+     * Close fd.
+     * @param { number } fd - File descriptor to close.
+     * @returns { Promise<void> } Promise used to return the result of close fd.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 12
+     */
+    close(fd: number): Promise<void>;
+
+    /**
+     * Add customized tone into ringtone library.
+     * @permission ohos.permission.WRITE_RINGTONE
+     * @param { BaseContext } context - Current application context.
+     * @param { ToneAttrs } toneAttr - Tone attributes created by {@link createCustomizedToneAttrs}.
+     * @param { string } externalUri - Tone uri in external storage.
+     * @returns { Promise<string> } Tone uri after adding into ringtone library.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 5400102 - Operation is not allowed, e.g. ringtone to add is not customized.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 12
+     */
+    addCustomizedTone(context: BaseContext, toneAttr: ToneAttrs, externalUri: string): Promise<string>;
+
+    /**
+     * Add customized tone into ringtone library.
+     * @permission ohos.permission.WRITE_RINGTONE
+     * @param { BaseContext } context - Current application context.
+     * @param { ToneAttrs } toneAttr - Tone attributes created by {@link createCustomizedToneAttrs}.
+     * @param { number } fd - File descriptor.
+     * @param { number } [offset] - The offset in the file where the data to be read, in bytes. By default, the offset
+     * is zero.
+     * @param { number } [length] - The length in bytes of the data to be read. By default, the length is the rest of
+     * bytes in the file from the offset.
+     * @returns { Promise<string> } Tone uri after adding into ringtone library.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 5400102 - Operation is not allowed, e.g. ringtone to add is not customized.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 12
+     */
+    addCustomizedTone(context: BaseContext, toneAttr: ToneAttrs, fd: number, offset?: number, length?: number)
+      : Promise<string>;
+
+    /**
+     * Remove customized tone in ringtone library.
+     * @permission ohos.permission.WRITE_RINGTONE
+     * @param { BaseContext } context - Current application context.
+     * @param { string } uri - Tone uri.
+     * @returns { Promise<void> } Promise used to return removing result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 5400102 - Operation is not allowed, e.g. ringtone of this uri is not customized.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 12
+     */
+    removeCustomizedTone(context: BaseContext, uri:string): Promise<void>;
   }
 
   /**
    * Ringtone player object.
+   * @typedef { _RingtonePlayer } RingtonePlayer
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10
@@ -305,6 +726,7 @@ declare namespace systemSoundManager {
 
   /**
    * SystemTone player object.
+   * @typedef { _SystemTonePlayer } SystemTonePlayer
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 11
@@ -313,6 +735,7 @@ declare namespace systemSoundManager {
 
   /**
    * Interface for ringtone options.
+   * @typedef { _RingtoneOptions } RingtoneOptions
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10
@@ -321,6 +744,7 @@ declare namespace systemSoundManager {
 
   /**
    * System tone options.
+   * @typedef { _SystemToneOptions } SystemToneOptions
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 11

@@ -485,6 +485,112 @@ declare namespace matrix4 {
     angle?: number;
   }
 
+
+  /**
+   * Set poly to poly point.
+   *
+   * @interface Point
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  export interface Point {
+
+    /**
+     * Point x.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    x: number;
+
+    /**
+     * Point y.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    y: number;
+  }
+
+  /**
+   * Set poly to poly point options.
+   *
+   * @interface PolyToPolyOptions
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  export interface PolyToPolyOptions {
+
+    /**
+     * Array of point coordinates for the source polygon.
+     *
+     * @type { Array<Point> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    src: Array<Point>;
+
+    /**
+     * Start point index of the source polygon, which defaults to 0.
+     * @type { ?number }
+     * @default 0
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    srcIndex?: number;
+
+    /**
+     * Array of point coordinates for the target polygon.
+     *
+     * @type { Array<Point> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    dst:Array<Point>;
+
+    /**
+     * Start index of the target polygon, which defaults to 0.
+     *
+     * @type { ?number }
+     * @default src.Length/2
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    dstIndex?: number;
+
+    /**
+     * The number of points to be used.
+     * If it is 0, it returns the identity matrix.
+     * If it is 1, it returns a translation matrix that changed before two points.
+     * If it is 2-4, it returns a transformation matrix.
+     * @type { ?number }
+     * @default 0
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    pointCount?:number;
+
+  }
   /**
    * Matrix4Transit.
    *
@@ -720,6 +826,18 @@ declare namespace matrix4 {
      * @since 11
      */
     transformPoint(options: [number, number]): [number, number];
+
+    /**
+     * Sets matrix to map src to dst.
+     *
+     * @param { PolyToPolyOptions } options - polyToPoly options
+     * @returns { Matrix4Transit } Return to Matrix4Transit
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    setPolyToPoly(options: PolyToPolyOptions): Matrix4Transit
+
   }
 
   /**
@@ -727,6 +845,11 @@ declare namespace matrix4 {
    *
    * @param { [number,number,number,number,number,number,number,number,number,number,number,number,number,number,number,number] } options
    * options indicates a fourth-order matrix
+   * The default value：
+   * [1, 0, 0, 0,
+   * 0, 1, 0, 0,
+   * 0, 0, 1, 0,
+   * 0, 0, 0, 1]
    * @returns { Matrix4Transit } Return to Matrix4Transit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -736,6 +859,11 @@ declare namespace matrix4 {
    *
    * @param { [number,number,number,number,number,number,number,number,number,number,number,number,number,number,number,number] } options
    * options indicates a fourth-order matrix
+   * The default value：
+   * [1, 0, 0, 0,
+   * 0, 1, 0, 0,
+   * 0, 0, 1, 0,
+   * 0, 0, 0, 1]
    * @returns { Matrix4Transit } Return to Matrix4Transit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -746,6 +874,28 @@ declare namespace matrix4 {
    *
    * @param { [number,number,number,number,number,number,number,number,number,number,number,number,number,number,number,number] } options
    * options indicates a fourth-order matrix
+   * The default value：
+   * [1, 0, 0, 0,
+   * 0, 1, 0, 0,
+   * 0, 0, 1, 0,
+   * 0, 0, 0, 1]
+   * Fourth-order matrix notes:
+   * m00 { number } -The x-axis scale value, the identity matrix defaults to 1.
+   * m01 { number } -The second value, the rotation of the xyz axis affects this value.
+   * m02 { number } -The third value, the rotation of the xyz axis affects this value.
+   * m03 { number } -Meaningless.
+   * m10 { number } -The fifth value, the rotation of the xyz axis affects this value.
+   * m11 { number } -The y-axis scales the value, and the identity matrix defaults to 1.
+   * m12 { number } -The 7th value, the rotation of the xyz axis affects this value.
+   * m13 { number } -Meaningless.
+   * m20 { number } -The 9th value, the rotation of the xyz axis affects this value.
+   * m21 { number } -The 10th value, xyz axis rotation affects this value.
+   * m22 { number } -The z-axis scale value, the identity matrix defaults to 1.
+   * m23 { number } -Meaningless.
+   * m30 { number } -The x-axis translation value in px, the identity matrix defaults to 0.
+   * m31 { number } -Y-axis translation value, in px, the identity matrix defaults to 0.
+   * m32 { number } -The z-axis translation value in px, the identity matrix defaults to 0.
+   * m33 { number } -It takes effect in homogeneous coordinates to produce a perspective projection effect.
    * @returns { Matrix4Transit } Return to Matrix4Transit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

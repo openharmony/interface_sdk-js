@@ -16,13 +16,15 @@
 from utils.util import (get_start_characters, get_remaining_characters, json_file_data, label_type_conversion,
                         get_check_labels, generate_excel, get_position_information,
                         set_label_to_result, get_js_doc_info)
-from utils.constants import mutex_label_dist, contrast_function, label_name_dist, one_to_many_function
+from utils.constants import (mutex_label_dist, contrast_function, label_name_dist, one_to_many_function,
+                             label_comparison_dist)
 from typedef.detection import Output, ErrorMessage, ErrorType
-from src.coreImpl.process_three_type import process_tag_dict
-from src.typedef.process_three_type import get_judgment_node_type_dict
+from coreImpl.process_three_type import process_tag_dict
+from typedef.process_three_type import get_judgment_node_type_dict
 
 
 result_list = []
+check_label_list = []
 
 
 def judgement_dict_data(result, result_key):
@@ -37,15 +39,22 @@ def judgement_dict_data(result, result_key):
         if dict_data['apiType'] == 'Enum':
             enum_label_detection(dict_data)
         elif 'apiType' in dict_data and dict_data['apiType'] in judgment_node_type:
-            message_list = process_tag_dict(dict_data)
+            message_list = process_tag_dict(dict_data, check_label_list)
             if message_list:
                 result_list.extend(message_list)
-        my_dict[dict_data['definedText']] = dict_data
+        get_data_info(dict_data, my_dict)
         dict_keys = dict_data.keys()
         if 'childApis' in dict_keys:  # 递归处理child
             judgement_dict_data(dict_data, 'childApis')
-    #校验成对函数漏标
+    # 校验成对函数漏标
     paired_function_omission_label(my_dict)
+
+
+def get_data_info(dict_data, my_dict):
+    if 'jsDocInfos' in dict_data:
+        if get_js_doc_info(dict_data['jsDocInfos']) is not None:
+            if not label_type_conversion(get_js_doc_info(dict_data['jsDocInfos'])['deprecatedVersion']):
+                my_dict[dict_data['definedText']] = dict_data
 
 
 def enum_label_detection(parent_enum_info: dict):
@@ -54,25 +63,41 @@ def enum_label_detection(parent_enum_info: dict):
     parent_js_doc_info = get_js_doc_info(parent_enum_info['jsDocInfos'])
     if parent_js_doc_info is None:
         return
-    if not parent_js_doc_info['isAtomicService']:
-        return
     children_list = parent_enum_info['childApis']
+    for check_label in check_label_list:
+        check_enum(children_list, parent_enum_info, check_label, parent_js_doc_info)
+
+
+def check_enum(children_list, parent_enum_info, check_label, parent_js_doc_info):
     count = 0
     for child_info in children_list:
         child_doc_info = get_js_doc_info(child_info['jsDocInfos'])
         if child_doc_info is None:
             continue
-        if child_doc_info['isAtomicService']:
+        if child_doc_info[label_comparison_dist.get(check_label)]:
             count = count + 1
     if count == 0:
-        result = Output(parent_enum_info['filePath'], ErrorType.ENUM_LABEL.value, parent_enum_info['definedText'],
-                        get_position_information(parent_enum_info['pos']),
-                        set_label_to_result(ErrorMessage.ENUM_LABEL.value,
-                                            parent_enum_info['apiName'], label_name_dist.get('isAtomicService')))
-        result_list.append(result)
+        # 父有子无
+        if parent_js_doc_info[label_comparison_dist.get(check_label)]:
+            result = Output(parent_enum_info['filePath'], ErrorType.ENUM_VALUE_LABEL.value,
+                            parent_enum_info['definedText'],
+                            get_position_information(parent_enum_info['pos']),
+                            set_label_to_result(ErrorMessage.ENUM_VALUE_LABEL.value,
+                                                parent_enum_info['apiName'],
+                                                label_name_dist.get(label_comparison_dist.get(check_label))))
+            result_list.append(result)
+    else:
+        # 子有父无
+        if not parent_js_doc_info[label_comparison_dist.get(check_label)]:
+            result = Output(parent_enum_info['filePath'], ErrorType.ENUM_LABEL.value, parent_enum_info['definedText'],
+                            get_position_information(parent_enum_info['pos']),
+                            set_label_to_result(ErrorMessage.ENUM_LABEL.value,
+                                                parent_enum_info['apiName'],
+                                                label_name_dist.get(label_comparison_dist.get(check_label))))
+            result_list.append(result)
 
 
-#成对出现的函数漏标
+# 成对出现的函数漏标
 def paired_function_omission_label(my_dict: dict):
     filter_duplicates_dist = []  # 存储结果，防止重复
     for defined_text in my_dict:
@@ -112,7 +137,7 @@ def dismantle_one_to_many(my_dict: dict, start, function_name, api_name_list):
         api_name = my_dict[defined_text]['apiName']
         if get_start_characters(api_name) in one_to_many_function:
             if (get_remaining_characters(get_start_characters(api_name), api_name)
-                    == get_remaining_characters(start, function_name)):
+                    == get_remaining_characters(start, function_name) and function_name != api_name):
                 api_name_list.append(defined_text)
 
 
@@ -128,18 +153,18 @@ def dismantle_ordinary(start, my_dict: dict, function_name, api_name_list):
 
 # 处理成对函数漏标问题
 def handling_missing_labels(function_target_data: dict, function_relative_data: dict, filter_duplicates_dist):
-    #目标函数与相对函数Doc信息都为空，直接返回不做判断
+    # 目标函数与相对函数Doc信息都为空，直接返回不做判断
     if 'jsDocInfos' not in function_target_data and 'jsDocInfos' not in function_relative_data:
         return
-    #目标函数Doc信息为空，相对函数标记的标签全部为目标函数漏标
+    # 目标函数Doc信息为空，相对函数标记的标签全部为目标函数漏标
     if 'jsDocInfos' not in function_target_data:
         relative_doc_info = get_js_doc_info(function_relative_data['jsDocInfos'])
         if relative_doc_info is None:
             return
-        #判断相对函数中标记的标签
+        # 判断相对函数中标记的标签
         one_function_is_empty(function_relative_data, filter_duplicates_dist)
         return
-    #相对函数Doc信息为空，目标函数标记的标签全部为相对函数漏标
+    # 相对函数Doc信息为空，目标函数标记的标签全部为相对函数漏标
     if 'jsDocInfos' not in function_relative_data:
         relative_doc_info = get_js_doc_info(function_target_data['jsDocInfos'])
         if relative_doc_info is None:
@@ -148,11 +173,11 @@ def handling_missing_labels(function_target_data: dict, function_relative_data: 
         one_function_is_empty(function_target_data, filter_duplicates_dist)
         return
 
-    #目标函数和相对函数Doc信息都不为空
+    # 目标函数和相对函数Doc信息都不为空
     target_doc_info = get_js_doc_info(function_target_data['jsDocInfos'])
     relative_doc_info = get_js_doc_info(function_relative_data['jsDocInfos'])
-    target_label_info = get_check_labels(target_doc_info)
-    relative_label_info = get_check_labels(relative_doc_info)
+    target_label_info = get_check_labels(target_doc_info, check_label_list)
+    relative_label_info = get_check_labels(relative_doc_info, check_label_list)
     diff = target_label_info.keys() & relative_label_info
     diff_vals = [k for k in diff if target_label_info[k] != relative_label_info[k]]
     if len(diff_vals) == 0:
@@ -168,13 +193,10 @@ def one_function_is_empty(function_info: dict, filter_duplicates_dist):
     doc_info = get_js_doc_info(function_info['jsDocInfos'])
     if doc_info is None:
         return
-    #判断需要校验的标签
-    if doc_info['isAtomicService']:
-        get_label_exclusivity_results(function_info, filter_duplicates_dist, 'isAtomicService')
-    if doc_info['isForm']:
-        get_label_exclusivity_results(function_info, filter_duplicates_dist, 'isForm')
-    if doc_info['isCrossPlatForm']:
-        get_label_exclusivity_results(function_info, filter_duplicates_dist, 'isCrossPlatForm')
+    # 判断需要校验的标签
+    for check_label in check_label_list:
+        if doc_info[label_comparison_dist.get(check_label)]:
+            get_label_exclusivity_results(function_info, filter_duplicates_dist, label_comparison_dist.get(check_label))
 
 
 def get_label_exclusivity_results(relative_data: dict, filter_duplicates_dist, val):
@@ -212,8 +234,20 @@ def is_label_consistent(doc_info: dict, label, mutex_label_list, api_info):
 
 
 # 按装订区域中的绿色按钮以运行脚本。
-def detection_label(result_json_path, output_path):
+def detection_label(check_labels, result_json_path, output_path):
+    split_labels(check_labels)
     data = json_file_data(result_json_path)
     for key in data:   # 代表每个ts文件
         judgement_dict_data(data, key)
-    generate_excel(result_list, output_path)
+    if len(result_list) == 0:
+        print('The file check is passed.')
+    else:
+        print('File check failed,{} questions in total.Please check the table.'.format(len(result_list)))
+        generate_excel(result_list, output_path)
+
+
+def split_labels(labels: str):
+    if labels == 'all':
+        check_label_list.extend(label_comparison_dist.keys())
+    else:
+        check_label_list.extend(labels.split('-'))

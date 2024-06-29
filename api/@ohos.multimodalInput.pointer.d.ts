@@ -28,6 +28,14 @@ import type image from './@ohos.multimedia.image';
  * @syscap SystemCapability.MultimodalInput.Input.Pointer
  * @since 9
  */
+/**
+ * Declares interfaces related to mouse pointer attributes.
+ *
+ * @namespace pointer
+ * @syscap SystemCapability.MultimodalInput.Input.Pointer
+ * @atomicservice
+ * @since 12
+ */
 declare namespace pointer {
   /**
    * Pointer style.
@@ -35,6 +43,14 @@ declare namespace pointer {
    * @enum { number }
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 9
+   */
+  /**
+   * Pointer style.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @atomicservice
+   * @since 12
    */
   enum PointerStyle {
     /**
@@ -379,6 +395,13 @@ declare namespace pointer {
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 10
      */
+    /**
+     * Loading state with dynamic cursor
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.Pointer
+     * @atomicservice
+     * @since 12
+     */
     LOADING,
 
     /**
@@ -386,6 +409,13 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 10
+     */
+    /**
+     * Running state with dynamic cursor
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.Pointer
+     * @atomicservice
+     * @since 12
      */
     RUNNING
   }
@@ -450,7 +480,8 @@ declare namespace pointer {
    *
    * @param { number } speed - Pointer moving speed, which is any number.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use
    * @since 9
@@ -462,7 +493,8 @@ declare namespace pointer {
    *
    * @param { number } speed - Pointer moving speed, which is any number.
    * @returns { Promise<void> } Returns the result through a promise.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use
    * @since 9
@@ -474,7 +506,8 @@ declare namespace pointer {
    *
    * @param { number } speed - Pointer moving speed, which is any number.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use
    * @since 10
@@ -485,7 +518,8 @@ declare namespace pointer {
    * Queries the pointer moving speed.
    *
    * @param { AsyncCallback<number> } callback - Callback used to return the result.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use
    * @since 9
@@ -506,7 +540,8 @@ declare namespace pointer {
    * Queries the pointer moving speed through sync mode.
    * @returns { number } Returns the pointer speed through sync mode.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use
    * @since 10
@@ -519,7 +554,8 @@ declare namespace pointer {
    * @param { number } windowId - Window ID.
    * @param { PointerStyle } pointerStyle - Pointer style.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 9
    */
@@ -531,7 +567,8 @@ declare namespace pointer {
    * @param { number } windowId - Window ID.
    * @param { PointerStyle } pointerStyle - Pointer style.
    * @returns { Promise<void> } Returns the result through a promise.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 9
    */
@@ -542,7 +579,8 @@ declare namespace pointer {
    *
    * @param { number } windowId - Window ID.
    * @param { PointerStyle } pointerStyle - Pointer style.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 10
    */
@@ -553,7 +591,8 @@ declare namespace pointer {
    *
    * @param { number } windowId - Window ID.
    * @param { AsyncCallback<PointerStyle> } callback - Callback used to return the result.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 9
    */
@@ -564,7 +603,8 @@ declare namespace pointer {
    *
    * @param { number } windowId - Window ID.
    * @returns { Promise<PointerStyle> } Returns the result through a promise.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 9
    */
@@ -575,7 +615,8 @@ declare namespace pointer {
    *
    * @param { number } windowId - Window ID.
    * @returns { PointerStyle } Returns the pointerStyle.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 10
    */
@@ -587,7 +628,8 @@ declare namespace pointer {
    * @param { boolean } visible Whether the pointer icon is visible. The value true indicates that the pointer
    * icon is visible, and the value false indicates the opposite.
    * @param { AsyncCallback<void> } callback - Callback for the input device event.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 9
    */
@@ -599,7 +641,8 @@ declare namespace pointer {
    * @param { boolean } visible Whether the pointer icon is visible. The value true indicates that the pointer
    * icon is visible, and the value false indicates the opposite.
    * @returns { Promise<void> } Returns the result through a promise.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 9
    */
@@ -610,7 +653,8 @@ declare namespace pointer {
    *
    * @param { boolean } visible Whether the pointer icon is visible. The value true indicates that the pointer
    * icon is visible, and the value false indicates the opposite.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 10
    */
@@ -621,7 +665,8 @@ declare namespace pointer {
    *
    * @param { AsyncCallback<boolean> } callback - Returns <b>true</b> if the pointer icon is visible,
    * returns <b>false</b> otherwise.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 9
    */
@@ -651,7 +696,8 @@ declare namespace pointer {
    * @param { number } color - Indicates the color of pointer.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -664,7 +710,8 @@ declare namespace pointer {
    * @param { number } color - Indicates the color of pointer.
    * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -676,7 +723,8 @@ declare namespace pointer {
    *
    * @param { number } color - Indicates the color of pointer.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -688,7 +736,8 @@ declare namespace pointer {
    *
    * @param { AsyncCallback<number> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -723,7 +772,8 @@ declare namespace pointer {
    * @param { number } size - Indicates the size of pointer.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -736,7 +786,8 @@ declare namespace pointer {
    * @param { number } size - Indicates the size of pointer.
    * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -748,7 +799,8 @@ declare namespace pointer {
    *
    * @param { number } size - Indicates the size of pointer.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -760,7 +812,8 @@ declare namespace pointer {
    *
    * @param { AsyncCallback<number> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -796,7 +849,8 @@ declare namespace pointer {
    * button is left button, and the value RIGHT indicates that mouse primary button is right button.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -810,7 +864,8 @@ declare namespace pointer {
    * button is left button, and the value RIGHT indicates that mouse primary button is right button.
    * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -822,7 +877,8 @@ declare namespace pointer {
    *
    * @param { AsyncCallback<PrimaryButton> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -834,7 +890,8 @@ declare namespace pointer {
    *
    * @returns { Promise<PrimaryButton> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -848,7 +905,8 @@ declare namespace pointer {
    * indicates that the mouse hover scroll is enabled, and the value false indicates the opposite.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -862,7 +920,8 @@ declare namespace pointer {
    * indicates that the mouse hover scroll is enabled, and the value false indicates the opposite.
    * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -874,7 +933,8 @@ declare namespace pointer {
    *
    * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -886,7 +946,8 @@ declare namespace pointer {
    *
    * @returns { Promise<boolean> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -899,7 +960,8 @@ declare namespace pointer {
    * @param { number } rows - Indicates the number of mouse scrolling rows.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -912,7 +974,8 @@ declare namespace pointer {
    * @param { number } rows - Indicates the number of mouse scrolling rows.
    * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -924,7 +987,8 @@ declare namespace pointer {
    *
    * @param { AsyncCallback<number> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -936,7 +1000,8 @@ declare namespace pointer {
    *
    * @returns { Promise<number> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -949,7 +1014,8 @@ declare namespace pointer {
    * @param { boolean } state - Indicates whether the touchpad scroll switch is enabled
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -962,7 +1028,8 @@ declare namespace pointer {
    * @param { boolean } state - Indicates whether the touchpad scroll switch is enabled
    * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -974,7 +1041,8 @@ declare namespace pointer {
    *
    * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -986,7 +1054,8 @@ declare namespace pointer {
    *
    * @returns { Promise<boolean> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -999,7 +1068,8 @@ declare namespace pointer {
    * @param { boolean } state - Indicates whether the touchpad scroll direction is forward or reverse
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -1012,7 +1082,8 @@ declare namespace pointer {
    * @param { boolean } state - Indicates whether the touchpad scroll direction is forward or reverse
    * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -1024,7 +1095,8 @@ declare namespace pointer {
    *
    * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -1036,7 +1108,8 @@ declare namespace pointer {
    *
    * @returns { Promise<boolean> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -1049,7 +1122,8 @@ declare namespace pointer {
    * @param { boolean } state - Indicates whether the touchpad tap switch is enabled
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -1062,7 +1136,8 @@ declare namespace pointer {
    * @param { boolean } state - Indicates whether the touchpad tap switch is enabled
    * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -1074,7 +1149,8 @@ declare namespace pointer {
    *
    * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -1086,7 +1162,8 @@ declare namespace pointer {
    *
    * @returns { Promise<boolean> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -1099,7 +1176,8 @@ declare namespace pointer {
    * @param { number } speed - Indicates the number of touchpad pointer speed.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -1112,7 +1190,8 @@ declare namespace pointer {
    * @param { number } speed - Indicates the number of touchpad pointer speed.
    * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -1124,7 +1203,8 @@ declare namespace pointer {
    *
    * @param { AsyncCallback<number> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -1136,7 +1216,8 @@ declare namespace pointer {
    *
    * @returns { Promise<number> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -1149,7 +1230,8 @@ declare namespace pointer {
    * @param { boolean } state - Indicates whether the touchpad pinch switch is enabled
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -1162,7 +1244,8 @@ declare namespace pointer {
    * @param { boolean } state - Indicates whether the touchpad pinch switch is enabled
    * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -1174,7 +1257,8 @@ declare namespace pointer {
    *
    * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -1186,7 +1270,8 @@ declare namespace pointer {
    *
    * @returns { Promise<boolean> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -1199,7 +1284,8 @@ declare namespace pointer {
    * @param { boolean } state - Indicates whether the touchpad swipe switch is enabled
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -1212,7 +1298,8 @@ declare namespace pointer {
    * @param { boolean } state - Indicates whether the touchpad swipe switch is enabled
    * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -1224,7 +1311,8 @@ declare namespace pointer {
    *
    * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -1236,7 +1324,8 @@ declare namespace pointer {
    *
    * @returns { Promise<boolean> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -1249,7 +1338,8 @@ declare namespace pointer {
    * @param { RightClickType } type - Indicates the type of touchpad right button menu.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -1262,7 +1352,8 @@ declare namespace pointer {
    * @param { RightClickType } type - Indicates the type of touchpad right click.
    * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -1274,7 +1365,8 @@ declare namespace pointer {
    *
    * @param { AsyncCallback<RightClickType> } callback - Callback used to return the result of right click type.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -1286,7 +1378,8 @@ declare namespace pointer {
    *
    * @returns { Promise<RightClickType> } Returns the result of right click type through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -1301,7 +1394,8 @@ declare namespace pointer {
    * @param { number } focusX - focus x.
    * @param { number } focusY - focus y.
    * @returns { Promise<void> } Returns the result through a promise.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 11
    */
@@ -1314,7 +1408,8 @@ declare namespace pointer {
    * @param { image.PixelMap } pixelMap - the cursor of pixelMap.
    * @param { number } focusX - focus x.
    * @param { number } focusY - focus y.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 11
    */

@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file The information of the subscriber
+ * @kit BasicServicesKit
+ */
+
+/**
  * the information of the subscriber
  *
  * @typedef CommonEventSubscribeInfo

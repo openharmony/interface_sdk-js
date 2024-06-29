@@ -109,7 +109,8 @@ declare namespace bluetoothManager {
    * @permission ohos.permission.DISCOVER_BLUETOOTH
    * @param { string } deviceId - The address of the remote device to pair.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -126,7 +127,8 @@ declare namespace bluetoothManager {
    * @permission ohos.permission.ACCESS_BLUETOOTH
    * @param { string } deviceId - The address of the remote device to pair.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -145,7 +147,8 @@ declare namespace bluetoothManager {
    * @param { string } deviceId - The address of the remote device to be removed.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
-   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -164,7 +167,8 @@ declare namespace bluetoothManager {
    * @param { string } deviceId - The address of the remote device to be removed.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
-   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -184,7 +188,8 @@ declare namespace bluetoothManager {
    * @param { string } deviceId - The address of the remote device.
    * @returns { string } Returns the device name in character string format.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -202,7 +207,8 @@ declare namespace bluetoothManager {
    * @param { string } deviceId - The address of the remote device.
    * @returns { string } Returns the device name in character string format.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -221,7 +227,8 @@ declare namespace bluetoothManager {
    * @param { string } deviceId - The address of the remote device.
    * @returns { DeviceClass } The class of the remote device, {@link DeviceClass}.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -239,7 +246,8 @@ declare namespace bluetoothManager {
    * @param { string } deviceId - The address of the remote device.
    * @returns { DeviceClass } The class of the remote device, {@link DeviceClass}.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -380,7 +388,8 @@ declare namespace bluetoothManager {
    * @param { ProfileId } profileId - The profile id.
    * @returns { ProfileConnectionState } Returns the connection state.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -399,7 +408,8 @@ declare namespace bluetoothManager {
    * @param { ProfileId } profileId - The profile id.
    * @returns { ProfileConnectionState } Returns the connection state.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -419,7 +429,8 @@ declare namespace bluetoothManager {
    * @param { string } device - The address of the remote device.
    * @param { boolean } accept - Indicates whether to accept the pairing request, {@code true} indicates accept or {@code false} otherwise.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -437,7 +448,8 @@ declare namespace bluetoothManager {
    * @param { string } device - The address of the remote device.
    * @param { boolean } accept - Indicates whether to accept the pairing request, {@code true} indicates accept or {@code false} otherwise.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -455,7 +467,8 @@ declare namespace bluetoothManager {
    * @permission ohos.permission.DISCOVER_BLUETOOTH
    * @param { string } name - Indicates a valid Bluetooth name.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -472,7 +485,8 @@ declare namespace bluetoothManager {
    * @permission ohos.permission.ACCESS_BLUETOOTH
    * @param { string } name - Indicates a valid Bluetooth name.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -491,7 +505,8 @@ declare namespace bluetoothManager {
    * @param { ScanMode } mode - Indicates the Bluetooth scan mode to set, {@link ScanMode}.
    * @param { number } duration - Indicates the duration in seconds, in which the host is discoverable.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -509,7 +524,8 @@ declare namespace bluetoothManager {
    * @param { ScanMode } mode - Indicates the Bluetooth scan mode to set, {@link ScanMode}.
    * @param { number } duration - Indicates the duration in seconds, in which the host is discoverable.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -624,7 +640,8 @@ declare namespace bluetoothManager {
    * @param { 'bluetoothDeviceFind' } type - Type of the discovering event to listen for.
    * @param { Callback<Array<string>> } callback - Callback used to listen for the discovering event.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
@@ -640,7 +657,8 @@ declare namespace bluetoothManager {
    * @param { 'bluetoothDeviceFind' } type - Type of the discovering event to listen for.
    * @param { Callback<Array<string>> } callback - Callback used to listen for the discovering event.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
@@ -688,7 +706,8 @@ declare namespace bluetoothManager {
    * @param { 'bondStateChange' } type - Type of the bond state event to listen for.
    * @param { Callback<BondStateParam> } callback - Callback used to listen for the bond state event, {@link BondStateParam}.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
@@ -704,7 +723,8 @@ declare namespace bluetoothManager {
    * @param { 'bondStateChange' } type - Type of the bond state event to listen for.
    * @param { Callback<BondStateParam> } callback - Callback used to listen for the bond state event, {@link BondStateParam}.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
@@ -721,7 +741,8 @@ declare namespace bluetoothManager {
    * @param { 'bondStateChange' } type - Type of the bond state event to listen for.
    * @param { Callback<BondStateParam> } callback - Callback used to listen for the bond state event.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
@@ -737,7 +758,8 @@ declare namespace bluetoothManager {
    * @param { 'bondStateChange' } type - Type of the bond state event to listen for.
    * @param { Callback<BondStateParam> } callback - Callback used to listen for the bond state event.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
@@ -754,7 +776,8 @@ declare namespace bluetoothManager {
    * @param { 'pinRequired' } type - Type of the pairing request event to listen for.
    * @param { Callback<PinRequiredParam> } callback - Callback used to listen for the pairing request event.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
@@ -770,7 +793,8 @@ declare namespace bluetoothManager {
    * @param { 'pinRequired' } type - Type of the pairing request event to listen for.
    * @param { Callback<PinRequiredParam> } callback - Callback used to listen for the pairing request event.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
@@ -787,7 +811,8 @@ declare namespace bluetoothManager {
    * @param { 'pinRequired' } type - Type of the pairing request event to listen for.
    * @param { Callback<PinRequiredParam> } callback - Callback used to listen for the pairing request event.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
@@ -803,7 +828,8 @@ declare namespace bluetoothManager {
    * @param { 'pinRequired' } type - Type of the pairing request event to listen for.
    * @param { Callback<PinRequiredParam> } callback - Callback used to listen for the pairing request event.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
@@ -820,7 +846,8 @@ declare namespace bluetoothManager {
    * @param { 'stateChange' } type - Type of the Bluetooth state changes event to listen for.
    * @param { Callback<BluetoothState> } callback - Callback used to listen for the Bluetooth state event.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
@@ -836,7 +863,8 @@ declare namespace bluetoothManager {
    * @param { 'stateChange' } type - Type of the Bluetooth state changes event to listen for.
    * @param { Callback<BluetoothState> } callback - Callback used to listen for the Bluetooth state event.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
@@ -853,7 +881,8 @@ declare namespace bluetoothManager {
    * @param { 'stateChange' } type - Type of the Bluetooth state changes event to listen for.
    * @param { Callback<BluetoothState> } callback - Callback used to listen for the Bluetooth state event.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
@@ -869,7 +898,8 @@ declare namespace bluetoothManager {
    * @param { 'stateChange' } type - Type of the Bluetooth state changes event to listen for.
    * @param { Callback<BluetoothState> } callback - Callback used to listen for the Bluetooth state event.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
@@ -887,7 +917,8 @@ declare namespace bluetoothManager {
    * @param { SppOption } option - Indicates the listen parameters {@link SppOption}.
    * @param { AsyncCallback<number> } callback - Callback used to return a server socket ID.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -907,7 +938,8 @@ declare namespace bluetoothManager {
    * @param { SppOption } option - Indicates the listen parameters {@link SppOption}.
    * @param { AsyncCallback<number> } callback - Callback used to return a server socket ID.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -925,7 +957,8 @@ declare namespace bluetoothManager {
    *
    * @param { number } serverSocket - Indicates the server socket ID, returned by {@link sppListen}.
    * @param { AsyncCallback<number> } callback - Callback used to return a client socket ID.
-   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -946,7 +979,8 @@ declare namespace bluetoothManager {
    * @param { SppOption } option - Indicates the connect parameters {@link SppOption}.
    * @param { AsyncCallback<number> } callback - Callback used to return a client socket ID.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -966,7 +1000,8 @@ declare namespace bluetoothManager {
    * @param { SppOption } option - Indicates the connect parameters {@link SppOption}.
    * @param { AsyncCallback<number> } callback - Callback used to return a client socket ID.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -983,7 +1018,8 @@ declare namespace bluetoothManager {
    * Disables an spp server socket and releases related resources.
    *
    * @param { number } socket - Indicates the server socket ID, returned by {@link sppListen}.
-   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900099 - Operation failed.
@@ -998,7 +1034,8 @@ declare namespace bluetoothManager {
    * Disables an spp client socket and releases related resources.
    *
    * @param { number } socket - Indicates the client socket ID, returned by {@link sppAccept} or {@link sppConnect}.
-   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900099 - Operation failed.
@@ -1014,7 +1051,8 @@ declare namespace bluetoothManager {
    *
    * @param { number } clientSocket - Indicates the client socket ID, returned by {@link sppAccept} or {@link sppConnect}.
    * @param { ArrayBuffer } data - Indicates the data to write.
-   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2901054 - IO error.
    * @throws { BusinessError } 2900099 - Operation failed.
@@ -1031,7 +1069,8 @@ declare namespace bluetoothManager {
    * @param { 'sppRead' } type - Type of the spp read event to listen for.
    * @param { number } clientSocket - Client socket ID, which is obtained by sppAccept or sppConnect.
    * @param { Callback<ArrayBuffer> } callback - Callback used to listen for the spp read event.
-   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2901054 - IO error.
    * @throws { BusinessError } 2900099 - Operation failed.
@@ -1048,7 +1087,8 @@ declare namespace bluetoothManager {
    * @param { 'sppRead' } type - Type of the spp read event to listen for.
    * @param { number } clientSocket - Client socket ID, which is obtained by sppAccept or sppConnect.
    * @param { Callback<ArrayBuffer> } callback - Callback used to listen for the spp read event.
-   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9
@@ -1062,7 +1102,8 @@ declare namespace bluetoothManager {
    *
    * @param { ProfileId } profileId - The profile id..
    * @returns { A2dpSourceProfile | HandsFreeAudioGatewayProfile | HidHostProfile | PanProfile } Returns the instance of profile.
-   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9
@@ -1124,7 +1165,8 @@ declare namespace bluetoothManager {
      * @param { string } device - The address of bluetooth device.
      * @returns { ProfileConnectionState } Returns {@link ProfileConnectionState} of device.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -1143,7 +1185,8 @@ declare namespace bluetoothManager {
      * @param { string } device - The address of bluetooth device.
      * @returns { ProfileConnectionState } Returns {@link ProfileConnectionState} of device.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -1173,7 +1216,8 @@ declare namespace bluetoothManager {
      * @permission ohos.permission.DISCOVER_BLUETOOTH
      * @param { string } device - The address of the remote device to connect.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -1191,7 +1235,8 @@ declare namespace bluetoothManager {
      * @permission ohos.permission.ACCESS_BLUETOOTH
      * @param { string } device - The address of the remote device to connect.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -1210,7 +1255,8 @@ declare namespace bluetoothManager {
      * @permission ohos.permission.DISCOVER_BLUETOOTH
      * @param { string } device - The address of the remote device to disconnect.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -1228,7 +1274,8 @@ declare namespace bluetoothManager {
      * @permission ohos.permission.ACCESS_BLUETOOTH
      * @param { string } device - The address of the remote device to disconnect.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -1246,7 +1293,8 @@ declare namespace bluetoothManager {
      *
      * @param { 'connectionStateChange' } type - Type of the profile connection state changes event to listen for .
      * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9
@@ -1260,7 +1308,8 @@ declare namespace bluetoothManager {
      * @permission ohos.permission.ACCESS_BLUETOOTH
      * @param { 'connectionStateChange' } type - Type of the profile connection state changes event to listen for .
      * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
@@ -1274,7 +1323,8 @@ declare namespace bluetoothManager {
      *
      * @param { 'connectionStateChange' } type - Type of the profile connection state changes event to listen for .
      * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9
@@ -1288,7 +1338,8 @@ declare namespace bluetoothManager {
      * @permission ohos.permission.ACCESS_BLUETOOTH
      * @param { 'connectionStateChange' } type - Type of the profile connection state changes event to listen for .
      * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
@@ -1302,7 +1353,8 @@ declare namespace bluetoothManager {
      *
      * @param { string } device - The address of the remote device.
      * @returns { PlayingState } Returns {@link PlayingState} of the remote device.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -1320,7 +1372,8 @@ declare namespace bluetoothManager {
      * @permission ohos.permission.ACCESS_BLUETOOTH
      * @param { string } device - The address of the remote device.
      * @returns { PlayingState } Returns {@link PlayingState} of the remote device.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -1350,7 +1403,8 @@ declare namespace bluetoothManager {
      * @permission ohos.permission.DISCOVER_BLUETOOTH
      * @param { string } device - The address of the remote device to connect.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -1368,7 +1422,8 @@ declare namespace bluetoothManager {
      * @permission ohos.permission.ACCESS_BLUETOOTH
      * @param { string } device - The address of the remote device to connect.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -1387,7 +1442,8 @@ declare namespace bluetoothManager {
      * @permission ohos.permission.DISCOVER_BLUETOOTH
      * @param { string } device - The address of the remote device to disconnect.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -1405,7 +1461,8 @@ declare namespace bluetoothManager {
      * @permission ohos.permission.ACCESS_BLUETOOTH
      * @param { string } device - The address of the remote device to disconnect.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -1423,7 +1480,8 @@ declare namespace bluetoothManager {
      *
      * @param { 'connectionStateChange' } type - Type of the profile connection state changes event to listen for .
      * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9
@@ -1437,7 +1495,8 @@ declare namespace bluetoothManager {
      * @permission ohos.permission.ACCESS_BLUETOOTH
      * @param { 'connectionStateChange' } type - Type of the profile connection state changes event to listen for .
      * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
@@ -1451,7 +1510,8 @@ declare namespace bluetoothManager {
      *
      * @param { 'connectionStateChange' } type - Type of the profile connection state changes event to listen for .
      * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9
@@ -1465,7 +1525,8 @@ declare namespace bluetoothManager {
      * @permission ohos.permission.ACCESS_BLUETOOTH
      * @param { 'connectionStateChange' } type - Type of the profile connection state changes event to listen for .
      * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
@@ -1492,7 +1553,8 @@ declare namespace bluetoothManager {
      * @param { string } device - The address of the remote device to connect.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -1512,7 +1574,8 @@ declare namespace bluetoothManager {
      * @param { string } device - The address of the remote device to connect.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -1533,7 +1596,8 @@ declare namespace bluetoothManager {
      * @param { string } device - The address of the remote device to disconnect.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -1553,7 +1617,8 @@ declare namespace bluetoothManager {
      * @param { string } device - The address of the remote device to disconnect.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -1572,7 +1637,8 @@ declare namespace bluetoothManager {
      *
      * @param { 'connectionStateChange' } type - Type of the profile connection state changes event to listen for .
      * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9
@@ -1586,7 +1652,8 @@ declare namespace bluetoothManager {
      * @permission ohos.permission.ACCESS_BLUETOOTH
      * @param { 'connectionStateChange' } type - Type of the profile connection state changes event to listen for .
      * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
@@ -1600,7 +1667,8 @@ declare namespace bluetoothManager {
      *
      * @param { 'connectionStateChange' } type - Type of the profile connection state changes event to listen for.
      * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9
@@ -1614,7 +1682,8 @@ declare namespace bluetoothManager {
      * @permission ohos.permission.ACCESS_BLUETOOTH
      * @param { 'connectionStateChange' } type - Type of the profile connection state changes event to listen for.
      * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
@@ -1641,7 +1710,8 @@ declare namespace bluetoothManager {
      * @param { string } device - The address of the remote device to disconnect.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -1661,7 +1731,8 @@ declare namespace bluetoothManager {
      * @param { string } device - The address of the remote device to disconnect.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -1680,7 +1751,8 @@ declare namespace bluetoothManager {
      *
      * @param { 'connectionStateChange' } type - Type of the profile connection state changes event to listen for .
      * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9
@@ -1694,7 +1766,8 @@ declare namespace bluetoothManager {
      * @permission ohos.permission.ACCESS_BLUETOOTH
      * @param { 'connectionStateChange' } type - Type of the profile connection state changes event to listen for .
      * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
@@ -1708,7 +1781,8 @@ declare namespace bluetoothManager {
      *
      * @param { 'connectionStateChange' } type - Type of the profile connection state changes event to listen for.
      * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9
@@ -1722,7 +1796,8 @@ declare namespace bluetoothManager {
      * @permission ohos.permission.ACCESS_BLUETOOTH
      * @param { 'connectionStateChange' } type - Type of the profile connection state changes event to listen for.
      * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
@@ -1739,7 +1814,8 @@ declare namespace bluetoothManager {
      * that tethering is enabled, and the value {@code false} indicates that tethering is disabled.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -1760,7 +1836,8 @@ declare namespace bluetoothManager {
      * that tethering is enabled, and the value {@code false} indicates that tethering is disabled.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -1829,7 +1906,8 @@ declare namespace bluetoothManager {
      *
      * @param { string } deviceId - The address of the remote device.
      * @returns { GattClientDevice } Returns a JavaScript Gatt client device instance {@code GattClientDevice}.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9
@@ -1882,7 +1960,8 @@ declare namespace bluetoothManager {
      * {@link ScanOptions#interval} set to 0, {@link ScanOptions#dutyMode} set to {@link SCAN_MODE_LOW_POWER}
      * and {@link ScanOptions#matchMode} set to {@link MATCH_MODE_AGGRESSIVE}.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -1903,7 +1982,8 @@ declare namespace bluetoothManager {
      * {@link ScanOptions#interval} set to 0, {@link ScanOptions#dutyMode} set to {@link SCAN_MODE_LOW_POWER}
      * and {@link ScanOptions#matchMode} set to {@link MATCH_MODE_AGGRESSIVE}.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -1953,7 +2033,8 @@ declare namespace bluetoothManager {
      * @param { 'BLEDeviceFind' } type - Type of the scan result event to listen for.
      * @param { Callback<Array<ScanResult>> } callback - Callback used to listen for the scan result event.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
@@ -1969,7 +2050,8 @@ declare namespace bluetoothManager {
      * @param { 'BLEDeviceFind' } type - Type of the scan result event to listen for.
      * @param { Callback<Array<ScanResult>> } callback - Callback used to listen for the scan result event.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
@@ -1986,7 +2068,8 @@ declare namespace bluetoothManager {
      * @param { 'BLEDeviceFind' } type - Type of the scan result event to listen for.
      * @param { Callback<Array<ScanResult>> } callback - Callback used to listen for the scan result event.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
@@ -2002,7 +2085,8 @@ declare namespace bluetoothManager {
      * @param { 'BLEDeviceFind' } type - Type of the scan result event to listen for.
      * @param { Callback<Array<ScanResult>> } callback - Callback used to listen for the scan result event.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
@@ -2032,7 +2116,8 @@ declare namespace bluetoothManager {
      * @param { AdvertiseData } advData - Indicates the advertising data.
      * @param { AdvertiseData } advResponse - Indicates the scan response associated with the advertising data.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -2052,7 +2137,8 @@ declare namespace bluetoothManager {
      * @param { AdvertiseData } advData - Indicates the advertising data.
      * @param { AdvertiseData } advResponse - Indicates the scan response associated with the advertising data.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -2102,7 +2188,8 @@ declare namespace bluetoothManager {
      * @permission ohos.permission.USE_BLUETOOTH
      * @param { GattService } service - Indicates the service to add.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -2120,7 +2207,8 @@ declare namespace bluetoothManager {
      * @permission ohos.permission.ACCESS_BLUETOOTH
      * @param { GattService } service - Indicates the service to add.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -2138,7 +2226,8 @@ declare namespace bluetoothManager {
      * @permission ohos.permission.USE_BLUETOOTH
      * @param { string } serviceUuid - Indicates the UUID of the service to remove.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -2156,7 +2245,8 @@ declare namespace bluetoothManager {
      * @permission ohos.permission.ACCESS_BLUETOOTH
      * @param { string } serviceUuid - Indicates the UUID of the service to remove.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -2208,7 +2298,8 @@ declare namespace bluetoothManager {
      * @param { string } deviceId - Indicates the address of the BLE peripheral device to receive the notification.
      * @param { NotifyCharacteristic } notifyCharacteristic - Indicates the local characteristic that has changed.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -2227,7 +2318,8 @@ declare namespace bluetoothManager {
      * @param { string } deviceId - Indicates the address of the BLE peripheral device to receive the notification.
      * @param { NotifyCharacteristic } notifyCharacteristic - Indicates the local characteristic that has changed.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -2245,7 +2337,8 @@ declare namespace bluetoothManager {
      * @permission ohos.permission.USE_BLUETOOTH
      * @param { ServerResponse } serverResponse - Indicates the response parameters {@link ServerResponse}.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -2262,7 +2355,8 @@ declare namespace bluetoothManager {
      * @permission ohos.permission.ACCESS_BLUETOOTH
      * @param { ServerResponse } serverResponse - Indicates the response parameters {@link ServerResponse}.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
@@ -2281,7 +2375,8 @@ declare namespace bluetoothManager {
      * @param { 'characteristicRead' } type - Type of the characteristic read event to listen for.
      * @param { Callback<CharacteristicReadRequest> } callback - Callback used to listen for the characteristic read event.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9
@@ -2296,7 +2391,8 @@ declare namespace bluetoothManager {
      * @param { 'characteristicRead' } type - Type of the characteristic read event to listen for.
      * @param { Callback<CharacteristicReadRequest> } callback - Callback used to listen for the characteristic read event.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
@@ -2312,7 +2408,8 @@ declare namespace bluetoothManager {
      * @param { 'characteristicRead' } type - Type of the characteristic read event to listen for.
      * @param { Callback<CharacteristicReadRequest> } callback - Callback used to listen for the characteristic read event.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9
@@ -2327,7 +2424,8 @@ declare namespace bluetoothManager {
      * @param { 'characteristicRead' } type - Type of the characteristic read event to listen for.
      * @param { Callback<CharacteristicReadRequest> } callback - Callback used to listen for the characteristic read event.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
@@ -2343,7 +2441,8 @@ declare namespace bluetoothManager {
      * @param { 'characteristicWrite' } type - Type of the characteristic write event to listen for.
      * @param { Callback<CharacteristicWriteRequest> } callback - Callback used to listen for the characteristic write event.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9
@@ -2358,7 +2457,8 @@ declare namespace bluetoothManager {
      * @param { 'characteristicWrite' } type - Type of the characteristic write event to listen for.
      * @param { Callback<CharacteristicWriteRequest> } callback - Callback used to listen for the characteristic write event.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
@@ -2374,7 +2474,8 @@ declare namespace bluetoothManager {
      * @param { 'characteristicWrite' } type - Type of the characteristic write event to listen for.
      * @param { Callback<CharacteristicWriteRequest> } callback - Callback used to listen for the characteristic write event.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9
@@ -2389,7 +2490,8 @@ declare namespace bluetoothManager {
      * @param { 'characteristicWrite' } type - Type of the characteristic write event to listen for.
      * @param { Callback<CharacteristicWriteRequest> } callback - Callback used to listen for the characteristic write event.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
@@ -2405,7 +2507,8 @@ declare namespace bluetoothManager {
      * @param { 'descriptorRead' } type - Type of the descriptor read event to listen for.
      * @param { Callback<DescriptorReadRequest> } callback - Callback used to listen for the descriptor read event.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9
@@ -2420,7 +2523,8 @@ declare namespace bluetoothManager {
      * @param { 'descriptorRead' } type - Type of the descriptor read event to listen for.
      * @param { Callback<DescriptorReadRequest> } callback - Callback used to listen for the descriptor read event.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
@@ -2436,7 +2540,8 @@ declare namespace bluetoothManager {
      * @param { 'descriptorRead' } type - Type of the descriptor read event to listen for.
      * @param { Callback<DescriptorReadRequest> } callback - Callback used to listen for the descriptor read event.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9
@@ -2451,7 +2556,8 @@ declare namespace bluetoothManager {
      * @param { 'descriptorRead' } type - Type of the descriptor read event to listen for.
      * @param { Callback<DescriptorReadRequest> } callback - Callback used to listen for the descriptor read event.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
@@ -2467,7 +2573,8 @@ declare namespace bluetoothManager {
      * @param { 'descriptorWrite' } type - Type of the descriptor write event to listen for.
      * @param { Callback<DescriptorWriteRequest> } callback - Callback used to listen for the descriptor write event.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9
@@ -2482,7 +2589,8 @@ declare namespace bluetoothManager {
      * @param { 'descriptorWrite' } type - Type of the descriptor write event to listen for.
      * @param { Callback<DescriptorWriteRequest> } callback - Callback used to listen for the descriptor write event.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
@@ -2498,7 +2606,8 @@ declare namespace bluetoothManager {
      * @param { 'descriptorWrite' } type - Type of the descriptor write event to listen for.
      * @param { Callback<DescriptorWriteRequest> } callback - Callback used to listen for the descriptor write event.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9
@@ -2513,7 +2622,8 @@ declare namespace bluetoothManager {
      * @param { 'descriptorWrite' } type - Type of the descriptor write event to listen for.
      * @param { Callback<DescriptorWriteRequest> } callback - Callback used to listen for the descriptor write event.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
@@ -2529,7 +2639,8 @@ declare namespace bluetoothManager {
      * @param { 'connectStateChange' } type - Type of the connection state changed event to listen for.
      * @param { Callback<BLEConnectChangedState> } callback - Callback used to listen for the connection state changed event.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9
@@ -2544,7 +2655,8 @@ declare namespace bluetoothManager {
      * @param { 'connectStateChange' } type - Type of the connection state changed event to listen for.
      * @param { Callback<BLEConnectChangedState> } callback - Callback used to listen for the connection state changed event.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
@@ -2560,7 +2672,8 @@ declare namespace bluetoothManager {
      * @param { 'connectStateChange' } type - Type of the connection state changed event to listen for.
      * @param { Callback<BLEConnectChangedState> } callback - Callback used to listen for the connection state changed event.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9
@@ -2575,7 +2688,8 @@ declare namespace bluetoothManager {
      * @param { 'connectStateChange' } type - Type of the connection state changed event to listen for.
      * @param { Callback<BLEConnectChangedState> } callback - Callback used to listen for the connection state changed event.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
@@ -2698,7 +2812,8 @@ declare namespace bluetoothManager {
      * @permission ohos.permission.USE_BLUETOOTH
      * @param { AsyncCallback<string> } callback - Callback used to obtain the device name.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900099 - Operation failed.
@@ -2714,7 +2829,8 @@ declare namespace bluetoothManager {
      * @permission ohos.permission.ACCESS_BLUETOOTH
      * @param { AsyncCallback<string> } callback - Callback used to obtain the device name.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900099 - Operation failed.
@@ -2732,7 +2848,8 @@ declare namespace bluetoothManager {
      * @returns { Promise<string> } Returns a string representation of the name if obtained;
      * returns {@code null} if the name fails to be obtained or the name does not exist.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900099 - Operation failed.
@@ -2749,7 +2866,8 @@ declare namespace bluetoothManager {
      * @returns { Promise<string> } Returns a string representation of the name if obtained;
      * returns {@code null} if the name fails to be obtained or the name does not exist.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900099 - Operation failed.
@@ -2766,7 +2884,8 @@ declare namespace bluetoothManager {
      * @permission ohos.permission.USE_BLUETOOTH
      * @param { AsyncCallback<Array<GattService>> } callback - Callback used to catch the services.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900099 - Operation failed.
@@ -2782,7 +2901,8 @@ declare namespace bluetoothManager {
      * @permission ohos.permission.ACCESS_BLUETOOTH
      * @param { AsyncCallback<Array<GattService>> } callback - Callback used to catch the services.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900099 - Operation failed.
@@ -2799,7 +2919,8 @@ declare namespace bluetoothManager {
      * @permission ohos.permission.USE_BLUETOOTH
      * @returns { Promise<Array<GattService>> } Returns the list of services {@link GattService} of the BLE peripheral device.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900099 - Operation failed.
@@ -2815,7 +2936,8 @@ declare namespace bluetoothManager {
      * @permission ohos.permission.ACCESS_BLUETOOTH
      * @returns { Promise<Array<GattService>> } Returns the list of services {@link GattService} of the BLE peripheral device.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900099 - Operation failed.
@@ -2833,7 +2955,8 @@ declare namespace bluetoothManager {
      * @param { BLECharacteristic } characteristic - Indicates the characteristic to read.
      * @param { AsyncCallback<BLECharacteristic> } callback - Callback invoked to return the characteristic value read.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2901000 - Read forbidden.
@@ -2851,7 +2974,8 @@ declare namespace bluetoothManager {
      * @param { BLECharacteristic } characteristic - Indicates the characteristic to read.
      * @param { AsyncCallback<BLECharacteristic> } callback - Callback invoked to return the characteristic value read.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2901000 - Read forbidden.
@@ -2870,7 +2994,8 @@ declare namespace bluetoothManager {
      * @param { BLECharacteristic } characteristic - Indicates the characteristic to read.
      * @returns { Promise<BLECharacteristic> } - Promise used to return the characteristic value read.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2901000 - Read forbidden.
@@ -2888,7 +3013,8 @@ declare namespace bluetoothManager {
      * @param { BLECharacteristic } characteristic - Indicates the characteristic to read.
      * @returns { Promise<BLECharacteristic> } - Promise used to return the characteristic value read.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2901000 - Read forbidden.
@@ -2907,7 +3033,8 @@ declare namespace bluetoothManager {
      * @param { BLEDescriptor } descriptor - Indicates the descriptor to read.
      * @param { AsyncCallback<BLEDescriptor> } callback - Callback invoked to return the descriptor read.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2901000 - Read forbidden.
@@ -2925,7 +3052,8 @@ declare namespace bluetoothManager {
      * @param { BLEDescriptor } descriptor - Indicates the descriptor to read.
      * @param { AsyncCallback<BLEDescriptor> } callback - Callback invoked to return the descriptor read.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2901000 - Read forbidden.
@@ -2944,7 +3072,8 @@ declare namespace bluetoothManager {
      * @param { BLEDescriptor } descriptor - Indicates the descriptor to read.
      * @returns { Promise<BLEDescriptor> } - Promise used to return the descriptor read.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2901000 - Read forbidden.
@@ -2962,7 +3091,8 @@ declare namespace bluetoothManager {
      * @param { BLEDescriptor } descriptor - Indicates the descriptor to read.
      * @returns { Promise<BLEDescriptor> } - Promise used to return the descriptor read.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2901000 - Read forbidden.
@@ -2980,7 +3110,8 @@ declare namespace bluetoothManager {
      * @permission ohos.permission.USE_BLUETOOTH
      * @param { BLECharacteristic } characteristic - Indicates the characteristic to write.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2901001 - Write forbidden.
@@ -2997,7 +3128,8 @@ declare namespace bluetoothManager {
      * @permission ohos.permission.ACCESS_BLUETOOTH
      * @param { BLECharacteristic } characteristic - Indicates the characteristic to write.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2901001 - Write forbidden.
@@ -3015,7 +3147,8 @@ declare namespace bluetoothManager {
      * @permission ohos.permission.USE_BLUETOOTH
      * @param { BLEDescriptor } descriptor - Indicates the descriptor to write.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2901001 - Write forbidden.
@@ -3032,7 +3165,8 @@ declare namespace bluetoothManager {
      * @permission ohos.permission.ACCESS_BLUETOOTH
      * @param { BLEDescriptor } descriptor - Indicates the descriptor to write.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2901001 - Write forbidden.
@@ -3050,7 +3184,8 @@ declare namespace bluetoothManager {
      * @permission ohos.permission.USE_BLUETOOTH
      * @param { AsyncCallback<number> } callback - Callback invoked to return the RSSI, in dBm.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
@@ -3065,7 +3200,8 @@ declare namespace bluetoothManager {
      * @permission ohos.permission.ACCESS_BLUETOOTH
      * @param { AsyncCallback<number> } callback - Callback invoked to return the RSSI, in dBm.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
@@ -3081,7 +3217,8 @@ declare namespace bluetoothManager {
      * @permission ohos.permission.USE_BLUETOOTH
      * @returns { Promise<number> } Returns the RSSI value.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
@@ -3096,7 +3233,8 @@ declare namespace bluetoothManager {
      * @permission ohos.permission.ACCESS_BLUETOOTH
      * @returns { Promise<number> } Returns the RSSI value.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
@@ -3112,7 +3250,8 @@ declare namespace bluetoothManager {
      * @permission ohos.permission.USE_BLUETOOTH
      * @param { number } mtu - The maximum transmission unit.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900099 - Operation failed.
@@ -3128,7 +3267,8 @@ declare namespace bluetoothManager {
      * @permission ohos.permission.ACCESS_BLUETOOTH
      * @param { number } mtu - The maximum transmission unit.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900099 - Operation failed.
@@ -3147,7 +3287,8 @@ declare namespace bluetoothManager {
      * @param { boolean } enable - Specifies whether to enable notification of the characteristic. The value {@code true} indicates
      * that notification is enabled, and the value {@code false} indicates that notification is disabled.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900099 - Operation failed.
@@ -3165,7 +3306,8 @@ declare namespace bluetoothManager {
      * @param { boolean } enable - Specifies whether to enable notification of the characteristic. The value {@code true} indicates
      * that notification is enabled, and the value {@code false} indicates that notification is disabled.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900099 - Operation failed.

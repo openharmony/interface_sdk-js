@@ -54,9 +54,11 @@ declare namespace screen {
   /**
    * Register the callback for screen changes.
    *
-   * @param { 'connect' | 'disconnect' | 'change' } eventType the event of screen changes
-   * @param { Callback<number> } callback Callback used to return the screen ID
-   * @throws { BusinessError } 401 - Parameter error.
+   * @param { 'connect' | 'disconnect' | 'change' } eventType the event of screen changes. This parameter is of string
+   * type and cannot be empty.
+   * @param { Callback<number> } callback Callback used to return the screen ID. This parameter is callable.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -66,9 +68,12 @@ declare namespace screen {
   /**
    * Unregister the callback for screen changes.
    *
-   * @param { 'connect' | 'disconnect' | 'change' } eventType the event of screen changes
-   * @param { Callback<number> } callback Callback used to return the screen ID
-   * @throws { BusinessError } 401 - Parameter error.
+   * @param { 'connect' | 'disconnect' | 'change' } eventType the event of screen changes. This parameter is of string
+   * type and cannot be empty.
+   * @param { Callback<number> } callback Callback used to return the screen ID. If this parameter is specified, it must
+   * be a callback.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -78,9 +83,12 @@ declare namespace screen {
   /**
    * Make screens as expand-screen
    *
-   * @param { Array<ExpandOption> } options Parameters for expanding the screen
-   * @param { AsyncCallback<number> } callback callback used to return the group ID of the expanded screens
-   * @throws { BusinessError } 401 - Parameter error.
+   * @param { Array<ExpandOption> } options Parameters for expanding the screen. The options must be valid, and make
+   * sure it's type of Array<ExpandOption>.
+   * @param { AsyncCallback<number> } callback callback used to return the group ID of the expanded screens. It must
+   * be a callback.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -91,9 +99,11 @@ declare namespace screen {
   /**
    * Make screens as expand-screen
    *
-   * @param { Array<ExpandOption> } options Parameters for expanding the screen
+   * @param { Array<ExpandOption> } options Parameters for expanding the screen. The options must be valid, and make
+   * sure it's type of Array<ExpandOption>.
    * @returns { Promise<number> } used to return the group ID of the expanded screens
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -104,9 +114,11 @@ declare namespace screen {
   /**
    * Stop expand screens
    *
-   * @param { Array<number> } expandScreen IDs of expand screens to stop
+   * @param { Array<number> } expandScreen IDs of expand screens to stop. The size of the expandScreen Array should not
+   * exceed 1000.
    * @param { AsyncCallback<void> } callback used to return the result
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -117,9 +129,11 @@ declare namespace screen {
   /**
    * Stop expand screens
    *
-   * @param { Array<number> } expandScreen IDs of expand screens to stop
+   * @param { Array<number> } expandScreen IDs of expand screens to stop. The size of the expandScreen Array should not
+   * exceed 1000.
    * @returns { Promise<void> } promise used to return the result
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -130,10 +144,11 @@ declare namespace screen {
   /**
    * Make screens as mirror-screen
    *
-   * @param { number } mainScreen ID of the primary screen
+   * @param { number } mainScreen ID of the primary screen. It's type should be int.
    * @param { Array<number> } mirrorScreen IDs of secondary screens
    * @param { AsyncCallback<number> } callback Callback used to return the group ID of the secondary screens
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -144,10 +159,11 @@ declare namespace screen {
   /**
    * Make screens as mirror-screen
    *
-   * @param { number } mainScreen ID of the primary screen
+   * @param { number } mainScreen ID of the primary screen. It's type should be int.
    * @param { Array<number> } mirrorScreen IDs of secondary screens
    * @returns { Promise<number> } Promise used to return the group ID of the secondary screens
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -158,9 +174,11 @@ declare namespace screen {
   /**
    * Stop mirror screens
    *
-   * @param { Array<number> } mirrorScreen IDs of mirror screens to stop
+   * @param { Array<number> } mirrorScreen IDs of mirror screens to stop. The size of the mirrorScreen Array should not
+   * exceed 1000.
    * @param { AsyncCallback<void> } callback used to return the result
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -171,9 +189,11 @@ declare namespace screen {
   /**
    * Stop mirror screens
    *
-   * @param { Array<number> } mirrorScreen IDs of mirror screens to stop
+   * @param { Array<number> } mirrorScreen IDs of mirror screens to stop. The size of the mirrorScreen Array should not
+   * exceed 1000.
    * @returns { Promise<void> } promise used to return the result
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * 2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -187,8 +207,9 @@ declare namespace screen {
    * @permission ohos.permission.CAPTURE_SCREEN
    * @param { VirtualScreenOption } options Indicates the options of the virtual screen.
    * @param { AsyncCallback<Screen> } callback Callback used to return the created virtual screen
-   * @throws { BusinessError } 201 - Permission verification failed.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -202,8 +223,9 @@ declare namespace screen {
    * @permission ohos.permission.CAPTURE_SCREEN
    * @param { VirtualScreenOption } options Indicates the options of the virtual screen.
    * @returns { Promise<Screen> } Promise used to return the created virtual screen
-   * @throws { BusinessError } 201 - Permission verification failed.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * 2. Incorrect parameter types.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -216,7 +238,8 @@ declare namespace screen {
    *
    * @param { number } screenId Indicates the screen id of the virtual screen.
    * @param { AsyncCallback<void> } callback Callback used to return the result.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400002 - Unauthorized operation.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -229,7 +252,8 @@ declare namespace screen {
    *
    * @param { number } screenId Indicates the screen id of the virtual screen.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400002 - Unauthorized operation.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -244,8 +268,9 @@ declare namespace screen {
    * @param { number } screenId Indicates the screen id of the virtual screen.
    * @param { string } surfaceId Indicates the surface id.
    * @param { AsyncCallback<void> } callback Callback used to return the result
-   * @throws { BusinessError } 201 - Permission verification failed.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -260,8 +285,9 @@ declare namespace screen {
    * @param { number } screenId Indicates the screen id of the virtual screen.
    * @param { string } surfaceId Indicates the surface id.
    * @returns { Promise<void> } Promise that returns no value
-   * @throws { BusinessError } 201 - Permission verification failed.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -294,7 +320,8 @@ declare namespace screen {
    *
    * @param { boolean } isLocked Indicates whether the screen rotation switch is locked.
    * @param { AsyncCallback<void> } callback Callback used to return the result.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -306,7 +333,8 @@ declare namespace screen {
    *
    * @param { boolean } isLocked Indicates whether the screen rotation switch is locked.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -517,9 +545,10 @@ declare namespace screen {
     /**
      * Set the orientation of the screen
      *
-     * @param { Orientation } orientation Screen orientation.
+     * @param { Orientation } orientation Screen orientation. orientation value must from enum Orientation.
      * @param { AsyncCallback<void> } callback Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
@@ -530,9 +559,10 @@ declare namespace screen {
     /**
      * Set the orientation of the screen
      *
-     * @param { Orientation } orientation Screen orientation.
+     * @param { Orientation } orientation Screen orientation. orientation value must from enum Orientation.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
@@ -545,7 +575,8 @@ declare namespace screen {
      *
      * @param { number } modeIndex Index of the mode to set.
      * @param { AsyncCallback<void> } callback Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
@@ -558,7 +589,8 @@ declare namespace screen {
      *
      * @param { number } modeIndex Index of the mode to set.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
@@ -571,7 +603,8 @@ declare namespace screen {
      *
      * @param { number } densityDpi Pixel density. The value ranges from 80 to 640.
      * @param { AsyncCallback<void> } callback Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
@@ -584,7 +617,8 @@ declare namespace screen {
      *
      * @param { number } densityDpi Pixel density. The value ranges from 80 to 640.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.

@@ -172,12 +172,11 @@ function checkEventSubscription(node, sourcefile, fileName) {
       // if the node is method or function
       if (ts.isFunctionDeclaration(childNode) || ts.isMethodDeclaration(childNode) || ts.isMethodSignature(childNode)) {
         // if the version needed to be check
-        let childNodeName = '';
-        if (childNode.name && ts.isIdentifier(childNode.name)) {
-          childNodeName = childNode.name.getText();
-        }
-        handleVariousEventSubscriptionAPI(childNode, childNodeName, sourcefile, fileName, onEventAllNames, onEventCheckNames, offEventAllNames,
-          offEventCheckNames, offEventNodes);
+        let childNodeName = (childNode.name && ts.isIdentifier(childNode.name)) ?
+          childNode.name.getText() :
+          '';
+        handleVariousEventSubscriptionAPI(childNode, childNodeName, sourcefile, fileName, onEventAllNames,
+          onEventCheckNames, offEventAllNames, offEventCheckNames, offEventNodes);
       }
     });
     // check the callback parameter of off function is optional

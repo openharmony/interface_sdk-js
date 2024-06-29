@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Provides methods for switching components.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -263,6 +268,32 @@ declare class Indicator<T> {
    * @form
    */
   bottom(value: Length): T;
+  
+  /**
+   * Set the indicator to the left in LTR
+   * Set the indicator to the right in RTL
+   *
+   * @param { LengthMetrics } value - the indicator to the right in LTR, indicator to the left in RTL
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  start(value: LengthMetrics): T;
+
+  /**
+   * Set the indicator to the left in RTL 
+   * Set the indicator to the right in LTR
+   *
+   * @param { LengthMetrics } value - the indicator to the left in RTL, Set the indicator to the right in LTR
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  end(value: LengthMetrics): T;   
 
   /**
    * DotIndicator class object.
@@ -510,6 +541,17 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * @form
    */
   selectedColor(value: ResourceColor): DotIndicator;
+
+  /**
+   * Set the Indicator maxDisplayCount when selected.
+   *
+   * @param { number } maxDisplayCount - the indicator item maxDisplayCount when selected.
+   * @returns { DotIndicator } return the DotIndicator
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  maxDisplayCount(maxDisplayCount: number): DotIndicator;
 }
 
 /**
@@ -905,9 +947,11 @@ declare enum SwiperDisplayMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
+   * @deprecated since 12
+   * @useinstead Scroller#scrollTo
    */
   AUTO_LINEAR,
 }
@@ -1721,7 +1765,18 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @atomicservice
    * @since 11
    */
-  prevMargin(value: Length): SwiperAttribute;
+  /**
+   * When the previous item is empty, do not display blank space.
+   *
+   * @param { Length } value - The length of previous margin.
+   * @param { boolean } [ignoreBlank] - Ignoring blank space at the end of the page.
+   * @returns { SwiperAttribute } The attribute of the swiper.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  prevMargin(value: Length, ignoreBlank?: boolean): SwiperAttribute;
 
   /**
    * The next margin which can be used to expose a small portion of the latter item.
@@ -1741,7 +1796,18 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @atomicservice
    * @since 11
    */
-  nextMargin(value: Length): SwiperAttribute;
+  /**
+   * When the next item is empty, do not display blank space.
+   *
+   * @param { Length } value - The length of next margin.
+   * @param { boolean } [ignoreBlank] - Ignoring blank space on homepage.
+   * @returns { SwiperAttribute } The attribute of the swiper.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  nextMargin(value: Length, ignoreBlank?: boolean): SwiperAttribute;
 
   /**
    * Called when the swiper animation start.
@@ -1851,7 +1917,149 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 11
    */
   nestedScroll(value: SwiperNestedScrollMode): SwiperAttribute;
+
+  /**
+   * Custom swiper content transition animation.
+   *
+   * @param { SwiperContentAnimatedTransition } transition - custom content transition animation.
+   * @returns { SwiperAttribute } the attribute of the swiper.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  customContentTransition(transition: SwiperContentAnimatedTransition): SwiperAttribute;
+
+  /**
+   * Called when the swiper content did scroll.
+   *
+   * @param { ContentDidScrollCallback } handler - callback of scroll,
+   * selectedIndex is the index value of the swiper content selected before animation start.
+   * index is the index value of the swiper content.
+   * position is the moving ratio of the swiper content from the start position of the swiper main axis.
+   * mainAxisLength is the swiper main axis length for calculating position.
+   * @returns { SwiperAttribute } the attribute of the swiper.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onContentDidScroll(handler: ContentDidScrollCallback): SwiperAttribute;
+
+  /**
+   * Setting whether the indicator is interactive.
+   *
+   * @param { boolean } value - Whether the indicator is interactive.
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  indicatorInteractive(value: boolean): SwiperAttribute;
 }
+
+/**
+ * Defines the swiper content animated transition options.
+ *
+ * @interface SwiperContentAnimatedTransition
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface SwiperContentAnimatedTransition {
+  /**
+   * Defines the timeout of custom content transition animation after the page is moved out of the swiper. The unit is ms.
+   * If SwiperContentTransitionProxy.finishTransition() is not invoked, use the timeout as animation end time.
+   *
+   * @type { ?number }
+   * @default 0 ms
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  timeout?: number;
+
+  /**
+   * Called when custom content transition animation start.
+   *
+   * @type { Callback<SwiperContentTransitionProxy> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  transition: Callback<SwiperContentTransitionProxy>;
+}
+
+/**
+ * The proxy of SwiperContentAnimatedTransition.
+ *
+ * @interface SwiperContentTransitionProxy
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface SwiperContentTransitionProxy {
+  /**
+   * the index value of the swiper content selected before animation start.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  selectedIndex: number;
+
+  /**
+   * The index value of the swiper content.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  index: number;
+
+  /**
+   * the moving ratio of the swiper content from the start position of the swiper main axis.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  position: number;
+
+  /**
+   * the swiper main axis length for calculating position.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  mainAxisLength: number;
+
+  /**
+   * Notifies Swiper page the custom content transition animation is complete.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  finishTransition(): void;
+}
+
+/**
+ * The callback of onContentDidScroll.
+ * 
+ * @typedef { Function } ContentDidScrollCallback
+ * @param { number } selectedIndex - the index value of the swiper content selected before animation start.
+ * @param { number } index - the index value of the swiper content.
+ * @param { number } position - the moving ratio of the swiper content from the start position of the swiper main axis.
+ * @param { number } mainAxisLength - the swiper main axis length for calculating position.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type ContentDidScrollCallback = (selectedIndex: number, index: number, position: number, mainAxisLength: number) => void;
 
 /**
  * Defines Swiper Component.

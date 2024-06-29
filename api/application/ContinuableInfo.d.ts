@@ -30,20 +30,37 @@ export interface ContinuableInfo {
   /**
    * Indicates the original deviceId to continue mission.
    *
-   * @type {string}
+   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system user.
    * @since 10
    */
   srcDeviceId: string;
-
   /**
-   * Indicates bundle name.
+   * Indicates the bundle name of the destination to continue.
    *
-   * @type {string}
+   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system user.
    * @since 10
    */
   bundleName: string;
+  /**
+   * Indicates the original bundle name to continue mission.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi Hide this for inner system user.
+   * @since 12
+   */
+  srcBundleName?: string;
+  /**
+   * Indicates continue type.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi Hide this for inner system user.
+   * @since 12
+   */
+  continueType?: string;
 }

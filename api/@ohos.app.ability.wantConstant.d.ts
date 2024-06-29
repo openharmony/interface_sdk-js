@@ -227,7 +227,70 @@ declare namespace wantConstant {
      * @atomicservice
      * @since 12
      */
-    SHOW_MODE_KEY = 'ohos.extra.param.key.showMode'
+    SHOW_MODE_KEY = 'ohos.extra.param.key.showMode',
+
+    /**
+     * Cross-application sharing of file URIs.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @atomicservice
+     * @since 12
+     */
+    PARAMS_STREAM = 'ability.params.stream',
+
+    /**
+     * Indicates the param of app clone index.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @atomicservice
+     * @since 12
+     */
+    APP_CLONE_INDEX_KEY = 'ohos.extra.param.key.appCloneIndex',
+
+    /**
+     * Indicates the param of page path.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @atomicservice
+     * @since 12
+     */
+    PAGE_PATH = 'ohos.param.atomicservice.pagePath',
+
+    /**
+     * Indicates the param of router name.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @atomicservice
+     * @since 12
+     */
+    ROUTER_NAME = 'ohos.param.atomicservice.routerName',
+
+    /**
+     * Indicates the param of page source file.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @atomicservice
+     * @since 12
+     */
+    PAGE_SOURCE_FILE = 'ohos.param.atomicservice.pageSourceFile',
+
+    /**
+     * Indicates the param of build function.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @atomicservice
+     * @since 12
+     */
+    BUILD_FUNCTION = 'ohos.param.atomicservice.buildFunction',
+  
+    /**
+     * Indicates the param of subpackage name.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @atomicservice
+     * @since 12
+     */
+    SUB_PACKAGE_NAME = 'ohos.param.atomicservice.subpackageName',
   }
 
   /**
@@ -277,19 +340,9 @@ declare namespace wantConstant {
     FLAG_AUTH_WRITE_URI_PERMISSION = 0x00000002,
 
     /**
-     * Indicates the grant for possible persisting on the URI.
-     * The flag only valid in PC scenarios.
-     * When sharing user file URI,
-     * if the application has PERMISSION_PROXY_AUTHORIZATION_URI permission or persistable permission to the URI,
-     * it can share persistable URI permission by using this flag.
-     * To grant persistable read permissions to URI,
-     * you can set flag = FLAG_AUTH_READ_URI_PERMISSION | FLAG_AUTH_PERSISTABLE_URI_PERMISSION.
-     * To grant persistable write permissions to URI,
-     * you can set flag = FLAG_AUTH_WRITE_URI_PERMISSION | FLAG_AUTH_PERSISTABLE_URI_PERMISSION.
-     *
+     * Indicates that the URI can be persisted by the callee.
      * @syscap SystemCapability.Ability.AbilityBase
-     * @systemapi
-     * @since 10
+     * @since 12
      */
     FLAG_AUTH_PERSISTABLE_URI_PERMISSION = 0x00000040,
 

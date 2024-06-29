@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Enumerates the icon styles.
  *
  * @enum { number }
@@ -57,7 +62,16 @@ declare enum SaveIconStyle {
    * @atomicservice
    * @since 11
    */
-  LINES = 1
+  LINES = 1,
+
+  /**
+   * Icon rendered as picture.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 12
+   */
+  PICTURE = 2
 }
 
 /**
@@ -194,7 +208,16 @@ declare enum SaveDescription {
    * @atomicservice
    * @since 11
    */
-  CONTINUE_TO_RECEIVE = 7
+  CONTINUE_TO_RECEIVE = 7,
+
+  /**
+   * Save to gallery
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  SAVE_TO_GALLERY = 8
 }
 
 /**

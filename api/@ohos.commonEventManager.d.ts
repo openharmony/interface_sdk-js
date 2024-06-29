@@ -36,6 +36,7 @@ import { CommonEventPublishData as _CommonEventPublishData } from './commonEvent
  *
  * @namespace commonEventManager
  * @syscap SystemCapability.Notification.CommonEvent
+ * @crossplatform
  * @atomicservice
  * @since 11
  */
@@ -45,7 +46,8 @@ declare namespace commonEventManager {
    *
    * @param { string } event - name of the common event.
    * @param { AsyncCallback<void> } callback - The callback of publish.
-   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1500004 - not System services
    * @throws { BusinessError } 1500007 - error sending message to Common Event Service
    * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
@@ -58,7 +60,8 @@ declare namespace commonEventManager {
    *
    * @param { string } event - name of the common event.
    * @param { AsyncCallback<void> } callback - The callback of publish.
-   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1500004 - not System services
    * @throws { BusinessError } 1500007 - error sending message to Common Event Service
    * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
@@ -66,6 +69,22 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Publishes an ordered, sticky, or standard common event.
+   *
+   * @param { string } event - name of the common event.
+   * @param { AsyncCallback<void> } callback - The callback of publish.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 1500004 - not System services
+   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
+   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
+   * @throws { BusinessError } 1500009 - error obtaining system parameters
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   function publish(event: string, callback: AsyncCallback<void>): void;
 
@@ -76,7 +95,8 @@ declare namespace commonEventManager {
    * @param { CommonEventPublishData } options - Indicate the CommonEventPublishData containing the common event
    *                                             content and attributes.
    * @param { AsyncCallback<void> } callback - The callback of publish.
-   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1500004 - not System services
    * @throws { BusinessError } 1500007 - error sending message to Common Event Service
    * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
@@ -91,7 +111,8 @@ declare namespace commonEventManager {
    * @param { CommonEventPublishData } options - Indicate the CommonEventPublishData containing the common event
    *                                             content and attributes.
    * @param { AsyncCallback<void> } callback - The callback of publish.
-   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1500004 - not System services
    * @throws { BusinessError } 1500007 - error sending message to Common Event Service
    * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
@@ -99,6 +120,24 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Publishes an ordered, sticky, or standard common event.
+   *
+   * @param { string } event - name of the common event.
+   * @param { CommonEventPublishData } options - Indicate the CommonEventPublishData containing the common event
+   *                                             content and attributes.
+   * @param { AsyncCallback<void> } callback - The callback of publish.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 1500004 - not System services
+   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
+   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
+   * @throws { BusinessError } 1500009 - error obtaining system parameters
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   function publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>): void;
 
@@ -109,7 +148,8 @@ declare namespace commonEventManager {
    * @param { number } userId - Specified the user to receive the common events.
    * @param { AsyncCallback<void> } callback - The callback of publishAsUser.
    * @throws { BusinessError } 202 - not system app
-   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1500004 - not System services
    * @throws { BusinessError } 1500007 - error sending message to Common Event Service
    * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
@@ -129,7 +169,8 @@ declare namespace commonEventManager {
    *                                             content and attributes.
    * @param { AsyncCallback<void> } callback - The callback of publishAsUser.
    * @throws { BusinessError } 202 - not system app
-   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1500004 - not System services or System app
    * @throws { BusinessError } 1500007 - error sending message to Common Event Service
    * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
@@ -151,7 +192,8 @@ declare namespace commonEventManager {
    * @param { CommonEventSubscribeInfo } subscribeInfo - Indicates the information of the subscriber.
    * @param { AsyncCallback<CommonEventSubscriber> } callback - The callback is used to return the
    *                                                            CommonEventSubscriber object.
-   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 9
    */
@@ -161,7 +203,8 @@ declare namespace commonEventManager {
    * @param { CommonEventSubscribeInfo } subscribeInfo - Indicates the information of the subscriber.
    * @param { AsyncCallback<CommonEventSubscriber> } callback - The callback is used to return the
    *                                                            CommonEventSubscriber object.
-   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
    * @atomicservice
@@ -177,7 +220,8 @@ declare namespace commonEventManager {
    *
    * @param { CommonEventSubscribeInfo } subscribeInfo - Indicates the information of the subscriber.
    * @returns { Promise<CommonEventSubscriber> } Returns the CommonEventSubscriber object.
-   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 9
    */
@@ -186,7 +230,8 @@ declare namespace commonEventManager {
    *
    * @param { CommonEventSubscribeInfo } subscribeInfo - Indicates the information of the subscriber.
    * @returns { Promise<CommonEventSubscriber> } Returns the CommonEventSubscriber object.
-   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
    * @atomicservice
@@ -199,7 +244,8 @@ declare namespace commonEventManager {
    *
    * @param { CommonEventSubscribeInfo } subscribeInfo - Indicates the information of the subscriber.
    * @returns { CommonEventSubscriber } Returns the CommonEventSubscriber object.
-   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 10
    */
@@ -208,7 +254,8 @@ declare namespace commonEventManager {
    *
    * @param { CommonEventSubscribeInfo } subscribeInfo - Indicates the information of the subscriber.
    * @returns { CommonEventSubscriber } Returns the CommonEventSubscriber object.
-   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11
@@ -220,7 +267,8 @@ declare namespace commonEventManager {
    *
    * @param { CommonEventSubscriber } subscriber - Indicate the subscriber of the common event.
    * @param { AsyncCallback<CommonEventData> } callback - The callback is used to return the CommonEventData object.
-   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - capability not supported
    * @throws { BusinessError } 1500007 - error sending message to Common Event Service
    * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
@@ -232,7 +280,8 @@ declare namespace commonEventManager {
    *
    * @param { CommonEventSubscriber } subscriber - Indicate the subscriber of the common event.
    * @param { AsyncCallback<CommonEventData> } callback - The callback is used to return the CommonEventData object.
-   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - capability not supported
    * @throws { BusinessError } 1500007 - error sending message to Common Event Service
    * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
@@ -248,7 +297,8 @@ declare namespace commonEventManager {
    *
    * @param { CommonEventSubscriber } subscriber - Indicate the subscriber of the common event.
    * @param { AsyncCallback<void> } [callback] - The callback of unsubscribe.
-   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - capability not supported
    * @throws { BusinessError } 1500007 - error sending message to Common Event Service
    * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
@@ -260,7 +310,8 @@ declare namespace commonEventManager {
    *
    * @param { CommonEventSubscriber } subscriber - Indicate the subscriber of the common event.
    * @param { AsyncCallback<void> } [callback] - The callback of unsubscribe.
-   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - capability not supported
    * @throws { BusinessError } 1500007 - error sending message to Common Event Service
    * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
@@ -279,7 +330,8 @@ declare namespace commonEventManager {
    * @param { AsyncCallback<void> } callback - The callback of removeStickyCommonEvent.
    * @throws { BusinessError } 201 - The application dose not have permission to call the interface
    * @throws { BusinessError } 202 - not system app
-   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1500004 - not system service
    * @throws { BusinessError } 1500007 - error sending message to Common Event Service
    * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
@@ -297,7 +349,8 @@ declare namespace commonEventManager {
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - The application dose not have permission to call the interface
    * @throws { BusinessError } 202 - not system app
-   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1500004 - not system service
    * @throws { BusinessError } 1500007 - error sending message to Common Event Service
    * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
@@ -313,7 +366,8 @@ declare namespace commonEventManager {
    * @param { boolean } enable - static subscribe event enable/disable state.
    * @param { AsyncCallback<void> } callback - Specified callback method.
    * @throws { BusinessError } 202 - not system app
-   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1500007 - error sending message to Common Event Service
    * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
    * @syscap SystemCapability.Notification.CommonEvent
@@ -329,7 +383,8 @@ declare namespace commonEventManager {
    * @param { boolean } enable - static subscribe event enable/disable state.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 202 - not system app
-   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1500007 - error sending message to Common Event Service
    * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
    * @syscap SystemCapability.Notification.CommonEvent
@@ -346,7 +401,8 @@ declare namespace commonEventManager {
    * @param { Array<string> } events - The events array.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 202 - not system app
-   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1500007 - error sending message to Common Event Service
    * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
    * @syscap SystemCapability.Notification.CommonEvent
@@ -374,6 +430,7 @@ declare namespace commonEventManager {
   export enum Support {
     /**
      * This commonEvent means when the device is booted or system upgrade completed, and only be sent by system.
+     * This API can be called only by system applications.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9
@@ -748,6 +805,7 @@ declare namespace commonEventManager {
      * Remind new user of that the service has been switched to new user.
      *
      * @syscap SystemCapability.Notification.CommonEvent
+     * This API can be called only by system applications.
      * @since 9
      */
     COMMON_EVENT_USER_SWITCHED = 'usual.event.USER_SWITCHED',
@@ -756,6 +814,7 @@ declare namespace commonEventManager {
      * Remind new user of that the service has been starting.
      *
      * @syscap SystemCapability.Notification.CommonEvent
+     * This API can be called only by system applications.
      * @since 9
      */
     COMMON_EVENT_USER_STARTING = 'usual.event.USER_STARTING',
@@ -772,6 +831,7 @@ declare namespace commonEventManager {
      * Remind new user of that the service has been stopping.
      *
      * @syscap SystemCapability.Notification.CommonEvent
+     * This API can be called only by system applications.
      * @since 9
      */
     COMMON_EVENT_USER_STOPPING = 'usual.event.USER_STOPPING',
@@ -790,6 +850,13 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9
      */
+    /**
+     * Distributed account login successfully.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @atomicservice
+     * @since 12
+     */
     COMMON_EVENT_DISTRIBUTED_ACCOUNT_LOGIN = 'common.event.DISTRIBUTED_ACCOUNT_LOGIN',
 
     /**
@@ -797,6 +864,13 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9
+     */
+    /**
+     * Distributed account logout successfully.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @atomicservice
+     * @since 12
      */
     COMMON_EVENT_DISTRIBUTED_ACCOUNT_LOGOUT = 'common.event.DISTRIBUTED_ACCOUNT_LOGOUT',
 
@@ -806,6 +880,13 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9
      */
+    /**
+     * Distributed account is invalid.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @atomicservice
+     * @since 12
+     */
     COMMON_EVENT_DISTRIBUTED_ACCOUNT_TOKEN_INVALID = 'common.event.DISTRIBUTED_ACCOUNT_TOKEN_INVALID',
 
     /**
@@ -813,6 +894,13 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9
+     */
+    /**
+     * Distributed account logs off.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @atomicservice
+     * @since 12
      */
     COMMON_EVENT_DISTRIBUTED_ACCOUNT_LOGOFF = 'common.event.DISTRIBUTED_ACCOUNT_LOGOFF',
 
@@ -1310,6 +1398,7 @@ declare namespace commonEventManager {
      * User added.
      *
      * @syscap SystemCapability.Notification.CommonEvent
+     * This API can be called only by system applications.
      * @since 9
      */
     COMMON_EVENT_USER_ADDED = 'usual.event.USER_ADDED',
@@ -1318,6 +1407,7 @@ declare namespace commonEventManager {
      * User removed.
      *
      * @syscap SystemCapability.Notification.CommonEvent
+     * This API can be called only by system applications.
      * @since 9
      */
     COMMON_EVENT_USER_REMOVED = 'usual.event.USER_REMOVED',
@@ -1566,6 +1656,7 @@ declare namespace commonEventManager {
     /**
      * The external storage was removed.
      * This is a protected common event that can only be sent by system.
+     * This API can be called only by system applications.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9
@@ -1575,6 +1666,7 @@ declare namespace commonEventManager {
     /**
      * The external storage was unmounted.
      * This is a protected common event that can only be sent by system.
+     * This API can be called only by system applications.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9
@@ -1584,6 +1676,7 @@ declare namespace commonEventManager {
     /**
      * The external storage was mounted.
      * This is a protected common event that can only be sent by system.
+     * This API can be called only by system applications.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9
@@ -1593,6 +1686,7 @@ declare namespace commonEventManager {
     /**
      * The external storage was bad removal.
      * This is a protected common event that can only be sent by system.
+     * This API can be called only by system applications.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9
@@ -1602,6 +1696,7 @@ declare namespace commonEventManager {
     /**
      * The external storage was eject.
      * This is a protected common event that can only be sent by system.
+     * This API can be called only by system applications.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9
@@ -1622,6 +1717,7 @@ declare namespace commonEventManager {
      * This is a protected common event that can only be sent by system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
+     * This API can be called only by system applications.
      * @since 9
      */
     COMMON_EVENT_ACCOUNT_DELETED = 'usual.event.data.ACCOUNT_DELETED',
@@ -1662,6 +1758,7 @@ declare namespace commonEventManager {
     /**
      * The notification slot has been updated.
      * This is a protected common event that can only be sent by system.
+     * This API can be called only by system applications.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9
@@ -2038,6 +2135,46 @@ declare namespace commonEventManager {
      * @since 12
      */
     COMMON_EVENT_PACKAGE_INSTALLATION_STARTED = 'usual.event.PACKAGE_INSTALLATION_STARTED',
+
+    /**
+     * This common event means an application package enables or disables a dynamic icon.
+     * This is a protected common event that can only be sent by system.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @since 12
+     */
+    COMMON_EVENT_DYNAMIC_ICON_CHANGED = 'usual.event.DYNAMIC_ICON_CHANGED',
+
+    /**
+     * This common event means that minors mode is enabled.
+     * This is a protected common event that can only be sent by system.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @atomicservice
+     * @since 12
+     */
+    COMMON_EVENT_MINORSMODE_ON = 'usual.event.MINORSMODE_ON',
+
+    /**
+     * This common event means that minors mode is disabled.
+     * This is a protected common event that can only be sent by system.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @atomicservice
+     * @since 12
+     */
+    COMMON_EVENT_MINORSMODE_OFF = 'usual.event.MINORSMODE_OFF',
+
+    /**
+     * This common event means that datashare is ready.
+     * This is a protected common event that can only be sent by system.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @atomicservice
+     * @since 12
+     */
+    COMMON_EVENT_DATA_SHARE_READY = 'usual.event.DATA_SHARE_READY',
   }
 
   /**
@@ -2097,6 +2234,14 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Describes the information of the subscriber
+   *
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   export type CommonEventPublishData = _CommonEventPublishData;
 }

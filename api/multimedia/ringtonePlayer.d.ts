@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AudioKit
+ */
+
 import type { Callback, AsyncCallback } from '../@ohos.base';
 import type audio from '../@ohos.multimedia.audio';
 import type media from '../@ohos.multimedia.media';
@@ -166,8 +171,10 @@ export interface RingtonePlayer {
    * triggered when audio playback is interrupted.
    * @param { 'audioInterrupt' } type - Type of the event to listen for. Only the audioInterrupt event is supported.
    * @param { Callback<audio.InterruptEvent> } callback - Callback used to listen for interrupt callback.
-   * @throws { BusinessError } 401 - if input parameter type or number mismatch
-   * @throws { BusinessError } 6800101 - if input parameter value error
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                                 1.Mandatory parameters are left unspecified;
+   *                                 2.Incorrect parameter types.
+   * @throws { BusinessError } 6800101 - Parameter verification failed.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10
@@ -177,8 +184,10 @@ export interface RingtonePlayer {
   /**
    * Unsubscribes to audio interrupt events.
    * @param { 'audioInterrupt' } type - Type of the event to listen for. Only the audioInterrupt event is supported.
-   * @throws { BusinessError } 401 - if input parameter type or number mismatch
-   * @throws { BusinessError } 6800101 - if input parameter value error
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                                 1.Mandatory parameters are left unspecified;
+   *                                 2.Incorrect parameter types.
+   * @throws { BusinessError } 6800101 - Parameter verification failed.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10

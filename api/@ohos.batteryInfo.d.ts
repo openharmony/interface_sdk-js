@@ -42,11 +42,13 @@ declare namespace batteryInfo {
    * Sets the battery config by scene name.
    *
    * @param { string } sceneName - Indicates the battery charging scene name.
+   * sceneName parameter must be of type string.
    * @param { string } sceneValue - Indicates the battery charging scene value.
+   * sceneValue parameter must be of type string.
    * @returns { number } Return to set the charging configuration result.
    * @throws { BusinessError } 202 - If the system permission is denied.
-   * @throws { BusinessError } 401 - If the reason is not valid.
-   * @throws { BusinessError } 4900101 - If connecting to the service failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
+   * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi
    * @since 11
@@ -57,10 +59,11 @@ declare namespace batteryInfo {
    * Queries the battery config by scene name.
    *
    * @param { string } sceneName - Indicates the battery charging scene name.
+   * sceneName parameter must be of type string.
    * @returns { string } Returns the battery charging configuration, returns "" otherwise.
    * @throws { BusinessError } 202 - If the system permission is denied.
-   * @throws { BusinessError } 401 - If the reason is not valid.
-   * @throws { BusinessError } 4900101 - If connecting to the service failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
+   * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi
    * @since 11
@@ -71,10 +74,11 @@ declare namespace batteryInfo {
    * Checks the battery config is enable by scene name.
    *
    * @param { string } sceneName - Indicates the battery charging scene name.
+   * sceneName parameter must be of type string.
    * @returns { boolean } Returns true if the device supports the charging scene, returns false otherwise.
    * @throws { BusinessError } 202 - If the system permission is denied.
-   * @throws { BusinessError } 401 - If the reason is not valid.
-   * @throws { BusinessError } 4900101 - If connecting to the service failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
+   * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi
    * @since 11
@@ -203,8 +207,7 @@ declare namespace batteryInfo {
    *
    * @constant
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
-   * @systemapi
-   * @since 9
+   * @since 12
    */
   const nowCurrent: number;
 

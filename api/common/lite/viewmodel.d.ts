@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * View model
  * @interface ViewModel
  * @syscap SystemCapability.ArkUI.ArkUI.Lite

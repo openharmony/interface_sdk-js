@@ -14,8 +14,16 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * function that returns item main size by index.
  * 
+ * @typedef { function } GetItemMainSizeByIndex
+ * @param { number } index - the index of FlowItem
+ * @returns { number } main size of the FlowItem at index
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
@@ -171,6 +179,34 @@ declare class WaterFlowSections {
 }
 
 /**
+ * Declare layout modes of WaterFlow.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum WaterFlowLayoutMode {
+  /**
+   * Top-down Layout mode. Positions of new items depend on items above.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  ALWAYS_TOP_DOWN = 0,
+
+  /**
+   * Sliding window mode. Only maintains layout information of items currently in viewport.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  SLIDING_WINDOW = 1,
+}
+
+/**
  * Defines the water flow options.
  *
  * @interface WaterFlowOptions
@@ -256,6 +292,16 @@ declare interface WaterFlowOptions {
    * @since 12
    */
   sections?: WaterFlowSections;
+
+  /**
+   * Describes the layout mode.
+   *
+   * @type { ?WaterFlowLayoutMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  layoutMode?: WaterFlowLayoutMode;
 }
 
 /**
@@ -577,6 +623,15 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Called to set number of flow items to be preloaded (cached) in LazyForEach. 
+   * @param { number } value - number of flow items to be preloaded (cached).
+   * @returns { WaterFlowAttribute } the attribute of the water flow.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   cachedCount(value: number): WaterFlowAttribute;
 

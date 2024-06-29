@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * indexer align property.
  *
  * @enum { number }
@@ -83,6 +88,24 @@ declare enum IndexerAlign {
    * @since 11
    */
   Right,
+
+  /**
+   * A dialog box is displayed on the start of the index bar.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  START,
+
+  /**
+   * A dialog box is displayed on the end of the index bar.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  END,
 }
 
 /**
@@ -569,7 +592,6 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * which affects the pop-up position of the pop-up window.
    *
    * @param { IndexerAlign } value - indicates the alignment style of Alphabet index.
-   * @param { Length } offset
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -579,7 +601,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * which affects the pop-up position of the pop-up window.
    *
    * @param { IndexerAlign } value - indicates the alignment style of Alphabet index.
-   * @param { Length } offset - indicates the horizontal space between pop-up window and indexer bar.
+   * @param { Length } [offset] - indicates the horizontal space between pop-up window and indexer bar.
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -590,7 +612,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * which affects the pop-up position of the pop-up window.
    *
    * @param { IndexerAlign } value - indicates the alignment style of Alphabet index.
-   * @param { Length } offset - indicates the horizontal space between pop-up window and indexer bar.
+   * @param { Length } [offset] - indicates the horizontal space between pop-up window and indexer bar.
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -753,6 +775,16 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @crossplatform
    * @since 11
    */
+  /**
+   * Automatically collapses the characters when the indexer bar not high enough to display all characters.
+   *
+   * @param { boolean } value - A boolean value determines whether auto collapses is enabled for indexer bar.
+   * @returns { AlphabetIndexerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   autoCollapse(value: boolean): AlphabetIndexerAttribute;
 
   /**
@@ -802,6 +834,16 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @since 12
    */
   popupTitleBackground(value: ResourceColor): AlphabetIndexerAttribute;
+
+  /**
+   * Enable or disable haptic feedback.
+   *
+   * @param { boolean } value - Default value is true, set false to disable haptic feedback.
+   * @returns { AlphabetIndexerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  enableHapticFeedback(value: boolean): AlphabetIndexerAttribute;
 }
 
 /**

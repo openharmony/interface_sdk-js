@@ -13,8 +13,12 @@
  * limitations under the License.
  */
 
-/// <reference path="../../component/common.d.ts" />
-/// <reference path="../../component/checkboxgroup.d.ts" />
+/**
+ * @file
+ * @kit ArkUI
+ */
+
+
 
 /**
  * Defines CheckboxGroup Modifier

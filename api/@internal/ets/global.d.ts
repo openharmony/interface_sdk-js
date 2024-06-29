@@ -13,9 +13,12 @@
  * limitations under the License.
  */
 
-/// <reference path="../../../component/common.d.ts" />
+/**
+ * @file
+ * @kit ArkUI
+ */
 
-import { TouchObject, KeyEvent, MouseEvent } from 'SpecialEvent';
+
 
 /**
  * Defines the console info.
@@ -399,6 +402,16 @@ export declare class console {
    * @since 10
    */
   static trace(...arguments: Object[]): void;
+
+  /**
+   * Prints hybrid stack information for the current code location.
+   *
+   * @static
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 12
+   */
+  static traceHybridStack(): void;
 }
 
 /**

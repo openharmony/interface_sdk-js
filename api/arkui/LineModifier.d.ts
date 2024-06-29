@@ -13,8 +13,11 @@
  * limitations under the License.
  */
 
-/// <reference path="../../component/common.d.ts" />
-/// <reference path="../../component/line.d.ts" />
+/**
+ * @file
+ * @kit ArkUI
+ */
+
 
 /**
  * Defines Line Modifier

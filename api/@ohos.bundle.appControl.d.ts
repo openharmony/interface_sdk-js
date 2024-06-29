@@ -200,7 +200,7 @@ declare namespace appControl {
    * @param { AsyncCallback<void> } callback - The callback of setting the disposed status result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700005 - The specified app ID is empty string.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
@@ -218,7 +218,7 @@ declare namespace appControl {
    * @returns { Promise<void> } The result of setting the disposed status of a specified bundle.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700005 - The specified app ID is empty string.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
@@ -235,7 +235,7 @@ declare namespace appControl {
    * @param { Want } disposedWant - Indicates the disposed want.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700005 - The specified app ID is empty string.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
@@ -252,7 +252,7 @@ declare namespace appControl {
    * @param { AsyncCallback<Want> } callback - The callback of getting the disposed status of a specified bundle result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700005 - The specified app ID is empty string.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
@@ -269,7 +269,7 @@ declare namespace appControl {
    * @returns { Promise<Want> } Returns the disposed status of a specified bundle.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700005 - The specified app ID is empty string.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
@@ -286,7 +286,7 @@ declare namespace appControl {
    * @returns { Want } Returns the disposed status of a specified bundle.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700005 - The specified app ID is empty string.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
@@ -303,7 +303,7 @@ declare namespace appControl {
    * @param { AsyncCallback<void> } callback - the callback of deleting the disposed status of a specified bundle result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700005 - The specified app ID is empty string.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
@@ -320,7 +320,7 @@ declare namespace appControl {
    * @returns { Promise<void> } Returns the result of deleting the disposed status of a specified bundle.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700005 - The specified app ID is empty string.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
@@ -336,14 +336,30 @@ declare namespace appControl {
    * @param { string } appId - Indicates the app ID of the application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700005 - The specified app ID is empty string.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since 10
    */
-  function deleteDisposedStatusSync(appId: string): void;
+  /**
+   * Delete the disposed status of a specified bundle.
+   *
+   * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
+   * @param { string } appId - Indicates the app ID of the application.
+   * @param { number } [appIndex] Indicates the index of clone app.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 17700005 - The specified app ID is invalid.
+   * @throws { BusinessError } 17700061 - AppIndex is not in the valid range.
+   * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+   * @systemapi
+   * @since 12
+   */
+  function deleteDisposedStatusSync(appId: string, appIndex?: number): void;
 
   /**
    * Obtains the disposed rule of a specified bundle.
@@ -353,14 +369,31 @@ declare namespace appControl {
    * @returns { DisposedRule } Returns the disposed rule of a specified bundle.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700005 - The specified app ID is an empty string.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since 11
    */
-  function getDisposedRule(appId: string): DisposedRule;
+  /**
+   * Obtains the disposed rule of a specified bundle.
+   *
+   * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
+   * @param { string } appId - Indicates the app ID of the application.
+   * @param { number } [appIndex] Indicates the index of clone app.
+   * @returns { DisposedRule } Returns the disposed rule of a specified bundle.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 17700005 - The specified app ID is invalid.
+   * @throws { BusinessError } 17700061 - AppIndex is not in the valid range.
+   * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+   * @systemapi
+   * @since 12
+   */
+  function getDisposedRule(appId: string, appIndex?: number): DisposedRule;
 
   /**
    * Sets the disposed rule of a specified bundle.
@@ -370,14 +403,31 @@ declare namespace appControl {
    * @param { DisposedRule } rule - Indicates the disposed rule of a specified bundle.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700005 - The specified app ID is an empty string.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since 11
    */
-  function setDisposedRule(appId: string, rule: DisposedRule): void;
+  /**
+   * Sets the disposed rule of a specified bundle.
+   *
+   * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
+   * @param { string } appId - Indicates the app ID of the application.
+   * @param { DisposedRule } rule - Indicates the disposed rule of a specified bundle.
+   * @param { number } [appIndex] Indicates the index of clone app.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 17700005 - The specified app ID is invalid.
+   * @throws { BusinessError } 17700061 - AppIndex is not in the valid range.
+   * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+   * @systemapi
+   * @since 12
+   */
+    function setDisposedRule(appId: string, rule: DisposedRule, appIndex?: number): void;
 }
 
 export default appControl;

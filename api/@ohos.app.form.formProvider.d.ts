@@ -45,7 +45,8 @@ declare namespace formProvider {
    * @param { string } formId - Indicates the form ID.
    * @param { number } minute - Indicates duration minute before next update.
    * @param { AsyncCallback<void> } callback - The callback of setFormNextRefreshTime.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16500050 - An IPC connection error happened.
    * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
@@ -62,14 +63,15 @@ declare namespace formProvider {
    * @param { string } formId - Indicates the form ID.
    * @param { number } minute - Indicates duration minute before next update.
    * @param { AsyncCallback<void> } callback - The callback of setFormNextRefreshTime.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16500050 - An IPC connection error happened.
-   * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16500060 - Service connection error.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @throws { BusinessError } 16501001 - The ID of the form to be operated does not exist.
-   * @throws { BusinessError } 16501002 - The number of forms exceeds upper bound.
-   * @throws { BusinessError } 16501003 - The form can not be operated by the current application.
+   * @throws { BusinessError } 16501002 - The number of forms exceeds the maximum allowed.
+   * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since 11
@@ -82,7 +84,8 @@ declare namespace formProvider {
    * @param { string } formId - Indicates the form ID.
    * @param { number } minute - Indicates duration minute before next update.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16500050 - An IPC connection error happened.
    * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
@@ -99,14 +102,15 @@ declare namespace formProvider {
    * @param { string } formId - Indicates the form ID.
    * @param { number } minute - Indicates duration minute before next update.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16500050 - An IPC connection error happened.
-   * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16500060 - Service connection error.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @throws { BusinessError } 16501001 - The ID of the form to be operated does not exist.
-   * @throws { BusinessError } 16501002 - The number of forms exceeds upper bound.
-   * @throws { BusinessError } 16501003 - The form can not be operated by the current application.
+   * @throws { BusinessError } 16501002 - The number of forms exceeds the maximum allowed.
+   * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since 11
@@ -120,7 +124,8 @@ declare namespace formProvider {
    * @param { string } formId - Indicates the form ID.
    * @param { formBindingData.FormBindingData } formBindingData - Indicates the form data.
    * @param { AsyncCallback<void> } callback - The callback of updateForm.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16500050 - An IPC connection error happened.
    * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
@@ -137,13 +142,14 @@ declare namespace formProvider {
    * @param { string } formId - Indicates the form ID.
    * @param { formBindingData.FormBindingData } formBindingData - Indicates the form data.
    * @param { AsyncCallback<void> } callback - The callback of updateForm.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16500050 - An IPC connection error happened.
-   * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16500060 - Service connection error.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @throws { BusinessError } 16501001 - The ID of the form to be operated does not exist.
-   * @throws { BusinessError } 16501003 - The form can not be operated by the current application.
+   * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since 11
@@ -161,7 +167,8 @@ declare namespace formProvider {
    * @param { string } formId - Indicates the form ID.
    * @param { formBindingData.FormBindingData } formBindingData - Indicates the form data.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16500050 - An IPC connection error happened.
    * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
@@ -178,13 +185,14 @@ declare namespace formProvider {
    * @param { string } formId - Indicates the form ID.
    * @param { formBindingData.FormBindingData } formBindingData - Indicates the form data.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16500050 - An IPC connection error happened.
-   * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16500060 - Service connection error.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @throws { BusinessError } 16501001 - The ID of the form to be operated does not exist.
-   * @throws { BusinessError } 16501003 - The form can not be operated by the current application.
+   * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since 11
@@ -197,7 +205,8 @@ declare namespace formProvider {
    *
    * @param { formInfo.FormInfoFilter } filter - Indicates the requirements the forms that the formInfos belong to have to meet.
    * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback - The callback is used to return the formInfo.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16500050 - An IPC connection error happened.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
@@ -210,8 +219,9 @@ declare namespace formProvider {
    *
    * @param { formInfo.FormInfoFilter } filter - Indicates the requirements the forms that the formInfos belong to have to meet.
    * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback - The callback is used to return the formInfo.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16500050 - An IPC connection error happened.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
@@ -225,7 +235,8 @@ declare namespace formProvider {
    * Client to communication with FormManagerService.
    *
    * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback - The callback is used to return the formInfo.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16500050 - An IPC connection error happened.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
@@ -237,8 +248,9 @@ declare namespace formProvider {
    * Client to communication with FormManagerService.
    *
    * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback - The callback is used to return the formInfo.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16500050 - An IPC connection error happened.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
@@ -253,7 +265,8 @@ declare namespace formProvider {
    *
    * @param { formInfo.FormInfoFilter } [filter] - Indicates the requirements the forms that the formInfos belong to have to meet.
    * @returns { Promise<Array<formInfo.FormInfo>> } Returns the formInfo.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16500050 - An IPC connection error happened.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
@@ -266,8 +279,9 @@ declare namespace formProvider {
    *
    * @param { formInfo.FormInfoFilter } [filter] - Indicates the requirements the forms that the formInfos belong to have to meet.
    * @returns { Promise<Array<formInfo.FormInfo>> } Returns the formInfo.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16500050 - An IPC connection error happened.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
@@ -283,8 +297,9 @@ declare namespace formProvider {
    * @param { formBindingData.FormBindingData } formBindingData - Indicates the form data.
    * @param { AsyncCallback<string> } callback - The callback is used to return the form id.
    * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16500050 - An IPC connection error happened.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
@@ -303,8 +318,9 @@ declare namespace formProvider {
    * @param { Want } want - The want of the form to publish.
    * @param { AsyncCallback<string> } callback - The callback is used to return the form id.
    * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16500050 - An IPC connection error happened.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
@@ -320,8 +336,9 @@ declare namespace formProvider {
    * @param { formBindingData.FormBindingData } [formBindingData] - Indicates the form data.
    * @returns { Promise<string> } Returns the form id.
    * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16500050 - An IPC connection error happened.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
@@ -334,9 +351,10 @@ declare namespace formProvider {
    * Check if the request of publishing a form is supported by the host
    *
    * @param { AsyncCallback<boolean> } callback - The callback is used to return true if the request is supported.
-   * @throws { BusinessError } 202 - If the application is not a system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16500050 - An IPC connection error happened.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
@@ -348,8 +366,8 @@ declare namespace formProvider {
    * Check if the request of publishing a form is supported by the host
    *
    * @returns { Promise<boolean> } Returns true if the request is supported.
-   * @throws { BusinessError } 202 - If the application is not a system application.
-   * @throws { BusinessError } 16500050 - An IPC connection error happened.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 16500050 - IPC connection error.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @systemapi

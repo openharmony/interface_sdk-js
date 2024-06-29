@@ -15,7 +15,9 @@
 
 import { ErrorTagFormat, ErrorMessage } from '../../../typedef/checker/result_type';
 import { ClassInfo } from '../../../typedef/parser/ApiInfoDefination';
+import { Comment } from '../../../typedef/parser/Comment';
 import { CommonFunctions } from '../../../utils/checkUtils';
+import { punctuationMarkSet } from '../../../utils/checkUtils';
 
 export class ForbiddenWordsCheck {
   /**
@@ -30,12 +32,21 @@ export class ForbiddenWordsCheck {
       errorInfo: '',
     };
     const apiFullText: string = singleApi.getDefinedText();
+    const jsDocInfo: Comment.JsDocInfo[] = singleApi.getJsDocInfos();
+    const publishVersion: string = CommonFunctions.getSinceVersion(jsDocInfo[0].getSince());
+    const apiVersionToBeVerified: string = CommonFunctions.getCheckApiVersion();
     const reg = /\s{2,}/g;
-    const regx = /(\/\*|\*\/|\*)|\{|\}|\\n|\@|\.|\:|\,|\;|\(|\)|\"|\[|\]/g;
-    const fullText = apiFullText.replace(regx, ' ').replace(reg, ' ');
+    const regx = /(\/\*|\*\/|\*)|\\n|\\r/g;
+    let fullText = apiFullText.replace(regx, ' ');
+    punctuationMarkSet.forEach(punctuationMark => {
+      const punctuationMarkReg = new RegExp(punctuationMark, 'g');
+      if (punctuationMarkReg.test(fullText)) {
+        fullText = fullText.replace(punctuationMarkReg, ' ').replace(reg, ' ');
+      }
+    });
     let apiTextWordsArr = fullText.split(/\s/g);
     apiTextWordsArr.forEach((apiTextWord) => {
-      if (forbiddenWordsArr.includes(apiTextWord)) {
+      if (forbiddenWordsArr.includes(apiTextWord) && publishVersion === apiVersionToBeVerified) {
         forbiddenWordsResult.state = false;
         forbiddenWordsResult.errorInfo = CommonFunctions.createErrorInfo(ErrorMessage.ILLEGAL_USE_ANY, [apiTextWord]);
       }

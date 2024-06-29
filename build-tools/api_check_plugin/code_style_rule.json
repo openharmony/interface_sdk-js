@@ -188,6 +188,7 @@
       "SystemCapability.Multimedia.AVSession.Core",
       "SystemCapability.Multimedia.AVSession.Manager",
       "SystemCapability.Multimedia.AVSession.AVCast",
+      "SystemCapability.Multimedia.AVSession.ExtendedDisplayCast",
       "SystemCapability.Multimedia.Audio.Core",
       "SystemCapability.Multimedia.Audio.Tone",
       "SystemCapability.Multimedia.Audio.Interrupt",
@@ -203,6 +204,7 @@
       "SystemCapability.Multimedia.Image.ImageSource",
       "SystemCapability.Multimedia.Image.ImagePacker",
       "SystemCapability.Multimedia.Image.ImageReceiver",
+      "SystemCapability.Multimedia.ImageEffect.Core",
       "SystemCapability.Multimedia.MediaLibrary.Core",
       "SystemCapability.Multimedia.MediaLibrary.SmartAlbum",
       "SystemCapability.Multimedia.MediaLibrary.DistributedCore",
@@ -221,6 +223,7 @@
       "SystemCapability.Global.I18n",
       "SystemCapability.Global.ResourceManager",
       "SystemCapability.Customization.ConfigPolicy",
+      "SystemCapability.Customization.CustomConfig",
       "SystemCapability.Customization.EnterpriseDeviceManager",
       "SystemCapability.BarrierFree.Accessibility.Core",
       "SystemCapability.BarrierFree.Accessibility.Vision",
@@ -262,6 +265,8 @@
       "SystemCapability.Security.CryptoFramework.Cert",
       "SystemCapability.Security.DataLossPrevention",
       "SystemCapability.Security.Cert",
+      "SystemCapability.Security.SecurityGuard",
+      "SystemCapability.Security.ScreenLockFileManager",
       "SystemCapability.Account.OsAccount",
       "SystemCapability.Account.AppAccount",
       "SystemCapability.UserIAM.UserAuth.Core",
@@ -353,7 +358,9 @@
       "SystemCapability.ArkUi.Graphics3D",
       "SystemCapability.Multimedia.Drm.Core",
       "SystemCapability.Graphics.Drawing",
-      "SystemCapability.ResourceSchedule.SystemLoad"
+      "SystemCapability.ResourceSchedule.SystemLoad",
+      "SystemCapability.Ability.AppStartup",
+      "SystemCapability.MultimodalInput.Input.InfraredEmitter"
     ]
   },
   "administrators": [

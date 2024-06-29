@@ -54,7 +54,8 @@ declare namespace continuationManager {
    *                                                         selection module, returning the device ID,device type,
    *                                                         and device name for developers to use
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
    * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
    * @throws { BusinessError } 16600004 - The specified callback has been registered.
@@ -72,7 +73,8 @@ declare namespace continuationManager {
    *                                                         selection module, returning the device ID,device type,
    *                                                         and device name for developers to use
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
    * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
    * @throws { BusinessError } 16600004 - The specified callback has been registered.
@@ -90,7 +92,8 @@ declare namespace continuationManager {
    * @param { 'deviceSelected' } type - deviceSelected.
    * @param { number } token - Registered token.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
    * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
    * @throws { BusinessError } 16600004 - The specified callback has been registered.
@@ -105,7 +108,8 @@ declare namespace continuationManager {
    * @param { 'deviceSelected' } type - deviceSelected.
    * @param { number } token - Registered token.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
    * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
    * @throws { BusinessError } 16600004 - The specified callback has been registered.
@@ -126,7 +130,8 @@ declare namespace continuationManager {
    *                                                           device selection module, returning the device ID,
    *                                                           device type, and device name for developers to use
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
    * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
    * @throws { BusinessError } 16600004 - The specified callback has been registered.
@@ -144,7 +149,8 @@ declare namespace continuationManager {
    *                                                           device selection module, returning the device ID,
    *                                                           device type, and device name for developers to use
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
    * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
    * @throws { BusinessError } 16600004 - The specified callback has been registered.
@@ -162,7 +168,8 @@ declare namespace continuationManager {
    * @param { 'deviceUnselected' } type - deviceUnselected.
    * @param { number } token - Registered token.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
    * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
    * @throws { BusinessError } 16600004 - The specified callback has been registered.
@@ -177,7 +184,8 @@ declare namespace continuationManager {
    * @param { 'deviceUnselected' } type - deviceUnselected.
    * @param { number } token - Registered token.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
    * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
    * @throws { BusinessError } 16600004 - The specified callback has been registered.
@@ -398,7 +406,8 @@ declare namespace continuationManager {
    * @param { AsyncCallback<number> } callback - The AsyncCallback form returns the token generated after connecting to
    *                                             the flow management service.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
    * @throws { BusinessError } 16600003 - The number of token registration times has reached the upper limit.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
@@ -412,7 +421,8 @@ declare namespace continuationManager {
    * @param { AsyncCallback<number> } callback - The AsyncCallback form returns the token generated after connecting to
    *                                             the flow management service.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
    * @throws { BusinessError } 16600003 - The number of token registration times has reached the upper limit.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
@@ -431,7 +441,8 @@ declare namespace continuationManager {
    * @param { AsyncCallback<number> } callback - The AsyncCallback form returns the token generated after connecting to
    *                                             flow management service.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
    * @throws { BusinessError } 16600003 - The number of token registration times has reached the upper limit.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
@@ -447,7 +458,8 @@ declare namespace continuationManager {
    * @param { AsyncCallback<number> } callback - The AsyncCallback form returns the token generated after connecting to
    *                                             flow management service.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
    * @throws { BusinessError } 16600003 - The number of token registration times has reached the upper limit.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
@@ -466,7 +478,8 @@ declare namespace continuationManager {
    * @returns { Promise<number> } callback Indicates the callback to be invoked when the continuation manager
    *                              service is connected.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types
+   * <br>2. Parameter verification failed;
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
    * @throws { BusinessError } 16600003 - The number of token registration times has reached the upper limit.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
@@ -482,7 +495,8 @@ declare namespace continuationManager {
    * @returns { Promise<number> } callback Indicates the callback to be invoked when the continuation manager
    *                              service is connected.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
+   * <br>2. Parameter verification failed;
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
    * @throws { BusinessError } 16600003 - The number of token registration times has reached the upper limit.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
@@ -500,7 +514,8 @@ declare namespace continuationManager {
    * @param { AsyncCallback<void> } callback - The AsyncCallback form returns token generated after connecting to flow
    *                                           management service.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
    * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
@@ -515,7 +530,8 @@ declare namespace continuationManager {
    * @param { AsyncCallback<void> } callback - The AsyncCallback form returns token generated after connecting to flow
    *                                           management service.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
    * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
@@ -532,7 +548,8 @@ declare namespace continuationManager {
    * @param { number } token - Indicates the registration token of the ability.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
    * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
@@ -546,7 +563,8 @@ declare namespace continuationManager {
    * @param { number } token - Indicates the registration token of the ability.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
    * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
@@ -564,7 +582,8 @@ declare namespace continuationManager {
    * @param { DeviceConnectState } status - Indicates the connection state to update.
    * @param { AsyncCallback<void> } callback - AsyncCallback returns the interface call result.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
    * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
@@ -579,7 +598,8 @@ declare namespace continuationManager {
    * @param { DeviceConnectState } status - Indicates the connection state to update.
    * @param { AsyncCallback<void> } callback - AsyncCallback returns the interface call result.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
    * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
@@ -603,7 +623,8 @@ declare namespace continuationManager {
    * @returns { Promise<void> } callback Indicates the callback to be invoked when the continuation manager service
    *                            is connected.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
    * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
@@ -619,7 +640,8 @@ declare namespace continuationManager {
    * @returns { Promise<void> } callback Indicates the callback to be invoked when the continuation manager service
    *                            is connected.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
    * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
@@ -635,7 +657,8 @@ declare namespace continuationManager {
    * @param { number } token - Indicates the registration token of the ability.
    * @param { AsyncCallback<void> } callback - AsyncCallback returns the interface call result.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
    * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
@@ -648,7 +671,8 @@ declare namespace continuationManager {
    * @param { number } token - Indicates the registration token of the ability.
    * @param { AsyncCallback<void> } callback - AsyncCallback returns the interface call result.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
    * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
@@ -666,7 +690,8 @@ declare namespace continuationManager {
    *                                            used to filter list of available devices. This parameter can be null.
    * @param { AsyncCallback<void> } callback - AsyncCallback form returns the interface call result.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
    * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
@@ -681,7 +706,8 @@ declare namespace continuationManager {
    *                                            used to filter list of available devices. This parameter can be null.
    * @param { AsyncCallback<void> } callback - AsyncCallback form returns the interface call result.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
    * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
@@ -703,7 +729,8 @@ declare namespace continuationManager {
    *                                                filter the list of available devices. This parameter can be null.
    * @returns { Promise<void> } callback Indicates the callback to be invoked when continuation manager service is connected.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types
+   * <br>2. Parameter verification failed;
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
    * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
@@ -718,7 +745,8 @@ declare namespace continuationManager {
    *                                                filter the list of available devices. This parameter can be null.
    * @returns { Promise<void> } callback Indicates the callback to be invoked when continuation manager service is connected.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
+   * <br>2. Parameter verification failed;
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
    * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
@@ -859,7 +887,7 @@ declare namespace continuationManager {
    */
   /**
    * Indicates the description of transfer results for continuation.
-   *
+   * @typedef { _ContinuationResult }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @atomicservice
    * @since 11
@@ -874,7 +902,7 @@ declare namespace continuationManager {
    */
   /**
    * Indicates the description of additional parameters for continuation.
-   *
+   * @typedef { _ContinuationExtraParams }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @atomicservice
    * @since 11

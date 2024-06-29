@@ -18,9 +18,9 @@
  * @kit ArkUI
  */
 
-/// <reference path="../component/units.d.ts" />
 
-import { ResourceStr } from 'GlobalResource';
+
+
 
 /**
  * Declaration of the menu item on the right side.
@@ -48,6 +48,15 @@ export declare class EditableTitleBarMenuItem {
    * @since 11
    */
   value: ResourceStr;
+
+  /**
+   * Icon label for this menu item.
+   * @type { ?ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  label?: ResourceStr;
 
   /**
    * Whether to enable this menu item.
@@ -304,4 +313,15 @@ export declare struct EditableTitleBar {
    * @since 12
    */
   options: EditableTitleBarOptions;
+
+  /**
+   * Sets the content margin.
+   * @type { ?LocalizedMargin }
+   * @default {start: LengthMetrics.resource($r('sys.float.margin_left')),
+   * <br> end: LengthMetrics.resource($r('sys.float.margin_right'))}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  @Prop contentMargin?: LocalizedMargin;
 }

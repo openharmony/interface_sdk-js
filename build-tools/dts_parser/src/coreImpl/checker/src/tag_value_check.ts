@@ -16,12 +16,11 @@
 import { ErrorTagFormat, ErrorMessage, PermissionData } from '../../../typedef/checker/result_type';
 import { Comment } from '../../../typedef/parser/Comment';
 import { CommonFunctions } from '../../../utils/checkUtils';
-import { ApiInfo, ApiType, ClassInfo, GenericInfo } from '../../../typedef/parser/ApiInfoDefination';
+import { ApiInfo, ApiType, ClassInfo, GenericInfo, TypeAliasInfo, TypeAliasType, TypeParamInfo } from '../../../typedef/parser/ApiInfoDefination';
 import { MethodInfo, PropertyInfo, ParamInfo } from '../../../typedef/parser/ApiInfoDefination';
 import { PunctuationMark } from '../../../utils/Constant';
 import { SystemCapability } from '../config/syscapConfigFile.json';
 import { module } from '../config/permissionConfigFile.json';
-import ts from 'typescript';
 
 export class TagValueCheck {
   /**
@@ -38,86 +37,66 @@ export class TagValueCheck {
     if (tagsName === undefined) {
       return tagValueError;
     }
+    const tagsTag: string[] = [];
+    tagsName.forEach((tagName: Comment.CommentTag) => { tagsTag.push(tagName.tag) });
+    const isDeprecated: boolean = tagsTag.includes('deprecated');
     tagsName.forEach((tag) => {
-      if (tag.tag === 'since') {
-        const sincevalueCheckResult = TagValueCheck.sinceTagValueCheck(tag);
-        if (!sincevalueCheckResult.state) {
-          tagValueError.push(sincevalueCheckResult);
-        }
+      let errorTagInfo: ErrorTagFormat = {
+        state: true,
+        errorInfo: '',
+      };
+      switch (tag.tag) {
+        case 'since':
+          errorTagInfo = TagValueCheck.sinceTagValueCheck(tag);
+          break;
+        case 'extends':
+        case 'implements':
+          errorTagInfo = !isDeprecated ? TagValueCheck.extendsTagValueCheck(singleApi, tag) : errorTagInfo;
+          break;
+        case 'enum':
+          errorTagInfo = !isDeprecated ? TagValueCheck.enumTagValueCheck(tag) : errorTagInfo;
+          break;
+        case 'returns':
+          errorTagInfo = !isDeprecated ? TagValueCheck.returnsTagValueCheck(singleApi, tag) : errorTagInfo;
+          break;
+        case 'namespace':
+        case 'typedef':
+        case 'struct':
+          errorTagInfo = !isDeprecated ? TagValueCheck.outerTagValueCheck(singleApi as ClassInfo, tag) : errorTagInfo;
+          break;
+        case 'type':
+          errorTagInfo = !isDeprecated ? TagValueCheck.typeTagValueCheck(singleApi, tag) : errorTagInfo;
+          break;
+        case 'syscap':
+          errorTagInfo = TagValueCheck.syscapTagValueCheck(tag);
+          break;
+        case 'default':
+          errorTagInfo = !isDeprecated ? TagValueCheck.defaultTagValueCheck(tag) : errorTagInfo;
+          break;
+        case 'deprecated':
+          errorTagInfo = TagValueCheck.deprecatedTagValueCheck(tag);
+          break;
+        case 'permission':
+          errorTagInfo = !isDeprecated ? TagValueCheck.permissionTagValueCheck(tag) : errorTagInfo;
+          break;
+        case 'throws':
+          if (singleApi.getLastJsDocInfo()?.deprecatedVersion === '-1') {
+            throwsIndex += 1;
+            errorTagInfo = !isDeprecated ? TagValueCheck.throwsTagValueCheck(tag, throwsIndex, tagsName) : errorTagInfo;
+          }
+          break;
+        case 'param':
+          paramIndex += 1;
+          errorTagInfo = !isDeprecated ? TagValueCheck.paramTagValueCheck(singleApi, tag, paramIndex) : errorTagInfo;
+          break;
+        case 'useinstead':
+          errorTagInfo = TagValueCheck.useinsteadTagValueCheck(tag);
+          break;
+        default:
+          break;
       }
-      if (tag.tag === 'extends') {
-        const extendsvalueCheckResult = TagValueCheck.extendsTagValueCheck(singleApi, tag);
-        if (!extendsvalueCheckResult.state) {
-          tagValueError.push(extendsvalueCheckResult);
-        }
-      }
-      if (tag.tag === 'enum') {
-        const enumvalueCheckResult = TagValueCheck.enumTagValueCheck(tag);
-        if (!enumvalueCheckResult.state) {
-          tagValueError.push(enumvalueCheckResult);
-        }
-      }
-      if (tag.tag === 'returns') {
-        const returnsvalueCheckResult = TagValueCheck.returnsTagValueCheck(singleApi, tag);
-        if (!returnsvalueCheckResult.state) {
-          tagValueError.push(returnsvalueCheckResult);
-        }
-      }
-      if (tag.tag === 'namespace' || tag.tag === 'interface' || tag.tag === 'typedef') {
-        const outerValueCheckResult = TagValueCheck.outerTagValueCheck(singleApi as ClassInfo, tag);
-        if (!outerValueCheckResult.state) {
-          tagValueError.push(outerValueCheckResult);
-        }
-      }
-      if (tag.tag === 'type') {
-        const typeValueCheckResult = TagValueCheck.typeTagValueCheck(singleApi, tag);
-        if (!typeValueCheckResult.state) {
-          tagValueError.push(typeValueCheckResult);
-        }
-      }
-      if (tag.tag === 'syscap') {
-        const syscapValueCheckResult = TagValueCheck.syscapTagValueCheck(tag);
-        if (!syscapValueCheckResult.state) {
-          tagValueError.push(syscapValueCheckResult);
-        }
-      }
-      if (tag.tag === 'default') {
-        const defaultValueCheckResult = TagValueCheck.defaultTagValueCheck(tag);
-        if (!defaultValueCheckResult.state) {
-          tagValueError.push(defaultValueCheckResult);
-        }
-      }
-      if (tag.tag === 'deprecated') {
-        const deprecatedValueCheckResult = TagValueCheck.deprecatedTagValueCheck(tag);
-        if (!deprecatedValueCheckResult.state) {
-          tagValueError.push(deprecatedValueCheckResult);
-        }
-      }
-      if (tag.tag === 'permission') {
-        const permissionValueCheckResult = TagValueCheck.permissionTagValueCheck(tag);
-        if (!permissionValueCheckResult.state) {
-          tagValueError.push(permissionValueCheckResult);
-        }
-      }
-      if (tag.tag === 'throws') {
-        throwsIndex += 1;
-        const throwsValueCheckResult = TagValueCheck.throwsTagValueCheck(tag, throwsIndex);
-        if (!throwsValueCheckResult.state) {
-          tagValueError.push(throwsValueCheckResult);
-        }
-      }
-      if (tag.tag === 'param') {
-        paramIndex += 1;
-        const paramValueCheckResult = TagValueCheck.paramTagValueCheck(singleApi, tag, paramIndex);
-        if (!paramValueCheckResult.state) {
-          tagValueError.push(paramValueCheckResult);
-        }
-      }
-      if (tag.tag === 'useinstead') {
-        const useinsteadValueCheckResult = TagValueCheck.useinsteadTagValueCheck(tag);
-        if (!useinsteadValueCheckResult.state) {
-          tagValueError.push(useinsteadValueCheckResult);
-        }
+      if (!errorTagInfo.state) {
+        tagValueError.push(errorTagInfo);
       }
     });
     return tagValueError;
@@ -133,8 +112,10 @@ export class TagValueCheck {
       state: true,
       errorInfo: '',
     };
-    const sinceValue: boolean = /^\d+$/.test(tag.name);
-    if (!sinceValue) {
+    const sinceValue: string = CommonFunctions.getSinceVersion(tag.name);
+    const sinceValueIsNumber: boolean = /^\d+$/.test(sinceValue);
+
+    if (!sinceValueIsNumber) {
       sinceValueCheckResult.state = false;
       sinceValueCheckResult.errorInfo = ErrorMessage.ERROR_INFO_VALUE_SINCE;
     }
@@ -197,19 +178,23 @@ export class TagValueCheck {
       state: true,
       errorInfo: '',
     };
-    const returnsTagValue: string = tag.type;
-
+    const returnsTagValue: string = tag.type.replace(/\s/g, '');
     let returnsApiValue: string[] = [];
-    const spacealCase: string[] = CommonFunctions.judgeSpecialCase((singleApi as MethodInfo).returnValueType);
-    if (spacealCase.length > 0) {
-      returnsApiValue = spacealCase;
-    } else {
-      returnsApiValue = (singleApi as MethodInfo).getReturnValue();
+    const legalApiArr: string[] = [ApiType.METHOD, ApiType.TYPE_ALIAS];
+    if (!legalApiArr.includes(singleApi.getApiType())) {
+      return returnsValueCheckResult
     }
+    const spacealCase: string[] = CommonFunctions.judgeSpecialCase((singleApi as MethodInfo).returnValueType);
+    if (singleApi.getApiType() === ApiType.TYPE_ALIAS) {
+      returnsApiValue.push((singleApi as TypeAliasInfo).getReturnType());
+    } else {
+      returnsApiValue = spacealCase.length > 0 ? spacealCase : (singleApi as MethodInfo).getReturnValue();
+    }
+
     if (returnsApiValue.length === 0) {
       returnsValueCheckResult.state = false;
-      returnsValueCheckResult.errorInfo = CommonFunctions.createErrorInfo(ErrorMessage.ERROR_USE, ['returns']);
-    } else if (returnsTagValue !== returnsApiValue[0]) {
+      returnsValueCheckResult.errorInfo = ErrorMessage.ERROR_INFO_RETURNS;
+    } else if (returnsTagValue !== returnsApiValue.join('|').replace(/\s/g, '')) {
       returnsValueCheckResult.state = false;
       returnsValueCheckResult.errorInfo = ErrorMessage.ERROR_INFO_VALUE_RETURNS;
     }
@@ -228,18 +213,39 @@ export class TagValueCheck {
       errorInfo: '',
     };
     let tagValue: string = tag.name;
+    let tagType: string = tag.type;
     let apiValue: string = singleApi.getApiName();
+    const definedText: string = singleApi.getDefinedText();
     if (tag.tag === 'namespace' && tagValue !== apiValue) {
       outerValueCheckResult.state = false;
       outerValueCheckResult.errorInfo = ErrorMessage.ERROR_INFO_VALUE_NAMESPACE;
     }
-    if (tag.tag === 'interface' && tagValue !== apiValue) {
-      outerValueCheckResult.state = false;
-      outerValueCheckResult.errorInfo = ErrorMessage.ERROR_INFO_VALUE_INTERFACE;
+    if (tag.tag === 'typedef') {
+      if (singleApi.getApiType() === ApiType.TYPE_ALIAS) {
+        const ordinaryTagValue: string = (singleApi as ApiInfo as TypeAliasInfo).getType().join('|').replace(/\s/g, '');
+        const typeIsFuction: boolean = (singleApi as ApiInfo as TypeAliasInfo).getTypeIsFunction();
+        const typeIsObject: boolean = (singleApi as ApiInfo as TypeAliasInfo).getTypeName() === TypeAliasType.OBJECT_TYPE;
+        apiValue = typeIsFuction ? 'function' : typeIsObject ? 'object' : ordinaryTagValue;
+      } else {
+        const genericArr: GenericInfo[] = singleApi.getGenericInfo();
+        if (genericArr.length > 0) {
+          let genericInfo = genericArr.map((generic) => {
+            return generic.getGenericContent()
+          }).join(',');
+          apiValue = apiValue + '<' + genericInfo + '>';
+        }
+      }
+      if (singleApi.getApiType() === 'Interface' && tagValue !== apiValue) {
+        outerValueCheckResult.state = false;
+        outerValueCheckResult.errorInfo = ErrorMessage.ERROR_INFO_VALUE_TYPEDEF;
+      } else if (singleApi.getApiType() === ApiType.TYPE_ALIAS && tagType.replace(/\s/g, '') !== apiValue) {
+        outerValueCheckResult.state = false;
+        outerValueCheckResult.errorInfo = ErrorMessage.ERROR_INFO_VALUE_TYPEDEF;
+      }
     }
-    if (tag.tag === 'typedef' && tagValue !== apiValue) {
+    if (tag.tag === 'struct' && tagType !== apiValue) {
       outerValueCheckResult.state = false;
-      outerValueCheckResult.errorInfo = ErrorMessage.ERROR_INFO_VALUE_TYPEDEF;
+      outerValueCheckResult.errorInfo = ErrorMessage.ERROR_INFO_VALUE_STRUCT;
     }
     return outerValueCheckResult;
   }
@@ -267,7 +273,7 @@ export class TagValueCheck {
       typeApiValue = (singleApi as PropertyInfo).type;
     }
 
-    let typeApiUnionValue: string = typeApiValue.join('|');
+    let typeApiUnionValue: string = typeApiValue.join('|').replace(/\s/g, '');
     const isOptional: boolean = !(singleApi as PropertyInfo).getIsRequired();
     if (isOptional && typeApiValue.length === 1) {
       typeApiUnionValue = '?' + typeApiUnionValue;
@@ -308,7 +314,7 @@ export class TagValueCheck {
       state: true,
       errorInfo: '',
     };
-    const defaultTagValue: string = tag.name;
+    const defaultTagValue: string = tag.name + tag.type;
     if (defaultTagValue.length === 0) {
       defaultValueCheckResult.state = false;
       defaultValueCheckResult.errorInfo = ErrorMessage.ERROR_INFO_VALUE_DEFAULT;
@@ -327,7 +333,8 @@ export class TagValueCheck {
       errorInfo: '',
     };
     const deprecatedFixedField: string = tag.name;
-    const deprecatedVersion: string = tag.description;
+
+    const deprecatedVersion: string = CommonFunctions.getSinceVersion(tag.description);
     const isNumber: boolean = /^\d+$/.test(deprecatedVersion);
     if (deprecatedFixedField !== 'since' || !isNumber) {
       deprecatedValueCheckResult.state = false;
@@ -371,7 +378,7 @@ export class TagValueCheck {
    * @param { number } throwsIndex
    * @returns { ErrorTagFormat }
    */
-  static throwsTagValueCheck(tag: Comment.CommentTag, throwsIndex: number): ErrorTagFormat {
+  static throwsTagValueCheck(tag: Comment.CommentTag, throwsIndex: number, tagsName: Comment.CommentTag[] | undefined): ErrorTagFormat {
     const throwsValueCheckResult: ErrorTagFormat = {
       state: true,
       errorInfo: '',
@@ -390,6 +397,14 @@ export class TagValueCheck {
         JSON.stringify(throwsIndex),
       ]);
     }
+    const allTagName: string[] = [];
+    tagsName?.forEach((tag: Comment.CommentTag) => {
+      allTagName.push(tag.tag);
+    });
+    if (throwsTagName === '201' && !allTagName.includes('permission')) {
+      throwsValueCheckResult.state = false;
+      throwsValueCheckResult.errorInfo = CommonFunctions.createErrorInfo(ErrorMessage.ERROR_LOST_LABEL, ['permission']);
+    }
     return throwsValueCheckResult;
   }
 
@@ -405,20 +420,27 @@ export class TagValueCheck {
       state: true,
       errorInfo: '',
     };
-    if (singleApi.getApiType() !== ApiType.METHOD) {
+    const legalApiArr: string[] = [ApiType.METHOD, ApiType.TYPE_ALIAS];
+    if (!legalApiArr.includes(singleApi.getApiType())) {
       return paramValueCheckResult;
     }
-    const paramTagType: string = tag.type;
+    const paramTagType: string = tag.type.replace(/\s/g, '');
     const paramTagName: string = tag.name;
-    const paramApiInfos: ParamInfo[] = (singleApi as MethodInfo).getParams();
-    const paramApiName: string = paramApiInfos[paramIndex]?.getApiName();
+
+
+    let paramApiName: string = '';
     let paramApiType: string[] = [];
-    const spacealCase: string[] = paramApiInfos[paramIndex] ?
-      CommonFunctions.judgeSpecialCase(paramApiInfos[paramIndex].paramType) : [];
-    if (spacealCase.length > 0) {
-      paramApiType = spacealCase;
+
+    if (singleApi.getApiType() === ApiType.TYPE_ALIAS) {
+      const typeParams: ParamInfo[] = (singleApi as TypeAliasInfo).getParamInfos();
+      paramApiName = typeParams.length > paramIndex ? typeParams[paramIndex].getApiName() : '';
+      paramApiType.push(typeParams.length > paramIndex ? typeParams[paramIndex].getApiType() : '');
     } else {
-      paramApiType = paramApiInfos[paramIndex]?.getType();
+      const paramApiInfos: ParamInfo[] = (singleApi as MethodInfo).getParams();
+      paramApiName = paramApiInfos[paramIndex]?.getApiName();
+      const spacealCase: string[] = paramApiInfos[paramIndex] ?
+        CommonFunctions.judgeSpecialCase(paramApiInfos[paramIndex].paramType) : [];
+      paramApiType = spacealCase.length > 0 ? spacealCase : paramApiInfos[paramIndex]?.getType();
     }
 
     if (paramTagName !== paramApiName) {
@@ -428,7 +450,7 @@ export class TagValueCheck {
         JSON.stringify(paramIndex + 1),
       ]);
     }
-    if (paramApiType === undefined || paramTagType !== paramApiType[0]) {
+    if (paramApiType === undefined || paramTagType !== paramApiType.join('|').replace(/\s/g, '')) {
       paramValueCheckResult.state = false;
       paramValueCheckResult.errorInfo =
         paramValueCheckResult.errorInfo +
@@ -480,28 +502,28 @@ export class TagValueCheck {
     const MODEL_COUNTS: number = 2;
     const FILENAME_MODEL_COUNT: number = 1;
     if (splitArray.length === MODEL_COUNT) {
-      if (
+      // 同一文件
+      useinsteadValueCheckResult.state =
         splitArray[0].indexOf(PunctuationMark.LEFT_BRACKET) === -1 &&
-        splitArray[0].indexOf(PunctuationMark.RIGHT_BRACKET) === -1
-      ) {
-        // 同一文件
-        useinsteadValueCheckResult.state = TagValueCheck.checkModule(splitArray[0]);
-      }
+        splitArray[0].indexOf(PunctuationMark.RIGHT_BRACKET) === -1 &&
+        TagValueCheck.checkModule(splitArray[0]);
     } else if (splitArray.length === MODEL_COUNTS) {
       // 不同文件
       const fileNameArray: string[] = splitArray[0].split('.');
       if (fileNameArray.length === FILENAME_MODEL_COUNT) {
         // arkui
-        if (!/^[A-Za-z0-9_]+\b$/.test(fileNameArray[0]) || !TagValueCheck.checkModule(splitArray[1])) {
-          useinsteadValueCheckResult.state = false;
-        }
+        useinsteadValueCheckResult.state =
+          useinsteadValueCheckResult.state &&
+          /^[A-Za-z0-9_]+\b$/.test(fileNameArray[0]) &&
+          TagValueCheck.checkModule(splitArray[1]);
       } else {
         // 非arkui
         let checkFileName: boolean = true;
         for (let i = 0; i < fileNameArray.length; i++) {
-          if (fileNameArray[0] !== 'ohos' || !/^[A-Za-z0-9_]+\b$/.test(fileNameArray[i])) {
-            checkFileName = false;
-          }
+          checkFileName =
+            checkFileName &&
+            fileNameArray[0] === 'ohos' &&
+            /^[A-Za-z0-9_]+\b$/.test(fileNameArray[i]);
         }
         if (
           !checkFileName ||

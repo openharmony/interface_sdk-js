@@ -108,7 +108,8 @@ declare namespace businessAbilityRouter {
    *                                                                 result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10
@@ -127,7 +128,8 @@ declare namespace businessAbilityRouter {
    * @returns { Promise<Array<BusinessAbilityInfo>> } Returns a list of business ability info objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10

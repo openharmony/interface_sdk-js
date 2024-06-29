@@ -19,6 +19,7 @@
  */
 
 import type { AsyncCallback, Callback } from './@ohos.base';
+import type connection from './@ohos.net.connection';
 
 /**
  * Obtains traffic statistics.
@@ -28,15 +29,22 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  */
 declare namespace statistics {
   /**
+   * @typedef NetBearType
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 12
+   */
+  type NetBearType = connection.NetBearType;
+
+  /**
    * Queries the data traffic (including all TCP and UDP data packets) received through a specified NIC.
    * @param { string } nic - Network interface card.
    * @param { AsyncCallback<number> } callback - Returns the data traffic received through the specified NIC.
    * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2103005 - Failed to read map.
-   * @throws { BusinessError } 2103011 - Failed to create map.
-   * @throws { BusinessError } 2103012 - Get iface name failed.
+   * @throws { BusinessError } 2103005 - Failed to read the system map.
+   * @throws { BusinessError } 2103011 - Failed to create a system map.
+   * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
    */
@@ -47,11 +55,11 @@ declare namespace statistics {
    * @param { string } nic - Network interface card.
    * @returns { Promise<number> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2103005 - Failed to read map.
-   * @throws { BusinessError } 2103011 - Failed to create map.
-   * @throws { BusinessError } 2103012 - Get iface name failed.
+   * @throws { BusinessError } 2103005 - Failed to read the system map.
+   * @throws { BusinessError } 2103011 - Failed to create a system map.
+   * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
    */
@@ -62,11 +70,11 @@ declare namespace statistics {
    * @param { string } nic - Network interface card.
    * @param { AsyncCallback<number> } callback - Returns the data traffic sent through the specified NIC.
    * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2103005 - Failed to read map.
-   * @throws { BusinessError } 2103011 - Failed to create map.
-   * @throws { BusinessError } 2103012 - Get iface name failed.
+   * @throws { BusinessError } 2103005 - Failed to read the system map.
+   * @throws { BusinessError } 2103011 - Failed to create a system map.
+   * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
    */
@@ -77,11 +85,11 @@ declare namespace statistics {
    * @param { string } nic - Network interface card.
    * @returns { Promise<number> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2103005 - Failed to read map.
-   * @throws { BusinessError } 2103011 - Failed to create map.
-   * @throws { BusinessError } 2103012 - Get iface name failed.
+   * @throws { BusinessError } 2103005 - Failed to read the system map.
+   * @throws { BusinessError } 2103011 - Failed to create a system map.
+   * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
    */
@@ -90,11 +98,11 @@ declare namespace statistics {
   /**
    * Queries the data traffic (including all TCP and UDP data packets) received through the cellular network.
    * @param { AsyncCallback<number> } callback - Returns the data traffic received through the cellular network.
-   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2103005 - Failed to read map.
-   * @throws { BusinessError } 2103011 - Failed to create map.
-   * @throws { BusinessError } 2103012 - Get iface name failed.
+   * @throws { BusinessError } 2103005 - Failed to read the system map.
+   * @throws { BusinessError } 2103011 - Failed to create a system map.
+   * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
    */
@@ -103,11 +111,11 @@ declare namespace statistics {
   /**
    * Queries the data traffic (including all TCP and UDP data packets) received through the cellular network.
    * @returns { Promise<number> } The promise returned by the function.
-   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2103005 - Failed to read map.
-   * @throws { BusinessError } 2103011 - Failed to create map.
-   * @throws { BusinessError } 2103012 - Get iface name failed.
+   * @throws { BusinessError } 2103005 - Failed to read the system map.
+   * @throws { BusinessError } 2103011 - Failed to create a system map.
+   * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
    */
@@ -116,11 +124,11 @@ declare namespace statistics {
   /**
    * Queries the data traffic (including all TCP and UDP data packets) sent through the cellular network.
    * @param { AsyncCallback<number> } callback - Returns the data traffic sent through the cellular network.
-   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2103005 - Failed to read map.
-   * @throws { BusinessError } 2103011 - Failed to create map.
-   * @throws { BusinessError } 2103012 - Get iface name failed.
+   * @throws { BusinessError } 2103005 - Failed to read the system map.
+   * @throws { BusinessError } 2103011 - Failed to create a system map.
+   * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
    */
@@ -129,11 +137,11 @@ declare namespace statistics {
   /**
    * Queries the data traffic (including all TCP and UDP data packets) sent through the cellular network.
    * @returns { Promise<number> } The promise returned by the function.
-   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2103005 - Failed to read map.
-   * @throws { BusinessError } 2103011 - Failed to create map.
-   * @throws { BusinessError } 2103012 - Get iface name failed.
+   * @throws { BusinessError } 2103005 - Failed to read the system map.
+   * @throws { BusinessError } 2103011 - Failed to create a system map.
+   * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
    */
@@ -142,10 +150,10 @@ declare namespace statistics {
   /**
    * Queries the data traffic (including all TCP and UDP data packets) received through all NICs.
    * @param { AsyncCallback<number> } callback - Returns the data traffic received through all NICs.
-   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2103005 - Failed to read map.
-   * @throws { BusinessError } 2103011 - Failed to create map.
+   * @throws { BusinessError } 2103005 - Failed to read the system map.
+   * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
    */
@@ -154,10 +162,10 @@ declare namespace statistics {
   /**
    * Queries the data traffic (including all TCP and UDP data packets) received through all NICs.
    * @returns { Promise<number> } The promise returned by the function.
-   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2103005 - Failed to read map.
-   * @throws { BusinessError } 2103011 - Failed to create map.
+   * @throws { BusinessError } 2103005 - Failed to read the system map.
+   * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
    */
@@ -166,10 +174,10 @@ declare namespace statistics {
   /**
    * Queries the data traffic (including all TCP and UDP data packets) sent through all NICs.
    * @param { AsyncCallback<number> } callback - Returns the data traffic sent through all NICs.
-   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2103005 - Failed to read map.
-   * @throws { BusinessError } 2103011 - Failed to create map.
+   * @throws { BusinessError } 2103005 - Failed to read the system map.
+   * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
    */
@@ -178,10 +186,10 @@ declare namespace statistics {
   /**
    * Queries the data traffic (including all TCP and UDP data packets) sent through all NICs.
    * @returns { Promise<number> } The promise returned by the function.
-   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2103005 - Failed to read map.
-   * @throws { BusinessError } 2103011 - Failed to create map.
+   * @throws { BusinessError } 2103005 - Failed to read the system map.
+   * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
    */
@@ -192,10 +200,10 @@ declare namespace statistics {
    * @param { number } uid - Indicates the process ID of the application.
    * @param { AsyncCallback<number> } callback - Returns the data traffic received by the specified application.
    * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2103005 - Failed to read map.
-   * @throws { BusinessError } 2103011 - Failed to create map.
+   * @throws { BusinessError } 2103005 - Failed to read the system map.
+   * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
    */
@@ -206,10 +214,10 @@ declare namespace statistics {
    * @param { number } uid - Indicates the process ID of the application.
    * @returns { Promise<number> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2103005 - Failed to read map.
-   * @throws { BusinessError } 2103011 - Failed to create map.
+   * @throws { BusinessError } 2103005 - Failed to read the system map.
+   * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
    */
@@ -220,10 +228,10 @@ declare namespace statistics {
    * @param { number } uid - Indicates the process ID of the application.
    * @param { AsyncCallback<number> } callback - Returns the data traffic sent by the specified application.
    * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2103005 - Failed to read map.
-   * @throws { BusinessError } 2103011 - Failed to create map.
+   * @throws { BusinessError } 2103005 - Failed to read the system map.
+   * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
    */
@@ -234,10 +242,10 @@ declare namespace statistics {
    * @param { number } uid - Indicates the process ID of the application.
    * @returns { Promise<number> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2103005 - Failed to read map.
-   * @throws { BusinessError } 2103011 - Failed to create map.
+   * @throws { BusinessError } 2103005 - Failed to read the system map.
+   * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
    */
@@ -251,7 +259,7 @@ declare namespace statistics {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
@@ -265,7 +273,7 @@ declare namespace statistics {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
@@ -281,7 +289,7 @@ declare namespace statistics {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
@@ -295,7 +303,7 @@ declare namespace statistics {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
@@ -312,9 +320,9 @@ declare namespace statistics {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
-   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2103017 - Read data from database failed.
+   * @throws { BusinessError } 2103017 - Failed to read the database.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -330,9 +338,9 @@ declare namespace statistics {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
-   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2103017 - Read data from database failed.
+   * @throws { BusinessError } 2103017 - Failed to read the database.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -348,9 +356,9 @@ declare namespace statistics {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
-   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2103017 - Read data from database failed.
+   * @throws { BusinessError } 2103017 - Failed to read the database.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -366,9 +374,9 @@ declare namespace statistics {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
-   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2103017 - Read data from database failed.
+   * @throws { BusinessError } 2103017 - Failed to read the database.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -381,7 +389,7 @@ declare namespace statistics {
    * @param { AsyncCallback<number> } callback - Returns the data traffic bytes received by the specified sockfd.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
-   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 11
@@ -394,7 +402,7 @@ declare namespace statistics {
    * @returns { Promise<number> } Returns the data traffic bytes received by the specified sockfd.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
-   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 11
@@ -407,7 +415,7 @@ declare namespace statistics {
    * @param { AsyncCallback<number> } callback - Returns the data traffic bytes sent by the specified sockfd.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value
-   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 11
@@ -420,7 +428,7 @@ declare namespace statistics {
    * @returns { Promise<number> } Returns the data traffic bytes sent by the specified sockfd.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value
-   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 11
@@ -560,6 +568,127 @@ declare namespace statistics {
      */
     uid?: number;
   }
+
+  /**
+   * An {@link NetStatsInfo} array with start time and end time.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  export type NetStatsInfoSequence = {
+    /**
+     * Start time for querying traffic.
+     * @type { number }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    startTime: number;
+    /**
+     * End time for querying traffic.
+     * @type { number }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    endTime: number;
+    /**
+     * Detailed information of statistics.
+     * @type { NetStatsInfo }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    info: NetStatsInfo;
+  }[];
+
+  /**
+   * {@link NetStatsInfo} for every UID. Key is UID.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  export type UidNetStatsInfo = {
+    [uid: number]: NetStatsInfo;
+  };
+
+  /**
+   * Parameters for obtaining detailed information on specified network traffic usage.
+   * @interface NetworkInfo
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  export interface NetworkInfo {
+    /**
+     * Network type for querying traffic.
+     * @type { NetBearType }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    type: NetBearType;
+    /**
+     * Start time for querying traffic.
+     * @type { number }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    startTime: number;
+    /**
+     * End time for querying traffic.
+     * @type { number }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    endTime: number;
+    /**
+     * SIM card id for querying traffic.
+     * @type { ?number }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    simId?: number;
+  }
+
+  /**
+   * Get the traffic usage details of the specified network of all applications in the specified time period.
+   * @permission ohos.permission.GET_NETWORK_STATS
+   * @param { NetworkInfo } networkInfo - Information about the network to be queried.
+   * @returns { Promise<UidNetStatsInfo> } The statistics of the sim card.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @throws { BusinessError } 2103017 - Failed to read the database.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  function getTrafficStatsByNetwork(networkInfo: NetworkInfo): Promise<UidNetStatsInfo>;
+  /**
+   * Get the traffic usage sequence of the specified network of the application in the specified time period.
+   * @permission ohos.permission.GET_NETWORK_STATS
+   * @param { number } uid - UID with this parameter, get stats info of this UID.
+   * @param { NetworkInfo } networkInfo - Information about the network to be queried.
+   * @returns { Promise<NetStatsInfoSequence> } The statistics history of the sim card.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @throws { BusinessError } 2103017 - Failed to read the database.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  function getTrafficStatsByUidNetwork(uid: number, networkInfo: NetworkInfo): Promise<NetStatsInfoSequence>;
 }
 
 export default statistics;

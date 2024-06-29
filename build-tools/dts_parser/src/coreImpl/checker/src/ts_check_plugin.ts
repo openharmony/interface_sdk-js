@@ -24,9 +24,11 @@ import {
   LogType,
   ErrorLevel,
   ApiResultInfo,
+  ApiCheckInfo,
+  ErrorBaseInfo,
 } from '../../../typedef/checker/result_type';
 import { StringConstant } from '../../../utils/Constant';
-import { CompolerOptions, ObtainFullPath } from '../../../utils/checkUtils';
+import { CommonFunctions, CompolerOptions, ObtainFullPath } from '../../../utils/checkUtils';
 import { compositiveResult, compositiveLocalResult } from '../../../utils/checkUtils';
 
 export class TsSyntaxCheck {
@@ -88,27 +90,16 @@ export class TsSyntaxCheck {
     if (fileSuffix === '.ts') {
       const targetSourceFile: ts.SourceFile = node.getSourceFile();
       programSourceFiles.forEach((programSourceFile) => {
-        if (programSourceFile.fileName === targetSourceFile.fileName) {
-          const result: readonly ts.Diagnostic[] = program.getSemanticDiagnostics(programSourceFile);
-          result.forEach((item) => {
-            const filePath: string = item.file?.fileName as string;
-            const fileName: string = filePath.substring(filePath.indexOf('api'), filePath.length);
-            AddErrorLogs.addAPICheckErrorLogs(
-              ErrorID.TS_SYNTAX_ERROR_ID,
-              ErrorLevel.MIDDLE,
-              fileName,
-              ts.getLineAndCharacterOfPosition(node.getSourceFile(), item.start as number),
-              ErrorType.TS_SYNTAX_ERROR,
-              LogType.LOG_API,
-              -1,
-              'NA',
-              'NA',
-              item.messageText as string,
-              tsResult,
-              checkErrorAllInfos
-            );
-          });
+        if (programSourceFile.fileName !== targetSourceFile.fileName) {
+          return;
         }
+        const result: readonly ts.Diagnostic[] = program.getSemanticDiagnostics(programSourceFile);
+        result.forEach((item) => {
+          const filePath: string = item.file?.fileName as string;
+          const fileName: string = filePath.substring(filePath.indexOf('api'), filePath.length);
+          const apiInfo: ApiCheckInfo = new ApiCheckInfo();
+          AddErrorLogs.addAPICheckErrorLogs(apiInfo, compositiveResult, compositiveLocalResult);
+        });
       });
     }
     // ArkTS诊断日志
@@ -117,20 +108,16 @@ export class TsSyntaxCheck {
         if (path.normalize(item.file?.fileName as string) === path.normalize(fileName)) {
           const filePath: string = item.file?.fileName as string;
           const fileName: string = filePath.substring(filePath.indexOf('api'), filePath.length);
-          AddErrorLogs.addAPICheckErrorLogs(
-            ErrorID.TS_SYNTAX_ERROR_ID,
-            ErrorLevel.MIDDLE,
-            fileName,
-            ts.getLineAndCharacterOfPosition(node.getSourceFile(), item.start as number),
-            ErrorType.TS_SYNTAX_ERROR,
-            LogType.LOG_API,
-            -1,
-            'NA',
-            'NA',
-            item.messageText as string,
-            tsResult,
-            checkErrorAllInfos
-          );
+          const errorBaseInfo: ErrorBaseInfo = new ErrorBaseInfo();
+          errorBaseInfo
+            .setErrorID(ErrorID.TS_SYNTAX_ERROR_ID)
+            .setErrorLevel(ErrorLevel.MIDDLE)
+            .setErrorType(ErrorType.PARAMETER_ERRORS)
+            .setLogType(LogType.LOG_JSDOC)
+            .setErrorInfo(item.messageText as string);
+          const apiInfoTsCheck: ApiCheckInfo = CommonFunctions.getErrorInfo(undefined, undefined, fileName,
+            errorBaseInfo);
+          AddErrorLogs.addAPICheckErrorLogs(apiInfoTsCheck, compositiveResult, compositiveLocalResult);
         }
       });
     }

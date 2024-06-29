@@ -19,6 +19,7 @@
  */
 
 import BackupExtensionAbility, { BundleVersion } from '@ohos.application.BackupExtensionAbility';
+import BackupExtensionContext from '@ohos.file.BackupExtensionContext';
 import backup from '@ohos.file.backup';
 import cloudSync from '@ohos.file.cloudSync';
 import cloudSyncManager from '@ohos.file.cloudSyncManager';
@@ -28,7 +29,7 @@ import fileExtensionInfo from '@ohos.file.fileExtensionInfo';
 import fileUri from '@ohos.file.fileuri';
 import fileIo, {
   ConflictFiles, Filter, Options, ReaderIteratorResult, WatchEvent, WatchEventListener,
-  Watcher, ReadOptions, ReadTextOptions, WriteOptions, ListFileOptions
+  Watcher, ReadOptions, ReadTextOptions, WriteOptions, ListFileOptions, DfsListeners, TaskSignal
 } from '@ohos.file.fs';
 import hash from '@ohos.file.hash';
 import picker from '@ohos.file.picker';
@@ -42,9 +43,9 @@ import userFileManager from '@ohos.filemanagement.userFileManager';
 import fileShare from '@ohos.fileshare';
 
 export {
-  BackupExtensionAbility, BundleVersion, ConflictFiles, Environment, Filter, Options, ReaderIteratorResult,
+  BackupExtensionAbility, BackupExtensionContext, BundleVersion, ConflictFiles, Environment, Filter, Options, ReaderIteratorResult,
   WatchEvent, WatchEventListener, Watcher, ReadOptions, ReadTextOptions, WriteOptions, ListFileOptions,
   backup, cloudSync, cloudSyncManager, fileAccess, fileExtensionInfo,
   fileIo, fileShare, fileUri, hash, picker, recent, securityLabel, statfs,
-  storageStatistics, trash, userFileManager, volumeManager
+  storageStatistics, trash, userFileManager, volumeManager, DfsListeners, TaskSignal
 };

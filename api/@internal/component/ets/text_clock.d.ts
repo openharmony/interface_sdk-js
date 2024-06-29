@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Provides a way to control the textclock status.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -105,6 +110,49 @@ declare class TextClockController {
    * @form
    */
   stop();
+}
+
+/**
+ * TextClockConfiguration used by text clock content modifier
+ *
+ * @interface TextClockConfiguration
+ * @extends CommonConfiguration<TextClockConfiguration>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface TextClockConfiguration extends CommonConfiguration<TextClockConfiguration> {
+  /**
+   * Specifies the current time zone.
+   * The valid value is an integer ranging from - 14 to 12,
+   * Where a negative value indicates the eastern time zone, for example, -8.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  timeZoneOffset: number;
+
+  /**
+   * TextClock is started or not.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  started: boolean;
+
+  /**
+   * The time of the TextClock.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  timeValue: number;
 }
 
 /**
@@ -448,6 +496,17 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @since 11
    * @form
    */
+  /**
+   * Called when the text shadow is set.
+   *
+   * @param { ShadowOptions | Array<ShadowOptions> } value - The shadow options.
+   * @returns { TextClockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
   textShadow(value: ShadowOptions | Array<ShadowOptions>): TextClockAttribute;
 
   /**
@@ -463,7 +522,45 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @since 11
    * @form
    */
+  /**
+   * Called when the text fontFeature is set.
+   *
+   * @param { string } value - The fontFeature.
+   * normal | <feature-tag-value>, 
+   * where <feature-tag-value> = <string> [ <integer> | on | off ], like: "ss01" 0
+   * number of <feature-tag-value> can be single or multiple, and separated by comma ','.
+   * @returns { TextClockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
   fontFeature(value: string): TextClockAttribute;
+
+  /**
+   * Set the content modifier of textclock.
+   *
+   * @param { ContentModifier<TextClockConfiguration> } modifier - The content modifier of textclock.
+   * @returns { TextClockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  contentModifier(modifier: ContentModifier<TextClockConfiguration>): TextClockAttribute;
+
+  /**
+   * Set hour format
+   *
+   * @param { Optional<DateTimeOptions> } dateTimeOptions - Indicates whether a leading 0 is required for the hour.
+   * @returns { TextClockAttribute } the attribute of the text clock
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  dateTimeOptions(dateTimeOptions: Optional<DateTimeOptions>): TextClockAttribute;
 }
 
 /**

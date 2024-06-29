@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file Description of the notification channel
+ * @kit NotificationKit
+ */
+
 import notification from '../@ohos.notification';
 import type notificationManager from '../@ohos.notificationManager';
 

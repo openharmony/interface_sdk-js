@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file Some notification types and content
+ * @kit NotificationKit
+ */
+
 import notification from '../@ohos.notification';
 import image from '../@ohos.multimedia.image';
 import type notificationManager from '../@ohos.notificationManager';
@@ -24,6 +29,14 @@ import type notificationManager from '../@ohos.notificationManager';
  * @syscap SystemCapability.Notification.Notification
  * @since 7
  */
+/**
+ * Describes a normal text notification.
+ *
+ * @typedef NotificationBasicContent
+ * @syscap SystemCapability.Notification.Notification
+ * @crossplatform
+ * @since 12
+ */
 export interface NotificationBasicContent {
   /**
    * Title of the normal text notification.
@@ -31,6 +44,14 @@ export interface NotificationBasicContent {
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
+   */
+  /**
+   * Title of the normal text notification.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Notification.Notification
+   * @crossplatform
+   * @since 12
    */
   title: string;
 
@@ -40,6 +61,14 @@ export interface NotificationBasicContent {
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
+   */
+  /**
+   * Content of the normal text notification.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Notification.Notification
+   * @crossplatform
+   * @since 12
    */
   text: string;
 
@@ -69,6 +98,14 @@ export interface NotificationBasicContent {
  * @syscap SystemCapability.Notification.Notification
  * @since 7
  */
+/**
+ * Describes a long text notification.
+ *
+ * @typedef NotificationLongTextContent
+ * @syscap SystemCapability.Notification.Notification
+ * @crossplatform
+ * @since 12
+ */
 export interface NotificationLongTextContent extends NotificationBasicContent {
   /**
    * Long text content of the notification.
@@ -76,6 +113,14 @@ export interface NotificationLongTextContent extends NotificationBasicContent {
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
+   */
+  /**
+   * Long text content of the notification.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Notification.Notification
+   * @crossplatform
+   * @since 12
    */
   longText: string;
 
@@ -86,6 +131,14 @@ export interface NotificationLongTextContent extends NotificationBasicContent {
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
+  /**
+   * Brief text of the long text notification.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Notification.Notification
+   * @crossplatform
+   * @since 12
+   */
   briefText: string;
 
   /**
@@ -94,6 +147,14 @@ export interface NotificationLongTextContent extends NotificationBasicContent {
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
+   */
+  /**
+   * Title that will be displayed for the long text notification when it is expanded.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Notification.Notification
+   * @crossplatform
+   * @since 12
    */
   expandedTitle: string;
 }
@@ -210,6 +271,14 @@ export interface NotificationLiveViewContent extends NotificationBasicContent {
  * @syscap SystemCapability.Notification.Notification
  * @since 7
  */
+/**
+ * Describes a multi-line text notification.
+ *
+ * @typedef NotificationMultiLineContent
+ * @syscap SystemCapability.Notification.Notification
+ * @crossplatform
+ * @since 12
+ */
 export interface NotificationMultiLineContent extends NotificationBasicContent {
   /**
    * Brief text of the multi-line text notification.
@@ -217,6 +286,14 @@ export interface NotificationMultiLineContent extends NotificationBasicContent {
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
+   */
+  /**
+   * Brief text of the multi-line text notification.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Notification.Notification
+   * @crossplatform
+   * @since 12
    */
   briefText: string;
 
@@ -227,6 +304,14 @@ export interface NotificationMultiLineContent extends NotificationBasicContent {
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
+  /**
+   * Brief text of the multi-line text notification.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Notification.Notification
+   * @crossplatform
+   * @since 12
+   */
   longTitle: string;
 
   /**
@@ -235,6 +320,14 @@ export interface NotificationMultiLineContent extends NotificationBasicContent {
    * @type { Array<string> }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
+   */
+  /**
+   * Multi-line content of the multi-line text notification.
+   *
+   * @type { Array<string> }
+   * @syscap SystemCapability.Notification.Notification
+   * @crossplatform
+   * @since 12
    */
   lines: Array<string>;
 }
@@ -491,6 +584,14 @@ export interface NotificationProgress {
  * @syscap SystemCapability.Notification.Notification
  * @since 7
  */
+/**
+ * Describes notification types.
+ *
+ * @typedef NotificationContent
+ * @syscap SystemCapability.Notification.Notification
+ * @crossplatform
+ * @since 12
+ */
 export interface NotificationContent {
   /**
    * Notification content type.
@@ -510,6 +611,14 @@ export interface NotificationContent {
    * @syscap SystemCapability.Notification.Notification
    * @since 11
    */
+  /**
+   * Notification content type.
+   *
+   * @type { ?notificationManager.ContentType }
+   * @syscap SystemCapability.Notification.Notification
+   * @crossplatform
+   * @since 12
+   */
   notificationContentType?: notificationManager.ContentType;
 
   /**
@@ -518,6 +627,14 @@ export interface NotificationContent {
    * @type { ?NotificationBasicContent }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
+   */
+  /**
+   * Normal text notification.
+   *
+   * @type { ?NotificationBasicContent }
+   * @syscap SystemCapability.Notification.Notification
+   * @crossplatform
+   * @since 12
    */
   normal?: NotificationBasicContent;
 
@@ -528,6 +645,14 @@ export interface NotificationContent {
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
+  /**
+   * Long text notification.
+   *
+   * @type { ?NotificationLongTextContent }
+   * @syscap SystemCapability.Notification.Notification
+   * @crossplatform
+   * @since 12
+   */
   longText?: NotificationLongTextContent;
 
   /**
@@ -536,6 +661,14 @@ export interface NotificationContent {
    * @type { ?NotificationMultiLineContent }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
+   */
+  /**
+   * Multi-line text notification.
+   *
+   * @type { ?NotificationMultiLineContent }
+   * @syscap SystemCapability.Notification.Notification
+   * @crossplatform
+   * @since 12
    */
   multiLine?: NotificationMultiLineContent;
 

@@ -13,8 +13,12 @@
  * limitations under the License.
  */
 
-/// <reference path="../../component/common.d.ts" />
-/// <reference path="../../component/button.d.ts" />
+/**
+ * @file
+ * @kit ArkUI
+ */
+
+
 
 /**
  * Defines Button Modifier

@@ -3,6 +3,7 @@
     "SystemCapability.ArkUI.ArkUI.Full",
     "SystemCapability.ArkUI.ArkUI.Napi",
     "SystemCapability.ArkUI.ArkUI.Libuv",
+    "SystemCapability.ArkUI.ArkUI.Lite",
     "SystemCapability.ArkUI.UiAppearance",
     "SystemCapability.Base",
     "SystemCapability.BundleManager.BundleFramework",
@@ -70,6 +71,7 @@
     "SystemCapability.Multimedia.AVSession.Core",
     "SystemCapability.Multimedia.AVSession.Manager",
     "SystemCapability.Multimedia.AVSession.AVCast",
+    "SystemCapability.Multimedia.AVSession.ExtendedDisplayCast",
     "SystemCapability.Multimedia.Audio.Core",
     "SystemCapability.Multimedia.Audio.Renderer",
     "SystemCapability.Multimedia.Audio.Capturer",
@@ -85,6 +87,7 @@
     "SystemCapability.Multimedia.Image.ImageSource",
     "SystemCapability.Multimedia.Image.ImagePacker",
     "SystemCapability.Multimedia.Image.ImageReceiver",
+    "SystemCapability.Multimedia.ImageEffect.Core",
     "SystemCapability.Multimedia.MediaLibrary.Core",
     "SystemCapability.Multimedia.MediaLibrary.DistributedCore",
     "SystemCapability.Multimedia.SystemSound.Core",
@@ -97,6 +100,7 @@
     "SystemCapability.Global.I18n",
     "SystemCapability.Global.ResourceManager",
     "SystemCapability.Customization.ConfigPolicy",
+    "SystemCapability.Customization.CustomConfig",
     "SystemCapability.Customization.EnterpriseDeviceManager",
     "SystemCapability.BarrierFree.Accessibility.Core",
     "SystemCapability.BarrierFree.Accessibility.Vision",
@@ -125,6 +129,8 @@
     "SystemCapability.Security.Huks.Extension",
     "SystemCapability.Security.Asset",
     "SystemCapability.Security.AccessToken",
+    "SystemCapability.Security.SecurityGuard",
+    "SystemCapability.Security.ScreenLockFileManager",
     "SystemCapability.Account.OsAccount",
     "SystemCapability.Account.AppAccount",
     "SystemCapability.UserIAM.UserAuth.Core",
@@ -212,6 +218,6 @@
     "SystemCapability.Graphic.Graphic2D.NativeVsync",
     "SystemCapability.Graphic.Vulkan",
     "SystemCapability.Multimedia.Image.ImageCreator",
-    "SystemCapability.Graphic.Graphic2D.WebGL2"
+    "SystemCapability.Ability.AppStartup"
   ]
 }

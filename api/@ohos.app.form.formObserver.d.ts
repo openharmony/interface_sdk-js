@@ -40,7 +40,8 @@ declare namespace formObserver {
    * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running
    *                                                                  form info.
    * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 10
@@ -57,7 +58,8 @@ declare namespace formObserver {
    * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running
    *                                                                  form info.
    * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 10
@@ -74,7 +76,8 @@ declare namespace formObserver {
    * @param { Callback<formInfo.RunningFormInfo> } [observerCallback] - The callback is used to return the running
    *                                                                    form info.
    * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 10
@@ -90,7 +93,8 @@ declare namespace formObserver {
    * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running
    *                                                                  form info.
    * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 10
@@ -107,7 +111,8 @@ declare namespace formObserver {
    * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running
    *                                                                  form info.
    * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 10
@@ -124,7 +129,8 @@ declare namespace formObserver {
    * @param { Callback<formInfo.RunningFormInfo> } [observerCallback] - The callback is used to return the running
    *                                                                    form info.
    * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 10
@@ -140,7 +146,8 @@ declare namespace formObserver {
    * @param { Callback<Array<formInfo.RunningFormInfo>> } observerCallback - The callback is used to return
    *                                                                         the running form info.
    * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 10
@@ -157,7 +164,8 @@ declare namespace formObserver {
    * @param { Callback<Array<formInfo.RunningFormInfo>> } observerCallback - The callback is used to return
    *                                                                         the running form info.
    * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 10
@@ -177,7 +185,8 @@ declare namespace formObserver {
    * @param { Callback<Array<formInfo.RunningFormInfo>> } observerCallback - The callback is used to return
    *                                                                         the running form info.
    * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 10
@@ -194,7 +203,8 @@ declare namespace formObserver {
    * @param { Callback<Array<formInfo.RunningFormInfo>> } observerCallback - The callback is used to return
    *                                                                         the running form info.
    * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 10
@@ -215,7 +225,8 @@ declare namespace formObserver {
    * @param { Callback<Array<formInfo.RunningFormInfo>> } [observerCallback] - The callback is used to return
    *                                                                  the running form info.
    * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 10
@@ -236,7 +247,8 @@ declare namespace formObserver {
    * @param { Callback<Array<formInfo.RunningFormInfo>> } [observerCallback] - The callback is used to return
    *                                                                         the running form info.
    * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 10
@@ -256,9 +268,10 @@ declare namespace formObserver {
    * @param { string } [hostBundleName] - Indicates the bundle name of the form host application.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16500050 - An IPC connection error happened.
-   * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16500060 - Service connection error.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 10
@@ -275,9 +288,10 @@ declare namespace formObserver {
    * @param { string } [hostBundleName] - Indicates the bundle name of the form host application.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16500050 - An IPC connection error happened.
-   * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16500060 - Service connection error.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 11
@@ -296,9 +310,10 @@ declare namespace formObserver {
    * @returns { Promise<Array<formInfo.RunningFormInfo>> } Returns the RunningFormInfo.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16500050 - An IPC connection error happened.
-   * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16500060 - Service connection error.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 10
@@ -314,9 +329,10 @@ declare namespace formObserver {
    * @returns { Promise<Array<formInfo.RunningFormInfo>> } Returns the RunningFormInfo.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16500050 - An IPC connection error happened.
-   * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16500060 - Service connection error.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 11
@@ -334,8 +350,9 @@ declare namespace formObserver {
    * @returns { Promise<Array<formInfo.RunningFormInfo>> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16500050 - An IPC connection error happened.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
@@ -355,8 +372,9 @@ declare namespace formObserver {
    * @param { AsyncCallback<Array<formInfo.RunningFormInfo>> } callback - The callback of getFormInstancesByFilter.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16500050 - An IPC connection error happened.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
@@ -377,8 +395,9 @@ declare namespace formObserver {
    * @returns { Promise<formInfo.RunningFormInfo> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16500050 - An IPC connection error happened.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
@@ -397,8 +416,9 @@ declare namespace formObserver {
    * @returns { Promise<formInfo.RunningFormInfo> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16500050 - An IPC connection error happened.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
@@ -416,8 +436,9 @@ declare namespace formObserver {
    * @param { AsyncCallback<formInfo.RunningFormInfo> } callback - The callback of getFormInstancesById.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16500050 - An IPC connection error happened.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
@@ -436,8 +457,9 @@ declare namespace formObserver {
    * @param { AsyncCallback<formInfo.RunningFormInfo> } callback - The callback of getFormInstancesById.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16500050 - An IPC connection error happened.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
@@ -460,7 +482,8 @@ declare namespace formObserver {
    * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running
    *                                                                  form info.
    * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 11
@@ -477,7 +500,8 @@ declare namespace formObserver {
    * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running
    *                                                                  form info.
    * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 11
@@ -493,7 +517,8 @@ declare namespace formObserver {
    * @param { Callback<formInfo.RunningFormInfo> } [observerCallback] - The callback is used to return the running
    *                                                                    form info.
    * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 11
@@ -509,7 +534,8 @@ declare namespace formObserver {
    * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running
    *                                                                  form info.
    * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 11
@@ -526,7 +552,8 @@ declare namespace formObserver {
    * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running
    *                                                                  form info.
    * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 11
@@ -542,7 +569,8 @@ declare namespace formObserver {
    * @param { Callback<formInfo.RunningFormInfo> } [observerCallback] - The callback is used to return the running
    *                                                                    form info.
    * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 11
@@ -558,7 +586,8 @@ declare namespace formObserver {
    * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running
    *                                                                  form info.
    * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 11
@@ -575,7 +604,8 @@ declare namespace formObserver {
    * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running
    *                                                                  form info.
    * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 11
@@ -591,7 +621,8 @@ declare namespace formObserver {
    * @param { Callback<formInfo.RunningFormInfo> } [observerCallback] - The callback is used to return the running
    *                                                                    form info.
    * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 11

@@ -184,7 +184,9 @@ declare namespace process {
      *
      * @param { number } v - An id.
      * @returns { boolean } Return a boolean whether the specified uid belongs to a particular application.
-     * @throws { BusinessError } 401 - The type of v must be number.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @since 9
      */
@@ -193,7 +195,9 @@ declare namespace process {
      *
      * @param { number } v - An id.
      * @returns { boolean } Return a boolean whether the specified uid belongs to a particular application.
-     * @throws { BusinessError } 401 - The type of v must be number.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -203,7 +207,9 @@ declare namespace process {
      *
      * @param { number } v - An id.
      * @returns { boolean } Return a boolean whether the specified uid belongs to a particular application.
-     * @throws { BusinessError } 401 - The type of v must be number.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -216,7 +222,9 @@ declare namespace process {
      *
      * @param { string } v - Process name.
      * @returns { number } Return the uid based on the specified user name.
-     * @throws { BusinessError } 401 - The type of v must be string.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @since 9
      */
@@ -225,7 +233,9 @@ declare namespace process {
      *
      * @param { string } v - Process name.
      * @returns { number } Return the uid based on the specified user name.
-     * @throws { BusinessError } 401 - The type of v must be string.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -235,7 +245,9 @@ declare namespace process {
      *
      * @param { string } v - Process name.
      * @returns { number } Return the uid based on the specified user name.
-     * @throws { BusinessError } 401 - The type of v must be string.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -248,7 +260,9 @@ declare namespace process {
      *
      * @param { number } v - The tid of the process.
      * @returns { number } Return the thread priority based on the specified tid.
-     * @throws { BusinessError } 401 - The type of v must be number.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @since 9
      */
@@ -257,7 +271,9 @@ declare namespace process {
      *
      * @param { number } v - The tid of the process.
      * @returns { number } Return the thread priority based on the specified tid.
-     * @throws { BusinessError } 401 - The type of v must be number.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -267,7 +283,9 @@ declare namespace process {
      *
      * @param { number } v - The tid of the process.
      * @returns { number } Return the thread priority based on the specified tid.
-     * @throws { BusinessError } 401 - The type of v must be number.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -280,7 +298,9 @@ declare namespace process {
      *
      * @param { number } name - Parameters defined by the system configuration.
      * @returns { number } Return the system configuration at runtime.
-     * @throws { BusinessError } 401 - The type of name must be number.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @since 9
      */
@@ -289,7 +309,9 @@ declare namespace process {
      *
      * @param { number } name - Parameters defined by the system configuration.
      * @returns { number } Return the system configuration at runtime.
-     * @throws { BusinessError } 401 - The type of name must be number.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -299,7 +321,9 @@ declare namespace process {
      *
      * @param { number } name - Parameters defined by the system configuration.
      * @returns { number } Return the system configuration at runtime.
-     * @throws { BusinessError } 401 - The type of name must be number.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -312,7 +336,9 @@ declare namespace process {
      *
      * @param { string } name - Parameters defined by the system environment variables.
      * @returns { string } Return the system value for environment variables.
-     * @throws { BusinessError } 401 - The type of name must be string.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @since 9
      */
@@ -321,7 +347,9 @@ declare namespace process {
      *
      * @param { string } name - Parameters defined by the system environment variables.
      * @returns { string } Return the system value for environment variables.
-     * @throws { BusinessError } 401 - The type of name must be string.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -331,7 +359,9 @@ declare namespace process {
      *
      * @param { string } name - Parameters defined by the system environment variables.
      * @returns { string } Return the system value for environment variables.
-     * @throws { BusinessError } 401 - The type of name must be string.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -343,7 +373,9 @@ declare namespace process {
      * Process exit
      *
      * @param { number } code - Process exit code.
-     * @throws { BusinessError } 401 - The type of code must be number.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @since 9
      */
@@ -351,7 +383,9 @@ declare namespace process {
      * Process exit
      *
      * @param { number } code - Process exit code.
-     * @throws { BusinessError } 401 - The type of code must be number.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -360,7 +394,9 @@ declare namespace process {
      * Process exit
      *
      * @param { number } code - Process exit code.
-     * @throws { BusinessError } 401 - The type of code must be number.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -374,7 +410,9 @@ declare namespace process {
      * @param { number } signal - Signal sent.
      * @param { number } pid - Send signal to target pid.
      * @returns { boolean } Return the result of the signal.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @since 9
      */
@@ -384,7 +422,9 @@ declare namespace process {
      * @param { number } signal - Signal sent.
      * @param { number } pid - Send signal to target pid.
      * @returns { boolean } Return the result of the signal.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -395,7 +435,9 @@ declare namespace process {
      * @param { number } signal - Signal sent.
      * @param { number } pid - Send signal to target pid.
      * @returns { boolean } Return the result of the signal.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -712,6 +754,16 @@ declare namespace process {
    * @crossplatform
    * @atomicservice
    * @since 11
+   */
+  /**
+   * User Stored Events
+   *
+   * @typedef { function } EventListener
+   * @param { Object } evt - User events
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   type EventListener = (evt: Object) => void;
   

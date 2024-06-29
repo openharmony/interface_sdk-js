@@ -12,8 +12,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/// <reference path="../../../../api/@internal/component/ets/common.d.ts" />
-/// <reference path="../../../../api/@internal/component/ets/enums.d.ts" />
+
+/**
+ * @file
+ * @kit ArkUI
+ */
+
 
 /**
  * Provide an interface for the EmbeddedComponent, which is used

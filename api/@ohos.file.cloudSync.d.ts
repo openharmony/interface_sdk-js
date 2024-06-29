@@ -151,7 +151,16 @@ declare namespace cloudSync {
      * @systemapi
      * @since 10
      */
-    LOCAL_STORAGE_FULL
+    LOCAL_STORAGE_FULL,
+    /**
+     * Synchronization aborted due to device temperature is too high.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 12
+     */
+    DEVICE_TEMPERATURE_TOO_HIGH,
+    
   }
 
   /**
@@ -207,7 +216,8 @@ declare namespace cloudSync {
      * @param { function } callback - callback function with a `SyncProgress` argument.
      * @throws { BusinessError } 201 - Permission verification failed.
      * @throws { BusinessError } 202 - The caller is not a system application.
-     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Incorrect parameter types.
      * @throws { BusinessError } 13600001 - IPC error
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
@@ -222,7 +232,8 @@ declare namespace cloudSync {
      * @param { function } callback - callback function with a `SyncProgress` argument.
      * @throws { BusinessError } 201 - Permission verification failed.
      * @throws { BusinessError } 202 - The caller is not a system application.
-     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Incorrect parameter types.
      * @throws { BusinessError } 13600001 - IPC error
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
@@ -236,7 +247,8 @@ declare namespace cloudSync {
      * @param { 'progress' } evt - event type.
      * @throws { BusinessError } 201 - Permission verification failed.
      * @throws { BusinessError } 202 - The caller is not a system application.
-     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Incorrect parameter types.
      * @throws { BusinessError } 13600001 - IPC error
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
@@ -250,7 +262,7 @@ declare namespace cloudSync {
      * @returns { Promise<void> } - Return Promise.
      * @throws { BusinessError } 201 - Permission verification failed.
      * @throws { BusinessError } 202 - The caller is not a system application.
-     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Incorrect parameter types.
      * @throws { BusinessError } 22400001 - Cloud status not ready.
      * @throws { BusinessError } 22400002 - Network unavailable.
      * @throws { BusinessError } 22400003 - Battery level warning.
@@ -266,7 +278,8 @@ declare namespace cloudSync {
      * @param { AsyncCallback<void> } [callback] - Callback function.
      * @throws { BusinessError } 201 - Permission verification failed.
      * @throws { BusinessError } 202 - The caller is not a system application.
-     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Incorrect parameter types.
      * @throws { BusinessError } 22400001 - Cloud status not ready.
      * @throws { BusinessError } 22400002 - Network unavailable.
      * @throws { BusinessError } 22400003 - Battery level warning.
@@ -282,7 +295,7 @@ declare namespace cloudSync {
      * @returns { Promise<void> } - Return Promise.
      * @throws { BusinessError } 201 - Permission verification failed.
      * @throws { BusinessError } 202 - The caller is not a system application.
-     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Incorrect parameter types.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 10
@@ -295,7 +308,8 @@ declare namespace cloudSync {
      * @param { AsyncCallback<void> } [callback] - Callback function.
      * @throws { BusinessError } 201 - Permission verification failed.
      * @throws { BusinessError } 202 - The caller is not a system application.
-     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Incorrect parameter types.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 10
@@ -467,7 +481,8 @@ declare namespace cloudSync {
      * @param { function } callback - callback function with a `DownloadProgress` argument.
      * @throws { BusinessError } 201 - Permission verification failed.
      * @throws { BusinessError } 202 - The caller is not a system application.
-     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Incorrect parameter types.
      * @throws { BusinessError } 13600001 - IPC error
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
@@ -482,7 +497,8 @@ declare namespace cloudSync {
      * @param { function } callback - callback function with a `DownloadProgress` argument.
      * @throws { BusinessError } 201 - Permission verification failed.
      * @throws { BusinessError } 202 - The caller is not a system application.
-     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Incorrect parameter types.
      * @throws { BusinessError } 13600001 - IPC error
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
@@ -496,7 +512,8 @@ declare namespace cloudSync {
      * @param { 'progress' } evt - event type.
      * @throws { BusinessError } 201 - Permission verification failed.
      * @throws { BusinessError } 202 - The caller is not a system application.
-     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Incorrect parameter types.
      * @throws { BusinessError } 13600001 - IPC error
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
@@ -511,7 +528,8 @@ declare namespace cloudSync {
      * @returns { Promise<void> } - Return Promise.
      * @throws { BusinessError } 201 - Permission verification failed.
      * @throws { BusinessError } 202 - The caller is not a system application.
-     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Incorrect parameter types.
      * @throws { BusinessError } 13900002 - No such file or directory.
      * @throws { BusinessError } 13900025 - No space left on device.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
@@ -527,7 +545,8 @@ declare namespace cloudSync {
      * @param { AsyncCallback<void> } [callback] - Callback function.
      * @throws { BusinessError } 201 - Permission verification failed.
      * @throws { BusinessError } 202 - The caller is not a system application.
-     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Incorrect parameter types.
      * @throws { BusinessError } 13900002 - No such file or directory.
      * @throws { BusinessError } 13900025 - No space left on device.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
@@ -543,7 +562,8 @@ declare namespace cloudSync {
      * @returns { Promise<void> } - Return Promise.
      * @throws { BusinessError } 201 - Permission verification failed.
      * @throws { BusinessError } 202 - The caller is not a system application.
-     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Incorrect parameter types.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 10
@@ -557,7 +577,8 @@ declare namespace cloudSync {
      * @param { AsyncCallback<void> } [callback] - Callback function.
      * @throws { BusinessError } 201 - Permission verification failed.
      * @throws { BusinessError } 202 - The caller is not a system application.
-     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Incorrect parameter types.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 10
@@ -577,12 +598,24 @@ declare namespace cloudSync {
      * A constructor used to create a FileSync object.
      *
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Incorrect parameter types.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 11
      */
     constructor();
+    /**
+     * A constructor used to create a FileSync object.
+     *
+     * @param { string } bundleName - Name of the bundle that need to synchronize and subscribe the sync progress event.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Incorrect parameter types.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 12
+     */
+    constructor(bundleName: string);
     /**
      * Subscribes to sync progress change event. This method uses a callback to get sync progress changes.
      *
@@ -591,7 +624,8 @@ declare namespace cloudSync {
      * @param { Callback<SyncProgress> } callback - callback function with a `SyncProgress` argument.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Incorrect parameter types.
      * @throws { BusinessError } 13600001 - IPC error
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
@@ -606,7 +640,7 @@ declare namespace cloudSync {
      * @param { Callback<SyncProgress> } [callback] - callback function with a `SyncProgress` argument.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types.
      * @throws { BusinessError } 13600001 - IPC error
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
@@ -620,7 +654,7 @@ declare namespace cloudSync {
      * @returns { Promise<void> } - Return Promise.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Incorrect parameter types.
      * @throws { BusinessError } 13600001 - IPC error.
      * @throws { BusinessError } 22400001 - Cloud status not ready.
      * @throws { BusinessError } 22400002 - Network unavailable.
@@ -637,7 +671,7 @@ declare namespace cloudSync {
      * @param { AsyncCallback<void> } callback - Callback function.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types.
      * @throws { BusinessError } 13600001 - IPC error.
      * @throws { BusinessError } 22400001 - Cloud status not ready.
      * @throws { BusinessError } 22400002 - Network unavailable.
@@ -654,7 +688,7 @@ declare namespace cloudSync {
      * @returns { Promise<void> } - Return Promise.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Incorrect parameter types.
      * @throws { BusinessError } 13600001 - IPC error.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
@@ -668,7 +702,8 @@ declare namespace cloudSync {
      * @param { AsyncCallback<void> } callback - Callback function.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Incorrect parameter types.
      * @throws { BusinessError } 13600001 - IPC error.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
@@ -682,7 +717,7 @@ declare namespace cloudSync {
      * @returns { Promise<number> } - Return the date of last synchronization.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Incorrect parameter types.
      * @throws { BusinessError } 13600001 - IPC error.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
@@ -696,7 +731,8 @@ declare namespace cloudSync {
      * @param { AsyncCallback<number> } callback - Callback function.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Incorrect parameter types.
      * @throws { BusinessError } 13600001 - IPC error.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
@@ -714,7 +750,7 @@ declare namespace cloudSync {
     /**
      * A constructor used to create a CloudFileCache object.
      *
-     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Incorrect parameter types.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 11
      */
@@ -724,7 +760,8 @@ declare namespace cloudSync {
      *
      * @param { 'progress' } event - event type.
      * @param { Callback<DownloadProgress> } callback - callback function with a `DownloadProgress` argument.
-     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Incorrect parameter types.
      * @throws { BusinessError } 13600001 - IPC error
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 11
@@ -735,7 +772,8 @@ declare namespace cloudSync {
      *
      * @param { 'progress' } event - event type.
      * @param { Callback<DownloadProgress> } [callback] - callback function with a `DownloadProgress` argument.
-     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Incorrect parameter types.
      * @throws { BusinessError } 13600001 - IPC error
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 11
@@ -747,7 +785,8 @@ declare namespace cloudSync {
      *
      * @param { string } uri - uri of file.
      * @returns { Promise<void> } - Return Promise.
-     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Incorrect parameter types.
      * @throws { BusinessError } 13600001 - IPC error.
      * @throws { BusinessError } 13900002 - No such file or directory.
      * @throws { BusinessError } 13900025 - No space left on device.
@@ -761,7 +800,8 @@ declare namespace cloudSync {
      *
      * @param { string } uri - uri of file.
      * @param { AsyncCallback<void> } callback - Callback function.
-     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Incorrect parameter types.
      * @throws { BusinessError } 13600001 - IPC error.
      * @throws { BusinessError } 13900002 - No such file or directory.
      * @throws { BusinessError } 13900025 - No space left on device.
@@ -775,20 +815,36 @@ declare namespace cloudSync {
      *
      * @param { string } uri - uri of file.
      * @returns { Promise<void> } - Return Promise.
-     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Incorrect parameter types.
      * @throws { BusinessError } 13600001 - IPC error.
      * @throws { BusinessError } 13900002 - No such file or directory.
      * @throws { BusinessError } 14000002 - Invalid uri.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 11
      */
-    stop(uri: string): Promise<void>;
+    /**
+     * Stop the cloud file cache download task.
+     *
+     * @param { string } uri - uri of file.
+     * @param { boolean } [needClean] - whether to delete the file that already downloaded.
+     * @returns { Promise<void> } - Return Promise.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Incorrect parameter types.
+     * @throws { BusinessError } 13600001 - IPC error.
+     * @throws { BusinessError } 13900002 - No such file or directory.
+     * @throws { BusinessError } 14000002 - Invalid uri.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 12
+     */
+    stop(uri: string, needClean?: boolean): Promise<void>;
     /**
      * Stop the cloud file cache download task with callback.
      *
      * @param { string } uri - uri of file.
      * @param { AsyncCallback<void> } callback - Callback function.
-     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Incorrect parameter types.
      * @throws { BusinessError } 13600001 - IPC error.
      * @throws { BusinessError } 13900002 - No such file or directory.
      * @throws { BusinessError } 14000002 - Invalid uri.
@@ -803,7 +859,8 @@ declare namespace cloudSync {
      * @param { string } uri - uri of file.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Incorrect parameter types.
      * @throws { BusinessError } 13600001 - IPC error.
      * @throws { BusinessError } 13900002 - No such file or directory.
      * @throws { BusinessError } 14000002 - Invalid uri.
@@ -854,7 +911,31 @@ declare namespace cloudSync {
      * @systemapi
      * @since 11
      */
-    STOPPED
+    STOPPED,
+    /**
+     * Indicates that the file is waiting for upload.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 12
+     */
+    TO_BE_UPLOADED,
+    /**
+     * Indicates that the file has been already uploaded successfully.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 12
+     */
+    UPLOAD_SUCCESS,
+    /**
+     * Indicates that the file upload failure.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 12
+     */
+    UPLOAD_FAILURE,
   }
 
   /**
@@ -865,7 +946,8 @@ declare namespace cloudSync {
    * @returns { Promise<Array<FileSyncState>> } - Return the sync state of given files.
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
    * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-   * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900002 - No such file or directory.
    * @throws { BusinessError } 14000002 - Invalid uri.
@@ -882,7 +964,8 @@ declare namespace cloudSync {
    * @param { AsyncCallback<Array<FileSyncState>> } callback - The callback is used to return the sync state of given files.
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
    * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-   * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900002 - No such file or directory.
    * @throws { BusinessError } 14000002 - Invalid uri.
@@ -891,6 +974,141 @@ declare namespace cloudSync {
    * @since 11
    */
   function getFileSyncState(uri: Array<string>, callback: AsyncCallback<Array<FileSyncState>>): void;
+  /**
+   * Get the sync state of file.
+   *
+   * @param { string } uri - uri of file.
+   * @returns { FileSyncState } - return the sync state of given files.
+   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 13900002 - No such file or directory.
+   * @throws { BusinessError } 13900004 - Interrupted system call
+   * @throws { BusinessError } 13900010 - Try again
+   * @throws { BusinessError } 13900012 - Permission denied by the file system
+   * @throws { BusinessError } 13900031 - Function not implemented
+   * @throws { BusinessError } 13900042 - Unknown error 
+   * @throws { BusinessError } 14000002 - Invalid uri.
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+   * @systemapi
+   * @since 12
+   */
+  function getFileSyncState(uri: string): FileSyncState;
+  /**
+   * Register change notify for the specified uri.
+   *
+   * @param { string } uri - uri of file.
+   * @param { boolean } recursion - Whether to monitor the child files.
+   * @param { Callback<ChangeData> } callback - Returns the changed data.
+   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 13900001 - Operation not permitted
+   * @throws { BusinessError } 13900002 - No such file or directory.
+   * @throws { BusinessError } 13900012 - Permission denied
+   * @throws { BusinessError } 14000002 - Invalid uri.
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+   * @systemapi
+   * @since 12
+   */
+  function registerChange(uri: string, recursion: boolean, callback: Callback<ChangeData>): void;
+  /**
+   * Unregister change notify fir the specified uri.
+   *
+   * @param { string } uri - uri of file.
+   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 13900001 - Operation not permitted
+   * @throws { BusinessError } 13900002 - No such file or directory.
+   * @throws { BusinessError } 13900012 - Permission denied
+   * @throws { BusinessError } 14000002 - Invalid uri.
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+   * @systemapi
+   * @since 12
+   */
+  function unregisterChange(uri: string): void;
+
+  /**
+   * Enumeration types of data change.
+   *
+   * @enum { number } NotifyType
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+   * @systemapi
+   * @since 12
+   */
+  enum NotifyType {
+    /**
+     * File has been newly created
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 12
+     */
+    NOTIFY_ADDED,
+    /**
+     * File has been modified.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 12
+     */
+    NOTIFY_MODIFIED,
+    /**
+     * File has been deleted.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 12
+     */
+    NOTIFY_DELETED,
+    /**
+     * File has been renamed or moved.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 12
+     */
+    NOTIFY_RENAMED
+  }
+
+  /** 
+   * Defines the change data
+   * 
+   * @interface ChangeData
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+   * @systemapi
+   * @since 12
+   */
+  interface ChangeData {
+    /**
+     * The notify type of the change.
+     * 
+     * @type {NotifyType}
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 12
+     */
+    type: NotifyType;
+    /**
+     * Indicates whether the changed uri is directory.
+     * 
+     * @type {Array<boolean>}
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 12
+     */
+    isDirectory: Array<boolean>;
+    /**
+     * The changed uris.
+     * 
+     * @type {Array<string>}
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 12
+     */
+    uris: Array<string>;
+  }
 }
 
 export default cloudSync;

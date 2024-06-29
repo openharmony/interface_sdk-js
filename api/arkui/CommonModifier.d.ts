@@ -13,7 +13,12 @@
  * limitations under the License.
  */
 
-/// <reference path="../../component/common.d.ts" />
+/**
+ * @file
+ * @kit ArkUI
+ */
+
+
 
 /**
  * Defines Common Modifier

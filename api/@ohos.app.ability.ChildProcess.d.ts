@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,12 +18,14 @@
  * @kit AbilityKit
  */
 
+import type { ChildProcessArgs } from './@ohos.app.ability.ChildProcessArgs';
+
 /**
  * The class of child process.
  * Child process to be started can inherit this class.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
+ * @stagemodelonly
  * @since 11
  */
 export default class ChildProcess {
@@ -32,8 +34,16 @@ export default class ChildProcess {
    * Called when the child process is started.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
   */
-  onStart(): void;
+  /**
+   * Called when the child process is started.
+   *
+   * @param { ChildProcessArgs } [args] - Indicates args passed to child process.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 12
+  */
+  onStart(args?: ChildProcessArgs): void;
 }

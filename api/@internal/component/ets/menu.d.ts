@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Defines the Menu Component.
  *
  * @interface MenuInterface
@@ -63,6 +68,43 @@ interface MenuInterface {
    * @since 11
    */
   (): MenuAttribute;
+}
+
+/**
+ * Declare SubMenuExpandingMode
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum SubMenuExpandingMode {
+  /**
+   * Sub-menu will expand besides main menu
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  SIDE_EXPAND = 0,
+
+  /**
+   * Sub-menu will expand embedded in main menu
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  EMBEDDED_EXPAND = 1,
+
+  /**
+   * Sub-menu will expand over main menu
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  STACK_EXPAND = 2,
 }
 
 /**
@@ -168,6 +210,39 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
    * @since 11
    */
   radius(value: Dimension | BorderRadiuses): MenuAttribute;
+
+  /**
+   * Set the divider of menu item
+   *
+   * @param { DividerStyleOptions | undefined } options
+   * @returns { MenuAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  menuItemDivider(options: DividerStyleOptions | undefined): MenuAttribute;
+
+  /**
+   * Set the divider of menu item group
+   *
+   * @param { DividerStyleOptions | undefined } options
+   * @returns { MenuAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  menuItemGroupDivider(options: DividerStyleOptions | undefined): MenuAttribute;
+
+  /**
+   * Set the expanding mode of sub-menu
+   *
+   * @param { SubMenuExpandingMode } mode
+   * @returns { MenuAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  subMenuExpandingMode(mode: SubMenuExpandingMode): MenuAttribute;
 }
 
 /**

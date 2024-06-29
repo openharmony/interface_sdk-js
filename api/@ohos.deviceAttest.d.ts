@@ -32,9 +32,10 @@ declare namespace deviceAttest {
    * Obtains the AttestResultInfo object.
    *
    * @param { AsyncCallback<AttestResultInfo> } callback Indicates the callback containing the AttestResultInfo object.
-   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
-   * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 20000001 -  system service exception.
+   * @throws { BusinessError } 202 - This api is system api, Please use the system application to call this api.
+   * @throws { BusinessError } 401 - Input parameters wrong, the number of parameters is incorrect,
+                or the type of parameters is incorrect.
+   * @throws { BusinessError } 20000001 - System service exception, please try again or reboot your device.
    * @syscap SystemCapability.XTS.DeviceAttest
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -45,9 +46,10 @@ declare namespace deviceAttest {
    * Obtains the AttestResultInfo object.
    *
    * @returns { Promise<AttestResultInfo> } Returns that the AttestResultInfo object is returned in Promise mode.
-   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
-   * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 20000001 -  system service exception.
+   * @throws { BusinessError } 202 - This api is system api, Please use the system application to call this api.
+   * @throws { BusinessError } 401 - Input parameters wrong, the number of parameters is incorrect,
+                or the type of parameters is incorrect.
+   * @throws { BusinessError } 20000001 - System service exception, please try again or reboot your device.
    * @syscap SystemCapability.XTS.DeviceAttest
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -58,9 +60,10 @@ declare namespace deviceAttest {
    * Obtains the AttestResultInfo object.
    *
    * @returns { AttestResultInfo } Obtains the AttestResultInfo object synchronously.
-   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
-   * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 20000001 -  system service exception.
+   * @throws { BusinessError } 202 - This api is system api, Please use the system application to call this api.
+   * @throws { BusinessError } 401 - Input parameters wrong, the number of parameters is incorrect,
+                or the type of parameters is incorrect.
+   * @throws { BusinessError } 20000001 - System service exception, please try again or reboot your device.
    * @syscap SystemCapability.XTS.DeviceAttest
    * @systemapi Hide this for inner system use.
    * @since 9

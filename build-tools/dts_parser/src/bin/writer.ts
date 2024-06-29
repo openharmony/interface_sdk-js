@@ -19,7 +19,7 @@ import fs from 'fs';
 import { LogUtil } from '../utils/logUtil';
 import { ToolNameExcelCallback, joinNewMessage, joinOldMessage, ToolReturnData } from './config';
 import { BasicDiffInfo, diffTypeMap } from '../typedef/diff/ApiInfoDiff';
-import { FunctionUtils } from '../utils/FunctionUtils';
+import { OptionObjType } from './config'
 import { SyscapProcessorHelper } from '../coreImpl/diff/syscapFieldProcessor';
 
 export namespace WriterHelper {
@@ -33,14 +33,13 @@ export namespace WriterHelper {
     data: ToolReturnData,
     dest: string,
     fileName: string,
-    callback: ToolNameExcelCallback | undefined
+    callback: ToolNameExcelCallback | undefined,
+    options?: OptionObjType
   ) {
     const workbook: ExcelJS.Workbook = new ExcelJS.Workbook();
-    const sheet: ExcelJS.Worksheet = workbook.addWorksheet();
-
     if (typeof callback === 'function') {
       //callback是一个函数，才能当回调函数使用
-      callback(data, sheet, dest);
+      callback(data, workbook, dest, options);
     }
 
     const buffer: NodeJS.ArrayBufferView = (await workbook.xlsx.writeBuffer()) as NodeJS.ArrayBufferView;
@@ -51,23 +50,85 @@ export namespace WriterHelper {
 
   export class MarkdownReporter {
     static writeInMarkdown(data: BasicDiffInfo[], dest: string | undefined): void {
-      const fileNameMap: Map<string, string> = FunctionUtils.readSubsystemFile().fileNameMap;
-      fileNameMap.forEach((fileName: string, syscap: string) => {
-        let diffsInSameSystem: BasicDiffInfo[] = [];
+      const kitInfoSet: Set<string> = MarkdownReporter.getAllKitInfo(data);
+      kitInfoSet.forEach((kitInfo: string) => {
+        let diffsInSameKit: BasicDiffInfo[] = [];
         data.forEach((diffInfo: BasicDiffInfo) => {
-          if (SyscapProcessorHelper.getSyscapField(diffInfo) === syscap) {
-            diffsInSameSystem.push(diffInfo);
+          if (SyscapProcessorHelper.getSingleKitInfo(diffInfo) === kitInfo) {
+            diffsInSameKit.push(diffInfo);
           }
         });
-        if (diffsInSameSystem.length === 0) {
+
+        if (diffsInSameKit.length === 0) {
           return;
         }
 
-        MarkdownReporter.sortDiffInfoByStatus(diffsInSameSystem, fileName, dest);
+        MarkdownReporter.sortDiffInfoByFile(diffsInSameKit, kitInfo, dest);
       });
     }
 
-    static sortDiffInfoByStatus(diffsInSameSystem: BasicDiffInfo[], fileName: string, dest: string | undefined): void {
+    /**
+     * 获取所有的kit信息
+     *
+     * @param {BasicDiffInfo[]} data
+     * @returns
+     */
+    static getAllKitInfo(data: BasicDiffInfo[]): Set<string> {
+      const kitInfoSet: Set<string> = new Set();
+      data.forEach((diffInfo) => {
+        kitInfoSet.add(diffInfo.getOldKitInfo());
+        kitInfoSet.add(diffInfo.getNewKitInfo());
+      });
+      return kitInfoSet;
+    }
+
+    static getSingleKitInfo(data: BasicDiffInfo): string {
+      if (data.getNewKitInfo() !== '') {
+        return data.getNewKitInfo();
+      }
+      return data.getOldKitInfo();
+    }
+
+    static getFileNameInkit(diffsInSameSystem: BasicDiffInfo[]): Set<string> {
+      const fileNameSet: Set<string> = new Set();
+      diffsInSameSystem.forEach((diffInfo) => {
+        if (diffInfo.getNewDtsName() !== '') {
+          fileNameSet.add(diffInfo.getNewDtsName());
+        } else {
+          fileNameSet.add(diffInfo.getOldDtsName());
+        }
+      });
+      return fileNameSet;
+    }
+
+    static getSingleFileName(data: BasicDiffInfo): string {
+      if (data.getNewDtsName() !== '') {
+        return data.getNewDtsName();
+      }
+      return data.getOldDtsName();
+    }
+    
+    /**
+     * 使用文件名进行排序
+     *
+     * @param { BasicDiffInfo[] } diffsInSameKit 所属kit一样的diffInfo
+     * @param { string } kitInfo kit信息
+     * @param dest
+     */
+    static sortDiffInfoByFile(diffsInSameKit: BasicDiffInfo[], kitInfo: string, dest: string | undefined): void {
+      const fileNameSet = MarkdownReporter.getFileNameInkit(diffsInSameKit);
+      const diffInfosInSameFile: BasicDiffInfo[] = [];
+      fileNameSet.forEach((fileName: string) => {
+        diffsInSameKit.forEach((diffInfo: BasicDiffInfo) => {
+          if (MarkdownReporter.getSingleFileName(diffInfo) === fileName) {
+            diffInfosInSameFile.push(diffInfo);
+          }
+        });
+        MarkdownReporter.sortDiffInfoByStatus(diffInfosInSameFile, kitInfo, dest);
+      });
+    }
+
+    static sortDiffInfoByStatus(diffsInSameSystem: BasicDiffInfo[], kitInfo: string, dest: string | undefined): void {
       const sortDiffInfos: BasicDiffInfo[] = [];
       for (const type of diffTypeMap.keys()) {
         diffsInSameSystem.forEach((diffInfo) => {
@@ -76,10 +137,10 @@ export namespace WriterHelper {
           }
         });
       }
-      MarkdownReporter.exportDiffMd(fileName, sortDiffInfos, dest);
+      MarkdownReporter.exportDiffMd(kitInfo, sortDiffInfos, dest);
     }
 
-    static exportDiffMd(fileName: string, diffInfos: BasicDiffInfo[], dest: string | undefined): void {
+    static exportDiffMd(kitInfo: string, diffInfos: BasicDiffInfo[], dest: string | undefined): void {
       let markDownContent: string =
         '| 操作 | 旧版本 | 新版本 | d.ts文件 |\n' + '| ---- | ------ | ------ | -------- |\n';
       for (let i = 0; i < diffInfos.length; i++) {
@@ -95,7 +156,7 @@ export namespace WriterHelper {
         fs.mkdirSync(mdFilesDir);
       }
 
-      fs.writeFileSync(`${dest}\\diff合集\\js-apidiff-${fileName}.md`, markDownContent);
+      fs.writeFileSync(`${dest}\\diff合集\\js-apidiff-${kitInfo}.md`, markDownContent);
     }
 
     static formatDiffMessage(diffMessage: string): string {

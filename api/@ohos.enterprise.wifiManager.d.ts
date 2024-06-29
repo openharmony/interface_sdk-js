@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -26,7 +26,6 @@ import type Want from './@ohos.app.ability.Want';
  *
  * @namespace wifiManager
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
- * @systemapi
  * @stagemodelonly
  * @since 10
  */
@@ -36,18 +35,16 @@ declare namespace wifiManager {
    *
    * @enum { number }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 12
    */
   enum WifiSecurityType {
     /**
      * Invalid security type
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     WIFI_SEC_TYPE_INVALID = 0,
 
@@ -55,9 +52,8 @@ declare namespace wifiManager {
      * Open
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     WIFI_SEC_TYPE_OPEN = 1,
 
@@ -65,9 +61,8 @@ declare namespace wifiManager {
      * Wired Equivalent Privacy (WEP)
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     WIFI_SEC_TYPE_WEP = 2,
 
@@ -75,9 +70,8 @@ declare namespace wifiManager {
      * Pre-shared key (PSK)
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     WIFI_SEC_TYPE_PSK = 3,
 
@@ -85,9 +79,8 @@ declare namespace wifiManager {
      * Simultaneous Authentication of Equals (SAE)
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     WIFI_SEC_TYPE_SAE = 4,
 
@@ -95,9 +88,8 @@ declare namespace wifiManager {
      * EAP authentication.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     WIFI_SEC_TYPE_EAP = 5,
 
@@ -105,9 +97,8 @@ declare namespace wifiManager {
      * SUITE_B_192 192 bit level.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     WIFI_SEC_TYPE_EAP_SUITE_B = 6,
 
@@ -115,9 +106,8 @@ declare namespace wifiManager {
      * Opportunistic Wireless Encryption.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     WIFI_SEC_TYPE_OWE = 7,
 
@@ -125,9 +115,8 @@ declare namespace wifiManager {
      * WAPI certificate to be specified.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     WIFI_SEC_TYPE_WAPI_CERT = 8,
 
@@ -135,9 +124,8 @@ declare namespace wifiManager {
      * WAPI pre-shared key to be specified.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     WIFI_SEC_TYPE_WAPI_PSK = 9
   }
@@ -147,18 +135,16 @@ declare namespace wifiManager {
    *
    * @enum { number }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 12
    */
   enum IpType {
     /**
      * Use statically configured IP settings
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     STATIC,
 
@@ -166,9 +152,8 @@ declare namespace wifiManager {
      * Use dynamically configured IP settings
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     DHCP,
 
@@ -176,9 +161,8 @@ declare namespace wifiManager {
      * No IP details are assigned
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     UNKNOWN
   }
@@ -188,9 +172,8 @@ declare namespace wifiManager {
    *
    * @typedef IpProfile
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 12
    */
   interface IpProfile {
     /**
@@ -198,9 +181,8 @@ declare namespace wifiManager {
      *
      * @type { number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     ipAddress: number;
 
@@ -209,9 +191,8 @@ declare namespace wifiManager {
      *
      * @type { number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     gateway: number;
 
@@ -220,9 +201,8 @@ declare namespace wifiManager {
      *
      * @type { number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     prefixLength: number;
 
@@ -231,9 +211,8 @@ declare namespace wifiManager {
      *
      * @type { number[] }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     dnsServers: number[];
 
@@ -242,9 +221,8 @@ declare namespace wifiManager {
      *
      * @type { Array<string> }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     domains: Array<string>;
   }
@@ -254,18 +232,16 @@ declare namespace wifiManager {
    *
    * @enum { number }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 12
    */
   enum EapMethod {
     /**
      * Not specified
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     EAP_NONE,
 
@@ -273,9 +249,8 @@ declare namespace wifiManager {
      * Protected extensible authentication protocol
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     EAP_PEAP,
 
@@ -283,9 +258,8 @@ declare namespace wifiManager {
      * Transport layer security
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     EAP_TLS,
 
@@ -293,9 +267,8 @@ declare namespace wifiManager {
      * Tunneled transport layer security
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     EAP_TTLS,
 
@@ -303,9 +276,8 @@ declare namespace wifiManager {
      * Password
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     EAP_PWD,
 
@@ -313,9 +285,8 @@ declare namespace wifiManager {
      * Subscriber identity module
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     EAP_SIM,
 
@@ -323,9 +294,8 @@ declare namespace wifiManager {
      * Authentication and key agreement
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     EAP_AKA,
 
@@ -333,9 +303,8 @@ declare namespace wifiManager {
      * AKA prime
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     EAP_AKA_PRIME,
 
@@ -343,9 +312,8 @@ declare namespace wifiManager {
      * Unauth TLS
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     EAP_UNAUTH_TLS
   }
@@ -355,18 +323,16 @@ declare namespace wifiManager {
    *
    * @enum { number }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 12
    */
   enum Phase2Method {
     /**
      * Not specified
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     PHASE2_NONE,
 
@@ -374,9 +340,8 @@ declare namespace wifiManager {
      * Password authentication protocol
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     PHASE2_PAP,
 
@@ -384,9 +349,8 @@ declare namespace wifiManager {
      * Microsoft challenge handshake authentication protocol
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     PHASE2_MSCHAP,
 
@@ -394,9 +358,8 @@ declare namespace wifiManager {
      * Microsoft challenge handshake authentication protocol version 2
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     PHASE2_MSCHAPV2,
 
@@ -404,9 +367,8 @@ declare namespace wifiManager {
      * Generic token card
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     PHASE2_GTC,
 
@@ -414,9 +376,8 @@ declare namespace wifiManager {
      * Subscriber identity module
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     PHASE2_SIM,
 
@@ -424,9 +385,8 @@ declare namespace wifiManager {
      * Authentication and key agreement
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     PHASE2_AKA,
 
@@ -434,9 +394,8 @@ declare namespace wifiManager {
      * AKA Prime
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     PHASE2_AKA_PRIME
   }
@@ -446,9 +405,8 @@ declare namespace wifiManager {
    *
    * @typedef WifiEapProfile
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 12
    */
   interface WifiEapProfile {
     /**
@@ -456,9 +414,8 @@ declare namespace wifiManager {
      *
      * @type { EapMethod }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     eapMethod: EapMethod;
 
@@ -467,9 +424,8 @@ declare namespace wifiManager {
      *
      * @type { Phase2Method }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     phase2Method: Phase2Method;
 
@@ -478,9 +434,8 @@ declare namespace wifiManager {
      *
      * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     identity: string;
 
@@ -489,9 +444,8 @@ declare namespace wifiManager {
      *
      * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     anonymousIdentity: string;
 
@@ -500,9 +454,8 @@ declare namespace wifiManager {
      *
      * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     password: string;
 
@@ -511,9 +464,8 @@ declare namespace wifiManager {
      *
      * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     caCertAliases: string;
 
@@ -522,9 +474,8 @@ declare namespace wifiManager {
      *
      * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     caPath: string;
 
@@ -533,9 +484,8 @@ declare namespace wifiManager {
      *
      * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     clientCertAliases: string;
 
@@ -544,9 +494,8 @@ declare namespace wifiManager {
      *
      * @type { Uint8Array }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     certEntry: Uint8Array;
 
@@ -555,9 +504,8 @@ declare namespace wifiManager {
      *
      * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     certPassword: string;
 
@@ -566,9 +514,8 @@ declare namespace wifiManager {
      *
      * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     altSubjectMatch: string;
 
@@ -577,9 +524,8 @@ declare namespace wifiManager {
      *
      * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     domainSuffixMatch: string;
 
@@ -588,9 +534,8 @@ declare namespace wifiManager {
      *
      * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     realm: string;
 
@@ -599,9 +544,8 @@ declare namespace wifiManager {
      *
      * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     plmn: string;
 
@@ -610,9 +554,8 @@ declare namespace wifiManager {
      *
      * @type { number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     eapSubId: number;
   }
@@ -622,9 +565,8 @@ declare namespace wifiManager {
    *
    * @typedef WifiProfile
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 12
    */
   interface WifiProfile {
     /**
@@ -632,9 +574,8 @@ declare namespace wifiManager {
      *
      * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     ssid: string;
 
@@ -643,9 +584,8 @@ declare namespace wifiManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     bssid?: string;
 
@@ -654,9 +594,8 @@ declare namespace wifiManager {
      *
      * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     preSharedKey: string;
 
@@ -665,9 +604,8 @@ declare namespace wifiManager {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     isHiddenSsid?: boolean;
 
@@ -676,9 +614,8 @@ declare namespace wifiManager {
      *
      * @type { WifiSecurityType }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     securityType: WifiSecurityType;
 
@@ -687,9 +624,8 @@ declare namespace wifiManager {
      *
      * @type { ?number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     creatorUid?: number;
 
@@ -698,9 +634,8 @@ declare namespace wifiManager {
      *
      * @type { ?number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     disableReason?: number;
 
@@ -709,9 +644,8 @@ declare namespace wifiManager {
      *
      * @type { ?number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     netId?: number;
 
@@ -720,9 +654,8 @@ declare namespace wifiManager {
      *
      * @type { ?number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     randomMacType?: number;
 
@@ -731,9 +664,8 @@ declare namespace wifiManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     randomMacAddr?: string;
 
@@ -742,9 +674,8 @@ declare namespace wifiManager {
      *
      * @type { ?IpType }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     ipType?: IpType;
 
@@ -753,9 +684,8 @@ declare namespace wifiManager {
      *
      * @type { ?IpProfile }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     staticIp?: IpProfile;
 
@@ -764,9 +694,8 @@ declare namespace wifiManager {
      *
      * @type { ?WifiEapProfile }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     eapProfile?: WifiEapProfile;
   }
@@ -776,13 +705,15 @@ declare namespace wifiManager {
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_SET_WIFI
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
    * @param { AsyncCallback<boolean> } callback - the callback of isWifiActive.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -795,13 +726,15 @@ declare namespace wifiManager {
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_SET_WIFI
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
    * @returns { Promise<boolean> } the promise returned by isWifiActive.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -810,17 +743,38 @@ declare namespace wifiManager {
   function isWifiActive(admin: Want): Promise<boolean>;
 
   /**
+   * Gets state of whether the Wi-Fi is active.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @returns { boolean } true if Wi-Fi is active.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function isWifiActiveSync(admin: Want): boolean;
+
+  /**
    * Sets the wifi profile.
    *
    * @permission ohos.permission.ENTERPRISE_SET_WIFI
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
    * @param { WifiProfile } profile - profile indicates the profile of wifi.
    * @param { AsyncCallback<void> } callback - the callback of setWifiProfile.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -832,14 +786,16 @@ declare namespace wifiManager {
    * Sets the wifi profile.
    *
    * @permission ohos.permission.ENTERPRISE_SET_WIFI
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
    * @param { WifiProfile } profile - profile indicates the profile of wifi.
    * @returns { Promise<void> } the promise returned by setWifiProfile.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -848,17 +804,37 @@ declare namespace wifiManager {
   function setWifiProfile(admin: Want, profile: WifiProfile): Promise<void>;
 
   /**
+   * Sets the Wi-Fi profile.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { WifiProfile } profile - profile indicates the profile of Wi-Fi.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function setWifiProfileSync(admin: Want, profile: WifiProfile): void;
+
+  /**
    * Sets the Wi-Fi disabled.
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
    * @param { boolean } disabled - true if set the Wi-Fi disabled, otherwise false.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -871,13 +847,15 @@ declare namespace wifiManager {
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the administrator ability information.If the admin is not empty, it must
+   *                         have the corresponding permission.
    * @returns { boolean } true if the Wi-Fi is disabled, otherwise false.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly

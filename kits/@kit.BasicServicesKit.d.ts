@@ -19,6 +19,8 @@
  */
 
 import appAccount from '@ohos.account.appAccount';
+import configPolicy from '@ohos.configPolicy';
+import customConfig from '@ohos.customization.customConfig';
 import distributedAccount from '@ohos.account.distributedAccount';
 import osAccount from '@ohos.account.osAccount';
 import PrintExtensionAbility from '@ohos.app.ability.PrintExtensionAbility';
@@ -72,8 +74,8 @@ export {
   GetBrightnessOptions, GetDeviceOptions, GetStatusOptions, OnDownloadCompleteOptions,
   OnDownloadCompleteResponse, PrintExtensionAbility, Request, RequestData, RequestFile,
   SetBrightnessModeOptions, SetBrightnessOptions, SetKeepScreenOnOptions, UploadRequestOptions,
-  UploadResponse, WallpaperExtensionAbility, appAccount, batteryInfo, batteryStats, brightness, charger,
-  deviceAttest, deviceInfo, distributedAccount, osAccount, pasteboard, power, print, request, runningLock,
+  UploadResponse, WallpaperExtensionAbility, appAccount, batteryInfo, batteryStats, brightness, charger, configPolicy,
+  customConfig, deviceAttest, deviceInfo, distributedAccount, osAccount, pasteboard, power, print, request, runningLock,
   screenLock, settings, systemCapability, systemDateTime, systemParameter, systemParameterEnhance, systemTime,
   systemTimer, thermal, update, usb, usbManager, wallpaper, zlib, commonEventManager, emitter, StaticSubscriberExtensionAbility,
   StaticSubscriberExtensionContext, systemLoad

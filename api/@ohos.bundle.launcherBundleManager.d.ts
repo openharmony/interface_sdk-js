@@ -20,7 +20,8 @@
 
 import { AsyncCallback } from './@ohos.base';
 import { LauncherAbilityInfo as _LauncherAbilityInfo } from './bundleManager/LauncherAbilityInfo';
-import { ShortcutInfo as _ShortcutInfo, ShortcutWant as _ShortcutWant } from './bundleManager/ShortcutInfo';
+import { ShortcutInfo as _ShortcutInfo, ShortcutWant as _ShortcutWant, ParameterItem as _ParameterItem } from './bundleManager/ShortcutInfo';
+import { StartOptions } from './@ohos.app.ability.StartOptions';
 
 /**
  * Launcher bundle manager.
@@ -40,7 +41,7 @@ declare namespace launcherBundleManager {
    * @param { AsyncCallback<Array<LauncherAbilityInfo>> } callback -The callback of the LauncherAbilityInfo object result.
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not support.
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
@@ -60,7 +61,7 @@ declare namespace launcherBundleManager {
    * @returns { Promise<Array<LauncherAbilityInfo>> } the LauncherAbilityInfo object.
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not support.
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
@@ -79,7 +80,7 @@ declare namespace launcherBundleManager {
    * @returns { Array<LauncherAbilityInfo> } the LauncherAbilityInfo object.
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not support.
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
@@ -97,7 +98,7 @@ declare namespace launcherBundleManager {
    * @param { AsyncCallback<Array<LauncherAbilityInfo>> } callback -The callback of the LauncherAbilityInfo object result.
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not support.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
@@ -114,7 +115,7 @@ declare namespace launcherBundleManager {
    * @returns { Promise<Array<LauncherAbilityInfo>> } the LauncherAbilityInfo object.
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not support.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
@@ -131,7 +132,7 @@ declare namespace launcherBundleManager {
    * @param { AsyncCallback<Array<ShortcutInfo>> } callback -The callback of the ShortcutInfo object result.
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not support.
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
@@ -148,7 +149,7 @@ declare namespace launcherBundleManager {
    * @returns { Promise<Array<ShortcutInfo>> } the LauncherShortcutInfo object.
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not support.
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
@@ -165,7 +166,7 @@ declare namespace launcherBundleManager {
    * @returns { Array<ShortcutInfo> } the LauncherShortcutInfo object.
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not support.
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
@@ -173,6 +174,24 @@ declare namespace launcherBundleManager {
    * @since 10
    */
   function getShortcutInfoSync(bundleName: string): Array<ShortcutInfo>;
+
+  /**
+   * Starts shortcut.
+   *
+   * @permission ohos.permission.START_SHORTCUT
+   * @param { ShortcutInfo } shortcutInfo - Indicates the shortcut info which contains shortcut want.
+   * @param { StartOptions } [options] - Indicates the start options.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Verify permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not support.
+   * @throws { BusinessError } 17700065 - The specified shortcut want in shortcut info is not supported to be started.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
+   * @since 12
+   */
+  function startShortcut(shortcutInfo: ShortcutInfo, options?: StartOptions): Promise<void>;
 
   /**
    * Contains basic launcher Ability information, which uniquely identifies an LauncherAbilityInfo.
@@ -199,6 +218,15 @@ declare namespace launcherBundleManager {
    * @since 9
    */
   export type ShortcutWant = _ShortcutWant;
+  /**
+   * Indicates the custom parameters in shortcut want.
+   *
+   * @typedef { _ParameterItem }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
+   * @since 12
+   */
+  export type ParameterItem = _ParameterItem;
 }
 
 export default launcherBundleManager;

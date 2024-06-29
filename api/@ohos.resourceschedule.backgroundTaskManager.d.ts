@@ -21,6 +21,7 @@
 import { AsyncCallback, Callback } from './@ohos.base';
 import { WantAgent } from './@ohos.wantAgent';
 import Context from './application/BaseContext';
+import type notificationManager from './@ohos.notificationManager';
 
 /**
  * Manages background tasks.
@@ -54,16 +55,51 @@ declare namespace backgroundTaskManager {
   }
 
   /**
+   * The info of continuous task notification.
+   *
+   * @interface ContinuousTaskNotification
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @since 12
+   */
+  interface ContinuousTaskNotification {
+    /**
+     * The notification slot type.
+     *
+     * @type { notificationManager.SlotType }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 12
+     */
+    slotType: notificationManager.SlotType;
+    /**
+     * The notification content type.
+     *
+     * @type { notificationManager.ContentType }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 12
+     */
+    contentType: notificationManager.ContentType;
+    /**
+     * The notification id.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 12
+     */
+    notificationId: number;
+  }
+
+  /**
    * Cancels delayed transition to the suspended state.
    *
    * @param { number } requestId - The identifier of the delay request.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Parcel operation failed.
-   * @throws { BusinessError } 9800003 - Inner transact failed.
+   * @throws { BusinessError } 9800003 - Internal transaction failed.
    * @throws { BusinessError } 9800004 - System service operation failed.
-   * @throws { BusinessError } 9900001 - Caller information verification failed.
-   * @throws { BusinessError } 9900002 - Background task verification failed.
+   * @throws { BusinessError } 9900001 - Caller information verification failed for a transient task.
+   * @throws { BusinessError } 9900002 - Transient task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
    * @since 9
    */
@@ -74,13 +110,14 @@ declare namespace backgroundTaskManager {
    *
    * @param { number } requestId - The identifier of the delay request.
    * @param { AsyncCallback<number> } callback - The callback of the remaining delay time.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Parcel operation failed.
-   * @throws { BusinessError } 9800003 - Inner transact failed.
+   * @throws { BusinessError } 9800003 - Internal transaction failed.
    * @throws { BusinessError } 9800004 - System service operation failed.
-   * @throws { BusinessError } 9900001 - Caller information verification failed.
-   * @throws { BusinessError } 9900002 - Background task verification failed.
+   * @throws { BusinessError } 9900001 - Caller information verification failed for a transient task.
+   * @throws { BusinessError } 9900002 - Transient task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
    * @since 9
    */
@@ -91,13 +128,14 @@ declare namespace backgroundTaskManager {
    *
    * @param { number } requestId - The identifier of the delay request.
    * @returns { Promise<number> } The promise returns the remaining delay time.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Parcel operation failed.
-   * @throws { BusinessError } 9800003 - Inner transact failed.
+   * @throws { BusinessError } 9800003 - Internal transaction failed.
    * @throws { BusinessError } 9800004 - System service operation failed.
-   * @throws { BusinessError } 9900001 - Caller information verification failed.
-   * @throws { BusinessError } 9900002 - Background task verification failed.
+   * @throws { BusinessError } 9900001 - Caller information verification failed for a transient task.
+   * @throws { BusinessError } 9900002 - Transient task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
    * @since 9
    */
@@ -109,13 +147,14 @@ declare namespace backgroundTaskManager {
    * @param { string } reason - Indicates the reason for delayed transition to the suspended state.
    * @param { Callback<void> } callback - The callback delay time expired.
    * @returns { DelaySuspendInfo } Info of delay request.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br> 2. Incorrect parameters types.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Parcel operation failed.
-   * @throws { BusinessError } 9800003 - Inner transact failed.
+   * @throws { BusinessError } 9800003 - Internal transaction failed.
    * @throws { BusinessError } 9800004 - System service operation failed.
-   * @throws { BusinessError } 9900001 - Caller information verification failed.
-   * @throws { BusinessError } 9900002 - Background task verification failed.
+   * @throws { BusinessError } 9900001 - Caller information verification failed for a transient task.
+   * @throws { BusinessError } 9900002 - Transient task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
    * @since 9
    */
@@ -132,14 +171,15 @@ declare namespace backgroundTaskManager {
    * @param { AsyncCallback<void> } callback - The callback of the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Parcel operation failed.
-   * @throws { BusinessError } 9800003 - Inner transact failed.
+   * @throws { BusinessError } 9800003 - Internal transaction failed.
    * @throws { BusinessError } 9800004 - System service operation failed.
-   * @throws { BusinessError } 9800005 - Background task verification failed.
-   * @throws { BusinessError } 9800006 - Notification verification failed.
-   * @throws { BusinessError } 9800007 - Task storage failed.
+   * @throws { BusinessError } 9800005 - Continuous task verification failed.
+   * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
+   * @throws { BusinessError } 9800007 - Continuous task storage failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 9
    */
@@ -156,14 +196,15 @@ declare namespace backgroundTaskManager {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Parcel operation failed.
-   * @throws { BusinessError } 9800003 - Inner transact failed.
+   * @throws { BusinessError } 9800003 - Internal transaction failed.
    * @throws { BusinessError } 9800004 - System service operation failed.
-   * @throws { BusinessError } 9800005 - Background task verification failed.
-   * @throws { BusinessError } 9800006 - Notification verification failed.
-   * @throws { BusinessError } 9800007 - Task storage failed.
+   * @throws { BusinessError } 9800005 - Continuous task verification failed.
+   * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
+   * @throws { BusinessError } 9800007 - Continuous task storage failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 9
    */
@@ -177,20 +218,21 @@ declare namespace backgroundTaskManager {
    * @param { Context } context - App running context.
    * @param { string[] } bgModes - Indicates which background mode to request.
    * @param { WantAgent } wantAgent - Indicates which ability to start when user click the notification bar.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @returns { Promise<ContinuousTaskNotification> } The The continuous task notification.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Parcel operation failed.
-   * @throws { BusinessError } 9800003 - Inner transact failed.
+   * @throws { BusinessError } 9800003 - Internal transaction failed.
    * @throws { BusinessError } 9800004 - System service operation failed.
-   * @throws { BusinessError } 9800005 - Background task verification failed.
-   * @throws { BusinessError } 9800006 - Notification verification failed.
-   * @throws { BusinessError } 9800007 - Task storage failed.
+   * @throws { BusinessError } 9800005 - Continuous task verification failed.
+   * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
+   * @throws { BusinessError } 9800007 - Continuous task storage failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 12
    */
-  function startBackgroundRunning(context: Context, bgModes: string[], wantAgent: WantAgent): Promise<void>;
+  function startBackgroundRunning(context: Context, bgModes: string[], wantAgent: WantAgent): Promise<ContinuousTaskNotification>;
 
   /**
    * UIAbility uses this method to update background mode.
@@ -198,20 +240,21 @@ declare namespace backgroundTaskManager {
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { Context } context - App running context.
    * @param { string[] } bgModes - Indicates which background mode to request.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @returns { Promise<ContinuousTaskNotification> } The continuous task notification.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Parcel operation failed.
-   * @throws { BusinessError } 9800003 - Inner transact failed.
+   * @throws { BusinessError } 9800003 - Internal transaction failed.
    * @throws { BusinessError } 9800004 - System service operation failed.
-   * @throws { BusinessError } 9800005 - Background task verification failed.
-   * @throws { BusinessError } 9800006 - Notification verification failed.
-   * @throws { BusinessError } 9800007 - Task storage failed.
+   * @throws { BusinessError } 9800005 - Continuous task verification failed.
+   * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
+   * @throws { BusinessError } 9800007 - Continuous task storage failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 12
    */
-  function updateBackgroundRunning(context: Context, bgModes: string[]): Promise<void>;
+  function updateBackgroundRunning(context: Context, bgModes: string[]): Promise<ContinuousTaskNotification>;
 
   /**
    * Service ability uses this method to request stop running in background.
@@ -219,14 +262,14 @@ declare namespace backgroundTaskManager {
    * @param { Context } context - App running context.
    * @param { AsyncCallback<void> } callback - The callback of the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Parcel operation failed.
-   * @throws { BusinessError } 9800003 - Inner transact failed.
+   * @throws { BusinessError } 9800003 - Internal transaction failed.
    * @throws { BusinessError } 9800004 - System service operation failed.
-   * @throws { BusinessError } 9800005 - Background task verification failed.
-   * @throws { BusinessError } 9800006 - Notification verification failed.
-   * @throws { BusinessError } 9800007 - Task storage failed.
+   * @throws { BusinessError } 9800005 - Continuous task verification failed.
+   * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
+   * @throws { BusinessError } 9800007 - Continuous task storage failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 9
    */
@@ -238,14 +281,14 @@ declare namespace backgroundTaskManager {
    * @param { Context } context - App running context.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Parcel operation failed.
-   * @throws { BusinessError } 9800003 - Inner transact failed.
+   * @throws { BusinessError } 9800003 - Internal transaction failed.
    * @throws { BusinessError } 9800004 - System service operation failed.
-   * @throws { BusinessError } 9800005 - Background task verification failed.
-   * @throws { BusinessError } 9800006 - Notification verification failed.
-   * @throws { BusinessError } 9800007 - Task storage failed.
+   * @throws { BusinessError } 9800005 - Continuous task verification failed.
+   * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
+   * @throws { BusinessError } 9800007 - Continuous task storage failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 9
    */
@@ -257,12 +300,13 @@ declare namespace backgroundTaskManager {
    * @param { EfficiencyResourcesRequest } request - The request of apply or unapply efficiency resources.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Parcel operation failed.
-   * @throws { BusinessError } 9800003 - Inner transact failed.
+   * @throws { BusinessError } 9800003 - Internal transaction failed.
    * @throws { BusinessError } 9800004 - System service operation failed.
-   * @throws { BusinessError } 18700001 - Caller information verification failed.
+   * @throws { BusinessError } 18700001 - Caller information verification failed for an energy resource request.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -274,12 +318,12 @@ declare namespace backgroundTaskManager {
    *
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Parcel operation failed.
-   * @throws { BusinessError } 9800003 - Inner transact failed.
+   * @throws { BusinessError } 9800003 - Internal transaction failed.
    * @throws { BusinessError } 9800004 - System service operation failed.
-   * @throws { BusinessError } 18700001 - Caller information verification failed.
+   * @throws { BusinessError } 18700001 - Caller information verification failed for an energy resource request.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
    * @systemapi Hide this for inner system use.
    * @since 9

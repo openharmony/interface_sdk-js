@@ -34,10 +34,11 @@ declare namespace power {
    *
    * @permission ohos.permission.REBOOT
    * @param { string } reason Indicates the shutdown reason.
+   * reason parameter must be of type string.
    * @throws { BusinessError } 201 - If the permission is denied.
    * @throws { BusinessError } 202 - If the system permission is denied.
-   * @throws { BusinessError } 401 - If the reason is not valid.
-   * @throws { BusinessError } 4900101 - If connecting to the service failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
+   * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
    * @since 7
@@ -65,10 +66,11 @@ declare namespace power {
    * @permission ohos.permission.REBOOT
    * @param { string } reason Indicates the restart reason. For example, "updater" indicates entering the updater mode
    * after the restart. If the parameter is not specified, the system enters the normal mode after the restart.
+   * reason parameter must be of type string.
    * @throws { BusinessError } 201 - If the permission is denied.
    * @throws { BusinessError } 202 - If the system permission is denied.
-   * @throws { BusinessError } 401 - If the reason is not valid.
-   * @throws { BusinessError } 4900101 - If connecting to the service failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
+   * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
    * @since 9
@@ -103,7 +105,7 @@ declare namespace power {
    * The screen will be on if device is active, screen will be off otherwise.
    *
    * @returns { boolean } Returns true if the device is active; returns false otherwise.
-   * @throws { BusinessError } 4900101 - If connecting to the service failed.
+   * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 9
    */
@@ -113,9 +115,10 @@ declare namespace power {
    * Wakes up the device to turn on the screen.
    *
    * @param { string } detail Indicates the detail information who request wakeup.
+   * detail parameter must be of type string.
    * @throws { BusinessError } 202 - If the system permission is denied.
-   * @throws { BusinessError } 401 - If the detail is not valid.
-   * @throws { BusinessError } 4900101 - If connecting to the service failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
+   * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
    * @since 9
@@ -126,7 +129,7 @@ declare namespace power {
    * Suspends the device to turn off the screen.
    *
    * @throws { BusinessError } 202 - If the system permission is denied.
-   * @throws { BusinessError } 4900101 - If connecting to the service failed.
+   * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
    * @since 9
@@ -136,7 +139,7 @@ declare namespace power {
    *
    * @param { boolean } isImmediate Indicates whether suspend the device immediately.
    * @throws { BusinessError } 202 - If the system permission is denied.
-   * @throws { BusinessError } 4900101 - If connecting to the service failed.
+   * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
    * @since 10
@@ -147,7 +150,7 @@ declare namespace power {
    * Obtains the power mode of the current device. For details, see {@link DevicePowerMode}.
    *
    * @returns { DevicePowerMode } The power mode {@link DevicePowerMode} of current device .
-   * @throws { BusinessError } 4900101 - If connecting to the service failed.
+   * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 9
    */
@@ -158,11 +161,12 @@ declare namespace power {
    *
    * @permission ohos.permission.POWER_OPTIMIZATION
    * @param { DevicePowerMode } mode Indicates power mode {@link DevicePowerMode} to set.
+   * the DevicePowerMode type is an enumeration class.
    * @param { AsyncCallback<void> } callback Indicates the callback of setting the power mode.
    * @throws { BusinessError } 201 – If the permission is denied.
    * @throws { BusinessError } 202 - If the system permission is denied.
-   * @throws { BusinessError } 401 - If mode or callback is not valid.
-   * @throws { BusinessError } 4900101 - If connecting to the service failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
+   * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
    * @since 9
@@ -174,11 +178,12 @@ declare namespace power {
    *
    * @permission ohos.permission.POWER_OPTIMIZATION
    * @param { DevicePowerMode } mode Indicates power mode {@link DevicePowerMode} to set.
+   * the DevicePowerMode type is an enumeration class.
    * @returns { Promise<void> }
    * @throws { BusinessError } 201 – If the permission is denied.
    * @throws { BusinessError } 202 - If the system permission is denied.
-   * @throws { BusinessError } 401 - If mode or callback is not valid.
-   * @throws { BusinessError } 4900101 - If connecting to the service failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
+   * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
    * @since 9
@@ -189,7 +194,7 @@ declare namespace power {
    * Returns true if the device is currently in idle mode.
    *
    * @returns { boolean } Returns true if the device is in idle mode; returns false otherwise.
-   * @throws { BusinessError } 4900101 - If connecting to the service failed.
+   * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 10
    */
@@ -200,7 +205,7 @@ declare namespace power {
   *
   * @param { boolean } clearMemory - Indicates whether to clear the memory before the device hibernates.
   * @throws { BusinessError } 202 - If the system permission is denied.
-  * @throws { BusinessError } 4900101 - If connecting to the service failed.
+  * @throws { BusinessError } 4900101 - Failed to connect to the service.
   * @syscap SystemCapability.PowerManager.PowerManager.Core
   * @systemapi
   * @since 12
@@ -213,7 +218,7 @@ declare namespace power {
   * @param { number } timeout - Indicates duration(ms) for turning off the screen. The value -1 means restore the default value.
   * @throws { BusinessError } 201 – If the permission is denied.
   * @throws { BusinessError } 202 - If the system permission is denied.
-  * @throws { BusinessError } 4900101 - If connecting to the service failed.
+  * @throws { BusinessError } 4900101 - Failed to connect to the service.
   * @syscap SystemCapability.PowerManager.PowerManager.Core
   * @systemapi
   * @since 12

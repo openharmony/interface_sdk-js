@@ -18,10 +18,6 @@
  * @kit ArkUI
  */
 
-/// <reference path="../component/units.d.ts" />
-
-import { ResourceStr } from 'GlobalResource';
-
 /**
  * Declare enum IconType
  * @enum { IconType }

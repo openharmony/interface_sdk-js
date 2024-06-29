@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * The declare of selectOption.
  *
  * @interface SelectOption
@@ -89,6 +94,16 @@ declare interface SelectOption {
    * @since 11
    */
   icon?: ResourceStr;
+
+  /**
+   * Indicates the symbol icon of this menu item.
+   *
+   * @type { ?SymbolGlyphModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  symbolIcon?: SymbolGlyphModifier;
 }
 
 /**
@@ -680,6 +695,16 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @crossplatform
    * @since 11
    */
+  /** 
+   * Set the width of each option and set whether the option width fit the trigger.
+   *
+   * @param { Dimension | OptionWidthMode } value - The length of option width and decide option width to fit trigger or content.
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   optionWidth(value: Dimension | OptionWidthMode ): SelectAttribute;
 
   /** 
@@ -690,6 +715,16 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /** 
+   * Set the height of each option.
+   * 
+   * @param { Dimension } value - The length of option height.
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   optionHeight(value: Dimension): SelectAttribute;
 
@@ -725,8 +760,100 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @since 12
    */
   controlSize(value: ControlSize): SelectAttribute;
+
+  /**
+   * Register a ContentModifier for each menu item.
+   *
+   * @param { ContentModifier<MenuItemConfiguration> } modifier - The content modifier of select menu item.
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  menuItemContentModifier(modifier: ContentModifier<MenuItemConfiguration>): SelectAttribute;
+
+  /**
+   * Set the divider of select.
+   *
+   * @param { Optional<DividerOptions> | null } options Set custom and hidden divider.
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  divider(options: Optional<DividerOptions> | null): SelectAttribute;
 }
 
+/**
+ * MenuItemConfiguration used by menu item content modifier.
+ *
+ * @interface MenuItemConfiguration
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface MenuItemConfiguration extends CommonConfiguration<MenuItemConfiguration>{
+  /**
+   * Indicates the text of this menu item.
+   *
+   * @type { ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  value: ResourceStr;
+
+  /**
+   * Indicates the icon of this menu item.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  icon?: ResourceStr;
+
+  /**
+   * Indicates the symbol icon of this menu item.
+   *
+   * @type { ?SymbolGlyphModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  symbolIcon?: SymbolGlyphModifier;
+
+  /**
+   * Indicates whether this menu item is selected or not.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  selected: boolean;
+
+  /**
+   * Indicates the index of the menu item.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  index: number;
+
+  /**
+   * Select this menu item.
+   *
+   * @param { number } index - The value of menu item index.
+   * @param { string } value - The value of menu item text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  triggerSelect(index: number, value: string): void;
+}
 /**
  * Defines Select Component.
  *

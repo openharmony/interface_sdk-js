@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -544,6 +544,37 @@ export interface ApplicationInfo {
    * @since 12
    */
   readonly nativeLibraryPath: string;
+
+  /**
+   * Indicates the MultiAppMode object of the bundle
+   *
+   * @type { MultiAppMode }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 12
+   */
+  readonly multiAppMode: MultiAppMode;
+
+  /**
+   * Indicates the index of the bundle
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 12
+   */
+  readonly appIndex: number;
+
+  /**
+   * Indicates sources to install the app
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  readonly installSource: string;
 }
 
 /**
@@ -599,4 +630,88 @@ export interface ModuleMetadata {
    * @since 11
    */
   readonly metadata: Array<Metadata>;
+}
+
+/**
+ * Indicates the information of preinstalled application
+ *
+ * @typedef PreinstalledApplicationInfo
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @systemapi
+ * @since 12
+ */
+export interface PreinstalledApplicationInfo {
+
+  /**
+   * Indicates the name of this bundle
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  readonly bundleName: string;
+
+  /**
+   * Indicates the name of module
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  readonly moduleName: string;
+
+  /**
+   * Indicates the icon id of the application
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  readonly iconId: number;
+
+  /**
+   * Indicates the label id of the application
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  readonly labelId: number;
+}
+
+/**
+ * Indicates MultiAppMode
+ *
+ * @typedef MultiAppMode
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @since 12
+ */
+export interface MultiAppMode {
+  /**
+   * Indicates the multiAppModeType of the bundle
+   *
+   * @type { bundleManager.MultiAppModeType }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 12
+   */
+  readonly multiAppModeType: bundleManager.MultiAppModeType;
+
+  /**
+   * Indicates the max count of the bundle
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 12
+   */
+  readonly maxCount: number;
 }

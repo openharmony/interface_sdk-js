@@ -49,7 +49,8 @@ export default class FormExtensionContext extends ExtensionContext {
    * @param { Want } want - includes ability name, parameters and relative info sending to an ability.
    * @param { AsyncCallback<void> } callback - The callback of startAbility.
    * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16500050 - An IPC connection error happened.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16500101 - The application is not a system application.
@@ -65,10 +66,10 @@ export default class FormExtensionContext extends ExtensionContext {
    * @param { Want } want - includes ability name, parameters and relative info sending to an ability.
    * @param { AsyncCallback<void> } callback - The callback of startAbility.
    * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16500050 - An IPC connection error happened.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
-   * @throws { BusinessError } 16500101 - The application is not a system application.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
@@ -83,7 +84,8 @@ export default class FormExtensionContext extends ExtensionContext {
    * @param { Want } want - includes ability name, parameters and relative info sending to an ability.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16500050 - An IPC connection error happened.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16500101 - The application is not a system application.
@@ -99,10 +101,10 @@ export default class FormExtensionContext extends ExtensionContext {
    * @param { Want } want - includes ability name, parameters and relative info sending to an ability.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16500050 - An IPC connection error happened.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
-   * @throws { BusinessError } 16500101 - The application is not a system application.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
@@ -125,7 +127,8 @@ export default class FormExtensionContext extends ExtensionContext {
    * @param { ConnectOptions } options - Indicates the callback of connection.
    * @returns { number } Returns the connection id.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -148,7 +151,8 @@ export default class FormExtensionContext extends ExtensionContext {
    *
    * @param { number } connection - the connection id returned from connectServiceExtensionAbility api.
    * @param { AsyncCallback<void> } callback - The callback of disconnectServiceExtensionAbility.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.Form
@@ -163,7 +167,8 @@ export default class FormExtensionContext extends ExtensionContext {
    *
    * @param { number } connection - the connection id returned from connectServiceExtensionAbility api.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.Form

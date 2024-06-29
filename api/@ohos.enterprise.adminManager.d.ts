@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -26,7 +26,6 @@ import type Want from './@ohos.app.ability.Want';
  *
  * @namespace adminManager
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
- * @systemapi
  * @since 9
  */
 declare namespace adminManager {
@@ -93,16 +92,14 @@ declare namespace adminManager {
    *
    * @enum { number }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @since 9
+   * @since 12
    */
   export enum ManagedEvent {
     /**
      * The event of bundle added.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
-     * @since 9
+     * @since 12
      */
     MANAGED_EVENT_BUNDLE_ADDED = 0,
 
@@ -110,8 +107,7 @@ declare namespace adminManager {
      * The event of bundle removed.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
-     * @since 9
+     * @since 12
      */
     MANAGED_EVENT_BUNDLE_REMOVED = 1,
 
@@ -119,8 +115,7 @@ declare namespace adminManager {
      * The event of app start.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
-     * @since 10
+     * @since 12
      */
     MANAGED_EVENT_APP_START = 2,
 
@@ -128,8 +123,7 @@ declare namespace adminManager {
      * The event of app stop.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
-     * @since 10
+     * @since 12
      */
     MANAGED_EVENT_APP_STOP = 3,
 
@@ -137,8 +131,7 @@ declare namespace adminManager {
      * The event of system update.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     MANAGED_EVENT_SYSTEM_UPDATE = 4,
   }
@@ -148,16 +141,18 @@ declare namespace adminManager {
    * Only apps with the ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN permission or the shell uid can call this method.
    *
    * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
    * @param { EnterpriseInfo } enterpriseInfo - enterpriseInfo indicates the enterprise information of the calling application.
    * @param { AdminType } type - type indicates the type of administrator to set.
    * @param { AsyncCallback<void> } callback - the callback of enableAdmin.
-   * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
-   * @throws { BusinessError } 9200004 - failed to enable the administrator application of the device.
-   * @throws { BusinessError } 9200007 - the system ability work abnormally.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200003 - The administrator ability component is invalid.
+   * @throws { BusinessError } 9200004 - Failed to activate the administrator application of the device.
+   * @throws { BusinessError } 9200007 - The system ability works abnormally.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
@@ -170,17 +165,19 @@ declare namespace adminManager {
    * Only apps with the ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN permission or the shell uid can call this method.
    *
    * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
    * @param { EnterpriseInfo } enterpriseInfo - enterpriseInfo indicates the enterprise information of the calling application.
    * @param { AdminType } type - type indicates the type of administrator to set.
    * @param { number } userId - userId indicates the user ID.
    * @param { AsyncCallback<void> } callback - the callback of enableAdmin.
-   * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
-   * @throws { BusinessError } 9200004 - failed to enable the administrator application of the device.
-   * @throws { BusinessError } 9200007 - the system ability work abnormally.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200003 - The administrator ability component is invalid.
+   * @throws { BusinessError } 9200004 - Failed to activate the administrator application of the device.
+   * @throws { BusinessError } 9200007 - The system ability works abnormally.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
@@ -193,17 +190,19 @@ declare namespace adminManager {
    * Only apps with the ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN permission or the shell uid can call this method.
    *
    * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
    * @param { EnterpriseInfo } enterpriseInfo - enterpriseInfo indicates the enterprise information of the calling application.
    * @param { AdminType } type - type indicates the type of administrator to set.
    * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
    * @returns { Promise<void> } the promise returned by the enableAdmin.
-   * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
-   * @throws { BusinessError } 9200004 - failed to enable the administrator application of the device.
-   * @throws { BusinessError } 9200007 - the system ability work abnormally.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200003 - The administrator ability component is invalid.
+   * @throws { BusinessError } 9200004 - Failed to activate the administrator application of the device.
+   * @throws { BusinessError } 9200007 - The system ability works abnormally.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
@@ -216,12 +215,14 @@ declare namespace adminManager {
    * Only apps with the ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN permission or the shell uid can call this method.
    *
    * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
    * @param { AsyncCallback<void> } callback - the callback of disableAdmin.
-   * @throws { BusinessError } 9200005 - failed to disable the administrator application of the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200005 - Failed to deactivate the administrator application of the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
@@ -234,13 +235,15 @@ declare namespace adminManager {
    * Only apps with the ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN permission or the shell uid can call this method.
    *
    * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
    * @param { number } userId - userId indicates the user ID.
    * @param { AsyncCallback<void> } callback - the callback of disableAdmin.
-   * @throws { BusinessError } 9200005 - failed to disable the administrator application of the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200005 - Failed to deactivate the administrator application of the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
@@ -249,21 +252,21 @@ declare namespace adminManager {
   function disableAdmin(admin: Want, userId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Disables a current normal administrator ability.
+   * Disables a current administrator ability.
    * Only apps with the ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN permission or the shell uid can call this method.
    *
    * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
    * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
    * @returns { Promise<void> } the promise returned by the disableAdmin.
-   * @throws { BusinessError } 9200005 - failed to disable the administrator application of the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200005 - Failed to deactivate the administrator application of the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 12
    */
   function disableAdmin(admin: Want, userId?: number): Promise<void>;
 
@@ -274,10 +277,11 @@ declare namespace adminManager {
    * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
    * @param { String } bundleName - bundleName indicates the administrator bundle information.
    * @param { AsyncCallback<void> } callback - the callback of disableSuperAdmin.
-   * @throws { BusinessError } 9200005 - failed to disable the administrator application of the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200005 - Failed to deactivate the administrator application of the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
@@ -292,10 +296,11 @@ declare namespace adminManager {
    * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
    * @param { String } bundleName - bundleName indicates the administrator bundle information.
    * @returns { Promise<void> } the promise returned by the disableSuperAdmin.
-   * @throws { BusinessError } 9200005 - failed to disable the administrator application of the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200005 - Failed to deactivate the administrator application of the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
@@ -308,8 +313,9 @@ declare namespace adminManager {
    *
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { AsyncCallback<boolean> } callback - callback contained true if the administrator is enabled.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
@@ -323,8 +329,9 @@ declare namespace adminManager {
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { number } userId - userId indicates the user ID.
    * @param { AsyncCallback<boolean> } callback - callback contained true if the administrator is enabled.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
@@ -338,8 +345,9 @@ declare namespace adminManager {
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
    * @returns { Promise<boolean> } promise contained true if the administrator is enabled.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
@@ -352,9 +360,10 @@ declare namespace adminManager {
    *
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { AsyncCallback<EnterpriseInfo> } callback - callback contained the enterprise info of administrator.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
@@ -367,9 +376,10 @@ declare namespace adminManager {
    *
    * @param { Want } admin - admin indicates the administrator ability information.
    * @returns { Promise<EnterpriseInfo> } promise contained the enterprise info of administrator.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
@@ -385,10 +395,11 @@ declare namespace adminManager {
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { EnterpriseInfo } enterpriseInfo - enterpriseInfo indicates the enterprise information of the calling application.
    * @param { AsyncCallback<void> } callback - the callback of setEnterpriseInfo.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
@@ -404,10 +415,11 @@ declare namespace adminManager {
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { EnterpriseInfo } enterpriseInfo - enterpriseInfo indicates the enterprise information of the calling application.
    * @returns { Promise<void> } the promise returned by the setEnterpriseInfo.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
@@ -420,8 +432,9 @@ declare namespace adminManager {
    *
    * @param { String } bundleName - bundleName indicates the administrator bundle information.
    * @param { AsyncCallback<boolean> } callback - callback contained true if the administrator is super administrator.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
@@ -434,8 +447,9 @@ declare namespace adminManager {
    *
    * @param { String } bundleName - bundleName indicates the administrator bundle information.
    * @returns { Promise<boolean> } promise contained true if the administrator is super administrator.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
@@ -450,11 +464,12 @@ declare namespace adminManager {
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { Array<ManagedEvent> } managedEvents - managedEvents indicates the managed events to subscribe.
    * @param { AsyncCallback<void> } callback - the callback of subscribeManagedEvent.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200008 - the specified system events enum is invalid.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200008 - The specified system event is invalid.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
@@ -469,11 +484,12 @@ declare namespace adminManager {
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { Array<ManagedEvent> } managedEvents - managedEvents indicates the managed events to subscribe.
    * @returns { Promise<void> } the promise returned by the subscribeManagedEvent.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200008 - the specified system events enum is invalid.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200008 - The specified system event is invalid.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
@@ -488,11 +504,12 @@ declare namespace adminManager {
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { Array<ManagedEvent> } managedEvents - managedEvents indicates the managed events to subscribe.
    * @param { AsyncCallback<void> } callback - the callback of unsubscribeManagedEvent.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200008 - the specified system events enum is invalid.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200008 - The specified system event is invalid.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
@@ -507,11 +524,12 @@ declare namespace adminManager {
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { Array<ManagedEvent> } managedEvents - managedEvents indicates the managed events to subscribe.
    * @returns { Promise<void> } the promise returned by the unsubscribeManagedEvent.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200008 - the specified system events enum is invalid.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200008 - The specified system event is invalid.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
@@ -526,12 +544,13 @@ declare namespace adminManager {
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { string } bundleName - bundleName indicates the administrator bundle information.
    * @param { AsyncCallback<void> } callback - the callback of authorizeAdmin.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200009 - authorize permission to the application failed.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200009 - Failed to grant the permission to the application.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
@@ -546,18 +565,65 @@ declare namespace adminManager {
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { string } bundleName - bundleName indicates the administrator bundle information.
    * @returns { Promise<void> } the promise returned by the authorizeAdmin.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200009 - authorize permission to the application failed.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200009 - Failed to grant the permission to the application.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
    * @since 10
    */
   function authorizeAdmin(admin: Want, bundleName: string): Promise<void>;
+
+  /**
+   * Get the super administrator of device.
+   *
+   * @returns { Promise<Want> } promise contained the want indicates the super administrator of the device.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @StageModelOnly
+   * @since 12
+   */
+  function getSuperAdmin(): Promise<Want>;
+
+  /**
+   * Subscribes the managed event of admin.
+   *
+   * @permission ohos.permission.ENTERPRISE_SUBSCRIBE_MANAGED_EVENT
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Array<ManagedEvent> } managedEvents - managedEvents indicates the managed events to subscribe.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200008 - The specified system event is invalid.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @StageModelOnly
+   * @since 12
+   */
+  function subscribeManagedEventSync(admin: Want, managedEvents: Array<ManagedEvent>): void;
+
+  /**
+   * Unsubscribes the managed event of admin.
+   *
+   * @permission ohos.permission.ENTERPRISE_SUBSCRIBE_MANAGED_EVENT
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Array<ManagedEvent> } managedEvents - managedEvents indicates the managed events to subscribe.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200008 - The specified system event is invalid.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @StageModelOnly
+   * @since 12
+   */
+  function unsubscribeManagedEventSync(admin: Want, managedEvents: Array<ManagedEvent>): void;
 }
 
 export default adminManager;

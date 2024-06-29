@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,6 +19,7 @@
  */
 
 import type appManager from '../@ohos.app.ability.appManager';
+import bundleManager from '../@ohos.bundle.bundleManager';
 
 /**
  * The class of an process information.
@@ -148,4 +149,23 @@ export interface ProcessInformation {
    * @since 11
    */
   state: appManager.ProcessState;
+
+  /**
+   * The bundle type of the process.
+   *
+   * @type { bundleManager.BundleType }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 12
+   */
+  bundleType: bundleManager.BundleType;
+
+  /**
+   * The app clone index of current process if app is multi app mode.
+   * @type { ?number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 12
+   */
+  appCloneIndex?: number;
 }

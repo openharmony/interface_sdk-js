@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Enumerates the layout direction of the icon and text.
  *
  * @enum { number }
@@ -173,7 +178,18 @@ declare class SecurityComponentMethod<T> {
    * @atomicservice
    * @since 11
    */
-  offset(value: Position): T;
+  /**
+   * Coordinate offset relative to the layout completion position.
+   * Setting this attribute does not affect the layout of the parent container.
+   * The position is adjusted only during drawing.
+   *
+   * @param { Position | Edges | LocalizedEdges } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  offset(value: Position | Edges | LocalizedEdges): T;
 
   /**
    * Font size of the inner text.

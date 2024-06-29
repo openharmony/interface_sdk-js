@@ -13,8 +13,12 @@
  * limitations under the License.
  */
 
-/// <reference path="../../component/common.d.ts" />
-/// <reference path="../../component/hyperlink.d.ts" />
+/**
+ * @file
+ * @kit ArkUI
+ */
+
+
 
 /**
  * Defines Hyperlink Modifier

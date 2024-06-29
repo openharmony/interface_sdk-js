@@ -119,6 +119,17 @@ declare namespace dialogSession {
      * @since 11
      */
     bundleLabelId: number;
+
+    /**
+     * The ability is visible
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    visible: boolean;
   }
 
   /**
@@ -172,7 +183,8 @@ declare namespace dialogSession {
    * @param { string } dialogSessionId - Query information by dialog session id.
    * @returns { DialogSessionInfo } Returns the session info.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -191,7 +203,8 @@ declare namespace dialogSession {
    * @param { boolean } isAllowed - allowed or disallowed to start target ability.
    * @returns { Promise<void> } The promise returned by the sendDialogResult.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -210,7 +223,8 @@ declare namespace dialogSession {
    * @param { boolean } isAllowed - allowed or disallowed to start target ability.
    * @param { AsyncCallback<void> } callback - The callback of sendDialogResult.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000050 - Internal error.

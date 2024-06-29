@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file The data of the commonEvent
+ * @kit BasicServicesKit
+ */
+
+/**
  * the data of the commonEvent
  *
  * @typedef CommonEventData
@@ -98,6 +103,15 @@ export interface CommonEventData {
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11
+   */
+  /**
+   * The custom result data of the common event.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   data?: string;
 

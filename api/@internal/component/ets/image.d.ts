@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Use the DrawableDescriptor class to get drawable image.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -27,6 +32,27 @@
  * @since 11
  */
 declare type DrawableDescriptor = import ('../api/@ohos.arkui.drawableDescriptor').DrawableDescriptor;
+
+/**
+ * Import the DrawingColorFilter type object for image color filter setting.
+ * 
+ * @typedef DrawingColorFilter
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type DrawingColorFilter = import('../api/@ohos.graphics.drawing').default.ColorFilter;
+
+/**
+ * Enumerates all the levels available for the image resolution quality.
+ *
+ * @typedef {import('../api/@ohos.multimedia.image').default.ResolutionQuality} ResolutionQuality
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 12
+ */
+declare type ResolutionQuality  = import('../api/@ohos.multimedia.image').default.ResolutionQuality;
+
 
 /**
  * @enum { number }
@@ -118,6 +144,37 @@ declare enum ImageRenderMode {
    * @form
    */
   Template,
+}
+
+/**
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+declare enum DynamicRangeMode {
+  /**
+   * Allow image content to use an unrestricted extended range.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  HIGH = 0,
+
+  /**
+   * Allow image content to use some extended range.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  CONSTRAINT = 1,
+
+  /**
+   * Restrict the image content dynamic range to the standard range.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  STANDARD = 2,
 }
 
 /**
@@ -342,6 +399,17 @@ interface ImageInterface {
    * @form
    */
   (src: PixelMap | ResourceStr | DrawableDescriptor): ImageAttribute;
+
+  /**
+   * Set src and ai options to obtain images
+   *
+   * @param { PixelMap | ResourceStr | DrawableDescriptor } src
+   * @param { ImageAIOptions } imageAIOptions
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  (src: PixelMap | ResourceStr | DrawableDescriptor, imageAIOptions: ImageAIOptions): ImageAttribute;
 }
 
 /**
@@ -409,7 +477,18 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 11
    * @form
    */
-  alt(value: string | Resource): ImageAttribute;
+  /**
+   * Placeholder displayed on load
+   *
+   * @param { string | Resource | PixelMap } value
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  alt(value: string | Resource | PixelMap): ImageAttribute;
 
   /**
    * match Text Direction
@@ -452,7 +531,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   matchTextDirection(value: boolean): ImageAttribute;
 
   /**
-   * Indicates whether the image follows the text direction.
+   * Sets whether the display size of the image follows the source size.
    *
    * @param { boolean } value
    * @returns { ImageAttribute }
@@ -460,7 +539,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 7
    */
   /**
-   * Indicates whether the image follows the text direction.
+   * Sets whether the display size of the image follows the source size.
    *
    * @param { boolean } value
    * @returns { ImageAttribute }
@@ -469,7 +548,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @form
    */
   /**
-   * Indicates whether the image follows the text direction.
+   * Sets whether the display size of the image follows the source size.
    *
    * @param { boolean } value
    * @returns { ImageAttribute }
@@ -479,7 +558,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @form
    */
   /**
-   * Indicates whether the image follows the text direction.
+   * Sets whether the display size of the image follows the source size.
    *
    * @param { boolean } value
    * @returns { ImageAttribute }
@@ -692,6 +771,16 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   renderMode(value: ImageRenderMode): ImageAttribute;
 
   /**
+   * Set dynamic range mode of image.
+   *
+   * @param { DynamicRangeMode } value - Indicates the resizable options.
+   * @returns { ImageAttribute } Returns the instance of the ImageAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  dynamicRangeMode(value: DynamicRangeMode): ImageAttribute;
+
+  /**
    * Sets the interpolation effect of an image. The interpolation effect is only magnified for the image.
    *
    * @param { ImageInterpolation } value
@@ -849,7 +938,18 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 11
    * @form
    */
-  colorFilter(value: ColorFilter): ImageAttribute;
+  /**
+   * Sets the color filter effect on the image.
+   *
+   * @param { ColorFilter | DrawingColorFilter } value ColorFilter object.
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  colorFilter(value: ColorFilter | DrawingColorFilter): ImageAttribute;
 
   /**
    * Allow replication.
@@ -894,7 +994,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    */
   /**
    * Enable image dragging.
-   * Default value is false.
+   * Default value is true.
    *
    * @param { boolean } value
    * @returns { ImageAttribute }
@@ -1325,6 +1425,15 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
+  /**
+   * Enable image analyzer.
+   *
+   * @param { boolean} config
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
   enableAnalyzer(enable: boolean): ImageAttribute;
 
   /**
@@ -1347,7 +1456,39 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Set image resizable options.
+   *
+   * @param { ResizableOptions } value - Indicates the resizable options.
+   * @returns { ImageAttribute } Returns the instance of the ImageAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   resizable(value: ResizableOptions): ImageAttribute;
+
+  /**
+   * Whether to support sensitive privacy information
+   *
+   * @param { boolean } supported - Whether to support sensitive privacy information.
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 12
+   */
+  privacySensitive(supported: boolean): ImageAttribute;
+
+  /**
+   * Set the quality enhancement level of image.
+   *
+   * @param { ResolutionQuality } imageQuality
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 12
+   */
+  enhancedImageQuality(imageQuality: ResolutionQuality): ImageAttribute;
 }
 
 /**
@@ -1546,6 +1687,15 @@ declare interface ImageError {
  * @crossplatform
  * @since 11
  */
+/**
+ * Image resizable options
+ * 
+ * @interface ResizableOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare interface ResizableOptions {
   /**
    * Image slice widths.
@@ -1554,6 +1704,15 @@ declare interface ResizableOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Image slice widths.
+   *
+   * @type { ?EdgeWidths }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   slice?: EdgeWidths;
 }

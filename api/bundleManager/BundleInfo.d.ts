@@ -19,7 +19,7 @@
  */
 
 import { ApplicationInfo } from './ApplicationInfo';
-import { HapModuleInfo } from './HapModuleInfo';
+import { HapModuleInfo, RouterItem } from './HapModuleInfo';
 import bundleManager from './../@ohos.bundle.bundleManager';
 
 /**
@@ -258,6 +258,27 @@ export interface BundleInfo {
    * @since 11
    */
   readonly updateTime: number;
+
+  /**
+   * Indicates the router information of the application
+   *
+   * @type { Array<RouterItem> }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  readonly routerMap: Array<RouterItem>;
+
+  /**
+   * Indicates the appIndex of application, only work in appClone mode
+   * 
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 12
+   */
+  readonly appIndex: number;
 }
 
 /**
@@ -477,4 +498,35 @@ export interface SignatureInfo {
    * @since 11
    */
   readonly appIdentifier: string;
+}
+
+/**
+ * AppCloneIdentity contains BundleName and appIndex
+ *
+ * @typedef AppCloneIdentity
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @systemapi
+ * @since 12
+ */
+export interface AppCloneIdentity {
+  /**
+   * Indicates the application bundle name to be queried.
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  readonly bundleName: string;
+  /**
+   * Indicates the index of clone app.
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  readonly appIndex: number;
 }

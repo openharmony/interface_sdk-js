@@ -18,9 +18,10 @@
  * @kit ArkUI
  */
 
-/// <reference path="../component/units.d.ts" />
 
-import { ResourceStr } from 'GlobalResource';
+
+
+import { Theme, CustomTheme } from '@ohos.arkui.theme';
 
 /**
  * Declare ButtonOptions
@@ -151,7 +152,14 @@ export declare struct TipsDialog {
    * @atomicservice
    * @since 11
    */
-  imageRes: Resource;
+  /**
+   * Sets the TipsDialog imageRes.
+   * @type { ResourceStr | PixelMap }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  imageRes: ResourceStr | PixelMap;
   /**
    * Sets the TipsDialog image size.
    * @type { SizeOptions }.
@@ -271,6 +279,33 @@ export declare struct TipsDialog {
    * @since 11
    */
   secondaryButton?: ButtonOptions;
+  /**
+   * Custom Theme.
+   *
+   * @type { ?(Theme | CustomTheme) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  theme?: Theme | CustomTheme;
+  /**
+   * Sets the TipsDialog dark or light Mode.
+   *
+   * @type { ?ThemeColorMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  themeColorMode?: ThemeColorMode;
+  /**
+   * Sets the TipsDialog CheckBox Callback.
+   * @type { ?Callback<boolean> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  onCheckedChange?: Callback<boolean>;
 }
 
 /**
@@ -370,6 +405,26 @@ export declare struct SelectDialog {
    * @since 11
    */
   radioContent: Array<SheetInfo>;
+  /**
+   * Custom Theme.
+   *
+   * @type { ?(Theme | CustomTheme) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  theme?: Theme | CustomTheme;
+  /**
+   * Sets the SelectDialog dark or light Mode.
+   *
+   * @type { ?ThemeColorMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  themeColorMode?: ThemeColorMode;
 }
 
 /**
@@ -483,6 +538,33 @@ export declare struct ConfirmDialog {
    * @since 11
    */
   secondaryButton?: ButtonOptions;
+  /**
+   * Custom Theme.
+   *
+   * @type { ?(Theme | CustomTheme) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  theme?: Theme | CustomTheme;
+  /**
+   * Sets the ConfirmDialog dark or light Mode.
+   *
+   * @type { ?ThemeColorMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  themeColorMode?: ThemeColorMode;
+  /**
+   * Sets the ConfirmDialog CheckBox Callback.
+   * @type { ?Callback<boolean> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  onCheckedChange?: Callback<boolean>;
 }
 
 /**
@@ -512,6 +594,22 @@ export declare struct AlertDialog {
    * @since 11
    */
   controller: CustomDialogController;
+  /**
+   * Sets the AlertDialog title.
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  primaryTitle?: ResourceStr;
+  /**
+   * Sets the AlertDialog secondary title.
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  secondaryTitle?: ResourceStr;
   /**
    * Sets the AlertDialog content.
    * @type { ResourceStr }.
@@ -554,6 +652,26 @@ export declare struct AlertDialog {
    * @since 11
    */
   secondaryButton?: ButtonOptions;
+  /**
+   * Custom Theme.
+   *
+   * @type { ?(Theme | CustomTheme) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  theme?: Theme | CustomTheme;
+  /**
+   * Sets the AlertDialog dark or light Mode.
+   *
+   * @type { ?ThemeColorMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  themeColorMode?: ThemeColorMode;
 }
 
 /**
@@ -597,6 +715,26 @@ export declare struct LoadingDialog {
    * @since 11
    */
   content?: ResourceStr;
+  /**
+   * Custom Theme.
+   *
+   * @type { ?(Theme | CustomTheme) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  theme?: Theme | CustomTheme;
+  /**
+   * Sets the LoadingDialog dark or light Mode.
+   *
+   * @type { ?ThemeColorMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  themeColorMode?: ThemeColorMode;
 }
 
 /**
@@ -640,6 +778,14 @@ export declare struct CustomContentDialog {
    */
   @BuilderParam contentBuilder: () => void;
   /**
+   * Sets the CustomContentDialog content area padding.
+   * @type { ?Padding }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  contentAreaPadding?: Padding;
+  /**
    * Sets the CustomContentDialog buttons.
    * @type { ?ButtonOptions[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -647,4 +793,76 @@ export declare struct CustomContentDialog {
    * @since 12
    */
   buttons?: ButtonOptions[];
+  /**
+   * Custom Theme.
+   *
+   * @type { ?(Theme | CustomTheme) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  theme?: Theme | CustomTheme;
+  /**
+   * Sets the CustomContentDialog dark or light Mode.
+   *
+   * @type { ?ThemeColorMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  themeColorMode?: ThemeColorMode;
+}
+
+/**
+ * Declare struct PopupDialog
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+@Component
+export declare struct PopupDialog {
+  /**
+   * Sets the PopupDialog Visible Status.
+   * 
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  @Link
+  show: boolean;
+  /**
+   * Sets the PopupDialog options.
+   * 
+   * @type { PopupDialogOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  @Prop
+  popup: PopupDialogOptions;
+  /**
+   * Sets the targetBuilder content.
+   * 
+   * @type { Callback<void> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  @BuilderParam targetBuilder: Callback<void>;
+}
+
+/**
+ * Defines PopupDialog Options
+ * 
+ * @interface PopupDialogOptions
+ * @extends CustomPopupOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export declare interface PopupDialogOptions extends CustomPopupOptions {
 }

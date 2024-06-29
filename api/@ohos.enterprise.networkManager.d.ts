@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -27,7 +27,6 @@ import type connection from './@ohos.net.connection';
  *
  * @namespace networkManager
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
- * @systemapi
  * @stagemodelonly
  * @since 10
  */
@@ -68,18 +67,16 @@ declare namespace networkManager {
    *
    * @enum { number }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 12
    */
   enum Direction {
     /**
      * Input direction
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     INPUT = 0,
 
@@ -87,9 +84,8 @@ declare namespace networkManager {
      * Output direction
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     OUTPUT = 1
   }
@@ -99,18 +95,16 @@ declare namespace networkManager {
    *
    * @enum { number }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 12
    */
   enum Action {
     /**
      * Action allow
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     ALLOW = 0,
 
@@ -118,9 +112,8 @@ declare namespace networkManager {
      * Action deny
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     DENY = 1
   }
@@ -130,18 +123,16 @@ declare namespace networkManager {
    *
    * @enum { number }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 12
    */
   enum Protocol {
     /**
      * Protocol all
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     ALL = 0,
 
@@ -149,9 +140,8 @@ declare namespace networkManager {
      * Protocol tcp
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     TCP = 1,
 
@@ -159,9 +149,8 @@ declare namespace networkManager {
      * Protocol udp
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     UDP = 2,
 
@@ -169,9 +158,8 @@ declare namespace networkManager {
      * Protocol icmp
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     ICMP = 3
   }
@@ -401,9 +389,8 @@ declare namespace networkManager {
    *
    * @typedef FirewallRule
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   interface FirewallRule {
     /**
@@ -411,9 +398,8 @@ declare namespace networkManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     srcAddr?: string;
 
@@ -422,9 +408,8 @@ declare namespace networkManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     destAddr?: string;
 
@@ -433,9 +418,8 @@ declare namespace networkManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     srcPort?: string;
 
@@ -444,9 +428,8 @@ declare namespace networkManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     destPort?: string;
 
@@ -455,9 +438,8 @@ declare namespace networkManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     appUid?: string;
 
@@ -466,9 +448,8 @@ declare namespace networkManager {
      *
      * @type { ?Direction }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     direction?: Direction;
 
@@ -477,9 +458,8 @@ declare namespace networkManager {
      *
      * @type { ?Action }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     action?: Action;
 
@@ -488,9 +468,8 @@ declare namespace networkManager {
      *
      * @type { ?Protocol }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     protocol?: Protocol;
   }
@@ -500,9 +479,8 @@ declare namespace networkManager {
    *
    * @typedef DomainFilterRule
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   interface DomainFilterRule {
     /**
@@ -510,9 +488,8 @@ declare namespace networkManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     domainName?: string;
 
@@ -521,9 +498,8 @@ declare namespace networkManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     appUid?: string;
 
@@ -532,9 +508,8 @@ declare namespace networkManager {
      *
      * @type { ?Action }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     action?: Action;
   }
@@ -544,13 +519,15 @@ declare namespace networkManager {
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_GET_NETWORK_INFO
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
    * @param { AsyncCallback<Array<string>> } callback - the callback of getAllNetworkInterfaces.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -563,13 +540,15 @@ declare namespace networkManager {
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_GET_NETWORK_INFO
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
    * @returns { Promise<Array<string>> } the promise returned by getAllNetworkInterfaces.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -578,18 +557,39 @@ declare namespace networkManager {
   function getAllNetworkInterfaces(admin: Want): Promise<Array<string>>;
 
   /**
+   * Gets all the network interfaces of the device.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @returns { Array<string> } all the network interfaces of the device.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function getAllNetworkInterfacesSync(admin: Want): Array<string>;
+
+  /**
    * Gets the ip address of the network interface.
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_GET_NETWORK_INFO
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
    * @param { string } networkInterface - networkInterface indicates the network interface to get ip address.
    * @param { AsyncCallback<string> } callback - the callback of getIpAddress.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -602,14 +602,16 @@ declare namespace networkManager {
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_GET_NETWORK_INFO
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
    * @param { string } networkInterface - networkInterface indicates the network interface to get ip address.
    * @returns { Promise<string> } the promise returned by getIpAddress.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -618,18 +620,40 @@ declare namespace networkManager {
   function getIpAddress(admin: Want, networkInterface: string): Promise<string>;
 
   /**
+   * Gets the ip address of the network interface.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { string } networkInterface - the ip address of the network interface.
+   * @returns { string } the promise returned by getIpAddress.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function getIpAddressSync(admin: Want, networkInterface: string): string;
+
+  /**
    * Gets the mac address of the network interface.
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_GET_NETWORK_INFO
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
    * @param { string } networkInterface - networkInterface indicates the network interface to get mac address.
    * @param { AsyncCallback<string> } callback - the callback of getMac.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -642,14 +666,16 @@ declare namespace networkManager {
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_GET_NETWORK_INFO
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
    * @param { string } networkInterface - networkInterface indicates the network interface to get mac address.
    * @returns { Promise<string> } the promise returned by getMac.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -658,18 +684,40 @@ declare namespace networkManager {
   function getMac(admin: Want, networkInterface: string): Promise<string>;
 
   /**
+   * Gets the mac address of the network interface.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { string } networkInterface - networkInterface indicates the network interface to get mac address.
+   * @returns { string } the mac address of the network interface.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function getMacSync(admin: Want, networkInterface: string): string;
+
+  /**
    * Gets state of whether the network interface is disabled.
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_GET_NETWORK_INFO
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
    * @param { string } networkInterface - networkInterface indicates the network interface to get status.
    * @param { AsyncCallback<boolean> } callback - the callback of isNetworkInterfaceDisabled.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -682,14 +730,16 @@ declare namespace networkManager {
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_GET_NETWORK_INFO
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
    * @param { string } networkInterface - networkInterface indicates the network interface to get status.
    * @returns { Promise<boolean> } the promise returned by isNetworkInterfaceDisabled.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -698,19 +748,41 @@ declare namespace networkManager {
   function isNetworkInterfaceDisabled(admin: Want, networkInterface: string): Promise<boolean>;
 
   /**
+   * Gets state of whether the network interface is disabled.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { string } networkInterface - networkInterface indicates the network interface to get status.
+   * @returns { boolean } true if disable the network interfaces, otherwise false.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function isNetworkInterfaceDisabledSync(admin: Want, networkInterface: string): boolean;
+
+  /**
    * Disables the network interfaces.
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_SET_NETWORK
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
    * @param { string } networkInterface - networkInterface indicates the network interface to set status.
    * @param { boolean } isDisabled - True if disable the network interfaces, otherwise false.
    * @param { AsyncCallback<void> } callback - the callback of setNetworkInterfaceDisabled.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -723,15 +795,17 @@ declare namespace networkManager {
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_SET_NETWORK
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
    * @param { string } networkInterface - networkInterface indicates the network interface to set status.
    * @param { boolean } isDisabled - True if disable the network interfaces, otherwise false.
    * @returns { Promise<void> } the promise returned setNetworkInterfaceDisabled.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -740,18 +814,40 @@ declare namespace networkManager {
   function setNetworkInterfaceDisabled(admin: Want, networkInterface: string, isDisabled: boolean): Promise<void>;
 
   /**
+   * Disables the network interfaces.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { string } networkInterface - networkInterface indicates the network interface to set status.
+   * @param { boolean } isDisabled - True if disable the network interfaces, otherwise false.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function setNetworkInterfaceDisabledSync(admin: Want, networkInterface: string, isDisabled: boolean): void;
+
+  /**
    * Set a network independent global {@link connection.HttpProxy} proxy.
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
    * @param { connection.HttpProxy } httpProxy - network global proxy configuration information.
    * @param { AsyncCallback<void> } callback - the callback of setGlobalProxy.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -764,14 +860,16 @@ declare namespace networkManager {
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
    * @param { connection.HttpProxy } httpProxy - network global proxy configuration information.
    * @returns { Promise<void> } the promise returned by the setGlobalProxy.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -780,17 +878,38 @@ declare namespace networkManager {
   function setGlobalProxy(admin: Want, httpProxy: connection.HttpProxy): Promise<void>;
 
   /**
+   * Set a network independent global {@link connection.HttpProxy} proxy.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { connection.HttpProxy } httpProxy - network global proxy configuration information.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function setGlobalProxySync(admin: Want, httpProxy: connection.HttpProxy): void;
+
+  /**
    * Obtains the network independent global {@link connection.HttpProxy} proxy.
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the administrator ability information.If the admin is not empty, it must
+   *                         have the corresponding permission.
    * @param { AsyncCallback<connection.HttpProxy> } callback - the callback carries the network global proxy configuration information.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -803,13 +922,15 @@ declare namespace networkManager {
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the administrator ability information.If the admin is not empty, it must
+   *                         have the corresponding permission.
    * @returns { Promise<connection.HttpProxy> } the promise carries the network global proxy configuration information.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -818,18 +939,39 @@ declare namespace networkManager {
   function getGlobalProxy(admin: Want): Promise<connection.HttpProxy>;
 
   /**
+   * Obtains the network independent global {@link connection.HttpProxy} proxy.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
+   * @param { Want } admin - admin indicates the administrator ability information.If the admin is not empty, it must
+   *                         have the corresponding permission.
+   * @returns { connection.HttpProxy } the network global proxy configuration information.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function getGlobalProxySync(admin: Want): connection.HttpProxy;
+
+  /**
    * Add iptables filter rule by {@link AddFilterRule}.
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
    * @param { AddFilterRule } filterRule - iptables filter rule configuration information.
    * @param { AsyncCallback<void> } callback - the callback of addIptablesFilterRule.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -842,14 +984,16 @@ declare namespace networkManager {
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
    * @param { AddFilterRule } filterRule - iptables filter rule configuration information.
    * @returns { Promise<void> } the promise returned by the addIptablesFilterRule.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -862,14 +1006,16 @@ declare namespace networkManager {
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
    * @param { RemoveFilterRule } filterRule - iptables filter rule configuration information.
    * @param { AsyncCallback<void> } callback - the callback of removeIptablesFilterRule.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -882,14 +1028,16 @@ declare namespace networkManager {
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
    * @param { RemoveFilterRule } filterRule - iptables filter rule configuration information.
    * @returns { Promise<void> } the promise returned by the removeIptablesFilterRule.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -902,13 +1050,15 @@ declare namespace networkManager {
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
    * @param { AsyncCallback<string> } callback - the callback carries the iptables rules in the table filter.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -921,13 +1071,15 @@ declare namespace networkManager {
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
    * @returns { Promise<string> } the promise carries the iptables rules in the table filter.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -940,17 +1092,17 @@ declare namespace networkManager {
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
    * @param { FirewallRule } firewallRule - firewall rule that needs to be added.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function addFirewallRule(admin: Want, firewallRule: FirewallRule): void;
 
@@ -959,18 +1111,18 @@ declare namespace networkManager {
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
    * @param { FirewallRule } firewallRule - matching rule used to remove firewall rule.
    *    if firewallRule or firewallRule#direction,firewallRule#action is empty, multiple firewall rule can be removed.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function removeFirewallRule(admin: Want, firewallRule?: FirewallRule): void;
 
@@ -979,17 +1131,17 @@ declare namespace networkManager {
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
    * @returns { Array<FirewallRule> } an array of added firewall rules.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function getFirewallRules(admin: Want): Array<FirewallRule>;
 
@@ -998,17 +1150,17 @@ declare namespace networkManager {
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
    * @param { DomainFilterRule } domainFilterRule - domain filter rule that needs to be added.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function addDomainFilterRule(admin: Want, domainFilterRule: DomainFilterRule): void;
 
@@ -1017,18 +1169,18 @@ declare namespace networkManager {
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
    * @param { DomainFilterRule } domainFilterRule - matching rule used to remove domain filter rule.
    *    if domainFilterRule or domainFilterRule#action is empty, multiple domain filter rule can be removed.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function removeDomainFilterRule(admin: Want, domainFilterRule?: DomainFilterRule): void;
 
@@ -1037,17 +1189,17 @@ declare namespace networkManager {
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
    * @returns { Array<DomainFilterRule> } an array of added domain filter rules.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function getDomainFilterRules(admin: Want): Array<DomainFilterRule>;
 }

@@ -14,12 +14,18 @@
  */
 
 /**
- * Import the WindowMode type object for onHoverStatusChange.
+ * @file
+ * @kit ArkUI
+ */
+
+/**
+ * Import the WindowStatusType type object for onHoverStatusChange.
  *
+ * @typedef {import('../api/@ohos.window').default.WindowStatusType} WindowStatusType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 12
  */
-declare type WindowMode = import('../api/@ohos.window').WindowMode;
+declare type WindowStatusType = import('../api/@ohos.window').default.WindowStatusType;
 
 /**
  * Provides ports for stacking containers.
@@ -28,6 +34,15 @@ declare type WindowMode = import('../api/@ohos.window').WindowMode;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
+ */
+/**
+ * Provides ports for stacking containers.
+ *
+ * @interface FolderStackInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
  */
 
 interface FolderStackInterface {
@@ -40,6 +55,16 @@ interface FolderStackInterface {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Defines the constructor of folderStack.
+   *
+   * @param { object } value - id of children need to be show in upperItem
+   * @returns { FolderStackAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   (value?: { upperItems?: Array<string> }): FolderStackAttribute;
 }
 
@@ -49,6 +74,13 @@ interface FolderStackInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
+ */
+/**
+ * @extends CommonMethod<FolderStackAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
  */
 declare class FolderStackAttribute extends CommonMethod<FolderStackAttribute> {
   /**
@@ -60,6 +92,16 @@ declare class FolderStackAttribute extends CommonMethod<FolderStackAttribute> {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Set the alignment of folderStack.
+   *
+   * @param { Alignment } value - align of children
+   * @returns { FolderStackAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   alignContent(value: Alignment): FolderStackAttribute;
 
   /**
@@ -70,6 +112,16 @@ declare class FolderStackAttribute extends CommonMethod<FolderStackAttribute> {
 * @syscap SystemCapability.ArkUI.ArkUI.Full
 * @crossplatform
 * @since 11
+*/
+/**
+* Callback folderState when the folderState changes
+*
+* @param { function } callback - executed when folderStatus changed
+* @returns { FolderStackAttribute }
+* @syscap SystemCapability.ArkUI.ArkUI.Full
+* @crossplatform
+* @atomicservice
+* @since 12
 */
   onFolderStateChange(callback: (event: {
     /**
@@ -103,6 +155,16 @@ declare class FolderStackAttribute extends CommonMethod<FolderStackAttribute> {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Enable the animation of folderStack.
+   *
+   * @param { boolean } value - enable the animation of folderStatus changed
+   * @returns { FolderStackAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   enableAnimation(value: boolean): FolderStackAttribute;
 
   /**
@@ -113,6 +175,16 @@ declare class FolderStackAttribute extends CommonMethod<FolderStackAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Enable auto halfFolder when orientation.
+   *
+   * @param { boolean } value - enable auto halfFold
+   * @returns { FolderStackAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   autoHalfFold(value: boolean): FolderStackAttribute;
 }
@@ -153,13 +225,13 @@ declare interface HoverEventParam {
   appRotation: AppRotation
 
   /**
-   * Window mode
+   * Window status type
    *
-   * @type { WindowMode }
+   * @type { WindowStatusType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 12
    */
-  windowMode: WindowMode
+  windowStatusType: WindowStatusType
 }
 /**
  * Defines FolderStack Component.
@@ -167,6 +239,14 @@ declare interface HoverEventParam {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
+ */
+/**
+ * Defines FolderStack Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
  */
 declare const FolderStack: FolderStackInterface;
 
@@ -176,5 +256,13 @@ declare const FolderStack: FolderStackInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
+ */
+/**
+ * Defines FolderStack Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
  */
 declare const FolderStackInstance: FolderStackAttribute;

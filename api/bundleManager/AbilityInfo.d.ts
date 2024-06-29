@@ -21,6 +21,7 @@
 import { ApplicationInfo } from './ApplicationInfo';
 import { Metadata } from './Metadata';
 import bundleManager from './../@ohos.bundle.bundleManager';
+import { Skill } from './Skill';
 
 /**
  * Obtains configuration information about an ability
@@ -545,6 +546,27 @@ export interface AbilityInfo {
    * @since 12
    */
     readonly excludeFromDock: boolean;
+
+  /**
+   * Indicates skills of the ability
+   *
+   * @type { Array<Skill> }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+    readonly skills: Array<Skill>;
+
+  /**
+   * Indicates the appIndex of application, only work in clone app mode
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 12
+   */
+  readonly appIndex: number;
 }
 
 /**

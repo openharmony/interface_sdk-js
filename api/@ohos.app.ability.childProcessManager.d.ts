@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,6 +19,8 @@
  */
 
 import type { AsyncCallback } from './@ohos.base';
+import type { ChildProcessArgs } from './@ohos.app.ability.ChildProcessArgs';
+import type { ChildProcessOptions } from './@ohos.app.ability.ChildProcessOptions';
 
 /**
  * This module provides the capability to start and manage child process.
@@ -34,7 +36,7 @@ declare namespace childProcessManager {
    * 
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   export const enum StartMode {
@@ -44,7 +46,7 @@ declare namespace childProcessManager {
      * Binder IPC can not be used in child process in this mode, may cause crash.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 11
      */
     SELF_FORK = 0,
@@ -53,7 +55,7 @@ declare namespace childProcessManager {
      * Fork child process by app spawn.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 11
      */
     APP_SPAWN_FORK = 1,
@@ -65,12 +67,13 @@ declare namespace childProcessManager {
    * @param { string } srcEntry - Child process source file entrance to be started.
    * @param { StartMode } startMode - Child process start mode.
    * @returns { Promise<number> } Returns the started child process pid.
-   * @throws { BusinessError } 401 - Invalid input parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000061 - Operation not supported.
    * @throws { BusinessError } 16000062 - The number of child process exceeds upper bound.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   function startChildProcess(srcEntry: string, startMode: StartMode): Promise<number>;
@@ -81,15 +84,33 @@ declare namespace childProcessManager {
    * @param { string } srcEntry - Child process source file entrance to be started.
    * @param { StartMode } startMode - Child process start mode.
    * @param { AsyncCallback<number> } callback - The callback of startChildProcess.
-   * @throws { BusinessError } 401 - Invalid input parameter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000061 - Operation not supported.
    * @throws { BusinessError } 16000062 - The number of child process exceeds upper bound.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   function startChildProcess(srcEntry: string, startMode: StartMode, callback: AsyncCallback<number>): void;
+
+  /** 
+   * Start child process with the given args and options.
+   *
+   * @param { string } srcEntry - Indicates child process source file entrance to be started.
+   * @param { ChildProcessArgs } args - Indicates args to pass to child process.
+   * @param { ChildProcessOptions } [options] - Indicates options for starting child process.
+   * @returns { Promise<number> } Returns the started child process pid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 12
+   */
+  function startArkChildProcess(srcEntry: string, args: ChildProcessArgs, options?: ChildProcessOptions): Promise<number>;
 
 }
 

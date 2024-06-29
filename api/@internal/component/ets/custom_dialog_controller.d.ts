@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Defines the options of CustomDialogController.
  *
  * @interface CustomDialogControllerOptions
@@ -362,17 +367,26 @@ declare interface CustomDialogControllerOptions {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Whether it is a modal dialog
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   isModal?: boolean;
 
   /**
    * Callback function when the CustomDialog interactive dismiss.
    *
-   * @type { ?function }
+   * @type { ?Callback<DismissDialogAction> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  onWillDismiss?: (dismissDialog: DismissDialog) => void;
+  onWillDismiss?: Callback<DismissDialogAction>;
 
   /**
    * Defines the custom dialog's width.
@@ -433,26 +447,37 @@ declare interface CustomDialogControllerOptions {
    * @since 12
    */
   shadow?: ShadowOptions | ShadowStyle;
-}
 
-/**
- * Component dialog dismiss
- *
- * @interface DismissDialog
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 12
- */
-declare interface DismissDialog {
   /**
-   * Defines dialog dismiss function
+   * Defines the customDialog's background blur Style
    *
-   * @type { function  }
+   * @type { ?BlurStyle }
+   * @default BlurStyle.COMPONENT_ULTRA_THICK
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  dismiss: () => void;
+  backgroundBlurStyle?: BlurStyle;
+}
+
+/**
+ * Component dialog dismiss action.
+ *
+ * @interface DismissDialogAction
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface DismissDialogAction {
+  /**
+   * Defines dialog dismiss function
+   *
+   * @type { Callback<void> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  dismiss: Callback<void>;
 
   /**
    * Dismiss reason type.

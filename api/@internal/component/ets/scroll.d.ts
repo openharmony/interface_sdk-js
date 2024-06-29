@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Content scroll direction.
  *
  * @enum { number }
@@ -235,6 +240,50 @@ declare interface OffsetResult {
    * @since 11
    */
   yOffset: number;
+}
+
+/**
+ * Define scroll edge options
+ *
+ * @interface ScrollEdgeOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare interface ScrollEdgeOptions {
+  /**
+   * The fasten speed of scrolling to the edge, unit is vp/s.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  velocity?: number;
+}
+
+/**
+ * Define scrollToIndex options
+ *
+ * @interface ScrollToIndexOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare interface ScrollToIndexOptions {
+  /**
+   * The extra offset of scrolling to the index, unit is vp.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  extraOffset?: LengthMetrics;
 }
 
 /**
@@ -476,16 +525,30 @@ declare class Scroller {
    * @atomicservice
    * @since 11
    */
-  scrollEdge(value: Edge);
+  /**
+   * Called when scrolling to the edge of the container.
+   *
+   * @param { Edge } value - Edge type of the container.
+   * @param { ScrollEdgeOptions } [options] - Options of scrolling to edge.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  scrollEdge(value: Edge, options?: ScrollEdgeOptions);
 
   /**
    * Fling the scroll view.
    *
    * @param { number } velocity - initial velocity of fling, in vp/s.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100004 - Controller not bound to component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   fling(velocity: number): void;
@@ -520,6 +583,7 @@ declare class Scroller {
    * @param { ScrollPageOptions } value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   scrollPage(value: ScrollPageOptions);
@@ -588,7 +652,19 @@ declare class Scroller {
    * @atomicservice
    * @since 11
    */
-  scrollToIndex(value: number, smooth?: boolean, align?: ScrollAlign);
+  /**
+   * Scroll to the specified index.
+   *
+   * @param { number } value - Index to jump to.
+   * @param { boolean } [smooth] - If true, scroll to index item with animation. If false, scroll to index item without animation.
+   * @param { ScrollAlign } [align] - Sets the alignment mode of a specified index.
+   * @param { options } [ScrollToIndexOptions] - Sets the options of a specified index, such as extra offset.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  scrollToIndex(value: number, smooth?: boolean, align?: ScrollAlign, options?: ScrollToIndexOptions);
 
   /**
    * Called when the setting slides by offset.
@@ -643,19 +719,38 @@ declare class Scroller {
    *
    * @param { number } index - Index of the item.
    * @returns { RectResult } Returns the size and position.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100004 - Controller not bound to component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
+  /**
+   * Get child item size and position.
+   *
+   * @param { number } index - Index of the item.
+   * @returns { RectResult } Returns the size and position.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100004 - Controller not bound to component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   getItemRect(index: number): RectResult;
 }
 
-/*
+/**
  * Define scroll page options
  * @interface ScrollPageOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
  */
 declare interface ScrollPageOptions {
@@ -665,6 +760,7 @@ declare interface ScrollPageOptions {
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   next: boolean;
@@ -676,6 +772,7 @@ declare interface ScrollPageOptions {
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   animation?: boolean;
@@ -920,15 +1017,13 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
   /**
    * Called when the Scroll will scroll.
    *
-   * @param { ScrollOnScrollCallback } handler - callback of Scroll,
-   * xOffset and yOffset are offsets this frame will scroll, which may or may not be reached.
-   * scrollState is current scroll state.
+   * @param { ScrollOnWillScrollCallback } handler - callback of Scroll
    * @returns { ScrollAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  onWillScroll(handler: ScrollOnScrollCallback): ScrollAttribute;
+  onWillScroll(handler: ScrollOnWillScrollCallback): ScrollAttribute;
 
   /**
    * Called when the Scroll did scroll.
@@ -1277,6 +1372,16 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Determines whether the scroll view stops on multiples of the content size when the user scrolls.
+   *
+   * @param { boolean } value - A boolean value determines whether paging is enabled for scroll.
+   * @returns { ScrollAttribute } the attribute of the scroll.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   enablePaging(value: boolean): ScrollAttribute;
   
   /**
@@ -1291,14 +1396,35 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
   initialOffset(value: OffsetOptions): ScrollAttribute;
 }
 
-  /**
-   * callback of Scroll, using in onWillScroll and onDidScroll.
-   * 
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
+/**
+ * callback of Scroll, using in onDidScroll.
+ * 
+ * @typedef { function } ScrollOnScrollCallback
+ * @param { number } xOffset - horizontal offset this frame did scroll.
+ * @param { number } yOffset - vertical offset this frame did scroll.
+ * @param { ScrollState } scrollState - current scroll state.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
 declare type ScrollOnScrollCallback = (xOffset: number, yOffset: number, scrollState: ScrollState) => void;
+
+/**
+  * Called before scroll to allow developer to control real offset the Scroll can scroll.
+  *
+  * @typedef { function } ScrollOnWillScrollCallback
+  * @param { number } xOffset - horizontal offset this frame will scroll, which may or may not be reached.
+  * @param { number } yOffset - vertical offset this frame will scroll, which may or may not be reached.
+  * @param { ScrollState } scrollState - current scroll state.
+  * @param { ScrollSource } scrollSource - source of current scroll.
+  * @returns { void | OffsetResult } the remain offset for the Scroll, 
+  *     same as (xOffset, yOffset) when no OffsetResult is returned.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+declare type ScrollOnWillScrollCallback =
+ (xOffset: number, yOffset: number, scrollState: ScrollState, scrollSource: ScrollSource) => void | OffsetResult;
 
 /**
  * Defines Scroll Component.

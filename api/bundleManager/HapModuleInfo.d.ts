@@ -593,16 +593,6 @@ export interface RouterItem {
    */
   readonly name: string;
   /**
-   * Indicates the name of the module to which the current page belongs
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 12
-   */
-  readonly pageModule: string;
-  /**
    * Indicates the file path of the current page within the module
    *
    * @type { string }
@@ -623,28 +613,7 @@ export interface RouterItem {
    */
   readonly buildFunction: string;
   /**
-   * Indicates the custom data
-   *
-   * @type { Array<DataItem> }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 12
-   */
-  readonly data: Array<DataItem>;
-}
-
-/**
- * Indicates the data item defined in router item
- *
- * @typedef DataItem
- * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @atomicservice
- * @since 12
- */
-export interface DataItem {
-  /**
-   * Indicates the key of the custom data item
+   * Indicates the json string of custom data
    *
    * @type { string }
    * @readonly
@@ -652,15 +621,5 @@ export interface DataItem {
    * @atomicservice
    * @since 12
    */
-  readonly key: string;
-  /**
-   * Indicates the value of the custom data item
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 12
-   */
-  readonly value: string;
+  readonly data: string;
 }
