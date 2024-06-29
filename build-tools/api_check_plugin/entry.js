@@ -61,7 +61,6 @@ function checkEntry(prId) {
         const apiIndex = filePath.indexOf('api');
         const arktsIndex = filePath.indexOf('arkts');
         newToolResultInfo.buggyFilePath = filePath.slice(apiIndex !== -1 ? apiIndex : arktsIndex !== -1 ? arktsIndex : 0, filePath.length);
-        newToolResult.push('filePath==', filePath, 'apiIndex=', apiIndex, 'arktsIndex==', arktsIndex, 'buggyFilePath==', newToolResultInfo.buggyFilePath);
         newToolResult.push(newToolResultInfo);
       });
       newToolResult.push('api_check: false');

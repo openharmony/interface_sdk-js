@@ -401,10 +401,6 @@ export class TagValueCheck {
     tagsName?.forEach((tag: Comment.CommentTag) => {
       allTagName.push(tag.tag);
     });
-    if (throwsTagName === '201' && !allTagName.includes('permission')) {
-      throwsValueCheckResult.state = false;
-      throwsValueCheckResult.errorInfo = CommonFunctions.createErrorInfo(ErrorMessage.ERROR_LOST_LABEL, ['permission']);
-    }
     return throwsValueCheckResult;
   }
 
