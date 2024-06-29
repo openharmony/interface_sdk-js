@@ -14,11 +14,9 @@
  */
 
 import path from 'path';
-import fs from 'fs';
-import { FileUtils } from './FileUtils';
 import { NumberConstant } from './Constant';
-import { kitData } from '../../kit.json'
-import { fileContent } from '../../subsystem.json'
+import { kitData } from '../../kit.json';
+import { fileContent } from '../../subsystem.json';
 
 export class FunctionUtils {
   /**

@@ -69,7 +69,13 @@ export namespace DiffProcessorHelper {
    *
    */
   export class JsDocDiffHelper {
-    static diffJsDocInfo(oldApiInfo: ApiInfo, newApiInfo: ApiInfo, diffInfos: BasicDiffInfo[]): void {
+    static diffJsDocInfo(
+      oldApiInfo: ApiInfo,
+      newApiInfo: ApiInfo,
+      diffInfos: BasicDiffInfo[],
+      isAllDeprecated?: boolean,
+      isAllSheet?: boolean
+    ): void {
       const oldJsDocInfo: Comment.JsDocInfo | undefined = oldApiInfo.getLastJsDocInfo();
       const newJsDocInfo: Comment.JsDocInfo | undefined = newApiInfo.getLastJsDocInfo();
       JsDocDiffHelper.diffSinceVersion(oldApiInfo, newApiInfo, diffInfos);
@@ -80,7 +86,7 @@ export namespace DiffProcessorHelper {
       });
       for (let i = 0; i < jsDocDiffProcessors.length; i++) {
         const jsDocDiffProcessor: JsDocDiffProcessor | undefined = jsDocDiffProcessors[i];
-        const diffType: DiffTypeInfo | undefined = jsDocDiffProcessor(oldJsDocInfo, newJsDocInfo);
+        const diffType: DiffTypeInfo | undefined = jsDocDiffProcessor(oldJsDocInfo, newJsDocInfo, isAllDeprecated, isAllSheet);
         if (!diffType) {
           continue;
         }
@@ -351,7 +357,9 @@ export namespace DiffProcessorHelper {
 
     static diffDeprecated(
       oldJsDocInfo: Comment.JsDocInfo | undefined,
-      newJsDocInfo: Comment.JsDocInfo | undefined
+      newJsDocInfo: Comment.JsDocInfo | undefined,
+      isAllDeprecated?: boolean,
+      isAllSheet?: boolean
     ): DiffTypeInfo | undefined {
       const diffTypeInfo: DiffTypeInfo = new DiffTypeInfo();
       const deprecatedVersionOfOld: string = oldJsDocInfo ? oldJsDocInfo.getDeprecatedVersion() : '-1';
@@ -363,12 +371,27 @@ export namespace DiffProcessorHelper {
       if (deprecatedVersionOfNew === deprecatedVersionOfOld) {
         return undefined;
       }
-      if (deprecatedVersionOfOld === '-1') {
-        return diffTypeInfo.setDiffType(ApiDiffType.DEPRECATED_NA_TO_HAVE);
+      if (isAllSheet) {
+        if (deprecatedVersionOfOld === '-1' && !isAllDeprecated) {
+          return diffTypeInfo.setDiffType(ApiDiffType.DEPRECATED_NOT_All);
+        }
+        if (deprecatedVersionOfOld === '-1' && isAllDeprecated) {
+          return diffTypeInfo.setDiffType(ApiDiffType.DEPRECATED_NA_TO_HAVE);
+        }
+      } else {
+        if (deprecatedVersionOfOld === '-1') {
+          return diffTypeInfo.setDiffType(ApiDiffType.DEPRECATED_NA_TO_HAVE);
+        }
+        if (deprecatedVersionOfNew === '-1') {
+          return diffTypeInfo.setDiffType(ApiDiffType.DEPRECATED_HAVE_TO_NA);
+        }
+  
       }
+      
       if (deprecatedVersionOfNew === '-1') {
         return diffTypeInfo.setDiffType(ApiDiffType.DEPRECATED_HAVE_TO_NA);
       }
+
       return diffTypeInfo.setDiffType(ApiDiffType.DEPRECATED_A_TO_B);
     }
   }
@@ -1049,14 +1072,8 @@ export namespace DiffProcessorHelper {
     static diffMethodParamType(oldApiInfo: ParamInfo, newApiInfo: ParamInfo): ApiDiffType | undefined {
       const oldParamType: string[] = oldApiInfo.getType();
       const newParamType: string[] = newApiInfo.getType();
-      const oldParamTypeStr: string = oldParamType
-        .toString()
-        .replace(/\r|\n|\s+|'|"/g, '')
-        .replace(/\|/g, '\\|');
-      const newParamTypeStr: string = newParamType
-        .toString()
-        .replace(/\r|\n|\s+|'|"/g, '')
-        .replace(/\|/g, '\\|');
+      const oldParamTypeStr: string = oldParamType.toString().replace(/\r|\n|\s+|'|"/g, '').replace(/\|/g, "\\|");
+      const newParamTypeStr: string = newParamType.toString().replace(/\r|\n|\s+|'|"/g, '').replace(/\|/g, `\\|`);
       if (oldParamTypeStr === newParamTypeStr) {
         return undefined;
       }
