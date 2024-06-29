@@ -476,6 +476,18 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @since 12
    */
   enableHapticFeedback(enable: boolean): TimePickerAttribute;
+
+  /**
+   * If the attribute is set, the crown rotation sensitivity can be changed.
+   *
+   * @param { Optional<CrownSensitivity> } sensitivity
+   * @returns { TimePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  digitalCrownSensitivity(sensitivity: Optional<CrownSensitivity>): TimePickerAttribute;
 }
 
 /**
