@@ -101,62 +101,62 @@ declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexe
   /**
    * Definitions text color.
    *
-   * @param { Optional<ResourceColor> } color
+   * @param { Optional<ColorMetrics> } color
    * @returns { ArcAlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  color(color: Optional<ResourceColor>): ArcAlphabetIndexerAttribute;
+  color(color: Optional<ColorMetrics>): ArcAlphabetIndexerAttribute;
 
   /**
    * Selected text color.
    *
-   * @param { Optional<ResourceColor> } color
+   * @param { Optional<ColorMetrics> } color
    * @returns { ArcAlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  selectedColor(color: Optional<ResourceColor>): ArcAlphabetIndexerAttribute;
+  selectedColor(color: Optional<ColorMetrics>): ArcAlphabetIndexerAttribute;
 
   /**
    * Font color of the pop-up prompt text.
    *
-   * @param { Optional<ResourceColor> } color
+   * @param { Optional<ColorMetrics> } color
    * @returns { ArcAlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  popupColor(color: Optional<ResourceColor>): ArcAlphabetIndexerAttribute;
+  popupColor(color: Optional<ColorMetrics>): ArcAlphabetIndexerAttribute;
 
   /**
    * Select the text background color.
    *
-   * @param { Optional<ResourceColor> } color
+   * @param { Optional<ColorMetrics> } color
    * @returns { ArcAlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  selectedBackgroundColor(color: Optional<ResourceColor>): ArcAlphabetIndexerAttribute;
+  selectedBackgroundColor(color: Optional<ColorMetrics>): ArcAlphabetIndexerAttribute;
 
   /**
    * Background color of the pop-up window.
    *
-   * @param { Optional<ResourceColor> } color
+   * @param { Optional<ColorMetrics> } color
    * @returns { ArcAlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  popupBackground(color: Optional<ResourceColor>): ArcAlphabetIndexerAttribute;
+  popupBackground(color: Optional<ColorMetrics>): ArcAlphabetIndexerAttribute;
 
   /**
    * Whether to use pop-up index hints.
@@ -209,14 +209,14 @@ declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexe
   /**
    * Size of the letter area on the letter index bar. The letter area is a circle. Set the diameter of the circle.
    *
-   * @param { Optional<string | number> } size
+   * @param { Optional<LengthMetrics> } size
    * @returns { ArcAlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  itemSize(size: Optional<string | number>): ArcAlphabetIndexerAttribute;
+  itemSize(size: Optional<LengthMetrics>): ArcAlphabetIndexerAttribute;
 
   /**
    * Sets the selected index.
