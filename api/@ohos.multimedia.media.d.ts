@@ -1572,6 +1572,7 @@ declare namespace media {
      * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
      * @since 12
      */
     addSubtitleFromFd(fd: number, offset?: number, length?: number): Promise<void>;
@@ -1584,6 +1585,7 @@ declare namespace media {
      * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
      * @since 12
      */
     addSubtitleFromUrl(url: string): Promise<void>;
@@ -2315,6 +2317,7 @@ declare namespace media {
      * @param { 'subtitleUpdate' } type - Type of the event to listen for.
      * @param { Callback<SubtitleInfo> } callback - Callback used to listen subtitle update event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
      * @since 12
      */
     on(type: 'subtitleUpdate', callback: Callback<SubtitleInfo>): void
@@ -2324,6 +2327,7 @@ declare namespace media {
      * @param { 'subtitleUpdate' } type - Type of the event to listen for.
      * @param { Callback<SubtitleInfo> } callback - Callback used to listen subtitle update event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
      * @since 12
      */
     off(type: 'subtitleUpdate', callback?: Callback<SubtitleInfo>): void
