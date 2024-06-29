@@ -32,6 +32,13 @@ export class OrderCheck {
     if (tagsOrder === undefined) {
       return orderCheckResult;
     }
+    const tagsNameOrder: string[] = [];
+    tagsOrder.forEach((tagsOrder: Comment.CommentTag) => { tagsNameOrder.push(tagsOrder.tag) });
+
+    if (tagsNameOrder.includes('deprecated')) {
+      return orderCheckResult;
+    }
+    
     for (let tagIndex = 0; tagIndex < tagsOrder.length; tagIndex++) {
       if (tagIndex + 1 < tagsOrder.length) {
         // 获取前后两个tag下标
