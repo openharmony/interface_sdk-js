@@ -1086,6 +1086,61 @@ declare namespace window {
     height: number;
   }
 
+/**
+   * The info of window
+   *
+   * @interface WindowInfo
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @since 12
+   */
+interface WindowInfo {
+  /**
+   * The position and size of the window
+   *
+   * @type { Rect }
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 12
+   */
+  rect: Rect;
+
+  /**
+   * abilityName of window
+   *
+   * @type { string }
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 12
+   */
+  bundleName: string;
+
+  /**
+   * abilityName of window
+   *
+   * @type { string }
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 7
+   */
+  abilityName: string;
+
+  /**
+   * Indicates target window id.
+   *
+   * @type { number }
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 12
+   */
+  windowId: number;
+
+  /**
+   * Indicate the mode of a window.
+   *
+   * @type { WindowMode }
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 12
+   */
+  windowMode: WindowMode;
+}
+
   /**
    * Properties of window, it couldn't update automatically
    *
@@ -2379,6 +2434,22 @@ declare namespace window {
    * @since 11
    */
   function shiftAppWindowFocus(sourceWindowId: number, targetWindowId: number): Promise<void>;
+
+  /**
+   * Get info of the window.
+   *
+   * @param { number } sourceWindowId - Window id which the focus shift from.
+   * @param { number } targetWindowId - Window id which the focus shift to.
+   * @returns { Promise<Array<WindowInfo>> } - Promise that returns no value.
+   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
+   * @throws { BusinessError } 1300002 - This window state is abnormal.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @throws { BusinessError } 1300004 - Unauthorized operation.
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  function getWindowInfo(): Promise<Array<WindowInfo>>;
 
   /**
    * gets snapshot of window
