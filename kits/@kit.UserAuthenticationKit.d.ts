@@ -20,6 +20,6 @@
 
 import faceAuth from '@ohos.userIAM.faceAuth';
 import userAuth from '@ohos.userIAM.userAuth';
-import userAuthIcon from '@ohos.userIAM.userAuthIcon';
+import UserAuthIcon from '@ohos.userIAM.userAuthIcon';
 
-export { faceAuth, userAuth, userAuthIcon };
+export { faceAuth, userAuth, UserAuthIcon };
