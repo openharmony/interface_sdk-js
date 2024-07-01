@@ -1090,7 +1090,7 @@ declare namespace window {
    * The info of window
    *
    * @interface WindowInfo
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @syscap SystemCapability.Window.SessionManager
    * @systemapi
    * @since 12
    */
@@ -1099,7 +1099,8 @@ interface WindowInfo {
    * The position and size of the window
    *
    * @type { Rect }
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi
    * @since 12
    */
   rect: Rect;
@@ -1108,7 +1109,8 @@ interface WindowInfo {
    * bundleName of window
    *
    * @type { string }
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi
    * @since 12
    */
   bundleName: string;
@@ -1117,7 +1119,8 @@ interface WindowInfo {
    * abilityName of window
    *
    * @type { string }
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi
    * @since 12
    */
   abilityName: string;
@@ -1126,7 +1129,8 @@ interface WindowInfo {
    * Indicates target window id.
    *
    * @type { number }
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi
    * @since 12
    */
   windowId: number;
@@ -1135,7 +1139,7 @@ interface WindowInfo {
    * The window status of an application.
    *
    * @type { WindowStatusType }
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @syscap SystemCapability.Window.SessionManager
    * @since 12
    */
   windowStatusType: WindowStatusType;
