@@ -708,6 +708,28 @@ export class RenderNode {
   get shadowOffset(): Offset;
 
   /**
+   * Set label of the RenderNode.
+   *
+   * @param { string } label - the label of the RenderNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  set label(label: string);
+
+  /**
+   * Get label of the RenderNode.
+   *
+   * @returns { string } - Returns the label of the RenderNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  get label(): string;
+
+  /**
    * Set shadow alpha of the RenderNode.
    *
    * @param { number } alpha - the shadow alpha of the RenderNode.
