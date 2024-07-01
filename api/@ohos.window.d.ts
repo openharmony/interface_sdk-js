@@ -1105,7 +1105,7 @@ interface WindowInfo {
   rect: Rect;
 
   /**
-   * abilityName of window
+   * bundleName of window
    *
    * @type { string }
    * @syscap SystemCapability.WindowManager.WindowManager.Core
