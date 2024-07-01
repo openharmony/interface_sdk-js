@@ -359,7 +359,7 @@ declare namespace netFirewall {
     isOpen: boolean;
 
     /**
-     * Inbound connections are allowed by default or the organization.
+     * Inbound connections are allowed or denied by default.
      *
      * @type {FirewallRuleAction}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
@@ -369,7 +369,7 @@ declare namespace netFirewall {
     inAction: FirewallRuleAction;
 
     /**
-     * Outbound connections are allowed by default or the organization.
+     * Outbound connections are allowed or denied by default.
      *
      * @type {FirewallRuleAction}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
@@ -389,7 +389,7 @@ declare namespace netFirewall {
    */
   interface NetFirewallIpParam {
     /**
-     * 1: IP address or subnet, when using a single IP, the mask is 32,2: IP segment.
+     * 1: IP address or subnet, when using a single IP, the mask is 32; 2: IP segment.
      *
      * @type {number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
@@ -398,7 +398,7 @@ declare namespace netFirewall {
      */
     type: number;
     /**
-     * IPv4=1, IPv6=2, default IPv4.
+     * 1: IPv4, 2: IPv6, default is IPv4.
      *
      * @type {?number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
@@ -416,7 +416,7 @@ declare namespace netFirewall {
      */
     address?: string;
     /**
-     * IPv4: subnet mask, IPv6: prefix, Valid when type equals 1, otherwise it will be ignored.
+     * IPv4: subnet mask, IPv6: prefix, valid when type equals 1, otherwise it will be ignored.
      *
      * @type {?number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
@@ -425,7 +425,7 @@ declare namespace netFirewall {
      */
     mask?: number;
     /**
-     * Starting IP: Valid when type equals 2, otherwise it will be ignored.
+     * Starting IP: valid when type equals 2, otherwise it will be ignored.
      *
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
@@ -434,7 +434,7 @@ declare namespace netFirewall {
      */
     startIp?: string;
     /**
-     * End IP: Valid when type equals 2, otherwise it will be ignored.
+     * Ending IP: valid when type equals 2, otherwise it will be ignored.
      *
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
@@ -463,7 +463,7 @@ declare namespace netFirewall {
      */
     startPort: number;
     /**
-     * End port, when there is only one port, the start port is the same as the end port.
+     * Ending port, when there is only one port, the start port is the same as the end port.
      *
      * @type {number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
@@ -492,7 +492,7 @@ declare namespace netFirewall {
      */
     isWildcard: boolean;
     /**
-     * Domain:When isWildcard is false, the complete domain that needs to be determined;
+     * Domain: when isWildcard is false, the complete domain that needs to be determined;
      * When isWildcard is true, fuzzy domain only support domains like *.huawei.com; *.com.
      *
      * @type {string}
@@ -542,6 +542,15 @@ declare namespace netFirewall {
    */
   interface NetFirewallRule {
     /**
+     * User id.
+     *
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetManager.NetFirewall
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    userId: number;
+    /**
      * Rule name.
      *
      * @type {string}
@@ -587,15 +596,6 @@ declare namespace netFirewall {
      */
     isEnabled: boolean;
     /**
-     * User id.
-     *
-     * @type {number}
-     * @syscap SystemCapability.Communication.NetManager.NetFirewall
-     * @systemapi Hide this for inner system use.
-     * @since 12
-     */
-    userId: number;
-    /**
      * Rule id: When a rule is added to the system, the system generates a rule ID.
      *
      * @type {?number}
@@ -614,7 +614,7 @@ declare namespace netFirewall {
      */
     description?: string;
     /**
-     * Application or Service UID.
+     * Application or service UID.
      *
      * @type {?number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
@@ -623,7 +623,7 @@ declare namespace netFirewall {
      */
     appUid?: number;
     /**
-     * Local IP address: Valid when ruleType = RULE_IP, otherwise it will be ignored.
+     * Local IP address: valid when ruleType = RULE_IP, otherwise it will be ignored.
      *
      * @type {?Array<NetFirewallIpParam>}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
@@ -632,7 +632,7 @@ declare namespace netFirewall {
      */
     localIps?: Array<NetFirewallIpParam>;
     /**
-     * Remote IP address: Valid when ruleType = RULE_IP, otherwise it will be ignored.
+     * Remote IP address: valid when ruleType = RULE_IP, otherwise it will be ignored.
      *
      * @type {?Array<NetFirewallIpParam>}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
@@ -641,7 +641,7 @@ declare namespace netFirewall {
      */
     remoteIps?: Array<NetFirewallIpParam>;
     /**
-     * Protocol, ICMPv4: 1, TCP: 6, UDP: 17, ICMPv6:58. Valid when ruleType = RULE_IP, otherwise it will be ignored.
+     * Protocol, 1: ICMPv4, 6: TCP, 17: UDP, 58: ICMPv6. Valid when ruleType = RULE_IP, otherwise it will be ignored.
      *
      * @type {?number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
@@ -650,7 +650,7 @@ declare namespace netFirewall {
      */
     protocol?: number;
     /**
-     * Local Port: Valid when ruleType = RULE_IP, otherwise it will be ignored.
+     * Local ports: valid when ruleType = RULE_IP, otherwise it will be ignored.
      *
      * @type {?Array<NetFirewallPortParam>}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
@@ -659,7 +659,7 @@ declare namespace netFirewall {
      */
     localPorts?: Array<NetFirewallPortParam>;
     /**
-     * Remote Port: Valid when ruleType = RULE_IP, otherwise it will be ignored.
+     * Remote ports: valid when ruleType = RULE_IP, otherwise it will be ignored.
      *
      * @type {?Array<NetFirewallPortParam>}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
@@ -668,7 +668,7 @@ declare namespace netFirewall {
      */
     remotePorts?: Array<NetFirewallPortParam>;
     /**
-     * Domain Name List: Valid when ruleType = RULE_DOMAIN, otherwise it will be ignored.
+     * Domain name list: valid when ruleType = RULE_DOMAIN, otherwise it will be ignored.
      *
      * @type {?Array<NetFirewallDomainParam>}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
@@ -677,7 +677,7 @@ declare namespace netFirewall {
      */
     domains?: Array<NetFirewallDomainParam>;
     /**
-     * DNS: Valid when ruleType = RULE_DNS, otherwise it will be ignored.
+     * DNS: valid when ruleType = RULE_DNS, otherwise it will be ignored.
      *
      * @type {?NetFirewallDnsParam}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
@@ -688,7 +688,7 @@ declare namespace netFirewall {
   }
 
   /**
-   * Interception Record.
+   * Interception record.
    *
    * @interface InterceptRecord
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
@@ -724,7 +724,7 @@ declare namespace netFirewall {
      */
     remoteIp?: string;
     /**
-     * Local Port.
+     * Local port.
      *
      * @type {?number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
@@ -733,7 +733,7 @@ declare namespace netFirewall {
      */
     localPort?: number;
     /**
-     * Remote Port.
+     * Remote port.
      *
      * @type {?number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
@@ -742,7 +742,7 @@ declare namespace netFirewall {
      */
     remotePort?: number;
     /**
-     * Transport Layer Protocol.
+     * Transport layer protocol.
      *
      * @type {?number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
@@ -751,7 +751,7 @@ declare namespace netFirewall {
      */
     protocol?: number;
     /**
-     * Application or Service ID.
+     * Application or service ID.
      *
      * @type {?number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
@@ -780,7 +780,7 @@ declare namespace netFirewall {
    */
   interface RequestParam {
     /**
-     * Page No.: Indicates the page number to be queried.The start value is 1.
+     * Page number: indicates the page number to be queried. The start value is 1.
      *
      * @type {number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
@@ -789,7 +789,7 @@ declare namespace netFirewall {
      */
     page: number;
     /**
-     * Page size: Indicates the number of data records to be queried at a time. The maximum value is 50.
+     * Page size: indicates the number of data records to be queried at a time. The maximum value is 50.
      *
      * @type {number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
@@ -807,7 +807,7 @@ declare namespace netFirewall {
      */
     orderField: NetFirewallOrderField;
     /**
-     * Sort Type: Ascending or descending.
+     * Sort Type: ascending or descending.
      *
      * @type {NetFirewallOrderType}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
@@ -827,7 +827,7 @@ declare namespace netFirewall {
    */
   interface FirewallRulePage {
     /**
-     * Current page No.: Indicates the page number of this query.
+     * Current page number: indicates the page number of this query.
      *
      * @type {number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
@@ -836,7 +836,7 @@ declare namespace netFirewall {
      */
     page: number;
     /**
-     * Page size: Maximum number of records on a page for this query.
+     * Page size: maximum number of records on a page for this query.
      *
      * @type {number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
@@ -845,7 +845,7 @@ declare namespace netFirewall {
      */
     pageSize: number;
     /**
-     * Total pages: Total number of pages.
+     * Total pages: total number of pages.
      *
      * @type {number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
@@ -854,7 +854,7 @@ declare namespace netFirewall {
      */
     totalPage: number;
     /**
-     * Page data: All records displayed on this page.
+     * Page data: all records displayed on this page.
      *
      * @type {Array<NetFirewallRule> }
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
@@ -874,7 +874,7 @@ declare namespace netFirewall {
    */
   interface InterceptRecordPage {
     /**
-     * Current page No.: Indicates the page number of this query.
+     * Current page number: indicates the page number of this query.
      *
      * @type {number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
@@ -883,7 +883,7 @@ declare namespace netFirewall {
      */
     page: number;
     /**
-     * Page size: Maximum number of records on a page for this query.
+     * Page size: maximum number of records on a page for this query.
      *
      * @type {number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
@@ -892,7 +892,7 @@ declare namespace netFirewall {
      */
     pageSize: number;
     /**
-     * Total pages: Total number of pages.
+     * Total pages: total number of pages.
      *
      * @type {number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
@@ -901,7 +901,7 @@ declare namespace netFirewall {
      */
     totalPage: number;
     /**
-     * Page data: All records displayed on this page.
+     * Page data: all records displayed on this page.
      *
      * @type {Array<InterceptRecord>}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
