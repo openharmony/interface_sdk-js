@@ -2443,7 +2443,7 @@ interface WindowInfo {
   /**
    * Get info of the window.
    *
-   * @returns { Promise<Array<WindowInfo>> } - Promise that returns no value.
+   * @returns { Promise<Array<WindowInfo>> } - Promise that returns windowInfo list.
    * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
    * @throws { BusinessError } 1300002 - This window state is abnormal.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
