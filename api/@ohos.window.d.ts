@@ -1091,7 +1091,7 @@ declare namespace window {
    *
    * @interface WindowInfo
    * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @crossplatform
+   * @systemapi
    * @since 12
    */
 interface WindowInfo {
@@ -1132,13 +1132,13 @@ interface WindowInfo {
   windowId: number;
 
   /**
-   * Indicate the mode of a window.
+   * The window status of an application.
    *
-   * @type { WindowMode }
+   * @type { WindowStatusType }
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 12
    */
-  windowMode: WindowMode;
+  windowStatusType: WindowStatusType;
 }
 
   /**
@@ -2438,8 +2438,6 @@ interface WindowInfo {
   /**
    * Get info of the window.
    *
-   * @param { number } sourceWindowId - Window id which the focus shift from.
-   * @param { number } targetWindowId - Window id which the focus shift to.
    * @returns { Promise<Array<WindowInfo>> } - Promise that returns no value.
    * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
    * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -2449,7 +2447,7 @@ interface WindowInfo {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  function getWindowInfo(): Promise<Array<WindowInfo>>;
+  function getVisibleWindowInfo(): Promise<Array<WindowInfo>>;
 
   /**
    * gets snapshot of window
