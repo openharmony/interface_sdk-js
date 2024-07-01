@@ -1118,7 +1118,7 @@ interface WindowInfo {
    *
    * @type { string }
    * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @since 7
+   * @since 12
    */
   abilityName: string;
 
