@@ -1140,6 +1140,7 @@ interface WindowInfo {
    *
    * @type { WindowStatusType }
    * @syscap SystemCapability.Window.SessionManager
+   * @systemapi
    * @since 12
    */
   windowStatusType: WindowStatusType;
