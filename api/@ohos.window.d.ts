@@ -7510,6 +7510,15 @@ declare namespace window {
     windowType: WindowType;
   }
 
+  /**
+   * Configuration of extension window.
+   *
+   * @interface ExtensionWindowConfig
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 12
+   */
   interface ExtensionWindowConfig {
 
     /**
@@ -7548,7 +7557,7 @@ declare namespace window {
     /**
      * The options of sub window creation.
      *
-     * @type { SubWindowOptions }
+     * @type { ?SubWindowOptions }
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
@@ -7559,7 +7568,7 @@ declare namespace window {
     /**
      * The options of system window creation.
      *
-     * @type { SystemWindowOptions }
+     * @type { ?SystemWindowOptions }
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
