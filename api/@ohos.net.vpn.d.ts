@@ -292,7 +292,7 @@ declare namespace vpn {
 
   /**
    * Define configuration of the VPN network.
-   * @interface VpnConfig
+   * @typedef VpnConfig
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -400,7 +400,8 @@ declare namespace vpn {
 
   /**
    * Define configuration of the system VPN network.
-   * @interface SysVpnConfig
+   * @typedef SysVpnConfig
+   * @extends VpnConfig
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @systemapi Hide this for inner system use.
    * @since 12
@@ -482,7 +483,8 @@ declare namespace vpn {
 
   /**
    * Define configuration of the open VPN network.
-   * @interface OpenVpnConfig
+   * @typedef OpenVpnConfig
+   * @extends SysVpnConfig
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @systemapi Hide this for inner system use.
    * @since 12
@@ -572,7 +574,8 @@ declare namespace vpn {
 
   /**
    * Define configuration of the ipsec VPN network.
-   * @interface IpsecVpnConfig
+   * @typedef IpsecVpnConfig
+   * @extends SysVpnConfig
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @systemapi Hide this for inner system use.
    * @since 12
@@ -890,7 +893,7 @@ declare namespace vpn {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    IKEV2_IPSEC_MSCHAPv2 = 1,
+    IKEV2_IPSEC_MSCHAPV2 = 1,
 
     /**
      * The type for the IKEv2/IPsec PSK VPN network.
