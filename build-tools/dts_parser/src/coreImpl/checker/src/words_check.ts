@@ -94,8 +94,7 @@ export class WordsCheck {
             .setErrorType(ErrorType.MISSPELL_WORDS)
             .setLogType(LogType.LOG_JSDOC)
             .setErrorInfo(wordsCheckFormat.errorInfo);
-          const apiInfoSpell: ApiCheckInfo = CommonFunctions.getErrorInfo(baseInfo, undefined, baseInfo.getFilePath(),
-            errorBaseInfo);
+          const apiInfoSpell: ApiCheckInfo = CommonFunctions.getErrorInfo(baseInfo, undefined, baseInfo.getFileAbsolutePath(), errorBaseInfo);
           AddErrorLogs.addAPICheckErrorLogs(apiInfoSpell, compositiveResult, compositiveLocalResult);
         }
       });
