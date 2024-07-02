@@ -6739,50 +6739,6 @@ declare namespace webview {
     attributes: Record<string, string>,
   }
 
-  interface BackForwardCacheSupportFeatures {
-    /**
-     * Whether cache the pages that use native embed.
-     * Default is false;
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 11
-     */
-    NativeEmbed?: boolean;
-
-    /**
-     * Whether cache the pages that use media intercpet.
-     * Default is false;
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 11
-     */
-    MediaIntercept?: boolean;
-  }
-
-  interface BackForwardCacheOptions {
-    /**
-     * Set the maximum size of pages that can cache.
-     * Default is 1;
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 11
-     */
-    size?: number;
-
-    /**
-     * Set the lifetime in seconds in the BackForwardCache.
-     * Default is 600.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 11
-     */
-    timeToLive? : number;
-  }
-
   /**
    * The callback of creating a native media player.
    *
@@ -6866,6 +6822,50 @@ declare namespace webview {
      * @since 12
      */
     static clearAdsBlockAllowedList(): void;
+  }
+
+  class BackForwardCacheSupportFeatures {
+    /**
+     * Whether cache the pages that use native embed.
+     * Default is false;
+     *
+     * @type { number }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    nativeEmbed: boolean;
+
+    /**
+     * Whether cache the pages that use media intercpet.
+     * Default is false;
+     *
+     * @type { number }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    mediaIntercept: boolean;
+  }
+
+  class BackForwardCacheOptions {
+    /**
+     * Set the maximum size of pages that can cache.
+     * Default is 1;
+     *
+     * @type { number }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    size: number;
+
+    /**
+     * Set the lifetime in seconds in the BackForwardCache.
+     * Default is 600.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    timeToLive: number;
   }
 
 }
