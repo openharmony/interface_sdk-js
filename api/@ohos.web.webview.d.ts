@@ -4910,14 +4910,14 @@ declare namespace webview {
     setPathAllowingUniversalAccess(pathList: Array<string>): void;
 
     /**
-     * Enable the BackForwardCache.
+     * Enable the BackForwardCache and indicate features that are allowed to enter BackForwardCache.
      * Default is disabled.
      *
-     * @param { BackForwardCacheSupportFeatures } options - The features that supports BackForwardCache.
+     * @param { BackForwardCacheSupportedFeatures } features - The features that supports BackForwardCache.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 11
+     * @since 12
      */
-    static enableBackForwardCache(features: BackForwardCacheSupportFeatures): void;
+    static enableBackForwardCache(features: BackForwardCacheSupportedFeatures): void;
 
     /**
      * Configure the BackForwardCache.
@@ -6839,36 +6839,54 @@ declare namespace webview {
     static clearAdsBlockAllowedList(): void;
   }
 
-  class BackForwardCacheSupportFeatures {
+  /**
+   * This class is used to enable back forward cache supported features.
+   * 
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  class BackForwardCacheSupportedFeatures {
     /**
      * Whether cache the pages that use native embed.
      * Default is false;
      *
-     * @type { number }
+     * @type { boolean }
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 11
+     * @since 12
      */
     nativeEmbed: boolean;
 
     /**
-     * Whether cache the pages that use media intercpet.
+     * Whether cache the pages that use media take over.
      * Default is false;
      *
-     * @type { number }
+     * @type { boolean }
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 11
+     * @since 12
      */
-    mediaIntercept: boolean;
+    mediaTakeOver: boolean;
+
+    /**
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    constructor();
   }
 
+  /**
+   * This class is used to set back forward cache options.
+   * 
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
   class BackForwardCacheOptions {
     /**
      * Set the maximum size of pages that can cache.
-     * Default is 1;
+     * Default is 1, max is 50.
      *
      * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 11
+     * @since 12
      */
     size: number;
 
@@ -6878,9 +6896,15 @@ declare namespace webview {
      *
      * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 11
+     * @since 12
      */
     timeToLive: number;
+
+    /**
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    constructor();
   }
 
 }
