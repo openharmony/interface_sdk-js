@@ -1086,7 +1086,7 @@ declare namespace window {
     height: number;
   }
 
-/**
+  /**
    * The info of window
    *
    * @interface WindowInfo
