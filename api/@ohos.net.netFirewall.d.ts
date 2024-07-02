@@ -156,7 +156,7 @@ declare namespace netFirewall {
   function getNetFirewallRules(userId: number, requestParam: RequestParam): Promise<FirewallRulePage>;
 
   /**
-   * Get information about the specified rule ID.
+   * Get a specified firewall rule by userId and ruleId.
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { number } userId - Indicates the user ID. It cannot be the ID of a user that does not exist.
@@ -295,7 +295,7 @@ declare namespace netFirewall {
    */
   enum NetFirewallOrderField {
     /**
-     * Sort rule names, only support getAllNetFirewallRules interface calls.
+     * Sort rule names, it can be referenced only by the getNetFirewallRules interface.
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
@@ -303,7 +303,7 @@ declare namespace netFirewall {
      */
     ORDER_BY_RULE_NAME = 1,
     /**
-     * Sort the recorded time, only support getAllNetFirewallRules interface calls.
+     * Sort the recorded time, only support getNetFirewallRules interface calls.
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
@@ -463,7 +463,7 @@ declare namespace netFirewall {
      */
     startPort: number;
     /**
-     * Ending port, when there is only one port, the start port is the same as the end port.
+     * Ending port, when there is only one port, the starting port is the same as the ending port.
      *
      * @type {number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
@@ -493,7 +493,7 @@ declare namespace netFirewall {
     isWildcard: boolean;
     /**
      * Domain: when isWildcard is false, the complete domain that needs to be determined;
-     * When isWildcard is true, fuzzy domain only support domains like *.huawei.com; *.com.
+     * When isWildcard is true, fuzzy domain only support domains like *.openharmony.cn; *.com.
      *
      * @type {string}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
@@ -587,7 +587,7 @@ declare namespace netFirewall {
      */
     type: NetFirewallRuleType;
     /**
-     * Whether the rule is enabled
+     * Whether the rule is enabled.
      *
      * @type {boolean}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
