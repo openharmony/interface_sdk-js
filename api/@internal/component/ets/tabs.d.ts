@@ -1083,6 +1083,18 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   animationMode(mode: Optional<AnimationMode>): TabsAttribute;
 
   /**
+   * Set the effect used when the component is at one of the edges.
+   *
+   * @param { Optional<EdgeEffect> } edgeEffect - the effect used when the component is at one of the edges
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  edgeEffect(edgeEffect: Optional<EdgeEffect>): TabsAttribute;
+
+  /**
    * Called when the tab is switched.
    *
    * @param { function } event
