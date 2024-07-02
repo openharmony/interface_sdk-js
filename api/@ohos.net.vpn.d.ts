@@ -710,7 +710,8 @@ declare namespace vpn {
 
   /**
    * Define configuration of the l2tp VPN network.
-   * @interface L2tpVpnConfig
+   * @typedef L2tpVpnConfig
+   * @extends SysVpnConfig
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @systemapi Hide this for inner system use.
    * @since 12
