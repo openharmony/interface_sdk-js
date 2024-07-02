@@ -35,8 +35,8 @@ declare namespace power {
    * @permission ohos.permission.REBOOT
    * @param { string } reason Indicates the shutdown reason.
    * reason parameter must be of type string.
-   * @throws { BusinessError } 201 - If the permission is denied.
-   * @throws { BusinessError } 202 - If the system permission is denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
@@ -67,8 +67,8 @@ declare namespace power {
    * @param { string } reason Indicates the restart reason. For example, "updater" indicates entering the updater mode
    * after the restart. If the parameter is not specified, the system enters the normal mode after the restart.
    * reason parameter must be of type string.
-   * @throws { BusinessError } 201 - If the permission is denied.
-   * @throws { BusinessError } 202 - If the system permission is denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
@@ -116,7 +116,7 @@ declare namespace power {
    *
    * @param { string } detail Indicates the detail information who request wakeup.
    * detail parameter must be of type string.
-   * @throws { BusinessError } 202 - If the system permission is denied.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
@@ -128,7 +128,7 @@ declare namespace power {
   /**
    * Suspends the device to turn off the screen.
    *
-   * @throws { BusinessError } 202 - If the system permission is denied.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
@@ -138,7 +138,7 @@ declare namespace power {
    * Suspends the device to turn off the screen.
    *
    * @param { boolean } isImmediate Indicates whether suspend the device immediately.
-   * @throws { BusinessError } 202 - If the system permission is denied.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
@@ -163,8 +163,8 @@ declare namespace power {
    * @param { DevicePowerMode } mode Indicates power mode {@link DevicePowerMode} to set.
    * the DevicePowerMode type is an enumeration class.
    * @param { AsyncCallback<void> } callback Indicates the callback of setting the power mode.
-   * @throws { BusinessError } 201 – If the permission is denied.
-   * @throws { BusinessError } 202 - If the system permission is denied.
+   * @throws { BusinessError } 201 – Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
@@ -180,8 +180,8 @@ declare namespace power {
    * @param { DevicePowerMode } mode Indicates power mode {@link DevicePowerMode} to set.
    * the DevicePowerMode type is an enumeration class.
    * @returns { Promise<void> }
-   * @throws { BusinessError } 201 – If the permission is denied.
-   * @throws { BusinessError } 202 - If the system permission is denied.
+   * @throws { BusinessError } 201 – Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
@@ -204,7 +204,7 @@ declare namespace power {
   * hibernate the device.
   *
   * @param { boolean } clearMemory - Indicates whether to clear the memory before the device hibernates.
-  * @throws { BusinessError } 202 - If the system permission is denied.
+  * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
   * @throws { BusinessError } 4900101 - Failed to connect to the service.
   * @syscap SystemCapability.PowerManager.PowerManager.Core
   * @systemapi
@@ -216,8 +216,8 @@ declare namespace power {
   * Sets the timeout duration(ms) for turning off the screen.
   *
   * @param { number } timeout - Indicates duration(ms) for turning off the screen. The value -1 means restore the default value.
-  * @throws { BusinessError } 201 – If the permission is denied.
-  * @throws { BusinessError } 202 - If the system permission is denied.
+  * @throws { BusinessError } 201 – Permission verification failed. The application does not have the permission required to call the API.
+  * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
   * @throws { BusinessError } 4900101 - Failed to connect to the service.
   * @syscap SystemCapability.PowerManager.PowerManager.Core
   * @systemapi
