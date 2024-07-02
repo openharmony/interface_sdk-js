@@ -6210,7 +6210,7 @@ declare namespace media {
     off(type: 'error', callback?: ErrorCallback): void;
   }
   
-  /*
+  /**
    * Provides the video transcode configuration definitions
    * 
    * @typedef AVTranscoderConfig
