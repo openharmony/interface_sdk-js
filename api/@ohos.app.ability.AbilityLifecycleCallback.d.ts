@@ -377,4 +377,61 @@ export default class AbilityLifecycleCallback {
    * @since 11
    */
   onAbilityContinue(ability: UIAbility): void;
+
+  /**
+   * Called back when the ability prepares to call onContinue.
+   *
+   * @param { UIAbility } ability - Indicates the ability to register for listening.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+  onAbilityWillContinue?(ability: UIAbility): void;
+
+  /**
+   * Called back when the ability prepares to call onWindowStageRestore.
+   *
+   * @param { UIAbility } ability - Indicates the ability to register for listening.
+   * @param { window.WindowStage } windowStage - window stage to restore.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+  onWindowStageWillRestore?(ability: UIAbility, windowStage: window.WindowStage): void;
+
+  /**
+   * Called back when the ability has called onWindowStageRestore.
+   *
+   * @param { UIAbility } ability - Indicates the ability to register for listening.
+   * @param { window.WindowStage } windowStage - window stage to restore.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+  onWindowStageRestore?(ability: UIAbility, windowStage: window.WindowStage): void;
+
+  /**
+   * Called back when the ability prepares to call onSaveState.
+   *
+   * @param { UIAbility } ability - Indicates the ability to register for listening.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+  onAbilityWillSaveState?(ability: UIAbility): void;
+
+  /**
+   * Called back when the ability has called onSaveState.
+   *
+   * @param { UIAbility } ability - Indicates the ability to register for listening.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+  onAbilitySaveState?(ability: UIAbility): void;
 }

@@ -223,6 +223,16 @@ declare enum InputType {
    * @since 11
    */
   NUMBER_DECIMAL = 12,
+
+  /**
+   * URL entry mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  URL = 13,
 }
 
 /**
@@ -2394,14 +2404,14 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Set the custom text menu.
    *
-   * @param { Array<ExpandedMenuItemOptions> } expandedMenuOptions - Customize text menu options.
+   * @param { EditMenuOptions } editMenu - Customize text menu options.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  selectionMenuOptions(expandedMenuOptions: Array<ExpandedMenuItemOptions>): TextInputAttribute;
+  editMenuOptions(editMenu: EditMenuOptions): TextInputAttribute;
 
   /**
    * Define the preview text mode of the text input.

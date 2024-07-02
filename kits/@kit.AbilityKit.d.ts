@@ -39,6 +39,8 @@ import autoFillManager from '@ohos.app.ability.autoFillManager';
 import autoStartupManager from '@ohos.app.ability.autoStartupManager';
 import ChildProcess from '@ohos.app.ability.ChildProcess';
 import childProcessManager from '@ohos.app.ability.childProcessManager';
+import { ChildProcessArgs } from '@ohos.app.ability.ChildProcessArgs';
+import { ChildProcessOptions } from '@ohos.app.ability.ChildProcessOptions';
 import common from '@ohos.app.ability.common';
 import { Configuration } from '@ohos.app.ability.Configuration';
 import ConfigurationConstant from '@ohos.app.ability.ConfigurationConstant';
@@ -94,7 +96,10 @@ import StartupConfigEntry from '@ohos.app.appstartup.StartupConfigEntry';
 import StartupListener from '@ohos.app.appstartup.StartupListener';
 import StartupTask from '@ohos.app.appstartup.StartupTask';
 import startupManager from '@ohos.app.appstartup.startupManager';
+import sendableContextManager from '@ohos.app.ability.sendableContextManager';
 import screenLockFileManager from "@ohos.ability.screenLockFileManager";
+import AtomicServiceOptions from "@ohos.app.ability.AtomicServiceOptions";
+import EmbeddableUIAbility from '@ohos.app.ability.EmbeddableUIAbility';
 
 export {
   Ability, AbilityConstant, AbilityLifecycleCallback, AbilityStage, ActionExtensionAbility,
@@ -111,5 +116,6 @@ export {
   innerBundleManager, insightIntent, insightIntentDriver, installer, launcherBundleManager, missionManager,
   overlay, particleAbility, quickFixManager, uriPermissionManager, wantAgent, wantConstant, privacyManager,
   EmbeddedUIExtensionAbility, StartupConfig, StartupConfigEntry, StartupListener, StartupTask, startupManager,
-  screenLockFileManager
+  screenLockFileManager, AtomicServiceOptions, EmbeddableUIAbility, ChildProcessArgs, ChildProcessOptions,
+  sendableContextManager
 };

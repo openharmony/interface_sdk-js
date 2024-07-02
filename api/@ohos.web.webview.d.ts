@@ -3477,6 +3477,8 @@ declare namespace webview {
      *                                       in the registration.
      * @param { Array<string> } [asyncMethodList] - The async method of the application side JavaScript object
      *                                            participating in the registration.
+     * @param { string } [permission] - permission configuration defining web page URLs that can access JavaScriptProxy methods.
+     *                                The configuration can be defined at two levels, object level and method level.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
@@ -3486,7 +3488,7 @@ declare namespace webview {
      * @since 12
      */
     registerJavaScriptProxy(object: object, name: string, methodList: Array<string>,
-        asyncMethodList?: Array<string>): void;
+        asyncMethodList?: Array<string>, permission?: string): void;
 
     /**
      * Deletes a registered JavaScript object with given name.
@@ -4830,7 +4832,10 @@ declare namespace webview {
      * Enable the ability to block Ads, disabled by default.
      *
      * @param { boolean } enable {@code true} Enable Ads block; {@code false} otherwise.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Parameter string is too long. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100001 - Init error.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -4856,7 +4861,7 @@ declare namespace webview {
      * @since 12
      */
     isAdsBlockEnabledForCurPage(): boolean;
-    
+
     /**
      * Get the ID of the surface created by ArkWeb. This ID can be used for web page screenshots.
      *
@@ -4887,13 +4892,13 @@ declare namespace webview {
      * Set a path list, allowing cross-origin request access any origin when the file scheme URLs access resources in this
      * path list. Also, When the path list is set, the file scheme URLs only allow access to resources within the path list.
      * Path in the path list must meet one of the following path formats(sub path and module name must be provided):
-     * 
+     *
      * 1. App bundle resource directory, like "/data/storage/el1/bundle/entry/resource/resfile".
      *    You can get resource directory using Context.resourceDir in AbilityKit.
      * 2. A sub path of app files directory, like "/data/storage/el2/base/files/example/"
      *    or "/data/storage/el2/base/haps/entry/files/example".
      *    You can get app files directory using Context.filesDir in AbilityKit.
-     * 
+     *
      * @param { Array<string> } pathList - The path list allow universal access.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Parameter string is too long. 3.Parameter verification failed.
@@ -6760,6 +6765,8 @@ declare namespace webview {
      * set Ads Block ruleset file, containing easylist rules.
      * @param {string} rulesFile - absolute file path contains app customized ads block rules.
      * @param {boolean} replace - (@code true)replace internal rules;(@code false) add to internal rules.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -6770,6 +6777,8 @@ declare namespace webview {
      * Add items to Ads Block Disallow list.
      * @param { Array<string> } domainSuffixes - list of domain suffix, if web page url matches someone in the list,
      * Ads Block will be disallowed for the web page.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -6783,6 +6792,8 @@ declare namespace webview {
      * used to re-enable ads block on the page that matches disallow list.
      * @param { Array<string> } domainSuffixes - list of domain suffix, if web page url matches someone in the list,
      * Ads Block will be allowed for the web page.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -6792,6 +6803,8 @@ declare namespace webview {
     /**
      * remove items from Ads Block Disallowed list.
      * @param { Array<string> } domainSuffixes - list of domain suffix needed be removed from disallow list
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -6801,6 +6814,8 @@ declare namespace webview {
     /**
      * remove items from Ads Block Allowed list.
      * @param { Array<string> } domainSuffixes - list of domain suffix needed be removed from allow list
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12

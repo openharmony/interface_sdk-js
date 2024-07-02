@@ -49,7 +49,7 @@ declare namespace deviceManager {
    * @param { number } deviceId - Device id on the device list returned by queryDevices().
    * @param { AsyncCallback<number> } onDisconnect - Callback is invoked when device is disconnected after bind
    * success.
-   * @param { AsyncCallback<{deviceId: number, remote: rpc.IRemoteObject}> } callback - Indicates the bind result
+   * @param { AsyncCallback<{deviceId: number; remote: rpc.IRemoteObject;}> } callback - Indicates the bind result
    * including device ID and remote object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * 3.Parameter verification failed.
@@ -58,7 +58,7 @@ declare namespace deviceManager {
    * @since 10
    */
   function bindDevice(deviceId: number, onDisconnect: AsyncCallback<number>,
-    callback: AsyncCallback<{deviceId: number, remote: rpc.IRemoteObject}>): void;
+    callback: AsyncCallback<{deviceId: number; remote: rpc.IRemoteObject;}>): void;
 
   /**
    * Bind the device based on the device information returned by queryDevices().
@@ -85,7 +85,7 @@ declare namespace deviceManager {
    * @param { number } deviceId - Device id on the device list returned by queryDevices().
    * @param { AsyncCallback<number> } onDisconnect - Callback is invoked when device is disconnected after bind
    * success.
-   * @returns { Promise<{deviceId: number, remote: rpc.IRemoteObject}> } Indicates the bind result including device
+   * @returns { Promise<{deviceId: number; remote: rpc.IRemoteObject;}> } Indicates the bind result including device
    * ID and remote object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * 3.Parameter verification failed.
@@ -93,8 +93,8 @@ declare namespace deviceManager {
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 10
    */
-  function bindDevice(deviceId: number, onDisconnect: AsyncCallback<number>): Promise<{deviceId: number,
-    remote: rpc.IRemoteObject}>;
+  function bindDevice(deviceId: number, onDisconnect: AsyncCallback<number>): Promise<{deviceId: number;
+    remote: rpc.IRemoteObject;}>;
 
   /**
    * Bind the device based on the device information returned by queryDevices().

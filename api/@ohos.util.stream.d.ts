@@ -30,6 +30,7 @@
   * @namespace stream
   * @syscap SystemCapability.Utils.Lang
   * @crossplatform
+  * @atomicservice
   * @since 12
   */
 declare namespace stream {
@@ -38,6 +39,7 @@ declare namespace stream {
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   class Writable {
@@ -46,6 +48,7 @@ declare namespace stream {
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     constructor();
@@ -66,6 +69,7 @@ declare namespace stream {
      * @throws { BusinessError } 10200037 - The callback is invoked multiple times consecutively.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
     */
     write(chunk?: string | Uint8Array, encoding?: string, callback?: Function): boolean;
@@ -80,6 +84,7 @@ declare namespace stream {
      * @throws { BusinessError } 10200035 - The doWrite method has not been implemented.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     end(chunk?: string | Uint8Array, encoding?: string, callback?: Function): Writable;
@@ -91,6 +96,7 @@ declare namespace stream {
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
     */
     setDefaultEncoding(encoding?: string): boolean;
@@ -100,6 +106,7 @@ declare namespace stream {
      * @returns { boolean } Setting successful returns true, setting failed returns false.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     cork(): boolean;
@@ -109,6 +116,7 @@ declare namespace stream {
      * @returns { boolean } Setting successful returns true, setting failed returns false.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     uncork(): boolean;
@@ -120,6 +128,7 @@ declare namespace stream {
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     on(event: string, callback: Callback<emitter.EventData>): void;
@@ -131,6 +140,7 @@ declare namespace stream {
      * @throws { BusinessError } 401 - An input parameter is invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     off(event: string, callback?: Callback<emitter.EventData>): void;
@@ -142,6 +152,7 @@ declare namespace stream {
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     doInitialize(callback: Function): void;
@@ -155,6 +166,7 @@ declare namespace stream {
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     doWrite(chunk: string | Uint8Array, encoding: string, callback: Function): void;
@@ -167,6 +179,7 @@ declare namespace stream {
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     doWritev(chunks: string[] | Uint8Array[], callback: Function): void;
@@ -177,6 +190,7 @@ declare namespace stream {
      * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     readonly writableObjectMode: boolean;
@@ -187,6 +201,7 @@ declare namespace stream {
      * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     readonly writableHighWatermark: number;
@@ -197,6 +212,7 @@ declare namespace stream {
      * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     readonly writable: boolean;
@@ -207,6 +223,7 @@ declare namespace stream {
      * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     readonly writableLength: number;
@@ -217,6 +234,7 @@ declare namespace stream {
      * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     readonly writableCorked: number;
@@ -227,6 +245,7 @@ declare namespace stream {
      * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     readonly writableEnded: boolean;
@@ -237,6 +256,7 @@ declare namespace stream {
      * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     readonly writableFinished: boolean;
@@ -248,6 +268,7 @@ declare namespace stream {
    * @extends Duplex
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   class Transform extends Duplex {
@@ -256,6 +277,7 @@ declare namespace stream {
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     constructor();
@@ -270,6 +292,7 @@ declare namespace stream {
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     doTransform(chunk: string, encoding: string, callback: Function): void;
@@ -281,6 +304,7 @@ declare namespace stream {
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     doFlush(callback: Function): void;
@@ -318,6 +342,7 @@ declare namespace stream {
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
    class Readable {
@@ -326,6 +351,7 @@ declare namespace stream {
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     constructor();
@@ -350,6 +376,7 @@ declare namespace stream {
      * @throws { BusinessError } 10200038 - The doRead method has not been implemented.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     read(size?: number): string | null;
@@ -359,6 +386,7 @@ declare namespace stream {
      * @returns { Readable } Return this object.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     resume(): Readable;
@@ -368,6 +396,7 @@ declare namespace stream {
      * @returns { Readable } Return this object.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     pause(): Readable;
@@ -379,6 +408,7 @@ declare namespace stream {
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     setEncoding(encoding?: string): boolean;
@@ -388,6 +418,7 @@ declare namespace stream {
      * @returns { boolean } Pause state returns true, otherwise returns false.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     isPaused(): boolean;
@@ -400,6 +431,7 @@ declare namespace stream {
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     pipe(destination: Writable, options?: Object): Writable;
@@ -411,6 +443,7 @@ declare namespace stream {
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     unpipe(destination?: Writable): Readable;
@@ -422,6 +455,7 @@ declare namespace stream {
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     on(event: string, callback: Callback<emitter.EventData>): void;
@@ -433,6 +467,7 @@ declare namespace stream {
      * @throws { BusinessError } 401 - An input parameter is invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     off(event: string, callback?: Callback<emitter.EventData>): void;
@@ -444,6 +479,7 @@ declare namespace stream {
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     doInitialize(callback: Function): void;
@@ -456,6 +492,7 @@ declare namespace stream {
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     doRead(size: number): void;
@@ -470,6 +507,7 @@ declare namespace stream {
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     push(chunk:  Uint8Array | string | null, encoding?: string): boolean;
@@ -480,6 +518,7 @@ declare namespace stream {
      * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     readonly readableObjectMode: boolean;
@@ -491,6 +530,7 @@ declare namespace stream {
      * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     readonly readable: boolean;
@@ -501,6 +541,7 @@ declare namespace stream {
      * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     readonly readableHighWatermark: number
@@ -511,6 +552,7 @@ declare namespace stream {
      * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     readonly readableFlowing: boolean | null;
@@ -521,6 +563,7 @@ declare namespace stream {
      * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     readonly readableLength: number;
@@ -532,6 +575,7 @@ declare namespace stream {
      * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     readonly readableEncoding: string | null;
@@ -542,6 +586,7 @@ declare namespace stream {
      * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     readonly readableEnded: boolean;
@@ -552,6 +597,7 @@ declare namespace stream {
    * @extends Readable
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   class Duplex extends Readable {
@@ -560,6 +606,7 @@ declare namespace stream {
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     constructor();
@@ -580,6 +627,7 @@ declare namespace stream {
      * @throws { BusinessError } 10200039 - The doTransform method has not been implemented for a class that inherits from Transform.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     write(chunk?: string | Uint8Array, encoding?: string, callback?: Function): boolean;
@@ -594,6 +642,7 @@ declare namespace stream {
      * @throws { BusinessError } 10200039 - The doTransform method has not been implemented for a class that inherits from Transform.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     end(chunk?: string | Uint8Array, encoding?: string, callback?: Function): Writable;
@@ -605,6 +654,7 @@ declare namespace stream {
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     setDefaultEncoding(encoding?: string): boolean;
@@ -614,6 +664,7 @@ declare namespace stream {
      * @returns { boolean } Setting successful returns true, setting failed returns false.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     cork(): boolean;
@@ -623,6 +674,7 @@ declare namespace stream {
      * @returns { boolean } Setting successful returns true, setting failed returns false.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     uncork(): boolean;
@@ -636,6 +688,7 @@ declare namespace stream {
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     doWrite(chunk: string | Uint8Array, encoding: string, callback: Function): void;
@@ -648,6 +701,7 @@ declare namespace stream {
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     doWritev(chunks: string[] | Uint8Array[], callback: Function): void;
@@ -658,6 +712,7 @@ declare namespace stream {
      * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     readonly writableObjectMode: boolean;
@@ -668,6 +723,7 @@ declare namespace stream {
      * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     readonly writableHighWatermark: number;
@@ -678,6 +734,7 @@ declare namespace stream {
      * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     readonly writable: boolean;
@@ -688,6 +745,7 @@ declare namespace stream {
      * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     readonly writableLength: number;
@@ -698,6 +756,7 @@ declare namespace stream {
      * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     readonly writableCorked: number;
@@ -708,6 +767,7 @@ declare namespace stream {
      * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     readonly writableEnded: boolean;
@@ -718,6 +778,7 @@ declare namespace stream {
      * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     readonly writableFinished: boolean;

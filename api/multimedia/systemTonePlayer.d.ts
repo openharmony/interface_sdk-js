@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit AudioKit
+ */
+
+/**
  * System tone player object.
  * @typedef SystemTonePlayer
  * @syscap SystemCapability.Multimedia.SystemSound.Core

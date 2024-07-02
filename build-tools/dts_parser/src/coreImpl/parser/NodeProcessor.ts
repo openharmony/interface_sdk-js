@@ -276,10 +276,17 @@ export class NodeProcessorHelper {
     if (
       ts.isInterfaceDeclaration(node) ||
       ts.isClassDeclaration(node) ||
-      ts.isEnumDeclaration(node) ||
-      ts.isStructDeclaration(node)
+      ts.isEnumDeclaration(node)
     ) {
       return node.members;
+    }
+    if (ts.isStructDeclaration(node)) {
+      return ts.visitNodes(node.members, (node) => {
+        if (ts.isConstructorDeclaration(node)) {
+          return
+        }
+        return node
+      })
     }
     if (ts.isTypeAliasDeclaration(node) && ts.isTypeLiteralNode(node.type)) {
       return node.type.members;
@@ -958,9 +965,10 @@ export class NodeProcessorHelper {
     if (ts.isFunctionTypeNode(nodeType)) {
       const typeParameters = nodeType.parameters;
       typeParameters.forEach((typeParameter: ts.ParameterDeclaration) => {
-        const typeParamInfo: TypeParamInfo = new TypeParamInfo();
-        typeParamInfo.setParamName(typeParameter.name.getText());
-        typeParamInfo.setParamType(typeParameter.type?.getText());
+        const typeParamInfo: ParamInfo = NodeProcessorHelper.processParam(
+          typeParameter,
+          new MethodInfo(ApiType.METHOD, node, parentApi)
+        );
         typeAliasInfo.setParamInfos(typeParamInfo);
       });
       typeAliasInfo.setReturnType(nodeType.type.getText());

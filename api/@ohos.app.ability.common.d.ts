@@ -37,6 +37,7 @@ import type * as _VpnExtensionContext from './application/VpnExtensionContext';
 import type { AutoStartupCallback as _AutoStartupCallback } from './application/AutoStartupCallback';
 import type { AutoStartupInfo as _AutoStartupInfo } from './application/AutoStartupInfo';
 import type * as _EmbeddableUIAbilityContext from './application/EmbeddableUIAbilityContext';
+import type * as _PhotoEditorExtensionContext from './application/PhotoEditorExtensionContext';
 
 /**
  * This module provides application context classes and common data structures.
@@ -384,6 +385,16 @@ declare namespace common {
    * @since 12
    */
   export type EmbeddableUIAbilityContext = _EmbeddableUIAbilityContext.default;
+
+  /**
+   * The context of an photo editor extension ability.
+   *
+   * @typedef { _PhotoEditorExtensionContext.default }
+   * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
+   * @stagemodelonly
+   * @since 12
+   */
+    export type PhotoEditorExtensionContext = _PhotoEditorExtensionContext.default;
 }
 
 export default common;

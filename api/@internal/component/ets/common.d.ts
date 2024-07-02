@@ -2623,6 +2623,54 @@ declare interface GeometryTransitionOptions {
    * @since 12
    */
   follow?: boolean;
+  /**
+   * Defines movement strategy of source and target in the hierarchy during geometry transition.
+   * 
+   * @type { ?TransitionHierarchyStrategy }
+   * @default TransitionHierarchyStrategy.ADAPTIVE
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @atomicservice
+   * @since 12
+   */
+  hierarchyStrategy?: TransitionHierarchyStrategy
+}
+
+/**
+ * Source and target are two matched elements during the geometry transition.
+ * The animation starts at the source and ends at the target.
+ * TransitionHierarchyStrategy enumeration defines how levels of source and target elements
+ * would be changed in the hierarchy during the geometry transition.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @atomicservice
+ * @since 12
+ */
+declare enum TransitionHierarchyStrategy {
+  /**
+   * None mode.
+   * Source and target staty in the original level in the hierarchy during geometry transition.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @atomicservice
+   * @since 12
+   */
+  NONE = 0,
+
+  /**
+   * ADAPTIVE mode.
+   * Lower level one of source and target is elevated to higher level of both,
+   * indicating that two elements are in same high level.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @atomicservice
+   * @since 12
+   */
+  ADAPTIVE = 1,
 }
 
 /**
@@ -18004,7 +18052,19 @@ declare class CommonMethod<T> {
    * @since 11
    * @form
    */
-  overlay(value: string | CustomBuilder, options?: { align?: Alignment; offset?: { x?: number; y?: number } }): T;
+  /**
+   * Add mask text to the current component. The layout is the same as that of the current component.
+   *
+   * @param { string | CustomBuilder | ComponentContent } value
+   * @param { OverlayOptions } options
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  overlay(value: string | CustomBuilder | ComponentContent, options?: OverlayOptions): T;
 
   /**
    * Linear Gradient
@@ -19545,6 +19605,173 @@ declare const Common: CommonInterface;
  * @form
  */
 declare type CustomBuilder = (() => any) | void;
+
+/**
+ * Defines the OverlayOptions interface.
+ *
+ * @typedef OverlayOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 12
+ */
+declare interface OverlayOptions {
+  /**
+   * Defines align type.
+   *
+   * @type { ?Alignment }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * Defines align type.
+   *
+   * @type { ?Alignment }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  /**
+   * Defines align type.
+   *
+   * @type { ?Alignment }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * Defines align type.
+   *
+   * @type { ?Alignment }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  align?: Alignment;
+  
+  /**
+   * Defines offset type.
+   *
+   * @type { ?OverlayOffset }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * Defines offset type.
+   *
+   * @type { ?OverlayOffset }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  /**
+   * Defines offset type.
+   *
+   * @type { ?OverlayOffset }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * Defines offset type.
+   *
+   * @type { ?OverlayOffset }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  offset?: OverlayOffset;
+}
+
+/**
+ * Defines the OverlayOffset.
+ *
+ * @typedef OverlayOffset
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 12
+ */
+declare interface OverlayOffset {
+  /**
+   * Defines x.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * Defines x.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  /**
+   * Defines x.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * Defines x.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  x?: number;
+  /**
+   * Defines y.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * Defines y.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  /**
+   * Defines y.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * Defines y.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  y?: number;
+}
 
 /**
  * Defines the segment of blur.
