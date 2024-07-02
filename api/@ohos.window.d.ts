@@ -1094,57 +1094,57 @@ declare namespace window {
    * @systemapi
    * @since 12
    */
-interface WindowInfo {
-  /**
-   * The position and size of the window
-   *
-   * @type { Rect }
-   * @syscap SystemCapability.Window.SessionManager
-   * @systemapi
-   * @since 12
-   */
-  rect: Rect;
+  interface WindowInfo {
+    /**
+     * The position and size of the window
+     *
+     * @type { Rect }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi
+     * @since 12
+     */
+    rect: Rect;
 
-  /**
-   * bundleName of window
-   *
-   * @type { string }
-   * @syscap SystemCapability.Window.SessionManager
-   * @systemapi
-   * @since 12
-   */
-  bundleName: string;
+    /**
+     * bundleName of window
+     *
+     * @type { string }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi
+     * @since 12
+     */
+    bundleName: string;
 
-  /**
-   * abilityName of window
-   *
-   * @type { string }
-   * @syscap SystemCapability.Window.SessionManager
-   * @systemapi
-   * @since 12
-   */
-  abilityName: string;
+    /**
+     * abilityName of window
+     *
+     * @type { string }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi
+     * @since 12
+     */
+    abilityName: string;
 
-  /**
-   * Indicates target window id.
-   *
-   * @type { number }
-   * @syscap SystemCapability.Window.SessionManager
-   * @systemapi
-   * @since 12
-   */
-  windowId: number;
+    /**
+     * Indicates target window id.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi
+     * @since 12
+     */
+    windowId: number;
 
-  /**
-   * The window status of an application.
-   *
-   * @type { WindowStatusType }
-   * @syscap SystemCapability.Window.SessionManager
-   * @systemapi
-   * @since 12
-   */
-  windowStatusType: WindowStatusType;
-}
+    /**
+     * The window status of an application.
+     *
+     * @type { WindowStatusType }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi
+     * @since 12
+     */
+    windowStatusType: WindowStatusType;
+  }
 
   /**
    * Properties of window, it couldn't update automatically
