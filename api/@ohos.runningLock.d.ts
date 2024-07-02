@@ -63,6 +63,7 @@ declare namespace runningLock {
      * @param { number } timeout Indicates the lock duration (ms). After the lock duration times out,
      * the lock is automatically released and the system hibernates if no other {@link RunningLock} is set.
      * timeout parameter must be of type number.
+     * @throws { BusinessError } 201 – If the permission is denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
      * @throws { BusinessError } 4900101 - Failed to connect to the service.
      * @syscap SystemCapability.PowerManager.PowerManager.Core
@@ -108,6 +109,7 @@ declare namespace runningLock {
      * This method requires the ohos.permission.RUNNING_LOCK permission.
      *
      * @permission ohos.permission.RUNNING_LOCK
+     * @throws { BusinessError } 201 – If the permission is denied.
      * @throws { BusinessError } 4900101 - Failed to connect to the service.
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 9
@@ -233,6 +235,7 @@ declare namespace runningLock {
    * the RunningLockType type is an enumeration class.
    * @param { AsyncCallback<RunningLock> } callback Indicates the callback of {@link RunningLock} object.
    * AsyncCallback encapsulates a class of RunningLock type
+   * @throws { BusinessError } 201 – If the permission is denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 9
@@ -251,6 +254,7 @@ declare namespace runningLock {
    * @param { RunningLockType } type Indicates the {@link RunningLockType}.
    * the RunningLockType type is an enumeration class.
    * @returns { Promise<RunningLock> } The {@link RunningLock} object.
+   * @throws { BusinessError } 201 – If the permission is denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 9
