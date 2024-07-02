@@ -102,6 +102,7 @@
     "API_DOC_THROWS_05": "JSDoc tag validity verification failed. Please confirm if the [throws 1] tag is missing.",
     "API_DOC_THROWS_07": "JSDoc label validity verification failed. The [throws 1] label is not allowed. Please check the label usage method.",
     "API_DOC_THROWS_08": "The validity verification of the JSDoc tag failed. The [throws] tag is not allowed to be reused, please delete the extra tags.",
+    "API_DOC_THROWS_09": "The generic error code does not contain the current error code.",
     "API_DOC_TYPE_01": "The [type] tag type is incorrect. Please check if the type matches the attribute type.",
     "API_DOC_TYPE_02": "JSDoc label order error, please adjust the order of [type] labels.",
     "API_DOC_TYPE_03": "JSDoc label validity verification failed. The [type] label is not allowed. Please check the label usage method.",
@@ -121,8 +122,7 @@
     "API_DOC_JSDOC_01": "Jsdoc needs to be added to the current API.",
     "API_DOC_JSDOC_02": "JSDoc tag validity verification failed. Please confirm if the [since] tag is missing.JSDoc tag validity verification failed. Please confirm if the [syscap] tag is missing.",
     "API_DOC_JSDOC_03": "JSDoc has chinese.",
-    "API_DOC_UNKNOW_DECORATOR_01": "The [XXXX] tag does not exist. Please use a valid JSDoc tag.",
-    "API_ERROR_ERROR_CODE": "The generic error code does not contain the current error code."
+    "API_DOC_UNKNOW_DECORATOR_01": "The [XXXX] tag does not exist. Please use a valid JSDoc tag."
   },
   "DEFINE": {
     "API_DEFINE_UNALLOWABLE_01": "Illegal [any] keyword used in the API.",
