@@ -32,8 +32,8 @@ declare namespace netFirewall {
    * outbound connections.</p>
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { NetFirewallPolicy } policy - The firewall policy to be set.
    * @param { number } userId - Indicates the user ID. It cannot be the ID of a user that does not exist.
+   * @param { NetFirewallPolicy } policy - The firewall policy to be set.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
