@@ -137,6 +137,7 @@ import {
   HyperlinkModifier, MenuModifier, MenuItemModifier, PanelModifier, SymbolGlyphModifier, AttributeUpdater,
   ContainerSpanModifier
 } from "@ohos.arkui.modifier";
+import { DownloadFileButton } from '@ohos.arkui.DownloadFileButton';
 
 export {
   AddFormMenuItem, AddFormOptions, AlertDialog, Animator, AnimatorOptions, AnimatorResult, App, AppResponse, AtomicServiceBar,
@@ -181,5 +182,5 @@ export {
   MarqueeModifier, ProgressModifier, QRCodeModifier, TextClockModifier, TextTimerModifier, LineModifier, PathModifier,
   PolygonModifier, PolylineModifier, RectModifier, ShapeModifier, AlphabetIndexerModifier, FormComponentModifier,
   HyperlinkModifier, MenuModifier, MenuItemModifier, PanelModifier, SymbolGlyphModifier, AttributeUpdater,
-  ContainerSpanModifier
+  ContainerSpanModifier, DownloadFileButton
 };
