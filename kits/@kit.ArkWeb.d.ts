@@ -19,5 +19,6 @@
  */
 
 import webview from '@ohos.web.webview';
+import { WebNetErrorList } from '@ohos.web.netErrorList';
 
-export { webview };
+export { webview, WebNetErrorList };
