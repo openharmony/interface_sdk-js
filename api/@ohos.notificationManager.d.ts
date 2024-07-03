@@ -1823,6 +1823,23 @@ declare namespace notificationManager {
    * @StageModelOnly
    * @since 11
    */
+  /**
+   * Request permission to send notification.
+   *
+   * @param { UIAbilityContext } context - The context indicates the ability context you want to bind;
+   * @param { AsyncCallback<void> } callback - The callback of requestEnableNotification.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600004 - Notification disabled.
+   * @throws { BusinessError } 1600013 - A notification dialog box is already displayed.
+   * @syscap SystemCapability.Notification.Notification
+   * @StageModelOnly
+   * @crossplatform
+   * @since 12
+   */
   function requestEnableNotification(context: UIAbilityContext, callback: AsyncCallback<void>): void;
 
   /**
@@ -1899,6 +1916,23 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @StageModelOnly
    * @since 11
+   */
+  /**
+   * Request permission to send notification.
+   *
+   * @param { UIAbilityContext } context - The context indicates the ability context you want to bind;
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600004 - Notification disabled.
+   * @throws { BusinessError } 1600013 - A notification dialog box is already displayed.
+   * @syscap SystemCapability.Notification.Notification
+   * @StageModelOnly
+   * @crossplatform
+   * @since 12
    */
   function requestEnableNotification(context: UIAbilityContext): Promise<void>;
 
