@@ -18,8 +18,6 @@
  * @kit ArkUI
  */
 
-import { Scroller } from './@internal/component/ets/scroll';
-
 /**
  * Called when the start, end and center positions of the display change.
  *
