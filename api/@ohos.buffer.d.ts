@@ -719,14 +719,14 @@ declare namespace buffer {
     /**
      * Returns the number of bytes in buf
      *
-     * @throws { BusinessError } 10200013 - Cannot set property length of Buffer which has only a getter
+     * @throws { BusinessError } 10200013 - Length  cannot be set for the buffer that has only a getter.
      * @syscap SystemCapability.Utils.Lang
      * @since 9
      */
     /**
      * Returns the number of bytes in buf
      *
-     * @throws { BusinessError } 10200013 - Cannot set property length of Buffer which has only a getter
+     * @throws { BusinessError } 10200013 - Length  cannot be set for the buffer that has only a getter.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -734,7 +734,7 @@ declare namespace buffer {
     /**
      * Returns the number of bytes in buf
      *
-     * @throws { BusinessError } 10200013 - Cannot set property length of Buffer which has only a getter
+     * @throws { BusinessError } 10200013 - Length  cannot be set for the buffer that has only a getter.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -745,14 +745,14 @@ declare namespace buffer {
     /**
      * The underlying ArrayBuffer object based on which this Buffer object is created.
      *
-     * @throws { BusinessError } 10200013 - Cannot set property buffer of Buffer which has only a getter
+     * @throws { BusinessError } 10200013 - Buffer cannot be set for the buffer that has only a getter.
      * @syscap SystemCapability.Utils.Lang
      * @since 9
      */
     /**
      * The underlying ArrayBuffer object based on which this Buffer object is created.
      *
-     * @throws { BusinessError } 10200013 - Cannot set property buffer of Buffer which has only a getter
+     * @throws { BusinessError } 10200013 - Buffer cannot be set for the buffer that has only a getter.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -760,7 +760,7 @@ declare namespace buffer {
     /**
      * The underlying ArrayBuffer object based on which this Buffer object is created.
      *
-     * @throws { BusinessError } 10200013 - Cannot set property buffer of Buffer which has only a getter
+     * @throws { BusinessError } 10200013 - Buffer cannot be set for the buffer that has only a getter.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -771,14 +771,14 @@ declare namespace buffer {
     /**
      * The byteOffset of the Buffers underlying ArrayBuffer object
      *
-     * @throws { BusinessError } 10200013 - Cannot set property byteOffset of Buffer which has only a getter
+     * @throws { BusinessError } 10200013 - ByteOffset  cannot be set for the buffer that has only a getter.
      * @syscap SystemCapability.Utils.Lang
      * @since 9
      */
     /**
      * The byteOffset of the Buffers underlying ArrayBuffer object
      *
-     * @throws { BusinessError } 10200013 - Cannot set property byteOffset of Buffer which has only a getter
+     * @throws { BusinessError } 10200013 - ByteOffset  cannot be set for the buffer that has only a getter.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -786,7 +786,7 @@ declare namespace buffer {
     /**
      * The byteOffset of the Buffers underlying ArrayBuffer object
      *
-     * @throws { BusinessError } 10200013 - Cannot set property byteOffset of Buffer which has only a getter
+     * @throws { BusinessError } 10200013 - ByteOffset  cannot be set for the buffer that has only a getter.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -2078,7 +2078,7 @@ declare namespace buffer {
      * Interprets buf as an array of unsigned 16-bit integers and swaps the byte order in-place.
      *
      * @returns { Buffer } A reference to buf
-     * @throws { BusinessError } 10200009 - Buffer size must be a multiple of 16-bits
+     * @throws { BusinessError } 10200009 - The buffer size must be a multiple of 16-bits
      * @syscap SystemCapability.Utils.Lang
      * @since 9
      */
@@ -2086,7 +2086,7 @@ declare namespace buffer {
      * Interprets buf as an array of unsigned 16-bit integers and swaps the byte order in-place.
      *
      * @returns { Buffer } A reference to buf
-     * @throws { BusinessError } 10200009 - Buffer size must be a multiple of 16-bits
+     * @throws { BusinessError } 10200009 - The buffer size must be a multiple of 16-bits
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -2095,7 +2095,7 @@ declare namespace buffer {
      * Interprets buf as an array of unsigned 16-bit integers and swaps the byte order in-place.
      *
      * @returns { Buffer } A reference to buf
-     * @throws { BusinessError } 10200009 - Buffer size must be a multiple of 16-bits
+     * @throws { BusinessError } 10200009 - The buffer size must be a multiple of 16-bits
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -2107,7 +2107,7 @@ declare namespace buffer {
      * Interprets buf as an array of unsigned 32-bit integers and swaps the byte order in-place.
      *
      * @returns { Buffer } A reference to buf
-     * @throws { BusinessError } 10200009 - Buffer size must be a multiple of 32-bits
+     * @throws { BusinessError } 10200009 - The buffer size must be a multiple of 32-bits
      * @syscap SystemCapability.Utils.Lang
      * @since 9
      */
@@ -2115,7 +2115,7 @@ declare namespace buffer {
      * Interprets buf as an array of unsigned 32-bit integers and swaps the byte order in-place.
      *
      * @returns { Buffer } A reference to buf
-     * @throws { BusinessError } 10200009 - Buffer size must be a multiple of 32-bits
+     * @throws { BusinessError } 10200009 - The buffer size must be a multiple of 32-bits
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -2124,7 +2124,7 @@ declare namespace buffer {
      * Interprets buf as an array of unsigned 32-bit integers and swaps the byte order in-place.
      *
      * @returns { Buffer } A reference to buf
-     * @throws { BusinessError } 10200009 - Buffer size must be a multiple of 32-bits
+     * @throws { BusinessError } 10200009 - The buffer size must be a multiple of 32-bits
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -2136,7 +2136,7 @@ declare namespace buffer {
      * Interprets buf as an array of unsigned 64-bit integers and swaps the byte order in-place.
      *
      * @returns { Buffer } A reference to buf
-     * @throws { BusinessError } 10200009 - Buffer size must be a multiple of 64-bits
+     * @throws { BusinessError } 10200009 - The buffer size must be a multiple of 64-bits
      * @syscap SystemCapability.Utils.Lang
      * @since 9
      */
@@ -2144,7 +2144,7 @@ declare namespace buffer {
      * Interprets buf as an array of unsigned 64-bit integers and swaps the byte order in-place.
      *
      * @returns { Buffer } A reference to buf
-     * @throws { BusinessError } 10200009 - Buffer size must be a multiple of 64-bits
+     * @throws { BusinessError } 10200009 - The buffer size must be a multiple of 64-bits
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -2153,7 +2153,7 @@ declare namespace buffer {
      * Interprets buf as an array of unsigned 64-bit integers and swaps the byte order in-place.
      *
      * @returns { Buffer } A reference to buf
-     * @throws { BusinessError } 10200009 - Buffer size must be a multiple of 64-bits
+     * @throws { BusinessError } 10200009 - The buffer size must be a multiple of 64-bits
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
