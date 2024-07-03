@@ -18,8 +18,6 @@
  * @kit ArkUI
  */
 
-/// <reference path="../../component/common.d.ts" />
-/// <reference path="../../component/checkbox.d.ts" />
 
 /**
  * Defines Checkbox Modifier

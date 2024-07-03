@@ -1,5 +1,5 @@
 {
-  "data": [
+  "kitData": [
     { "filePath": "@internal/component/ets/ability_component.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "@internal/component/ets/action_sheet.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "@internal/component/ets/alert_dialog.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
@@ -401,7 +401,7 @@
     { "filePath": "@ohos.dlpPermission.d.ts", "kitName": "DataLossPreventionKit", "subSystem": "安全基础能力" },
     { "filePath": "@ohos.document.d.ts", "kitName": "CoreFileKit", "subSystem": "文件管理" },
     { "filePath": "@ohos.driver.deviceManager.d.ts", "kitName": "DriverDevelopmentKit", "subSystem": "驱动" },
-    { "filePath": "@ohos.effectKit.d.ts", "kitName": "ArkGraphics2D", "subSystem": "OS媒体软件" },
+    { "filePath": "@ohos.effectKit.d.ts", "kitName": "ArkGraphics2D", "subSystem": "图形图像" },
     { "filePath": "@ohos.enterprise.accountManager.d.ts", "kitName": "MDMKit", "subSystem": "定制" },
     { "filePath": "@ohos.enterprise.adminManager.d.ts", "kitName": "MDMKit", "subSystem": "定制" },
     { "filePath": "@ohos.enterprise.applicationManager.d.ts", "kitName": "MDMKit", "subSystem": "定制" },
@@ -447,7 +447,7 @@
     { "filePath": "@ohos.geolocation.d.ts", "kitName": "LocationKit", "subSystem": "位置服务" },
     { "filePath": "@ohos.geoLocationManager.d.ts", "kitName": "LocationKit", "subSystem": "位置服务" },
     { "filePath": "@ohos.graphics.colorSpaceManager.d.ts", "kitName": "ArkGraphics2D", "subSystem": "图形图像" },
-    { "filePath": "@ohos.graphics.displaySync.d.ts", "kitName": "ArkGraphics2D", "subSystem": "ArkUI开发框架" },
+    { "filePath": "@ohos.graphics.displaySync.d.ts", "kitName": "ArkGraphics2D", "subSystem": "图形图像" },
     { "filePath": "@ohos.graphics.hdrCapability.d.ts", "kitName": "ArkGraphics2D", "subSystem": "图形图像" },
     { "filePath": "@ohos.hiAppEvent.d.ts", "kitName": "PerformanceAnalysisKit", "subSystem": "DFX" },
     { "filePath": "@ohos.hichecker.d.ts", "kitName": "PerformanceAnalysisKit", "subSystem": "DFX" },

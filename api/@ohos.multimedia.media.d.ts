@@ -727,7 +727,7 @@ declare namespace media {
    * you must use createAVImageGenerator() to create an AVImageGenerator instance.
    * @typedef AVImageGenerator
    * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-   * @since 12 
+   * @since 12
    */
   interface AVImageGenerator {
     /**
@@ -1412,6 +1412,7 @@ declare namespace media {
      * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
      * @since 12
      */
     addSubtitleFromFd(fd: number, offset?: number, length?: number): Promise<void>;
@@ -1424,6 +1425,7 @@ declare namespace media {
      * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
      * @since 12
      */
     addSubtitleFromUrl(url: string): Promise<void>;
@@ -2155,6 +2157,7 @@ declare namespace media {
      * @param { 'subtitleUpdate' } type - Type of the event to listen for.
      * @param { Callback<SubtitleInfo> } callback - Callback used to listen subtitle update event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
      * @since 12
      */
     on(type: 'subtitleUpdate', callback: Callback<SubtitleInfo>): void
@@ -2164,6 +2167,7 @@ declare namespace media {
      * @param { 'subtitleUpdate' } type - Type of the event to listen for.
      * @param { Callback<SubtitleInfo> } callback - Callback used to listen subtitle update event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
      * @since 12
      */
     off(type: 'subtitleUpdate', callback?: Callback<SubtitleInfo>): void
@@ -2890,7 +2894,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11
      */
-    getAVRecorderConfig(): Promise<AVRecorderConfig>; 
+    getAVRecorderConfig(): Promise<AVRecorderConfig>;
 
     /**
      * Get input surface.it must be called between prepare completed and start.
@@ -2916,7 +2920,7 @@ declare namespace media {
 
     /**
      * Update the video orientation before recorder start.
-     * @param { number } rotation: Rotation angle, should be [0, 90, 180, 270]. 
+     * @param { number } rotation - Rotation angle, should be [0, 90, 180, 270].
      * @returns { Promise<void> } A Promise instance used to return when the function is finished.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
@@ -3928,20 +3932,10 @@ declare namespace media {
     /**
      * playback at 0.5x normal speed
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
-     * @since 12
-     */
-    /**
-     * playback at 0.5x normal speed
-     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @atomicservice
      * @since 12
      */
     SPEED_FORWARD_0_50_X = 5,
-    /**
-     * playback at 1.5x normal speed
-     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
-     * @since 12
-     */
     /**
      * playback at 1.5x normal speed
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
@@ -3952,20 +3946,10 @@ declare namespace media {
     /**
      * playback at 0.25x normal speed
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
-     * @since 12
-     */
-    /**
-     * playback at 0.25x normal speed
-     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @atomicservice
      * @since 12
      */
     SPEED_FORWARD_0_25_X = 8,
-    /**
-     * playback at 0.125x normal speed
-     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
-     * @since 12
-     */
     /**
      * playback at 0.125x normal speed
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
@@ -4459,6 +4443,13 @@ declare namespace media {
      * @since 12
      */
     CFT_MPEG_4A = 'm4a',
+
+    /**
+     * A audio container format type mp3.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
+    CFT_MP3 = 'mp3',
   }
 
   /**
@@ -5354,6 +5345,12 @@ declare namespace media {
      * @since 11
      */
     VIDEO_HEVC = 'video/hevc',
+    /**
+     * mp3 codec MIME type.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
+    AUDIO_MP3 = 'audio/mpeg',
   }
 
   /**
@@ -5606,6 +5603,220 @@ declare namespace media {
      * @since 12
      */
     off(type: 'error', callback?: ErrorCallback): void;
+  }
+  
+  /**
+   * Provides the video transcode configuration definitions
+   * 
+   * @typedef AVTranscoderConfig
+   * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+   * @since 12
+   */
+  interface AVTranscoderConfig {
+    /**
+     * Indicates the audio bitrate.
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 12
+     */
+    audioBitrate?: number;
+
+    /**
+     * Indicates the audio encoding format.
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 12
+     */
+    audioCodec?: CodecMimeType;
+
+    /**
+     * Indicates the output file format.
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 12
+     */
+    fileFormat: ContainerFormatType;
+
+    /**
+     * Indicates the video bitrate.
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 12
+     */
+    videoBitrate: number;
+
+    /**
+     * Indicates the video encoding foramt.
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 12
+     */
+    videoCodec?: CodecMimeType;
+
+    /**
+     * Indicates the video width.
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 12
+     */
+    videoFrameWidth?: number;
+
+    /**
+     * Indicates the video height.
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 12
+     */
+    videoFrameHeight?: number;
+  }
+
+  /**
+   * Transcode a source video file to a destination video file.
+   * Before calling an AVTranscoder method, you must use @createAVTranscoder
+   * to create an AVTranscoder instance.
+   * 
+   * @typedef AVTranscoder
+   * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+   * @since 12
+   */ 
+  interface AVTranscoder {
+    /**
+     * Source media file descriptor. Mainstream media formats are supported.
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 12
+     */
+    fdSrc: AVFileDescriptor;
+
+    /**
+     * Destination media file descriptor. Mainstream media formats are supported.
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 12
+     */
+    fdDst: number;
+
+    /**
+     * Prepares for transcoding.
+     * @param { AVTranscoderConfig } config : Recording parameters.
+     * @returns { Promise<void> } A promise instance used to return when prepare completes.
+     * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 12
+     */
+    prepare(config: AVTranscoderConfig): Promise<void>;
+
+    /**
+     * Start AVTranscoder.
+     * @returns { Promise<void> } A promise instance used to return when start completes.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 12
+     */
+    start(): Promise<void>;
+
+    /**
+     * Pause AVTranscoder.
+     * @returns { Promise<void> } A promise instance used to return when pause completes.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 12
+     */
+    pause(): Promise<void>;  
+
+    /**
+     * Resume AVTranscoder.
+     * @returns { Promise<void> } A promise instance used to return when resume completes.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 12
+     */
+    resume(): Promise<void>;
+
+    /**
+     * Cancel AVTranscoder.
+     * @returns { Promise<void> } A promise instance used to return when cancel completes.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 12
+     */
+    cancel(): Promise<void>;
+
+    /**
+     * Release resources used for AVTranscoder.
+     * @returns { Promise<void> } A promise instance used to return when cancel completes.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 12
+     */
+    release(): Promise<void>;
+
+    /**
+     * Register listener for trancoding complete event.
+     * @param { 'complete' } type - Type of the event to listen for.
+     * @param { Callback<void> } callback - Callback used to listen for the complete event.
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 12
+     */
+    on(type:'complete', callback: Callback<void>):void;
+
+    /**
+     * Register listener for trancoding error event.
+     * @param { 'error' } type - Type of the event to listen for.
+     * @param { ErrorCallback } callback - Callback used to listen for the error event.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 5400101 - No memory.
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @throws { BusinessError } 5400104 - Time out.
+     * @throws { BusinessError } 5400105 - Service died.
+     * @throws { BusinessError } 5400106 - Unsupport format.
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 12
+     */
+    on(type:'error', callback: ErrorCallback):void;
+
+    /**
+     * Register listener for trancoding progressUpdate event.
+     * @param { 'progressUpdate' } type - Type of the event to listen for.
+     * @param { Callback<number> } callback - Callback used to listen for the progressUpdate event.
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 12
+     */
+    on(type:'progressUpdate', callback: Callback<number>):void;
+
+    /**
+     * Unregister listener for trancoding complete event.
+     * @param { 'complete' } type - Type of the event to listen for.
+     * @param { Callback<void> } [callback] - Callback used to listen for the complete event.
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 12
+     */
+    off(type:'complete', callback?: Callback<void>):void;
+
+    /**
+     * Unregister listener for trancoding error event.
+     * @param { 'error' } type - Type of the event to listen for.
+     * @param { ErrorCallback } [callback] - Callback used to listen for the error event.
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 12
+     */
+    off(type:'error', callback?: ErrorCallback):void;
+
+    /**
+     * Unregister listener for trancoding progressUpdate event.
+     * @param { 'progressUpdate' } type - Type of the event to listen for.
+     * @param { Callback<number> } [callback] - Callback used to listen for the progressUpdate event.
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 12
+     */
+    off(type:'progressUpdate', callback?: Callback<number>):void;  
   }
 }
 export default media;

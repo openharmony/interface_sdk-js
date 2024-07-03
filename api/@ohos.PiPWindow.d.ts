@@ -19,6 +19,7 @@
  */
 
 import type BaseContext from './application/BaseContext';
+import { NodeController } from '@kit.ArkUI'
 
 /**
  * Picture In Picture Window Manager
@@ -123,6 +124,15 @@ declare namespace PiPWindow {
      * @since 12
      */
     controlGroups?: Array<PiPControlGroup>;
+
+    /**
+     * Describes the customUIController by which we can display a custom layout above pip content.
+     *
+     * @type { ?NodeController }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    customUIController?: NodeController;
   }
 
   /**
@@ -222,11 +232,12 @@ declare namespace PiPWindow {
   /**
    * Describe PiP window custom controls.
    * 
-   * @typedef { VideoPlayControlGroup | VideoCallControlGroup | VideoMeetingControlGroup }
+   * @typedef { VideoPlayControlGroup | VideoCallControlGroup | VideoMeetingControlGroup | VideoLiveControlGroup }
    * @syscap SystemCapability.Window.SessionManager
    * @since 12
    */
-  type PiPControlGroup = VideoPlayControlGroup | VideoCallControlGroup | VideoMeetingControlGroup;
+  type PiPControlGroup = VideoPlayControlGroup | VideoCallControlGroup | VideoMeetingControlGroup |
+  VideoLiveControlGroup;
 
   /**
    * Enum for video play PiP window custom controls.
@@ -284,6 +295,14 @@ declare namespace PiPWindow {
      * @since 12
      */
     CAMERA_SWITCH = 203,
+
+    /**
+     * Mute switch.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    MUTE_SWITCH = 204,
   }
 
   /**
@@ -317,6 +336,39 @@ declare namespace PiPWindow {
      * @since 12
      */
     MUTE_SWITCH = 303,
+
+    /**
+     * Turn on/off the microphone.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    MICROPHONE_SWITCH = 304,    
+  }
+
+  /**
+   * Enum for video Live PiP window custom controls.
+   *
+   * @enum { number }.
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 12
+   */
+  enum VideoLiveControlGroup {
+    /**
+     * Video play/pause control.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    VIDEO_PLAY_PAUSE = 401,
+
+    /**
+     * Mute switch.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    MUTE_SWITCH = 402,
   }
 
   /**
@@ -351,7 +403,14 @@ declare namespace PiPWindow {
    * @syscap SystemCapability.Window.SessionManager
    * @since 11
    */
-  type PiPCallActionEvent = 'hangUp' | 'micStateChanged' | 'videoStateChanged';
+  /**
+   * Describe picture-in-picture call template action event type.
+   *
+   * @typedef { 'hangUp' | 'micStateChanged' | 'videoStateChanged' | 'voiceStateChanged' }
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 12
+   */
+  type PiPCallActionEvent = 'hangUp' | 'micStateChanged' | 'videoStateChanged' | 'voiceStateChanged';
 
   /**
    * Describe picture-in-picture meeting template action event type.
@@ -360,7 +419,14 @@ declare namespace PiPWindow {
    * @syscap SystemCapability.Window.SessionManager
    * @since 11
    */
-  type PiPMeetingActionEvent = 'hangUp' | 'voiceStateChanged' | 'videoStateChanged';
+  /**
+   * Describe picture-in-picture meeting template action event type.
+   *
+   * @typedef { 'hangUp' | 'voiceStateChanged' | 'videoStateChanged' | 'micStateChanged' }
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 12
+   */
+  type PiPMeetingActionEvent = 'hangUp' | 'voiceStateChanged' | 'videoStateChanged' | 'micStateChanged';
 
   /**
    * Describe picture-in-picture live template action event type.
@@ -369,7 +435,14 @@ declare namespace PiPWindow {
    * @syscap SystemCapability.Window.SessionManager
    * @since 11
    */
-  type PiPLiveActionEvent = 'playbackStateChanged';
+  /**
+   * Describe picture-in-picture live template action event type.
+   *
+   * @typedef { 'playbackStateChanged' | 'voiceStateChanged' }
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 12
+   */
+  type PiPLiveActionEvent = 'playbackStateChanged' | 'voiceStateChanged';
 
   /**
    * Describe picture-in-picture control panel action event callback.

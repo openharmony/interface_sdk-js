@@ -18,9 +18,9 @@
  * @kit ArkUI
  */
 
-/// <reference path="../component/units.d.ts" />
 
-import { ResourceStr } from 'GlobalResource';
+
+
 import { Theme, CustomTheme } from '@ohos.arkui.theme';
 
 /**
@@ -785,6 +785,15 @@ export declare struct CustomContentDialog {
    * @since 12
    */
   contentAreaPadding?: Padding;
+  /**
+     * Sets the CustomContentDialog content area localized padding.
+     * @type { ?LocalizedPadding }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+  localizedContentAreaPadding?: LocalizedPadding;
   /**
    * Sets the CustomContentDialog buttons.
    * @type { ?ButtonOptions[] }

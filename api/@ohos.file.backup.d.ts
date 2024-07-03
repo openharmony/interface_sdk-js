@@ -254,7 +254,7 @@ declare namespace backup {
    * @since 12
    */
   function getLocalCapabilities(dataList: Array<IncrementalBackupTime>): Promise<FileData>;
-  
+
   /**
     * Get Backup information from bundle.
     *
@@ -287,6 +287,23 @@ declare namespace backup {
    * @since 12
    */
   function updateTimer(bundleName: string, timeout: number): boolean;
+
+  /**
+   * Update send file fd rate.
+   *
+   * @permission ohos.permission.BACKUP
+   * @param { string } bundleName set update to bundleName app.
+   * @param { number } sendRate set send file fd rate.
+   * @returns { boolean } Return update result, true is success, false is fail.
+   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+   * @syscap SystemCapability.FileManagement.StorageService.Backup
+   * @systemapi
+   * @since 12
+  */
+  function updateSendRate(bundleName: string, sendRate: number): boolean;
 
   /**
    * General callbacks for both backup and restore procedure.
@@ -408,11 +425,14 @@ declare namespace backup {
      * @since 10
      */
     onBackupServiceDied: Callback<undefined>;
-    
+
     /**
      * Callback called when the backup service return result information.
-     * The first return string parameter indicates the result of the bundle.
+     * The first return string parameter indicates the bundleName that triggers the callback.
+     * The second return string parameter indicates the result of the bundle.
      *
+     * @param { string } bundleName the bundleName that triggers the callback.
+     * @param { string } result the result of the bundle.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
@@ -425,7 +445,7 @@ declare namespace backup {
      * @systemapi
      * @since 12
      */
-    onResultReport: AsyncCallback<string>;
+    onResultReport(bundleName: string, result: string);
   }
 
   /**
@@ -742,6 +762,29 @@ declare namespace backup {
      * @since 12
      */
     appendBundles(bundlesToBackup: Array<IncrementalBackupData>): Promise<void>;
+
+    /**
+     * Append new bundles to incremental backup.
+     *
+     * @permission ohos.permission.BACKUP
+     * @param { Array<IncrementalBackupData> } bundlesToAppend Bundles to incremental backup.
+     * @param { string[] } infos information of the bundlesToBackup
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission verification failed. This error code is usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     * @throws { BusinessError } 13600001 - IPC error
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900005 - I/O error
+     * @throws { BusinessError } 13900011 - Out of memory
+     * @throws { BusinessError } 13900025 - No space left on device
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @since 12
+     */
+    appendBundles(bundlesToAppend: Array<IncrementalBackupData>, infos: string[]): Promise<void>;
 
     /**
      * End backup process

@@ -1788,6 +1788,8 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 12
+   * @deprecated since 12
+   * @useinstead requestEnableNotification
    */
   function requestEnableNotification(callback: AsyncCallback<void>): void;
 
@@ -1863,6 +1865,8 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 12
+   * @deprecated since 12
+   * @useinstead requestEnableNotification
    */
   function requestEnableNotification(): Promise<void>;
 

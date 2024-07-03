@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit AbilityKit
+ */
+
+/**
  * Auto Fill Popup config.
  *
  * @interface AutoFillPopupConfig

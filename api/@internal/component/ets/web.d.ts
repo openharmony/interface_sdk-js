@@ -161,13 +161,13 @@ type OnRenderProcessRespondingCallback = () => void;
 type OnViewportFitChangedCallback = (viewportFit: ViewportFit) => void;
 
 /**
-* The callback of ads block
-*
-* @typedef OnAdsBlockedCallback
-* @syscap SystemCapability.Web.Webview.Core
-* @atomicservice
-* @since 12
-*/
+ * The callback of ads block
+ *
+ * @typedef {function} OnAdsBlockedCallback
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
 type OnAdsBlockedCallback = (details: AdsBlockedDetails) => void;
 
 /**
@@ -5972,6 +5972,16 @@ declare interface JavaScriptProxy {
    * @since 12
    */
   asyncMethodList?: Array<string>;
+  /**
+   * permission configuration defining web page URLs that can access JavaScriptProxy methods.
+   * The configuration can be defined at two levels, object level and method level.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  permission?: string;
 }
 
 /**
@@ -8344,16 +8354,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onInterceptKeyboardAttach(callback: WebKeyboardCallback): WebAttribute;
 
   /**
-  * Called when received Ads blocked results.
-  * If blocked results exist at end of page loading, the first call will be triggered.
-  * To avoid performance issues, subsequent results will be periodically reported through this api.
-  *
-  * @param { OnAdsBlockedCallback } callback - The callback for OnAdsBlockedCallback.
-  * @returns { WebAttribute }
-  * @syscap SystemCapability.Web.Webview.Core
-  * @atomicservice
-  * @since 12
-  */
+   * Called when received Ads blocked results.
+   * If blocked results exist at the end of page loading, the first call will be triggered.
+   * To avoid performance issues, subsequent results will be periodically reported through this api.
+   *
+   * @param { OnAdsBlockedCallback } callback - The callback for OnAdsBlockedCallback.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
   onAdsBlocked(callback: OnAdsBlockedCallback): WebAttribute;
 }
 

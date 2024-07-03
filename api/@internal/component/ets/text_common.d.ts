@@ -289,6 +289,19 @@ declare interface DeleteValue {
 declare type OnDidChangeCallback = (rangeBefore: TextRange, rangeAfter: TextRange) => void;
 
 /**
+ * Callback when input sometimes has info of previewText.
+ *
+ * @typedef { function } EditableTextOnChangeCallback
+ * @param { string } value - Value of all text.
+ * @param { TextRange } [previewRange] - index of previewText in content.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare type EditableTextOnChangeCallback = (value: string, previewRange?: TextRange) => void;
+
+/**
  * Define the text selection controller.
  *
  * @interface TextBaseController
@@ -641,15 +654,121 @@ interface CaretStyle {
 }
 
 /**
- * ExpandedMenuItemOptions
+ * Defines the TextMenuItemId.
  *
- * @interface ExpandedMenuItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 12
  */
-declare interface ExpandedMenuItemOptions {
+declare class TextMenuItemId {
+  /**
+   * Init a TextMenuItemId with id.
+   *
+   * @param { ResourceStr } id - The id of the TextMenuItemId.
+   * @returns { TextMenuItemId } - Returns the TextMenuItemId object.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  static of(id: ResourceStr): TextMenuItemId;
+
+  /**
+   * Judge if two TextMenuItemId are equal.
+   *
+   * @param { TextMenuItemId } id - id TextMenuItemId.
+   * @returns { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  equals(id: TextMenuItemId): boolean;
+
+  /**
+   * Indicates the TextMenuItemId to copy and delete the currently selected text.
+   *
+   * @type { TextMenuItemId }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  static readonly CUT: TextMenuItemId;
+
+  /**
+   * Indicates the TextMenuItemId to copy the currently selected text to the clipboard.
+   *
+   * @type { TextMenuItemId }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  static readonly COPY: TextMenuItemId;
+
+  /**
+   * Indicates the TextMenuItemId to copy the current contents of the clipboard into the text view.
+   *
+   * @type { TextMenuItemId }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  static readonly PASTE: TextMenuItemId;
+
+  /**
+   * Indicates the TextMenuItemId to select all text in a text view.
+   * 
+   * @type { TextMenuItemId }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  static readonly SELECT_ALL: TextMenuItemId;
+
+  /**
+   * Indicates the TextMenuItemId for collaboration service menu items.
+   *
+   * @type { TextMenuItemId }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  static readonly COLLABORATION_SERVICE: TextMenuItemId;
+
+  /**
+   * Indicates the TextMenuItemId to recognize the text in the picture and input it into the text view.
+   *
+   * @type { TextMenuItemId }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  static readonly CAMERA_INPUT: TextMenuItemId;
+}
+
+/**
+ * TextMenuItem
+ *
+ * @interface TextMenuItem
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare interface TextMenuItem {
   /**
    * Customize what the menu displays.
    *
@@ -669,17 +788,52 @@ declare interface ExpandedMenuItemOptions {
    * @atomicservice
    * @since 12
    */
-  startIcon?: ResourceStr;
+  icon?: ResourceStr;
   /**
-   * Get the selected text information.
+   * Distinguish clicked menu content by Id.
    *
-   * @type { Callback<TextRange> }
+   * @type { TextMenuItemId }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  action: Callback<TextRange>;
+  id: TextMenuItemId;
+}
+
+/**
+ * EditMenuOptions
+ *
+ * @interface EditMenuOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare interface EditMenuOptions {
+  /**
+   * Passes the default menu, invokes before every display to generate a menu for triggering click events.
+   *
+   * @param { TextMenuItem } menuItem - current default menu array.
+   * @returns { Array<TextMenuItem> } - Return the menu after operations.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onCreateMenu(menuItems: Array<TextMenuItem>): Array<TextMenuItem>;
+  /**
+   * Invoke upon clicking an item, capable of intercepting the default system menu execution behavior.
+   *
+   * @param { TextMenuItem } menuItem - current default menu.
+   * @param { TextRange } range - current selected range.
+   * @returns { boolean } - Return True, the event is consumed, false otherwise.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onMenuItemClick(menuItem: TextMenuItem, range: TextRange): boolean;
 }
 
 /**

@@ -20,6 +20,8 @@ export class StringUtils {
     try {
       flag = str.search(sub) !== -1;
     } catch (error) {
+      console.log('str=',str)
+      console.log('sub=',sub)
       LogUtil.e('StringUtils.hasSubstring', error);
     } 
     return flag;

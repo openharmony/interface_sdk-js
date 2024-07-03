@@ -84,7 +84,7 @@ declare namespace utils {
        * @param { string } name - name of the lock.
        * @returns { AsyncLockState } Returns an instance of AsyncLockState.
        * @throws { BusinessError } 401 - The input parameters are invalid.
-       * @throws { BusinessError } 10200030 - No such lock.
+       * @throws { BusinessError } 10200030 - The lock does not exist.
        * @static
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
@@ -113,7 +113,7 @@ declare namespace utils {
        * @param { AsyncLockCallback<T> } callback - function to call when the lock gets acquired.
        * @returns { Promise<T> } Promise that will be resolved after the callback gets executed.
        * @throws { BusinessError } 401 - The input parameters are invalid.
-       * @throws { BusinessError } 10200030 - No such lock.
+       * @throws { BusinessError } 10200030 - The lock does not exist.
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
@@ -130,7 +130,7 @@ declare namespace utils {
        * @param { AsyncLockMode } mode - mode of the lock operation.
        * @returns { Promise<T> } Promise that will be resolved after the callback gets executed or rejected.
        * @throws { BusinessError } 401 - The input parameters are invalid.
-       * @throws { BusinessError } 10200030 - No such lock.
+       * @throws { BusinessError } 10200030 - The lock does not exist.
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
@@ -153,7 +153,7 @@ declare namespace utils {
        * @returns { Promise<T | U> } Promise that will be resolved after the callback gets executed or rejected in case
        *     timeout exceeded.
        * @throws { BusinessError } 401 - The input parameters are invalid.
-       * @throws { BusinessError } 10200030 - No such lock.
+       * @throws { BusinessError } 10200030 - The lock does not exist.
        * @throws { BusinessError } 10200031 - Timeout exceeded.
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform

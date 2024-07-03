@@ -179,7 +179,6 @@ export class TagValueCheck {
       errorInfo: '',
     };
     const returnsTagValue: string = tag.type.replace(/\s/g, '');
-
     let returnsApiValue: string[] = [];
     const legalApiArr: string[] = [ApiType.METHOD, ApiType.TYPE_ALIAS];
     if (!legalApiArr.includes(singleApi.getApiType())) {
@@ -191,6 +190,7 @@ export class TagValueCheck {
     } else {
       returnsApiValue = spacealCase.length > 0 ? spacealCase : (singleApi as MethodInfo).getReturnValue();
     }
+
     if (returnsApiValue.length === 0) {
       returnsValueCheckResult.state = false;
       returnsValueCheckResult.errorInfo = ErrorMessage.ERROR_INFO_RETURNS;
@@ -401,10 +401,6 @@ export class TagValueCheck {
     tagsName?.forEach((tag: Comment.CommentTag) => {
       allTagName.push(tag.tag);
     });
-    if (throwsTagName === '201' && !allTagName.includes('permission')) {
-      throwsValueCheckResult.state = false;
-      throwsValueCheckResult.errorInfo = CommonFunctions.createErrorInfo(ErrorMessage.ERROR_LOST_LABEL, ['permission']);
-    }
     return throwsValueCheckResult;
   }
 
@@ -434,7 +430,7 @@ export class TagValueCheck {
     if (singleApi.getApiType() === ApiType.TYPE_ALIAS) {
       const typeParams: ParamInfo[] = (singleApi as TypeAliasInfo).getParamInfos();
       paramApiName = typeParams.length > paramIndex ? typeParams[paramIndex].getApiName() : '';
-      paramApiType.push(typeParams.length > paramIndex ? JSON.stringify(typeParams[paramIndex].getParamType()) : '');
+      paramApiType.push(typeParams.length > paramIndex ? typeParams[paramIndex].getApiType() : '');
     } else {
       const paramApiInfos: ParamInfo[] = (singleApi as MethodInfo).getParams();
       paramApiName = paramApiInfos[paramIndex]?.getApiName();

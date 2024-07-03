@@ -738,7 +738,7 @@ declare class NavPathInfo {
  */
 declare enum LaunchMode {
   /**
-   * There will always be a new NavDestination created.
+   * The default mode of stack operation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -748,7 +748,7 @@ declare enum LaunchMode {
 
   /**
    * When the NavDestination with a specified name exists, it will be moved to top of stack,
-   * otherwise a new NavDestination will be created.
+   * otherwise, the behavior will be consistent with the STANDARD mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -758,7 +758,7 @@ declare enum LaunchMode {
 
   /**
    * When the NavDestination with a specified name exists, the stack will pop until that NavDestination,
-   * otherwise a new NavDestination will be created.
+   * otherwise, the behavior will be consistent with the STANDARD mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1936,6 +1936,30 @@ declare interface NavigationTitleOptions {
    * @since 12
    */
   barStyle?: BarStyle;
+
+  /**
+   * Set title bar start padding.
+   *
+   * @type { ?LengthMetrics }
+   * @default LengthMetrics.resource($r('sys.float.margin_left'))
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  paddingStart?: LengthMetrics;
+
+  /**
+   * Set title bar end padding.
+   *
+   * @type { ?LengthMetrics }
+   * @default LengthMetrics.resource($r('sys.float.margin_right'))
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  paddingEnd?: LengthMetrics;
 }
 
 /**

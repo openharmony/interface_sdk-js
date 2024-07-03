@@ -23,6 +23,7 @@ import type * as _ViewData from './application/ViewData';
 import type * as _PageNodeInfo from './application/PageNodeInfo';
 import { AutoFillType } from './application/AutoFillType';
 import type * as _AutoFillRequest from './application/AutoFillRequest';
+import type * as _CustomData from './application/CustomData';
 import type * as _AutoFillRect from './application/AutoFillRect';
 import type * as _AutoFillPopupConfig from './application/AutoFillPopupConfig';
 import { PopupPlacement } from './application/AutoFillPopupConfig';
@@ -295,6 +296,17 @@ declare namespace autoFillManager {
    * @since 12
    */
   export type SaveRequestCallback = _AutoFillRequest.SaveRequestCallback;
+
+  /**
+   * The custom data.
+   *
+   * @typedef { _CustomData.default } CustomData
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+  export type CustomData = _CustomData.default;
 
   /**
    * Auto fill rectangle.

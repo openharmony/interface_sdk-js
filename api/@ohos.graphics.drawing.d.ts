@@ -303,6 +303,15 @@ declare namespace drawing {
      * @since 11
      */
     reset(): void;
+
+    /**
+     * Get path length.
+     * @param { boolean } forceClosed - Whether to close the Path.
+     * @returns { number } Return path length.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    getLength(forceClosed: boolean): number;
   }
 
   /**
@@ -567,6 +576,18 @@ declare namespace drawing {
     save(): number;
 
     /**
+     * Saves matrix and clip, and allocates a bitmap for subsequent drawing.
+     * Calling restore discards changes to matrix and clip, and draws the bitmap.
+     * @param { common2D.Rect | null} rect - Optional layer size. The default value is null.
+     * @param { Brush | null} brush - Optional brush effect used to draw the layer. The default value is null.
+     * @returns { number } Return the number of saved states before this call.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    saveLayer(rect?: common2D.Rect | null, brush?: Brush | null): number;
+
+    /**
      * Restores the canvas status (canvas matrix) saved on the top of the stack.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -808,6 +829,17 @@ declare namespace drawing {
      * @since 11
      */
     getFamilyName(): string;
+
+    /**
+     * Generate typeface from file.
+     * @param { string } filePath - file path for typeface.
+     * @returns { Typeface } Typeface.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+     static makeFromFile(filePath: string): Typeface;
   }
 
   /**
@@ -894,6 +926,24 @@ declare namespace drawing {
      * @since 11
      */
     measureText(text: string, encoding: TextEncoding): number;
+    /**
+     * Sets text scale on x-axis to font.
+     * @param { number } scaleX - Text scaleX.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    setScaleX(scaleX: number): void;
+    /**
+     * Sets text skew on x-axis to font.
+     * @param { number } skewX - Text skewX.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    setSkewX(skewX: number): void;
   }
 
   /**

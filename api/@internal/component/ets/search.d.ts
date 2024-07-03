@@ -286,6 +286,16 @@ declare enum SearchType {
    * @since 12
    */
   NUMBER_DECIMAL = 12,
+  
+  /**
+   * URL entry mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  URL = 13,
 }
 
 /**
@@ -891,7 +901,17 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @atomicservice
    * @since 11
    */
-  onChange(callback: (value: string) => void): SearchAttribute;
+  /**
+   * Call the function when editing the input text
+   *
+   * @param { EditableTextOnChangeCallback } callback
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onChange(callback: EditableTextOnChangeCallback): SearchAttribute;
 
   /**
    * Called when the text selection changes.
@@ -1315,14 +1335,26 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   /**
    * Set the custom text menu.
    *
-   * @param { Array<ExpandedMenuItemOptions> } expandedMenuOptions - Customize text menu options.
+   * @param { EditMenuOptions } editMenu - Customize text menu options.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  selectionMenuOptions(expandedMenuOptions: Array<ExpandedMenuItemOptions>): SearchAttribute;
+  editMenuOptions(editMenu: EditMenuOptions): SearchAttribute;
+
+  /**
+   * Define the preview text mode of the text input.
+   *
+   * @param { boolean } enable - Indicates the preview text mode.
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  enablePreviewText(enable: boolean): SearchAttribute;
 }
 
 /**

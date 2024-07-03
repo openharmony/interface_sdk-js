@@ -15,7 +15,7 @@
 
 /**
  * @file Provides the capability to access data under lock screen.
- * @kit Ability Kit
+ * @kit AbilityKit
  */
 
 /**

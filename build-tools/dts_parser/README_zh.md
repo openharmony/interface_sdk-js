@@ -1,3 +1,4 @@
+
 将相关文件按规则解析成特定格式，提供处理接口
 
 ## 目录
@@ -70,19 +71,51 @@
 5. getParseEachSince(apiMap)
    将接口1、2的树形结构的数据遍历展开，进行特殊处理，根据since来区分子节点
 
-### check工具
+### check工具（线上版本）
 
 [代码](src/coreImpl/checker/local_entry.ts)
 
 提供接口
 
-1. checkEntryLocal(filePath, fileRule, output, excel)
+1. checkEntryLocal(filePathArr, fileRuleArr, output, prId, excel)
    根据传入的文件路径和检查规则检查文件中存在的规范错误
 
 工具调用命令
 
 ```
-node --nolazy -r ts-node/register ./src/main.ts -N checkOnline --path 待检查文件路径（非build-tools） --checker 检查规则  --output 报告输出目录 --excel false
+node --nolazy -r ts-node/register ./src/main.ts -N checkOnline --path 待检查文件路径（非build-tools） --checker 检查规则 --prId 兼容性检查文件路径  --output 报告输出目录 --excel false
+```
+
+### check工具（线下版本）
+
+[代码](src/coreImpl/checker/local_entry.ts)
+
+提供接口
+
+1. checkEntryLocal(filePathArr, fileRuleArr, output, prId, excel)
+   根据传入的文件路径和检查规则检查文件中存在的规范错误（默认生成excel表格，默认不执行兼容性变更校验）
+2. 打开interface_sdk-js\build-tools\mdFiles.txt文件，将待检查文件的路径填入此文件。
+   注意：文件名与文件名之间直接换行，行尾无需加任何符号。
+
+工具调用命令
+
+```
+node --nolazy -r ts-node/register ./src/main.ts -N check
+```
+
+### api change check工具
+
+[代码](src/coreImpl/checker/local_entry.ts)
+
+提供接口
+
+1. apiChangeCheckEntryLocal(prId, fileRuleArr, output, excel)
+   根据传入的文件路径和检查规则检查文件中存在的修改不兼容规范错误
+
+工具调用命令
+
+```
+node --nolazy -r ts-node/register ./src/main.ts -N apiChangeCheck --prId 待检查文件路径 --checker 检查规则 --output 报告输出目录 --excel false
 ```
 
 ### diff工具
@@ -140,6 +173,7 @@ node --nolazy -r ts-node/register ./src/main.ts -N detection -L 验证标签 -C 
   -C,--collect-Path `<string>`         collect api path (default: "./api")
   --path `<string>`                    check file path
   --checker `<string>`                 check file rule
+  --prId `<string>`                    check file change rule
   --excel `<string>`                   check ouput file contain excel
   --old `<string>`                     diff old sdk path (default: "./api")
   --new `<string>`                     diff new sdk path (default: "./api")

@@ -2426,6 +2426,25 @@ declare namespace call {
   function isImsSwitchEnabled(slotId: number): Promise<boolean>;
 
   /**
+   * Judge whether the Ims switch is enabled.
+   *
+   * @param { number } slotId - Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @returns { boolean } Returns {@code true} If the ims switch is on; returns {@code false} otherwise.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * 2. Incorrect parameters types;
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  function isImsSwitchEnabledSync(slotId: number): boolean;
+
+  /**
    * Close unfinished ussd.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE

@@ -13,12 +13,12 @@
  * limitations under the License.
  */
 
-import StartupConfig from './@ohos.app.appstartup.StartupConfig';
-
 /**
  * @file
  * @kit AbilityKit
  */
+
+import StartupConfig from './@ohos.app.appstartup.StartupConfig';
 
 /**
  * Startup task manager.

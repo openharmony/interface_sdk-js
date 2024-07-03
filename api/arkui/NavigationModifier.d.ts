@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-/// <reference path="../../component/common.d.ts" />
-/// <reference path="../../component/navigation.d.ts" />
+
+
 
 /**
  * Defines Navigation Modifier

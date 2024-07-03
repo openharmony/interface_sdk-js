@@ -21,8 +21,6 @@
 import { UIContext } from '../@ohos.arkui.UIContext';
 import { RenderNode } from './RenderNode';
 import { Size, Position, Edges, LengthMetrics, SizeT } from './Graphics';
-import { UICommonEvent } from 'commonEvent';
-import { CommonAttribute } from 'commonAttribute';
 import { DrawContext } from './Graphics';
 import { ComponentContent } from './ComponentContent';
 
@@ -1058,4 +1056,130 @@ export namespace typeNode {
    * @since 12
    */
   function createNode(context: UIContext, nodeType: 'ListItem'): ListItem;
+
+  /**
+   * Define the FrameNode type for TextInput.
+   * 
+   * @typedef { TypedFrameNode<TextInputInterface, TextInputAttribute> } TextInput
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  type TextInput = TypedFrameNode<TextInputInterface, TextInputAttribute>;
+
+  /**
+   * Create a FrameNode of TextInput type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'TextInput' } nodeType - node type.
+   * @returns { TextInput } - Return TextInput type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  function createNode(context: UIContext, nodeType: 'TextInput'): TextInput;
+
+  /**
+   * Define the FrameNode type for Button.
+   * 
+   * @typedef { TypedFrameNode<ButtonInterface, ButtonAttribute> } Button
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  type Button = TypedFrameNode<ButtonInterface, ButtonAttribute>;
+
+  /**
+   * Create a FrameNode of Button type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Button' } nodeType - node type.
+   * @returns { Button } - Return Button type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  function createNode(context: UIContext, nodeType: 'Button'): Button;
+
+  /**
+   * Define the FrameNode type for ListItemGroup.
+   *
+   * @typedef { TypedFrameNode<ListItemGroupInterface, ListItemGroupAttribute> } ListItemGroup
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  type ListItemGroup = TypedFrameNode<ListItemGroupInterface, ListItemGroupAttribute>;
+
+  /**
+   * Create a FrameNode of ListItemGroup type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'ListItemGroup' } nodeType - node type.
+   * @returns { ListItemGroup } - Return ListItemGroup type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  function createNode(context: UIContext, nodeType: 'ListItemGroup'): ListItemGroup;
+
+  /**
+   * Define the FrameNode type for WaterFlow.
+   *
+   * @typedef { TypedFrameNode<WaterFlowInterface, WaterFlowAttribute> } WaterFlow
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  type WaterFlow = TypedFrameNode<WaterFlowInterface, WaterFlowAttribute>;
+
+  /**
+   * Create a FrameNode of WaterFlow type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'WaterFlow' } nodeType - node type.
+   * @returns { WaterFlow } - Return WaterFlow type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  function createNode(context: UIContext, nodeType: 'WaterFlow'): WaterFlow;
+
+  /**
+   * Define the FrameNode type for FlowItem.
+   *
+   * @typedef { TypedFrameNode<FlowItemInterface, FlowItemAttribute> } FlowItem
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  type FlowItem = TypedFrameNode<FlowItemInterface, FlowItemAttribute>;
+
+  /**
+   * Create a FrameNode of FlowItem type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'FlowItem' } nodeType - node type.
+   * @returns { FlowItem } - Return FlowItem type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  function createNode(context: UIContext, nodeType: 'FlowItem'): FlowItem;
+
+  /**
+   * Define the FrameNode type for XComponent.
+   *
+   * @typedef { TypedFrameNode<XComponentInterface, XComponentAttribute> } XComponent
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  type XComponent = TypedFrameNode<XComponentInterface, XComponentAttribute>;
+
+  /**
+   * Create a FrameNode of XComponent type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'XComponent' } nodeType - node type.
+   * @returns { XComponent } - Return XComponent type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  function createNode(context: UIContext, nodeType: 'XComponent'): XComponent;
 }

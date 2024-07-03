@@ -3068,7 +3068,46 @@ declare class RichEditorController extends RichEditorBaseController {
    * @since 12
    */
   getSelection(): RichEditorSelection;
+
+  /**
+   * Convert StyledString to spans in rich editor.
+   * return a empty Array<RichEditorSpan> if convert failed
+   * 
+   * @param { StyledString } value - StyledString.
+   * @returns { Array<RichEditorSpan> }
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  fromStyledString(value: StyledString): Array<RichEditorSpan>;
+
+  /**
+   * Convert spans to StyledString in rich editor.
+   * return a empty StyledString if convert failed
+   * 
+   * @param { RichEditorRange } value - range of spans in rich editor
+   * @returns { StyledString }
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+    toStyledString(value: RichEditorRange): StyledString;
 }
+
+/**
+ * Defines the types of spans in rich editor.
+ *
+ * @typedef { RichEditorImageSpanResult | RichEditorTextSpanResult } RichEditorSpan
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare type RichEditorSpan = RichEditorImageSpanResult | RichEditorTextSpanResult;
 
 /**
  * Provides Controller for RichEditor with StyledString.
@@ -3601,14 +3640,14 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   /**
    * Set the custom text menu.
    *
-   * @param { Array<ExpandedMenuItemOptions> } expandedMenuOptions - Customize text menu options.
+   * @param { EditMenuOptions } editMenu - Customize text menu options.
    * @returns { RichEditorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  selectionMenuOptions(expandedMenuOptions: Array<ExpandedMenuItemOptions>): RichEditorAttribute;
+  editMenuOptions(editMenu: EditMenuOptions): RichEditorAttribute;
 }
 
 /**

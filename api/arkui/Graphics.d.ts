@@ -19,7 +19,6 @@
  */
 import drawing from '../@ohos.graphics.drawing';
 import type common2D from '../@ohos.graphics.common2D';
-import { BorderStyle } from 'borderStyle'
 import { Resource } from '../global/resource';
 
 /**
