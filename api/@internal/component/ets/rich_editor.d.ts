@@ -1784,15 +1784,6 @@ declare interface RichEditorGesture {
    * @crossplatform
    * @since 11
    */
-  /**
-   * Trigger a click event when a click is clicked.
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
    /**
    * Trigger a click event when a click is clicked.
    *
@@ -1811,15 +1802,6 @@ declare interface RichEditorGesture {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
-   */
-  /**
-   * Trigger a gesture event when long press event is complete.
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
    */
   /**
    * Trigger a gesture event when long press event is complete.
@@ -3218,16 +3200,6 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   /**
    * Called when selection range or caret position is changed.
    *
-   * @param { function } callback - The triggered function when change selection range or caret position.
-   * @returns { RichEditorAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Called when selection range or caret position is changed.
-   *
    * @param { Callback<RichEditorRange> } callback - The triggered function when change selection range or caret position.
    * @returns { RichEditorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3447,16 +3419,6 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @since 11
-    */
-   /**
-    * Defines onPaste callback.
-    *
-    * @param { function } callback Executed when a paste operation is performed.
-    * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @crossplatform
-    * @atomicservice
-    * @since 12
     */
    /**
     * Defines onPaste callback.
