@@ -20,6 +20,7 @@
 
 import type { AsyncCallback } from './@ohos.base';
 import type Want from './@ohos.app.ability.Want';
+import type { MultiAppMode } from './bundleManager/ApplicationInfo';
 
 /**
  * This module provides the capability to manage dialog session.
@@ -130,6 +131,28 @@ declare namespace dialogSession {
      * @since 12
      */
     visible: boolean;
+
+    /**
+     * The index of the bundle
+     *
+     * @type { number }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    appIndex: number;
+
+    /**
+      * The MultiAppMode object of the bundle
+      *
+      * @type { MultiAppMode }
+      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+      * @systemapi
+      * @stagemodelonly
+      * @since 12
+      */
+    multiAppMode: MultiAppMode;
   }
 
   /**
