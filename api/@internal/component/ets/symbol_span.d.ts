@@ -180,6 +180,18 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @since 12
    */
   renderingStrategy(value: SymbolRenderingStrategy): SymbolSpanAttribute;
+
+  /**
+   * Sets the attribute modifier.
+   * 
+   * @param { AttributeModifier<SymbolSpanAttribute> } modifier - The instance of symbol span modifier.
+   * @returns { SymbolSpanAttribute } the attribute of the SymbolSpanAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  attributeModifier(modifier: AttributeModifier<SymbolSpanAttribute>): SymbolSpanAttribute;
 }
 
 /**
