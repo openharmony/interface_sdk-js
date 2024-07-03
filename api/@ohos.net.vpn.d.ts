@@ -400,8 +400,8 @@ declare namespace vpn {
 
   /**
    * Define configuration of the system VPN network.
-   * @extends VpnConfig
    * @typedef SysVpnConfig
+   * @extends VpnConfig
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @systemapi Hide this for inner system use.
    * @since 12
@@ -483,8 +483,8 @@ declare namespace vpn {
 
   /**
    * Define configuration of the open VPN network.
-   * @extends SysVpnConfig
    * @typedef OpenVpnConfig
+   * @extends SysVpnConfig
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @systemapi Hide this for inner system use.
    * @since 12
@@ -574,8 +574,8 @@ declare namespace vpn {
 
   /**
    * Define configuration of the ipsec VPN network.
-   * @extends SysVpnConfig
    * @typedef IpsecVpnConfig
+   * @extends SysVpnConfig
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @systemapi Hide this for inner system use.
    * @since 12
@@ -710,8 +710,8 @@ declare namespace vpn {
 
   /**
    * Define configuration of the l2tp VPN network.
-   * @extends SysVpnConfig
    * @typedef L2tpVpnConfig
+   * @extends SysVpnConfig
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @systemapi Hide this for inner system use.
    * @since 12
