@@ -83,6 +83,7 @@ declare namespace collections {
    * @param { ArrayType } array - The array that the element belongs to.
    * @returns { ElementType } The result of the mapping.
    * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
    * @since 12
    */
   type TypedArrayMapCallback<ElementType, ArrayType> =
@@ -1349,7 +1350,7 @@ declare namespace collections {
      * Calls a defined callback function on each element of an array, and returns an array that
      * contains the results.
      *
-     * @param { TypedArrayForEachCallback<number, Int8Array> } callbackFn - A function that
+     * @param { TypedArrayMapCallback<number, Int8Array> } callbackFn - A function that
      *     accepts up to three arguments.
      *     The map method calls the callbackfn function one time for each element in the array.
      * @returns { Int8Array } The array itself.
@@ -1361,7 +1362,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    map(callbackFn: TypedArrayForEachCallback<number, Int8Array>): Int8Array;
+    map(callbackFn: TypedArrayMapCallback<number, Int8Array>): Int8Array;
     /**
      * Calls the specified callback function for all the elements in an array. The return value of
      * the callback function is the accumulated result, and is provided as an argument in the next
@@ -2389,7 +2390,7 @@ declare namespace collections {
      * Calls a defined callback function on each element of an array, and returns an array that
      * contains the results.
      *
-     * @param { TypedArrayForEachCallback<number, Uint8Array> } callbackFn - A function that
+     * @param { TypedArrayMapCallback<number, Uint8Array> } callbackFn - A function that
      *     accepts up to three arguments.
      *     The map method calls the callbackfn function one time for each element in the array.
      * @returns { Uint8Array } The array itself.
@@ -2401,7 +2402,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    map(callbackFn: TypedArrayForEachCallback<number, Uint8Array>): Uint8Array;
+    map(callbackFn: TypedArrayMapCallback<number, Uint8Array>): Uint8Array;
     /**
      * Calls the specified callback function for all the elements in an array. The return value of
      * the callback function is the accumulated result, and is provided as an argument in the next
@@ -2954,7 +2955,7 @@ declare namespace collections {
      * Calls a defined callback function on each element of an array, and returns an array that
      * contains the results.
      *
-     * @param { TypedArrayForEachCallback<number, Int16Array> } callbackFn - A function that
+     * @param { TypedArrayMapCallback<number, Int16Array> } callbackFn - A function that
      *     accepts up to three arguments.
      *     The map method calls the callbackfn function one time for each element in the array.
      * @returns { Int16Array } The array itself.
@@ -2966,7 +2967,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    map(callbackFn: TypedArrayForEachCallback<number, Int16Array>): Int16Array;
+    map(callbackFn: TypedArrayMapCallback<number, Int16Array>): Int16Array;
     /**
      * Calls the specified callback function for all the elements in an array. The return value of
      * the callback function is the accumulated result, and is provided as an argument in the next
@@ -3519,7 +3520,7 @@ declare namespace collections {
      * Calls a defined callback function on each element of an array, and returns an array that
      * contains the results.
      *
-     * @param { TypedArrayForEachCallback<number, Uint16Array> } callbackFn - A function that accepts up to
+     * @param { TypedArrayMapCallback<number, Uint16Array> } callbackFn - A function that accepts up to
      *     three arguments. The map method calls the callbackfn function one time for each element in the array.
      * @returns { Uint16Array } The array itself.
      * @throws { BusinessError } 401 - Parameter error.
@@ -3530,7 +3531,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    map(callbackFn: TypedArrayForEachCallback<number, Uint16Array>): Uint16Array;
+    map(callbackFn: TypedArrayMapCallback<number, Uint16Array>): Uint16Array;
     /**
      * Calls the specified callback function for all the elements in an array. The return value of
      * the callback function is the accumulated result, and is provided as an argument in the next
@@ -4083,7 +4084,7 @@ declare namespace collections {
      * Calls a defined callback function on each element of an array, and returns an array that
      * contains the results.
      *
-     * @param { TypedArrayForEachCallback<number, Int32Array> } callbackFn - A function that
+     * @param { TypedArrayMapCallback<number, Int32Array> } callbackFn - A function that
      *     accepts up to three arguments.
      *     The map method calls the callbackfn function one time for each element in the array.
      * @returns { Int32Array } The array itself.
@@ -4095,7 +4096,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    map(callbackFn: TypedArrayForEachCallback<number, Int32Array>): Int32Array;
+    map(callbackFn: TypedArrayMapCallback<number, Int32Array>): Int32Array;
     /**
      * Calls the specified callback function for all the elements in an array. The return value of
      * the callback function is the accumulated result, and is provided as an argument in the next
@@ -4648,7 +4649,7 @@ declare namespace collections {
      * Calls a defined callback function on each element of an array, and returns an array that
      * contains the results.
      *
-     * @param { TypedArrayForEachCallback<number, Uint32Array> } callbackFn - A function that accepts up to
+     * @param { TypedArrayMapCallback<number, Uint32Array> } callbackFn - A function that accepts up to
      *     three arguments. The map method calls the callbackfn function one time for each element in the array.
      * @returns { Uint32Array } The array itself.
      * @throws { BusinessError } 401 - Parameter error.
@@ -4659,7 +4660,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    map(callbackFn: TypedArrayForEachCallback<number, Uint32Array>): Uint32Array;
+    map(callbackFn: TypedArrayMapCallback<number, Uint32Array>): Uint32Array;
     /**
      * Calls the specified callback function for all the elements in an array. The return value of
      * the callback function is the accumulated result, and is provided as an argument in the next
