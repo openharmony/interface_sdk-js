@@ -2941,6 +2941,19 @@ declare namespace i18n {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
+    /**
+     * Obtains sorted language array for setting or startup guide app.
+     *
+     * @param { Array<string> } languages - The languages whose name will be sorted and displayed.
+     * @param { SortOptions } options - Sort options for locale item.
+     * @returns { Array<LocaleItem> } Locale Informations sorted for specified options.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
     getLanguageInfoArray(languages: Array<string>, options?: SortOptions): Array<LocaleItem>;
 
     /**
@@ -2955,6 +2968,19 @@ declare namespace i18n {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
+    /**
+     * Obtains sorted region array for setting or startup guide app.
+     *
+     * @param { Array<string>  } regions - The regions whose name will be sorted and displayed.
+     * @param { SortOptions } options - Sort options for locale item.
+     * @returns { Array<LocaleItem> } Locale Informations sorted for specified options.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
     getRegionInfoArray(regions: Array<string>, options?: SortOptions): Array<LocaleItem>;
 
     /**
@@ -2964,6 +2990,15 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
      * @since 10
+     */
+    /**
+     * Obtains sorted time zone city info array for showing time zone list
+     *
+     * @returns { Array<TimeZoneCityItem> } Time zone city information sorted by city name.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
+     * @since 12
      */
     static getTimeZoneCityItemArray(): Array<TimeZoneCityItem>;
   }
