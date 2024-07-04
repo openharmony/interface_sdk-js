@@ -130,7 +130,7 @@ export interface ArcListItemInterface {
  * @atomicservice
  * @since 12
  */
-declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
+export declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
   /**
    * Set the digital crown sensitivity.
    *
@@ -371,7 +371,7 @@ declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
  * @atomicservice
  * @since 12
  */
-declare class ArcListItemAttribute extends CommonMethod<ArcListItemAttribute> {
+export declare class ArcListItemAttribute extends CommonMethod<ArcListItemAttribute> {
   /**
    * Whether to enable auto scale when layout.
    *
@@ -405,7 +405,7 @@ declare class ArcListItemAttribute extends CommonMethod<ArcListItemAttribute> {
  * @atomicservice
  * @since 12
  */
-declare const ArcListInstance: ArcListAttribute;
+export declare const ArcListInstance: ArcListAttribute;
 
 /**
  * Defines ArcListItem Component instance.
@@ -415,7 +415,7 @@ declare const ArcListInstance: ArcListAttribute;
  * @atomicservice
  * @since 12
  */
-declare const ArcListItemInstance: ArcListItemAttribute;
+export declare const ArcListItemInstance: ArcListItemAttribute;
 
 /**
  * Defines ArcList Component.
@@ -425,7 +425,7 @@ declare const ArcListItemInstance: ArcListItemAttribute;
  * @atomicservice
  * @since 12
  */
-declare const ArcList: ArcListInterface;
+export declare const ArcList: ArcListInterface;
 
 /**
  * Defines ArcListItem Component.
@@ -435,4 +435,4 @@ declare const ArcList: ArcListInterface;
  * @atomicservice
  * @since 12
  */
-declare const ArcListItem: ArcListItemInterface;
+export declare const ArcListItem: ArcListItemInterface;
