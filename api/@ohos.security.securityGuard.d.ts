@@ -84,7 +84,7 @@ declare namespace securityGuard {
   /**
    * Report security information to the security guard.
    *
-   * @permission ohos.permission.securityguard.REPORT_SECURITY_INFO
+   * @permission ohos.permission.REPORT_SECURITY_EVENT
    * @param { SecurityEvent } securityEvent - indicates the information to be reported.
    * @throws { BusinessError } 201 - check permission fail.
    * @throws { BusinessError } 202 - non-system application uses the system API.
@@ -146,7 +146,7 @@ declare namespace securityGuard {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    param?: string
+    param?: string;
   }
 
   /**
@@ -166,8 +166,8 @@ declare namespace securityGuard {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-
     onQuery: (events: Array<SecurityEvent>) => void;
+
     /**
      * Triggered when data is complete.
      * 
@@ -176,8 +176,8 @@ declare namespace securityGuard {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-
     onComplete: () => void;
+
     /**
      * Triggered when error.
      * 
@@ -192,7 +192,7 @@ declare namespace securityGuard {
   /**
    * Query security event information from security guard.
    *
-   * @permission ohos.permission.securityguard.REQUEST_SECURITY_EVENT_INFO
+   * @permission ohos.permission.QUERY_SECURITY_EVENT
    * @param { Array<SecurityEventRule> } rules - rule of get security event information.
    * @param { Querier } querier - callback of receiving the query data.
    * @throws { BusinessError } 201 - check permission fail.
@@ -241,7 +241,7 @@ declare namespace securityGuard {
   /**
    * start the collector to collect data
    *
-   * @permission ohos.permission.securityguard.REQUEST_SECURITY_EVENT_INFO
+   * @permission ohos.permission.QUERY_SECURITY_EVENT
    * @param { CollectorRule } rule - rule of collect security event information.
    * @throws { BusinessError } 201 - check permission fail.
    * @throws { BusinessError } 202 - non-system application uses the system API.
@@ -259,7 +259,7 @@ declare namespace securityGuard {
   /**
    * stop the collector.
    *
-   * @permission ohos.permission.securityguard.REQUEST_SECURITY_EVENT_INFO
+   * @permission ohos.permission.QUERY_SECURITY_EVENT
    * @param { CollectorRule } rule - rule of collect security event information.
    * @throws { BusinessError } 201 - check permission fail.
    * @throws { BusinessError } 202 - non-system application uses the system API.
@@ -327,7 +327,7 @@ declare namespace securityGuard {
   /**
    * Request security model result from security guard.
    *
-   * @permission ohos.permission.securityguard.REQUEST_SECURITY_MODEL_RESULT
+   * @permission ohos.permission.QUERY_SECURITY_MODEL_RESULT
    * @param { ModelRule } rule -  indicates the security model rule.
    * @returns { Promise<ModelResult> } model Results with Promises.
    * @throws { BusinessError } 201 - check permission fail.
@@ -366,7 +366,7 @@ declare namespace securityGuard {
   /**
    * Subscribe the security event.
    *
-   * @permission ohos.permission.securityguard.REQUEST_SECURITY_EVENT_INFO
+   * @permission ohos.permission.QUERY_SECURITY_EVENT
    * @param {'securityEventOccur'} type
    * @param { SecurityEventInfo } securityEventInfo - Indicates the subscribed event information.
    * @param { Callback<SecurityEvent> } callback - Indicates the listener when the security event occurs.
@@ -386,7 +386,7 @@ declare namespace securityGuard {
   /**
    * Unsubscribe the security event.
    *
-   * @permission ohos.permission.securityguard.REQUEST_SECURITY_EVENT_INFO
+   * @permission ohos.permission.QUERY_SECURITY_EVENT
    * @param {'securityEventOccur'} type
    * @param { SecurityEventInfo } securityEventInfo - Indicates the subscribed event information.
    * @param { Callback<SecurityEvent> } callback - Indicates the listener when the security event occurs.
@@ -402,6 +402,53 @@ declare namespace securityGuard {
    * @since 12
    */
   function off(type: 'securityEventOccur', securityEventInfo: SecurityEventInfo, callback?: Callback<SecurityEvent>): void;
-}
 
+  /**
+   * Provides policy file information.
+   *
+   * @interface PolicyFile
+   * @syscap SystemCapability.Security.SecurityGuard
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  interface PolicyFile {
+    /**
+     * The policy file name.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Security.SecurityGuard
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    name: string;
+
+    /**
+     * The policy file descriptor.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Security.SecurityGuard
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    fd: number;
+  }
+
+  /**
+   * Update the policy file.
+   *
+   * @permission ohos.permission.MANAGE_SECURITY_GUARD_CONFIG
+   * @param { policyFile } PolicyFile - Indicates the policy file information.
+   * @throws { BusinessError } 201 - check permission fail.
+   * @throws { BusinessError } 202 - non-system application uses the system API.
+   * @throws { BusinessError } 401 - invalid parameters. 
+   * Possible causes: 
+   *   1. Mandatory parameters are left unspecified. 
+   *   2. Incorrect parameter types. 
+   *   3. Parameter verification failed.
+   * @syscap SystemCapability.Security.SecurityGuard
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  function updatePolicyFile(policyFile: PolicyFile): Promise<void>;
+}
 export default securityGuard;
