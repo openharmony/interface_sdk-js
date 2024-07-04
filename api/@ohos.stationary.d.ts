@@ -39,6 +39,7 @@ declare namespace stationary {
     /**
      * Declares a response interface to receive the device status.
      *
+     * @type { ActivityState }
      * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
      * @since 9
      */
@@ -48,6 +49,7 @@ declare namespace stationary {
   /**
    * Declares the device status type.
    *
+   * @typedef ActivityType
    * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
    * @since 9
    */
