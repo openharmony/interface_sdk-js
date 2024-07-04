@@ -237,8 +237,7 @@ declare namespace PiPWindow {
    * @syscap SystemCapability.Window.SessionManager
    * @since 12
    */
-  type PiPControlGroup = VideoPlayControlGroup | VideoCallControlGroup | VideoMeetingControlGroup |
-  VideoLiveControlGroup;
+  type PiPControlGroup = VideoPlayControlGroup | VideoCallControlGroup | VideoMeetingControlGroup | VideoLiveControlGroup;
 
   /**
    * Enum for video play PiP window custom controls.
