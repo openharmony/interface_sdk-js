@@ -1144,6 +1144,16 @@ declare namespace window {
      * @since 12
      */
     windowStatusType: WindowStatusType;
+
+    /**
+     * The type of a window.
+     *
+     * @type { WindowType }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi
+     * @since 12
+     */
+    windowType: WindowType;
   }
 
   /**
@@ -2441,13 +2451,12 @@ declare namespace window {
   function shiftAppWindowFocus(sourceWindowId: number, targetWindowId: number): Promise<void>;
 
   /**
-   * Get info of the window.
+   * Get info of visible windows.
    *
    * @returns { Promise<Array<WindowInfo>> } - Promise that returns windowInfo list.
    * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
-   * @throws { BusinessError } 1300002 - This window state is abnormal.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-   * @throws { BusinessError } 1300004 - Unauthorized operation.
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
    * @since 12
