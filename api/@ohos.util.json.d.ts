@@ -24,6 +24,7 @@
  * @namespace json
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare namespace json {
@@ -36,6 +37,7 @@ declare namespace json {
    * @param { Object } value - The value of the parsed key value pair.
    * @returns { Object | undefined | null } Return the modified object or undefined or null.
    * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
    * @since 12
    */
   type Transformer = (this: Object, key: string, value: Object) => Object | undefined | null
@@ -49,6 +51,7 @@ declare namespace json {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   function parse(text: string, reviver?: Transformer): Object | null;
@@ -63,6 +66,7 @@ declare namespace json {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   function stringify(value: Object, replacer?: (number | string)[] | null, space?: string | number): string
@@ -77,6 +81,7 @@ declare namespace json {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   function stringify(value: Object, replacer?: Transformer, space?: string | number): string;
@@ -90,6 +95,7 @@ declare namespace json {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   function has(obj: object, property: string): boolean;
@@ -102,6 +108,7 @@ declare namespace json {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   function remove(obj: object, property: string): void;
