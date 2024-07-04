@@ -430,7 +430,7 @@ export class TagValueCheck {
     if (singleApi.getApiType() === ApiType.TYPE_ALIAS) {
       const typeParams: ParamInfo[] = (singleApi as TypeAliasInfo).getParamInfos();
       paramApiName = typeParams.length > paramIndex ? typeParams[paramIndex].getApiName() : '';
-      paramApiType.push(typeParams.length > paramIndex ? typeParams[paramIndex].getApiType() : '');
+      paramApiType = typeParams.length > paramIndex ? typeParams[paramIndex].getType() : [''];
     } else {
       const paramApiInfos: ParamInfo[] = (singleApi as MethodInfo).getParams();
       paramApiName = paramApiInfos[paramIndex]?.getApiName();
