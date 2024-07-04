@@ -3604,6 +3604,22 @@ declare namespace wifiManager {
     randomGlobalIpv6Address: string;
 
     /**
+     * The unique IPv6 address of the Wi-Fi connection
+     * @type { string }
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 12
+     */
+    uniqueIpv6Address: string;
+
+    /**
+     * The rand unique IPv6 address of the Wi-Fi connection
+     * @type { string }
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 12
+     */
+    randomUniqueIpv6Address: string;
+
+    /**
      * The gateway of the Wi-Fi connection
      *
      * @syscap SystemCapability.Communication.WiFi.STA
