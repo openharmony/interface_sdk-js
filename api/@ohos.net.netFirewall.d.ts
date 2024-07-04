@@ -303,7 +303,7 @@ declare namespace netFirewall {
      */
     ORDER_BY_RULE_NAME = 1,
     /**
-     * Sort the recorded time, only support getNetFirewallRules interface calls.
+     * Sort the recorded time, it can be referenced only by the getNetFirewallRules interface.
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
@@ -425,7 +425,7 @@ declare namespace netFirewall {
      */
     mask?: number;
     /**
-     * Starting IP: valid when type equals 2, otherwise it will be ignored.
+     * Start IP: valid when type equals 2, otherwise it will be ignored.
      *
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
@@ -454,7 +454,7 @@ declare namespace netFirewall {
    */
   interface NetFirewallPortParam {
     /**
-     * Starting port, when there is only one port, the starting port is the same as the ending port.
+     * Start port, when there is only one port, the start port is the same as the ending port.
      *
      * @type {number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
@@ -463,7 +463,7 @@ declare namespace netFirewall {
      */
     startPort: number;
     /**
-     * Ending port, when there is only one port, the starting port is the same as the ending port.
+     * Ending port, when there is only one port, the start port is the same as the ending port.
      *
      * @type {number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
