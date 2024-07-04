@@ -155,7 +155,7 @@ declare namespace i18n {
      * @param { boolean } [sentenceCase] - Specifies whether the country or region name is displayed in sentence case.
      * @returns { string } the country or region name localized for display on a given locale.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 890001 - param value not valid. Possible causes: Parameter verification failed.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
@@ -237,7 +237,7 @@ declare namespace i18n {
      * @param { string } language - The language used to get the list of regions. It must be a valid language.
      * @returns { Array<string> } all countries or regions supported by the system in the language.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 890001 - param value not valid. Possible causes: Parameter verification failed.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12
@@ -262,7 +262,7 @@ declare namespace i18n {
      * @param { string } [region] - The region code. It must be a valid region.
      * @returns { boolean } whether the current language or region is recommended.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 890001 - param value not valid. Possible causes: Parameter verification failed.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12
@@ -2507,7 +2507,7 @@ declare namespace i18n {
      * @param { number } latitude value
      * @returns { Array<TimeZone> } Returns a TimeZone array from the specified longitude and latitude.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 890001 - param value not valid. Possible causes: Parameter verification failed.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12
