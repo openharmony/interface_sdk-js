@@ -838,17 +838,66 @@ declare class LineHeightStyle {
 }
 
 /**
+ * Defines the URLStyle hyperlink that allows setting a URL string. When clicking on the text to
+ * which the span is attached, the URLStyle will try to open the URL.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 13
+ */
+declare class UrlStyle {
+
+    /**
+     * Constructor.
+     *
+     * @param { string } url - URL value.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
+    constructor(url: string);
+
+    /**
+     * Get the URL value of the StyledString.
+     *
+     * @type { string } - the URL value of the StyledString
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
+    readonly url: string;
+}
+
+/**
  * Defines the Span Type.
  *
- * @typedef { TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle | TextShadowStyle | 
- * GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | CustomSpan | UserDataSpan} StyledStringValue
+ * @typedef { TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle | TextShadowStyle |
+ * GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | CustomSpan |
+ * UserDataSpan } StyledStringValue
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 12
  */
-declare type StyledStringValue = TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle | TextShadowStyle | 
-GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | CustomSpan | UserDataSpan;
+
+/**
+ * Defines the Span Type.
+ *
+ * @typedef { TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle | TextShadowStyle |
+ * GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | UrlStyle | CustomSpan |
+ * UserDataSpan } StyledStringValue
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 13
+*/
+declare type StyledStringValue = TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle |
+TextShadowStyle | GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | UrlStyle | CustomSpan |
+UserDataSpan;
 
 /**
  * MutableStyledString
@@ -1094,6 +1143,16 @@ declare enum StyledStringKey {
       * @since 12
       */
      LINE_HEIGHT = 5,
+
+     /**
+      * The key of UrlStyle.
+      *
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @crossplatform
+      * @atomicservice
+      * @since 13
+      */
+     URL = 7,
 
     /**
      * The key of GestureStyle.
