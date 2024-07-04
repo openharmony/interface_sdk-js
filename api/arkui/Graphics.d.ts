@@ -115,6 +115,17 @@ export class DrawContext {
   get size(): Size;
 
   /**
+   * Get size of the DrawContext with pixel unit.
+   *
+   * @returns { Size } The size of the DrawContext with pixel unit.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  get sizeInPixel(): Size;
+
+  /**
    * Get canvas of the DrawContext.
    *
    * @returns { drawing.Canvas } The canvas of the DrawContext.
