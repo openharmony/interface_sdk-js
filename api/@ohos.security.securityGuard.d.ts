@@ -160,7 +160,7 @@ declare namespace securityGuard {
   interface Querier {
     /**
      * Triggered when data is returned.
-     * 
+     *
      * @type { function }
      * @syscap SystemCapability.Security.SecurityGuard
      * @systemapi Hide this for inner system use.
@@ -170,7 +170,7 @@ declare namespace securityGuard {
 
     /**
      * Triggered when data is complete.
-     * 
+     *
      * @type { function }
      * @syscap SystemCapability.Security.SecurityGuard
      * @systemapi Hide this for inner system use.
@@ -180,7 +180,7 @@ declare namespace securityGuard {
 
     /**
      * Triggered when error.
-     * 
+     *
      * @type { function }
      * @syscap SystemCapability.Security.SecurityGuard
      * @systemapi Hide this for inner system use.
@@ -451,4 +451,5 @@ declare namespace securityGuard {
    */
   function updatePolicyFile(policyFile: PolicyFile): Promise<void>;
 }
+
 export default securityGuard;
