@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-import type CallBack from "./@ohos.base";
 import type BaseContext from './application/BaseContext';
+import type { Callback } from "./@ohos.base";
 import { NodeController } from '@kit.ArkUI'
 
 /**
@@ -726,20 +726,20 @@ declare namespace PiPWindow {
      * Register picture-in-picture control event listener.
      *
      * @param { 'controlEvent' } type - Registration type, user action event, 'controlEvent'
-     * @param { CallBack<ControlEventParam> } callback - Used to handle {'controlEvent'} command.
+     * @param { Callback<ControlEventParam> } callback - Used to handle {'controlEvent'} command.
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    on(type: 'controlEvent', callback: CallBack<ControlEventParam>): void;
+    on(type: 'controlEvent', callback: Callback<ControlEventParam>): void;
 
     /**
      * Unregister picture-in-picture control event listener
      * @param { 'controlEvent' } type - Used to unregister listener for {'controlEvent'} command
-     * @param { CallBack<ControlEventParam> } callback - Used to handle {'controlEvent'} command.
+     * @param { Callback<ControlEventParam> } callback - Used to handle {'controlEvent'} command.
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    off(type: 'controlEvent', callback?: CallBack<ControlEventParam>): void;
+    off(type: 'controlEvent', callback?: Callback<ControlEventParam>): void;
   }
 }
 
