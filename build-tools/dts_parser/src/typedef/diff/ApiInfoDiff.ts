@@ -61,6 +61,8 @@ export class BasicDiffInfo {
   //kit信息
   oldKitInfo: string = '';
   newKitInfo:string = '';
+  //是否为系统API
+  isSystemapi: boolean = false;
 
   setApiType(apiType: string): BasicDiffInfo {
     if (apiType) {
@@ -267,7 +269,7 @@ export class BasicDiffInfo {
     return this.newSyscapField;
   }
 
-  setOldKitInfo(kitInfo: string) {
+  setOldKitInfo(kitInfo: string): BasicDiffInfo {
     this.oldKitInfo = kitInfo;
     return this;
   }
@@ -276,13 +278,24 @@ export class BasicDiffInfo {
     return this.oldKitInfo;
   }
 
-  setNewKitInfo(kitInfo: string) {
+  setNewKitInfo(kitInfo: string): BasicDiffInfo {
     this.newKitInfo = kitInfo;
     return this;
   }
 
   getNewKitInfo(): string {
     return this.newKitInfo;
+  }
+
+  setIsSystemapi(isSystemapi: boolean | undefined): BasicDiffInfo {
+    if (isSystemapi) {
+      this.isSystemapi = isSystemapi;
+    }
+    return this;
+  }
+
+  getIsSystemapi(): boolean {
+    return this.isSystemapi;
   }
 }
 
@@ -356,6 +369,8 @@ export class DiffNumberInfo {
   diffTypeNumber: number = 0;
   isApi: boolean = true;
   apiRelation: string = '';
+  isSystemapi: boolean = false;
+  
 
   setApiName(apiName: string): DiffNumberInfo {
     this.apiName = apiName;
@@ -477,6 +492,15 @@ export class DiffNumberInfo {
 
   getApiRelation(): string{
     return this.apiRelation;
+  }
+
+  setIsSystemapi(isSystemapi: boolean): DiffNumberInfo {
+    this.isSystemapi = isSystemapi;
+    return this;
+  }
+
+  getIsSystemapi(): boolean {
+    return this.isSystemapi;
   }
 }
 

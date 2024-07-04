@@ -1210,8 +1210,8 @@ export namespace DiffProcessorHelper {
       const newPropertyType: string[] = newApiInfo.getType();
       const oldPropertyIsReadOnly: boolean = oldApiInfo.getIsReadOnly();
       const newPropertyIsReadOnly: boolean = newApiInfo.getIsReadOnly();
-      const olaPropertyTypeStr = olaPropertyType.toString();
-      const newPropertyTypeStr = newPropertyType.toString();
+      const olaPropertyTypeStr = olaPropertyType.toString().replace(/\r|\n|s+/g, '');
+      const newPropertyTypeStr = newPropertyType.toString().replace(/\r|\n|s+/g, '');
       if (olaPropertyTypeStr === newPropertyTypeStr) {
         return undefined;
       }
@@ -1450,6 +1450,26 @@ export namespace DiffProcessorHelper {
       diffTypeInfo.setOldMessage(olaConstantName).setNewMessage(newConstantName);
       return diffTypeInfo.setDiffType(ApiDiffType.API_NAME_CHANGE);
     }
+
+    /**
+     * 新旧版本参数个数没变化时，判断参数类型范围扩大/缩小/更改
+     * 
+     * @param oldTypes 旧版本参数类型
+     * @param newTypes 新版本参数类型
+     * @param diffTypes 
+     * @returns 
+     */
+    static diffSingleParamType(oldTypes: string[], newTypes: string[], diffTypes: DiffTypeChangeType): number {
+      const oldParamTypeStr: string = oldTypes.toString().replace(/\r|\n|\s+|'|"|>/g, '').replace(/\|/g, '\\|');
+      const newParamTypeStr: string = newTypes.toString().replace(/\r|\n|\s+|'|"|>/g, '').replace(/\|/g, '\\|');
+      if (StringUtils.hasSubstring(newParamTypeStr, oldParamTypeStr)) {
+        return diffTypes.PARAM_TYPE_ADD;
+      }
+      if (StringUtils.hasSubstring(oldParamTypeStr, newParamTypeStr)) {
+        return diffTypes.PARAM_TYPE_REDUCE;
+      }
+      return diffTypes.PARAM_TYPE_CHANGE
+    }
   }
 
   /**
@@ -1500,7 +1520,7 @@ export namespace DiffProcessorHelper {
     const newLen: number = newTypes.length;
     switch (oldLen - newLen) {
       case 0:
-        return diffTypes.PARAM_TYPE_CHANGE;
+        return DiffProcessorHelper.ApiNodeDiffHelper.diffSingleParamType(oldTypes, newTypes, diffTypes);
       case -newLen:
         return diffTypes.PARAM_TYPE_ADD;
       case oldLen:
@@ -1517,6 +1537,8 @@ export namespace DiffProcessorHelper {
         }
     }
   }
+
+
   /**
    * 检查两个版本的相同位置的参数的参数名是否相同
    *
@@ -1573,6 +1595,11 @@ export namespace DiffProcessorHelper {
     }
     const diffInfo: BasicDiffInfo = new BasicDiffInfo();
     const diffType: ApiDiffType = diffTypeInfo.getDiffType();
+    const clonedOldApiInfo = oldApiInfo as ApiInfo;
+    const clonedNewApiInfo = newApiInfo as ApiInfo;
+    const oldApiLevel: boolean | undefined = clonedOldApiInfo?.getLastJsDocInfo()?.getIsSystemApi();
+    const newApiLevel: boolean | undefined = clonedNewApiInfo?.getLastJsDocInfo()?.getIsSystemApi();
+
     if (oldApiInfo) {
       processOldApiDiff(oldApiInfo, diffInfo);
     }
@@ -1585,7 +1612,8 @@ export namespace DiffProcessorHelper {
       .setStatusCode(diffTypeInfo.getStatusCode())
       .setIsCompatible(!isCompatible ? false : !incompatibleApiDiffTypes.has(diffType))
       .setOldDescription(diffTypeInfo.getOldMessage())
-      .setNewDescription(diffTypeInfo.getNewMessage());
+      .setNewDescription(diffTypeInfo.getNewMessage())
+      .setIsSystemapi(newApiLevel ? newApiLevel : oldApiLevel);
     return diffInfo;
   }
 
