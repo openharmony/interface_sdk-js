@@ -20887,12 +20887,12 @@ declare type Filter = import('../api/@ohos.graphics.uiEffect').default.Filter;
 /**
  * ComponentContent.
  *
- * @typedef {import('../api/arkui/ComponentContent').ComponentContent} ComponentContent
+ * @typedef {import('../api/arkui/ComponentContent').ComponentContent<T>} ComponentContent<T = Object>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
-declare type ComponentContent = import('../api/arkui/ComponentContent').ComponentContent;
+declare type ComponentContent<T = Object> = import('../api/arkui/ComponentContent').ComponentContent<T>;
 
 /**
  * Theme.
