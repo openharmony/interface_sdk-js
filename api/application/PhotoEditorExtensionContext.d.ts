@@ -13,7 +13,11 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from '../@ohos.base';
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
 import ExtensionContext from './ExtensionContext';
 import type { AbilityResult } from '../ability/abilityResult';
 import image from '../@ohos.multimedia.image';
