@@ -133,7 +133,7 @@ declare namespace dialogSession {
     visible: boolean;
 
     /**
-     * The index of the bundle
+     * Index of an application clone. It takes effect only for cloned applications.
      *
      * @type { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -144,7 +144,7 @@ declare namespace dialogSession {
     appIndex: number;
 
     /**
-      * The MultiAppMode object of the bundle
+      * The mode of the multi-application.
       *
       * @type { MultiAppMode }
       * @syscap SystemCapability.Ability.AbilityRuntime.Core
