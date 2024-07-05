@@ -25,6 +25,7 @@ import _DriverExtensionContext from './application/DriverExtensionContext';
 /**
  * Define a DriverExtensionContext for store context.
  *
+ * @typedef { _DriverExtensionContext }
  * @syscap SystemCapability.Driver.ExternalDevice
  * @since 10
  */
@@ -39,6 +40,8 @@ export type DriverExtensionContext = _DriverExtensionContext;
 export default class DriverExtensionAbility {
   /**
    * Indicates driver extension ability context.
+   * 
+   * @type { DriverExtensionContext }
    * @syscap SystemCapability.Driver.ExternalDevice
    * @StageModelOnly
    * @since 10
