@@ -434,7 +434,7 @@ declare namespace netFirewall {
      */
     startIp?: string;
     /**
-     * Ending IP: valid when type equals 2, otherwise it will be ignored.
+     * End IP: valid when type equals 2, otherwise it will be ignored.
      *
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
@@ -454,7 +454,7 @@ declare namespace netFirewall {
    */
   interface NetFirewallPortParam {
     /**
-     * Start port, when there is only one port, the start port is the same as the ending port.
+     * Start port, when there is only one port, the start port is the same as the end port.
      *
      * @type {number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
@@ -463,7 +463,7 @@ declare namespace netFirewall {
      */
     startPort: number;
     /**
-     * Ending port, when there is only one port, the start port is the same as the ending port.
+     * End port, when there is only one port, the start port is the same as the end port.
      *
      * @type {number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
