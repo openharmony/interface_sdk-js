@@ -550,7 +550,7 @@ declare namespace backgroundTaskManager {
     /**
      * True if the apply action is persist, else false. Default value is false.
      *
-     * @type { boolean }
+     * @type { ?boolean }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -560,7 +560,7 @@ declare namespace backgroundTaskManager {
     /**
      * True if apply action is for process, false is for package. Default value is false.
      *
-     * @type { boolean }
+     * @type { ?boolean }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 9
