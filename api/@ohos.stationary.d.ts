@@ -49,7 +49,7 @@ declare namespace stationary {
   /**
    * Declares the device status type.
    *
-   * @typedef ActivityType
+   * @typedef { 'still' | 'relativeStill' }
    * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
    * @since 9
    */
