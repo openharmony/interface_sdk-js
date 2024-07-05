@@ -4543,6 +4543,7 @@ declare namespace photoAccessHelper {
    *
    * @interface MovingPhoto
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
    * @since 12
    */
   interface MovingPhoto {
@@ -4558,6 +4559,7 @@ declare namespace photoAccessHelper {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
      * @since 12
      */
     requestContent(imageFileUri: string, videoFileUri: string): Promise<void>;
@@ -4574,6 +4576,7 @@ declare namespace photoAccessHelper {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
      * @since 12
      */
     requestContent(resourceType: ResourceType, fileUri: string): Promise<void>;
@@ -4589,6 +4592,7 @@ declare namespace photoAccessHelper {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
      * @since 12
      */
     requestContent(resourceType: ResourceType): Promise<ArrayBuffer>;
@@ -4601,6 +4605,7 @@ declare namespace photoAccessHelper {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
      * @since 12
      */
     getUri(): string;
