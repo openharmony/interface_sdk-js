@@ -842,6 +842,17 @@ declare const Watch: (value: string) => PropertyDecorator;
 declare const Builder: MethodDecorator;
 
 /**
+ * Defining LocalBuilder MethodDecorator
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 12
+ */
+declare const LocalBuilder: MethodDecorator;
+
+/**
  * Defining Styles MethodDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
