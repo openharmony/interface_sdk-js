@@ -303,6 +303,7 @@ declare namespace reminderAgentManager {
      * Text on the button.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
+     * @type { string }
      * @since 9
      */
     title: string;
@@ -320,6 +321,7 @@ declare namespace reminderAgentManager {
      * Button type.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
+     * @type { ActionButtonType }
      * @since 9
      */
     type: ActionButtonType;
@@ -329,6 +331,7 @@ declare namespace reminderAgentManager {
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @systemapi Hide this for inner system use.
+     * @type { ?WantAgent }
      * @since 10
      */
     wantAgent?: WantAgent;
@@ -357,6 +360,7 @@ declare namespace reminderAgentManager {
      * Name of the package redirected to when the reminder notification is clicked.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
+     * @type { string }
      * @since 9
      */
     pkgName: string;
@@ -365,6 +369,7 @@ declare namespace reminderAgentManager {
      * Name of the ability that is redirected to when the reminder notification is clicked.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
+     * @type { string }
      * @since 9
      */
     abilityName: string;
@@ -373,6 +378,7 @@ declare namespace reminderAgentManager {
      * The Uniform Resource Identifier (URI) that will be redirected to.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
+     * @type { ?string }
      * @since 12
      */
     uri?: string;
@@ -381,6 +387,7 @@ declare namespace reminderAgentManager {
      * The description of the WantParams object in an Want
      *
      * @syscap SystemCapability.Notification.ReminderAgent
+     * @type { ?Record<string, Object> }
      * @since 12
      */
     parameters?: Record<string, Object>;
@@ -439,6 +446,7 @@ declare namespace reminderAgentManager {
      * Name of the package that is automatically started when the reminder arrives and the device is not in use.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
+     * @type { string }
      * @since 9
      */
     pkgName: string;
@@ -447,6 +455,7 @@ declare namespace reminderAgentManager {
      * Name of the ability that is automatically started when the reminder arrives and the device is not in use.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
+     * @type { string }
      * @since 9
      */
     abilityName: string;
@@ -464,6 +473,7 @@ declare namespace reminderAgentManager {
      * Type of the reminder.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
+     * @type { ReminderType }
      * @since 9
      */
     reminderType: ReminderType;
@@ -480,6 +490,7 @@ declare namespace reminderAgentManager {
      * (The parameter is optional. Up to three buttons are supported).
      *
      * @syscap SystemCapability.Notification.ReminderAgent
+     * @type { ?[ActionButton?, ActionButton?, ActionButton?] }
      * @since 10
      */
     actionButton?: [ActionButton?, ActionButton?, ActionButton?];
@@ -488,6 +499,7 @@ declare namespace reminderAgentManager {
      * Information about the ability that is redirected to when the notification is clicked.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
+     * @type { ?WantAgent }
      * @since 9
      */
     wantAgent?: WantAgent;
@@ -505,6 +517,7 @@ declare namespace reminderAgentManager {
      * Ringing duration.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
+     * @type { ?number }
      * @since 9
      */
     ringDuration?: number;
@@ -513,6 +526,7 @@ declare namespace reminderAgentManager {
      * Number of reminder snooze times.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
+     * @type { ?number }
      * @since 9
      */
     snoozeTimes?: number;
@@ -521,6 +535,7 @@ declare namespace reminderAgentManager {
      * Reminder snooze interval.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
+     * @type { ?number }
      * @since 9
      */
     timeInterval?: number;
@@ -529,6 +544,7 @@ declare namespace reminderAgentManager {
      * Reminder title.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
+     * @type { ?string }
      * @since 9
      */
     title?: string;
@@ -537,6 +553,7 @@ declare namespace reminderAgentManager {
      * Reminder content.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
+     * @type { ?string }
      * @since 9
      */
     content?: string;
@@ -545,6 +562,7 @@ declare namespace reminderAgentManager {
      * Content to be displayed when the reminder is expired.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
+     * @type { ?string }
      * @since 9
      */
     expiredContent?: string;
@@ -553,6 +571,7 @@ declare namespace reminderAgentManager {
      * Content to be displayed when the reminder is snoozing.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
+     * @type { ?string }
      * @since 9
      */
     snoozeContent?: string;
@@ -561,6 +580,7 @@ declare namespace reminderAgentManager {
      * Notification id. If there are reminders with the same ID, the later one will overwrite the earlier one.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
+     * @type { ?number }
      * @since 9
      */
     notificationId?: number;
@@ -578,6 +598,7 @@ declare namespace reminderAgentManager {
      * Type of the slot used by the reminder.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
+     * @type { ?notification.SlotType }
      * @since 9
      */
     slotType?: notification.SlotType;
@@ -586,6 +607,7 @@ declare namespace reminderAgentManager {
      * Whether the notification is automatically cleared.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
+     * @type { ?boolean }
      * @since 10
      */
     tapDismissed?: boolean;
@@ -594,6 +616,7 @@ declare namespace reminderAgentManager {
      * Time when the notification is automatically cleared.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
+     * @type { ?number }
      * @since 10
      */
     autoDeletedTime?: number;
@@ -629,6 +652,7 @@ declare namespace reminderAgentManager {
      * Reminder time.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
+     * @type { LocalDateTime }
      * @since 9
      */
     dateTime: LocalDateTime;
@@ -637,6 +661,7 @@ declare namespace reminderAgentManager {
      * Month in which the reminder repeats.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
+     * @type { ?Array<number> }
      * @since 9
      */
     repeatMonths?: Array<number>;
@@ -645,6 +670,7 @@ declare namespace reminderAgentManager {
      * Date on which the reminder repeats.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
+     * @type { ?Array<number> }
      * @since 9
      */
     repeatDays?: Array<number>;
@@ -662,6 +688,7 @@ declare namespace reminderAgentManager {
      * calendar end date time
      *
      * @syscap SystemCapability.Notification.ReminderAgent
+     * @type { ?LocalDateTime }
      * @since 12
      */
     endDateTime?: LocalDateTime;
@@ -672,6 +699,7 @@ declare namespace reminderAgentManager {
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @systemapi Hide this for inner system use.
+     * @type { ?WantAgent }
      * @since 12
      */
     rruleWantAgent?: WantAgent;
@@ -689,6 +717,7 @@ declare namespace reminderAgentManager {
      * Hour portion of the reminder time.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
+     * @type { number }
      * @since 9
      */
     hour: number;
@@ -697,6 +726,7 @@ declare namespace reminderAgentManager {
      * Minute portion of the reminder time.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
+     * @type { number }
      * @since 9
      */
     minute: number;
@@ -705,6 +735,7 @@ declare namespace reminderAgentManager {
      * Days of a week when the reminder repeats.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
+     * @type { ?Array<number> }
      * @since 9
      */
     daysOfWeek?: Array<number>;
@@ -723,6 +754,7 @@ declare namespace reminderAgentManager {
      * The number of seconds to count down.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
+     * @type { number }
      * @since 9
      */
     triggerTimeInSeconds: number;
@@ -736,8 +768,22 @@ declare namespace reminderAgentManager {
    * @since 12
    */
   interface ReminderInfo {
+    /**
+     * reminder id.
+     *
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @type { number }
+     * @since 12
+     */
     reminderId: number;
-
+  
+    /**
+     * reminder request.
+     *
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @type { ReminderRequest }
+     * @since 12
+     */
     reminderReq: ReminderRequest;
   }
 
@@ -753,6 +799,7 @@ declare namespace reminderAgentManager {
      * Value of year.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
+     * @type { number }
      * @since 9
      */
     year: number;
@@ -761,6 +808,7 @@ declare namespace reminderAgentManager {
      * Value of month.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
+     * @type { number }
      * @since 9
      */
     month: number;
@@ -769,6 +817,7 @@ declare namespace reminderAgentManager {
      * Value of day.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
+     * @type { number }
      * @since 9
      */
     day: number;
@@ -777,6 +826,7 @@ declare namespace reminderAgentManager {
      * Value of hour.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
+     * @type { number }
      * @since 9
      */
     hour: number;
@@ -785,6 +835,7 @@ declare namespace reminderAgentManager {
      * Value of minute.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
+     * @type { number }
      * @since 9
      */
     minute: number;
@@ -793,6 +844,7 @@ declare namespace reminderAgentManager {
      * Value of second.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
+     * @type { ?number }
      * @since 9
      */
     second?: number;
