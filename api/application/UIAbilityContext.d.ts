@@ -563,6 +563,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
    * @throws { BusinessError } 16000019 - Can not match any component.
    * @throws { BusinessError } 16200001 - The caller has been released.
+   * @throws { BusinessError } 16000054 - The installation-free service is busy.Try again later.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice

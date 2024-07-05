@@ -271,6 +271,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000019 - Can not match any component.
    * @throws { BusinessError } 16000069 - The extension cannot start the third party application.
    * @throws { BusinessError } 16200001 - The caller has been released.
+   * @throws { BusinessError } 16000054 - The installation-free service is busy.Try again later.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12
