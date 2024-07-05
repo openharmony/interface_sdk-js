@@ -2459,6 +2459,24 @@ declare enum NativeEmbedStatus {
    * @since 11
    */
   DESTROY = 2,
+
+  /**
+   * The embed tag enter backforwardcache.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  ENTER_BFCACHE = 3,
+
+  /**
+   * The embed tag leave backforwardcache.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  LEAVE_BFCACHE = 4,
 }
 
 /**
