@@ -34,6 +34,7 @@ declare namespace update {
    *
    * @param { UpgradeInfo } upgradeInfo - Indicates client app and business type.
    * @returns { Updater } online update handler to perform online update.
+   * @throws { BusinessError } 202 - Caller not system app.
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9
@@ -44,6 +45,7 @@ declare namespace update {
    * Get restore handler.
    *
    * @returns { Restorer } restore handler to perform factory reset.
+   * @throws { BusinessError } 202 - Caller not system app.
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9
@@ -54,6 +56,7 @@ declare namespace update {
    * Get local update handler.
    *
    * @returns { LocalUpdater } local update handler to perform local update.
+   * @throws { BusinessError } 202 - Caller not system app.
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9
@@ -75,6 +78,7 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { AsyncCallback<CheckResult> } callback - Callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller not system app.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -88,6 +92,7 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @returns { Promise<CheckResult> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller not system app.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -101,6 +106,7 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { AsyncCallback<NewVersionInfo> } callback - Callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller not system app.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -114,6 +120,7 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @returns { Promise<NewVersionInfo> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller not system app.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -129,6 +136,7 @@ declare namespace update {
      * @param { DescriptionOptions } descriptionOptions - Options of the description file.
      * @param { AsyncCallback<Array<ComponentDescription>> } callback - Callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller not system app.
      * @throws { BusinessError } 401 - Parameter verification failed.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
@@ -149,6 +157,7 @@ declare namespace update {
      * @param { DescriptionOptions } descriptionOptions - Options of the description file.
      * @returns { Promise<Array<ComponentDescription>> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller not system app.
      * @throws { BusinessError } 401 - Parameter verification failed.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
@@ -166,6 +175,7 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { AsyncCallback<CurrentVersionInfo> } callback - Callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller not system app.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -179,6 +189,7 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @returns { Promise<CurrentVersionInfo> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller not system app.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -193,6 +204,7 @@ declare namespace update {
      * @param { DescriptionOptions } descriptionOptions - Options of the description file.
      * @param { AsyncCallback<Array<ComponentDescription>> } callback - Callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller not system app.
      * @throws { BusinessError } 401 - Parameter verification failed.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
@@ -211,6 +223,7 @@ declare namespace update {
      * @param { DescriptionOptions } descriptionOptions - Options of the description file.
      * @returns { Promise<Array<ComponentDescription>> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller not system app.
      * @throws { BusinessError } 401 - Parameter verification failed.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
@@ -225,6 +238,7 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { AsyncCallback<TaskInfo> } callback - Callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller not system app.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -238,6 +252,7 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @returns { Promise<TaskInfo> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller not system app.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -255,6 +270,7 @@ declare namespace update {
      * @param { AsyncCallback<void> } callback - Callback used to return the result. 
      *    If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller not system app.
      * @throws { BusinessError } 401 - Parameter verification failed.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
@@ -276,6 +292,7 @@ declare namespace update {
      * @param { DownloadOptions } downloadOptions - Download options.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller not system app.
      * @throws { BusinessError } 401 - Parameter verification failed.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
@@ -294,6 +311,7 @@ declare namespace update {
      * @param { AsyncCallback<void> } callback - Callback used to return the result. 
      *   If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller not system app.
      * @throws { BusinessError } 401 - Parameter verification failed.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
@@ -315,6 +333,7 @@ declare namespace update {
      * @param { ResumeDownloadOptions } resumeDownloadOptions - Options for resume download.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller not system app.
      * @throws { BusinessError } 401 - Parameter verification failed.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
@@ -333,6 +352,7 @@ declare namespace update {
      * @param { AsyncCallback<void> } callback - Callback used to return the result. 
      *    If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller not system app.
      * @throws { BusinessError } 401 - Parameter verification failed.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
@@ -354,6 +374,7 @@ declare namespace update {
      * @param { PauseDownloadOptions } pauseDownloadOptions - Options for pause download.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller not system app.
      * @throws { BusinessError } 401 - Parameter verification failed.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
@@ -372,6 +393,7 @@ declare namespace update {
      * @param { AsyncCallback<void> } callback - Callback used to return the result. 
      *   If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller not system app.
      * @throws { BusinessError } 401 - Parameter verification failed.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
@@ -389,6 +411,7 @@ declare namespace update {
      * @param { UpgradeOptions } upgradeOptions - Update options.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller not system app.
      * @throws { BusinessError } 401 - Parameter verification failed.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
@@ -406,6 +429,7 @@ declare namespace update {
      * @param { AsyncCallback<void> } callback - Callback used to return the result. 
      *   If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller not system app.
      * @throws { BusinessError } 401 - Parameter verification failed.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
@@ -422,6 +446,7 @@ declare namespace update {
      * @param { ClearOptions } clearOptions - Clear options.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller not system app.
      * @throws { BusinessError } 401 - Parameter verification failed.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
@@ -436,6 +461,7 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { AsyncCallback<UpgradePolicy> } callback - Callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller not system app.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -449,6 +475,7 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @returns { Promise<UpgradePolicy> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller not system app.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -463,6 +490,7 @@ declare namespace update {
      * @param { UpgradePolicy } policy - Update policy.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller not system app.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -477,6 +505,7 @@ declare namespace update {
      * @param { UpgradePolicy } policy - Update policy.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller not system app.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -491,6 +520,7 @@ declare namespace update {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      *     If the operation is successful, 'err' is 'undefined'; otherwise, 'err' is an 'Error' object.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller not system app.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -504,6 +534,7 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller not system app.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -516,6 +547,7 @@ declare namespace update {
      *
      * @param { EventClassifyInfo } eventClassifyInfo - Event information.
      * @param { UpgradeTaskCallback } taskCallback - Event callback.
+     * @throws { BusinessError } 202 - Caller not system app.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9
@@ -527,6 +559,7 @@ declare namespace update {
      *
      * @param { EventClassifyInfo } eventClassifyInfo - Event information.
      * @param { UpgradeTaskCallback } taskCallback - Event callback.
+     * @throws { BusinessError } 202 - Caller not system app.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9
@@ -550,6 +583,7 @@ declare namespace update {
      * @param { AsyncCallback<void> } callback - Callback used to return the result. 
      *   If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller not system app.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -563,6 +597,7 @@ declare namespace update {
      * @permission ohos.permission.FACTORY_RESET
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller not system app.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -588,6 +623,7 @@ declare namespace update {
      * @param { string } certsFile - Path of the certificate file.
      * @param { AsyncCallback<void> } callback - Callback used to return the verify upgrade package result.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller not system app.
      * @throws { BusinessError } 401 - Parameter verification failed.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
@@ -604,6 +640,7 @@ declare namespace update {
      * @param { string } certsFile - Path of the certificate file.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller not system app.
      * @throws { BusinessError } 401 - Parameter verification failed.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
@@ -620,6 +657,7 @@ declare namespace update {
      * @param { Array<UpgradeFile> } upgradeFiles - Update files.
      * @param { AsyncCallback<void> } callback - Callback used to return the apply new version result.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller not system app.
      * @throws { BusinessError } 401 - Parameter verification failed.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
@@ -636,6 +674,7 @@ declare namespace update {
      * @param { Array<UpgradeFile> } upgradeFiles - Update files.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller not system app.
      * @throws { BusinessError } 401 - Parameter verification failed.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
@@ -649,6 +688,7 @@ declare namespace update {
      *
      * @param { EventClassifyInfo } eventClassifyInfo - Event information.
      * @param { UpgradeTaskCallback } taskCallback - Event callback.
+     * @throws { BusinessError } 202 - Caller not system app.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9
@@ -660,6 +700,7 @@ declare namespace update {
      *
      * @param { EventClassifyInfo } eventClassifyInfo - Event information.
      * @param { UpgradeTaskCallback } taskCallback - Event callback.
+     * @throws { BusinessError } 202 - Caller not system app.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9
