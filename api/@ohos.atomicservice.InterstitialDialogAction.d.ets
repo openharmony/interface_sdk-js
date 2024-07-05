@@ -18,6 +18,7 @@
  */
 
  /// <reference path="../component/units.d.ts" />
+ import { ResourceStr, Resource } from 'GlobalResource';
  import { UIContext } from '@ohos.arkui.UIContext';
  import { ComponentContent } from '@ohos.arkui.node';
 /**
@@ -102,7 +103,6 @@ export declare enum BottomOffset {
  * Defines the properties required by the dialog.
  *
  * @interface DialogOptions
- * @typedef DialogOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
