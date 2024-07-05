@@ -2705,7 +2705,7 @@ declare class Component {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 10
+   * @since 11
    * @test
    */
   clearText(): Promise<void>;
@@ -2828,7 +2828,7 @@ declare class Component {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 10
+   * @since 11
    * @test
    */
   scrollSearch(on: On): Promise<Component>;
