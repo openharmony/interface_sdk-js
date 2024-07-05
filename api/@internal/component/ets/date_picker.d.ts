@@ -430,6 +430,18 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
    * @since 11
    */
   onDateChange(callback: (value: Date) => void): DatePickerAttribute;
+
+  /**
+   * If the attribute is set, the crown rotation sensitivity can be changed.
+   *
+   * @param { Optional<CrownSensitivity> } sensitivity
+   * @returns { DatePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  digitalCrownSensitivity(sensitivity: Optional<CrownSensitivity>): DatePickerAttribute;
 }
 
 /**

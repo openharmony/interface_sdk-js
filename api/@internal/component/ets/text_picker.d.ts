@@ -576,6 +576,18 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @since 12
    */
   gradientHeight(value: Dimension): TextPickerAttribute;
+
+  /**
+   * If the attribute is set, the crown rotation sensitivity can be changed.
+   *
+   * @param { Optional<CrownSensitivity> } sensitivity
+   * @returns { TextPickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  digitalCrownSensitivity(sensitivity: Optional<CrownSensitivity>): TextPickerAttribute;
 }
 
 /**
