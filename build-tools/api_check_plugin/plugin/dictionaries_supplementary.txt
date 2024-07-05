@@ -51,6 +51,7 @@ arraybuffer
 arrlist
 ashmem
 associating
+askpass
 asy
 asyn
 asynchronized
@@ -463,6 +464,7 @@ interpolator
 interworking
 invalidates
 ipaddr
+ipsec
 irradiance
 isdn
 isim
@@ -626,6 +628,7 @@ opendocument
 openexr
 openharmony
 opentype
+openvpn
 oper
 operated
 operatorconfigs
@@ -643,6 +646,7 @@ outlines
 overheated
 overlimit
 overline
+ovpn
 owningproperties
 ows
 oximeter
@@ -722,6 +726,7 @@ promisify
 provisioned
 proxyed
 psc
+psec
 psk
 psrc
 pss
@@ -901,6 +906,7 @@ superimposed
 suscriber
 suscribes
 suspends
+swanctl
 switchvideomode
 symantec
 symbolglyph
