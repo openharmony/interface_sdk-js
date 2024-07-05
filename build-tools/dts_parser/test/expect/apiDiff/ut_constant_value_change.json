@@ -8,7 +8,7 @@
     "newApiName": "CONSTANT",
     "oldDtsName": "ut_constant_value_change.d.ts",
     "newDtsName": "ut_constant_value_change.d.ts",
-    "diffType": 54,
+    "diffType": 57,
     "diffMessage": "常量值发生改变",
     "changeLogUrl": "",
     "changeLogs": [],
@@ -34,6 +34,9 @@
     "oldDescription": "1",
     "newDescription": "2",
     "oldSyscapField": "",
-    "newSyscapField": ""
+    "newSyscapField": "",
+    "oldKitInfo": "",
+    "newKitInfo": "",
+    "isSystemapi": false
   }
 ]

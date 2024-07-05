@@ -8,7 +8,7 @@
     "newApiName": "",
     "oldDtsName": "ut_api_name_change.d.ts",
     "newDtsName": "",
-    "diffType": 60,
+    "diffType": 76,
     "diffMessage": "删除API",
     "changeLogUrl": "",
     "changeLogs": [],
@@ -30,7 +30,10 @@
     "oldDescription": "function func(str: string): void {}",
     "newDescription": "",
     "oldSyscapField": "",
-    "newSyscapField": ""
+    "newSyscapField": "",
+    "oldKitInfo": "",
+    "newKitInfo": "",
+    "isSystemapi": false
   },
   {
     "apiType": "Method",
@@ -41,7 +44,7 @@
     "newApiName": "func2",
     "oldDtsName": "",
     "newDtsName": "ut_api_name_change.d.ts",
-    "diffType": 59,
+    "diffType": 75,
     "diffMessage": "新增API",
     "changeLogUrl": "",
     "changeLogs": [],
@@ -63,6 +66,9 @@
     "oldDescription": "",
     "newDescription": "function func2(str: string): void {}",
     "oldSyscapField": "",
-    "newSyscapField": ""
+    "newSyscapField": "",
+    "oldKitInfo": "",
+    "newKitInfo": "",
+    "isSystemapi": false
   }
 ]

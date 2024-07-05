@@ -8,7 +8,7 @@
     "newApiName": "VALUE_THREE",
     "oldDtsName": "",
     "newDtsName": "ut_enum_member_add.d.ts",
-    "diffType": 59,
+    "diffType": 75,
     "diffMessage": "新增API",
     "changeLogUrl": "",
     "changeLogs": [],
@@ -30,6 +30,9 @@
     "oldDescription": "",
     "newDescription": "VALUE_THREE",
     "oldSyscapField": "",
-    "newSyscapField": ""
+    "newSyscapField": "",
+    "oldKitInfo": "",
+    "newKitInfo": "",
+    "isSystemapi": false
   }
 ]

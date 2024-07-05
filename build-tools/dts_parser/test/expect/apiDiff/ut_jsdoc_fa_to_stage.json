@@ -32,6 +32,9 @@
     "oldDescription": "famodelonly",
     "newDescription": "stagemodelonly",
     "oldSyscapField": "",
-    "newSyscapField": ""
+    "newSyscapField": "",
+    "oldKitInfo": "",
+    "newKitInfo": "",
+    "isSystemapi": false
   }
 ]

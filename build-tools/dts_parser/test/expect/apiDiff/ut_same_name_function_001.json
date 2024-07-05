@@ -8,7 +8,7 @@
     "newApiName": "",
     "oldDtsName": "ut_same_name_function_001.d.ts",
     "newDtsName": "",
-    "diffType": 60,
+    "diffType": 76,
     "diffMessage": "删除API",
     "changeLogUrl": "",
     "changeLogs": [],
@@ -29,7 +29,10 @@
     "oldDescription": "declare function copyDir(src: string, dest: string, callback: AsyncCallback<void>): void;",
     "newDescription": "",
     "oldSyscapField": "",
-    "newSyscapField": ""
+    "newSyscapField": "",
+    "oldKitInfo": "",
+    "newKitInfo": "",
+    "isSystemapi": false
   },
   {
     "apiType": "Method",
@@ -40,7 +43,7 @@
     "newApiName": "copyDir",
     "oldDtsName": "",
     "newDtsName": "ut_same_name_function_001.d.ts",
-    "diffType": 59,
+    "diffType": 75,
     "diffMessage": "新增API",
     "changeLogUrl": "",
     "changeLogs": [],
@@ -61,7 +64,10 @@
     "oldDescription": "",
     "newDescription": "declare function copyDir(src: string, dest: string): Promise<void>;",
     "oldSyscapField": "",
-    "newSyscapField": ""
+    "newSyscapField": "",
+    "oldKitInfo": "",
+    "newKitInfo": "",
+    "isSystemapi": false
   },
   {
     "apiType": "Method",
@@ -72,7 +78,7 @@
     "newApiName": "copyDir",
     "oldDtsName": "",
     "newDtsName": "ut_same_name_function_001.d.ts",
-    "diffType": 59,
+    "diffType": 75,
     "diffMessage": "新增API",
     "changeLogUrl": "",
     "changeLogs": [],
@@ -93,6 +99,9 @@
     "oldDescription": "",
     "newDescription": "declare function copyDir(src: string, dest: number, callback: AsyncCallback<void>): void;",
     "oldSyscapField": "",
-    "newSyscapField": ""
+    "newSyscapField": "",
+    "oldKitInfo": "",
+    "newKitInfo": "",
+    "isSystemapi": false
   }
 ]

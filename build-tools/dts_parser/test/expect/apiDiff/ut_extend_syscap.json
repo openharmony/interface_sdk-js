@@ -8,11 +8,11 @@
     "newApiName": "requestPermissionsFromUser",
     "oldDtsName": "ut_extend_syscap.d.ts",
     "newDtsName": "ut_extend_syscap.d.ts",
-    "diffType": 41,
-    "diffMessage": "函数中的参数名称发生改变",
+    "diffType": 46,
+    "diffMessage": "函数的参数变更",
     "changeLogUrl": "",
     "changeLogs": [],
-    "isCompatible": true,
+    "isCompatible": false,
     "oldHierarchicalRelations": [
       "ut_extend_syscap.d.ts",
       "abilityAccessCtrl",
@@ -33,9 +33,12 @@
       "line": 30,
       "character": 5
     },
-    "oldDescription": "permissionList: Array<Permissions>",
-    "newDescription": "permissions: Array<Permissions>",
+    "oldDescription": "context: Context, permissionList: Array<Permissions>",
+    "newDescription": "context: Context, permissions: Array<Permissions>",
     "oldSyscapField": "Security",
-    "newSyscapField": "Security"
+    "newSyscapField": "Security",
+    "oldKitInfo": "",
+    "newKitInfo": "",
+    "isSystemapi": false
   }
 ]

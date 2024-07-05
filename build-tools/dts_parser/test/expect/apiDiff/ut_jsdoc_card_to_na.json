@@ -32,6 +32,9 @@
     "oldDescription": "form",
     "newDescription": "NA",
     "oldSyscapField": "",
-    "newSyscapField": ""
+    "newSyscapField": "",
+    "oldKitInfo": "",
+    "newKitInfo": "",
+    "isSystemapi": false
   }
 ]
