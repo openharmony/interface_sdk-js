@@ -21,7 +21,7 @@
 import {
   ActionType, FourFingersSwipe, Pinch, Rotate, ThreeFingersSwipe, ThreeFingersTap
 } from '@ohos.multimodalInput.gestureEvent';
-import infraredEmitter from '@ohos.multimodalInput.infraredEmitter.d.ts';
+import infraredEmitter from '@ohos.multimodalInput.infraredEmitter';
 import inputConsumer from '@ohos.multimodalInput.inputConsumer';
 import inputDevice from '@ohos.multimodalInput.inputDevice';
 import inputDeviceCooperate from '@ohos.multimodalInput.inputDeviceCooperate';
