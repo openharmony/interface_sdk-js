@@ -390,7 +390,7 @@ declare namespace media {
 
     /**
      * Get timestamp according to frame index.
-     * @param { number } index: Index of the frame.
+     * @param { number } index - Index of the frame.
      * @returns { Promise<number> } A Promise instance used to return frame timestamp, in microseconds.
      * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
@@ -403,7 +403,7 @@ declare namespace media {
 
     /**
      * Get frame index according to the given timestamp.
-     * @param { number } timeUs: Index of the frame.
+     * @param { number } timeUs - Timestamp of the frame, in microseconds.
      * @returns { Promise<number> } A Promise instance used to return frame index.
      * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
