@@ -149,6 +149,7 @@ complies
 compositing
 compresses
 cone
+concatenates
 conferencing
 confpersist
 connectable
@@ -314,6 +315,7 @@ finer
 flac
 flashpix
 flg
+flips
 flushes
 foiling
 foldable
@@ -511,6 +513,7 @@ linearly
 lintptr
 listened
 llbackfn
+locates
 lockdown
 lockscreen
 lod
@@ -579,6 +582,7 @@ multiplies
 multisample
 multisim
 multitask
+mutates
 mutes
 narrowband
 navigations
@@ -753,6 +757,7 @@ recovering
 recovers
 recursions
 reclaimed
+redefines
 redirections
 refill
 refusing
@@ -781,6 +786,7 @@ resubmitted
 resultsets
 resumed
 retried
+reverses
 revocation
 revoked
 rewinding
@@ -836,6 +842,7 @@ sha1
 shadertype
 sharedarraybuffer
 shenzhen
+shrinks
 shortkey
 shuts
 sigalgs
@@ -848,6 +855,7 @@ statvfs
 stk
 str
 strokes
+structurally
 sm3
 smil
 smpte
@@ -1036,6 +1044,7 @@ unsubscribes
 unsuccessfully
 unsupport
 unsuspended
+untyped
 uplink
 useriam
 userspace
