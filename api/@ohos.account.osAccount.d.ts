@@ -4086,6 +4086,7 @@ declare namespace osAccount {
     /**
      * Notifies to set data.
      *
+     * @type { function }
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
@@ -4152,6 +4153,7 @@ declare namespace osAccount {
      * If the authentication fails, the remaining authentication times are returned in extraInfo,
      * If the authentication executor is locked, the freezing time is returned in extraInfo.
      *
+     * @type { function }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -4161,6 +4163,7 @@ declare namespace osAccount {
     /**
      * During an authentication, the TipsCode is returned through the callback.
      *
+     * @type { ?function }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -4180,6 +4183,7 @@ declare namespace osAccount {
     /**
      * The authentication result code is returned through the callback.
      *
+     * @type { function }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -4189,6 +4193,7 @@ declare namespace osAccount {
     /**
      * During an authentication, the TipsCode is returned through the callback.
      *
+     * @type { ?function }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8
