@@ -32,7 +32,7 @@ import { AsyncCallback } from "./@ohos.base";
 declare namespace inputDeviceCooperate {
   /**
    * Enumerates mouse traversal events.
-   * @type { EventMsg }
+   * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use.
    * @since 9
@@ -74,9 +74,9 @@ declare namespace inputDeviceCooperate {
     /**
      * Mouse traversal status: mouse traversal is disabled.
      *
-     * @since 9
      * @syscap SystemCapability.MultimodalInput.Input.Cooperator
      * @systemapi hide for inner use
+     * @since 9
     */
     MSG_COOPERATE_STATE_OFF = 501,
   }
