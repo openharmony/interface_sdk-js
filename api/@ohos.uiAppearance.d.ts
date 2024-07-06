@@ -99,7 +99,7 @@ declare namespace uiAppearance {
    * @permission ohos.permission.UPDATE_CONFIGURATION
    * @returns { DarkMode } current dark-mode.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -109,5 +109,79 @@ declare namespace uiAppearance {
    * @since 10
    */
   function getDarkMode(): DarkMode;
+
+  /**
+   * Set the system font-scale.
+   *
+   * @permission ohos.permission.UPDATE_CONFIGURATION
+   * @param { number } fontScale - indicates the font-scale to set
+   * @returns { Promise<void> } the promise returned by the function
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 500001 - Internal error.
+   * @syscap SystemCapability.ArkUI.UiAppearance
+   * @systemapi hide this for inner system use
+   * @since 12
+   */
+  function setFontScale(fontScale: number): Promise<void>;
+
+  /**
+   * Acquire the current font-scale.
+   *
+   * @permission ohos.permission.UPDATE_CONFIGURATION
+   * @returns { number } current font-scale.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 500001 - Internal error.
+   * @syscap SystemCapability.ArkUI.UiAppearance
+   * @systemapi hide this for inner system use
+   * @since 12
+   */
+  function getFontScale(): number;
+
+  /**
+   * Set the system font-wght-scale.
+   *
+   * @permission ohos.permission.UPDATE_CONFIGURATION
+   * @param { number } fontWeightScale - indicates the font-wght-scale to set
+   * @returns { Promise<void> } the promise returned by the function
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 500001 - Internal error.
+   * @syscap SystemCapability.ArkUI.UiAppearance
+   * @systemapi hide this for inner system use
+   * @since 12
+   */
+  function setFontWeightScale(fontWeightScale: number): Promise<void>;
+
+  /**
+   * Acquire the current font-wght-scale.
+   *
+   * @permission ohos.permission.UPDATE_CONFIGURATION
+   * @returns { number } current font-wght-scale.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 500001 - Internal error.
+   * @syscap SystemCapability.ArkUI.UiAppearance
+   * @systemapi hide this for inner system use
+   * @since 12
+   */
+  function getFontWeightScale(): number;
 }
 export default uiAppearance;
