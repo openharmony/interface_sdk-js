@@ -389,6 +389,32 @@ declare namespace media {
     fetchAlbumCover(): Promise<image.PixelMap>;
 
     /**
+     * Get timestamp according to frame index.
+     * @param { number } index: Index of the frame.
+     * @returns { Promise<number> } A Promise instance used to return frame timestamp, in microseconds.
+     * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
+     * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @systemapi
+     * @since 12
+     */
+    getTimeByFrameIndex(index: number): Promise<number>;
+
+    /**
+     * Get frame index according to the given timestamp.
+     * @param { number } timeUs: Index of the frame.
+     * @returns { Promise<number> } A Promise instance used to return frame index.
+     * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
+     * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @systemapi
+     * @since 12
+     */
+    getFrameIndexByTime(timeUs: number): Promise<number>;
+
+    /**
      * Release resources used for AVMetadataExtractor.
      * @param { AsyncCallback<void> } callback - A callback instance used to return when release completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by callback.
