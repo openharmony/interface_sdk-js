@@ -3126,6 +3126,19 @@ declare namespace photoAccessHelper {
      * @since 11
      */
     applyChanges(mediaChangeRequest: MediaChangeRequest): Promise<void>;
+    /**
+     * Get index construction progress.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @returns { Promise<string> } Returns progress of the photo and video
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    getIndexConstructProgress(): Promise<string>;
   }
 
   /**
