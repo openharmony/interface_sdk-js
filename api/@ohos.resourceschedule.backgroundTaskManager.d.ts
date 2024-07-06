@@ -27,6 +27,7 @@ import type notificationManager from './@ohos.notificationManager';
  * Manages background tasks.
  *
  * @namespace backgroundTaskManager
+ * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.Core
  * @since 9
  */
 declare namespace backgroundTaskManager {
@@ -41,6 +42,7 @@ declare namespace backgroundTaskManager {
     /**
      * The unique identifier of the delay request.
      *
+     * @type { number }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
      * @since 9
      */
@@ -48,6 +50,7 @@ declare namespace backgroundTaskManager {
     /**
      * The actual delay duration (ms).
      *
+     * @type { number }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
      * @since 9
      */
@@ -517,6 +520,7 @@ declare namespace backgroundTaskManager {
     /**
      * The set of resource types that app wants to apply.
      *
+     * @type { number }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -526,6 +530,7 @@ declare namespace backgroundTaskManager {
     /**
      * True if the app begin to use, else false.
      *
+     * @type { boolean }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -535,6 +540,7 @@ declare namespace backgroundTaskManager {
     /**
      * The duration that the resource can be used most.
      *
+     * @type { number }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -544,6 +550,7 @@ declare namespace backgroundTaskManager {
     /**
      * True if the apply action is persist, else false. Default value is false.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -553,6 +560,7 @@ declare namespace backgroundTaskManager {
     /**
      * True if apply action is for process, false is for package. Default value is false.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -562,6 +570,7 @@ declare namespace backgroundTaskManager {
     /**
      * The apply reason.
      *
+     * @type { string }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 9
