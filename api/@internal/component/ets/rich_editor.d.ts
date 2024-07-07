@@ -2799,6 +2799,17 @@ declare class RichEditorBaseController implements TextEditControllerEx {
    * @since 12
    */
   getLayoutManager(): LayoutManager;
+
+  /**
+   * Get PreviewText.
+   *
+   * @returns { PreviewText } - Return the PreviewText.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  getPreviewText(): PreviewText;
 }
 
 /**
