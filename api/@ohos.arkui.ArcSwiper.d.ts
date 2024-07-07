@@ -346,6 +346,18 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
   disableSwipe(isDisable: Optional<boolean>): ArcSwiperAttribute;
 
   /**
+   * Set the sensitivity of rotating crown.
+   *
+   * @param { Optional<CrownSensitivity> } sensitivity - The sensitivity of rotating crown, default value is { MEDIUM }.
+   * @returns { ArcSwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  digitalCrownSensitivity(sensitivity: Optional<CrownSensitivity>): ArcSwiperAttribute;
+
+  /**
    * Called when the index value has changed.
    *
    * @param { Optional<IndexChangedHandler> } handler - The handler is used to listen for index values that have changed.
