@@ -2915,6 +2915,16 @@ declare namespace media {
     getInputSurface(): Promise<string>;
 
     /**
+     * Check if the avrecorder has watermark capability.
+     *
+     * @returns { Promise<boolean> } A Promise instance used to return true or false when the function is finished.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @systemapi
+     * @since 12
+     */
+    isWatermarkSupported(): Promise<boolean>;
+
+    /**
      * Update the video orientation before recorder start.
      * @param { number } rotation: Rotation angle, should be [0, 90, 180, 270]. 
      * @returns { Promise<void> } A Promise instance used to return when the function is finished.
