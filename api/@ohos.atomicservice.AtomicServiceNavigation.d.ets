@@ -202,9 +202,9 @@ export interface TitleOptions {
  *
  * @typedef { function } NavDestinationBuilder
  * @param { string } name - The name of route page.
- * @param { ?Object } param - The detailed parameter of the route page.
+ * @param { ?Object } - param - The detailed parameter of the route page.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
  */
-type NavDestinationBuilder = (name: string, param?: Object) => void;
+export type NavDestinationBuilder = (name: string, param?: Object) => void;
