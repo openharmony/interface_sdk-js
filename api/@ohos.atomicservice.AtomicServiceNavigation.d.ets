@@ -64,7 +64,7 @@ export declare struct AtomicServiceNavigation {
   @Prop
   title?: ResourceStr;
   /**
-   * The options of Navigation's TitleBar.
+   * The color of Navigation's TitleBar.
    *
    * @type { ?TitleOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -93,8 +93,7 @@ export declare struct AtomicServiceNavigation {
    */
   @Prop
   navBarWidth?: Length;
-
-   /**
+  /**
    * Sets the mode of navigation.
    *
    * @type { ?NavigationMode }.
@@ -107,13 +106,13 @@ export declare struct AtomicServiceNavigation {
   /**
    * The builder of navDestination.
    *
-   * @type { (name: string, param?: Object) => void }.
+   * @type { ?NavDestinationBuilder }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
    */
   @BuilderParam
-  navDestinationBuilder?: (name: string, param?: Object) => void;
+  navDestinationBuilder?: NavDestinationBuilder;
   /**
    * Sets the minimum width and the maximum width of navigation bar.
    *
@@ -175,6 +174,7 @@ export interface TitleOptions {
    * @since 12
    */
   backgroundColor?: ResourceColor;
+
   /**
    * Whether to enable the blur effect.
    *
@@ -185,6 +185,7 @@ export interface TitleOptions {
    * @since 12
    */
   isEnableBlur?: boolean;
+
   /**
    * Set title bar style.
    *
@@ -195,3 +196,15 @@ export interface TitleOptions {
    */
   barStyle?: BarStyle;
 }
+
+/**
+ * The builder function of NavDestination component.
+ *
+ * @typedef { function } NavDestinationBuilder
+ * @param { string } name - The name of route page.
+ * @param { ?Object } param - The detailed parameter of the route page.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 12
+ */
+type NavDestinationBuilder = (name: string, param?: Object) => void;
