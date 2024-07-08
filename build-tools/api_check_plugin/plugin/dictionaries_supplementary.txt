@@ -456,6 +456,7 @@ inspected
 inspectors
 instanced
 intercepted
+intercepting
 interchanged
 interleaved
 internalformat
