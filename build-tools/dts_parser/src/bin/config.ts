@@ -669,7 +669,7 @@ function diffApiCallback(
   const kitData: KitData = FunctionUtils.readKitFile();
   const sheet: ExcelJS.Worksheet = workbook.addWorksheet('api差异');
   sheet.views = [{ xSplit: 2 }];
-  sheet.getRow(1).values = ['操作标记', '差异项-旧版本', '差异项-新版本', 'd.ts文件', '归属子系统', 'kit'];
+  sheet.getRow(1).values = ['操作标记', '差异项-旧版本', '差异项-新版本', 'd.ts文件', '归属子系统', 'kit', '是否为系统API'];
   data.forEach((diffInfo: BasicDiffInfo, index: number) => {
     relationsSet.add(getRelation(diffInfo));
     const dtsName = diffInfo.getNewDtsName() ? diffInfo.getNewDtsName() : diffInfo.getOldDtsName();
@@ -682,6 +682,7 @@ function diffApiCallback(
       SyscapProcessorHelper.getSingleKitInfo(diffInfo) === ''
         ? kitData.kitNameMap.get(dtsName.replace(/\\/g, '/').replace('api/', ''))
         : SyscapProcessorHelper.getSingleKitInfo(diffInfo),
+      diffInfo.getIsSystemapi(),
     ];
   });
   WriterHelper.MarkdownReporter.writeInMarkdown(data, dest);
@@ -717,7 +718,8 @@ function addApiNumberSheet(relationsSet: Set<string>, workbook: ExcelJS.Workbook
     '差异项-旧版本',
     '差异项-新版本',
     '兼容性列表',
-    '全路径'
+    '全路径',
+    '是否为系统API'
   ];
   let diffTypeNumberArr: DiffNumberInfo[] = [];
   relationsSet.forEach((apiRelation: string) => {
@@ -741,7 +743,8 @@ function addApiNumberSheet(relationsSet: Set<string>, workbook: ExcelJS.Workbook
           .setKitName(kitName)
           .setSubsystem(kitData.subsystemMap.get(dtsName.replace(/\\/g, '/').replace('api/', '')))
           .setApiName(diffInfo.getApiType() === ApiType.SOURCE_FILE ? 'SOURCEFILE' : getDiffApiName(diffInfo))
-          .setApiRelation(getRelation(diffInfo).replace(/\,/g, '#').replace('api\\', ''));
+          .setApiRelation(getRelation(diffInfo).replace(/\,/g, '#').replace('api\\', ''))
+          .setIsSystemapi(diffInfo.getIsSystemapi());
       }
     });
     diffTypeNumberArr.push(diffNumberInfo);
@@ -763,6 +766,7 @@ function addApiNumberSheet(relationsSet: Set<string>, workbook: ExcelJS.Workbook
       diffNumberInfo.getNewDiffMessage().join(' #&# '),
       diffNumberInfo.getAllCompatible().join(' #&# '),
       diffNumberInfo.getApiRelation(),
+      diffNumberInfo.getIsSystemapi(),
     ];
   });
 }

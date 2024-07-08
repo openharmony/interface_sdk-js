@@ -1593,6 +1593,27 @@ declare namespace radio {
   function factoryReset(slotId: number): Promise<void>;
 
   /**
+   * Obtains the software version number of a specified card slot of the device.
+   *
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot index number
+   * supported by the device.
+   * @returns { string } Returns the IMEISV. Returns an empty string if the IMEISV does not exist.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Service connection failed.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error.
+   * @syscap SystemCapability.Telephony.CoreService
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  function getIMEISV(slotId: number): string;
+
+  /**
    * Indicates the preferred network.
    *
    * @enum { number }

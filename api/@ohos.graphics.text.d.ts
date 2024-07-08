@@ -823,6 +823,13 @@ declare namespace text {
      * @since 12
      */
     loadFontSync(name: string, path: string | Resource): void;
+
+    /**
+     * Clear font caches.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+     clearCaches(): void;
   }
 
   /**
