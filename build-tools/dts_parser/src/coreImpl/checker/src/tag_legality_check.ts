@@ -102,9 +102,16 @@ export class LegalityCheck {
       if (apiLegalityTagsSet.has(apiTag.tag)) {
         apiLegalityTagsSet.delete(apiTag.tag);
       }
+      if (singleApi.getApiType() === ApiType.PROPERTY) {
+        apiLegalityTagsSet.delete('constant');
+        illegalTagsArray.push('constant');
+      }
       if (singleApi.getApiType() === ApiType.INTERFACE && (apiTag.tag === 'typedef' || apiTag.tag === 'interface')) {
         apiLegalityTagsSet.delete('typedef');
         apiLegalityTagsSet.delete('interface');
+      }
+      if (singleApi.getApiType() === ApiType.TYPE_ALIAS && singleApi.getIsExport()) {
+        apiLegalityTagsSet.delete('typedef');
       }
       if ((singleApi.getApiType() === ApiType.METHOD && (singleApi as MethodInfo).getReturnValue().length === 0) ||
         singleApi.getApiType() === ApiType.TYPE_ALIAS && ((singleApi as TypeAliasInfo).getReturnType() === 'void' ||

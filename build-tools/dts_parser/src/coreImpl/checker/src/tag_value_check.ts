@@ -238,7 +238,8 @@ export class TagValueCheck {
       if (singleApi.getApiType() === 'Interface' && tagValue !== apiValue) {
         outerValueCheckResult.state = false;
         outerValueCheckResult.errorInfo = ErrorMessage.ERROR_INFO_VALUE_TYPEDEF;
-      } else if (singleApi.getApiType() === ApiType.TYPE_ALIAS && tagType.replace(/\s/g, '') !== apiValue) {
+      } else if (singleApi.getApiType() === ApiType.TYPE_ALIAS && !singleApi.getIsExport() &&
+        tagType.replace(/\s/g, '') !== apiValue) {
         outerValueCheckResult.state = false;
         outerValueCheckResult.errorInfo = ErrorMessage.ERROR_INFO_VALUE_TYPEDEF;
       }
