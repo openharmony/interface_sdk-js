@@ -215,6 +215,7 @@ interface CommonQrcodeOptions {
  * @atomicservice
  * @since 12
  */
+@ObservedV2
 export declare class QrcodeOptions {
   /**
    * Sets the edge length of the QR code substrate.
@@ -370,6 +371,7 @@ export declare class QrcodeOptions {
  * @atomicservice
  * @since 12
  */
+@ComponentV2
 export declare struct Qrcode {
   /**
    * The options of Qrcode.
@@ -381,6 +383,7 @@ export declare struct Qrcode {
    * @since 12
    */
   @Require 
+  @Param
   readonly options: QrcodeOptions;
   /**
    * The value of Qrcode.
@@ -392,6 +395,7 @@ export declare struct Qrcode {
    * @since 12
    */
   @Require
+  @Param
   readonly value: string;
   /**
    * The state of Qrcode.
@@ -403,6 +407,7 @@ export declare struct Qrcode {
    * @since 12
    */
   @Require
+  @Param
   readonly state: QrcodeState;
 }
 export {};
