@@ -1952,6 +1952,23 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 9
    */
+  /**
+   * Create a window with a specific configuration
+   *
+   * @param { Configuration } config - Parameters for window creation.
+   * @param { AsyncCallback<Window> } callback - Callback used to return the window created.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+   *                                                                  2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 1300001 - Repeated operation.
+   * @throws { BusinessError } 1300004 - Unauthorized operation.
+   * @throws { BusinessError } 1300006 - This window context is abnormal.
+   * @throws { BusinessError } 1300008 - The display device is abnormal.
+   * @throws { BusinessError } 1300009 - The parent window is invalid.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 12
+   */
   function createWindow(config: Configuration, callback: AsyncCallback<Window>): void;
 
   /**
@@ -1968,6 +1985,23 @@ declare namespace window {
    * @throws { BusinessError } 1300009 - The parent window is invalid.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 9
+   */
+  /**
+   * Create a window with a specific configuration
+   *
+   * @param { Configuration } config - Parameters for window creation.
+   * @returns { Promise<Window> } Promise used to return the window created.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+   *                                                                  2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 1300001 - Repeated operation.
+   * @throws { BusinessError } 1300004 - Unauthorized operation.
+   * @throws { BusinessError } 1300006 - This window context is abnormal.
+   * @throws { BusinessError } 1300008 - The display device is abnormal.
+   * @throws { BusinessError } 1300009 - The parent window is invalid.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 12
    */
   function createWindow(config: Configuration): Promise<Window>;
 
@@ -6378,7 +6412,7 @@ declare namespace window {
     /**
      * Set the visibility of the window decor.
      *
-     * @param { boolean } - Enable the decor visible if true, otherwise means the opposite.
+     * @param { boolean } isVisible - Enable the decor visible if true, otherwise means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
      *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -6393,7 +6427,7 @@ declare namespace window {
     /**
      * Set the modality of the window.
      *
-     * @param { boolean } - Enable the window modal if true, otherwise means the opposite.
+     * @param { boolean } isModal - Enable the window modal if true, otherwise means the opposite.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
@@ -6421,7 +6455,7 @@ declare namespace window {
     /**
      * Set the height of the window decor.
      *
-     * @param { number } - The height of window decor.
+     * @param { number } height - The height of window decor.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
      *                                                                  2. Incorrect parameter types;
      *                                                                  3. Parameter verification failed.
