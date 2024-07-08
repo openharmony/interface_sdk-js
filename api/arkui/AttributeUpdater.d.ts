@@ -13,7 +13,10 @@
  * limitations under the License.
  */
 
-
+/**
+ * @file Defines a modifier which can update attributes to native side.
+ * @kit ArkUI
+ */
 
 /**
  * function that returns a default param of AttributeUpdater.

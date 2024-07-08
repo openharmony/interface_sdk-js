@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file Provide some common interface for focus.
+ * @kit ArkUI
+ */
+
+/**
  * Focus box style.
  *
  * @interface FocusBoxStyle

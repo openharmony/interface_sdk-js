@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file Defines Repeat component.
+ * @kit ArkUI
+ */
+
+/**
  * Construct a new type for each item.
  *
  * @interface RepeatItem

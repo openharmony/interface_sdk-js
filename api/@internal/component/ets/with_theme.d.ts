@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file Defines WithTheme component.
+ * @kit ArkUI
+ */
+
 
 /**
  * CustomTheme.
