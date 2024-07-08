@@ -18,7 +18,6 @@
  */
 
  /// <reference path="../component/units.d.ts" />
- import { ResourceStr, Resource } from 'GlobalResource';
  import { UIContext } from '@ohos.arkui.UIContext';
  import { ComponentContent } from '@ohos.arkui.node';
 /**
@@ -233,7 +232,7 @@ export declare class InterstitialDialogAction {
      * @atomicservice
      * @since 12
      */
-    constructor(value: DialogOptions);
+    constructor(dialogOptions: DialogOptions);
     /**
      * Execute a dialog open event.
      *
