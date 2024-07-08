@@ -18052,7 +18052,19 @@ declare class CommonMethod<T> {
    * @since 11
    * @form
    */
-  overlay(value: string | CustomBuilder, options?: { align?: Alignment; offset?: { x?: number; y?: number } }): T;
+  /**
+   * Add mask text to the current component. The layout is the same as that of the current component.
+   *
+   * @param { string | CustomBuilder | ComponentContent } value
+   * @param { OverlayOptions } options
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  overlay(value: string | CustomBuilder | ComponentContent, options?: OverlayOptions): T;
 
   /**
    * Linear Gradient
@@ -19097,6 +19109,19 @@ declare class CommonMethod<T> {
   accessibilityText(value: string): T;
 
   /**
+   * Sets accessibilityText
+   *
+   * @param { Resource } text - set accessibility text
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  accessibilityText(text: Resource): T;
+
+  /**
    * Sets accessibilityTextHint
    *
    * @param { string } value - set accessibility text hint
@@ -19140,6 +19165,19 @@ declare class CommonMethod<T> {
    * @since 12
    */
   accessibilityDescription(value: string): T;
+
+  /**
+   * Sets accessibilityDescription
+   *
+   * @param { Resource } description - set description of accessibility
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  accessibilityDescription(description: Resource): T;
 
   /**
    * Sets accessibilityLevel
@@ -19593,6 +19631,173 @@ declare const Common: CommonInterface;
  * @form
  */
 declare type CustomBuilder = (() => any) | void;
+
+/**
+ * Defines the OverlayOptions interface.
+ *
+ * @typedef OverlayOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 12
+ */
+declare interface OverlayOptions {
+  /**
+   * Defines align type.
+   *
+   * @type { ?Alignment }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * Defines align type.
+   *
+   * @type { ?Alignment }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  /**
+   * Defines align type.
+   *
+   * @type { ?Alignment }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * Defines align type.
+   *
+   * @type { ?Alignment }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  align?: Alignment;
+  
+  /**
+   * Defines offset type.
+   *
+   * @type { ?OverlayOffset }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * Defines offset type.
+   *
+   * @type { ?OverlayOffset }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  /**
+   * Defines offset type.
+   *
+   * @type { ?OverlayOffset }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * Defines offset type.
+   *
+   * @type { ?OverlayOffset }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  offset?: OverlayOffset;
+}
+
+/**
+ * Defines the OverlayOffset.
+ *
+ * @typedef OverlayOffset
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 12
+ */
+declare interface OverlayOffset {
+  /**
+   * Defines x.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * Defines x.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  /**
+   * Defines x.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * Defines x.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  x?: number;
+  /**
+   * Defines y.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * Defines y.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  /**
+   * Defines y.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * Defines y.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  y?: number;
+}
 
 /**
  * Defines the segment of blur.
@@ -20935,12 +21140,12 @@ declare type Filter = import('../api/@ohos.graphics.uiEffect').default.Filter;
 /**
  * ComponentContent.
  *
- * @typedef {import('../api/arkui/ComponentContent').ComponentContent} ComponentContent
+ * @typedef {import('../api/arkui/ComponentContent').ComponentContent<T>} ComponentContent<T = Object>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
-declare type ComponentContent = import('../api/arkui/ComponentContent').ComponentContent;
+declare type ComponentContent<T = Object> = import('../api/arkui/ComponentContent').ComponentContent<T>;
 
 /**
  * Theme.

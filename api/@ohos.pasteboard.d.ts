@@ -337,6 +337,7 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11
+     * @deprecated since 12
      */
     CROSSDEVICE
   }

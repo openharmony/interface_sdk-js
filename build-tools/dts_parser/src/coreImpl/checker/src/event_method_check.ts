@@ -16,7 +16,7 @@
 import ts from 'typescript';
 import { EventConstant } from '../../../utils/Constant';
 import { EventMethodData, CollectParamStatus } from '../../../typedef/checker/event_method_check_interface';
-import { ErrorID, ErrorLevel, ErrorMessage, ErrorType, LogType } from '../../../typedef/checker/result_type';
+import { ApiCheckInfo, ErrorBaseInfo, ErrorID, ErrorLevel, ErrorMessage, ErrorType, LogType } from '../../../typedef/checker/result_type';
 import { ApiInfo, ApiType, BasicApiInfo, MethodInfo, ParamInfo } from '../../../typedef/parser/ApiInfoDefination';
 import { CommonFunctions } from '../../../utils/checkUtils';
 import { FilesMap, Parser } from '../../parser/parser';
@@ -24,7 +24,7 @@ import { AddErrorLogs } from './compile_info';
 import { compositiveResult, compositiveLocalResult } from '../../../utils/checkUtils';
 import { CheckHump } from './check_hump';
 import { ApiCheckVersion } from '../config/api_check_version.json';
-import { Check } from './api_check_plugin';
+import { Check, currentFilePath } from './api_check_plugin';
 
 export class EventMethodChecker {
   private apiData: FilesMap;
@@ -36,13 +36,10 @@ export class EventMethodChecker {
     const allNodeInfos: ApiInfo[] = Parser.getAllBasicApi(this.apiData) as ApiInfo[];
     let allBasicApi: ApiInfo[] = [];
     Check.getHasJsdocApiInfos(allNodeInfos, allBasicApi);
-    const eventMethodInfo: BasicApiInfo[] = [];
+    const eventMethodInfo: MethodInfo[] = [];
     allBasicApi.forEach((basicApi: ApiInfo) => {
-      const publishVersionValue: string = basicApi.jsDocInfos.length > 0 ? basicApi.jsDocInfos[0].since : '-1';
-      const publishSince: string = CommonFunctions.getSinceVersion(publishVersionValue);
-      if (basicApi.apiType === ApiType.METHOD && basicApi.getIsJoinType() &&
-        publishSince === JSON.stringify(ApiCheckVersion)) {
-        eventMethodInfo.push(basicApi);
+      if (basicApi.apiType === ApiType.METHOD && basicApi.getIsJoinType()) {
+        eventMethodInfo.push(basicApi as MethodInfo);
       }
     });
     const eventMethodDataMap: Map<string, EventMethodData> = this.getEventMethodDataMap(eventMethodInfo);
@@ -51,25 +48,27 @@ export class EventMethodChecker {
 
   public checkEventMethod(eventMethodData: Map<string, EventMethodData>): void {
     eventMethodData.forEach((eventMethod: EventMethodData) => {
+      const onEvent: MethodInfo[] = eventMethod.onEvents.length > 0 ? eventMethod.onEvents : [];
+      const onEventPublishVersionValue: string = onEvent.length > 0 ? onEvent[0].jsDocInfos[0].since : '-1';
+      const offEvent: MethodInfo[] = eventMethod.offEvents.length > 0 ? eventMethod.offEvents : [];
+      const offEventPublishVersionValue: string = offEvent.length > 0 ? offEvent[0].jsDocInfos[0].since : '-1';
+      const isLostOnEvent: boolean = eventMethod.onEvents.length === 0 && eventMethod.offEvents.length !== 0 && offEventPublishVersionValue === JSON.stringify(ApiCheckVersion);
+      const isLostOffEvent: boolean = eventMethod.onEvents.length !== 0 && eventMethod.offEvents.length === 0 && onEventPublishVersionValue === JSON.stringify(ApiCheckVersion);
+
       // check on&off event pair
-      if ((eventMethod.onEvents.length === 0 && eventMethod.offEvents.length !== 0) ||
-        (eventMethod.onEvents.length !== 0 && eventMethod.offEvents.length === 0)) {
+      if (isLostOnEvent || isLostOffEvent) {
         const firstEvent: BasicApiInfo = eventMethod.onEvents.concat(eventMethod.offEvents)[0];
         const errorMessage: string = CommonFunctions.createErrorInfo(ErrorMessage.ERROR_EVENT_ON_AND_OFF_PAIR, []);
-        AddErrorLogs.addAPICheckErrorLogs(
-          ErrorID.API_PAIR_ERRORS_ID,
-          ErrorLevel.MIDDLE,
-          firstEvent.getFilePath(),
-          firstEvent.getPos(),
-          ErrorType.API_PAIR_ERRORS,
-          LogType.LOG_API,
-          parseInt(firstEvent.getCurrentVersion()),
-          firstEvent.getApiName(),
-          firstEvent.getDefinedText(),
-          errorMessage,
-          compositiveResult,
-          compositiveLocalResult
-        );
+        const errorBaseInfo: ErrorBaseInfo = new ErrorBaseInfo();
+        errorBaseInfo
+          .setErrorID(ErrorID.API_PAIR_ERRORS_ID)
+          .setErrorLevel(ErrorLevel.MIDDLE)
+          .setErrorType(ErrorType.API_PAIR_ERRORS)
+          .setLogType(LogType.LOG_JSDOC)
+          .setErrorInfo(errorMessage);
+        const apiInfoEvent: ApiCheckInfo = CommonFunctions.getErrorInfo(firstEvent, undefined, currentFilePath,
+          errorBaseInfo);
+        AddErrorLogs.addAPICheckErrorLogs(apiInfoEvent, compositiveResult, compositiveLocalResult);
       }
 
       // check off event
@@ -85,118 +84,103 @@ export class EventMethodChecker {
         offEvnetCallbackNumber = eventCallbackStatus.callbackNumber;
         offCallbackRequiredNumber = eventCallbackStatus.requiredCallbackNumber;
       }
-      if (eventMethod.offEvents.length > 0) {
+      if (eventMethod.offEvents.length > 0 && offEventPublishVersionValue === JSON.stringify(ApiCheckVersion)) {
         if ((offEvnetCallbackNumber !== 0 && offEvnetCallbackNumber === eventMethod.offEvents.length &&
           offEvnetCallbackNumber === offCallbackRequiredNumber) ||
           (offEvnetCallbackNumber === 0 && eventMethod.offEvents.length !== 0)) {
           const firstEvent: BasicApiInfo = eventMethod.offEvents[0];
           const errorMessage: string = CommonFunctions.createErrorInfo(ErrorMessage.ERROR_EVENT_CALLBACK_OPTIONAL, []);
-          AddErrorLogs.addAPICheckErrorLogs(
-            ErrorID.PARAMETER_ERRORS_ID,
-            ErrorLevel.MIDDLE,
-            firstEvent.getFilePath(),
-            firstEvent.getPos(),
-            ErrorType.PARAMETER_ERRORS,
-            LogType.LOG_API,
-            parseInt(firstEvent.getCurrentVersion()),
-            firstEvent.getApiName(),
-            firstEvent.getDefinedText(),
-            errorMessage,
-            compositiveResult,
-            compositiveLocalResult
-          );
+          const errorBaseInfo: ErrorBaseInfo = new ErrorBaseInfo();
+          errorBaseInfo
+            .setErrorID(ErrorID.PARAMETER_ERRORS_ID)
+            .setErrorLevel(ErrorLevel.MIDDLE)
+            .setErrorType(ErrorType.PARAMETER_ERRORS)
+            .setLogType(LogType.LOG_JSDOC)
+            .setErrorInfo(errorMessage);
+          const apiInfoEvent: ApiCheckInfo = CommonFunctions.getErrorInfo(firstEvent, undefined, currentFilePath,
+            errorBaseInfo);
+          AddErrorLogs.addAPICheckErrorLogs(apiInfoEvent, compositiveResult, compositiveLocalResult);
         }
       }
 
       // check event first param
-      const allEvnets: BasicApiInfo[] = eventMethod.onEvents.concat(eventMethod.offEvents)
+      const allEvents: BasicApiInfo[] = eventMethod.onEvents.concat(eventMethod.offEvents)
         .concat(eventMethod.emitEvents).concat(eventMethod.onceEvents);
-      for (let i = 0; i < allEvnets.length; i++) {
-        const event: BasicApiInfo = allEvnets[i];
+
+      for (let i = 0; i < allEvents.length; i++) {
+        const event: BasicApiInfo = allEvents[i];
         if (!this.checkVersionNeedCheck(event)) {
           continue;
         }
         const eventParams: ParamInfo[] = (event as MethodInfo).getParams();
-        if (eventParams.length < 1) {
+        const eventPublishVersion: string = (event as MethodInfo).jsDocInfos[0].since;
+        if (eventParams.length < 1 && eventPublishVersion === JSON.stringify(ApiCheckVersion)) {
           const errorMessage: string = CommonFunctions.createErrorInfo(ErrorMessage.ERROR_EVENT_WITHOUT_PARAMETER, []);
-          AddErrorLogs.addAPICheckErrorLogs(
-            ErrorID.PARAMETER_ERRORS_ID,
-            ErrorLevel.MIDDLE,
-            event.getFilePath(),
-            event.getPos(),
-            ErrorType.PARAMETER_ERRORS,
-            LogType.LOG_API,
-            parseInt(event.getCurrentVersion()),
-            event.getApiName(),
-            event.getDefinedText(),
-            errorMessage,
-            compositiveResult,
-            compositiveLocalResult
-          );
+          const errorBaseInfo: ErrorBaseInfo = new ErrorBaseInfo();
+          errorBaseInfo
+            .setErrorID(ErrorID.PARAMETER_ERRORS_ID)
+            .setErrorLevel(ErrorLevel.MIDDLE)
+            .setErrorType(ErrorType.PARAMETER_ERRORS)
+            .setLogType(LogType.LOG_JSDOC)
+            .setErrorInfo(errorMessage);
+          const apiInfoEvent: ApiCheckInfo = CommonFunctions.getErrorInfo(event, undefined, currentFilePath,
+            errorBaseInfo);
+          AddErrorLogs.addAPICheckErrorLogs(apiInfoEvent, compositiveResult, compositiveLocalResult);
           continue;
         }
-        const firstParam: ParamInfo = eventParams[0];
+        const firstParam: ParamInfo | undefined = eventParams.length ? eventParams[0] : undefined;
+        if (firstParam === undefined || eventPublishVersion !== JSON.stringify(ApiCheckVersion)) {
+          continue;
+        }
         if (firstParam.getParamType() === ts.SyntaxKind.LiteralType) {
           const paramTypeName: string = firstParam.getType()[0].replace(/\'/g, '');
           if (paramTypeName === '') {
             const errorMessage: string = CommonFunctions.createErrorInfo(ErrorMessage.ERROR_EVENT_NAME_NULL,
               [firstParam.getApiName()]);
-            AddErrorLogs.addAPICheckErrorLogs(
-              ErrorID.PARAMETER_ERRORS_ID,
-              ErrorLevel.MIDDLE,
-              event.getFilePath(),
-              event.getPos(),
-              ErrorType.PARAMETER_ERRORS,
-              LogType.LOG_API,
-              parseInt(event.getCurrentVersion()),
-              event.getApiName(),
-              event.getDefinedText(),
-              errorMessage,
-              compositiveResult,
-              compositiveLocalResult
-            );
+            const errorBaseInfo: ErrorBaseInfo = new ErrorBaseInfo();
+            errorBaseInfo
+              .setErrorID(ErrorID.PARAMETER_ERRORS_ID)
+              .setErrorLevel(ErrorLevel.MIDDLE)
+              .setErrorType(ErrorType.PARAMETER_ERRORS)
+              .setLogType(LogType.LOG_JSDOC)
+              .setErrorInfo(errorMessage);
+            const apiInfoEvent: ApiCheckInfo = CommonFunctions.getErrorInfo(event, undefined, currentFilePath,
+              errorBaseInfo);
+            AddErrorLogs.addAPICheckErrorLogs(apiInfoEvent, compositiveResult, compositiveLocalResult);
           } else if (!CheckHump.checkSmallHump(paramTypeName)) {
             const errorMessage: string = CommonFunctions.createErrorInfo(ErrorMessage.ERROR_EVENT_NAME_SMALL_HUMP,
               [paramTypeName]);
-            AddErrorLogs.addAPICheckErrorLogs(
-              ErrorID.PARAMETER_ERRORS_ID,
-              ErrorLevel.MIDDLE,
-              event.getFilePath(),
-              event.getPos(),
-              ErrorType.PARAMETER_ERRORS,
-              LogType.LOG_API,
-              parseInt(event.getCurrentVersion()),
-              event.getApiName(),
-              event.getDefinedText(),
-              errorMessage,
-              compositiveResult,
-              compositiveLocalResult
-            );
+            const errorBaseInfo: ErrorBaseInfo = new ErrorBaseInfo();
+            errorBaseInfo
+              .setErrorID(ErrorID.PARAMETER_ERRORS_ID)
+              .setErrorLevel(ErrorLevel.MIDDLE)
+              .setErrorType(ErrorType.PARAMETER_ERRORS)
+              .setLogType(LogType.LOG_JSDOC)
+              .setErrorInfo(errorMessage);
+            const apiInfoEvent: ApiCheckInfo = CommonFunctions.getErrorInfo(event, undefined, currentFilePath,
+              errorBaseInfo);
+            AddErrorLogs.addAPICheckErrorLogs(apiInfoEvent, compositiveResult, compositiveLocalResult);
           }
         } else if (firstParam.getParamType() !== ts.SyntaxKind.StringKeyword) {
           const errorMessage: string = CommonFunctions.createErrorInfo(ErrorMessage.ERROR_EVENT_NAME_STRING,
             [firstParam.getApiName()]);
-          AddErrorLogs.addAPICheckErrorLogs(
-            ErrorID.PARAMETER_ERRORS_ID,
-            ErrorLevel.MIDDLE,
-            event.getFilePath(),
-            event.getPos(),
-            ErrorType.PARAMETER_ERRORS,
-            LogType.LOG_API,
-            parseInt(event.getCurrentVersion()),
-            event.getApiName(),
-            event.getDefinedText(),
-            errorMessage,
-            compositiveResult,
-            compositiveLocalResult
-          );
+          const errorBaseInfo: ErrorBaseInfo = new ErrorBaseInfo();
+          errorBaseInfo
+            .setErrorID(ErrorID.PARAMETER_ERRORS_ID)
+            .setErrorLevel(ErrorLevel.MIDDLE)
+            .setErrorType(ErrorType.PARAMETER_ERRORS)
+            .setLogType(LogType.LOG_JSDOC)
+            .setErrorInfo(errorMessage);
+          const apiInfoEvent: ApiCheckInfo = CommonFunctions.getErrorInfo(event, undefined, currentFilePath,
+            errorBaseInfo);
+          AddErrorLogs.addAPICheckErrorLogs(apiInfoEvent, compositiveResult, compositiveLocalResult);
         }
       }
     });
   }
 
   private checkVersionNeedCheck(eventInfo: BasicApiInfo): boolean {
-    const eventApiVersion:string=CommonFunctions.getSinceVersion(eventInfo.getCurrentVersion())
+    const eventApiVersion: string = CommonFunctions.getSinceVersion(eventInfo.getCurrentVersion());
     return parseInt(eventApiVersion) >= EventConstant.eventMethodCheckVersion;
   }
 
@@ -219,9 +203,9 @@ export class EventMethodChecker {
     };
   }
 
-  private getEventMethodDataMap(eventInfos: BasicApiInfo[]): Map<string, EventMethodData> {
+  private getEventMethodDataMap(eventInfos: MethodInfo[]): Map<string, EventMethodData> {
     let eventMethodDataMap: Map<string, EventMethodData> = new Map();
-    eventInfos.forEach((eventInfo: BasicApiInfo) => {
+    eventInfos.forEach((eventInfo: MethodInfo) => {
       const directorRelations: string[] = [...eventInfo.hierarchicalRelations];
       directorRelations.pop();
       const apiCompletePath: string = [...directorRelations, this.getEventName(eventInfo.apiName)].join('/');
@@ -239,7 +223,7 @@ export class EventMethodChecker {
     return eventMethodDataMap;
   }
 
-  private collectEventMethod(eventMethodData: EventMethodData, eventInfo: BasicApiInfo): EventMethodData {
+  private collectEventMethod(eventMethodData: EventMethodData, eventInfo: MethodInfo): EventMethodData {
     const eventType: string = this.getEventType(eventInfo.apiName);
     switch (eventType) {
       case 'on':

@@ -1060,6 +1060,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @returns { SliderAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    * @form
    */

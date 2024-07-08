@@ -66,12 +66,16 @@ export class BasicApiInfo {
   jsDocText: string = '';
   isJoinType: boolean = false;
   genericInfo: GenericInfo[] = [];
+  parentApiType: string | undefined = '';
+  fileAbsolutePath: string = ''; //绝对路径
 
   constructor(apiType: string = '', node: ts.Node, parentApi: BasicApiInfo | undefined) {
     this.node = node;
     this.setParentApi(parentApi);
+    this.setParentApiType(parentApi?.getApiType())
     if (parentApi) {
       this.setFilePath(parentApi.getFilePath());
+      this.setFileAbsolutePath(parentApi.getFileAbsolutePath())
       this.setIsStruct(parentApi.getIsStruct());
     }
     this.setApiType(apiType);
@@ -104,6 +108,14 @@ export class BasicApiInfo {
     return this.filePath;
   }
 
+  setFileAbsolutePath(absolutePath: string): void {
+    this.fileAbsolutePath = absolutePath;
+  }
+
+  getFileAbsolutePath(): string {
+    return this.fileAbsolutePath;
+  }
+
   setApiType(apiType: string): void {
     this.apiType = apiType as ApiType;
   }
@@ -134,6 +146,14 @@ export class BasicApiInfo {
 
   getParentApi(): BasicApiInfo | undefined {
     return this.parentApi;
+  }
+  
+  setParentApiType(parentApiType: string | undefined): void {
+    this.parentApiType = parentApiType;
+  }
+
+  getParentApiType(): string | undefined {
+    return this.parentApiType;
   }
 
   setIsExport(isExport: boolean): void {
@@ -553,7 +573,7 @@ export class TypeAliasInfo extends ApiInfo {
   type: string[] = []; // type定义的类型
   typeName: TypeAliasType = '' as TypeAliasType; //type的类型
   returnType: string = ''; //type类型为function时的返回值
-  paramInfos: TypeParamInfo[] = []; //type类型为function时的参数名和参数类型
+  paramInfos: ParamInfo[] = []; //type类型为function时的参数名和参数类型
   typeIsFunction: boolean = false; //type类型是否为function
 
   addType(type: string[]): void {
@@ -582,11 +602,11 @@ export class TypeAliasInfo extends ApiInfo {
     return this.returnType;
   }
 
-  setParamInfos(paramInfo: TypeParamInfo) {
+  setParamInfos(paramInfo: ParamInfo) {
     this.paramInfos.push(paramInfo);
   }
 
-  getParamInfos(): TypeParamInfo[] {
+  getParamInfos(): ParamInfo[] {
     return this.paramInfos;
   }
 

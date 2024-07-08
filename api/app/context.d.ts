@@ -287,6 +287,8 @@ export interface Context extends BaseContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @FAModelOnly
    * @since 7
+   * @deprecated since 12
+   * @useinstead ohos.window.Window#setWakeUpScreen
    */
   setWakeUpScreen(wakeUp: boolean, callback: AsyncCallback<void>): void;
 
@@ -299,6 +301,8 @@ export interface Context extends BaseContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @FAModelOnly
    * @since 7
+   * @deprecated since 12
+   * @useinstead ohos.window.Window#setWakeUpScreen
    */
   setWakeUpScreen(wakeUp: boolean): Promise<void>;
 

@@ -41,12 +41,12 @@ export declare struct AtomicServiceTabs {
    * @since 12
    */
   @BuilderParam
-  tabContents?: [
+  tabContents?: [ 
     TabContentBuilder?,
     TabContentBuilder?,
     TabContentBuilder?,
     TabContentBuilder?,
-    TabContentBuilder?,
+    TabContentBuilder?
   ];
   /**
    * The tabBar array of tabs.
@@ -62,7 +62,7 @@ export declare struct AtomicServiceTabs {
     TabBarOptions,
     TabBarOptions?,
     TabBarOptions?,
-    TabBarOptions?,
+    TabBarOptions?
   ];
   /**
    * set the positions of tabbar.
@@ -151,10 +151,10 @@ export declare struct AtomicServiceTabs {
  */
 export declare class TabBarOptions {
   /**
-   * constructor to init the tabbar.incluing icon, text, unselectedColor and selectedColor.
+   * constructor to init the tabbar including icon, text, unselectedColor and selectedColor.
    *
-   * @param { ResourceStr | TabBarSymbol } - icon - cannot be empty
-   * @param { ResourceStr } - text - cannot be empty
+   * @param { (ResourceStr | TabBarSymbol) } - icon - cannot be empty
+   * @param { ResourceStr } text - cannot be empty
    * @param { ?ResourceColor } - unselectedColor - the color of icon and text when tabbar is unselected
    * @param { ?ResourceColor } - selectedColor - the color of icon and text when tabbar is selected
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -208,6 +208,9 @@ export type TabContentBuilder = () => void;
  * Callback for OnContentWillChange
  *
  * @typedef { function } OnContentWillChange
+ * @param { number } currentIndex - the index value of the current tab.
+ * @param { number } comingIndex - the index value of the tab that will change.
+ * @returns { boolean }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

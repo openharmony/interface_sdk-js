@@ -20,7 +20,7 @@
 
 import faceAuth from '@ohos.userIAM.faceAuth';
 import userAuth from '@ohos.userIAM.userAuth';
-import userAuthIcon from '@ohos.userIAM.userAuthIcon';
+import UserAuthIcon from '@ohos.userIAM.userAuthIcon';
 import UserAuthExtensionAbility from '@ohos.app.ability.UserAuthExtensionAbility';
 
-export { faceAuth, userAuth, userAuthIcon, UserAuthExtensionAbility };
+export { faceAuth, userAuth, UserAuthIcon, UserAuthExtensionAbility };

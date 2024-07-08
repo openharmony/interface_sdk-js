@@ -63,6 +63,13 @@ declare namespace connection {
    * @systemapi
    * @since 10
    */
+  /**
+   * Indicate the profile uuid.
+   *
+   * @typedef { constant.ProfileUuids } ProfileUuids
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 12
+   */
   type ProfileUuids = constant.ProfileUuids;
 
   /**
