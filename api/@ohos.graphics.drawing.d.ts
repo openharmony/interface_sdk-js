@@ -801,6 +801,17 @@ declare namespace drawing {
     /**
      * If rectangle is stroked, use pen to stroke width describes the line thickness,
      * else use brush to fill the rectangle.
+     * @param { RoundRect } roundRect - Rectangle to draw.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    drawRoundRect(roundRect: RoundRect): void;
+
+    /**
+     * If rectangle is stroked, use pen to stroke width describes the line thickness,
+     * else use brush to fill the rectangle.
      * @param { number } left - Indicates the left position of the rectangle.
      * @param { number } top - Indicates the top position of the rectangle.
      * @param { number } right - Indicates the right position of the rectangle.
