@@ -3904,7 +3904,16 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 11
      */
-    PHOTO_PROXY = 3
+    PHOTO_PROXY = 3,
+
+    /**
+     * Private moving photo resource
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    PRIVATE_MOVING_PHOTO_RESOURCE = 4
   }
 
   /**
