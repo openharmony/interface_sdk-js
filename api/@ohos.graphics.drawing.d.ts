@@ -275,6 +275,33 @@ declare namespace drawing {
   }
 
   /**
+  * Enumerate path measure flags for matrix.
+  * @enum { number }
+  * @syscap SystemCapability.Graphics.Drawing
+  * @since 12
+  */
+  enum PathMeasureMatrixFlags {
+    /**
+     * Gets position.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    GET_POSITION_MATRIX = 0,
+    /**
+     * Gets tangent.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    GET_TANGENT_MATRIX = 1,
+    /**
+     * Gets both position and tangent.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    GET_POS_AND_TAN_MATRIX = 2,
+  }
+
+  /**
    * Provides the definition of the roundRect.
    *
    * @syscap SystemCapability.Graphics.Drawing
@@ -657,7 +684,57 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    getLength(forceClosed: boolean): number;
+
+    /**
+     * Gets the position and tangent of the distance from the starting position of the Path.
+     * 
+     * @param { boolean } forceClosed - Whether to close the Path.
+     * @param { number } distance - The distance from the start of the Path, should be greater than 0 and less than 'GetLength()'
+     * @param { common2D.Point } position - Sets to the position of distance from the starting position of the Path.
+     * @param { common2D.Point } tangent - Sets to the tangent of distance from the starting position of the Path.
+     * @return { boolean } - Returns true if succeeded, otherwise false.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    getPositionAndTangent(forceClosed: boolean, distance: number, position: common2D.Point, tangent: common2D.Point): boolean;
+
+    /**
+     * Determines whether the current contour is closed.
+     * 
+     * @param { boolean } forceClosed - Whether to close the Path.
+     * @return { boolean } - Returns true if the current contour is closed, otherwise false.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    isClosed(forceClosed: boolean): boolean;
+
+    /**
+     * Computes the corresponding matrix at the specified distance.
+     * 
+     * @param { boolean } forceClosed - Whether to close the Path.
+     * @param { number } distance - The distance from the start of the Path.
+     * @param { drawing.Matrix } matrix - Indicates the pointer to an Matrix object.
+     * @param { PathMeasureMatrixFlags } flags - Indicates what should be returned in the matrix.
+     * @return { boolean } - Returns false if there is no path, or a zero-length path was specified, in which case matrix is unchanged.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+    */
+    getMatrix(forceClosed: boolean, distance: number, matrix: drawing.Matrix, flags: PathMeasureMatrixFlags): boolean
+
+    /**
+     * Parses the SVG format string that describes the drawing path, and sets the Path.
+     *
+     * @param { string } str - A string in SVG format that describes the drawing path.
+     * @return { boolean } true if build succeeded, otherwise false.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    buildFromSVGString(str: string): boolean;
   }
 
   /**
@@ -905,6 +982,19 @@ declare namespace drawing {
      * @since 12
      */
     drawImage(pixelmap: image.PixelMap, left: number, top: number, samplingOptions?: SamplingOptions): void;
+
+    /**
+     * Draws the specified source image onto the canvas,
+     * scaled and translated to the destination rectangle.
+     * @param { image.PixelMap } pixelmap - The source image.
+     * @param { common2D.Rect } dstRect - The area of destination canvas.
+     * @param { SamplingOptions } samplingOptions - SamplingOptions used to describe the sampling mode.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    drawImageRect(pixelmap: image.PixelMap, dstRect: common2D.Rect, samplingOptions?: SamplingOptions): void;
 
     /**
      * Draws the specified source image onto the canvas,
