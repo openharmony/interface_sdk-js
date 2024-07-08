@@ -58,6 +58,7 @@ declare namespace inputDeviceCooperate {
     /**
      * Mouse traversal message: mouse traversal fails.
      * @syscap SystemCapability.MultimodalInput.Input.Cooperator
+     * @systemapi hide for inner use
      * @since 9
     */
     MSG_COOPERATE_INFO_FAIL = 202,
@@ -84,12 +85,12 @@ declare namespace inputDeviceCooperate {
   /**
    * Enable or disable the mouse traversal.
    *
-   * @since 9
-   * @syscap SystemCapability.MultimodalInput.Input.Cooperator
-   * @systemapi hide for inner use
    * @param { boolean } enable Whether to enable mouse traversal.
    * @param { AsyncCallback<void> } callback Asynchronous callback function.
    * @throws {BusinessError} 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Cooperator
+   * @systemapi hide for inner use
+   * @since 9
    */
   function enable(enable: boolean, callback: AsyncCallback<void>): void;
 
