@@ -96,6 +96,18 @@ declare namespace emitter {
   function on(eventId: string, callback: Callback<EventData>): void;
 
   /**
+   * Subscribe to a event by specific id in persistent manner and receives the event callback.
+   *
+   * @param { string } eventId - indicate ID of the event to subscribe to.
+   * @param { Callback<GenericEventData<T>> } callback - indicate callback used to receive the event.
+   * @syscap SystemCapability.Notification.Emitter
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  function on<T>(eventId: string, callback: Callback<GenericEventData<T>>): void;
+
+  /**
    * Subscribe to a certain event in one-shot manner and unsubscribe from it
    * after the event callback is received.
    *
@@ -149,6 +161,19 @@ declare namespace emitter {
    * @since 12
    */
   function once(eventId: string, callback: Callback<EventData>): void;
+
+  /**
+   * Subscribe to a event by specific id in one-shot manner and unsubscribe from it
+   * after the event callback is received.
+   *
+   * @param { string } eventId - indicate ID of the event to subscribe to in one shot.
+   * @param { Callback<GenericEventData<T>> } callback - indicate callback used to receive the event.
+   * @syscap SystemCapability.Notification.Emitter
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  function once<T>(eventId: string, callback: Callback<GenericEventData<T>>): void;
 
   /**
    * Unsubscribe from an event.
@@ -246,6 +271,18 @@ declare namespace emitter {
   function off(eventId: string, callback: Callback<EventData>): void;
 
   /**
+   * Unsubscribe specified callback function  from an event.
+   *
+   * @param { string } eventId - indicates ID of the event to unsubscribe from.
+   * @param { Callback<GenericEventData<T>> } callback - indicates callback used to receive the event.
+   * @syscap SystemCapability.Notification.Emitter
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  function off<T>(eventId: string, callback: Callback<GenericEventData<T>>): void;
+
+  /**
    * Emits an event to the event queue.
    *
    * @param { InnerEvent } event - indicate event to emit.
@@ -299,6 +336,18 @@ declare namespace emitter {
    * Emits an event by specific id to the event queue.
    *
    * @param { string } eventId - indicate ID of the event to emit.
+   * @param { GenericEventData<T> } [data] - indicate data carried by the event.
+   * @syscap SystemCapability.Notification.Emitter
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  function emit<T>(eventId: string, data?: GenericEventData<T>): void;
+
+  /**
+   * Emits an event by specific id to the event queue.
+   *
+   * @param { string } eventId - indicate ID of the event to emit.
    * @param { Options } options - Indicates the {@link Options} option of the emit priority of the event.
    * @param { EventData } [data] - indicate data carried by the event.
    * @syscap SystemCapability.Notification.Emitter
@@ -317,6 +366,19 @@ declare namespace emitter {
    * @since 12
    */
   function emit(eventId: string, options: Options, data?: EventData): void;
+
+  /**
+   * Emits an event by specific id to the event queue.
+   *
+   * @param { string } eventId - indicate ID of the event to emit.
+   * @param { Options } options - Indicates the {@link Options} option of the emit priority of the event.
+   * @param { GenericEventData<T> } [data] - indicate data carried by the event.
+   * @syscap SystemCapability.Notification.Emitter
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  function emit<T>(eventId: string, options: Options, data?: GenericEventData<T>): void;
 
   /**
    * Obtains the number of subscribe listener count.
@@ -622,6 +684,28 @@ declare namespace emitter {
      * @since 12
      */
     priority?: EventPriority;
+  }
+
+  /**
+   * Describes data passed in the event.
+   *
+   * @typedef GenericEventData<T>
+   * @syscap SystemCapability.Notification.Emitter
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  export interface GenericEventData<T> {
+    /**
+     * Data carried by the event.
+     *
+     * @type { ?T }
+     * @syscap SystemCapability.Notification.Emitter
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    data?: T;
   }
 }
 

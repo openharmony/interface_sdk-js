@@ -40,7 +40,6 @@ declare namespace utils {
      * Type of callback for asyncLock operation.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -50,7 +49,6 @@ declare namespace utils {
      * Class to execute an asynchronous operation under lock.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -60,7 +58,6 @@ declare namespace utils {
        * Default constructor.
        *
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 12
        */
@@ -72,7 +69,6 @@ declare namespace utils {
        * @returns { AsyncLock } Returns an instance of AsyncLock.
        * @static
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 12
        */
@@ -84,10 +80,9 @@ declare namespace utils {
        * @param { string } name - name of the lock.
        * @returns { AsyncLockState } Returns an instance of AsyncLockState.
        * @throws { BusinessError } 401 - The input parameters are invalid.
-       * @throws { BusinessError } 10200030 - No such lock.
+       * @throws { BusinessError } 10200030 - The lock does not exist.
        * @static
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 12
        */
@@ -99,7 +94,6 @@ declare namespace utils {
        * @returns { AsyncLockState[] } Returns an array of AsyncLockState.
        * @static
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 12
        */
@@ -113,9 +107,8 @@ declare namespace utils {
        * @param { AsyncLockCallback<T> } callback - function to call when the lock gets acquired.
        * @returns { Promise<T> } Promise that will be resolved after the callback gets executed.
        * @throws { BusinessError } 401 - The input parameters are invalid.
-       * @throws { BusinessError } 10200030 - No such lock.
+       * @throws { BusinessError } 10200030 - The lock does not exist.
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 12
        */
@@ -130,9 +123,8 @@ declare namespace utils {
        * @param { AsyncLockMode } mode - mode of the lock operation.
        * @returns { Promise<T> } Promise that will be resolved after the callback gets executed or rejected.
        * @throws { BusinessError } 401 - The input parameters are invalid.
-       * @throws { BusinessError } 10200030 - No such lock.
+       * @throws { BusinessError } 10200030 - The lock does not exist.
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 12
        */
@@ -153,10 +145,9 @@ declare namespace utils {
        * @returns { Promise<T | U> } Promise that will be resolved after the callback gets executed or rejected in case
        *     timeout exceeded.
        * @throws { BusinessError } 401 - The input parameters are invalid.
-       * @throws { BusinessError } 10200030 - No such lock.
+       * @throws { BusinessError } 10200030 - The lock does not exist.
        * @throws { BusinessError } 10200031 - Timeout exceeded.
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 12
        */
@@ -169,7 +160,6 @@ declare namespace utils {
        * @type { string }
        * @readonly
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 12
        */
@@ -181,7 +171,6 @@ declare namespace utils {
      *
      * @enum { number } AsyncLockMode
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -191,7 +180,6 @@ declare namespace utils {
        * The operation could reenter in the same thread if this mode is specified. 
        *
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 12
        */
@@ -201,7 +189,6 @@ declare namespace utils {
        * If this mode is specified, the operation is executed only when the lock is acquired exclusively.
        *
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 12
        */
@@ -212,7 +199,6 @@ declare namespace utils {
      * Lock operation's options
      *
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -221,7 +207,6 @@ declare namespace utils {
        * Default constructor.
        *
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 12
        */
@@ -232,7 +217,6 @@ declare namespace utils {
        *
        * @type { boolean }
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 12
        */
@@ -242,7 +226,6 @@ declare namespace utils {
        *
        * @type { AbortSignal<T> | null }
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 12
        */
@@ -253,7 +236,6 @@ declare namespace utils {
        *
        * @type { number }
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 12
        */
@@ -264,7 +246,6 @@ declare namespace utils {
      * Information about all lock operations on the AsyncLock instance.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -274,7 +255,6 @@ declare namespace utils {
        *
        * @type { AsyncLockInfo[] }
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 12
        */
@@ -284,7 +264,6 @@ declare namespace utils {
        *
        * @type { AsyncLockInfo[] }
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 12
        */
@@ -295,7 +274,6 @@ declare namespace utils {
      * Information about a lock.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -305,7 +283,6 @@ declare namespace utils {
        *
        * @type { string }
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 12
        */
@@ -315,7 +292,6 @@ declare namespace utils {
        *
        * @type { AsyncLockMode }
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 12
        */
@@ -325,7 +301,6 @@ declare namespace utils {
        *
        * @type { number }
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 12
        */
@@ -338,7 +313,6 @@ declare namespace utils {
      * Access to fields of this class from another thread is undefined behaviour.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -348,7 +322,6 @@ declare namespace utils {
        *
        * @type { boolean }
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 12
        */
@@ -359,7 +332,6 @@ declare namespace utils {
        *
        * @type { T }
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 12
        */
@@ -380,23 +352,36 @@ declare namespace utils {
      *
      * @typedef { lang.ISendable } ISendable
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
     type ISendable = lang.ISendable;
     /**
+    * The type of conversion result function.
+    *
+    * @typedef { function } Transformer
+    * @param { ISendable } this - The ISendable to which the parsed key value pair belongs.
+    * @param { string } key - Attribute name.
+    * @param { ISendable | undefined | null } value - The value of the parsed key value pair.
+    * @returns { ISendable | undefined | null } Return the modified ISendable or undefined or null.
+    * @syscap SystemCapability.Utils.Lang
+    * @since 12
+    */
+    type Transformer = (this: ISendable, key: string,
+      value: ISendable | undefined | null) => ISendable | undefined | null
+    /**
      * Converts a JavaScript Object Notation (JSON) string into an ArkTS Value.
      *
      * @param { string } text - A valid JSON string.
+     * @param { Transformer } [reviver] - A function that transforms the results.
+     * @param {ParseOptions} [options] - The config of parse.
      * @returns { ISendable | null } Return an ArkTS Value.
      * @throws { BusinessError } 401 - Parameter error. Invalid JSON string.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
-    function parse(text: string): ISendable | null;
+    function parse(text: string, reviver?: Transformer, options?: ParseOptions): ISendable | null;
     /**
      * Converts an ArkTS value to a JavaScript Object Notation (JSON) string.
      *
@@ -404,11 +389,100 @@ declare namespace utils {
      * @returns { string } The JSON string representation of the value.
      * @throws { BusinessError } 401 - Parameter error. Invalid ArkTS value.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
     function stringify(value: ISendable | null | undefined): string;
+
+    /**
+    * Enum defining modes for handling bigint.
+    *
+    * @enum { number } BigIntMode
+    * @syscap SystemCapability.Utils.Lang
+    * @atomicservice
+    * @since 12
+    */
+    const enum BigIntMode {
+      /**
+      * BigInt is not supported.
+      *
+      * @syscap SystemCapability.Utils.Lang
+      * @atomicservice
+      * @since 12
+      */
+      DEFAULT = 0,
+      /**
+      * Parse as BigInt when number less than -(2^53 – 1) or greater than (2^53 – 1).
+      *
+      * @syscap SystemCapability.Utils.Lang
+      * @atomicservice
+      * @since 12
+      */
+      PARSE_AS_BIGINT = 1,
+      /**
+      * All numbers parse as BigInt.
+      *
+      * @syscap SystemCapability.Utils.Lang
+      * @atomicservice
+      * @since 12
+      */
+      ALWAYS_PARSE_AS_BIGINT = 2,
+    }
+
+    /**
+    * The return types for parsing.
+    *
+    * @enum { number } ParseReturnType
+    * @syscap SystemCapability.Utils.Lang
+    * @atomicservice
+    * @since 12
+    */
+    const enum ParseReturnType {
+      /**
+      * Return type is object.
+      *
+      * @syscap SystemCapability.Utils.Lang
+      * @atomicservice
+      * @since 12
+      */
+      OBJECT = 0,
+      /**
+      * Return type is map.
+      *
+      * @syscap SystemCapability.Utils.Lang
+      * @atomicservice
+      * @since 12
+      */
+      MAP = 1,
+    }
+    /**
+    * Parse's options
+    *
+    * @typedef ParseOptions
+    * @syscap SystemCapability.Utils.Lang
+    * @atomicservice
+    * @since 12
+    */
+    interface ParseOptions {
+      /**
+      * Enum defining modes for handling bigint.
+      *
+      * @type { BigIntMode }
+      * @syscap SystemCapability.Utils.Lang
+      * @atomicservice
+      * @since 12
+      */
+      bigIntMode: BigIntMode;
+      /**
+      * The return types for parsing.
+      *
+      * @type { ParseReturnType }
+      * @syscap SystemCapability.Utils.Lang
+      * @atomicservice
+      * @since 12
+      */
+      parseReturnType: ParseReturnType;
+    }
   }
 }
 export default utils;

@@ -39,7 +39,6 @@ export class LegalityCheck {
     const illegalTagsArray: string[] = LegalityCheck.getIllegalTagsArray(apiLegalityTagsArray);
     let extendsApiValue = '';
     let implementsApiValue = '';
-
     if (singleApi.getApiType() === ApiType.CLASS || singleApi.getApiType() === ApiType.INTERFACE) {
       extendsApiValue = CommonFunctions.getExtendsApiValue(singleApi);
       implementsApiValue = CommonFunctions.getImplementsApiValue(singleApi);
@@ -61,82 +60,83 @@ export class LegalityCheck {
     }
 
     // 判断api的jsdoc中是否存在非法标签，是否缺失必选标签
-    if (Array.isArray(apiLegalityTagsArray)) {
-      const apiTags: Comment.CommentTag[] | undefined = apiJsdoc.tags;
-      const apiTagsName: string[] = [];
-      const throwsCodeArr: string[] = [];
-      if (apiTags === undefined) {
-        const sinceLost: ErrorTagFormat = {
-          state: false,
-          errorInfo: CommonFunctions.createErrorInfo(ErrorMessage.ERROR_LOST_LABEL, ['since']),
-        };
-        const syscapLost: ErrorTagFormat = {
-          state: false,
-          errorInfo: CommonFunctions.createErrorInfo(ErrorMessage.ERROR_LOST_LABEL, ['syscap']),
-        };
-        apiLegalityCheckResult.push(sinceLost, syscapLost);
-        return apiLegalityCheckResult;
-      }
-      const tagsTag: string[] = [];
-      apiTags.forEach((apiTag: Comment.CommentTag) => { tagsTag.push(apiTag.tag) });
-      if (tagsTag.includes('deprecated')) {
-        return apiLegalityCheckResult;
-      }
-
-      let paramTagNumber: number = 0;
-      let paramApiNumber: number =
-        singleApi.getApiType() === ApiType.METHOD ? (singleApi as MethodInfo).getParams().length : 0;
-
-      paramApiNumber = singleApi.getApiType() === ApiType.TYPE_ALIAS ?
-        (singleApi as TypeAliasInfo).getParamInfos().length : paramApiNumber;
-
-      apiTags.forEach((apiTag) => {
-        apiTagsName.push(apiTag.tag);
-        if (apiTag.tag === 'throws') {
-          throwsCodeArr.push(apiTag.name);
-        }
-        paramTagNumber = apiTag.tag === 'param' ? paramTagNumber + 1 : paramTagNumber;
-        const isUseinsteadLegalSituation: boolean = apiTag.tag === 'useinstead' && apiJsdoc.deprecatedVersion !== '-1';
-        apiLegalityTagsSet.delete('param');
-        if (apiLegalityTagsSet.has(apiTag.tag)) {
-          apiLegalityTagsSet.delete(apiTag.tag);
-        }
-        if (singleApi.getApiType() === ApiType.INTERFACE && (apiTag.tag === 'typedef' || apiTag.tag === 'interface')) {
-          apiLegalityTagsSet.delete('typedef');
-          apiLegalityTagsSet.delete('interface');
-        }
-        if ((singleApi.getApiType() === ApiType.METHOD && (singleApi as MethodInfo).getReturnValue().length === 0) ||
-          singleApi.getApiType() === ApiType.TYPE_ALIAS && ((singleApi as TypeAliasInfo).getReturnType() === 'void' ||
-            !(singleApi as TypeAliasInfo).getTypeIsFunction())) {
-          apiLegalityTagsSet.delete('returns');
-          illegalTagsArray.push('returns');
-        }
-        if (illegalTagsArray.includes(apiTag.tag)) {
-          if (apiTag.tag !== 'useinstead' || !isUseinsteadLegalSituation) {
-            const apiRedundantResultFormat: ErrorTagFormat = {
-              state: false,
-              errorInfo: CommonFunctions.createErrorInfo(ErrorMessage.ERROR_USE, [apiTag.tag]),
-            };
-            apiLegalityCheckResult.push(apiRedundantResultFormat);
-          }
-        }
-      });
-      if (singleApi.getApiType() === ApiType.METHOD) {
-        LegalityCheck.checkThrowsCode(throwsCodeArr, apiTagsName, paramApiNumber, apiLegalityCheckResult);
-      }
-      // param合法性单独进行校验
-      LegalityCheck.paramLegalityCheck(paramTagNumber, paramApiNumber, apiLegalityCheckResult);
-      // 缺失标签set合集
-      apiLegalityTagsSet.forEach((apiLegalityTag) => {
-        if (!conditionalOptionalTags.includes(apiLegalityTag)) {
-          const apiLostResultFormat: ErrorTagFormat = {
-            state: false,
-            errorInfo: CommonFunctions.createErrorInfo(ErrorMessage.ERROR_LOST_LABEL, [apiLegalityTag]),
-          };
-          apiLegalityCheckResult.push(apiLostResultFormat);
-        }
-      });
+    if (!Array.isArray(apiLegalityTagsArray)) {
+      return apiLegalityCheckResult;
     }
+    const apiTags: Comment.CommentTag[] | undefined = apiJsdoc.tags;
+    const apiTagsName: string[] = [];
+    const throwsCodeArr: string[] = [];
+    if (apiTags === undefined) {
+      const sinceLost: ErrorTagFormat = {
+        state: false,
+        errorInfo: CommonFunctions.createErrorInfo(ErrorMessage.ERROR_LOST_LABEL, ['since']),
+      };
+      const syscapLost: ErrorTagFormat = {
+        state: false,
+        errorInfo: CommonFunctions.createErrorInfo(ErrorMessage.ERROR_LOST_LABEL, ['syscap']),
+      };
+      apiLegalityCheckResult.push(sinceLost, syscapLost);
+      return apiLegalityCheckResult;
+    }
+    const tagsTag: string[] = [];
+    apiTags.forEach((apiTag: Comment.CommentTag) => { tagsTag.push(apiTag.tag) });
+    if (tagsTag.includes('deprecated')) {
+      return apiLegalityCheckResult;
+    }
+
+    let paramTagNumber: number = 0;
+    let paramApiNumber: number =
+      singleApi.getApiType() === ApiType.METHOD ? (singleApi as MethodInfo).getParams().length : 0;
+
+    paramApiNumber = singleApi.getApiType() === ApiType.TYPE_ALIAS ?
+      (singleApi as TypeAliasInfo).getParamInfos().length : paramApiNumber;
+
+    apiTags.forEach((apiTag) => {
+      apiTagsName.push(apiTag.tag);
+      if (apiTag.tag === 'throws') {
+        throwsCodeArr.push(apiTag.name);
+      }
+      paramTagNumber = apiTag.tag === 'param' ? paramTagNumber + 1 : paramTagNumber;
+      const isUseinsteadLegalSituation: boolean = apiTag.tag === 'useinstead' && apiJsdoc.deprecatedVersion !== '-1';
+      apiLegalityTagsSet.delete('param');
+      if (apiLegalityTagsSet.has(apiTag.tag)) {
+        apiLegalityTagsSet.delete(apiTag.tag);
+      }
+      if (singleApi.getApiType() === ApiType.INTERFACE && (apiTag.tag === 'typedef' || apiTag.tag === 'interface')) {
+        apiLegalityTagsSet.delete('typedef');
+        apiLegalityTagsSet.delete('interface');
+      }
+      if ((singleApi.getApiType() === ApiType.METHOD && (singleApi as MethodInfo).getReturnValue().length === 0) ||
+        singleApi.getApiType() === ApiType.TYPE_ALIAS && ((singleApi as TypeAliasInfo).getReturnType() === 'void' ||
+          !(singleApi as TypeAliasInfo).getTypeIsFunction())) {
+        apiLegalityTagsSet.delete('returns');
+        illegalTagsArray.push('returns');
+      }
+      if (illegalTagsArray.includes(apiTag.tag)) {
+        if (apiTag.tag !== 'useinstead' || !isUseinsteadLegalSituation) {
+          const apiRedundantResultFormat: ErrorTagFormat = {
+            state: false,
+            errorInfo: CommonFunctions.createErrorInfo(ErrorMessage.ERROR_USE, [apiTag.tag]),
+          };
+          apiLegalityCheckResult.push(apiRedundantResultFormat);
+        }
+      }
+    });
+    if (singleApi.getApiType() === ApiType.METHOD) {
+      LegalityCheck.checkThrowsCode(throwsCodeArr, apiTagsName, paramApiNumber, apiLegalityCheckResult);
+    }
+    // param合法性单独进行校验
+    LegalityCheck.paramLegalityCheck(paramTagNumber, paramApiNumber, apiLegalityCheckResult);
+    // 缺失标签set合集
+    apiLegalityTagsSet.forEach((apiLegalityTag) => {
+      if (!conditionalOptionalTags.includes(apiLegalityTag)) {
+        const apiLostResultFormat: ErrorTagFormat = {
+          state: false,
+          errorInfo: CommonFunctions.createErrorInfo(ErrorMessage.ERROR_LOST_LABEL, [apiLegalityTag]),
+        };
+        apiLegalityCheckResult.push(apiLostResultFormat);
+      }
+    });
     return apiLegalityCheckResult;
   }
 
@@ -197,6 +197,7 @@ export class LegalityCheck {
     const hasSystemapiTag: boolean = apiTagsName.includes(ParticularErrorCode.ERROR_SYSTEMAPI);
     const hasError201: boolean = apiThrowsCode.includes(ParticularErrorCode.ERROR_CODE_201);
     const hasError202: boolean = apiThrowsCode.includes(ParticularErrorCode.ERROR_CODE_202);
+    const hasError401: boolean = apiThrowsCode.includes(ParticularErrorCode.ERROR_CODE_401);
     // check permission 201
     if (hasPermissionTag !== hasError201) {
       apiLostPermissionTag.state = false;
@@ -206,6 +207,11 @@ export class LegalityCheck {
     if (hasSystemapiTag !== hasError202) {
       apiLostSystemapiTag.state = false;
       apiLostSystemapiTag.errorInfo = CommonFunctions.createErrorInfo(ErrorMessage.ERROR_LOST_LABEL, [hasSystemapiTag ? 'throws 202' : ParticularErrorCode.ERROR_SYSTEMAPI]);
+    }
+    // check systemapi 401
+    if (hasError401 && paramApiNumber === 0) {
+      apiRedundantThrows.state = false;
+      apiRedundantThrows.errorInfo = CommonFunctions.createErrorInfo(ErrorMessage.ERROR_REPEATLABEL, ['throws']);
     }
     // check repeat throws
     const orderedThrowsCode: string[] = apiThrowsCode.sort();

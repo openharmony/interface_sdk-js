@@ -19,7 +19,7 @@ import fs from 'fs';
 import { LogUtil } from '../utils/logUtil';
 import { ToolNameExcelCallback, joinNewMessage, joinOldMessage, ToolReturnData } from './config';
 import { BasicDiffInfo, diffTypeMap } from '../typedef/diff/ApiInfoDiff';
-import { FunctionUtils } from '../utils/FunctionUtils';
+import { OptionObjType } from './config'
 import { SyscapProcessorHelper } from '../coreImpl/diff/syscapFieldProcessor';
 
 export namespace WriterHelper {
@@ -33,14 +33,13 @@ export namespace WriterHelper {
     data: ToolReturnData,
     dest: string,
     fileName: string,
-    callback: ToolNameExcelCallback | undefined
+    callback: ToolNameExcelCallback | undefined,
+    options?: OptionObjType
   ) {
     const workbook: ExcelJS.Workbook = new ExcelJS.Workbook();
-    const sheet: ExcelJS.Worksheet = workbook.addWorksheet();
-
     if (typeof callback === 'function') {
       //callback是一个函数，才能当回调函数使用
-      callback(data, sheet, dest);
+      callback(data, workbook, dest, options);
     }
 
     const buffer: NodeJS.ArrayBufferView = (await workbook.xlsx.writeBuffer()) as NodeJS.ArrayBufferView;

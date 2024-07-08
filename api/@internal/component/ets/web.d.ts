@@ -2459,6 +2459,24 @@ declare enum NativeEmbedStatus {
    * @since 11
    */
   DESTROY = 2,
+
+  /**
+   * The embed tag enter backforwardcache.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  ENTER_BFCACHE = 3,
+
+  /**
+   * The embed tag leave backforwardcache.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  LEAVE_BFCACHE = 4,
 }
 
 /**
@@ -5972,6 +5990,53 @@ declare interface JavaScriptProxy {
    * @since 12
    */
   asyncMethodList?: Array<string>;
+  /**
+   * permission configuration defining web page URLs that can access JavaScriptProxy methods.
+   * The configuration can be defined at two levels, object level and method level.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  permission?: string;
+}
+
+/**
+ * Enum type supplied to {@link keyboardAvoidMode} for setting the web keyboard avoid mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+declare enum WebKeyboardAvoidMode {
+  /**
+   * Resize the visual viewport when keyboard avoidance occurs.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  RESIZE_VISUAL = 0,
+
+  /**
+   * Resize the visual and layout viewport when keyboard avoidance occurs.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  RESIZE_CONTENT = 1,
+
+  /**
+   * Do not resize any viewport when keyboard avoidance occurs.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  OVERLAYS_CONTENT = 2,
 }
 
 /**
@@ -8355,6 +8420,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 12
    */
   onAdsBlocked(callback: OnAdsBlockedCallback): WebAttribute;
+
+  /**
+   * Set web avoidance keyboard mode. The default value is WebKeyboardAvoidMode.RESIZE_CONTENT.
+   *
+   * @param { WebKeyboardAvoidMode } mode - The web keyboard avoid mode, which can be {@link WebKeyboardAvoidMode}.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  keyboardAvoidMode(mode: WebKeyboardAvoidMode): WebAttribute;
 }
 
 /**

@@ -51,6 +51,7 @@ arraybuffer
 arrlist
 ashmem
 associating
+askpass
 asy
 asyn
 asynchronized
@@ -148,6 +149,7 @@ complies
 compositing
 compresses
 cone
+concatenates
 conferencing
 confpersist
 connectable
@@ -228,6 +230,7 @@ disables
 disallowed
 disallowing
 disallows
+discards
 discharging
 disconnecting
 disconnection
@@ -312,6 +315,7 @@ finer
 flac
 flashpix
 flg
+flips
 flushes
 foiling
 foldable
@@ -462,6 +466,7 @@ interpolator
 interworking
 invalidates
 ipaddr
+ipsec
 irradiance
 isdn
 isim
@@ -508,6 +513,7 @@ linearly
 lintptr
 listened
 llbackfn
+locates
 lockdown
 lockscreen
 lod
@@ -576,6 +582,7 @@ multiplies
 multisample
 multisim
 multitask
+mutates
 mutes
 narrowband
 navigations
@@ -625,6 +632,7 @@ opendocument
 openexr
 openharmony
 opentype
+openvpn
 oper
 operated
 operatorconfigs
@@ -642,6 +650,7 @@ outlines
 overheated
 overlimit
 overline
+ovpn
 owningproperties
 ows
 oximeter
@@ -721,6 +730,7 @@ promisify
 provisioned
 proxyed
 psc
+psec
 psk
 psrc
 pss
@@ -747,6 +757,7 @@ recovering
 recovers
 recursions
 reclaimed
+redefines
 redirections
 refill
 refusing
@@ -775,6 +786,7 @@ resubmitted
 resultsets
 resumed
 retried
+reverses
 revocation
 revoked
 rewinding
@@ -830,6 +842,7 @@ sha1
 shadertype
 sharedarraybuffer
 shenzhen
+shrinks
 shortkey
 shuts
 sigalgs
@@ -842,6 +855,7 @@ statvfs
 stk
 str
 strokes
+structurally
 sm3
 smil
 smpte
@@ -900,6 +914,7 @@ superimposed
 suscriber
 suscribes
 suspends
+swanctl
 switchvideomode
 symantec
 symbolglyph
@@ -1029,6 +1044,7 @@ unsubscribes
 unsuccessfully
 unsupport
 unsuspended
+untyped
 uplink
 useriam
 userspace
@@ -1144,3 +1160,6 @@ allowlist
 disallowlist
 adblock
 enqueued
+acquires
+reenter
+redefines

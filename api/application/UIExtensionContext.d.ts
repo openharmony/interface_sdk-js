@@ -271,6 +271,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000019 - Can not match any component.
    * @throws { BusinessError } 16000069 - The extension cannot start the third party application.
    * @throws { BusinessError } 16200001 - The caller has been released.
+   * @throws { BusinessError } 16000054 - The installation-free service is busy.Try again later.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12
@@ -512,7 +513,7 @@ export default class UIExtensionContext extends ExtensionContext {
   startAbilityForResultAsCaller(want: Want, options?: StartOptions): Promise<AbilityResult>;
 
   /**
-   * Connects the current ability to an service extension ability using the AbilityInfo.AbilityType.SERVICE template.
+   * Connects the current ability to an service extension ability.
    * If the target service extension ability is visible, you can connect the target service extension ability;
    * If the target service extension ability is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to connect target invisible service extension ability.

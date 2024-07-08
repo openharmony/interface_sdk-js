@@ -59,14 +59,14 @@ declare namespace calendarManager {
   /**
    * Defines the CalendarManager class and provides functions to access the calendar data.
    *
-   * @interface CalendarManager
+   * @typedef CalendarManager
    * @syscap SystemCapability.Applications.CalendarData
    * @since 10
    */
   /**
    * Defines the CalendarManager class and provides functions to access the calendar data.
    *
-   * @interface CalendarManager
+   * @typedef CalendarManager
    * @syscap SystemCapability.Applications.CalendarData
    * @atomicservice
    * @since 11
@@ -246,13 +246,13 @@ declare namespace calendarManager {
 
   /**
    * Describes a calendar instance.
-   * @interface Calendar
+   * @typedef Calendar
    * @syscap SystemCapability.Applications.CalendarData
    * @since 10
    */
   /**
    * Describes a calendar instance.
-   * @interface Calendar
+   * @typedef Calendar
    * @syscap SystemCapability.Applications.CalendarData
    * @atomicservice
    * @since 11
@@ -446,13 +446,13 @@ declare namespace calendarManager {
 
   /**
    * Describes a calendar account.
-   * @interface CalendarAccount
+   * @typedef CalendarAccount
    * @syscap SystemCapability.Applications.CalendarData
    * @since 10
    */
   /**
    * Describes a calendar account.
-   * @interface CalendarAccount
+   * @typedef CalendarAccount
    * @syscap SystemCapability.Applications.CalendarData
    * @atomicservice
    * @since 11
@@ -508,7 +508,7 @@ declare namespace calendarManager {
 
   /**
    * Describes a calendar configuration.
-   * @interface CalendarConfig
+   * @typedef CalendarConfig
    * @syscap SystemCapability.Applications.CalendarData
    * @since 10
    */
@@ -532,13 +532,13 @@ declare namespace calendarManager {
 
   /**
    * Describes an event information.
-   * @interface Event
+   * @typedef Event
    * @syscap SystemCapability.Applications.CalendarData
    * @since 10
    */
   /**
    * Describes an event information.
-   * @interface Event
+   * @typedef Event
    * @syscap SystemCapability.Applications.CalendarData
    * @atomicservice
    * @since 11
@@ -747,6 +747,15 @@ declare namespace calendarManager {
      * @since 12
      */
     identifier?: string;
+
+    /**
+     * Whether the event is lunar.
+     * @type { ?boolean }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 12
+     */
+    isLunar?: boolean;  
   }
 
   /**
@@ -831,13 +840,13 @@ declare namespace calendarManager {
 
   /**
    * Location of an event.
-   * @interface Location
+   * @typedef Location
    * @syscap SystemCapability.Applications.CalendarData
    * @since 10
    */
   /**
    * Location of an event.
-   * @interface Location
+   * @typedef Location
    * @syscap SystemCapability.Applications.CalendarData
    * @atomicservice
    * @since 11
@@ -967,13 +976,13 @@ declare namespace calendarManager {
 
   /**
    * Defines the recurrence rule of event
-   * @interface RecurrenceRule
+   * @typedef RecurrenceRule
    * @syscap SystemCapability.Applications.CalendarData
    * @since 10
    */
   /**
    * Defines the recurrence rule of event
-   * @interface RecurrenceRule
+   * @typedef RecurrenceRule
    * @syscap SystemCapability.Applications.CalendarData
    * @atomicservice
    * @since 11
@@ -1106,13 +1115,13 @@ declare namespace calendarManager {
 
   /**
    * Defines the attendee information
-   * @interface Attendee
+   * @typedef Attendee
    * @syscap SystemCapability.Applications.CalendarData
    * @since 10
    */
   /**
    * Defines the attendee information
-   * @interface Attendee
+   * @typedef Attendee
    * @syscap SystemCapability.Applications.CalendarData
    * @atomicservice
    * @since 11
@@ -1185,13 +1194,13 @@ declare namespace calendarManager {
 
   /**
    * Defines event service information
-   * @interface EventService
+   * @typedef EventService
    * @syscap SystemCapability.Applications.CalendarData
    * @since 10
    */
   /**
    * Defines event service information
-   * @interface EventService
+   * @typedef EventService
    * @syscap SystemCapability.Applications.CalendarData
    * @atomicservice
    * @since 11

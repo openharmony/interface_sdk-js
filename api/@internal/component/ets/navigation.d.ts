@@ -765,6 +765,15 @@ declare enum LaunchMode {
    * @since 12
    */
   POP_TO_SINGLETON = 2,
+  
+  /**
+   * Forced to create a new NavDestination instance.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  NEW_INSTANCE = 3,
 }
 
 /**
@@ -1936,6 +1945,30 @@ declare interface NavigationTitleOptions {
    * @since 12
    */
   barStyle?: BarStyle;
+
+  /**
+   * Set title bar start padding.
+   *
+   * @type { ?LengthMetrics }
+   * @default LengthMetrics.resource($r('sys.float.margin_left'))
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  paddingStart?: LengthMetrics;
+
+  /**
+   * Set title bar end padding.
+   *
+   * @type { ?LengthMetrics }
+   * @default LengthMetrics.resource($r('sys.float.margin_right'))
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  paddingEnd?: LengthMetrics;
 }
 
 /**

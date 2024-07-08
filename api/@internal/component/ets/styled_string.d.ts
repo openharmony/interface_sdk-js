@@ -774,13 +774,13 @@ declare class LineHeightStyle {
  * Defines the Span Type.
  *
  * @typedef { TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle | TextShadowStyle | 
- * GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | CustomSpan } StyledStringValue
+ * GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | CustomSpan | UserDataSpan} StyledStringValue
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
 declare type StyledStringValue = TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle | TextShadowStyle | 
-GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | CustomSpan;
+GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | CustomSpan | UserDataSpan;
 
 /**
  * MutableStyledString
@@ -1043,6 +1043,16 @@ declare enum StyledStringKey {
      * @since 12
      */
     CUSTOM_SPAN = 400,
+
+    /**
+     * The key of UserDataSpan.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    USER_DATA = 500,
 }
 
 /**
@@ -1358,3 +1368,13 @@ declare abstract class CustomSpan {
      */
     abstract onDraw(context: DrawContext, drawInfo: CustomSpanDrawInfo): void;
 }
+
+/**
+ * Defines UserDataSpan. Used to store and obtain user data.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare abstract class UserDataSpan {}

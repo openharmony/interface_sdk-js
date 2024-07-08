@@ -285,7 +285,7 @@ declare namespace appManager {
    * @since 12
    */
   function on(type: 'abilityFirstFrameState', observer: AbilityFirstFrameStateObserver, bundleName?: string): void;
-  
+
   /**
    * Unregister application state observer.
    *
@@ -355,7 +355,7 @@ declare namespace appManager {
    * @since 12
    */
   function off(type: 'abilityFirstFrameState', observer?: AbilityFirstFrameStateObserver): void;
-  
+
   /**
    * getForegroundApplications.
    *
@@ -403,6 +403,26 @@ declare namespace appManager {
    * @since 9
    */
   function killProcessWithAccount(bundleName: string, accountId: number): Promise<void>;
+
+  /**
+   * Kill process with account.
+   *
+   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and ohos.permission.CLEAN_BACKGROUND_PROCESSES
+   * @param { string } bundleName - The process bundle name.
+   * @param { number } accountId - The account id.
+   * @param { boolean } clearPageStack - The flag that indicates whether the page stack need to be cleared.
+   * @param { number } [appIndex] - The application index.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 12
+   */
+  function killProcessWithAccount(bundleName: string, accountId: number, clearPageStack: boolean, appIndex?: number):
+    Promise<void>;
 
   /**
    * Kill process with account.
@@ -480,6 +500,24 @@ declare namespace appManager {
    * @since 9
    */
   function killProcessesByBundleName(bundleName: string): Promise<void>;
+
+  /**
+   * Kill processes by bundle name
+   *
+   * @permission ohos.permission.CLEAN_BACKGROUND_PROCESSES
+   * @param { string } bundleName - bundle name.
+   * @param { boolean } clearPageStack - The flag that indicates whether the page stack need to be cleared.
+   * @param { number } [appIndex] - The application index.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 12
+   */
+  function killProcessesByBundleName(bundleName: string, clearPageStack: boolean, appIndex?: number): Promise<void>;
 
   /**
    * Kill processes by bundle name
@@ -846,7 +884,7 @@ declare namespace appManager {
 
   /**
    * Preload the target application, create process and initialize resources.
-   * 
+   *
    * @permission ohos.permission.PRELOAD_APPLICATION
    * @param { string } bundleName - The bundle name of the application to preload.
    * @param { number } userId - Indicates the user identification.
@@ -877,6 +915,7 @@ declare namespace appManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000072 - App clone or multi-instance is not supported.
+   * @throws { BusinessError } 18500001 - The bundle does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -902,6 +941,25 @@ declare namespace appManager {
   * @since 12
   */
   function isAppRunning(bundleName: string, appCloneIndex?: number): Promise<boolean>;
+
+  /**
+   * Clear up application data by bundle name
+   *
+   * @permission ohos.permission.CLEAN_APPLICATION_DATA
+   * @param { string } bundleName - bundle name.
+   * @param { number } [appCloneIndex] - app clone index
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *    2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000073 - The app clone index does not exist.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 12
+   */
+  function clearUpAppData(bundleName: string, appCloneIndex?: number): Promise<void>;
 
   /**
    * The ability or extension state data.

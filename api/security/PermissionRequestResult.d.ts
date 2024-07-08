@@ -71,7 +71,7 @@ export default class PermissionRequestResult {
 
   /**
    * The results for the corresponding request permissions. The value 0 indicates that a
-   * permission is granted, and the value -1 indicates not.
+   * permission is granted, the value -1 indicates not, and the value 2 indicates the request is invalid.
    *
    * @syscap SystemCapability.Security.AccessToken
    * @stagemodelonly
@@ -79,7 +79,7 @@ export default class PermissionRequestResult {
    */
   /**
    * The results for the corresponding request permissions. The value 0 indicates that a
-   * permission is granted, and the value -1 indicates not.
+   * permission is granted, the value -1 indicates not, and the value 2 indicates the request is invalid.
    *
    * @syscap SystemCapability.Security.AccessToken
    * @stagemodelonly
@@ -88,7 +88,7 @@ export default class PermissionRequestResult {
    */
   /**
    * The results for the corresponding request permissions. The value 0 indicates that a
-   * permission is granted, and the value -1 indicates not.
+   * permission is granted, the value -1 indicates not, and the value 2 indicates the request is invalid.
    *
    * @syscap SystemCapability.Security.AccessToken
    * @stagemodelonly

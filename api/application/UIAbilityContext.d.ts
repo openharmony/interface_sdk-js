@@ -563,6 +563,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
    * @throws { BusinessError } 16000019 - Can not match any component.
    * @throws { BusinessError } 16200001 - The caller has been released.
+   * @throws { BusinessError } 16000054 - The installation-free service is busy.Try again later.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
@@ -2585,7 +2586,7 @@ export default class UIAbilityContext extends Context {
   terminateSelfWithResult(parameter: AbilityResult): Promise<void>;
 
   /**
-   * Connects the current ability to an service extension ability using the AbilityInfo.AbilityType.SERVICE template.
+   * Connects the current ability to an service extension ability.
    *
    * @param { Want } want - The element name of the service ability
    * @param { ConnectOptions } options - The remote object instance
@@ -2601,7 +2602,7 @@ export default class UIAbilityContext extends Context {
    * @since 9
    */
   /**
-   * Connects the current ability to an service extension ability using the AbilityInfo.AbilityType.SERVICE template.
+   * Connects the current ability to an service extension ability.
    * If the target service extension ability is visible, you can connect the target service extension ability;
    * If the target service extension ability is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to connect target invisible service extension ability.
@@ -2629,7 +2630,7 @@ export default class UIAbilityContext extends Context {
   connectServiceExtensionAbility(want: Want, options: ConnectOptions): number;
 
   /**
-   * Connects the current ability to an service extension ability using the AbilityInfo.AbilityType.SERVICE template with account.
+   * Connects the current ability to an service extension ability with account.
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - The element name of the service ability
@@ -2649,7 +2650,7 @@ export default class UIAbilityContext extends Context {
    * @since 9
    */
   /**
-   * Connects the current ability to an service extension ability using the AbilityInfo.AbilityType.SERVICE template with account.
+   * Connects the current ability to an service extension ability with account.
    * If the target service extension ability is visible, you can connect the target service extension ability;
    * If the target service extension ability is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to connect target invisible service extension ability.
@@ -3583,4 +3584,18 @@ export default class UIAbilityContext extends Context {
    * @since 12
    */
   hideAbility(): Promise<void>;
+
+  /**
+   * Set whether restoration is enabled when the UIAbility is switched back from the background.
+   *
+   * @param { boolean } enabled - The flag that indicates whether restoration is enabled when the UIAbility is switched
+   * back from the background.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+  setRestoreEnabled(enabled: boolean): void;
 }

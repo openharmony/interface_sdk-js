@@ -303,6 +303,15 @@ declare namespace drawing {
      * @since 11
      */
     reset(): void;
+
+    /**
+     * Get path length.
+     * @param { boolean } forceClosed - Whether to close the Path.
+     * @returns { number } Return path length.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    getLength(forceClosed: boolean): number;
   }
 
   /**
@@ -486,6 +495,19 @@ declare namespace drawing {
     drawLine(x0: number, y0: number, x1: number, y1: number): void;
 
     /**
+     * Draws a single character.
+     * @param { string } text - A string containing only a single character.
+     * @param { Font } font - Font object.
+     * @param { number } x - X coordinate of the single character start point.
+     * @param { number } y - Y coordinate of the single character start point.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    drawSingleCharacter(text: string, font: Font, x: number, y: number): void;
+
+    /**
      * Draws a textBlob
      * @param { TextBlob } blob - TextBlob to draw.
      * @param { number } x - X coordinate of the text start point.
@@ -565,6 +587,18 @@ declare namespace drawing {
      * @since 12
      */
     save(): number;
+
+    /**
+     * Saves matrix and clip, and allocates a bitmap for subsequent drawing.
+     * Calling restore discards changes to matrix and clip, and draws the bitmap.
+     * @param { common2D.Rect | null} rect - Optional layer size. The default value is null.
+     * @param { Brush | null} brush - Optional brush effect used to draw the layer. The default value is null.
+     * @returns { number } Return the number of saved states before this call.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    saveLayer(rect?: common2D.Rect | null, brush?: Brush | null): number;
 
     /**
      * Restores the canvas status (canvas matrix) saved on the top of the stack.
@@ -895,6 +929,16 @@ declare namespace drawing {
      */
     getMetrics(): FontMetrics;
     /**
+     * Measure a single character.
+     * @param { string } text - A string containing only a single character.
+     * @returns { number } The width of the single character.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    measureSingleCharacter(text: string): number;
+    /**
      * Measure the width of text.
      * @param { string } text - Text Symbol Content.
      * @param { TextEncoding } encoding - Encoding format.
@@ -1098,6 +1142,65 @@ declare namespace drawing {
       * @since 12
       */
      strikethroughPosition?: number;
+  }
+
+  /**
+   * Lattice is the class for dividing an image into grids.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  class Lattice {
+    /**
+     * Divide an image into a rectangular grid. Grid entries on even columns and even rows are fixed;
+     * these entries are always drawn at their original size if the destination is large enough. If the destination
+     * side is too small to hold the fixed entries, all fixed entries are scaled down to fit.
+     * The grid entries not on even columns and rows are scaled to fit the remaining space, if any.
+     * @param { Array<number> } xDivs - X coordinate of values used to divide the image.
+     * @param { Array<number> } yDivs - Y coordinate of values used to divide the image.
+     * @param { number } fXCount - Number of x coordinates. Must be >= 0.
+     * @param { number } fYCount - Number of y coordinates. Must be >= 0.
+     * @param { common2D.Rect | null } fBounds - Source bounds to draw from. The default value is null.
+     * @param { Array<RectType> | null } fRectTypes - Array of fill types. The default value is null.
+     * @param { Array<common2D.Color> | null } fColors - Array of colors. The default value is null.
+     * @returns { Lattice } Lattice object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    static createImageLattice(xDivs: Array<number>, yDivs: Array<number>, fXCount: number, fYCount: number,
+      fBounds?: common2D.Rect | null, fRectTypes?: Array<RectType> | null, fColors?: Array<common2D.Color> | null): Lattice;
+  }
+
+  /**
+   * Enumerate rect types. Optional setting per rectangular grid entry to make it transparent,
+   * or to fill the grid entry with a color. only used in Lattice.
+   * @enum { number }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  enum RectType {
+    /**
+     * Draws image into lattice rect.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    DEFAULT = 0,
+
+    /**
+     * Skips lattice rect by making it transparent.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    TRANSPARENT = 1,
+
+    /**
+     * Draws one of fColors into lattice rect.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    FIXEDCOLOR = 2
   }
 
   /**

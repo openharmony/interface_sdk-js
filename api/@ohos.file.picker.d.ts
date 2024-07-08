@@ -769,6 +769,7 @@ declare namespace picker {
    * AudioSelectOptions Object.
    *
    * @syscap SystemCapability.FileManagement.UserFileService
+   * @atomicservice
    * @since 12
    */
     class AudioSelectOptions {

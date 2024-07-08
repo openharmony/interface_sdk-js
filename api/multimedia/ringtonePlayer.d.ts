@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AudioKit
+ */
+
 import type { Callback, AsyncCallback } from '../@ohos.base';
 import type audio from '../@ohos.multimedia.audio';
 import type media from '../@ohos.multimedia.media';

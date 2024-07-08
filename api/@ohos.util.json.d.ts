@@ -45,13 +45,14 @@ declare namespace json {
    *
    * @param { string } text - A valid JSON string.
    * @param { Transformer } [reviver] - A function that transforms the results.
+   * @param {ParseOptions} options - The config of parse.
    * @returns { Object | null } Return an Object, array, string, number, boolean, or null value corresponding to JSON text.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 12
    */
-  function parse(text: string, reviver?: Transformer): Object | null;
+  function parse(text: string, reviver?: Transformer, options?: ParseOptions): Object | null;
 
   /**
    * Converts a JavaScript value to a JavaScript Object Notation (JSON) string.
@@ -105,5 +106,59 @@ declare namespace json {
    * @since 12
    */
   function remove(obj: object, property: string): void;
+
+  /**
+   * Enum defining modes for handling bigint.
+   *
+   * @enum { number } BigIntMode
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 12
+   */
+  const enum BigIntMode {
+    /**
+     * BigInt is not supported.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 12
+     */
+    DEFAULT = 0,
+    /**
+     * Parse as BigInt when number less than -(2^53 – 1) or greater than (2^53 – 1).
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 12
+     */
+    PARSE_AS_BIGINT = 1,
+    /**
+     * All numbers parse as BigInt.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 12
+     */
+    ALWAYS_PARSE_AS_BIGINT = 2,
+  }
+
+  /**
+   * Parse's options
+   *
+   * @typedef ParseOptions
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 12
+   */
+  interface ParseOptions {
+    /**
+    * Enum defining modes for handling bigint.
+    * @type { BigIntMode }
+    * @syscap SystemCapability.Utils.Lang
+    * @crossplatform
+    * @since 12
+    */
+    bigIntMode: BigIntMode;
+  }
 }
 export default json;
