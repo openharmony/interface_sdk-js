@@ -32,7 +32,7 @@ import { AsyncCallback } from "./@ohos.base";
 declare namespace inputDeviceCooperate {
   /**
    * Enumerates mouse traversal events.
-   * @type { number }
+   * @enum { number }
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use.
    * @since 9
