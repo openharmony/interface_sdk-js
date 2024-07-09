@@ -147,6 +147,29 @@ declare enum ImageRenderMode {
 }
 
 /**
+ * Specify image's content.
+ * 
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 12
+ */
+declare enum ImageContent {
+  /**
+   * Make image empty.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  EMPTY = 0,
+}
+
+/**
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 12
@@ -399,6 +422,19 @@ interface ImageInterface {
    * @form
    */
   (src: PixelMap | ResourceStr | DrawableDescriptor): ImageAttribute;
+
+  /**
+   * Set src to obtain images
+   *
+   * @param { PixelMap | ResourceStr | DrawableDescriptor | ImageContent } src
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  (src: PixelMap | ResourceStr | DrawableDescriptor | ImageContent): ImageAttribute;
 
   /**
    * Set src and ai options to obtain images
