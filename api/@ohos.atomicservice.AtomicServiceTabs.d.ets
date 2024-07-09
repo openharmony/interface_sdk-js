@@ -14,13 +14,9 @@
 */
 
 /**
- * @file
+ * @file Provides an advanced struct of tabs for atomic services
  * @kit ArkUI
  */
-
-/// <reference path="../component/units.d.ts" />
-
-import { ResourceStr, Resource } from 'GlobalResource';
 
 /**
  * Defines AtomicServiceTabs.

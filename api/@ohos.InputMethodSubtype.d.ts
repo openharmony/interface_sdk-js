@@ -29,6 +29,7 @@ export default interface InputMethodSubtype {
   /**
    * The label of input method subtype.
    *
+   * @type { ?string }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
@@ -46,6 +47,7 @@ export default interface InputMethodSubtype {
   /**
    * The name of input method.
    *
+   * @type { string }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
@@ -54,6 +56,7 @@ export default interface InputMethodSubtype {
   /**
    * The id of input method subtype.
    *
+   * @type { string }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
@@ -62,6 +65,7 @@ export default interface InputMethodSubtype {
   /**
    * The mode of input method subtype.
    *
+   * @type { ?('upper' | 'lower') }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
@@ -70,6 +74,7 @@ export default interface InputMethodSubtype {
   /**
    * The locale of input method subtype.
    *
+   * @type { string }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
@@ -78,6 +83,7 @@ export default interface InputMethodSubtype {
   /**
    * The language of input method subtype.
    *
+   * @type { string }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
@@ -86,6 +92,7 @@ export default interface InputMethodSubtype {
   /**
    * The icon of input method subtype.
    *
+   * @type { ?string }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
@@ -94,6 +101,7 @@ export default interface InputMethodSubtype {
   /**
    * The icon id of input method subtype.
    *
+   * @type { ?number }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
