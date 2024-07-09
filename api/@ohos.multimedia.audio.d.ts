@@ -3772,6 +3772,32 @@ declare namespace audio {
      * @since 12
      */
     getPreferredInputDeviceForCapturerInfoSync(capturerInfo: AudioCapturerInfo): AudioDeviceDescriptors;
+
+    /**
+     * Subscribes microphone blocked events. When microphone is blocked, registered clients will receive the callback.
+     * @param { 'microphoneBlocked' } type - Type of the event to listen for.
+     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the blocked microphone information.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 13
+     */
+    on(type: 'microphoneBlocked', callback: Callback<AudioDeviceDescriptors>): void;
+
+    /**
+     * Unsubscribes microphone blocked events.
+     * @param { 'microphoneBlocked' } type - Type of the event to listen for.
+     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the blocked microphone information.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 13
+     */
+     off(type: 'microphoneBlocked', callback?: Callback<AudioDeviceDescriptors>): void;
   }
 
   /**
@@ -4157,7 +4183,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @since 12
-     */  
+     */
     concurrencyMode: AudioConcurrencyMode;
   }
 
@@ -4175,9 +4201,9 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @since 12
-     */  
+     */
     reason: AudioSessionDeactivatedReason;
-  }  
+  }
 
   /**
    * Implements audio session management.
@@ -4236,7 +4262,7 @@ declare namespace audio {
      */
     on(type: 'audioSessionDeactivated', callback: Callback<AudioSessionDeactivatedEvent>): void;
 
-    /** 
+    /**
     * Unsubscribes to audio session deactivated event.
     * @param { 'audioSessionDeactivated' } type - Type of the event to listen for. Only the audioSessionDeactivated event is supported.
     * @param { Callback<AudioSessionDeactivatedEvent> } callback - Callback invoked for the audio session deactivated event.
