@@ -48,7 +48,7 @@ declare namespace netFirewall {
   function setNetFirewallPolicy(userId: number, policy: NetFirewallPolicy): Promise<void>;
 
   /**
-   * Query firewall policy by userId.
+   * Get firewall policy by userId.
    * 
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { number } userId - Indicates the user ID. It cannot be the ID of a user that does not exist.
@@ -177,12 +177,12 @@ declare namespace netFirewall {
   function getNetFirewallRule(userId: number, ruleId: number): Promise<NetFirewallRule>;
 
   /**
-   * Get interception records by userId, and it is necessary to specify the pagination query parameters.
+   * Get intercepted records by userId, and it is necessary to specify the pagination query parameters.
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { number } userId - Indicates the user ID. It cannot be the ID of a user that does not exist.
    * @param { RequestParam } requestParam - Paging query input parameters.
-   * @return { InterceptRecordPage } Block Record List.
+   * @return { InterceptedRecordPage } Block Record List.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -194,7 +194,7 @@ declare namespace netFirewall {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  function getInterceptRecords(userId: number, requestParam: RequestParam): Promise<InterceptRecordPage>;
+  function getInterceptedRecords(userId: number, requestParam: RequestParam): Promise<InterceptedRecordPage>;
 
   /**
    * Firewall rule direction enumeration.
@@ -382,12 +382,12 @@ declare namespace netFirewall {
   /**
    * Firewall IP parameters.
    *
-   * @interface NetFirewallIpParam
+   * @interface NetFirewallIpParams
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  interface NetFirewallIpParam {
+  interface NetFirewallIpParams {
     /**
      * 1: IP address or subnet, when using a single IP, the mask is 32; 2: IP segment.
      *
@@ -447,12 +447,12 @@ declare namespace netFirewall {
   /**
    * Firewall port parameters.
    *
-   * @interface NetFirewallPortParam
+   * @interface NetFirewallPortParams
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  interface NetFirewallPortParam {
+  interface NetFirewallPortParams {
     /**
      * Start port, when there is only one port, the start port is the same as the end port.
      *
@@ -506,12 +506,12 @@ declare namespace netFirewall {
   /**
    * Firewall DNS parameters.
    *
-   * @interface NetFirewallDnsParam
+   * @interface NetFirewallDnsParams
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  interface NetFirewallDnsParam {
+  interface NetFirewallDnsParams {
     /**
      * Primary DNS.
      *
@@ -625,21 +625,21 @@ declare namespace netFirewall {
     /**
      * Local IP address: valid when ruleType = RULE_IP, otherwise it will be ignored.
      *
-     * @type {?Array<NetFirewallIpParam>}
+     * @type {?Array<NetFirewallIpParams>}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    localIps?: Array<NetFirewallIpParam>;
+    localIps?: Array<NetFirewallIpParams>;
     /**
      * Remote IP address: valid when ruleType = RULE_IP, otherwise it will be ignored.
      *
-     * @type {?Array<NetFirewallIpParam>}
+     * @type {?Array<NetFirewallIpParams>}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    remoteIps?: Array<NetFirewallIpParam>;
+    remoteIps?: Array<NetFirewallIpParams>;
     /**
      * Protocol, 1: ICMPv4, 6: TCP, 17: UDP, 58: ICMPv6. Valid when ruleType = RULE_IP, otherwise it will be ignored.
      *
@@ -652,21 +652,21 @@ declare namespace netFirewall {
     /**
      * Local ports: valid when ruleType = RULE_IP, otherwise it will be ignored.
      *
-     * @type {?Array<NetFirewallPortParam>}
+     * @type {?Array<NetFirewallPortParams>}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    localPorts?: Array<NetFirewallPortParam>;
+    localPorts?: Array<NetFirewallPortParams>;
     /**
      * Remote ports: valid when ruleType = RULE_IP, otherwise it will be ignored.
      *
-     * @type {?Array<NetFirewallPortParam>}
+     * @type {?Array<NetFirewallPortParams>}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    remotePorts?: Array<NetFirewallPortParam>;
+    remotePorts?: Array<NetFirewallPortParams>;
     /**
      * Domain name list: valid when ruleType = RULE_DOMAIN, otherwise it will be ignored.
      *
@@ -679,23 +679,23 @@ declare namespace netFirewall {
     /**
      * DNS: valid when ruleType = RULE_DNS, otherwise it will be ignored.
      *
-     * @type {?NetFirewallDnsParam}
+     * @type {?NetFirewallDnsParams}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    dns?: NetFirewallDnsParam;
+    dns?: NetFirewallDnsParams;
   }
 
   /**
-   * Interception record.
+   * Intercepted record.
    *
-   * @interface InterceptRecord
+   * @interface InterceptedRecord
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  interface InterceptRecord {
+  interface InterceptedRecord {
     /**
      * Time stamp.
      *
@@ -865,14 +865,14 @@ declare namespace netFirewall {
   }
 
   /**
-   * Interception record page information.
+   * Intercepted record page information.
    *
-   * @interface InterceptRecordPage
+   * @interface InterceptedRecordPage
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  interface InterceptRecordPage {
+  interface InterceptedRecordPage {
     /**
      * Current page number: indicates the page number of this query.
      *
@@ -903,12 +903,12 @@ declare namespace netFirewall {
     /**
      * Page data: all records displayed on this page.
      *
-     * @type {Array<InterceptRecord>}
+     * @type {Array<InterceptedRecord>}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    data: Array<InterceptRecord>;
+    data: Array<InterceptedRecord>;
   }
 }
 
