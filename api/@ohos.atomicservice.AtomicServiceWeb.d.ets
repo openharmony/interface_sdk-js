@@ -18,7 +18,6 @@
  * @kit ArkUI
  */
 
-import { ResourceStr, Resource } from 'GlobalResource';
 import { Callback } from '@ohos.base';
 
 /**
