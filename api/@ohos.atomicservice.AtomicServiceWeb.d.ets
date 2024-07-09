@@ -102,7 +102,7 @@ export declare struct AtomicServiceWeb {
  * @atomicservice
  * @since 12
  */
-export declare class OnMessageEvent {
+export declare interface OnMessageEvent {
   /**
    * The message data list.
    *
@@ -121,7 +121,7 @@ export declare class OnMessageEvent {
  * @atomicservice
  * @since 12
  */
-export declare class OnErrorReceiveEvent {
+export declare interface OnErrorReceiveEvent {
   /**
    * Web resource request of event.
    *
@@ -131,6 +131,7 @@ export declare class OnErrorReceiveEvent {
    * @since 12
    */
   request: WebResourceRequest;
+
   /**
    * Web resource error of event.
    *
@@ -149,7 +150,7 @@ export declare class OnErrorReceiveEvent {
  * @atomicservice
  * @since 12
  */
-export declare class OnHttpErrorReceiveEvent {
+export declare interface OnHttpErrorReceiveEvent {
   /**
    * Web resource request of event.
    *
@@ -159,6 +160,7 @@ export declare class OnHttpErrorReceiveEvent {
    * @since 12
    */
   request: WebResourceRequest;
+
   /**
    * Web resource response of event.
    *
@@ -177,7 +179,7 @@ export declare class OnHttpErrorReceiveEvent {
  * @atomicservice
  * @since 12
  */
-export declare class OnPageBeginEvent {
+export declare interface OnPageBeginEvent {
   /**
    * The url of page.
    *
@@ -196,7 +198,7 @@ export declare class OnPageBeginEvent {
  * @atomicservice
  * @since 12
  */
-export declare class OnPageEndEvent {
+export declare interface OnPageEndEvent {
   /**
    * The url of page.
    *
