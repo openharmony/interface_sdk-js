@@ -452,6 +452,15 @@ declare namespace collections {
      */
     at(index: number): T | undefined;
     /**
+     * Returns an iterator that can be used to iterate over elements of type T.
+     *
+     * @returns { IterableIterator<T> } Iterator object.
+     * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
+     * @syscap SystemCapability.Utils.Lang
+     * @since 12
+     */
+    [Symbol.iterator](): IterableIterator<T>;
+    /**
      * Returns an iterable of key, value pairs for every entry in the array
      * 
      * @returns { IterableIterator<[number, T]> } A new iterable iterator object.
@@ -677,6 +686,15 @@ declare namespace collections {
      */
     constructor(entries?: readonly (readonly [K, V])[] | null)
     /**
+     * Returns an iterator that iterates over key-value pairs.
+     *
+     * @returns { IterableIterator<[K, V]> } Iterator object that yields key-value pairs.
+     * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
+     * @syscap SystemCapability.Utils.Lang
+     * @since 12
+     */
+    [Symbol.iterator](): IterableIterator<[K, V]>
+    /**
      * Returns an iterable of key, value pairs for every entry in the map.
      *
      * @returns { IterableIterator<[K, V]> } A new iterable iterator object.
@@ -828,6 +846,15 @@ declare namespace collections {
      * @since 12
      */
     constructor(values?: readonly T[] | null);
+    /**
+     * Returns an iterator that can be used to iterate over elements of type T.
+     *
+     * @returns { IterableIterator<T> } Iterator object.
+     * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
+     * @syscap SystemCapability.Utils.Lang
+     * @since 12
+     */
+    [Symbol.iterator](): IterableIterator<T>;
     /**
      * Returns an iterable of [value, value] pairs for each element in this set.
      * 
@@ -1447,6 +1474,15 @@ declare namespace collections {
      */
     at(index: number): number | undefined;
     /**
+     * Returns an iterator that iterates over numbers.
+     *
+     * @returns { IterableIterator<number> } Iterator object that yields numbers.
+     * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
+     * @syscap SystemCapability.Utils.Lang
+     * @since 12
+     */
+    [Symbol.iterator](): IterableIterator<number>;
+    /**
      * Returns an iterable of key, value pairs for every entry in the array
      *
      * @returns { IterableIterator<[number, number]> } A new iterable iterator object.
@@ -1958,6 +1994,15 @@ declare namespace collections {
      * @since 12
      */
     at(index: number): number | undefined;
+    /**
+     * Returns an iterator that iterates over numbers.
+     *
+     * @returns { IterableIterator<number> } Iterator object that yields numbers.
+     * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
+     * @syscap SystemCapability.Utils.Lang
+     * @since 12
+     */
+    [Symbol.iterator](): IterableIterator<number>;
     /**
      * Returns an iterable of key, value pairs for every entry in the array
      *
@@ -2486,6 +2531,15 @@ declare namespace collections {
      */
     at(index: number): number | undefined;
     /**
+     * Returns an iterator that iterates over numbers.
+     *
+     * @returns { IterableIterator<number> } Iterator object that yields numbers.
+     * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
+     * @syscap SystemCapability.Utils.Lang
+     * @since 12
+     */
+    [Symbol.iterator](): IterableIterator<number>;
+    /**
      * Returns an iterable of key, value pairs for every entry in the array
      *
      * @returns { IterableIterator<[number, number]> } A new iterable iterator object.
@@ -3013,6 +3067,15 @@ declare namespace collections {
      */
     at(index: number): number | undefined;
     /**
+     * Returns an iterator that iterates over numbers.
+     *
+     * @returns { IterableIterator<number> } Iterator object that yields numbers.
+     * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
+     * @syscap SystemCapability.Utils.Lang
+     * @since 12
+     */
+    [Symbol.iterator](): IterableIterator<number>;
+    /**
      * Returns an iterable of key, value pairs for every entry in the array
      *
      * @returns { IterableIterator<[number, number]> } A new iterable iterator object.
@@ -3538,6 +3601,15 @@ declare namespace collections {
      * @since 12
      */
     at(index: number): number | undefined;
+    /**
+     * Returns an iterator that iterates over numbers.
+     *
+     * @returns { IterableIterator<number> } Iterator object that yields numbers.
+     * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
+     * @syscap SystemCapability.Utils.Lang
+     * @since 12
+     */
+    [Symbol.iterator](): IterableIterator<number>;
     /**
      * Returns an iterable of key, value pairs for every entry in the array
      *
@@ -4066,6 +4138,15 @@ declare namespace collections {
      */
     at(index: number): number | undefined;
     /**
+     * Returns an iterator that iterates over numbers.
+     *
+     * @returns { IterableIterator<number> } Iterator object that yields numbers.
+     * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
+     * @syscap SystemCapability.Utils.Lang
+     * @since 12
+     */
+    [Symbol.iterator](): IterableIterator<number>;
+    /**
      * Returns an iterable of key, value pairs for every entry in the array
      *
      * @returns { IterableIterator<[number, number]> } A new iterable iterator object.
@@ -4591,6 +4672,15 @@ declare namespace collections {
      * @since 12
      */
     at(index: number): number | undefined;
+    /**
+     * Returns an iterator that iterates over numbers.
+     *
+     * @returns { IterableIterator<number> } Iterator object that yields numbers.
+     * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
+     * @syscap SystemCapability.Utils.Lang
+     * @since 12
+     */
+    [Symbol.iterator](): IterableIterator<number>;
     /**
      * Returns an iterable of key, value pairs for every entry in the array
      *
