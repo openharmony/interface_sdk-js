@@ -104,7 +104,7 @@ describe('testApiDiff', function () {
       }
       const oldSDKApiMap: FilesMap = Parser.parseFile(testOldFileDir, testOldFilePath);
       const newSDKApiMap: FilesMap = Parser.parseFile(testNewFileDir, testNewFilePath);
-      const diffInfos: BasicDiffInfo[] = DiffHelper.diffSDK(oldSDKApiMap, newSDKApiMap);
+      const diffInfos: BasicDiffInfo[] = DiffHelper.diffSDK(oldSDKApiMap, newSDKApiMap, false);
       const outputContent: string = JSON.stringify(diffInfos, null, 2);
       fs.writeFileSync(outputFilePath, outputContent, StringConstant.UTF8);
       const expectFileContent: string = fs.readFileSync(expectFilePath, 'utf-8').replace(/\r\n/g, '\n');

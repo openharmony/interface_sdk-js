@@ -8,7 +8,7 @@
     "newApiName": "CONSTANT2",
     "oldDtsName": "",
     "newDtsName": "ut_constant_add.d.ts",
-    "diffType": 59,
+    "diffType": 75,
     "diffMessage": "新增API",
     "changeLogUrl": "",
     "changeLogs": [],
@@ -30,6 +30,9 @@
     "oldDescription": "",
     "newDescription": "const CONSTANT2 = 2;",
     "oldSyscapField": "",
-    "newSyscapField": ""
+    "newSyscapField": "",
+    "oldKitInfo": "",
+    "newKitInfo": "",
+    "isSystemapi": false
   }
 ]

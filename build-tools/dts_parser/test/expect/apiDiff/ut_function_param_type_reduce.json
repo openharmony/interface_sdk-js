@@ -8,7 +8,7 @@
     "newApiName": "func",
     "oldDtsName": "ut_function_param_type_reduce.d.ts",
     "newDtsName": "ut_function_param_type_reduce.d.ts",
-    "diffType": 44,
+    "diffType": 45,
     "diffMessage": "函数的参数类型范围缩小",
     "changeLogUrl": "",
     "changeLogs": [],
@@ -34,6 +34,9 @@
     "oldDescription": "str: string | number",
     "newDescription": "str: string",
     "oldSyscapField": "",
-    "newSyscapField": ""
+    "newSyscapField": "",
+    "oldKitInfo": "",
+    "newKitInfo": "",
+    "isSystemapi": false
   }
 ]

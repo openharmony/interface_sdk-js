@@ -8,7 +8,7 @@
     "newApiName": "fuc",
     "oldDtsName": "ut_type_range_bigger.d.ts",
     "newDtsName": "ut_type_range_bigger.d.ts",
-    "diffType": 43,
+    "diffType": 44,
     "diffMessage": "函数的参数类型范围扩大",
     "changeLogUrl": "",
     "changeLogs": [],
@@ -34,6 +34,9 @@
     "oldDescription": "str: string",
     "newDescription": "str: string | number",
     "oldSyscapField": "",
-    "newSyscapField": ""
+    "newSyscapField": "",
+    "oldKitInfo": "",
+    "newKitInfo": "",
+    "isSystemapi": false
   }
 ]
