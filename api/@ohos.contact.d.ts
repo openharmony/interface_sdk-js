@@ -64,7 +64,7 @@ declare namespace contact {
    * by {@link Contact#getId()}) if the creation is successful. returns {@link Contact#INVALID_CONTACT_ID} if the
    * creation fails.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -78,7 +78,7 @@ declare namespace contact {
    * by {@link Contact#getId()}) if the creation is successful. returns {@link Contact#INVALID_CONTACT_ID} if the
    * creation fails.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice
    * @since 12
@@ -108,7 +108,7 @@ declare namespace contact {
    * @returns { Promise<number> } Returns the contact ID (which can be obtained by {@link Contact#getId()}) if the
    * creation is successful. returns {@link Contact#INVALID_CONTACT_ID} if the creation fails.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -121,7 +121,7 @@ declare namespace contact {
    * @returns { Promise<number> } Returns the contact ID (which can be obtained by {@link Contact#getId()}) if the
    * creation is successful. returns {@link Contact#INVALID_CONTACT_ID} if the creation fails.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice
    * @since 12
@@ -146,7 +146,7 @@ declare namespace contact {
    *
    * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
    * Returns the contact list which user select; returns empty contact list if user not select.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.Contacts
    * @since 10
    */
@@ -155,7 +155,7 @@ declare namespace contact {
    *
    * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
    * Returns the contact list which user select; returns empty contact list if user not select.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.Contacts
    * @atomicservice
    * @since 11
@@ -180,6 +180,7 @@ declare namespace contact {
    *
    * @returns { Promise<Array<Contact>> } Returns the contact list which user select;
    * returns empty contact list if user not select.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.Contacts
    * @since 10
    */
@@ -188,6 +189,7 @@ declare namespace contact {
    *
    * @returns { Promise<Array<Contact>> } Returns the contact list which user select;
    * returns empty contact list if user not select.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.Contacts
    * @atomicservice
    * @since 11
@@ -199,7 +201,7 @@ declare namespace contact {
    *
    * @param { ContactSelectionOptions } options - Indicates the Single-select or multiple-select.
    * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.Contacts
    * @since 10
    */
@@ -208,7 +210,7 @@ declare namespace contact {
    *
    * @param { ContactSelectionOptions } options - Indicates the Single-select or multiple-select.
    * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.Contacts
    * @atomicservice
    * @since 11
@@ -221,7 +223,7 @@ declare namespace contact {
    * @param { ContactSelectionOptions } options - Indicates the Single-select or multiple-select.
    * @returns { Promise<Array<Contact>> } Returns the contact list which user select;
    * returns empty contact list if user not select.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.Contacts
    * @since 10
    */
@@ -231,7 +233,7 @@ declare namespace contact {
    * @param { ContactSelectionOptions } options - Indicates the Single-select or multiple-select.
    * @returns { Promise<Array<Contact>> } Returns the contact list which user select;
    * returns empty contact list if user not select.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.Contacts
    * @atomicservice
    * @since 11
@@ -259,7 +261,7 @@ declare namespace contact {
    * @param { string } key - Indicates the unique query key of a contact to delete.
    * @param { AsyncCallback<void> } callback - Return the callback function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -286,7 +288,7 @@ declare namespace contact {
    * @param { string } key - Indicates the unique query key of a contact to delete.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -313,7 +315,7 @@ declare namespace contact {
    * @param { string } key - Indicates the unique query key of a contact.
    * @param { AsyncCallback<Contact> } callback - Returns the specified contact.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -344,7 +346,7 @@ declare namespace contact {
    * If this parameter is null, the default holder is used for matching.
    * @param { AsyncCallback<Contact> } callback - Returns the specified contact.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -375,7 +377,7 @@ declare namespace contact {
    * If this parameter is null, all attributes are used for matching.
    * @param { AsyncCallback<Contact> } callback - Returns the specified contact.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -408,7 +410,7 @@ declare namespace contact {
    * If this parameter is null, all attributes are used for matching.
    * @param { AsyncCallback<Contact> } callback - Returns the specified contact.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -441,7 +443,7 @@ declare namespace contact {
    * If this parameter is null, all attributes are used for matching.
    * @returns { Promise<Contact> } Returns the specified contact.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -466,7 +468,7 @@ declare namespace contact {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { AsyncCallback<Array<Contact>> } callback - Returns the {@code Contact} list object.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -495,7 +497,7 @@ declare namespace contact {
    * If this parameter is null, the default holder is used for matching.
    * @param { AsyncCallback<Array<Contact>> } callback - Returns the {@code Contact} list object.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -524,7 +526,7 @@ declare namespace contact {
    * If this parameter is null, all attributes are used for matching.
    * @param { AsyncCallback<Array<Contact>> } callback - Returns the {@code Contact} list object.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -557,7 +559,7 @@ declare namespace contact {
    * If this parameter is null, all attributes are used for matching.
    * @param { AsyncCallback<Array<Contact>> } callback - Returns the {@code Contact} list object.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -590,7 +592,7 @@ declare namespace contact {
    * If this parameter is null, all attributes are used for matching.
    * @returns { Promise<Array<Contact>> } Returns the {@code Contact} list object.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -617,7 +619,7 @@ declare namespace contact {
    * @param { string } email - Indicates the email address.
    * @param { AsyncCallback<Array<Contact>> } callback - Returns a {@code Contact} list object.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -648,7 +650,7 @@ declare namespace contact {
    * If this parameter is null, the default holder is used for matching.
    * @param { AsyncCallback<Array<Contact>> } callback - Returns a {@code Contact} list object.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -680,7 +682,7 @@ declare namespace contact {
    * If this parameter is null, all attributes are used for matching.
    * @param { AsyncCallback<Array<Contact>> } callback - Returns a {@code Contact} list object.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -716,7 +718,7 @@ declare namespace contact {
    * If this parameter is null, all attributes are used for matching.
    * @param { AsyncCallback<Array<Contact>> } callback - Returns a {@code Contact} list object.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -751,7 +753,7 @@ declare namespace contact {
    * If this parameter is null, all attributes are used for matching.
    * @returns { Promise<Array<Contact>> } Returns a {@code Contact} list object.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -780,7 +782,7 @@ declare namespace contact {
    * Only full match is supported, and wildcards are not supported.
    * @param { AsyncCallback<Array<Contact>> } callback - Returns the {@code Contact} list object.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -813,7 +815,7 @@ declare namespace contact {
    * If this parameter is null, the default holder is used for matching.
    * @param { AsyncCallback<Array<Contact>> } callback - Returns the {@code Contact} list object.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -846,7 +848,7 @@ declare namespace contact {
    * If this parameter is null, all attributes will be used for matching.
    * @param { AsyncCallback<Array<Contact>> } callback - Returns the {@code Contact} list object.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -883,7 +885,7 @@ declare namespace contact {
    * If this parameter is null, all attributes will be used for matching.
    * @param { AsyncCallback<Array<Contact>> } callback - Returns the {@code Contact} list object.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -921,7 +923,7 @@ declare namespace contact {
    * If this parameter is null, all attributes will be used for matching.
    * @returns { Promise<Array<Contact>> } Returns the {@code Contact} list object.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -946,7 +948,7 @@ declare namespace contact {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { AsyncCallback<Array<Group>> } callback - Returns the contact group list object.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -975,7 +977,7 @@ declare namespace contact {
    * If this parameter is null, the default holder is used for matching.
    * @param { AsyncCallback<Array<Group>> } callback - Returns the contact group list object.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -1004,7 +1006,7 @@ declare namespace contact {
    * If this parameter is null, the default holder is used for matching.
    * @returns { Promise<Array<Group>> } Returns the contact group list object.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -1029,7 +1031,7 @@ declare namespace contact {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { AsyncCallback<Array<Holder>> } callback - Returns the {@code Holder} list object.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -1054,7 +1056,7 @@ declare namespace contact {
    * @param { Context } context - Indicates the context of application or capability.
    * @returns { Promise<Array<Holder>> } Returns the {@code Holder} list object.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -1081,7 +1083,7 @@ declare namespace contact {
    * @param { number } id - Indicates the contact ID.
    * @param { AsyncCallback<string> } callback - Returns the query key of the contact.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -1112,7 +1114,7 @@ declare namespace contact {
    * If this parameter is null, the default holder is used for matching.
    * @param { AsyncCallback<string> } callback - Returns the query key of the contact.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -1143,7 +1145,7 @@ declare namespace contact {
    * If this parameter is null, the default holder is used for matching.
    * @returns { Promise<string> } Returns the query key of the contact.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -1168,7 +1170,7 @@ declare namespace contact {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { AsyncCallback<Contact> } callback - Returns information about "my card".
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -1197,7 +1199,7 @@ declare namespace contact {
    * If this parameter is null, all attributes are used for matching.
    * @param { AsyncCallback<Contact> } callback - Returns information about "my card".
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -1226,7 +1228,7 @@ declare namespace contact {
    * If this parameter is null, all attributes are used for matching.
    * @returns { Promise<Contact> } Returns information about "my card".
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -1253,7 +1255,7 @@ declare namespace contact {
    * @param { Contact } contact - Indicates the contact whose information is to update.
    * @param { AsyncCallback<void> } callback - The callback of updateContact.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -1284,7 +1286,7 @@ declare namespace contact {
    * If this parameter is null, all attributes are used for matching.
    * @param { AsyncCallback<void> } callback - The callback of updateContact.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -1315,7 +1317,7 @@ declare namespace contact {
    * If this parameter is null, all attributes are used for matching.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -1344,7 +1346,7 @@ declare namespace contact {
    * @param { AsyncCallback<boolean> } callback - The callback of isLocalContact.
    * Returns {@code true} if the contact ID is in the local phone book; returns {@code false} otherwise.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -1373,7 +1375,7 @@ declare namespace contact {
    * @returns { Promise<boolean> } Returns {@code true} if the contact ID is in the local phone book,
    * returns {@code false} otherwise.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -1402,7 +1404,7 @@ declare namespace contact {
    * @param { AsyncCallback<boolean> } callback - The callback of isMyCard.
    * Returns {@code true} if the contact ID is of "my card"; returns {@code false} otherwise.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -1429,7 +1431,7 @@ declare namespace contact {
    * @param { number } id - Indicates the contact ID.
    * @returns { Promise<boolean> } Returns true if the contact ID is of "my card", returns false otherwise.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
