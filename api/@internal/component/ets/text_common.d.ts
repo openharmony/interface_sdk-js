@@ -400,6 +400,17 @@ declare interface TextEditControllerEx extends TextBaseController{
    * @since 12
    */
   getCaretOffset(): number;
+
+  /**
+   * Get PreviewText.
+   *
+   * @returns { PreviewText } - Return the PreviewText.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  getPreviewText?(): PreviewText;
 }
 
 /**
@@ -766,6 +777,38 @@ declare class TextMenuItemId {
    * @since 12
    */
   static readonly CAMERA_INPUT: TextMenuItemId;
+}
+
+/**
+ * The previewText.
+ * @interface PreviewText
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare interface PreviewText {
+  /**
+   * Start offset of the previewText
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  offset: number;
+
+  /**
+   * Value of the previewText.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  value: string;
 }
 
 /**
