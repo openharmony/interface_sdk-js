@@ -227,7 +227,7 @@ export declare class InterstitialDialogAction {
     /**
      * The constructor transfers parameter settings.
      *
-     * @param { DialogOptions } value - Creates a new dialog action object.
+     * @param { DialogOptions } dialogOptions - Creates a new dialog action object.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 12
