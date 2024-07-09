@@ -48,8 +48,9 @@ import {
 } from '@ohos.arkui.advanced.Popup';
 import { ProgressButton } from '@ohos.arkui.advanced.ProgressButton';
 import {
-  CapsuleSegmentButtonConstructionOptions, CapsuleSegmentButtonOptions, SegmentButton,
-  SegmentButtonItemOptionsArray, SegmentButtonOptions, TabSegmentButtonConstructionOptions, TabSegmentButtonOptions
+  SegmentButton, SegmentButtonOptions, SegmentButtonItemOptionsArray, TabSegmentButtonOptions, TabSegmentButtonConstructionOptions, CapsuleSegmentButtonOptions, 
+  CapsuleSegmentButtonConstructionOptions, SegmentButtonTextItem, SegmentButtonIconItem, SegmentButtonIconTextItem, DimensionNoPercentage, CommonSegmentButtonOptions, 
+  ItemRestriction, SegmentButtonItemTuple, SegmentButtonItemArray, SegmentButtonItemOptionsConstructorOptions, SegmentButtonItemOptions
 } from '@ohos.arkui.advanced.SegmentButton';
 import {
   EditorEventInfo, EditorMenuOptions, ExpandedMenuOptions, SelectionMenu, SelectionMenuOptions
@@ -167,7 +168,7 @@ export {
   IconOptions, ChipItemLabelOptions, ChipGroupItemOptions, ChipItemStyle, ChipGroupSpaceOptions, IconItemOptions, IconGroupSuffix, ChipGroup,
   Colors, CustomColors, Theme, ThemeControl, CustomTheme, ChipSymbolGlyphOptions,
   ExtraRegionPosition, ExpandedRegionLayoutOptions, HoverModeRegionLayoutOptions, FoldedRegionLayoutOptions, PresetSplitRatio, FoldSplitContainer,
-  HoverModeStatus,  OnHoverStatusChangeHandler,
+  HoverModeStatus, OnHoverStatusChangeHandler,
   AppStorageV2, PersistenceV2, Type, typeNode,
   IDataSourcePrefetching, IPrefetcher, BasicPrefetcher, SwiperDynamicSyncScene, SwiperDynamicSyncSceneType, uiExtension, FullScreenLaunchComponent, MeasureUtils,
   CommonModifier, ColumnModifier, ColumnSplitModifier, RowModifier, RowSplitModifier, SideBarContainerModifier,
@@ -182,5 +183,6 @@ export {
   MarqueeModifier, ProgressModifier, QRCodeModifier, TextClockModifier, TextTimerModifier, LineModifier, PathModifier,
   PolygonModifier, PolylineModifier, RectModifier, ShapeModifier, AlphabetIndexerModifier, FormComponentModifier,
   HyperlinkModifier, MenuModifier, MenuItemModifier, PanelModifier, SymbolGlyphModifier, AttributeUpdater,
-  ContainerSpanModifier, DownloadFileButton
+  ContainerSpanModifier, DownloadFileButton, SegmentButtonTextItem, SegmentButtonIconItem, SegmentButtonIconTextItem, DimensionNoPercentage,
+  CommonSegmentButtonOptions, ItemRestriction, SegmentButtonItemTuple, SegmentButtonItemArray, SegmentButtonItemOptionsConstructorOptions, SegmentButtonItemOptions
 };
