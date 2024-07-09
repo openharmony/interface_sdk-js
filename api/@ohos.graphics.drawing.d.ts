@@ -1320,7 +1320,7 @@ declare namespace drawing {
      * @since 12
      */
     setMatrix(matrix: Matrix): void;
-    
+
     /**
      * Uses the passed matrix to transforming the geometry, then use existing matrix.
      * @param { Matrix } matrix - Declares functions related to the matrix object in the drawing module.
@@ -1330,6 +1330,13 @@ declare namespace drawing {
      * @since 12
      */
     concatMatrix(matrix: Matrix): void;
+
+    /**
+     * Sets matrix of canvas to the identity matrix.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    resetMatrix(): void;
   }
 
   /**
