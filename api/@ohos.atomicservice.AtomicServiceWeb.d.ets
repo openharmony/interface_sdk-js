@@ -98,6 +98,7 @@ export declare struct AtomicServiceWeb {
 /**
  * The class for OnMessageEvent.
  *
+ * @typedef OnMessageEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
@@ -117,6 +118,7 @@ export declare interface OnMessageEvent {
 /**
  * The class for OnErrorReceiveEvent.
  *
+ * @typedef OnErrorReceiveEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
@@ -146,6 +148,7 @@ export declare interface OnErrorReceiveEvent {
 /**
  * The class for OnHttpErrorReceiveEvent.
  *
+ * @typedef OnHttpErrorReceiveEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
@@ -175,6 +178,7 @@ export declare interface OnHttpErrorReceiveEvent {
 /**
  * The class for OnPageBeginEvent.
  *
+ * @typedef OnPageBeginEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
@@ -194,6 +198,7 @@ export declare interface OnPageBeginEvent {
 /**
  * The class for OnPageEndEvent.
  *
+ * @typedef OnPageEndEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
