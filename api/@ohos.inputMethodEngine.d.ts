@@ -1789,6 +1789,7 @@ declare namespace inputMethodEngine {
     /**
      * Editor's pattern
      *
+     * @type { number }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      */
@@ -1797,6 +1798,7 @@ declare namespace inputMethodEngine {
     /**
      * Editor's key type
      *
+     * @type { number }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      */
@@ -1821,6 +1823,7 @@ declare namespace inputMethodEngine {
     /**
      * Key code
      *
+     * @type { number }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      */
@@ -1829,6 +1832,7 @@ declare namespace inputMethodEngine {
     /**
      * Key action
      *
+     * @type { number }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      */
