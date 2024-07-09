@@ -496,6 +496,8 @@ lacked
 lanes
 lasted
 lastmode
+latitudeyyy
+latitudezzz
 latn
 layoutable
 lbitfield
@@ -566,6 +568,7 @@ mmax
 mmi
 mmicode
 mnc
+mnote
 moderately
 moitor
 moov
