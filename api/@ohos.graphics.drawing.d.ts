@@ -1142,7 +1142,7 @@ declare namespace drawing {
      * @param { number } srcY - offset into canvas writable pixels on y-axis.
      * @returns { boolean } true if pixels are copied to dstPixels.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -1435,6 +1435,8 @@ declare namespace drawing {
      * @param { common2D.Point[] } points - Position coordinates of a textblob elements.
      * @param { Font } font - Specify text size, font, text scale, etc.
      * @returns { TextBlob } TextBlob object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -1464,7 +1466,7 @@ declare namespace drawing {
     bounds(): common2D.Rect;
 
     /**
-     * Returns a unique identifier for a textblob.
+     * Returns an unique identifier for a textblob.
      * @returns { number } Unique ID.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -3258,7 +3260,7 @@ declare namespace drawing {
                | 0 0 0 |
                | 0 0 1 |.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -3425,7 +3427,7 @@ declare namespace drawing {
      * @param { number } x - Indicates the corner radius on x-axis.
      * @param { number } y - Indicates the corner radius on y-axis.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -3436,7 +3438,7 @@ declare namespace drawing {
      * @param { CornerPos } pos - Indicates the corner radius position.
      * @returns { common2D.Point } Returns a point with the values ​​of x-axis and y-axis of the corner radius.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
