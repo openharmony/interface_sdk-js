@@ -438,6 +438,7 @@ declare namespace securityGuard {
    *
    * @permission ohos.permission.MANAGE_SECURITY_GUARD_CONFIG
    * @param { policyFile } PolicyFile - Indicates the policy file information.
+   * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - check permission fail.
    * @throws { BusinessError } 202 - non-system application uses the system API.
    * @throws { BusinessError } 401 - invalid parameters. 
