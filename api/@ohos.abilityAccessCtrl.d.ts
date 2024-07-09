@@ -792,6 +792,7 @@ declare namespace abilityAccessCtrl {
    *
    * @enum { number }
    * @syscap SystemCapability.Security.AccessToken
+   * @atomicservice
    * @since 12
    */
     export enum SwitchType {
@@ -799,6 +800,7 @@ declare namespace abilityAccessCtrl {
        * switch of camera
        *
        * @syscap SystemCapability.Security.AccessToken
+       * @atomicservice
        * @since 12
        */
       CAMERA = 0,
@@ -806,6 +808,7 @@ declare namespace abilityAccessCtrl {
        * switch of microphone
        *
        * @syscap SystemCapability.Security.AccessToken
+       * @atomicservice
        * @since 12
        */
       MICROPHONE = 1,
@@ -813,6 +816,7 @@ declare namespace abilityAccessCtrl {
        * switch of location
        *
        * @syscap SystemCapability.Security.AccessToken
+       * @atomicservice
        * @since 12
        */
       LOCATION = 2,
