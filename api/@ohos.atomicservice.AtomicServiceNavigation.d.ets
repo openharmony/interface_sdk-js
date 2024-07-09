@@ -20,7 +20,6 @@
 
 /// <reference path="../component/units.d.ts" />
 
-import { ResourceStr } from 'GlobalResource';
 import { Callback } from '@ohos.base';
 
 /**
@@ -184,7 +183,7 @@ export interface TitleOptions {
    * @atomicservice
    * @since 12
    */
-  isEnableBlur?: boolean;
+  isBlurEnabled?: boolean;
 
   /**
    * Set title bar style.
