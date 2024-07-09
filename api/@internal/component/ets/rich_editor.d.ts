@@ -86,13 +86,13 @@ declare enum RichEditorDeleteDirection {
  */
 declare enum RichEditorSpanType {
   /**
-   * text.
+   * Text,corresponding textSpan type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
-   * text.
+   * Text,corresponding textSpan type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -102,13 +102,13 @@ declare enum RichEditorSpanType {
   TEXT = 0,
 
   /**
-   * image.
+   * Image,corresponding imageSpan type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
-   * image.
+   * Image,corresponding imageSpan type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -118,13 +118,13 @@ declare enum RichEditorSpanType {
   IMAGE = 1,
 
   /**
-   * mixed.
+   * Mixed,corresponding mixed span type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
-   * mixed.
+   * Mixed,corresponding mixed span type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -132,6 +132,16 @@ declare enum RichEditorSpanType {
    * @since 11
    */
   MIXED = 2,
+
+  /**
+   * Builder,corresponding builderSpan type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  BUILDER = 3,
 }
 
 /**
