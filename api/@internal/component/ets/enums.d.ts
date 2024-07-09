@@ -9542,3 +9542,53 @@ declare enum TextSelectableMode {
   UNSELECTABLE = 2,
 }
 
+/**
+ * Type of accessibility hover event.
+ *
+ * @enum {number}
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare enum AccessibilityHoverType {
+  /**
+   * Hover enter type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  HOVER_ENTER = 0,
+
+  /**
+   * Hover move type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  HOVER_MOVE = 1,
+
+  /**
+   * Hover exit type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  HOVER_EXIT = 2,
+
+  /**
+   * Hover cancel type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  HOVER_CANCEL = 3,
+}
