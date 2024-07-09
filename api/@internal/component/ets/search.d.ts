@@ -562,6 +562,72 @@ interface SearchButtonOptions {
 }
 
 /**
+ * Defines the CancelButton options
+ *
+ * @interface CancelButtonOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+interface CancelButtonOptions {
+  /**
+   * Set the CancelButton style
+   *
+   * @type { ?CancelButtonStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  style?: CancelButtonStyle;
+
+  /**
+   * Set the CancelButton icon
+   *
+   * @type { ?IconOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  icon?: IconOptions;
+}
+
+/**
+ * Defines the CancelButton symbol options
+ *
+ * @interface CancelButtonSymbolOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+interface CancelButtonSymbolOptions {
+  /**
+   * Set the CancelButton style
+   *
+   * @type { ?CancelButtonStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  style?: CancelButtonStyle;
+
+  /**
+   * Set the CancelButton symbol icon
+   *
+   * @type { ?SymbolGlyphModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  icon?: SymbolGlyphModifier;
+}
+
+/**
  * The attribute function of search
  *
  * @extends CommonMethod<SearchAttribute>
@@ -658,7 +724,17 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @atomicservice
    * @since 11
    */
-  searchIcon(value: IconOptions): SearchAttribute;
+  /**
+   * Set the search icon style
+   *
+   * @param { IconOptions | SymbolGlyphModifier } value - indicates the style of the search icon.
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  searchIcon(value: IconOptions | SymbolGlyphModifier): SearchAttribute;
 
   /**
    * Set the cancel button style
@@ -679,7 +755,17 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @atomicservice
    * @since 11
    */
-  cancelButton(value: { style?: CancelButtonStyle, icon?: IconOptions }): SearchAttribute;
+  /**
+   * Set the cancel button style
+   *
+   * @param { CancelButtonOptions | CancelButtonSymbolOptions } value - indicates the style of the cancel button.
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  cancelButton(value: CancelButtonOptions | CancelButtonSymbolOptions): SearchAttribute;
 
   /**
    * Specify the indentation of the first line in a text-block.
