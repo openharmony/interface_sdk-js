@@ -8,11 +8,11 @@
     "newApiName": "func",
     "oldDtsName": "ut_function_param_name_change.d.ts",
     "newDtsName": "ut_function_param_name_change.d.ts",
-    "diffType": 41,
-    "diffMessage": "函数中的参数名称发生改变",
+    "diffType": 46,
+    "diffMessage": "函数的参数变更",
     "changeLogUrl": "",
     "changeLogs": [],
-    "isCompatible": true,
+    "isCompatible": false,
     "oldHierarchicalRelations": [
       "ut_function_param_name_change.d.ts",
       "test",
@@ -31,9 +31,12 @@
       "line": 20,
       "character": 3
     },
-    "oldDescription": "str2: string",
-    "newDescription": "str3: string",
+    "oldDescription": "str: string, str2: string",
+    "newDescription": "str: string, str3: string",
     "oldSyscapField": "",
-    "newSyscapField": ""
+    "newSyscapField": "",
+    "oldKitInfo": "",
+    "newKitInfo": "",
+    "isSystemapi": false
   }
 ]

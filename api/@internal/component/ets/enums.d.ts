@@ -787,6 +787,105 @@ declare enum ImageFit {
    * @form
    */
   None,
+    
+  /**
+   * Top Start.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  TOP_START = 7,
+
+  /**
+   * The top is centered horizontally.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  TOP = 8,
+
+  /**
+   * Top tail end.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  TOP_END = 9,
+
+  /**
+   * The starting end is centered longitudinally.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  START = 10,
+
+  /**
+   * Center horizontal and vertical.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  CENTER = 11,
+
+  /**
+   * The tail end is centered longitudinally.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  END = 12,
+
+  /**
+   * Bottom starting end.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  BOTTOM_START = 13,
+
+  /**
+   * The bottom is centered horizontally.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  BOTTOM = 14,
+
+  /**
+   * Bottom end.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  BOTTOM_END = 15,
 }
 
 /**

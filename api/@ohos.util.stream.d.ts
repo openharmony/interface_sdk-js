@@ -316,6 +316,7 @@ declare namespace stream {
    * @interface ReadableOptions
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   interface ReadableOptions {
@@ -332,6 +333,7 @@ declare namespace stream {
     * @type { ?string }
     * @syscap SystemCapability.Utils.Lang
     * @crossplatform
+    * @atomicservice
     * @since 12
     */
     encoding?: string;
@@ -363,6 +365,7 @@ declare namespace stream {
      * 1.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     constructor(options: ReadableOptions);

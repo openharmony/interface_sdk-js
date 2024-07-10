@@ -93,6 +93,15 @@ declare enum TextDataDetectorType {
    * @since 12
    */
   ADDRESS = 3,
+
+  /**
+   * Detector type datetime.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  DATE_TIME = 4,
 }
   
 /**
@@ -391,6 +400,17 @@ declare interface TextEditControllerEx extends TextBaseController{
    * @since 12
    */
   getCaretOffset(): number;
+
+  /**
+   * Get PreviewText.
+   *
+   * @returns { PreviewText } - Return the PreviewText.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  getPreviewText?(): PreviewText;
 }
 
 /**
@@ -760,6 +780,38 @@ declare class TextMenuItemId {
 }
 
 /**
+ * The previewText.
+ * @interface PreviewText
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare interface PreviewText {
+  /**
+   * Start offset of the previewText
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  offset: number;
+
+  /**
+   * Value of the previewText.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  value: string;
+}
+
+/**
  * TextMenuItem
  *
  * @interface TextMenuItem
@@ -834,4 +886,48 @@ declare interface EditMenuOptions {
    * @since 12
    */
   onMenuItemClick(menuItem: TextMenuItem, range: TextRange): boolean;
+}
+
+/**
+ * Defines the font decoration result.
+ *
+ * @interface DecorationStyleResult
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+interface DecorationStyleResult {
+  /**
+   * Font decoration type.
+   *
+   * @type { TextDecorationType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  type: TextDecorationType;
+
+  /**
+   * Font decoration color.
+   *
+   * @type { ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  color: ResourceColor;
+
+  /**
+   * The style value of the decoration property object.
+   *
+   * @type { ?TextDecorationStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  style?: TextDecorationStyle;
 }

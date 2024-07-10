@@ -41,6 +41,7 @@ declare namespace workScheduler {
     /**
      * The id of the current work.
      *
+     * @type { number }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
      * @since 9
@@ -49,6 +50,7 @@ declare namespace workScheduler {
     /**
      * The bundle name of the current work.
      *
+     * @type { string }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
      * @since 9
@@ -57,6 +59,7 @@ declare namespace workScheduler {
     /**
      * The ability name of the current work.
      *
+     * @type { string }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
      * @since 9
@@ -65,6 +68,7 @@ declare namespace workScheduler {
     /**
      * Whether the current work will be saved.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
      * @since 9
@@ -73,6 +77,7 @@ declare namespace workScheduler {
     /**
      * The network type of the current work.
      *
+     * @type { ?NetworkType }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
      * @since 9
@@ -81,6 +86,7 @@ declare namespace workScheduler {
     /**
      * Whether a charging state has been set for triggering the work.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
      * @since 9
@@ -89,6 +95,7 @@ declare namespace workScheduler {
     /**
      * The charger type based on which the work is triggered.
      *
+     * @type { ?ChargingType }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
      * @since 9
@@ -97,6 +104,7 @@ declare namespace workScheduler {
     /**
      * The battery level for triggering a work.
      *
+     * @type { ?number }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
      * @since 9
@@ -105,6 +113,7 @@ declare namespace workScheduler {
     /**
      * The battery status for triggering a work.
      *
+     * @type { ?BatteryStatus }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
      * @since 9
@@ -113,6 +122,7 @@ declare namespace workScheduler {
     /**
      * Whether a storage state has been set for triggering the work.
      *
+     * @type { ?StorageRequest }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
      * @since 9
@@ -121,6 +131,7 @@ declare namespace workScheduler {
     /**
      * The interval at which the work is repeated.
      *
+     * @type { ?number }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
      * @since 9
@@ -129,6 +140,7 @@ declare namespace workScheduler {
     /**
      * Whether the work has been set to repeat at the specified interval.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
      * @since 9
@@ -137,6 +149,7 @@ declare namespace workScheduler {
     /**
      * The repeat of the current work.
      *
+     * @type { ?number }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
      * @since 9
@@ -145,6 +158,7 @@ declare namespace workScheduler {
     /**
      * Whether the device deep idle state has been set for triggering the work.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
      * @since 9
@@ -153,6 +167,7 @@ declare namespace workScheduler {
     /**
      * The idle wait time based on which the work is triggered.
      *
+     * @type { ?number }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
      * @since 9
@@ -161,6 +176,7 @@ declare namespace workScheduler {
     /**
      * The parameters of the work. The value is only supported basic type(Number, String, Boolean).
      *
+     * @type { ?Record<string, number | string | boolean> }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
      * @since 9

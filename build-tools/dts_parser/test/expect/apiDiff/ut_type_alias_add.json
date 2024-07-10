@@ -1,14 +1,14 @@
 [
   {
     "apiType": "TypeAlias",
-    "statusCode": -1,
+    "statusCode": 14,
     "oldApiDefinedText": "type Type = 'none';",
     "newApiDefinedText": "type Type = 'none' | 'new';",
     "oldApiName": "Type",
     "newApiName": "Type",
     "oldDtsName": "ut_type_alias_add.d.ts",
     "newDtsName": "ut_type_alias_add.d.ts",
-    "diffType": 56,
+    "diffType": 59,
     "diffMessage": "自定义类型值范围扩大",
     "changeLogUrl": "",
     "changeLogs": [],
@@ -32,8 +32,11 @@
       "character": 3
     },
     "oldDescription": "'none'",
-    "newDescription": "'none','new'",
+    "newDescription": "'none' | 'new'",
     "oldSyscapField": "",
-    "newSyscapField": ""
+    "newSyscapField": "",
+    "oldKitInfo": "",
+    "newKitInfo": "",
+    "isSystemapi": false
   }
 ]

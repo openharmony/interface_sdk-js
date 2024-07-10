@@ -52,7 +52,7 @@ export { FrameNode, LayoutConstraint } from './arkui/FrameNode';
  * @crossplatform
  * @since 12
  */
-export { typeNode } from './arkui/FrameNode';
+export { typeNode, NodeAdapter } from './arkui/FrameNode';
 
 /**
  * Export Graphics. Defines the basic types related to the Graphics.
@@ -61,7 +61,7 @@ export { typeNode } from './arkui/FrameNode';
  * @crossplatform
  * @since 11
  */
-export { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation, Frame, RoundRect, Circle, CommandPath, ShapeMask, BorderRadiuses, CornerRadius, Rect, Edges, edgeColors, edgeWidths, borderStyles, borderRadiuses, LengthMetricsUnit } from './arkui/Graphics';
+export { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation, Frame, RoundRect, Circle, CommandPath, ShapeMask, ShapeClip, BorderRadiuses, CornerRadius, Rect, Edges, edgeColors, edgeWidths, borderStyles, borderRadiuses, LengthMetricsUnit } from './arkui/Graphics';
 
 /**
  * Export Graphics. Defines the basic types related to the Graphics.

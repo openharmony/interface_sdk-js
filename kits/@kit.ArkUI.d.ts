@@ -48,8 +48,9 @@ import {
 } from '@ohos.arkui.advanced.Popup';
 import { ProgressButton } from '@ohos.arkui.advanced.ProgressButton';
 import {
-  CapsuleSegmentButtonConstructionOptions, CapsuleSegmentButtonOptions, SegmentButton,
-  SegmentButtonItemOptionsArray, SegmentButtonOptions, TabSegmentButtonConstructionOptions, TabSegmentButtonOptions
+  SegmentButton, SegmentButtonOptions, SegmentButtonItemOptionsArray, TabSegmentButtonOptions, TabSegmentButtonConstructionOptions, CapsuleSegmentButtonOptions, 
+  CapsuleSegmentButtonConstructionOptions, SegmentButtonTextItem, SegmentButtonIconItem, SegmentButtonIconTextItem, DimensionNoPercentage, CommonSegmentButtonOptions, 
+  ItemRestriction, SegmentButtonItemTuple, SegmentButtonItemArray, SegmentButtonItemOptionsConstructorOptions, SegmentButtonItemOptions
 } from '@ohos.arkui.advanced.SegmentButton';
 import {
   EditorEventInfo, EditorMenuOptions, ExpandedMenuOptions, SelectionMenu, SelectionMenuOptions
@@ -66,11 +67,12 @@ import {
 import componentSnapshot from '@ohos.arkui.componentSnapshot';
 import componentUtils from '@ohos.arkui.componentUtils';
 import dragController from '@ohos.arkui.dragController';
-import { DrawableDescriptor, LayeredDrawableDescriptor } from '@ohos.arkui.drawableDescriptor';
+import { DrawableDescriptor, LayeredDrawableDescriptor, PixelMapDrawableDescriptor, AnimationOptions, AnimatedDrawableDescriptor } from '@ohos.arkui.drawableDescriptor';
 import inspector from '@ohos.arkui.inspector';
 import {
   NodeRenderType, RenderOptions, BuilderNode, NodeController, FrameNode, DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation,
-  Frame, RenderNode, XComponentNode, LengthMetrics, LengthMetricsUnit, LengthUnit, LayoutConstraint, ComponentContent, NodeContent, Content, typeNode
+  Frame, RenderNode, XComponentNode, LengthMetrics, LengthMetricsUnit, LengthUnit, ColorMetrics, LayoutConstraint, ComponentContent, NodeContent, Content, typeNode, ShapeMask, ShapeClip,
+  NodeAdapter
 } from '@ohos.arkui.node';
 import uiObserver from '@ohos.arkui.observer';
 import performanceMonitor from '@ohos.arkui.performanceMonitor';
@@ -156,18 +158,18 @@ export {
   PopupTextOptions, Position, PrefixIconOptions, ProgressButton, Prompt, PromptAction, PromptOptions, RectShape, RenderNode, RenderOptions,
   RequestFullWindowOptions, Rotation, Router, RouterOptions, RouterState, Scale, ScreenOnVisibleOptions, SegmentButton, SegmentButtonItemOptionsArray,
   SegmentButtonOptions, SelectDialog, SelectOptions, SelectTitleBar, SelectTitleBarMenuItem, SelectionMenu,
-  SelectionMenuOptions, ShowActionMenuOptions, ShowDialogOptions, ShowDialogSuccessResponse,
+  SelectionMenuOptions, ShapeMask, ShapeClip, ShowActionMenuOptions, ShowDialogOptions, ShowDialogSuccessResponse,
   ShowToastOptions, Size, SplitLayout, SubHeader, SuffixIconOptions, SwipeRefresher, SymbolOptions, SystemMediaQuery, SystemRouter,
   TabSegmentButtonConstructionOptions, TabSegmentButtonOptions, TabTitleBar, TabTitleBarMenuItem, TabTitleBarTabItem,
   TipsDialog, ToolBar, ToolBarOption, ToolBarOptions, Translation, TreeController, TreeListenType, TreeListener,
   TreeListenerManager, TreeView, UIContext, UIInspector, UIObserver, PageInfo, WindowExtensionAbility, WindowExtensionContext, XComponentNode,
-  LengthMetrics, LengthMetricsUnit, LengthUnit, LayoutConstraint, ComponentContent, NodeContent, Content, componentSnapshot, componentUtils, curves, display, dragController, dragInteraction,
+  LengthMetrics, LengthMetricsUnit, LengthUnit, ColorMetrics, LayoutConstraint, ComponentContent, NodeContent, Content, componentSnapshot, componentUtils, curves, display, dragController, dragInteraction,
   font, inspector, matrix4, mediaquery, performanceMonitor, pluginComponentManager, PluginComponentTemplate, prompt, promptAction, router,
   screen, screenshot, uiAppearance, uiExtensionHost, uiObserver, window, windowAnimationManager, CustomContentDialog,
   IconOptions, ChipItemLabelOptions, ChipGroupItemOptions, ChipItemStyle, ChipGroupSpaceOptions, IconItemOptions, IconGroupSuffix, ChipGroup,
   Colors, CustomColors, Theme, ThemeControl, CustomTheme, ChipSymbolGlyphOptions,
   ExtraRegionPosition, ExpandedRegionLayoutOptions, HoverModeRegionLayoutOptions, FoldedRegionLayoutOptions, PresetSplitRatio, FoldSplitContainer,
-  HoverModeStatus,  OnHoverStatusChangeHandler,
+  HoverModeStatus, OnHoverStatusChangeHandler,
   AppStorageV2, PersistenceV2, Type, typeNode,
   IDataSourcePrefetching, IPrefetcher, BasicPrefetcher, SwiperDynamicSyncScene, SwiperDynamicSyncSceneType, uiExtension, FullScreenLaunchComponent, MeasureUtils,
   CommonModifier, ColumnModifier, ColumnSplitModifier, RowModifier, RowSplitModifier, SideBarContainerModifier,
@@ -182,5 +184,7 @@ export {
   MarqueeModifier, ProgressModifier, QRCodeModifier, TextClockModifier, TextTimerModifier, LineModifier, PathModifier,
   PolygonModifier, PolylineModifier, RectModifier, ShapeModifier, AlphabetIndexerModifier, FormComponentModifier,
   HyperlinkModifier, MenuModifier, MenuItemModifier, PanelModifier, SymbolGlyphModifier, AttributeUpdater,
-  ContainerSpanModifier, DownloadFileButton, SymbolSpanModifier
+  ContainerSpanModifier, DownloadFileButton, SymbolSpanModifier, SegmentButtonTextItem, SegmentButtonIconItem, SegmentButtonIconTextItem, DimensionNoPercentage,
+  CommonSegmentButtonOptions, ItemRestriction, SegmentButtonItemTuple, SegmentButtonItemArray, SegmentButtonItemOptionsConstructorOptions, SegmentButtonItemOptions,
+  PixelMapDrawableDescriptor, AnimationOptions, AnimatedDrawableDescriptor, NodeAdapter
 };

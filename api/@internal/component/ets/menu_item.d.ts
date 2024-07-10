@@ -349,6 +349,7 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * @returns { MenuItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   selectIcon(value: boolean | ResourceStr | SymbolGlyphModifier): MenuItemAttribute;

@@ -32,6 +32,7 @@
  * @interface SymbolSpanInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 12
  */
@@ -52,6 +53,7 @@ interface SymbolSpanInterface {
    * @returns { SymbolSpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
    */
@@ -72,6 +74,7 @@ interface SymbolSpanInterface {
  * @extends CommonMethod<SymbolSpanAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 12
  */
@@ -92,6 +95,7 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @returns { SymbolSpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
    */
@@ -113,6 +117,7 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
    */
@@ -134,6 +139,7 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @returns { SymbolSpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
    */
@@ -155,6 +161,7 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
    */
@@ -176,6 +183,7 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
    */
@@ -206,6 +214,7 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 12
  */
@@ -223,6 +232,7 @@ declare const SymbolSpan: SymbolSpanInterface;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 12
  */

@@ -498,6 +498,7 @@
     { "filePath": "@ohos.multimodalInput.pointer.d.ts", "kitName": "InputKit", "subSystem": "多模输入" },
     { "filePath": "@ohos.multimodalInput.shortKey.d.ts", "kitName": "InputKit", "subSystem": "多模输入" },
     { "filePath": "@ohos.multimodalInput.touchEvent.d.ts", "kitName": "InputKit", "subSystem": "多模输入" },
+    { "filePath": "@ohos.multimodalInput.infraredEmitter.d.ts", "kitName": "InputKit", "subSystem": "多模输入" },
     { "filePath": "@ohos.net.connection.d.ts", "kitName": "NetworkKit", "subSystem": "基础通信" },
     { "filePath": "@ohos.net.connection.d.ts", "kitName": "NetworkKit", "subSystem": "网络管理·" },
     { "filePath": "@ohos.net.ethernet.d.ts", "kitName": "NetworkKit", "subSystem": "网络管理·" },

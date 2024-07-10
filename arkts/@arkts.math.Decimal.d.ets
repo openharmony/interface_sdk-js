@@ -22,7 +22,6 @@
  * The type uesd to set rounding
  *
  * @syscap SystemCapability.Utils.Lang
- * @crossplatform
  * @atomicservice
  * @since 12
  */
@@ -32,7 +31,6 @@ type Rounding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
  * The type uesd to set modulo
  *
  * @syscap SystemCapability.Utils.Lang
- * @crossplatform
  * @atomicservice
  * @since 12
  */
@@ -42,7 +40,6 @@ type Modulo = Rounding | 9;
  * The type uesd to denote decimal value
  *
  * @syscap SystemCapability.Utils.Lang
- * @crossplatform
  * @atomicservice
  * @since 12
  */
@@ -53,7 +50,6 @@ type Value = string | number | Decimal;
  *
  * @interface DecimalConfig
  * @syscap SystemCapability.Utils.Lang
- * @crossplatform
  * @atomicservice
  * @since 12
  */
@@ -64,7 +60,6 @@ interface DecimalConfig {
    *
    * @type { number } integer, 1 to 1e+9 inclusive
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -77,7 +72,6 @@ interface DecimalConfig {
    *
    * @type { number } integer, integer, 0 to 8 inclusive
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -88,7 +82,6 @@ interface DecimalConfig {
    *
    * @type { number } integer, -9e15 to 0 inclusive
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -99,7 +92,6 @@ interface DecimalConfig {
    *
    * @type { number } integer, 0 to 9e15 inclusive
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -110,7 +102,6 @@ interface DecimalConfig {
    *
    * @type { number } integer, -9e15 to 0 inclusive
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -121,7 +112,6 @@ interface DecimalConfig {
    *
    * @type { number } integer, 0 to 9e15 inclusive
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -132,7 +122,6 @@ interface DecimalConfig {
    *
    * @type { boolean }
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -143,7 +132,6 @@ interface DecimalConfig {
    *
    * @type { number } integer, 0 to 9 inclusive
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -154,7 +142,6 @@ interface DecimalConfig {
    *
    * @type { boolean }
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -165,7 +152,6 @@ interface DecimalConfig {
  * An arbitrary-precision Decimal type
  *
  * @syscap SystemCapability.Utils.Lang
- * @crossplatform
  * @atomicservice
  * @since 12
  */
@@ -176,7 +162,6 @@ declare class Decimal {
    * @type { number[] }
    * @readonly
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -188,7 +173,6 @@ declare class Decimal {
    * @type { number }
    * @readonly
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -200,7 +184,6 @@ declare class Decimal {
    * @type { number }
    * @readonly
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -214,7 +197,6 @@ declare class Decimal {
    *                                    1. Incorrect parameter types;
    *                                    2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -225,7 +207,6 @@ declare class Decimal {
    *
    * @returns { Decimal } the Decimal type
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -237,7 +218,6 @@ declare class Decimal {
    *
    * @returns { Decimal } the Decimal type
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -249,7 +229,6 @@ declare class Decimal {
    *
    * @returns { Decimal } the Decimal type
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -260,7 +239,6 @@ declare class Decimal {
    *
    * @returns { Decimal } the Decimal type
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -278,7 +256,6 @@ declare class Decimal {
    *                                    2. Parameter verification failed.
    * @throws { BusinessError } 10200001 - The value of `min` is out of range.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -294,7 +271,6 @@ declare class Decimal {
    *                                    1. Incorrect parameter types;
    *                                    2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -310,7 +286,6 @@ declare class Decimal {
    *                                    1. Incorrect parameter types;
    *                                    2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -326,7 +301,6 @@ declare class Decimal {
    *                                    1. Incorrect parameter types;
    *                                    2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -342,7 +316,6 @@ declare class Decimal {
    *                                    1. Incorrect parameter types;
    *                                    2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -358,7 +331,6 @@ declare class Decimal {
    *                                    1. Incorrect parameter types;
    *                                    2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -370,7 +342,6 @@ declare class Decimal {
    *
    * @returns { Decimal } the Decimal type
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -382,7 +353,6 @@ declare class Decimal {
    *
    * @returns { Decimal } the Decimal type
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -399,7 +369,6 @@ declare class Decimal {
    *                                    2. Parameter verification failed.
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -413,7 +382,6 @@ declare class Decimal {
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -430,7 +398,6 @@ declare class Decimal {
    *                                    2. Parameter verification failed.
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -443,7 +410,6 @@ declare class Decimal {
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -454,7 +420,6 @@ declare class Decimal {
    *
    * @returns { Decimal } the Decimal type
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -465,7 +430,6 @@ declare class Decimal {
    *
    * @returns { Decimal } the Decimal type
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -476,7 +440,6 @@ declare class Decimal {
    *
    * @returns { Decimal } the Decimal type
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -488,7 +451,6 @@ declare class Decimal {
    *
    * @returns { Decimal } the Decimal type
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -499,7 +461,6 @@ declare class Decimal {
    *
    * @returns { Decimal } the Decimal type
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -510,7 +471,6 @@ declare class Decimal {
    *
    * @returns { Decimal } the Decimal type
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -522,7 +482,6 @@ declare class Decimal {
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -535,7 +494,6 @@ declare class Decimal {
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -547,7 +505,6 @@ declare class Decimal {
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -560,7 +517,6 @@ declare class Decimal {
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -573,7 +529,6 @@ declare class Decimal {
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -586,7 +541,6 @@ declare class Decimal {
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -605,7 +559,6 @@ declare class Decimal {
    *                                    1. Incorrect parameter types;
    *                                    2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -620,7 +573,6 @@ declare class Decimal {
    *                                    1. Incorrect parameter types;
    *                                    2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -635,7 +587,6 @@ declare class Decimal {
    *                                    1. Incorrect parameter types;
    *                                    2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -651,7 +602,6 @@ declare class Decimal {
    *                                    1. Incorrect parameter types;
    *                                    2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -666,7 +616,6 @@ declare class Decimal {
    *                                    1. Incorrect parameter types;
    *                                    2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -681,7 +630,6 @@ declare class Decimal {
    *                                    1. Incorrect parameter types;
    *                                    2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -692,7 +640,6 @@ declare class Decimal {
    *
    * @returns { boolean } the boolean type
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -703,7 +650,6 @@ declare class Decimal {
    *
    * @returns { boolean } the boolean type
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -714,7 +660,6 @@ declare class Decimal {
    *
    * @returns { boolean } the boolean type
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -725,7 +670,6 @@ declare class Decimal {
    *
    * @returns { boolean } the boolean type
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -736,7 +680,6 @@ declare class Decimal {
    *
    * @returns { boolean } the boolean type
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -747,7 +690,6 @@ declare class Decimal {
    *
    * @returns { boolean } the boolean type
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -763,7 +705,6 @@ declare class Decimal {
    *                                    1. Incorrect parameter types;
    *                                    2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -774,7 +715,6 @@ declare class Decimal {
    *
    * @returns { Decimal } the Decimal type
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -785,7 +725,6 @@ declare class Decimal {
    *
    * @returns { string } the string type
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -799,7 +738,6 @@ declare class Decimal {
    * @returns { string } the string type
    * @throws { BusinessError } 10200001 - The value of `significantDigits` is out of range.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -814,7 +752,6 @@ declare class Decimal {
    * @returns { string } the string type
    * @throws { BusinessError } 10200001 - The value of `significantDigits | rounding` is out of range.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -825,7 +762,6 @@ declare class Decimal {
    *
    * @returns { string } the string type
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -838,7 +774,6 @@ declare class Decimal {
    * @returns { string } the string type
    * @throws { BusinessError } 10200001 - The value of `significantDigits` is out of range.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -853,7 +788,6 @@ declare class Decimal {
    * @returns { string } the string type
    * @throws { BusinessError } 10200001 - The value of `significantDigits | rounding` is out of range.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -864,7 +798,6 @@ declare class Decimal {
    *
    * @returns { string } the string type
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -877,7 +810,6 @@ declare class Decimal {
    * @returns { string } the string type
    * @throws { BusinessError } 10200001 - The value of `significantDigits` is out of range.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -892,7 +824,6 @@ declare class Decimal {
    * @returns { string } the string type
    * @throws { BusinessError } 10200001 - The value of `significantDigits | rounding` is out of range.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -903,7 +834,6 @@ declare class Decimal {
    *
    * @returns { Decimal } the Decimal type
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -917,7 +847,6 @@ declare class Decimal {
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 10200001 - The value of `decimalPlaces` is out of range.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -932,7 +861,6 @@ declare class Decimal {
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 10200001 - The value of `decimalPlaces | rounding` is out of range.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -943,7 +871,6 @@ declare class Decimal {
    *
    * @returns { string } the string type
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -957,7 +884,6 @@ declare class Decimal {
    * @returns { string } the string type
    * @throws { BusinessError } 10200001 - The value of `decimalPlaces` is out of range.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -972,7 +898,6 @@ declare class Decimal {
    * @returns { string } the string type
    * @throws { BusinessError } 10200001 - The value of `decimalPlaces | rounding` is out of range.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -983,7 +908,6 @@ declare class Decimal {
    *
    * @returns { string } the string type
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -996,7 +920,6 @@ declare class Decimal {
    * @param { number } decimalPlaces Decimal places. Integer, 0 to MAX_DIGITS inclusive.
    * @returns { string } the string type
    * @throws { BusinessError } 10200001 - The value of `decimalPlaces` is out of range.
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1011,7 +934,6 @@ declare class Decimal {
    * @returns { string } the string type
    * @throws { BusinessError } 10200001 - The value of `decimalPlaces | rounding` is out of range.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1023,7 +945,6 @@ declare class Decimal {
    *
    * @returns { Decimal[] } the Decimal[] type
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1040,7 +961,6 @@ declare class Decimal {
    *                                    1. Incorrect parameter types;
    *                                    2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1055,7 +975,6 @@ declare class Decimal {
    *                                    1. Incorrect parameter types;
    *                                    2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1073,7 +992,6 @@ declare class Decimal {
    *                                    2. Parameter verification failed.
    * @throws { BusinessError } 10200001 - The value of `rounding` is out of range.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1084,7 +1002,6 @@ declare class Decimal {
    *
    * @returns { string } the string type
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1097,7 +1014,6 @@ declare class Decimal {
    * @returns { string } the string type
    * @throws { BusinessError } 10200001 - The value of `significantDigits` is out of range.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1112,7 +1028,6 @@ declare class Decimal {
    * @returns { string } the string type
    * @throws { BusinessError } 10200001 - The value of `significantDigits | rounding` is out of range.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1123,7 +1038,6 @@ declare class Decimal {
    *
    * @returns { Decimal } the Decimal type
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1137,7 +1051,6 @@ declare class Decimal {
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 10200001 - The value of `significantDigits` is out of range.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1152,7 +1065,6 @@ declare class Decimal {
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 10200001 - The value of `significantDigits | rounding` is out of range.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1163,7 +1075,6 @@ declare class Decimal {
    *
    * @returns { number } the number type
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1176,7 +1087,6 @@ declare class Decimal {
    *
    * @returns { string } the string type
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1188,7 +1098,6 @@ declare class Decimal {
    *
    * @returns { string } the string type
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1199,7 +1108,6 @@ declare class Decimal {
    *
    * @returns { number } the number type
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1210,7 +1118,6 @@ declare class Decimal {
    *
    * @returns { number } the number type
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1225,7 +1132,6 @@ declare class Decimal {
    * @returns { number } the number type
    * @throws { BusinessError } 10200001 - The value of `includeZeros` is out of range.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1241,7 +1147,6 @@ declare class Decimal {
    *                                    2. Parameter verification failed.
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1257,7 +1162,6 @@ declare class Decimal {
    *                                    2. Parameter verification failed.
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1273,7 +1177,6 @@ declare class Decimal {
    *                                    2. Parameter verification failed.
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1289,7 +1192,6 @@ declare class Decimal {
    *                                    2. Parameter verification failed.
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1308,7 +1210,6 @@ declare class Decimal {
    * @throws { BusinessError } 10200001 - The value of `min` is out of range.
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1326,7 +1227,6 @@ declare class Decimal {
    *                                    2. Parameter verification failed.
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1345,7 +1245,6 @@ declare class Decimal {
    *                                    2. Parameter verification failed.
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1363,7 +1262,6 @@ declare class Decimal {
    *                                    2. Parameter verification failed.
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1381,7 +1279,6 @@ declare class Decimal {
    *                                    2. Parameter verification failed.
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1399,7 +1296,6 @@ declare class Decimal {
    *                                    2. Parameter verification failed.
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1417,7 +1313,6 @@ declare class Decimal {
    *                                    2. Parameter verification failed.
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1434,7 +1329,6 @@ declare class Decimal {
    *                                    2. Parameter verification failed.
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1451,7 +1345,6 @@ declare class Decimal {
    *                                    2. Parameter verification failed.
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1470,7 +1363,6 @@ declare class Decimal {
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1488,7 +1380,6 @@ declare class Decimal {
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1507,7 +1398,6 @@ declare class Decimal {
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1525,7 +1415,6 @@ declare class Decimal {
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1543,7 +1432,6 @@ declare class Decimal {
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1561,7 +1449,6 @@ declare class Decimal {
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1578,7 +1465,6 @@ declare class Decimal {
    *                                    2. Parameter verification failed.
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1595,7 +1481,6 @@ declare class Decimal {
    *                                    2. Parameter verification failed.
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1612,7 +1497,6 @@ declare class Decimal {
    *                                    2. Parameter verification failed.
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1629,7 +1513,6 @@ declare class Decimal {
    *                                    2. Parameter verification failed.
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1646,7 +1529,6 @@ declare class Decimal {
    *                                    2. Parameter verification failed.
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1663,7 +1545,6 @@ declare class Decimal {
    *                                    2. Parameter verification failed.
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1680,7 +1561,6 @@ declare class Decimal {
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1698,7 +1578,6 @@ declare class Decimal {
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1716,7 +1595,6 @@ declare class Decimal {
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1734,7 +1612,6 @@ declare class Decimal {
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1752,7 +1629,6 @@ declare class Decimal {
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1770,7 +1646,6 @@ declare class Decimal {
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1789,7 +1664,6 @@ declare class Decimal {
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1806,7 +1680,6 @@ declare class Decimal {
    *                                    2. Parameter verification failed.
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1822,7 +1695,6 @@ declare class Decimal {
    *                                    2. Parameter verification failed.
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1838,7 +1710,6 @@ declare class Decimal {
    *                                    2. Parameter verification failed.
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1851,7 +1722,6 @@ declare class Decimal {
    * @throws { BusinessError } 10200061 - Crypto unavailable
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1869,7 +1739,6 @@ declare class Decimal {
    * @throws { BusinessError } 10200061 - Crypto unavailable
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1890,7 +1759,6 @@ declare class Decimal {
    *                                    2. Parameter verification failed.
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1906,7 +1774,6 @@ declare class Decimal {
    *                                    2. Parameter verification failed.
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1933,7 +1800,6 @@ declare class Decimal {
    * @throws { BusinessError } 10200061 - Crypto unavailable
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1945,7 +1811,6 @@ declare class Decimal {
    * @readonly
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1957,7 +1822,6 @@ declare class Decimal {
    * @readonly
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1969,7 +1833,6 @@ declare class Decimal {
    * @readonly
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1981,7 +1844,6 @@ declare class Decimal {
    * @readonly
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1993,7 +1855,6 @@ declare class Decimal {
    * @readonly
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -2005,7 +1866,6 @@ declare class Decimal {
    * @readonly
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -2017,7 +1877,6 @@ declare class Decimal {
    * @readonly
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -2029,7 +1888,6 @@ declare class Decimal {
    * @readonly
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -2041,7 +1899,6 @@ declare class Decimal {
    * @readonly
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -2053,7 +1910,6 @@ declare class Decimal {
    * @readonly
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */

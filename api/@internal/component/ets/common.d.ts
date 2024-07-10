@@ -19109,6 +19109,19 @@ declare class CommonMethod<T> {
   accessibilityText(value: string): T;
 
   /**
+   * Sets accessibilityText
+   *
+   * @param { Resource } text - set accessibility text
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  accessibilityText(text: Resource): T;
+
+  /**
    * Sets accessibilityTextHint
    *
    * @param { string } value - set accessibility text hint
@@ -19152,6 +19165,19 @@ declare class CommonMethod<T> {
    * @since 12
    */
   accessibilityDescription(value: string): T;
+
+  /**
+   * Sets accessibilityDescription
+   *
+   * @param { Resource } description - set description of accessibility
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  accessibilityDescription(description: Resource): T;
 
   /**
    * Sets accessibilityLevel
@@ -21114,12 +21140,12 @@ declare type Filter = import('../api/@ohos.graphics.uiEffect').default.Filter;
 /**
  * ComponentContent.
  *
- * @typedef {import('../api/arkui/ComponentContent').ComponentContent} ComponentContent
+ * @typedef {import('../api/arkui/ComponentContent').ComponentContent<T>} ComponentContent<T = Object>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
-declare type ComponentContent = import('../api/arkui/ComponentContent').ComponentContent;
+declare type ComponentContent<T = Object> = import('../api/arkui/ComponentContent').ComponentContent<T>;
 
 /**
  * Theme.

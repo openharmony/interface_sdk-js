@@ -19,7 +19,8 @@
  */
 
 import type BaseContext from './application/BaseContext';
-import { NodeController } from '@kit.ArkUI'
+import type { Callback } from './@ohos.base';
+import { NodeController } from '@kit.ArkUI';
 
 /**
  * Picture In Picture Window Manager
@@ -236,8 +237,7 @@ declare namespace PiPWindow {
    * @syscap SystemCapability.Window.SessionManager
    * @since 12
    */
-  type PiPControlGroup = VideoPlayControlGroup | VideoCallControlGroup | VideoMeetingControlGroup |
-  VideoLiveControlGroup;
+  type PiPControlGroup = VideoPlayControlGroup | VideoCallControlGroup | VideoMeetingControlGroup | VideoLiveControlGroup;
 
   /**
    * Enum for video play PiP window custom controls.
@@ -372,6 +372,129 @@ declare namespace PiPWindow {
   }
 
   /**
+   * Enum for control status.
+   *
+   * @enum { number }.
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 12
+   */
+  enum PiPControlStatus {
+    /**
+     * The video is in play mode.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    PLAY = 1,
+
+    /**
+     * The video is in pause mode.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    PAUSE = 0,
+
+    /**
+     * A control with both open and closed states is in an open state.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    OPEN = 1,
+
+    /**
+     * A control with both open and closed states is in a close state.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    CLOSE = 0,
+  }
+
+  /**
+   * Enum for control type.
+   *
+   * @enum { number }.
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 12
+   */
+  enum PiPControlType {
+    /**
+     * Video play/pause control.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    VIDEO_PLAY_PAUSE = 0,
+
+    /**
+     * Previous video control.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    VIDEO_PREVIOUS = 1,
+
+    /**
+     * Next video control.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    VIDEO_NEXT = 2,
+
+    /**
+     * Fast-forward control.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    FAST_FORWARD = 3,
+
+    /**
+     * Fast-backward control.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    FAST_BACKWARD = 4,
+
+    /**
+     * Hang-up control.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    HANG_UP_BUTTON = 5,
+
+    /**
+     * Microphone state switching control.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    MICROPHONE_SWITCH = 6,
+
+    /**
+     * Camera state switching control.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    CAMERA_SWITCH = 7,
+
+    /**
+     * Mute state switching control.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    MUTE_SWITCH = 8,
+  }
+
+
+  /**
    * Describe picture-in-picture action event type.
    *
    * @typedef { PiPVideoActionEvent | PiPCallActionEvent | PiPMeetingActionEvent | PiPLiveActionEvent }
@@ -456,6 +579,33 @@ declare namespace PiPWindow {
   type ControlPanelActionEventCallback = (event: PiPActionEventType, status?: number) => void;
 
   /**
+   * Describe picture-in-picture control event callback.
+   *
+   * @interface ControlEventParam
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 12
+   */
+  interface ControlEventParam {
+    /**
+     * The type of control.
+     *
+     * @type { PiPControlType }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    controlType: PiPControlType;
+
+    /**
+     * The status of control.
+     *
+     * @type { ?PiPControlStatus }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    status?: PiPControlStatus;
+  }
+
+  /**
    * PiPController
    *
    * @interface PiPController
@@ -507,6 +657,30 @@ declare namespace PiPWindow {
     updateContentSize(width: number, height: number): void;
 
     /**
+     * Set dashboard control status.
+     * @param { PiPControlType } controlType - Describe picture-in-picture control type.
+     * @param { PiPControlStatus } status - Describe picture-in-picture control Status.
+     * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
+     *                                                                2. Incorrect parameter types.
+     *                                                                3. Parameter verification failed
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    updatePiPControlStatus(controlType: PiPControlType, status: PiPControlStatus): void;
+
+    /**
+     * Set Dashboard control enable status.
+     * @param { PiPControlType } controlType - Describe picture-in-picture control type.
+     * @param { boolean } enabled - Describe picture-in-picture control enable Status.
+     * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
+     *                                                                2. Incorrect parameter types.
+     *                                                                3. Parameter verification failed
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    setPiPControlEnabled(controlType: PiPControlType, enabled: boolean): void;
+
+    /**
      * Register picture-in-picture control event listener.
      * @param { 'stateChange' } type - Registration type, PiP lifecycle state change, 'stateChange'
      * @param { function } callback - Used to handle {'stateChange'} command
@@ -547,6 +721,25 @@ declare namespace PiPWindow {
      * @since 11
      */
     off(type: 'controlPanelActionEvent'): void;
+
+    /**
+     * Register picture-in-picture control event listener.
+     *
+     * @param { 'controlEvent' } type - Registration type, user action event, 'controlEvent'
+     * @param { Callback<ControlEventParam> } callback - Used to handle {'controlEvent'} command.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    on(type: 'controlEvent', callback: Callback<ControlEventParam>): void;
+
+    /**
+     * Unregister picture-in-picture control event listener
+     * @param { 'controlEvent' } type - Used to unregister listener for {'controlEvent'} command
+     * @param { Callback<ControlEventParam> } callback - Used to handle {'controlEvent'} command.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    off(type: 'controlEvent', callback?: Callback<ControlEventParam>): void;
   }
 }
 

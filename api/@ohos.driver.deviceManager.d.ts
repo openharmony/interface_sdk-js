@@ -35,6 +35,7 @@ declare namespace deviceManager {
    * @permission ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
    * @param { number } busType - The bus type of device to be queried.
    * @returns { Array<Readonly<Device>> } External device list.
+   * @throws { BusinessError } 201 - The permission check failed.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
@@ -51,6 +52,7 @@ declare namespace deviceManager {
    * success.
    * @param { AsyncCallback<{deviceId: number; remote: rpc.IRemoteObject;}> } callback - Indicates the bind result
    * including device ID and remote object.
+   * @throws { BusinessError } 201 - The permission check failed.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * 3.Parameter verification failed.
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
@@ -69,6 +71,7 @@ declare namespace deviceManager {
    * success.
    * @param { AsyncCallback<RemoteDeviceDriver> } callback - Indicates the bind result including device ID and
    * remote object.
+   * @throws { BusinessError } 201 - The permission check failed.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * 3.Parameter verification failed.
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
@@ -87,6 +90,7 @@ declare namespace deviceManager {
    * success.
    * @returns { Promise<{deviceId: number; remote: rpc.IRemoteObject;}> } Indicates the bind result including device
    * ID and remote object.
+   * @throws { BusinessError } 201 - The permission check failed.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * 3.Parameter verification failed.
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
@@ -104,6 +108,7 @@ declare namespace deviceManager {
    * @param { AsyncCallback<number> } onDisconnect - Callback is invoked when device is disconnected after bind
    * success.
    * @returns { Promise<RemoteDeviceDriver> } Indicates the bind result including device ID and remote object.
+   * @throws { BusinessError } 201 - The permission check failed.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * 3.Parameter verification failed.
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
@@ -118,6 +123,7 @@ declare namespace deviceManager {
    * @permission ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
    * @param { number } deviceId - Device id on the device list returned by queryDevices().
    * @param { AsyncCallback<number> } callback - Indicates the unbind result invoked when unbind is finished.
+   * @throws { BusinessError } 201 - The permission check failed.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
@@ -131,7 +137,8 @@ declare namespace deviceManager {
    * @permission ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
    * @param { number } deviceId - Device id on the device list returned by queryDevices().
    * @returns { Promise<number> } - Indicates the unbind result invoked when unbind is finished.
-  * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 201 - The permission check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * 3.Parameter verification failed.
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
@@ -199,6 +206,7 @@ declare namespace deviceManager {
     /**
      * Bus type of the device.
      *
+     * @type { BusType }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @since 10
      */
@@ -207,6 +215,7 @@ declare namespace deviceManager {
     /**
      * Device ID.
      *
+     * @type { number }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @since 10
      */
@@ -215,6 +224,7 @@ declare namespace deviceManager {
     /**
      * Description of the device.
      *
+     * @type { string }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @since 10
      */
@@ -225,6 +235,7 @@ declare namespace deviceManager {
    * Represents a USB device.
    *
    * @typedef USBDevice
+   * @extends Device
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 10
    */
@@ -232,6 +243,7 @@ declare namespace deviceManager {
     /**
      * Vendor ID.
      *
+     * @type { number }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @since 10
      */
@@ -240,6 +252,7 @@ declare namespace deviceManager {
     /**
      * Product ID.
      *
+     * @type { number }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @since 10
      */
@@ -257,6 +270,7 @@ declare namespace deviceManager {
     /**
      * Device ID.
      *
+     * @type { number }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @since 11
      */
@@ -265,6 +279,7 @@ declare namespace deviceManager {
     /**
      * Remote driver object.
      *
+     * @type { rpc.IRemoteObject }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @since 11
      */
@@ -283,6 +298,7 @@ declare namespace deviceManager {
     /**
      * Interface number.
      *
+     * @type { number }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12
@@ -292,6 +308,7 @@ declare namespace deviceManager {
     /**
      * Interface class code.
      *
+     * @type { number }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12
@@ -301,6 +318,7 @@ declare namespace deviceManager {
     /**
      * Interface subclass code.
      *
+     * @type { number }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12
@@ -310,6 +328,7 @@ declare namespace deviceManager {
     /**
      * Interface protocol.
      *
+     * @type { number }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12
@@ -330,6 +349,7 @@ declare namespace deviceManager {
     /**
      * Device ID.
      *
+     * @type { number }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12
@@ -339,6 +359,7 @@ declare namespace deviceManager {
     /**
      * Whether the device has a matched driver.
      *
+     * @type { boolean }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12
@@ -348,6 +369,7 @@ declare namespace deviceManager {
     /**
      * Unique identifier of the driver.
      *
+     * @type { ?string }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12
@@ -359,6 +381,7 @@ declare namespace deviceManager {
    * Represents the USB device information.
    *
    * @typedef USBDeviceInfo
+   * @extends DeviceInfo
    * @syscap SystemCapability.Driver.ExternalDevice
    * @systemapi
    * @since 12
@@ -367,6 +390,7 @@ declare namespace deviceManager {
     /**
      * Vendor ID.
      *
+     * @type { number }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12
@@ -376,6 +400,7 @@ declare namespace deviceManager {
     /**
      * Product ID.
      *
+     * @type { number }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12
@@ -385,6 +410,7 @@ declare namespace deviceManager {
     /**
      * List of USB interface descriptors.
      *
+     * @type { Array<Readonly<USBInterfaceDesc>> }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12
@@ -404,6 +430,7 @@ declare namespace deviceManager {
     /**
      * Bus type of the device.
      *
+     * @type { BusType }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12
@@ -413,6 +440,7 @@ declare namespace deviceManager {
     /**
      * Unique identifier of the driver.
      *
+     * @type { string }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12
@@ -422,6 +450,7 @@ declare namespace deviceManager {
     /**
      * Driver name.
      *
+     * @type { string }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12
@@ -431,6 +460,7 @@ declare namespace deviceManager {
     /**
      * Driver version.
      *
+     * @type { string }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12
@@ -440,6 +470,7 @@ declare namespace deviceManager {
     /**
      * Driver size.
      *
+     * @type { string }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12
@@ -449,6 +480,7 @@ declare namespace deviceManager {
     /**
      * Driver description.
      *
+     * @type { string }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12
@@ -460,6 +492,7 @@ declare namespace deviceManager {
    * Represents the USB driver information.
    *
    * @typedef USBDriverInfo
+   * @extends DriverInfo
    * @syscap SystemCapability.Driver.ExternalDevice
    * @systemapi
    * @since 12
@@ -468,6 +501,7 @@ declare namespace deviceManager {
     /**
      * IDs of supported products.
      *
+     * @type { Array<number> }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12
@@ -477,6 +511,7 @@ declare namespace deviceManager {
     /**
      * IDs of supported vendors.
      *
+     * @type { Array<number> }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12

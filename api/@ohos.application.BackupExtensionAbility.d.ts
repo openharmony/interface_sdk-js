@@ -90,8 +90,10 @@ export default class BackupExtensionAbility {
    * Callback to be called when the backup procedure is started.
    * Developer could override this method to restore.
    *
-   * @param { string } backupInfo BackupInfo to be backup
-   * @returns { string | Promise<string> } Return backup result.
+   * @param { string } backupInfo BackupInfo to be backup, the param is a JSON string,
+   * it is an array, each array element includes detail and type now.
+   * @returns { string | Promise<string> } Return backup result, support promise, the result is a JSON string,
+   * it includes type, errorCode and errorInfo now.
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @StageModelOnly
    * @since 12
@@ -110,17 +112,18 @@ export default class BackupExtensionAbility {
   onRestore(bundleVersion: BundleVersion): void;
 
   /**
-  * Callback to be called when the restore procedure is started.
-  * Developer could override this method to restore.
-  *
-  * @param { BundleVersion } bundleVersion Bundle version to be restore.
-  * @param { string } restoreInfo RestoreInfo to be restore.
-  * @returns { string | Promise<string> } Return restore result, support promise.
-  * @syscap SystemCapability.FileManagement.StorageService.Backup
-  * @systemapi
-  * @StageModelOnly
-  * @since 12
-  */
+   * Callback to be called when the restore procedure is started.
+   * Developer could override this method to restore.
+   *
+   * @param { BundleVersion } bundleVersion Bundle version to be restore.
+   * @param { string } restoreInfo RestoreInfo to be restore, the param is a JSON string,
+   * it is an array, each array element includes detail and type now.
+   * @returns { string | Promise<string> } Return restore result, support promise. the result is a JSON string,
+   * it includes type, errorCode and errorInfo now.
+   * @syscap SystemCapability.FileManagement.StorageService.Backup
+   * @StageModelOnly
+   * @since 12
+   */
   onRestoreEx(bundleVersion: BundleVersion, restoreInfo: string): string | Promise<string>;
 
   /**
