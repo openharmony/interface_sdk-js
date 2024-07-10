@@ -17,8 +17,8 @@
  * @kit ArkUI
  */
 
- import { UIContext } from '@ohos.arkui.UIContext';
- import { ComponentContent } from '@ohos.arkui.node';
+import { UIContext } from '@ohos.arkui.UIContext';
+import { ComponentContent } from '@ohos.arkui.node';
 /**
  * IconStyle enumeration description.
  *
