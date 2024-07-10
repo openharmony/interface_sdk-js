@@ -21,7 +21,7 @@
 import windowAnimationManager from '@ohos.animation.windowAnimationManager';
 import Animator, { AnimatorOptions, AnimatorResult } from '@ohos.animator';
 import WindowExtensionAbility, { WindowExtensionContext } from '@ohos.application.WindowExtensionAbility';
-import { AtomicServiceNavigation } from '@ohos.atomicservice.AtomicServiceNavigation';
+import { AtomicServiceNavigation, NavDestinationBuilder } from '@ohos.atomicservice.AtomicServiceNavigation';
 import {
   Chip, ChipOptions, ChipSize, IconCommonOptions, LabelMarginOptions, LabelOptions, PrefixIconOptions,
   SuffixIconOptions, ChipSymbolGlyphOptions
@@ -124,7 +124,7 @@ import { FullScreenLaunchComponent } from '@ohos.arkui.advanced.FullScreenLaunch
 
 export {
   AddFormMenuItem, AddFormOptions, AlertDialog, Animator, AnimatorOptions, AnimatorResult, App, AppResponse, AtomicServiceBar,
-  AtomicServiceNavigation,
+  AtomicServiceNavigation, NavDestinationBuilder,
   BackRouterOptions, BuilderNode, Button, ButtonOptions, CallbackParam,
   CapsuleSegmentButtonConstructionOptions, CapsuleSegmentButtonOptions, Chip, ChipOptions, ChipSize, CircleShape, ComponentUtils,
   ComposeListItem, ComposeTitleBar, ComposeTitleBarMenuItem, Configuration, ConfirmDialog, ContentItem,
