@@ -39,6 +39,7 @@ import {
   diffMap,
   incompatibleApiDiffTypes,
   JsDocDiffProcessor,
+  parentApiTypeSet,
 } from '../../typedef/diff/ApiInfoDiff';
 import { StringUtils } from '../../utils/StringUtils';
 import { CharMapType, CompareReturnObjType, PermissionsProcessorHelper, RangeChange } from './PermissionsProcessor';
@@ -86,7 +87,12 @@ export namespace DiffProcessorHelper {
       });
       for (let i = 0; i < jsDocDiffProcessors.length; i++) {
         const jsDocDiffProcessor: JsDocDiffProcessor | undefined = jsDocDiffProcessors[i];
-        const diffType: DiffTypeInfo | undefined = jsDocDiffProcessor(oldJsDocInfo, newJsDocInfo, isAllDeprecated, isAllSheet);
+        const diffType: DiffTypeInfo | undefined = jsDocDiffProcessor(
+          oldJsDocInfo,
+          newJsDocInfo,
+          isAllDeprecated,
+          isAllSheet
+        );
         if (!diffType) {
           continue;
         }
@@ -385,7 +391,6 @@ export namespace DiffProcessorHelper {
         if (deprecatedVersionOfNew === '-1') {
           return diffTypeInfo.setDiffType(ApiDiffType.DEPRECATED_HAVE_TO_NA);
         }
-
       }
 
       if (deprecatedVersionOfNew === '-1') {
@@ -1108,8 +1113,14 @@ export namespace DiffProcessorHelper {
     static diffMethodParamType(oldApiInfo: ParamInfo, newApiInfo: ParamInfo): ApiDiffType | undefined {
       const oldParamType: string[] = oldApiInfo.getType();
       const newParamType: string[] = newApiInfo.getType();
-      const oldParamTypeStr: string = oldParamType.toString().replace(/\r|\n|\s+|'|"/g, '').replace(/\|/g, "\\|");
-      const newParamTypeStr: string = newParamType.toString().replace(/\r|\n|\s+|'|"/g, '').replace(/\|/g, `\\|`);
+      const oldParamTypeStr: string = oldParamType
+        .toString()
+        .replace(/\r|\n|\s+|'|"/g, '')
+        .replace(/\|/g, '\\|');
+      const newParamTypeStr: string = newParamType
+        .toString()
+        .replace(/\r|\n|\s+|'|"/g, '')
+        .replace(/\|/g, `\\|`);
       if (oldParamTypeStr === newParamTypeStr) {
         return undefined;
       }
@@ -1246,12 +1257,15 @@ export namespace DiffProcessorHelper {
       const newPropertyType: string[] = newApiInfo.getType();
       const oldPropertyIsReadOnly: boolean = oldApiInfo.getIsReadOnly();
       const newPropertyIsReadOnly: boolean = newApiInfo.getIsReadOnly();
-      const olaPropertyTypeStr = olaPropertyType.toString().replace(/\r|\n|s+/g, '');
-      const newPropertyTypeStr = newPropertyType.toString().replace(/\r|\n|s+/g, '');
+      const olaPropertyTypeStr = olaPropertyType.toString().replace(/\r|\n|\s+/g, '');
+      const newPropertyTypeStr = newPropertyType.toString().replace(/\r|\n|\s+/g, '');
       if (olaPropertyTypeStr === newPropertyTypeStr) {
         return undefined;
       }
-      diffTypeInfo.setOldMessage(olaPropertyTypeStr).setNewMessage(newPropertyTypeStr);
+      diffTypeInfo.setOldMessage(olaPropertyType.toString()).setNewMessage(newPropertyType.toString());
+      if (olaPropertyTypeStr.replace(/\,|\;/g, '') === newPropertyTypeStr.replace(/\,|\;/g, '')) {
+        return diffTypeInfo.setDiffType(ApiDiffType.PROPERTY_TYPE_SIGN_CHANGE);
+      }
       if (StringUtils.hasSubstring(newPropertyTypeStr, olaPropertyTypeStr)) {
         return diffTypeInfo.setDiffType(
           newPropertyIsReadOnly ? ApiDiffType.PROPERTY_READONLY_ADD : ApiDiffType.PROPERTY_WRITABLE_ADD
@@ -1493,15 +1507,21 @@ export namespace DiffProcessorHelper {
 
     /**
      * 新旧版本参数个数没变化时，判断参数类型范围扩大/缩小/更改
-     * 
+     *
      * @param oldTypes 旧版本参数类型
      * @param newTypes 新版本参数类型
-     * @param diffTypes 
-     * @returns 
+     * @param diffTypes
+     * @returns
      */
     static diffSingleParamType(oldTypes: string[], newTypes: string[], diffTypes: DiffTypeChangeType): number {
-      const oldParamTypeStr: string = oldTypes.toString().replace(/\r|\n|\s+|'|"|>/g, '').replace(/\|/g, '\\|');
-      const newParamTypeStr: string = newTypes.toString().replace(/\r|\n|\s+|'|"|>/g, '').replace(/\|/g, '\\|');
+      const oldParamTypeStr: string = oldTypes
+        .toString()
+        .replace(/\r|\n|\s+|'|"|>/g, '')
+        .replace(/\|/g, '\\|');
+      const newParamTypeStr: string = newTypes
+        .toString()
+        .replace(/\r|\n|\s+|'|"|>/g, '')
+        .replace(/\|/g, '\\|');
       if (StringUtils.hasSubstring(newParamTypeStr, oldParamTypeStr)) {
         return diffTypes.PARAM_TYPE_ADD;
       }
@@ -1578,7 +1598,6 @@ export namespace DiffProcessorHelper {
     }
   }
 
-
   /**
    * 检查两个版本的相同位置的参数的参数名是否相同
    *
@@ -1621,15 +1640,18 @@ export namespace DiffProcessorHelper {
   export function wrapDiffInfo(
     oldApiInfo: BasicApiInfo | undefined = undefined,
     newApiInfo: BasicApiInfo | undefined = undefined,
-    diffTypeInfo: DiffTypeInfo
+    diffTypeInfo: DiffTypeInfo,
+    isSameNameFunction?: boolean
   ): BasicDiffInfo {
     const newPropertyInfo = newApiInfo as PropertyInfo;
+    const newMethodInfo = newApiInfo as MethodInfo;
+    const parentApiType: string = (newApiInfo && newApiInfo.getParentApiType()) ? newApiInfo.getParentApiType() : '';
     let isCompatible = true;
     if (
-      newApiInfo?.getParentApiType() === ApiType.INTERFACE &&
+      parentApiTypeSet.has(parentApiType) &&
       diffTypeInfo.getDiffType() === ApiDiffType.ADD &&
-      ((newApiInfo?.getApiType() === ApiType.PROPERTY && newPropertyInfo.getIsRequired()) ||
-        newApiInfo?.getApiType() === ApiType.METHOD)
+      ((newApiInfo?.getApiType() === ApiType.METHOD && newMethodInfo.getIsRequired()) ||
+        (newApiInfo?.getApiType() === ApiType.PROPERTY && newPropertyInfo.getIsRequired()))
     ) {
       isCompatible = false;
     }
@@ -1653,7 +1675,8 @@ export namespace DiffProcessorHelper {
       .setIsCompatible(!isCompatible ? false : !incompatibleApiDiffTypes.has(diffType))
       .setOldDescription(diffTypeInfo.getOldMessage())
       .setNewDescription(diffTypeInfo.getNewMessage())
-      .setIsSystemapi(newApiLevel ? newApiLevel : oldApiLevel);
+      .setIsSystemapi(newApiLevel ? newApiLevel : oldApiLevel)
+      .setIsSameNameFunction(isSameNameFunction ? isSameNameFunction : false);
     return diffInfo;
   }
 

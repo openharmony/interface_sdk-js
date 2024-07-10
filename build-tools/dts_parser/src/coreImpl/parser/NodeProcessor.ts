@@ -636,6 +636,7 @@ export class NodeProcessorHelper {
       methodName = StringConstant.CONSTRUCTOR_API_NAME;
     }
     methodInfo.setApiName(methodName);
+    methodInfo.setIsRequired(!methodNode.questionToken ? true : false);
     methodNode.typeParameters?.forEach((typeParameter: ts.TypeParameterDeclaration) => {
       methodInfo.setGenericInfo(NodeProcessorHelper.processGenericity(typeParameter));
     });
