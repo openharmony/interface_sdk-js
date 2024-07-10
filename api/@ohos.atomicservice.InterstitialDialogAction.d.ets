@@ -13,11 +13,10 @@
  * limitations under the License.
  */
 /**
- * @file
+ * @file This section describes the interfaces used by InterstitialDialogAction
  * @kit ArkUI
  */
 
- /// <reference path="../component/units.d.ts" />
  import { UIContext } from '@ohos.arkui.UIContext';
  import { ComponentContent } from '@ohos.arkui.node';
 /**
