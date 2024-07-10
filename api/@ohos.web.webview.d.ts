@@ -6380,6 +6380,35 @@ declare namespace webview {
   }
 
   /**
+   * The scenarios for suspending the media player.
+   * @enum {number}
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  enum SuspendType {
+    /**
+     * Page enters the BackForwardCache.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    ENTER_BACK_FORWARD_CACHE = 0,
+
+    /**
+     * Page enters background.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    ENTER_BACKGROUND,
+
+    /**
+     * Cleanup when the number of paused media player over limit.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    AUTO_CLEANUP
+  }
+
+  /**
    * The bridge between web core and native media player.
    * Apps should implements this interface, and pass an instance to web core.
    * Then web core can control native media player by this bridge.

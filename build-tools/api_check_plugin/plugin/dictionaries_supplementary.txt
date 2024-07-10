@@ -780,6 +780,7 @@ repeates
 replacer
 reposition
 rerouting
+resfile
 resizeable
 resmgr
 resourceschedule
@@ -918,6 +919,7 @@ superimposed
 suscriber
 suscribes
 suspends
+suspending
 swanctl
 switchvideomode
 symantec
