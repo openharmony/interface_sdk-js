@@ -120,11 +120,11 @@ declare namespace fileIo {
   export { WhenceType };
   export { connectDfs };
   export { disconnectDfs };
+  export { TaskSignal };
   export type { Progress };
   export type { CopyOptions };
   export type { ProgressListener };
   export type { DfsListeners };
-  export { TaskSignal };
 
   /**
    * Mode Indicates the open flags.
