@@ -766,7 +766,7 @@ declare namespace userFileManager {
     /**
      * SubType of the photo
      *
-     * @type { PhotoSubType }
+     * @type { ?PhotoSubType }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
      * @since 10
