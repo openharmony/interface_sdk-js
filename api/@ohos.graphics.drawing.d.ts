@@ -998,19 +998,6 @@ declare namespace drawing {
     drawImageRect(pixelmap: image.PixelMap, dstRect: common2D.Rect, samplingOptions?: SamplingOptions): void;
 
     /**
-     * Draws the specified source image onto the canvas,
-     * scaled and translated to the destination rectangle.
-     * @param { image.PixelMap } pixelmap - The source image.
-     * @param { common2D.Rect } dstRect - The area of destination canvas.
-     * @param { SamplingOptions } samplingOptions - SamplingOptions used to describe the sampling mode.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
-     */
-    drawImageRect(pixelmap: image.PixelMap, dstRect: common2D.Rect, samplingOptions?: SamplingOptions): void;
-
-    /**
      * Fills clip with color color. Mode determines how ARGB is combined with destination.
      * @param { common2D.Color } color - The range of color channels must be [0, 255].
      * @param { BlendMode } blendMode - Used to combine source color and destination. The default value is SRC_OVER.
