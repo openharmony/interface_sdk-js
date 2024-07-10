@@ -927,6 +927,7 @@ declare const Extend: MethodDecorator & ((value: any) => MethodDecorator);
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare const Monitor: MonitorDecorator;
@@ -940,6 +941,7 @@ declare const Monitor: MonitorDecorator;
  * @returns { MethodDecorator } Monitor decorator
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare type MonitorDecorator = (value: string, ...args: string[]) => MethodDecorator;
@@ -950,6 +952,7 @@ declare type MonitorDecorator = (value: string, ...args: string[]) => MethodDeco
  * @interface IMonitor
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface IMonitor {
@@ -959,6 +962,7 @@ declare interface IMonitor {
    * @type { Array<string> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   dirty: Array<string>;
@@ -971,6 +975,7 @@ declare interface IMonitor {
    * @returns { IMonitorValue<T> | undefined }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   value<T>(path?: string): IMonitorValue<T> | undefined;
@@ -982,6 +987,7 @@ declare interface IMonitor {
  * @interface IMonitorValue<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface IMonitorValue<T> {
@@ -991,6 +997,7 @@ declare interface IMonitorValue<T> {
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   before: T;
@@ -1001,6 +1008,7 @@ declare interface IMonitorValue<T> {
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   now: T;
@@ -1011,6 +1019,7 @@ declare interface IMonitorValue<T> {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   path: string;
