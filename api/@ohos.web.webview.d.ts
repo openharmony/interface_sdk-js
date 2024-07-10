@@ -6522,6 +6522,25 @@ declare namespace webview {
      * @since 12
      */
     exitFullscreen(): void
+
+    /**
+     * Resume the native media player.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    resumePlayer?(): void
+
+    /**
+     * Suspend to release native media player, not the NativeMediaPlayerBridge. The
+     * embedder should save the status of player when release the native media player
+     * through NativeMediaPlayerBridge.
+     *
+     * @param { SuspendType } type - The scenario for suspending the media player.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    suspendPlayer?(type: SuspendType): void
   }
 
   /**
