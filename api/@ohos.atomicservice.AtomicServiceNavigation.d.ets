@@ -14,11 +14,9 @@
 */
 
 /**
- * @file
+ * @file This section describes the interfaces used by AtomicServiceNavigation
  * @kit ArkUI
  */
-
-/// <reference path="../component/units.d.ts" />
 
 import { Callback } from '@ohos.base';
 
