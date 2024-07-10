@@ -106,6 +106,7 @@ declare namespace childProcessManager {
    *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000061 - Operation not supported. The API cannot be called in a child process.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12
