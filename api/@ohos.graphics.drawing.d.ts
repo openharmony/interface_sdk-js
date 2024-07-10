@@ -3255,15 +3255,15 @@ declare namespace drawing {
     /**
      * Maps src array of length count to dst array of equal or greater length.
      * This can be thought of as moving the point to be mapped before applying matrix.
-     * @param { Array<common2D.Point> } dst - storage for mapped points.
      * @param { Array<common2D.Point> } src - points to transform.
      * @param { number } count - count of points to transform.
+     * @returns { Array<common2D.Point> } Return mapped points array.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    mapPoints(dst: Array<common2D.Point>, src: Array<common2D.Point>, count: number): void;
+    mapPoints(src: Array<common2D.Point>, count: number): Array<common2D.Point>;
     /**
      * Return nine scalar values contained by Matrix.
      * @syscap SystemCapability.Graphics.Drawing
