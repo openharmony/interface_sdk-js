@@ -717,7 +717,7 @@ declare namespace userFileManager {
     /**
      * Indicates the columns to query.
      *
-     * @type { string }
+     * @type { Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
      * @since 9
@@ -1800,7 +1800,7 @@ declare namespace userFileManager {
     /**
      * all uris of the same NotifyType, could be FileAssets' or Albums'
      *
-     * @type { string }
+     * @type { Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
      * @since 10
@@ -1809,7 +1809,7 @@ declare namespace userFileManager {
     /**
      * change details of the Album's FileAssets when uris is the Album's uri type
      *
-     * @type { string }
+     * @type { Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
      * @since 10
