@@ -5944,7 +5944,7 @@ interface Progress {
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
  */
-declare class TaskSignal {
+export class TaskSignal {
   /**
    * Cancel the copy task in progress.
    *
