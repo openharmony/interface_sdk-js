@@ -385,9 +385,9 @@ export namespace DiffProcessorHelper {
         if (deprecatedVersionOfNew === '-1') {
           return diffTypeInfo.setDiffType(ApiDiffType.DEPRECATED_HAVE_TO_NA);
         }
-  
+
       }
-      
+
       if (deprecatedVersionOfNew === '-1') {
         return diffTypeInfo.setDiffType(ApiDiffType.DEPRECATED_HAVE_TO_NA);
       }
@@ -672,7 +672,9 @@ export namespace DiffProcessorHelper {
       const newReturnType: string[] = newApiInfo.getReturnType()?.split('|');
       const olaMethodTypeStr = oldReturnType.toString().replace(/\r|\n|\s+|'|"/g, '');
       const newMethodTypeStr = newReturnType.toString().replace(/\r|\n|\s+|'|"/g, '');
-      if (olaMethodTypeStr === newMethodTypeStr) return;
+      if (olaMethodTypeStr === newMethodTypeStr) {
+        return undefined;
+      }
       diffTypeInfo.setOldMessage(olaMethodTypeStr).setNewMessage(newMethodTypeStr);
       if (checkParentContainChild(newReturnType, oldReturnType)) {
         return diffTypeInfo.setDiffType(ApiDiffType.TYPE_ALIAS_FUNCTION_RETURN_TYPE_ADD);
@@ -786,15 +788,17 @@ export namespace DiffProcessorHelper {
       newMethodParams: ParamInfo[],
       diffTypeInfos: DiffTypeInfo[],
       diffMethodType: DiffMethodType
-    ) {
+    ): void {
       const oldParamLen: number = oldMethodParams.length;
       const newParamLen: number = newMethodParams.length;
       // 1.新旧版本参数一个不存在即不符合，直接返回
-      if (!oldParamLen || !newParamLen) return;
+      if (!oldParamLen || !newParamLen) {
+        return;
+      }
       // 2. 判断新旧版本参数名称相同的参数的个数和新旧版本的参数是否相同,相同即为新增或者减少参数
       // 2.1 循环得到所有的参数名称
-      const oldParamNames: string[] = [],
-        newParamNames: string[] = [];
+      const oldParamNames: string[] = [];
+      const newParamNames: string[] = [];
       for (let i: number = 0; i < Math.max(oldParamLen, newParamLen); i++) {
         const newCur: ParamInfo = newMethodParams[i];
         const oldCur: ParamInfo = oldMethodParams[i];
@@ -808,7 +812,9 @@ export namespace DiffProcessorHelper {
       // 2.3 得到参数相同的个数
       const sameParamsLength: number = oldParamLen - oldDiffParams.length;
       // 2.4 判断新旧版本参数名称相同的参数的个数和新旧版本的参数是否相同,相同即为新增或者减少参数
-      if (sameParamsLength === oldParamLen || sameParamsLength === newParamLen) return;
+      if (sameParamsLength === oldParamLen || sameParamsLength === newParamLen) {
+        return;
+      }
 
       let oldDiffInfos: ParamInfo[] = oldMethodParams;
       let newDiffInfos: ParamInfo[] = newMethodParams;
@@ -841,17 +847,23 @@ export namespace DiffProcessorHelper {
       newMethodParams: ParamInfo[],
       diffTypeInfos: DiffTypeInfo[],
       diffMethodType: DiffMethodType
-    ) {
+    ): void {
       const oldParamLen: number = oldMethodParams.length;
       const newParamLen: number = newMethodParams.length;
       // 1.如果旧版本的参数长度不大于1,或者两者长度不一致,直接返回
-      if (oldParamLen <= 1 || oldParamLen !== newParamLen) return;
+      if (oldParamLen <= 1 || oldParamLen !== newParamLen) {
+        return;
+      }
       // 2.判断两个版本的相同位置的参数名称是否一致,相同直接返回
       const isSamePosition: boolean = checkIsSameOfSamePosition(newMethodParams, oldMethodParams);
-      if (isSamePosition) return;
+      if (isSamePosition) {
+        return;
+      }
       // 3.如果旧版本的参数不完全包含新版本的参数或者两个版本的参数是否完全一致,一个不符合直接返回
       const isContain: boolean = checkIsContain(oldMethodParams, newMethodParams);
-      if (!isContain) return;
+      if (!isContain) {
+        return;
+      }
       // 4.上述情况都不符合,处理返回信息
       const oldNamesStr: string = stitchMethodParameters(oldMethodParams);
       const newNamesStr: string = stitchMethodParameters(newMethodParams);
@@ -872,14 +884,18 @@ export namespace DiffProcessorHelper {
       newMethodParams: ParamInfo[],
       diffTypeInfos: DiffTypeInfo[],
       diffMethodType: DiffMethodType
-    ) {
+    ): void {
       const oldParamLen: number = oldMethodParams.length;
       const newParamLen: number = newMethodParams.length;
       // 1.如果新版本参数为空或者旧版本参数长度大于或者等于新版本参数长度,直接返回
-      if (newParamLen === 0 || oldParamLen >= newParamLen) return;
+      if (newParamLen === 0 || oldParamLen >= newParamLen) {
+        return;
+      }
       // 2.新版本参数需要完全包含旧版本,如果不包含,直接返回
       const isContain: boolean = checkIsContain(newMethodParams, oldMethodParams);
-      if (!isContain) return;
+      if (!isContain) {
+        return;
+      }
       // 3.是否存在新增的可选参数
       const oldParamNames: string[] = oldMethodParams.map((oldParam: ParamInfo) => oldParam.getApiName());
       const addParams: ParamInfo[] = newMethodParams.filter((newParam: ParamInfo) => {
@@ -887,7 +903,9 @@ export namespace DiffProcessorHelper {
         return !oldParamNames.includes(curParamName) && !newParam.getIsRequired();
       });
       // 4.新版本新增的参数是否存在参数是可选类型,不存在直接返回
-      if (!addParams.length) return;
+      if (!addParams.length) {
+        return;
+      }
       // 5.存在新增的参数是可选参数,处理返回信息
       const addParamNamesStr: string = stitchMethodParameters(addParams);
       const diffTypeInfo: DiffTypeInfo = new DiffTypeInfo();
@@ -907,14 +925,18 @@ export namespace DiffProcessorHelper {
       newMethodParams: ParamInfo[],
       diffTypeInfos: DiffTypeInfo[],
       diffMethodType: DiffMethodType
-    ) {
+    ): void {
       const oldParamLen: number = oldMethodParams.length;
       const newParamLen: number = newMethodParams.length;
       // 1.如果新版本参数为空或者旧版本参数长度大于或者等于新版本参数长度,直接返回
-      if (newParamLen === 0 || oldParamLen >= newParamLen) return;
+      if (newParamLen === 0 || oldParamLen >= newParamLen) {
+        return;
+      }
       // 2.新版本参数需要完全包含旧版本,如果不包含,直接返回
       const isContain: boolean = checkIsContain(newMethodParams, oldMethodParams);
-      if (!isContain) return;
+      if (!isContain) {
+        return;
+      }
       // 3.是否存在新增的必选参数
       const oldParamNames: string[] = oldMethodParams.map((oldParam: ParamInfo) => oldParam.getApiName());
       const addParams: ParamInfo[] = newMethodParams.filter((newParam: ParamInfo) => {
@@ -922,7 +944,9 @@ export namespace DiffProcessorHelper {
         return !oldParamNames.includes(curParamName) && newParam.getIsRequired();
       });
       // 4.新版本新增的参数是否存在参数是必选类型,不存在直接返回
-      if (!addParams.length) return;
+      if (!addParams.length) {
+        return;
+      }
       // 5.存在新增的参数是可选参数,处理返回信息
       const addParamNamesStr: string = stitchMethodParameters(addParams);
       const diffTypeInfo: DiffTypeInfo = new DiffTypeInfo();
@@ -942,14 +966,18 @@ export namespace DiffProcessorHelper {
       newMethodParams: ParamInfo[],
       diffTypeInfos: DiffTypeInfo[],
       diffMethodType: DiffMethodType
-    ) {
+    ): void {
       const oldParamLen: number = oldMethodParams.length;
       const newParamLen: number = newMethodParams.length;
       // 1.旧版本参数为空或者新版本参数长度大于或者等于旧版本参数长度,直接返回
-      if (oldParamLen === 0 || newParamLen >= oldParamLen) return;
+      if (oldParamLen === 0 || newParamLen >= oldParamLen) {
+        return;
+      }
       // 2.如果旧版本的参数不包含新版本的参数,直接返回
       const isContain: boolean = checkIsContain(oldMethodParams, newMethodParams);
-      if (newParamLen > 0 && !isContain) return;
+      if (newParamLen > 0 && !isContain) {
+        return;
+      }
       // 3.参数减少,处理返回信息
       const newParamNames: string[] = newMethodParams.map((newParam: ParamInfo) => newParam.getApiName());
       const reduceParams: ParamInfo[] = oldMethodParams.filter(
@@ -972,17 +1000,21 @@ export namespace DiffProcessorHelper {
       newMethodParams: ParamInfo[],
       diffTypeInfos: DiffTypeInfo[],
       diffMethodType: DiffMethodType
-    ) {
+    ): void {
       // 1.新旧版本的参数长度应大于0
       const oldParamLen: number = oldMethodParams.length;
       const newParamLen: number = newMethodParams.length;
-      if (!oldParamLen || !newParamLen) return;
+      if (!oldParamLen || !newParamLen) {
+        return;
+      }
       // 2.找到参数名称一致和参数类型一致的参数进行比较,不存在直接返回
       const sameParamInfos: ParamInfo[] = oldMethodParams.filter((oldParam: ParamInfo) => {
         const oldParamName: string = oldParam.getApiName();
         return newMethodParams.find((newParam: ParamInfo) => newParam.getApiName() === oldParamName);
       });
-      if (!sameParamInfos.length) return;
+      if (!sameParamInfos.length) {
+        return;
+      }
       // 3.比较参数名和类型一致是否发生了可选/必选的变化,参数类型不需要计较
       sameParamInfos.forEach((sameInfo: ParamInfo, idx: number) => {
         const curOldParamName: string = sameInfo.getApiName();
@@ -1015,17 +1047,21 @@ export namespace DiffProcessorHelper {
       newMethodParams: ParamInfo[],
       diffTypeInfos: DiffTypeInfo[],
       diffMethodType: DiffMethodType & DiffTypeChangeType
-    ) {
+    ): void {
       //1.判断新旧版本参数长度大于0
       const oldParamLen: number = oldMethodParams.length;
       const newParamLen: number = newMethodParams.length;
-      if (!oldParamLen || !newParamLen) return;
+      if (!oldParamLen || !newParamLen) {
+        return;
+      }
       const newParamName: string[] = newMethodParams.map((newParam: ParamInfo) => newParam.getApiName());
       // 2.需要新旧版本存在参数名称一致的,不存在直接返回
       const sameParamInfo: ParamInfo[] = oldMethodParams.filter((oldParam: ParamInfo) =>
         newParamName.includes(oldParam.getApiName())
       );
-      if (!sameParamInfo.length) return;
+      if (!sameParamInfo.length) {
+        return;
+      }
       // 3.寻找参数名称相同的情况下的参数类型变化的
       sameParamInfo.forEach((curSame: ParamInfo, idx: number) => {
         const oldParamTypes: string[] = curSame.getType();
@@ -1353,9 +1389,13 @@ export namespace DiffProcessorHelper {
       const olaTypeAliasTypeStr: string = olaTypeAliasType.toString();
       const newTypeAliasTypeStr: string = newTypeAliasType.toString();
       // 1.两者定义相同,没有变化
-      if (olaTypeAliasTypeStr === newTypeAliasTypeStr) return;
+      if (olaTypeAliasTypeStr === newTypeAliasTypeStr) {
+        return undefined;
+      }
       // 自定义函数类型
-      if (oldApiInfo.getTypeIsFunction()) return;
+      if (oldApiInfo.getTypeIsFunction()) {
+        return undefined;
+      }
       // 2.两者定义不同
       const diffMethodType: DiffTypeChangeType = {
         PARAM_TYPE_CHANGE: ApiDiffType.TYPE_ALIAS_CHANGE,
@@ -1468,7 +1508,7 @@ export namespace DiffProcessorHelper {
       if (StringUtils.hasSubstring(oldParamTypeStr, newParamTypeStr)) {
         return diffTypes.PARAM_TYPE_REDUCE;
       }
-      return diffTypes.PARAM_TYPE_CHANGE
+      return diffTypes.PARAM_TYPE_CHANGE;
     }
   }
 

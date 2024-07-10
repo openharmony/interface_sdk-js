@@ -37,7 +37,7 @@ import { ApiStatisticsHelper } from '../coreImpl/statistics/Statistics';
 import { ApiStatisticsInfo, StatisticsInfoValueType } from '../typedef/statistics/ApiStatistics';
 import { SyscapProcessorHelper } from '../coreImpl/diff/syscapFieldProcessor';
 import { ApiCountInfo } from '../typedef/count/ApiCount';
-import { ApiCountHelper } from '../coreImpl/count/count'
+import { ApiCountHelper } from '../coreImpl/count/count';
 import { CommonFunctions } from '../utils/checkUtils';
 import { FunctionUtils, KitData } from '../utils/FunctionUtils';
 import { ApiType } from '../typedef/parser/ApiInfoDefination';
@@ -272,9 +272,9 @@ function collectApi(options: OptionObjType): ToolNameValueType {
     } else {
       allApis = Parser.parseFile(path.resolve(fileDir, '..'), fileDir);
     }
-	const statisticsInfosObject: StatisticsInfoValueType = ApiStatisticsHelper.getApiStatisticsInfos(allApis);
-  const fileContent: string = Parser.getParseResults(allApis);
-	let data: ApiStatisticsInfo[] | string [] = [fileContent];
+    const statisticsInfosObject: StatisticsInfoValueType = ApiStatisticsHelper.getApiStatisticsInfos(allApis);
+    const fileContent: string = Parser.getParseResults(allApis);
+    let data: ApiStatisticsInfo[] | string[] = [fileContent];
     if (options.format === 'excel') {
       const allApiStatisticsInfos: ApiStatisticsInfo[] | undefined = statisticsInfosObject.allApiStatisticsInfos;
       data = statisticsInfosObject.apiStatisticsInfos;
@@ -374,7 +374,7 @@ function collectApiCallback(apiData: ApiStatisticsInfo[], workbook: ExcelJS.Work
  * @param apiData 
  * @param workbook 
  */
-function handleCollectData(apiData: ApiStatisticsInfo[], workbook: ExcelJS.Workbook){
+function handleCollectData(apiData: ApiStatisticsInfo[], workbook: ExcelJS.Workbook): void {
   const sheet: ExcelJS.Worksheet = workbook.addWorksheet();
   const apiRelationsSet: Set<string> = new Set();
   const kitData: KitData = FunctionUtils.readKitFile();
@@ -449,7 +449,7 @@ function checkApi(): ToolNameValueType {
     if (fs.existsSync(filePathTxt)) {
       mdApiFiles = CommonFunctions.getMdFiles(filePathTxt);
     }
-     LocalEntry.checkEntryLocal(mdApiFiles, ['all'], './result.json', '', 'true');
+    LocalEntry.checkEntryLocal(mdApiFiles, ['all'], './result.json', '', 'true');
     return {
       data: [],
     };
@@ -579,9 +579,8 @@ function detectionApi(options: OptionObjType): ToolNameValueType {
         'detection.json'
       )} -O ${path.resolve(options.output)}`;
     } else if (process.env.NODE_ENV === 'production') {
-      runningCommand = `${path.resolve(FileUtils.getBaseDirName(), './main.exe')} -N detection -L ${
-        options.checkLabels
-      } -P ${path.resolve(path.dirname(options.output), 'detection.json')} -O ${path.resolve(options.output)}`;
+      runningCommand = `${path.resolve(FileUtils.getBaseDirName(), './main.exe')} -N detection -L ${options.checkLabels
+        } -P ${path.resolve(path.dirname(options.output), 'detection.json')} -O ${path.resolve(options.output)}`;
     }
     buffer = execSync(runningCommand, {
       timeout: 120000,
@@ -648,7 +647,7 @@ function countApiCallback(data: ApiCountInfo[], workbook: ExcelJS.Workbook): voi
       countInfo.getsubSystem(),
       countInfo.getKitName(),
       countInfo.getFilePath(),
-      countInfo.getApiNumber()      
+      countInfo.getApiNumber()
     ];
   });
 }
@@ -688,7 +687,7 @@ function diffApiCallback(
   WriterHelper.MarkdownReporter.writeInMarkdown(data, dest);
 
   if (options?.all) {
-    addApiNumberSheet(relationsSet, workbook, data, kitData)
+    addApiNumberSheet(relationsSet, workbook, data, kitData);
   }
 
 
@@ -702,7 +701,8 @@ function diffApiCallback(
  * @param data 
  * @param kitData 
  */
-function addApiNumberSheet(relationsSet: Set<string>, workbook: ExcelJS.Workbook, data: BasicDiffInfo[], kitData: KitData){
+function addApiNumberSheet(relationsSet: Set<string>, workbook: ExcelJS.Workbook, data: BasicDiffInfo[],
+  kitData: KitData): void {
   const numberSheet: ExcelJS.Worksheet = workbook.addWorksheet('api变更数量统计');
   numberSheet.views = [{ xSplit: 2 }];
   numberSheet.getRow(1).values = [
@@ -789,33 +789,22 @@ function handleData(data: BasicDiffInfo[], diffTypeNumberArr: DiffNumberInfo[]):
  * @param diffNumberInfo
  * @returns
  */
-function getCompatibleObject(diffNumberInfo: DiffNumberInfo) {
+function getCompatibleObject(diffNumberInfo: DiffNumberInfo): string {
   const compatibleInfoSet: Set<boolean> = new Set(diffNumberInfo.getAllCompatible());
   let compatibleSign = 0;
   let incompatibleSign = 0;
   if (compatibleInfoSet.size === 2) {
     compatibleSign = 1;
     incompatibleSign = 1;
-    return `{
-      "兼容性":${compatibleSign},
-      "非兼容性":${incompatibleSign}
-    }`;
-  }
-  if (compatibleInfoSet.has(true)) {
+  } else if (compatibleInfoSet.has(true)) {
     compatibleSign = 1;
-    return `{
-      "兼容性":${compatibleSign},
-      "非兼容性":${incompatibleSign}
-    }`;
-  }
-
-  if (compatibleInfoSet.has(false)) {
+  } else if (compatibleInfoSet.has(false)) {
     incompatibleSign = 1;
-    return `{
-      "兼容性":${compatibleSign},
-      "非兼容性":${incompatibleSign}
-    }`;
   }
+  return `{
+    "兼容性":${compatibleSign},
+    "非兼容性":${incompatibleSign}
+  }`;
 }
 
 /**
@@ -824,14 +813,14 @@ function getCompatibleObject(diffNumberInfo: DiffNumberInfo) {
  * @param diffNumberInfo
  * @returns
  */
-function calculateChangeNumber(diffNumberInfo: DiffNumberInfo) {
+function calculateChangeNumber(diffNumberInfo: DiffNumberInfo): string {
   const changeTypeSet: Set<string> = new Set(diffNumberInfo.getAllChangeType());
-  let newApiNumber: number = 0,
-    apiDeleteNumber = 0,
-    apiDeprecatedNumber = 0,
-    apiChangeNumber = 0,
-    apiConstrainedChange = 0,
-    apiPrototypeChange = 0;
+  let newApiNumber: number = 0;
+  let apiDeleteNumber: number = 0;
+  let apiDeprecatedNumber: number = 0;
+  let apiChangeNumber: number = 0;
+  let apiConstrainedChange: number = 0;
+  let apiPrototypeChange: number = 0;
   if (changeTypeSet.has('API修改（原型修改）')) {
     apiPrototypeChange++;
   }
