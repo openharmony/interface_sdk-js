@@ -684,6 +684,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
+    getLength(forceClosed: boolean): number;
 
     /**
      * Gets the position and tangent of the distance from the starting position of the Path.
