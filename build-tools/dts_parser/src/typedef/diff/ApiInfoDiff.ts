@@ -14,7 +14,7 @@
  */
 
 import ts from 'typescript';
-import { ApiInfo, MethodInfo, ApiType  } from '../parser/ApiInfoDefination';
+import { ApiInfo, MethodInfo, ApiType } from '../parser/ApiInfoDefination';
 import { Comment } from '../parser/Comment';
 import { NumberConstant } from '../../utils/Constant';
 export class BasicDiffInfo {
@@ -60,7 +60,7 @@ export class BasicDiffInfo {
   newSyscapField: string = '';
   //kit信息
   oldKitInfo: string = '';
-  newKitInfo:string = '';
+  newKitInfo: string = '';
   //是否为系统API
   isSystemapi: boolean = false;
 
@@ -370,7 +370,6 @@ export class DiffNumberInfo {
   isApi: boolean = true;
   apiRelation: string = '';
   isSystemapi: boolean = false;
-  
 
   setApiName(apiName: string): DiffNumberInfo {
     this.apiName = apiName;
@@ -414,7 +413,7 @@ export class DiffNumberInfo {
     return this.apiType;
   }
 
-  setAllDiffType(diffType: string): DiffNumberInfo{
+  setAllDiffType(diffType: string): DiffNumberInfo {
     this.allDiffType.push(diffType);
     return this;
   }
@@ -447,9 +446,9 @@ export class DiffNumberInfo {
     return this.newDiffMessage;
   }
 
-  setAllChangeType(changeType: string | undefined): DiffNumberInfo{
+  setAllChangeType(changeType: string | undefined): DiffNumberInfo {
     if (!changeType) {
-      return this
+      return this;
     }
     this.allChangeType.push(changeType);
     return this;
@@ -459,7 +458,7 @@ export class DiffNumberInfo {
     return this.allChangeType;
   }
 
-  setAllCompatible(isCompatible: boolean): DiffNumberInfo{
+  setAllCompatible(isCompatible: boolean): DiffNumberInfo {
     this.allCompatible.push(isCompatible);
     return this;
   }
@@ -476,7 +475,7 @@ export class DiffNumberInfo {
     return this.diffTypeNumber;
   }
 
-  setIsApi(isApi: boolean) {
+  setIsApi(isApi: boolean): DiffNumberInfo {
     this.isApi = isApi;
     return this;
   }
@@ -485,12 +484,12 @@ export class DiffNumberInfo {
     return this.isApi;
   }
 
-  setApiRelation(apiRelation: string) {
+  setApiRelation(apiRelation: string): DiffNumberInfo {
     this.apiRelation = apiRelation;
     return this;
   }
 
-  getApiRelation(): string{
+  getApiRelation(): string {
     return this.apiRelation;
   }
 
@@ -505,7 +504,8 @@ export class DiffNumberInfo {
 }
 
 export interface JsDocDiffProcessor {
-  (oldJsDocInfo: Comment.JsDocInfo | undefined, newJsDocInfo: Comment.JsDocInfo | undefined, isAllDeprecated?: boolean, isAllSheet?: boolean): DiffTypeInfo | undefined;
+  (oldJsDocInfo: Comment.JsDocInfo | undefined, newJsDocInfo: Comment.JsDocInfo | undefined, isAllDeprecated?: boolean,
+    isAllSheet?: boolean): DiffTypeInfo | undefined;
 }
 
 export interface ApiSceneDiffProcessor {
@@ -962,4 +962,4 @@ export const isNotApiSet: Set<string> = new Set([
   ApiType.NAMESPACE,
   ApiType.ENUM,
   ApiType.SOURCE_FILE,
-])
+]);

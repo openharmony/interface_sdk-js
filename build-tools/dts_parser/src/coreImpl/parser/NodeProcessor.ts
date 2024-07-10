@@ -283,10 +283,10 @@ export class NodeProcessorHelper {
     if (ts.isStructDeclaration(node)) {
       return ts.visitNodes(node.members, (node) => {
         if (ts.isConstructorDeclaration(node)) {
-          return
+          return undefined;
         }
-        return node
-      })
+        return node;
+      });
     }
     if (ts.isTypeAliasDeclaration(node) && ts.isTypeLiteralNode(node.type)) {
       return node.type.members;
@@ -738,11 +738,11 @@ export class NodeProcessorHelper {
     const fileSymbolMap: Map<string, ts.Symbol> | undefined =
       NodeProcessorHelper.symbolOfTypeReferenceMap.get(filePath);
     if (!fileSymbolMap) {
-      return;
+      return undefined;
     }
-    const typeSymbol: ts.Symbol | undefined = fileSymbolMap.get(tsNode.getFullText().trim())
+    const typeSymbol: ts.Symbol | undefined = fileSymbolMap.get(tsNode.getFullText().trim());
     if (!typeSymbol) {
-      return;
+      return undefined;
     }
     return typeSymbol;
   }
@@ -776,7 +776,7 @@ export class NodeProcessorHelper {
         if (parameter.type) {
           NodeProcessorHelper.processFunctionTypeNode(parameter.type, methodInfo, paramInfo, isParam);
         }
-      })
+      });
       NodeProcessorHelper.processFunctionTypeNode(typeNode.type, methodInfo, paramInfo, isParam);
     }
     if (!ts.isTypeReferenceNode(typeNode)) {
@@ -804,7 +804,7 @@ export class NodeProcessorHelper {
     const typeArguments: ts.NodeArray<ts.TypeNode> | undefined = typeNode.typeArguments;
     typeArguments?.forEach((typeArgument: ts.TypeNode) => {
       NodeProcessorHelper.processFunctionTypeNode(typeArgument, methodInfo, paramInfo, isParam);
-    })
+    });
     try {
       const tsProgram: ts.Program = parserParam.getTsProgram();
       const filePath: string = parserParam.getFilePath();
@@ -816,7 +816,7 @@ export class NodeProcessorHelper {
           }
           NodeProcessorHelper.setSymbolOfTypeReferenceMap(filePath, tsNode, symbol);
         }
-      })
+      });
       tsProgram.emit();
       const currentTypeSymbol: ts.Symbol | undefined =
         NodeProcessorHelper.getSymbolOfTypeReferenceMap(filePath, typeNode);

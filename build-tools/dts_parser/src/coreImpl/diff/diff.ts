@@ -186,7 +186,7 @@ export class DiffHelper {
     } else {
       DiffHelper.diffSameNumberFunction(oldApiInfos, newApiInfos, diffInfos, isCheck);
     }
-    
+
   }
 
   /**
@@ -203,8 +203,8 @@ export class DiffHelper {
     isAllSheet: boolean,
     isCheck?: boolean
   ): void {
-    const isAllDeprecated: boolean =  DiffHelper.judgeIsAllDeprecated(newApiInfos);
-    if (oldApiInfos.length === newApiInfos.length) {  
+    const isAllDeprecated: boolean = DiffHelper.judgeIsAllDeprecated(newApiInfos);
+    if (oldApiInfos.length === newApiInfos.length) {
       const apiNumber: number = oldApiInfos.length;
       for (let i = 0; i < apiNumber; i++) {
         DiffProcessorHelper.JsDocDiffHelper.diffJsDocInfo(oldApiInfos[i], newApiInfos[i], diffInfos, isAllDeprecated, isAllSheet);
@@ -280,7 +280,7 @@ export class DiffHelper {
 
   static judgeIsAllDeprecated(apiInfos: ApiInfo[]): boolean {
     let isAllDeprecated: boolean = true;
-    apiInfos.forEach((apiInfo: ApiInfo)=>{
+    apiInfos.forEach((apiInfo: ApiInfo) => {
       const deprecatedVersion = apiInfo.getLastJsDocInfo()?.getDeprecatedVersion();
       if (deprecatedVersion === '-1' || !deprecatedVersion) {
         isAllDeprecated = false;
@@ -289,9 +289,9 @@ export class DiffHelper {
     return isAllDeprecated;
   }
 
-  static handleDeprecatedVersion(apiInfos: ApiInfo[]) {
+  static handleDeprecatedVersion(apiInfos: ApiInfo[]): void {
     let isAllDeprecated: boolean = true;
-    apiInfos.forEach((apiInfo: ApiInfo)=>{
+    apiInfos.forEach((apiInfo: ApiInfo) => {
       const deprecatedVersion = apiInfo.getLastJsDocInfo()?.getDeprecatedVersion();
       if (deprecatedVersion === '-1' || !deprecatedVersion) {
         isAllDeprecated = false;
@@ -300,9 +300,9 @@ export class DiffHelper {
     if (isAllDeprecated) {
       return;
     }
-    apiInfos.forEach((apiInfo: ApiInfo)=>{
+    apiInfos.forEach((apiInfo: ApiInfo) => {
       apiInfo.getLastJsDocInfo()?.setDeprecatedVersion('-1');
-    })
+    });
   }
 
 
@@ -403,15 +403,15 @@ export class DiffHelper {
     const jsdocTextArr: string[] = apiInfo.getJsDocText().split('*/');
     const clonedJsdocTextArr: string[] = jsdocTextArr;
     if (clonedJsdocTextArr[1] && StringUtils.hasSubstring(clonedJsdocTextArr[1], CommentHelper.fileJsDoc)) {
-      jsdocTextArr.splice(1,1);
+      jsdocTextArr.splice(1, 1);
     }
 
     if (clonedJsdocTextArr[0] && StringUtils.hasSubstring(clonedJsdocTextArr[0], CommentHelper.fileJsDoc)) {
-      jsdocTextArr.splice(0,1);
+      jsdocTextArr.splice(0, 1);
     }
 
     if (clonedJsdocTextArr[0] && StringUtils.hasSubstring(clonedJsdocTextArr[0], CommentHelper.licenseKeyword)) {
-      jsdocTextArr.splice(0,1);
+      jsdocTextArr.splice(0, 1);
     }
 
     return jsdocTextArr.join('*/');
