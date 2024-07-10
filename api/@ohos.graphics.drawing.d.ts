@@ -1616,27 +1616,27 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
-  enum Edging {
+  enum FontEdging {
     /**
      * No transparent pixels on glyph edges
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    ALIAS = 0,
+    FONT_EDGING_ALIAS = 0,
 
     /**
      * May have transparent pixels on glyph edges.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    ANTI_ALIAS = 1,
+    FONT_EDGING_ANTI_ALIAS = 1,
 
     /**
      * Glyph positioned in pixel using transparency.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    SUBPIXEL_ANTI_ALIAS = 2
+    FONT_EDGING_SUBPIXEL_ANTI_ALIAS = 2
   }
   
   /**
@@ -1645,34 +1645,34 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
-  enum Hinting {
+  enum FontHinting {
     /**
      * Glyph outlines unchanged.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    NONE = 0,
+    FONT_HINTING_NONE = 0,
 
     /**
      * Minimal modification to improve contrast.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    SLIGHT = 1,
+    FONT_HINTING_SLIGHT = 1,
 
     /**
      * Glyph outlines modified to improve contrast.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    NORMAL = 2,
+    FONT_HINTING_NORMAL = 2,
     
     /**
      * Modifies glyph outlines for maximum contrast.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    FULL = 3
+    FONT_HINTING_FULL = 3
   }
 
   /**
@@ -1943,19 +1943,19 @@ declare namespace drawing {
     getScaleX(): number;
     /**
      * Gets font hinting pattern.
-     * @returns { Hinting } Font hinting level.
+     * @returns { FontHinting } Font hinting level.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    getHinting(): Hinting;
+    getHinting(): FontHinting;
     /**
      * Gets font edge pixels pattern.
-     * @returns { Edging } Edge pixels pattern.
+     * @returns { FontEdging } Edge pixels pattern.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    getEdging(): Edging;
-  }
+    getEdging(): FontEdging;
+ }
 
   /**
    * Indicate when certain metrics are valid; the underline or strikeout metrics may be valid and zero.
