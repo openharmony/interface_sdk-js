@@ -5198,6 +5198,12 @@ declare namespace media {
      * @since 12
      */
     CFT_MP3 = 'mp3',
+    /**
+     * A audio container format type wav.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
+    CFT_WAV = 'wav',
   }
 
   /**
@@ -6270,6 +6276,12 @@ declare namespace media {
      * @since 12
      */
     AUDIO_MP3 = 'audio/mpeg',
+    /**
+     * G711-mulaw codec MIME type.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
+    AUDIO_G711MU = 'audio/g711mu',
   }
 
   /**
