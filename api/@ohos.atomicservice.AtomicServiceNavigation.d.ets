@@ -197,7 +197,7 @@ export interface TitleOptions {
 /**
  * The builder function of NavDestination component.
  *
- * @typedef { function } NavDestinationBuilder
+ * @typedef { function } NavDestinationBuilder.
  * @param { string } name - The name of route page.
  * @param { ?Object } - param - The detailed parameter of the route page.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
