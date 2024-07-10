@@ -679,7 +679,7 @@ declare namespace drawing {
 
     /**
      * Get path length.
-     * @param { boolean } forceClosed - Whether to close the Path.
+     * @param { boolean } forceClosed - Whether to close the path.
      * @returns { number } Return path length.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -687,12 +687,12 @@ declare namespace drawing {
     getLength(forceClosed: boolean): number;
 
     /**
-     * Gets the position and tangent of the distance from the starting position of the Path.
+     * Gets the position and tangent of the distance from the starting position of the path.
      * 
-     * @param { boolean } forceClosed - Whether to close the Path.
-     * @param { number } distance - The distance from the start of the Path, should be greater than 0 and less than 'GetLength()'
-     * @param { common2D.Point } position - Sets to the position of distance from the starting position of the Path.
-     * @param { common2D.Point } tangent - Sets to the tangent of distance from the starting position of the Path.
+     * @param { boolean } forceClosed - Whether to close the path.
+     * @param { number } distance - The distance from the start of the path, should be greater than 0 and less than 'GetLength()'
+     * @param { common2D.Point } position - Sets to the position of distance from the starting position of the path.
+     * @param { common2D.Point } tangent - Sets to the tangent of distance from the starting position of the path.
      * @return { boolean } - Returns true if succeeded, otherwise false.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -704,7 +704,7 @@ declare namespace drawing {
     /**
      * Determines whether the current contour is closed.
      * 
-     * @param { boolean } forceClosed - Whether to close the Path.
+     * @param { boolean } forceClosed - Whether to close the path.
      * @return { boolean } - Returns true if the current contour is closed, otherwise false.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * @syscap SystemCapability.Graphics.Drawing
@@ -715,8 +715,8 @@ declare namespace drawing {
     /**
      * Computes the corresponding matrix at the specified distance.
      * 
-     * @param { boolean } forceClosed - Whether to close the Path.
-     * @param { number } distance - The distance from the start of the Path.
+     * @param { boolean } forceClosed - Whether to close the path.
+     * @param { number } distance - The distance from the start of the path.
      * @param { drawing.Matrix } matrix - Indicates the pointer to an Matrix object.
      * @param { PathMeasureMatrixFlags } flags - Indicates what should be returned in the matrix.
      * @return { boolean } - Returns false if there is no path, or a zero-length path was specified, in which case matrix is unchanged.
@@ -727,7 +727,7 @@ declare namespace drawing {
     getMatrix(forceClosed: boolean, distance: number, matrix: drawing.Matrix, flags: PathMeasureMatrixFlags): boolean
 
     /**
-     * Parses the SVG format string that describes the drawing path, and sets the Path.
+     * Parses the SVG format string that describes the drawing path, and sets the path.
      *
      * @param { string } str - A string in SVG format that describes the drawing path.
      * @return { boolean } true if build succeeded, otherwise false.
@@ -866,7 +866,7 @@ declare namespace drawing {
     constructor(pixelmap: image.PixelMap);
 
     /**
-     * If rectangle is stroked, use pen to stroke width describes the line thickness,
+     * Draws a rect. If rectangle is stroked, use pen to stroke width describes the line thickness,
      * else use brush to fill the rectangle.
      * @param { common2D.Rect } rect - Rectangle to draw.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -877,9 +877,9 @@ declare namespace drawing {
     drawRect(rect: common2D.Rect): void;
 
     /**
-     * If rectangle is stroked, use pen to stroke width describes the line thickness,
+     * Draws a roundrect. If rectangle is stroked, use pen to stroke width describes the line thickness,
      * else use brush to fill the rectangle.
-     * @param { RoundRect } roundRect - Rectangle to draw.
+     * @param { RoundRect } roundRect - RoundRect to draw.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -888,7 +888,7 @@ declare namespace drawing {
     drawRoundRect(roundRect: RoundRect): void;
 
     /**
-     * If rectangle is stroked, use pen to stroke width describes the line thickness,
+     * Draws a rect. If rectangle is stroked, use pen to stroke width describes the line thickness,
      * else use brush to fill the rectangle.
      * @param { number } left - Indicates the left position of the rectangle.
      * @param { number } top - Indicates the top position of the rectangle.
@@ -950,7 +950,7 @@ declare namespace drawing {
       ambientColor: common2D.Color, spotColor: common2D.Color, flag: ShadowFlag) : void;
 
     /**
-     * If radius is zero or less, nothing is drawn. If circle is stroked, use pen to
+     * Draws a circle. If radius is zero or less, nothing is drawn. If circle is stroked, use pen to
      * stroke width describes the line thickness, else use brush to fill the circle.
      * @param { number } x - X coordinate of the circle center.
      * @param { number } y - Y coordinate of the circle center.
@@ -1081,7 +1081,7 @@ declare namespace drawing {
 
     /**
      * Draws a path.
-     * @param { Path } path - Path to draw.
+     * @param { Path } path - path to draw.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2913,10 +2913,10 @@ declare namespace drawing {
     /**
      * Obtains the filled equivalent of the src path.
      *
-     * @param { Path } src - The Path read to create a filled version.
-     * @param { Path } dst - The resulting Path (may be the same as src).
-     * @param { common2D.Rect } rect - Rect limits the PathEffect area if Pen has PathEffect.
-     * @param { drawing.Matrix } matrix - A transformation applied to PathEffect if Pen has PathEffect.
+     * @param { Path } src - The path read to create a filled version.
+     * @param { Path } dst - The resulting path (may be the same as src).
+     * @param { common2D.Rect } rect - Rect limits the PathEffect area if pen has PathEffect.
+     * @param { drawing.Matrix } matrix - A transformation applied to PathEffect if pen has PathEffect.
      * @returns { boolean } true if the path should be filled, or false if it should be drawn with a hairline (width == 0)
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
