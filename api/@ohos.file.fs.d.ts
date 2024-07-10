@@ -124,7 +124,7 @@ declare namespace fileIo {
   export type { CopyOptions };
   export type { ProgressListener };
   export type { DfsListeners };
-  export type { TaskSignal };
+  export { TaskSignal };
 
   /**
    * Mode Indicates the open flags.
@@ -5944,7 +5944,7 @@ interface Progress {
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
  */
-export class TaskSignal {
+declare class TaskSignal {
   /**
    * Cancel the copy task in progress.
    *
