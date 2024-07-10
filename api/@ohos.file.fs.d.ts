@@ -118,9 +118,9 @@ declare namespace fileIo {
   export { WriteStream };
   export { Watcher };
   export { WhenceType };
+  export { TaskSignal };
   export { connectDfs };
   export { disconnectDfs };
-  export { TaskSignal };
   export type { Progress };
   export type { CopyOptions };
   export type { ProgressListener };
