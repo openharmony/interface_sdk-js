@@ -349,7 +349,7 @@ declare namespace netFirewall {
    */
   interface NetFirewallPolicy {
     /**
-     * Whether the firewall is enabled.
+     * Whether the firewall is open.
      *
      * @type {boolean}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
@@ -476,12 +476,12 @@ declare namespace netFirewall {
   /**
    * Firewall domain name parameters.
    *
-   * @interface NetFirewallDomainParam
+   * @interface NetFirewallDomainParams
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  interface NetFirewallDomainParam {
+  interface NetFirewallDomainParams {
     /**
      * Is there a universal configuration rule.
      *
@@ -670,12 +670,12 @@ declare namespace netFirewall {
     /**
      * Domain name list: valid when ruleType = RULE_DOMAIN, otherwise it will be ignored.
      *
-     * @type {?Array<NetFirewallDomainParam>}
+     * @type {?Array<NetFirewallDomainParams>}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    domains?: Array<NetFirewallDomainParam>;
+    domains?: Array<NetFirewallDomainParams>;
     /**
      * DNS: valid when ruleType = RULE_DNS, otherwise it will be ignored.
      *
