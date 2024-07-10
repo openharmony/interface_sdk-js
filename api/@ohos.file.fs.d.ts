@@ -124,6 +124,7 @@ declare namespace fileIo {
   export type { CopyOptions };
   export type { ProgressListener };
   export type { DfsListeners };
+  export type { TaskSignal };
 
   /**
    * Mode Indicates the open flags.
