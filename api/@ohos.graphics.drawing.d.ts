@@ -1505,6 +1505,7 @@ declare namespace drawing {
     /**
      * Create a textblob from a string, each element of which is located at the given positions.
      * @param { string } text - Drawn glyph content.
+     * @param { number } len - string length,value must equal to points length.
      * @param { common2D.Point[] } points - Position coordinates of a textblob elements.
      * @param { Font } font - Specify text size, font, text scale, etc.
      * @returns { TextBlob } TextBlob object.
@@ -1514,7 +1515,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    static makeFromPosText(text: string, points: common2D.Point[], font: Font): TextBlob;
+    static makeFromPosText(text: string, len: number, points: common2D.Point[], font: Font): TextBlob;
 
     /**
      * Creating a textblob object based on RunBuffer information
