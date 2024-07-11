@@ -4262,7 +4262,7 @@ declare namespace media {
      * format like: scheme + "://" + "context".
      * file:  file://path
      * fd:    fd://fd
-     * @type { number }
+     * @type { string }
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6
      * @deprecated since 9
@@ -5509,7 +5509,7 @@ declare namespace media {
 
     /**
      * Indicates the audio sampling rate.
-     * @type { CodecMimeType }
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9
