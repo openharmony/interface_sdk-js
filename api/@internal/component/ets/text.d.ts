@@ -303,6 +303,28 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   maxFontSize(value: number | string | Resource): TextAttribute;
 
   /**
+   * Called when the minimum font scale of the font is set.
+   *
+   * @param { number | Resource } scale
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  minFontScale(scale: number | Resource): TextAttribute;
+
+  /**
+   * Called when the maximum font scale of the font is set.
+   *
+   * @param { number | Resource  } scale
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  maxFontScale(scale: number | Resource): TextAttribute;
+
+  /**
    * Called when the font style of a font is set.
    *
    * @param { FontStyle } value
