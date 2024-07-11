@@ -2308,8 +2308,9 @@ declare namespace drawing {
      * @param { image.PixelMap } pixelmap - PixelMap
      * @param { uiEffect.TileMode } tileX - TileMode, indicates the tileX
      * @param { uiEffect.TileMode } tileY - TileMode, indicates the tileY
-     * @param { SamplingOptions } samplingOptions - SamplingOptions used to describe the sampling mode.
-     * @param { Matrix } matrix - Indicates the Matrix object.
+     * @param { SamplingOptions } samplingOptions - SamplingOptions used to describe the sampling mode. 
+     * If not passed, default sampling options will be used (FilterMode.FILTER_MODE_NEAREST)
+     * @param { Matrix } matrix - Indicates the Matrix object. If not passed, identity matrix is used.
      * @returns { ShaderEffect } ShaderEffect
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
