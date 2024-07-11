@@ -1382,8 +1382,8 @@ declare namespace drawing {
     clipRoundRect(roundRect: drawing.RoundRect, clipOp?: ClipOp, doAntiAlias?: boolean): void;
 
     /**
-     * Gets the empty status of canvas clipping area.
-     * @returns { boolean } Returns true if clip is empty.
+     * Checks whether the drawable area is empty.
+     * @returns { boolean } Returns true if drawable area is empty.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -1391,7 +1391,7 @@ declare namespace drawing {
 
     /**
      * Sets matrix of canvas.
-     * @param { Matrix } matrix - Declares functions related to the matrix object in the drawing module.
+     * @param { Matrix } matrix - the matrix to replace existing matrix.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1808,8 +1808,8 @@ declare namespace drawing {
     setHinting(hinting: FontHinting): void;
 
     /**
-     * Returns true if glyphs may be drawn at sub-pixel offsets.
-     * @returns { boolean } True if glyphs may be drawn at sub-pixel offsets.
+     * Gets whether the font uses sub-pixel rendering.
+     * @returns { boolean } Returns <b>true</b> if the font uses sub-pixel rendering; returns <b>false</b> otherwise.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -2340,7 +2340,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    static createImageShader(pixelmap: image.PixelMap, tileX: uiEffect.TileMode, tileY: uiEffect.TileMode, samplingOptions: SamplingOptions, matrix: Matrix): ShaderEffect;
+    static createImageShader(pixelmap: image.PixelMap, tileX: uiEffect.TileMode, tileY: uiEffect.TileMode, samplingOptions?: SamplingOptions, matrix?: Matrix): ShaderEffect;
   }
 
   /**
@@ -2518,7 +2518,7 @@ declare namespace drawing {
      * @since 12
      */
     static createBlurImageFilter(sigmaX: number, sigmaY: number,
-                                 tileMode: uiEffect.TileMode, imageFilter: ImageFilter): ImageFilter;
+                                 tileMode: uiEffect.TileMode, imageFilter?: ImageFilter): ImageFilter;
     /**
      * Makes an ImageFilter object that applies the color filter to the input.
      * @param { ColorFilter } colorFilter - Indicates the color filter that transforms the input image.
@@ -2530,7 +2530,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    static createFromColorFilter(colorFilter: ColorFilter, imageFilter: ImageFilter): ImageFilter;
+    static createFromColorFilter(colorFilter: ColorFilter, imageFilter?: ImageFilter): ImageFilter;
   }
   /**
    * Enumerate join styles. The join style defines the shape of the joins of a
@@ -2796,7 +2796,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    setImageFilter(filter: ImageFilter): void;
+    setImageFilter(filter: ImageFilter | null): void;
     /**
      * Sets MaskFilter to pen.
      *
@@ -3052,7 +3052,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    setImageFilter(filter: ImageFilter): void;
+    setImageFilter(filter: ImageFilter | null): void;
     /**
      * Sets MaskFilter to brush.
      * @param { MaskFilter } filter - MaskFilter to apply to subsequent draw.
@@ -3220,7 +3220,7 @@ declare namespace drawing {
    */
   class Matrix {
     /**
-     * Constructor for the matrix.
+     * Creates an identity matrix.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -3230,7 +3230,7 @@ declare namespace drawing {
      * @param { number } index - one of 0-8
      * @returns { number } Returns value corresponding to index.Returns 0 if out of range.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -3308,14 +3308,13 @@ declare namespace drawing {
      */
     preTranslate(dx: number, dy: number): void;
     /**
-     * Reset matrix to identity, which has no effect on mapped point
+     * Reset matrix to identity.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     reset(): void;
     /**
-     * Maps src array of length count to dst array of equal or greater
-     * length.
+     * Maps src array of length count to dst array of equal or greater length.
      * This can be thought of as moving the point to be mapped before applying matrix.
      * @param { Array<common2D.Point> } dst - storage for mapped points.
      * @param { Array<common2D.Point> } src - points to transform.
@@ -3501,7 +3500,7 @@ declare namespace drawing {
    */
   class RoundRect {
     /**
-     * Constructor for the RoundRect.
+     * Create a RoundRect without round corners.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
