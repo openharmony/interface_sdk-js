@@ -21,7 +21,7 @@
 import { Callback } from '@ohos.base';
 
 /**
- * Declare AtomicService Web Component.
+ * Declare Component AtomicServiceWeb.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
