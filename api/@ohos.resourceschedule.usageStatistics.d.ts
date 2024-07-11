@@ -52,7 +52,7 @@ declare namespace usageStatistics {
 
     /**
      * The total duration, in milliseconds.
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -61,7 +61,7 @@ declare namespace usageStatistics {
 
     /**
      * The last time when the application was accessed, in milliseconds.
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -70,7 +70,7 @@ declare namespace usageStatistics {
 
     /**
      * The last time when the application was visible in the foreground, in milliseconds.
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -79,7 +79,7 @@ declare namespace usageStatistics {
 
     /**
      * The total duration, in milliseconds.
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -88,7 +88,7 @@ declare namespace usageStatistics {
 
     /**
      * The bundle name of the application.
-     * @type { string }
+     * @type { ?string }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -97,7 +97,7 @@ declare namespace usageStatistics {
 
     /**
      * The total duration, in milliseconds.
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -106,7 +106,7 @@ declare namespace usageStatistics {
 
     /**
      * The last time when the foreground application was accessed, in milliseconds.
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -116,7 +116,7 @@ declare namespace usageStatistics {
     /**
      * The time of the first bundle usage record in this {@code BundleActiveInfo} object,
      * in milliseconds.
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -126,7 +126,7 @@ declare namespace usageStatistics {
     /**
      * The time of the last bundle usage record in this {@code BundleActiveInfo} object,
      * in milliseconds.
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -196,7 +196,7 @@ declare namespace usageStatistics {
   interface HapModuleInfo {
     /**
      * The device id of module.
-     * @type { string }
+     * @type { ?string }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -223,7 +223,7 @@ declare namespace usageStatistics {
 
     /**
      * The main ability name of module.
-     * @type { string }
+     * @type { ?string }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -232,7 +232,7 @@ declare namespace usageStatistics {
 
     /**
      * The label id of application.
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -241,7 +241,7 @@ declare namespace usageStatistics {
 
     /**
      * The label id of module.
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -250,7 +250,7 @@ declare namespace usageStatistics {
 
     /**
      * The description id of application.
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -259,7 +259,7 @@ declare namespace usageStatistics {
 
     /**
      * The ability id of main ability.
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -268,7 +268,7 @@ declare namespace usageStatistics {
 
     /**
      * The description id of main ability.
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -277,7 +277,7 @@ declare namespace usageStatistics {
 
     /**
      * The icon id of main ability.
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -356,7 +356,7 @@ declare namespace usageStatistics {
   interface BundleEvents {
     /**
      * The usage group of the application.
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -365,7 +365,7 @@ declare namespace usageStatistics {
 
     /**
      * The bundle name.
-     * @type { string }
+     * @type { ?string }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -374,7 +374,7 @@ declare namespace usageStatistics {
 
     /**
      * The shortcut ID.
-     * @type { string }
+     * @type { ?string }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -383,7 +383,7 @@ declare namespace usageStatistics {
 
     /**
      * The class name.
-     * @type { string }
+     * @type { ?string }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -392,7 +392,7 @@ declare namespace usageStatistics {
 
     /**
      * The time when this state occurred, in milliseconds.
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -401,7 +401,7 @@ declare namespace usageStatistics {
 
     /**
      * The event id.
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9
