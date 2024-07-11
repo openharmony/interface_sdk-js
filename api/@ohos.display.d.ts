@@ -141,6 +141,16 @@ declare namespace display {
   function getAllDisplays(): Promise<Array<Display>>;
 
   /**
+   * Obtain all display physical resolution
+   *
+   * @returns { Promise<Array<DisplayPhysicalResolution>> } the result of all display physical resolution
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 13
+   */
+  function getAllDisplayPhysicalResolution(): Promise<Array<DisplayPhysicalResolution>>;
+
+  /**
    * Check whether there is a privacy window on the current display.
    *
    * @param { number } displayId Display id to query. This parameter should be greater than or equal to 0.
@@ -863,6 +873,49 @@ declare namespace display {
   }
 
   /**
+   * Define display physical resolution.
+   *
+   * @interface DisplayPhysicalResolution
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  interface DisplayPhysicalResolution {
+    /**
+     * fold display mode.
+     *
+     * @type { FoldDisplayMode }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 13
+     */
+    foldDisplayMode: FoldDisplayMode;
+
+    /**
+     * Display physical width, in pixels.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
+    physicalWidth: number;
+
+    /**
+     * Display physical height, in pixels.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
+    physicalHeight: number;
+  }
+
+  /**
    * Define properties of the display. They cannot be updated automatically.
    *
    * @interface Display
@@ -999,6 +1052,28 @@ declare namespace display {
      * @since 11
      */
     height: number;
+
+    /**
+     * Display available width, in pixels.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
+    availableWidth: number;
+
+    /**
+     * Display available height, in pixels.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
+    availableHeight: number;
 
     /**
      * Display resolution.
