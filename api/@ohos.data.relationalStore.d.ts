@@ -377,6 +377,15 @@ declare namespace relationalStore {
      * @since 12
      */
     isReadOnly?: boolean;
+
+    /**
+     * Indicates the names of the shared library containing fts etc.
+     *
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    pluginLibs?: Array<string>;
   }
 
   /**
