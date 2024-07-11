@@ -160,6 +160,7 @@ export enum ErrorMessage {
   ERROR_CHANGES_JSDOC_STAGE_TO_FA = 'Forbid changes: Cannot change from StageModelOnly to FAModelOnly.',
   ERROR_CHANGES_JSDOC_NA_TO_STAGE = 'Forbid changes: Cannot change from nothing to StageModelOnly.',
   ERROR_CHANGES_JSDOC_NA_TO_FA = 'Forbid changes: Cannot change from nothing to FAModelOnly.',
+  ERROR_CHANGES_JSDOC_ATOMICSERVICE_TO_NA = 'Forbid changes: Cannot change from atomicservice to NA.',
   ERROR_CHANGES_FUNCTION_RETURN_TYPE_ADD = 'Forbid changes: The function return value type cannot be extended.',
   ERROR_CHANGES_FUNCTION_RETURN_TYPE_REDUCE = 'Forbid changes: The function return value type cannot be reduced.',
   ERROR_CHANGES_FUNCTION_RETURN_TYPE_CHANGE = 'Forbid changes: Cannot change function return value type.',
@@ -237,6 +238,8 @@ export const incompatibleApiDiffTypes: Map<ApiDiffType, ErrorMessage> = new Map(
     [ApiDiffType.TYPE_ALIAS_REDUCE, ErrorMessage.ERROR_CHANGES_TYPE_ALIAS_REDUCE],
     // 15.枚举类型变更
     [ApiDiffType.ENUM_MEMBER_VALUE_CHANGE, ErrorMessage.ERROR_CHANGES_ENUM_MEMBER_VALUE],
+    // 16.是否拥有元服务能力
+    [ApiDiffType.ATOMIC_SERVICE_HAVE_TO_NA, ErrorMessage.ERROR_CHANGES_JSDOC_ATOMICSERVICE_TO_NA],
   ]
 );
 
