@@ -14,14 +14,14 @@
  */
 
 /**
- * @file
+ * @file Defines the atomicService web component
  * @kit ArkUI
  */
 
 import { Callback } from '@ohos.base';
 
 /**
- * Defines AtomicServiceWeb Component.
+ * Declare AtomicService Web Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -95,7 +95,7 @@ export declare struct AtomicServiceWeb {
 }
 
 /**
- * The class for OnMessageEvent.
+ * Message event after page is back or destroyed if postMessage() is called in H5 page.
  *
  * @typedef OnMessageEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -115,7 +115,7 @@ export declare interface OnMessageEvent {
 }
 
 /**
- * The class for OnErrorReceiveEvent.
+ * Error receive event when the web page receives a web resource loading error.
  *
  * @typedef OnErrorReceiveEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -145,7 +145,7 @@ export declare interface OnErrorReceiveEvent {
 }
 
 /**
- * The class for OnHttpErrorReceiveEvent.
+ * Http error receive event when the web page receives a web resource loading HTTP error.
  *
  * @typedef OnHttpErrorReceiveEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -175,7 +175,7 @@ export declare interface OnHttpErrorReceiveEvent {
 }
 
 /**
- * The class for OnPageBeginEvent.
+ * Page begin event at the begin of web page loading.
  *
  * @typedef OnPageBeginEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -195,7 +195,7 @@ export declare interface OnPageBeginEvent {
 }
 
 /**
- * The class for OnPageEndEvent.
+ * Page end event at the end of web page loading.
  *
  * @typedef OnPageEndEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
