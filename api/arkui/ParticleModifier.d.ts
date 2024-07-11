@@ -18,15 +18,13 @@
  * @kit ArkUI
  */
 
-
-
-
 /**
  * Defines Panel Modifier
  *
  * @extends PanelAttribute
  * @implements AttributeModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class ParticleModifier extends ParticleAttribute implements AttributeModifier<ParticleAttribute> {
@@ -34,10 +32,11 @@ export declare class ParticleModifier extends ParticleAttribute implements Attri
   /**
    * Defines the normal update attribute function.
    * 
-   * @param { ParticleAttribute } instance
+   * @param { ParticleAttribute } particleAttribute
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
-    applyNormalAttribute?(instance: ParticleAttribute): void;
+    applyNormalAttribute?(particleAttribute: ParticleAttribute): void;
 }
