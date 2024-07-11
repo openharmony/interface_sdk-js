@@ -3163,21 +3163,7 @@ declare namespace drawing {
      * @since 12
      */
     isIdentity(): Boolean;
-  }
 
-  /**
-   * Declares functions related to the matrix object in the drawing module.
-   *
-   * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
-   */
-  class Matrix {
-    /**
-     * Creates an identity matrix.
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
-     */
-    constructor();
     /**
      * Get one matrix value. Index is between the range of 0-8.
      * @param { number } index - one of 0-8
@@ -3279,14 +3265,11 @@ declare namespace drawing {
      */
     mapPoints(dst: Array<common2D.Point>, src: Array<common2D.Point>, count: number): void;
     /**
-     * Copies nine scalar values contained by Matrix into buffer.
-     * @param { Array<number> } buffer - Storage for nine scalar values.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameter is left unspecified;
-     * <br>2. Incorrect parameter type/size.
+     * Return nine scalar values contained by Matrix.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    getAll(buffer: Array<number>): void;
+    getAll(): Array<number>;
     /**
      * Sets dst to bounds of src corners mapped by matrix transformation.
      * @param { common2D.Rect } dst - Rect to map from.
