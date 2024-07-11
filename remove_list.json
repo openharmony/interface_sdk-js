@@ -22,8 +22,7 @@
             "root_scene.d.ts",
             "screen.d.ts",
             "ui_extension_component.d.ts",
-            "window_scene.d.ts",
-            "image_common.d.ts"
+            "window_scene.d.ts"
         ]
     },
     "internal_lite": {
