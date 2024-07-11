@@ -3772,6 +3772,76 @@ declare namespace audio {
     getAudioEffectInfoArraySync(usage: StreamUsage): AudioEffectInfoArray;
 
     /**
+     * Gets supported audio effect properties based on current devices.
+     * @returns { Array<AudioEffectProperty> } Array of supported audio effect properties.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     * @since 12
+     */
+    getSupportedAudioEffectProperty(): Array<AudioEffectProperty>;
+
+    /**
+     * Sets current audio effect properties.
+     * @param { Array<AudioEffectProperty> } propertyArray - array of audio effect property to be set. 
+     * Notice that only one effectProp in each effectClass should be set.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed. Possible causes:
+     *                                 1. More than one effectProps of the same effectClass in input Array
+     *                                 2. input audioEffectProperties are not supported by current device.
+     *                                 3. names of effectProp or effectClass are incorrect.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     * @since 12
+     */
+    setAudioEffectProperty(propertyArray: Array<AudioEffectProperty>): void;
+
+    /**
+     * Gets current audio effect properties.
+     * @returns { Array<AudioEffectProperty> } Array of current audio effect properties.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     * @since 12
+     */
+    getAudioEffectProperty(): Array<AudioEffectProperty>;
+
+    /**
+     * Gets supported audio enhance properties based on current devices.
+     * @returns { Array<AudioEnhanceProperty> } Array of supported audio enhance properties.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 12
+     */
+    getSupportedAudioEnhanceProperty(): Array<AudioEnhanceProperty>;
+
+    /**
+     * Sets current audio enhance properties.
+     * @param { Array<AudioEnhanceProperty> } propertyArray - array of audio enhance property to be set. 
+     * Notice that only one enhanceProp in each enhanceClass should be set.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed. Possible causes:
+     *                                 1. More than one enhanceProps of the same enhanceClass in input Array
+     *                                 2. input audioEnhanceProperties are not supported by current device.
+     *                                 3. names of enhanceProp or enhanceClass are incorrect.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 12
+     */
+    setAudioEnhanceProperty(propertyArray: Array<AudioEnhanceProperty>): void;
+
+    /**
+     * Gets current audio enhance properties.
+     * @returns { Array<AudioEnhanceProperty> } Array of current audio enhance properties.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 12
+     */
+    getAudioEnhanceProperty(): Array<AudioEnhanceProperty>;
+
+    /**
      * Listens for audio renderer change events. When there is any audio renderer change,
      * registered clients will receive the callback.
      * @param { 'audioRendererChange' } type - Type of the event to listen for. Only the audioRendererChange event is supported.
@@ -7191,6 +7261,14 @@ declare namespace audio {
      * @since 12
      */
     SOURCE_TYPE_VOICE_MESSAGE = 10,
+
+    /**
+     * Source type for voice transcription and processing.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 12
+     */
+    SOURCE_TYPE_VOICE_TRANSCRIPTION = 12,
   }
 
   /**
@@ -9208,6 +9286,60 @@ declare namespace audio {
      * @since 11
      */
     CH_LAYOUT_AMB_ORDER3_FUMA = 0x100000000103
+  }
+
+  /**
+   * Describes an audio effect property.
+   * @typedef AudioEffectProperty
+   * @syscap SystemCapability.Multimedia.Audio.Renderer
+   * @systemapi
+   * @since 12
+   */
+  interface AudioEffectProperty {
+    /**
+     * Name of effect property.
+     * @type { string }
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     * @since 12
+     */
+    effectProp: string;
+
+    /**
+     * Name of effect class the effectProp belongs to.
+     * @type { string }
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     * @since 12
+     */
+    effectClass: string;
+  }
+
+  /**
+   * Describes an audio enhance property.
+   * @typedef AudioEnhanceProperty
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   * @systemapi
+   * @since 12
+   */
+  interface AudioEnhanceProperty {
+    /**
+     * Name of enhance property.
+     * @type { string }
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 12
+     */
+    enhanceProp: string;
+
+    /**
+     * Name of enhance class the enhanceProp belongs to.
+     * @type { string }
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 12
+     */
+    enhanceClass: string;
   }
 }
 
