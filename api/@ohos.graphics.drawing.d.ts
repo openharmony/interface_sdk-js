@@ -1586,21 +1586,21 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    FONT_EDGING_ALIAS = 0,
+    ALIAS = 0,
 
     /**
      * May have transparent pixels on glyph edges.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    FONT_EDGING_ANTI_ALIAS = 1,
+    ANTI_ALIAS = 1,
 
     /**
      * Glyph positioned in pixel using transparency.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    FONT_EDGING_SUBPIXEL_ANTI_ALIAS = 2
+    SUBPIXEL_ANTI_ALIAS = 2
   }
   
   /**
@@ -1615,28 +1615,28 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    FONT_HINTING_NONE = 0,
+    NONE = 0,
 
     /**
      * Minimal modification to improve contrast.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    FONT_HINTING_SLIGHT = 1,
+    SLIGHT = 1,
 
     /**
      * Glyph outlines modified to improve contrast.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    FONT_HINTING_NORMAL = 2,
+    NORMAL = 2,
     
     /**
      * Modifies glyph outlines for maximum contrast.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    FONT_HINTING_FULL = 3
+    FULL = 3
   }
 
   /**
