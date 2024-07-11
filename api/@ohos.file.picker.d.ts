@@ -769,6 +769,7 @@ declare namespace picker {
    * AudioSelectOptions Object.
    *
    * @syscap SystemCapability.FileManagement.UserFileService
+   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -790,6 +791,13 @@ declare namespace picker {
    *
    * @syscap SystemCapability.FileManagement.UserFileService
    * @since 9
+   */
+  /**
+   * AudioSaveOptions Object
+   *
+   * @syscap SystemCapability.FileManagement.UserFileService
+   * @crossplatform
+   * @since 12
    */
   class AudioSaveOptions {
     /**
@@ -815,6 +823,13 @@ declare namespace picker {
    *
    * @syscap SystemCapability.FileManagement.UserFileService
    * @since 9
+   */
+  /**
+   * AudioViewPicker Object
+   *
+   * @syscap SystemCapability.FileManagement.UserFileService
+   * @crossplatform
+   * @since 12
    */
   class AudioViewPicker {
     /**
