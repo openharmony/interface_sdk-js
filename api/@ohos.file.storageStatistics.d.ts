@@ -118,6 +118,7 @@ parameters are left unspecified;
     /**
      * The size of application installation data.
      *
+     * @type { number }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
      * @since 9
      */
@@ -126,6 +127,7 @@ parameters are left unspecified;
     /**
      * The size of application cache data.
      *
+     * @type { number }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
      * @since 9
      */
@@ -134,6 +136,7 @@ parameters are left unspecified;
     /**
      * The size of application local data, distributed data and database data.
      *
+     * @type { number }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
      * @since 9
      */
@@ -285,6 +288,7 @@ parameters are left unspecified;
     /**
      * The total size of device.
      *
+     * @type { number }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
      * @systemapi
      * @since 9
@@ -294,6 +298,7 @@ parameters are left unspecified;
     /**
      * The size of audio file.
      *
+     * @type { number }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
      * @systemapi
      * @since 9
@@ -303,6 +308,7 @@ parameters are left unspecified;
     /**
      * The size of video file.
      *
+     * @type { number }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
      * @systemapi
      * @since 9
@@ -312,6 +318,7 @@ parameters are left unspecified;
     /**
      * The size of image file.
      *
+     * @type { number }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
      * @systemapi
      * @since 9
@@ -321,6 +328,7 @@ parameters are left unspecified;
     /**
      * The size of other file.
      *
+     * @type { number }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
      * @systemapi
      * @since 9
@@ -330,6 +338,7 @@ parameters are left unspecified;
     /**
      * The size of application.
      *
+     * @type { number }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
      * @systemapi
      * @since 9

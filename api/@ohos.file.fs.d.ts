@@ -5998,6 +5998,7 @@ interface CopyOptions {
 /**
  * Listener of copy progress.
  *
+ * @typedef { ProgressListener }
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 11
  */
