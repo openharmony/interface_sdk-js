@@ -261,6 +261,7 @@ declare namespace media {
    * Manages and plays sound. Before calling an SoundPool method, you must use createSoundPool()
    * to create an SoundPool instance.
    *
+   * @typedef SoundPool
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
    */
@@ -269,6 +270,7 @@ declare namespace media {
   /**
    * Describes play parameters.
    *
+   * @typedef PlayParameters
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
    */
@@ -1823,6 +1825,7 @@ declare namespace media {
     /**
      * Media URI. Mainstream media formats are supported.
      * Network:http://xxx
+     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -1843,6 +1846,7 @@ declare namespace media {
      */
     /**
      * Media file descriptor. Mainstream media formats are supported.
+     * @type { ?AVFileDescriptor }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -1863,6 +1867,7 @@ declare namespace media {
      */
     /**
      * DataSource descriptor. Supports mainstream media formats.
+     * @type { ?AVDataSrcDescriptor }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -1877,6 +1882,7 @@ declare namespace media {
      */
     /**
      * Whether to loop media playback.
+     * @type { boolean }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -1895,6 +1901,7 @@ declare namespace media {
      * Describes audio interrupt mode, refer to {@link #audio.InterruptMode}. If it is not
      * set, the default mode will be used. Set it before calling the {@link #play()} in the
      * first time in order for the interrupt mode to become effective thereafter.
+     * @type { ?audio.InterruptMode }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
@@ -1912,6 +1919,7 @@ declare namespace media {
      * Describes audio renderer info, refer to {@link #audio.AudioRendererInfo}. Set it before
      * calling the {@link #prepare()} in the first time in order for the audio renderer info to
      * become effective thereafter.
+     * @type { ?audio.AudioRendererInfo }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
@@ -1925,6 +1933,7 @@ declare namespace media {
      */
     /**
      * Obtains the current audio effect mode, refer to {@link #audio.AudioEffectMode}.
+     * @type { ?audio.AudioEffectMode }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
@@ -1938,6 +1947,7 @@ declare namespace media {
      */
     /**
      * Current playback position.
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -1958,6 +1968,7 @@ declare namespace media {
      */
     /**
      * Playback duration, When the data source does not support seek, it returns - 1, such as a live broadcast scenario.
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -1972,6 +1983,7 @@ declare namespace media {
      */
     /**
      * Playback state.
+     * @type { AVPlayerState }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -1992,6 +2004,7 @@ declare namespace media {
      */
     /**
      * Video player will use this id get a surface instance.
+     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -2006,6 +2019,7 @@ declare namespace media {
      */
     /**
      * Video width, valid after prepared.
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -2020,6 +2034,7 @@ declare namespace media {
      */
     /**
      * Video height, valid after prepared.
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -2036,6 +2051,7 @@ declare namespace media {
     /**
      * Video scale type. By default, the {@link #VIDEO_SCALE_TYPE_FIT} will be used, for more
      * information, refer to {@link #VideoScaleType} .
+     * @type { ?VideoScaleType }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -2941,6 +2957,7 @@ declare namespace media {
   interface PlaybackStrategy {
     /**
      * Choose a stream with width close to it.
+     * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 12
@@ -2948,6 +2965,7 @@ declare namespace media {
     preferredWidth?: number;
     /**
      * Choose a stream with height close to it.
+     * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 12
@@ -2955,6 +2973,7 @@ declare namespace media {
     preferredHeight?: number;
     /**
      * Choose a preferred buffer duration.
+     * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 12
@@ -2963,6 +2982,7 @@ declare namespace media {
 
     /**
      * If true, the player should choose HDR stream if exist.
+     * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 12
@@ -3015,6 +3035,7 @@ declare namespace media {
     /**
      * The file descriptor of audio or video source from file system. The caller
      * is responsible to close the file descriptor.
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -3038,6 +3059,7 @@ declare namespace media {
     /**
      * The offset into the file where the data to be read, in bytes. By default,
      * the offset is zero.
+     * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -3061,6 +3083,7 @@ declare namespace media {
     /**
      * The length in bytes of the data to be read. By default, the length is the
      * rest of bytes in the file from the offset.
+     * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -3113,6 +3136,7 @@ declare namespace media {
     /**
      * Size of the file, -1 means the file size is unknown, in this case,
      * seek and setSpeed can't be executed, loop can't be set, and can't replay.
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -3147,6 +3171,7 @@ declare namespace media {
      * pos - The stream position player want get start, and is an optional parameter.
      * When fileSize set to -1, this parameter is not used.
      * Returns length of the data to be filled.
+     * @type { function }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -3189,6 +3214,7 @@ declare namespace media {
 
   /**
    * Describes audio playback states.
+   * @typedef AudioState
    * @syscap SystemCapability.Multimedia.Media.AudioPlayer
    * @since 6
    * @deprecated since 9
@@ -3307,6 +3333,7 @@ declare namespace media {
     /**
      * Audio media URI. Mainstream audio formats are supported.
      * local:fd://XXX, file://XXX. network:http://xxx
+     * @type { string }
      * @permission ohos.permission.READ_MEDIA or ohos.permission.INTERNET
      * @syscap SystemCapability.Multimedia.Media.AudioPlayer
      * @since 6
@@ -3317,6 +3344,7 @@ declare namespace media {
 
     /**
      * Audio file descriptor. Mainstream audio formats are supported.
+     * @type { AVFileDescriptor }
      * @syscap SystemCapability.Multimedia.Media.AudioPlayer
      * @since 9
      * @deprecated since 9
@@ -3326,6 +3354,7 @@ declare namespace media {
 
     /**
      * Whether to loop audio playback. The value true means to loop playback.
+     * @type { boolean }
      * @syscap SystemCapability.Multimedia.Media.AudioPlayer
      * @since 6
      * @deprecated since 9
@@ -3337,6 +3366,7 @@ declare namespace media {
      * Describes audio interrupt mode, refer to {@link #audio.InterruptMode}. If it is not
      * set, the default mode will be used. Set it before calling the {@link #play()} in the
      * first time in order for the interrupt mode to become effective thereafter.
+     * @type { ?audio.InterruptMode }
      * @syscap SystemCapability.Multimedia.Media.AudioPlayer
      * @since 9
      * @deprecated since 9
@@ -3346,6 +3376,7 @@ declare namespace media {
 
     /**
      * Current playback position.
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Media.AudioPlayer
      * @since 6
      * @deprecated since 9
@@ -3355,6 +3386,7 @@ declare namespace media {
 
     /**
      * Playback duration, When the data source does not support seek, it returns - 1, such as a live broadcast scenario.
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Media.AudioPlayer
      * @since 6
      * @deprecated since 9
@@ -3364,6 +3396,7 @@ declare namespace media {
 
     /**
      * Playback state.
+     * @type { AudioState }
      * @syscap SystemCapability.Multimedia.Media.AudioPlayer
      * @since 6
      * @deprecated since 9
@@ -3881,6 +3914,7 @@ declare namespace media {
      */
     /**
      * Recorder state.
+     * @type { AVRecorderState }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @atomicservice
@@ -4142,6 +4176,7 @@ declare namespace media {
      */
     /**
      * Latitude.
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @since 12
@@ -4155,6 +4190,7 @@ declare namespace media {
      */
     /**
      * Longitude.
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @since 12
@@ -4175,6 +4211,7 @@ declare namespace media {
     /**
      * Audio encoding format. The default value is DEFAULT, it will be deprecated after API8.
      * use "audioEncoderMime" instead.
+     * @type { ?AudioEncoder }
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6
      * @deprecated since 8
@@ -4184,6 +4221,7 @@ declare namespace media {
 
     /**
      * Audio encoding bit rate.
+     * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6
      * @deprecated since 9
@@ -4192,6 +4230,7 @@ declare namespace media {
 
     /**
      * Audio sampling rate.
+     * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6
      * @deprecated since 9
@@ -4200,6 +4239,7 @@ declare namespace media {
 
     /**
      * Number of audio channels.
+     * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6
      * @deprecated since 9
@@ -4209,6 +4249,7 @@ declare namespace media {
     /**
      * Audio output format. The default value is DEFAULT, it will be deprecated after API8.
      * it will be replaced with "fileFormat".
+     * @type { ?AudioOutputFormat }
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6
      * @deprecated since 8
@@ -4221,6 +4262,7 @@ declare namespace media {
      * format like: scheme + "://" + "context".
      * file:  file://path
      * fd:    fd://fd
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6
      * @deprecated since 9
@@ -4229,6 +4271,7 @@ declare namespace media {
 
     /**
      * Geographical location information.
+     * @type { ?Location }
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6
      * @deprecated since 9
@@ -4237,6 +4280,7 @@ declare namespace media {
 
     /**
      * audio encoding format MIME. it used to replace audioEncoder.
+     * @type { ?CodecMimeType }
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 8
      * @deprecated since 9
@@ -4244,6 +4288,7 @@ declare namespace media {
     audioEncoderMime?: CodecMimeType;
     /**
      * output file format. see @ContainerFormatType , it used to replace "format".
+     * @type { ?ContainerFormatType }
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 8
      * @deprecated since 9
@@ -4355,6 +4400,8 @@ declare namespace media {
   /**
   * The maintenance of this interface has been stopped since version api 9. Please use AVRecorderState.
   * Describes video recorder states.
+  * 
+  * @typedef VideoRecordState
   * @syscap SystemCapability.Multimedia.Media.VideoRecorder
   * @systemapi
   * @since 9
@@ -4568,6 +4615,7 @@ declare namespace media {
 
     /**
      * video recorder state.
+     * @type { VideoRecordState }
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9
@@ -4577,6 +4625,7 @@ declare namespace media {
 
   /**
    * Describes video playback states.
+   * @typedef VideoPlayState
    * @syscap SystemCapability.Multimedia.Media.VideoPlayer
    * @since 8
    * @deprecated since 9
@@ -4914,6 +4963,7 @@ declare namespace media {
     /**
      * media url. Mainstream video formats are supported.
      * local:fd://XXX, file://XXX. network:http://xxx
+     * @type { string }
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @since 8
      * @deprecated since 9
@@ -4923,6 +4973,7 @@ declare namespace media {
 
     /**
      * Video file descriptor. Mainstream video formats are supported.
+     * @type { AVFileDescriptor }
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @since 9
      * @deprecated since 9
@@ -4932,6 +4983,7 @@ declare namespace media {
 
     /**
      * Whether to loop video playback. The value true means to loop playback.
+     * @type { boolean }
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @since 8
      * @deprecated since 9
@@ -4941,6 +4993,7 @@ declare namespace media {
 
     /**
      * Current playback position.
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @since 8
      * @deprecated since 9
@@ -4950,6 +5003,7 @@ declare namespace media {
 
     /**
      * Playback duration, if -1 means cannot seek.
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @since 8
      * @deprecated since 9
@@ -4959,6 +5013,7 @@ declare namespace media {
 
     /**
      * Playback state.
+     * @type { VideoPlayState }
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @since 8
      * @deprecated since 9
@@ -4968,6 +5023,7 @@ declare namespace media {
 
     /**
      * video width, valid after prepared.
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @since 8
      * @deprecated since 9
@@ -4977,6 +5033,7 @@ declare namespace media {
 
     /**
      * video height, valid after prepared.
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @since 8
      * @deprecated since 9
@@ -4988,6 +5045,7 @@ declare namespace media {
      * Describes audio interrupt mode, refer to {@link #audio.InterruptMode}. If it is not
      * set, the default mode will be used. Set it before calling the {@link #play()} in the
      * first time in order for the interrupt mode to become effective thereafter.
+     * @type { ?audio.InterruptMode }
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @since 9
      * @deprecated since 9
@@ -4998,6 +5056,7 @@ declare namespace media {
     /**
      * video scale type. By default, the {@link #VIDEO_SCALE_TYPE_FIT} will be used, for more
      * information, refer to {@link #VideoScaleType}
+     * @type { ?VideoScaleType }
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @since 9
      * @deprecated since 9
@@ -5423,6 +5482,7 @@ declare namespace media {
   interface VideoRecorderProfile {
     /**
      * Indicates the audio bit rate.
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9
@@ -5431,6 +5491,7 @@ declare namespace media {
 
     /**
      * Indicates the number of audio channels.
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9
@@ -5439,6 +5500,7 @@ declare namespace media {
 
     /**
      * Indicates the audio encoding format.
+     * @type { CodecMimeType }
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9
@@ -5447,6 +5509,7 @@ declare namespace media {
 
     /**
      * Indicates the audio sampling rate.
+     * @type { CodecMimeType }
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9
@@ -5455,6 +5518,7 @@ declare namespace media {
 
     /**
      * Indicates the output file format.
+     * @type { ContainerFormatType }
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9
@@ -5463,6 +5527,7 @@ declare namespace media {
 
     /**
      * Indicates the video bit rate.
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9
@@ -5471,6 +5536,7 @@ declare namespace media {
 
     /**
      * Indicates the video encoding format.
+     * @type { CodecMimeType }
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9
@@ -5479,6 +5545,7 @@ declare namespace media {
 
     /**
      * Indicates the video width.
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9
@@ -5487,6 +5554,7 @@ declare namespace media {
 
     /**
      * Indicates the video height.
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9
@@ -5495,6 +5563,7 @@ declare namespace media {
 
     /**
      * Indicates the video frame rate.
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9
@@ -5599,6 +5668,7 @@ declare namespace media {
   interface VideoRecorderConfig {
     /**
      * audio source type, details see @AudioSourceType .
+     * @type { ?AudioSourceType }
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9
@@ -5606,6 +5676,7 @@ declare namespace media {
     audioSourceType?: AudioSourceType;
     /**
      * video source type, details see @VideoSourceType .
+     * @type { VideoSourceType }
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9
@@ -5613,6 +5684,7 @@ declare namespace media {
     videoSourceType: VideoSourceType;
     /**
      * video recorder profile, can get by "getVideoRecorderProfile", details see @VideoRecorderProfile .=
+     * @type { VideoRecorderProfile }
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9
@@ -5622,6 +5694,7 @@ declare namespace media {
      * video output uri.support two kind of uri now.
      * format like: scheme + "://" + "context".
      * fd:    fd://fd
+     * @type { string }
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9
@@ -5630,6 +5703,7 @@ declare namespace media {
     /**
      * Sets the video rotation angle in output file, and for the file to playback. mp4 support.
      * the range of rotation angle should be {0, 90, 180, 270}, default is 0.
+     * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9
@@ -5637,6 +5711,7 @@ declare namespace media {
     rotation?: number;
     /**
      * geographical location information.
+     * @type { ?Location }
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9
@@ -5766,6 +5841,7 @@ declare namespace media {
      */
     /**
      * Indicates the audio bitrate.
+     * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @atomicservice
@@ -5780,6 +5856,7 @@ declare namespace media {
      */
     /**
      * Indicates the number of audio channels.
+     * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @atomicservice
@@ -5794,6 +5871,7 @@ declare namespace media {
      */
     /**
      * Indicates the audio encoding format.
+     * @type { ?CodecMimeType }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @atomicservice
@@ -5808,6 +5886,7 @@ declare namespace media {
      */
     /**
      * Indicates the audio sampling rate.
+     * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @atomicservice
@@ -5822,6 +5901,7 @@ declare namespace media {
      */
     /**
      * Indicates the output file format.
+     * @type { ContainerFormatType }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @atomicservice
@@ -5836,6 +5916,7 @@ declare namespace media {
      */
     /**
      * Indicates the video bitrate.
+     * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @since 12
@@ -5849,6 +5930,7 @@ declare namespace media {
      */
     /**
      * Indicates the video encoding format.
+     * @type { ?CodecMimeType }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @since 12
@@ -5862,6 +5944,7 @@ declare namespace media {
      */
     /**
      * Indicates the video width.
+     * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @since 12
@@ -5875,6 +5958,7 @@ declare namespace media {
      */
     /**
      * Indicates the video height.
+     * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @since 12
@@ -5888,6 +5972,7 @@ declare namespace media {
      */
     /**
      * Indicates the video frame rate.
+     * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @since 12
@@ -5943,6 +6028,7 @@ declare namespace media {
      */
     /**
      * Audio source type, details see @AudioSourceType .
+     * @type { ?AudioSourceType }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @atomicservice
@@ -5956,6 +6042,7 @@ declare namespace media {
      */
     /**
      * Video source type, details see @VideoSourceType .
+     * @type { ?VideoSourceType }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @since 12
@@ -5968,6 +6055,7 @@ declare namespace media {
      */
     /**
      * Video recorder profile, details see @AVRecorderProfile .
+     * @type { AVRecorderProfile }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @atomicservice
@@ -5983,6 +6071,7 @@ declare namespace media {
     /**
      * File output uri, support a kind of uri now.
      * format like: "fd://" + "context".
+     * @type { string }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @atomicservice
@@ -5992,6 +6081,7 @@ declare namespace media {
     /**
      * Sets the video rotation angle in output file, and for the file to playback, mp4 support
      * the range of rotation angle should be {0, 90, 180, 270}, default is 0.
+     * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9
      * @deprecated since 12
@@ -6000,6 +6090,7 @@ declare namespace media {
     rotation?: number;
     /**
      * Geographical location information.
+     * @type { ?Location }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9
      * @deprecated since 12
@@ -6374,48 +6465,56 @@ declare namespace media {
   interface AVScreenCaptureRecordConfig {
     /**
      * Indicates record file descriptor.
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     fd: number;
     /**
      * Indicates video frame width.
+     * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     frameWidth?: number;
     /**
      * Indicates video frame height.
+     * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     frameHeight?: number;
     /**
      * Indicates video bitrate.
+     * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     videoBitrate?: number;
     /**
      * Indicates audio sample rate.
+     * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     audioSampleRate?: number;
     /**
      * Indicates audio channel count.
+     * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     audioChannelCount?: number;
     /**
      * Indicates audio bitrate.
+     * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     audioBitrate?: number;
     /**
      * Indicates AVScreenCaptureRecordPreset, details see @AVScreenCaptureRecordPreset
+     * @type { ?AVScreenCaptureRecordPreset }
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
@@ -6534,6 +6633,7 @@ declare namespace media {
   interface AVTranscoderConfig {
     /**
      * Indicates the audio bitrate.
+     * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12
      */
@@ -6541,6 +6641,7 @@ declare namespace media {
 
     /**
      * Indicates the audio encoding format.
+     * @type { ?CodecMimeType }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12
      */
@@ -6548,6 +6649,7 @@ declare namespace media {
 
     /**
      * Indicates the output file format.
+     * @type { ContainerFormatType }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12
      */
@@ -6563,6 +6665,7 @@ declare namespace media {
 
     /**
      * Indicates the video encoding foramt.
+     * @type { ?CodecMimeType }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12
      */
@@ -6570,6 +6673,7 @@ declare namespace media {
 
     /**
      * Indicates the video width.
+     * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12
      */
@@ -6577,6 +6681,7 @@ declare namespace media {
 
     /**
      * Indicates the video height.
+     * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12
      */
@@ -6595,6 +6700,7 @@ declare namespace media {
   interface AVTranscoder {
     /**
      * Source media file descriptor. Mainstream media formats are supported.
+     * @type { AVFileDescriptor }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12
      */
