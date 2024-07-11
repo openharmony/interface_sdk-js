@@ -2880,15 +2880,13 @@ declare namespace drawing {
      *
      * @param { Path } src - The path read to create a filled version.
      * @param { Path } dst - The resulting path (may be the same as src).
-     * @param { common2D.Rect } rect - Rect limits the PathEffect area if pen has PathEffect.
-     * @param { drawing.Matrix } matrix - A transformation applied to PathEffect if pen has PathEffect.
      * @returns { boolean } true if the path should be filled, or false if it should be drawn with a hairline (width == 0)
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    getFillPath(src: Path, dst: Path, rect: common2D.Rect, matrix: drawing.Matrix): boolean;
+    getFillPath(src: Path, dst: Path): boolean;
   }
 
   /**
