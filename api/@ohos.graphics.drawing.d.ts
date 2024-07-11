@@ -1223,29 +1223,6 @@ declare namespace drawing {
     restoreToCount(count: number): void;
 
     /**
-     * Read pixels data from canvas.
-     * @param { ImageInfo } info - width, height, colorType, and alphaType of dstPixels.
-     * @param { ArrayBuffer } dstPixels - destination pixel storage.
-     * @param { number } dstRowBytes - size of one row of pixels.
-     * @param { number } srcX - offset into canvas writable pixels on x-axis.
-     * @param { number } srcY - offset into canvas writable pixels on y-axis.
-     * @returns { boolean } true if pixels are copied to dstPixels.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
-     */
-    readPixels(info: ImageInfo, dstPixels: ArrayBuffer, dstRowBytes: number, srcX: number, srcY: number): boolean;
-
-    /**
-     * Gets image info of canvas.
-     * @returns { ImageInfo } Return image info.
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
-     */
-    getImageInfo(): ImageInfo;
-
-    /**
      * Gets the number of the canvas status (canvas matrix) saved in the stack.
      * @returns { number } Return represent depth of save state stack.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2968,29 +2945,6 @@ declare namespace drawing {
     getColor(): common2D.Color;
 
     /**
-     * Set the color of the brush.
-     * @param { common2D.Color } color - The range of color channels must be [0, 255].
-     * @param { ColorSpace } colorSpace - Color space [SRGB, SRGBLinear].
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
-     */
-    setColor(color: common2D.Color, colorSpace?: ColorSpace): void;
-    /**
-     * Set the ARGB color of the brush.
-     * @param { number } alpha - Alpha channel of color. The range of alpha must be [0, 255].
-     * @param { number } red - Red channel of color. The range of red must be [0, 255].
-     * @param { number } green - Green channel of color. The range of green must be [0, 255].
-     * @param { number } blue - Blue channel of color. The range of blue must be [0, 255].
-     * @param { ColorSpace } colorSpace - Color space [SRGB, SRGBLinear].
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
-     */
-    setColor(alpha: number, red: number, green: number, blue: number, colorSpace?: ColorSpace): void;
-    /**
      * Requests, but does not require, that edge pixels draw opaque or with partial transparency.
      * @param { boolean } aa - Setting for antialiasing.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -3602,172 +3556,6 @@ declare namespace drawing {
   }
 
   /**
-   * Enumerates alpha formats of bitmap pixels.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
-   */
-  enum AlphaFormat {
-
-    /**
-     * Unknown format.
-     *
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
-     */
-    UNKNOWN = 0,
-
-    /**
-     * The bitmap does not have the alpha component.
-     *
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
-     */
-    OPAQUE = 1,
-
-    /**
-     * The color component of each pixel is premultiplied by the alpha component.
-     *
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
-     */
-    PREMUL = 2,
-
-    /**
-     * The color component of each pixel is not premultiplied by the alpha component.
-     *
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
-     */
-    UNPREMUL = 3
-  }
-
-  /**
-   * Enumerates color formats of bitmap pixels.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
-   */
-  enum ColorFormat {
-
-    /**
-     * Unknown format.
-     *
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
-     */
-    UNKNOWN = 0,
-
-    /**
-     * Each pixel is represented by 8 bits, which together indicate alpha.
-     *
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
-     */
-    ALPHA_8 = 1,
-
-    /**
-     * Each pixel is represented by 16 bits. From the most significant bit to the least significant bit,
-     * the first 5 bits indicate red, the subsequent 6 bits indicate green, and the last 5 bits indicate blue.
-     *
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
-     */
-    RGB_565 = 2,
-
-    /**
-     * Each pixel is represented by 16 bits. From the most significant bit to the least significant bit,
-     * every 4 bits indicate alpha, red, green, and blue, respectively.
-     *
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
-     */
-    ARGB_4444 = 3,
-
-    /**
-     * Each pixel is represented by 32 bits. From the most significant bit to the least significant bit,
-     * every 8 bits indicate red, green, blue, and alpha, respectively.
-     *
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
-     */
-    RGBA_8888 = 4,
-
-    /**
-     * Each pixel is represented by 32 bits. From the most significant bit to the least significant bit,
-     * every 8 bits indicate blue, green, red and alpha, respectively.
-     *
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
-     */
-    BGRA_8888 = 5
-  }
-
-  /**
-   * Describes image information.
-   *
-   * @typedef ImageInfo
-   * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
-   */
-  interface ImageInfo {
-    /**
-     * Width
-     *
-     * @type { number }
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
-     */
-    width: number;
-
-    /**
-     * Height
-     *
-     * @type { number }
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
-     */
-    height: number;
-
-    /**
-     * Indicates image color format.
-     *
-     * @type { ColorFormat }
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
-     */
-    colorType: ColorFormat;
-
-    /**
-     * Indicates image alpha type.
-     *
-     * @type { AlphaFormat }
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
-     */
-    alphaType: AlphaFormat;
-  }
-
-  /**
-   * Defines a surface, which is used to manage the pixels that a canvas draws into.
-   * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
-   */
-  class Surface {
-    /**
-     * Gets the canvas that draws into surface.
-     * @returns { Canvas } Returns the Canvas object.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
-     */
-    getCanvas(): Canvas;
-  }
-
-  /**
    * Defines the options about GPU context.
    *
    * @typedef GpuContextOptions
@@ -3783,36 +3571,6 @@ declare namespace drawing {
      * @since 12
      */
     allowPathMaskCaching: boolean;
-  }
-
-  /**
-   * Defines a GPU context, which is used to describe the GPU backend context.
-   * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
-   */
-  class GpuContext {
-    /**
-     * Constructor for the GpuContext.
-     * Creates an GpuContext object, whose GPU backend context is GL.
-     * @param { GpuContextOptions } gpuContextOptions - Indicates the GPU context options.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
-     */
-    constructor(gpuContextOptions: GpuContextOptions);
-
-    /**
-     * Creates a Surface object on GPU indicated by context.
-     * @param { boolean } budgeted - Indicates whether an allocation should count against a cache budget.
-     * @param { ImageInfo } imageInfo - Indicates the image info.
-     * @returns { Surface } Returns the Surface object created.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
-     */
-    createSurface(budgeted: boolean, imageInfo: ImageInfo): Surface;
   }
 
   /**
