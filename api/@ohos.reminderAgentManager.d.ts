@@ -768,22 +768,8 @@ declare namespace reminderAgentManager {
    * @since 12
    */
   interface ReminderInfo {
-    /**
-     * reminder id.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 12
-     */
     reminderId: number;
-  
-    /**
-     * reminder request.
-     *
-     * @type { ReminderRequest }
-     * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 12
-     */
+
     reminderReq: ReminderRequest;
   }
 
