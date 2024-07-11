@@ -68,7 +68,8 @@ export interface SystemTonePlayer {
    * Get supported haptics features currently.
    * @returns { Promise<Array<systemSoundManager.ToneHapticsFeature>> } Promise used to return result of this call.
    * @throws { BusinessError } 202 - Caller is not a system application.
-   * @syscap SystemCapability.Multimedia.SystemSound.Haptics
+   * @throws { BusinessError } 20700003 - Unsupported operation.
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 12
    */
@@ -82,7 +83,8 @@ export interface SystemTonePlayer {
    *                                 1.Mandatory parameters are left unspecified;
    *                                 2.Incorrect parameter types.
    * @throws { BusinessError } 5400102 - Operation not allowed.
-   * @syscap SystemCapability.Multimedia.SystemSound.Haptics
+   * @throws { BusinessError } 20700003 - Unsupported operation.
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 12
    */
@@ -92,7 +94,8 @@ export interface SystemTonePlayer {
    * Get haptic feature that is used when playing.
    * @returns { systemSoundManager.ToneHapticsFeature } haptics feature that is used when playing.
    * @throws { BusinessError } 202 - Caller is not a system application.
-   * @syscap SystemCapability.Multimedia.SystemSound.Haptics
+   * @throws { BusinessError } 20700003 - Unsupported operation.
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 12
    */
