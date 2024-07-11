@@ -866,7 +866,7 @@ declare namespace drawing {
     constructor(pixelmap: image.PixelMap);
 
     /**
-     * Draws a rect. If rectangle is stroked, use pen to stroke width describes the line thickness,
+     * If rectangle is stroked, use pen to stroke width describes the line thickness,
      * else use brush to fill the rectangle.
      * @param { common2D.Rect } rect - Rectangle to draw.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -950,7 +950,7 @@ declare namespace drawing {
       ambientColor: common2D.Color, spotColor: common2D.Color, flag: ShadowFlag) : void;
 
     /**
-     * Draws a circle. If radius is zero or less, nothing is drawn. If circle is stroked, use pen to
+     * If radius is zero or less, nothing is drawn. If circle is stroked, use pen to
      * stroke width describes the line thickness, else use brush to fill the circle.
      * @param { number } x - X coordinate of the circle center.
      * @param { number } y - Y coordinate of the circle center.
@@ -1068,7 +1068,7 @@ declare namespace drawing {
 
     /**
      * Draws a path.
-     * @param { Path } path - path to draw.
+     * @param { Path } path - Path to draw.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
