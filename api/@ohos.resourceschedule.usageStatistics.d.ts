@@ -454,7 +454,7 @@ declare namespace usageStatistics {
 
     /**
      * The bundle name
-     * @type { number }
+     * @type { string }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
      * @since 9
