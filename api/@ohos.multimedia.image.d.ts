@@ -3178,6 +3178,53 @@ declare namespace image {
   }
 
   /**
+   * Describes the options for image sequence packing.
+   *
+   * @typedef PackingOptionsForSequence
+   * @syscap SystemCapability.Multimedia.Image.ImagePacker
+   * @since 12
+   */
+  interface PackingOptionsForSequence {
+    /**
+     * Specify the number of frames.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @since 12
+     */
+    frameCount: number;
+
+    /**
+     * Specify the delay time for each frame of the dynamic image.
+     * If the length is less than frameCount, the missing parts will be filling with the last value
+     *
+     * @type { Array<number> }
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @since 12
+     */
+    delayTimeList: Array<number>;
+
+    /**
+     * Specify the disposal types of each frame in the image sequence packing.
+     *
+     * @type { ?Array<number> }
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @since 12
+     */
+    disposalTypes?: Array<number>;
+
+    /**
+     * Specify the number of times the loop should, the range is [0, 65535]
+     * If this loop is equal to 0, it will be infinite loop.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @since 12
+     */
+    loopCount?: number;
+  }
+
+  /**
    * Describes image properties.
    *
    * @typedef GetImagePropertyOptions
@@ -7144,6 +7191,17 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     packing(source: PixelMap, option: PackingOption): Promise<ArrayBuffer>;
 
     /**
+     * Compresses or packs some images into an arraybuffer and uses a promise to return the result.
+     *
+     * @param { Array<PixelMap> } pixelmapSequence PixelMaps to be processed.
+     * @param { PackingOptionsForSequence } options Options for image packing.
+     * @returns { Promise<ArrayBuffer> } A Promise instance used to return the operation result.
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @since 12
+     */
+    packing(pixelmapSequence: Array<PixelMap>, options: PackingOptionsForSequence): Promise<ArrayBuffer>;
+
+    /**
      * Compresses or packs an image into a file and uses a callback to return the result.
      *
      * @param { ImageSource } source Image to be processed.
@@ -7194,6 +7252,18 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 11
      */
     packToFile(source: PixelMap, fd: number, options: PackingOption): Promise<void>;
+
+    /**
+     * Compresses or packs some images into a file and uses a promise to return the result.
+     *
+     * @param { Array<PixelMap> } pixelmapSequence PixelMaps to be processed.
+     * @param { number } fd ID of a file descriptor.
+     * @param { PackingOptionsForSequence } options Options for image packing.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @since 12
+     */
+    packToFile(pixelmapSequence: Array<PixelMap>, fd: number, options: PackingOptionsForSequence): Promise<void>;
 
      /**
      * Releases an ImagePacker instance and uses a callback to return the result.
