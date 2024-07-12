@@ -3443,7 +3443,7 @@ declare namespace drawing {
     constructor();
 
     /**
-     * Constructor for the RoundRect.
+     * Create a RoundRect with round corners.
      * @param { common2D.Rect } rect - original rectangle.
      * @param { number} xRad - Indicates the corner radii on x-axis.
      * @param { number } yRad - Indicates the corner radii on y-axis.
