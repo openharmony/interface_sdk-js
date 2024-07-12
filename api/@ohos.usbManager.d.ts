@@ -361,6 +361,9 @@ declare namespace usbManager {
    * @param { USBDevicePipe } pipe - device pipe, which is used to determine the bus number and device address. It cannot be empty.
    * @param { USBInterface } iface - USB interface, which is used to determine the interface to release. It cannot be empty.
    * @returns { number } returns **0** if the USB interface is successfully released; returns an error code otherwise.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1.Mandatory parameters are left unspecified.
+   * <br>2.Incorrect parameter types. 
    * @syscap SystemCapability.USB.USBManager
    * @since 9
    */
