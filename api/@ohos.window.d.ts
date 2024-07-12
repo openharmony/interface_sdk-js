@@ -1144,16 +1144,6 @@ declare namespace window {
      * @since 12
      */
     windowStatusType: WindowStatusType;
-
-    /**
-     * The type of a window.
-     *
-     * @type { WindowType }
-     * @syscap SystemCapability.Window.SessionManager
-     * @systemapi
-     * @since 12
-     */
-    windowType: WindowType;
   }
 
   /**
