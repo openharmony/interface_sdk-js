@@ -718,7 +718,7 @@ function addApiNumberSheet(relationsSet: Set<string>, workbook: ExcelJS.Workbook
     '差异项-旧版本',
     '差异项-新版本',
     '兼容性列表',
-    '全路径',
+    '接口全路径',
     '是否为系统API'
   ];
   let diffTypeNumberArr: DiffNumberInfo[] = [];
@@ -744,7 +744,9 @@ function addApiNumberSheet(relationsSet: Set<string>, workbook: ExcelJS.Workbook
           .setSubsystem(kitData.subsystemMap.get(dtsName.replace(/\\/g, '/').replace('api/', '')))
           .setApiName(diffInfo.getApiType() === ApiType.SOURCE_FILE ? 'SOURCEFILE' : getDiffApiName(diffInfo))
           .setApiRelation(getRelation(diffInfo).replace(/\,/g, '#').replace('api\\', ''))
-          .setIsSystemapi(diffInfo.getIsSystemapi());
+          .setIsSystemapi(diffInfo.getIsSystemapi())
+          .setApiType(diffInfo.getApiType())
+          .setIsSameNameFunction(diffInfo.getIsSameNameFunction());
       }
     });
     diffTypeNumberArr.push(diffNumberInfo);
@@ -758,7 +760,7 @@ function addApiNumberSheet(relationsSet: Set<string>, workbook: ExcelJS.Workbook
       diffNumberInfo.getSubsystem(),
       diffNumberInfo.getIsApi(),
       diffNumberInfo.getApiType(),
-      diffNumberInfo.getAllDiffType().join(' #&# '),
+      `${diffNumberInfo.getAllDiffType().join(' #&# ')} #&# ${diffNumberInfo.getIsSameNameFunction()}`,
       diffNumberInfo.getAllChangeType().join(' #&# '),
       getCompatibleObject(diffNumberInfo),
       calculateChangeNumber(diffNumberInfo),

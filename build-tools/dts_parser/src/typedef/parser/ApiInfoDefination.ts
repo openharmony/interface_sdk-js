@@ -66,7 +66,7 @@ export class BasicApiInfo {
   jsDocText: string = '';
   isJoinType: boolean = false;
   genericInfo: GenericInfo[] = [];
-  parentApiType: string | undefined = '';
+  parentApiType: string = '';
   fileAbsolutePath: string = ''; //绝对路径
 
   constructor(apiType: string = '', node: ts.Node, parentApi: BasicApiInfo | undefined) {
@@ -149,10 +149,12 @@ export class BasicApiInfo {
   }
 
   setParentApiType(parentApiType: string | undefined): void {
-    this.parentApiType = parentApiType;
+    if (parentApiType) {
+      this.parentApiType = parentApiType; 
+    }
   }
 
-  getParentApiType(): string | undefined {
+  getParentApiType(): string {
     return this.parentApiType;
   }
 
@@ -672,6 +674,7 @@ export class MethodInfo extends ApiInfo {
   returnValueType: ts.SyntaxKind = ts.SyntaxKind.Unknown;
   typeLocations: Comment.JsDocInfo[] = []; // 参数、返回值的JsDoc信息
   objLocations: Comment.JsDocInfo[] = []; // 匿名类型的JsDoc信息
+  isRequired: boolean = false;
 
   setCallForm(callForm: string): void {
     this.callForm = callForm;
@@ -735,6 +738,14 @@ export class MethodInfo extends ApiInfo {
 
   getSync(): string {
     return this.sync;
+  }
+
+  setIsRequired(isRequired: boolean):void {
+    this.isRequired = isRequired;
+  }
+
+  getIsRequired(): boolean {
+    return this.isRequired;
   }
 }
 
