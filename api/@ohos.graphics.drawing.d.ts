@@ -704,13 +704,12 @@ declare namespace drawing {
     /**
      * Determines whether the current contour is closed.
      * 
-     * @param { boolean } forceClosed - Whether to close the path.
      * @return { boolean } - Returns true if the current contour is closed, otherwise false.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    isClosed(forceClosed: boolean): boolean;
+    isClosed(): boolean;
 
     /**
      * Computes the corresponding matrix at the specified distance.
