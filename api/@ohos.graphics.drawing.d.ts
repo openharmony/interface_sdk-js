@@ -1334,6 +1334,16 @@ declare namespace drawing {
     clipRect(rect: common2D.Rect, clipOp?: ClipOp, doAntiAlias?: boolean): void;
 
     /**
+     * Uses the passed matrix to transforming the geometry, then use existing matrix.
+     * @param { Matrix } matrix - Declares functions related to the matrix object in the drawing module.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    concatMatrix(matrix: Matrix): void;
+
+    /**
      * Replace the clipping area with the intersection or difference of the
      * current clipping area and Region, and use a clipping edge that is aliased or anti-aliased.
      * @param { Region } region - Region object.
@@ -1375,16 +1385,6 @@ declare namespace drawing {
      * @since 12
      */
     setMatrix(matrix: Matrix): void;
-
-    /**
-     * Uses the passed matrix to transforming the geometry, then use existing matrix.
-     * @param { Matrix } matrix - Declares functions related to the matrix object in the drawing module.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
-     */
-    concatMatrix(matrix: Matrix): void;
 
     /**
      * Sets matrix of canvas to the identity matrix.
@@ -1576,71 +1576,71 @@ declare namespace drawing {
   }
 
   /**
-   * Enumerate edging. Whether edge pixels draw opaque or with partial transparency.
+   * Enumerates text edging types.
+   *
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
   enum FontEdging {
     /**
-     * No transparent pixels on glyph edges
+     * Uses anti aliasing, default value.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     ALIAS = 0,
 
     /**
-     * May have transparent pixels on glyph edges.
+     * Uses sub-pixel anti aliasing.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     ANTI_ALIAS = 1,
 
     /**
-     * Glyph positioned in pixel using transparency.
+     * Uses sub-pixel anti aliasing and enable sub-pixel localization.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    SUBPIXEL_ANTI_ALIAS = 2
+    SUBPIXEL_ANTI_ALIAS = 2,
   }
-  
+
   /**
-   * Enumerate hinting. Level of glyph outline adjustment.
+   * Enumerates text hinting types.
+   *
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
   enum FontHinting {
     /**
-     * Glyph outlines unchanged.
+     * Not use text hinting.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     NONE = 0,
 
     /**
-     * Minimal modification to improve contrast.
+     * Uses slight text hinting.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     SLIGHT = 1,
 
     /**
-     * Glyph outlines modified to improve contrast.
+     * Uses normal text hinting.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     NORMAL = 2,
-    
+
     /**
-     * Modifies glyph outlines for maximum contrast.
+     * Uses full text hinting.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    FULL = 3
+    FULL = 3,
   }
-
-  /**
 
   /**
    * Font controls options applied when drawing and measuring text.
@@ -1786,6 +1786,17 @@ declare namespace drawing {
     setHinting(hinting: FontHinting): void;
 
     /**
+     * Calculates number of glyphs represented by text.
+     * @param { string } text - Indicates the character storage encoded with text encoding.
+     * @returns { number } Returns the count of text.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    countText(text: string): number;
+
+    /**
      * Gets whether the font uses sub-pixel rendering.
      * @returns { boolean } Returns <b>true</b> if the font uses sub-pixel rendering; returns <b>false</b> otherwise.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1920,7 +1931,7 @@ declare namespace drawing {
      * @since 12
      */
     getEdging(): FontEdging;
- }
+  }
 
   /**
    * Indicate when certain metrics are valid; the underline or strikeout metrics may be valid and zero.
@@ -2451,30 +2462,6 @@ declare namespace drawing {
     static createMatrixColorFilter(matrix: Array<Number>): ColorFilter;
   }
 
-    /**
-   * ColorSpace is an optional object in the drawing pipeline.
-   * 
-   * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
-   */
-    class ColorSpace {
-      /**
-       * Creates a ColorSpace object that represents the SRGB color space.
-       * @returns { ColorSpace } ColorSpace object.
-       * @static
-       * @syscap SystemCapability.Graphics.Drawing
-       * @since 12
-       */
-      static createSrgb(): ColorSpace;
-      /**
-       * Creates a ColorSpace object with the SRGB primaries, but a linear (1.0) gamma.
-       * @returns { ColorSpace } ColorSpace object.
-       * @static
-       * @syscap SystemCapability.Graphics.Drawing
-       * @since 12
-       */
-      static createSrgbLinear(): ColorSpace;
-    }
   /**
    * ImageFilters are optional objects in the drawing pipeline.
    *
