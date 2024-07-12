@@ -1246,6 +1246,8 @@ declare namespace taskpool {
    * <br>1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types;
    * <br>3. Parameter verification failed.
+   * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+   * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
    * @throws { BusinessError } 10200028 - The delayTime is less than zero.
    * @throws { BusinessError } 10200051 - The periodic task cannot be executed again.
    * @syscap SystemCapability.Utils.Lang
