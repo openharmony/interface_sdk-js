@@ -518,6 +518,22 @@ declare namespace commonEventManager {
     COMMON_EVENT_THERMAL_LEVEL_CHANGED = 'usual.event.THERMAL_LEVEL_CHANGED',
 
     /**
+     * This commonEvent means when the device is about to enter the sleep mode
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @since 12
+     */
+    COMMON_EVENT_ENTER_SLEEP = 'usual.event.ENTER_SLEEP',
+
+    /**
+     * This commonEvent means when the device exits the sleep mode
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @since 12
+     */
+    COMMON_EVENT_EXIT_SLEEP = 'usual.event.EXIT_SLEEP',
+
+    /**
      * This commonEvent means when the user is present after the device is awakened.
      *
      * @syscap SystemCapability.Notification.CommonEvent
