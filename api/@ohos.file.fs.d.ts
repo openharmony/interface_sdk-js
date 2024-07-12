@@ -5998,6 +5998,8 @@ interface CopyOptions {
 /**
  * Listener of copy progress.
  *
+ * @typedef { function } ProgressListener
+ * @param { Progress } progress - indicates the progress data of copyFile
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 11
  */
@@ -7880,6 +7882,7 @@ export interface ReadOptions {
  * ReadTextOptions type
  *
  * @interface ReadTextOptions
+ * @extends ReadOptions
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @atomicservice
  * @since 11
@@ -7900,6 +7903,7 @@ export interface ReadTextOptions extends ReadOptions {
  * WriteOptions type
  *
  * @interface WriteOptions
+ * @extends Options
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @atomicservice
  * @since 11
