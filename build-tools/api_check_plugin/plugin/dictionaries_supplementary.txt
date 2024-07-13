@@ -329,6 +329,7 @@ freesize
 fstat
 fsync
 ftruncate
+fts
 fulfills
 fuma
 furse
