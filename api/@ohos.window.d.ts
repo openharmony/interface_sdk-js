@@ -7456,7 +7456,7 @@ declare namespace window {
   }
 
    /**
-   * The attribute of a window for UiServiceExtensionAbility.
+   * The attribute of extension window.
    *
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
@@ -7488,7 +7488,7 @@ declare namespace window {
   }
 
   /**
-   * Options for system window creation
+   * Options for system window creation.
    *
    * @interface SystemWindowOptions
    * @syscap SystemCapability.Window.SessionManager
@@ -7499,7 +7499,7 @@ declare namespace window {
   interface SystemWindowOptions {
 
     /**
-     * Indicates window type
+     * Indicates window type.
      *
      * @type { WindowType }
      * @syscap SystemCapability.Window.SessionManager
@@ -7522,7 +7522,7 @@ declare namespace window {
   interface ExtensionWindowConfig {
 
     /**
-     * Window name
+     * Window name.
      *
      * @type { string }
      * @syscap SystemCapability.Window.SessionManager
