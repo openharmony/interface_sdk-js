@@ -36,6 +36,7 @@ export interface BundleStatusCallback {
    * Obtains add callback about an launcherStatusCallback.
    *
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
+   * @type { function }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
    * @since 8
@@ -47,6 +48,7 @@ export interface BundleStatusCallback {
    * Obtains update callback about an launcherStatusCallback.
    *
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
+   * @type { function }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
    * @since 8
@@ -58,6 +60,7 @@ export interface BundleStatusCallback {
    * Obtains remove callback about an launcherStatusCallback.
    *
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
+   * @type { function }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
    * @since 8

@@ -278,6 +278,7 @@ declare namespace overlay {
   /**
    * Obtains configuration information about a overlay hap module.
    *
+   * @typedef { _OverlayModuleInfo.OverlayModuleInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
    * @since 10
    */
