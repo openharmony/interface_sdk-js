@@ -7456,7 +7456,7 @@ declare namespace window {
   }
 
    /**
-   * The attribute of the window for UI service extension ability.
+   * Attribute of the window for UI service extension ability.
    *
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
