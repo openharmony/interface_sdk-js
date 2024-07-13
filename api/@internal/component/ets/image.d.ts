@@ -39,6 +39,7 @@ declare type DrawableDescriptor = import ('../api/@ohos.arkui.drawableDescriptor
  * @typedef DrawingColorFilter
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare type DrawingColorFilter = import('../api/@ohos.graphics.drawing').default.ColorFilter;
