@@ -389,6 +389,31 @@ declare namespace webview {
   }
 
   /**
+   * The memory pressure level that can be set.
+   * @enum {number}
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  enum PressureLevel {
+    /**
+     * Modules are advised to free buffers that are cheap to re-allocate and not immediately needed.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    MEMORY_PRESSURE_LEVEL_MODERATE = 1,
+
+    /**
+     * At this level, modules are advised to free all possible memory.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    MEMORY_PRESSURE_LEVEL_CRITICAL = 2
+  }
+
+  /**
    * Defines the hit test value, related to {@link getHitTestValue} method.
    *
    * @interface HitTestValue
@@ -4944,6 +4969,18 @@ declare namespace webview {
      * @since 12
      */
     setPathAllowingUniversalAccess(pathList: Array<string>): void;
+
+    /**
+     * Trim memory by different memory pressure level.
+     *
+     * @param { PressureLevel } level - The memory pressure level for the ArkWeb.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Parameter string is too long. 3.Parameter verification failed.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static trimMemoryByPressureLevel(level: PressureLevel): void;
   }
 
   /**
