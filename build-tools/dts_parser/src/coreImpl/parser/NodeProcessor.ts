@@ -1132,7 +1132,7 @@ export class ModifierHelper {
     }
     if (containerApiTypes.has(apiInfo.apiType)) {
       definedText += ` ${apiInfo.getApiType().toLowerCase()} ${apiInfo.getApiName()}`;
-      apiInfo.setDefinedText(definedText);
+      apiInfo.setDefinedText(definedText.trim());
     }
   }
 }
