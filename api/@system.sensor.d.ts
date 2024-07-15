@@ -31,6 +31,7 @@ export interface AccelerometerResponse {
    * X-coordinate
    *
    * @permission ohos.permission.ACCELEROMETER
+   * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3
    * @deprecated since 8
@@ -41,6 +42,7 @@ export interface AccelerometerResponse {
     * Y-coordinate
     *
     * @permission ohos.permission.ACCELEROMETER
+    * @type { number }
     * @syscap SystemCapability.Sensors.Sensor.Lite
     * @since 3
     * @deprecated since 8
@@ -51,6 +53,7 @@ export interface AccelerometerResponse {
     * Z-coordinate
     *
     * @permission ohos.permission.ACCELEROMETER
+    * @type { number }
     * @syscap SystemCapability.Sensors.Sensor.Lite
     * @since 3
     * @deprecated since 8
@@ -76,6 +79,7 @@ export interface subscribeAccelerometerOptions {
    * The default value is normal.
    * 
    * @permission ohos.permission.ACCELEROMETER
+   * @type { string }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3
    * @deprecated since 8
@@ -86,6 +90,7 @@ export interface subscribeAccelerometerOptions {
    * Called when acceleration sensor data changes.
    *
    * @permission ohos.permission.ACCELEROMETER
+   * @type { function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3
    * @deprecated since 8
@@ -96,6 +101,7 @@ export interface subscribeAccelerometerOptions {
    * Called when the listening fails.
    *
    * @permission ohos.permission.ACCELEROMETER
+   * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3
    * @deprecated since 8
@@ -114,6 +120,7 @@ export interface CompassResponse {
   /**
    * Direction of the device (in degrees).
    * 
+   * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3
    * @deprecated since 8
@@ -132,6 +139,7 @@ export interface SubscribeCompassOptions {
   /**
    * Called when compass sensor data changes.
    * 
+   * @type { function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3
    * @deprecated since 8
@@ -141,6 +149,7 @@ export interface SubscribeCompassOptions {
   /**
    * Called when the listening fails.
    * 
+   * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3
    * @deprecated since 8
@@ -159,6 +168,7 @@ export interface ProximityResponse {
   /**
    * Distance between a visible object and the device screen
    * 
+   * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3
    * @deprecated since 8
@@ -176,7 +186,8 @@ export interface ProximityResponse {
 export interface SubscribeProximityOptions {
   /**
    * Called when distance sensor data changes.
-   * * 
+   *
+   * @type { function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3
    * @deprecated since 8
@@ -185,7 +196,8 @@ export interface SubscribeProximityOptions {
 
   /**
    * Called when the listening fails.
-   * * 
+   * 
+   * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3
    * @deprecated since 8
@@ -204,6 +216,7 @@ export interface LightResponse {
   /**
    * Light intensity, in lux.
    * 
+   * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3
    * @deprecated since 8
@@ -222,6 +235,7 @@ export interface SubscribeLightOptions {
   /**
    * Called when ambient light sensor data changes.
    * 
+   * @type { function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3
    * @deprecated since 8
@@ -231,6 +245,7 @@ export interface SubscribeLightOptions {
   /**
    * Called when the listening fails.
    * 
+   * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3
    * @deprecated since 8
@@ -252,6 +267,7 @@ export interface StepCounterResponse {
    * Each time the device restarts, the value is recalculated from 0 in phone, tablet.
    * 
    * @permission ohos.permission.ACTIVITY_MOTION
+   * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3
    * @deprecated since 8
@@ -272,6 +288,7 @@ export interface SubscribeStepCounterOptions {
    * Called when step counter sensor data changes.
    * 
    * @permission ohos.permission.ACTIVITY_MOTION
+   * @type { function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3
    * @deprecated since 8
@@ -282,6 +299,7 @@ export interface SubscribeStepCounterOptions {
    * Called when the listening fails.
    * 
    * @permission ohos.permission.ACTIVITY_MOTION
+   * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3
    * @deprecated since 8
@@ -300,6 +318,7 @@ export interface BarometerResponse {
   /**
    * Pressure, in hpa.
    * 
+   * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3
    * @deprecated since 8
@@ -318,6 +337,7 @@ export interface SubscribeBarometerOptions {
   /**
    * Called when the barometer sensor data changes.
    * 
+   * @type { function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3
    * @deprecated since 8
@@ -327,6 +347,7 @@ export interface SubscribeBarometerOptions {
   /**
    * Called when the listening fails.
    * 
+   * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3
    * @deprecated since 8
@@ -348,6 +369,7 @@ export interface HeartRateResponse {
    * 255 indicates an invalid value in lite wearable.
    * 
    * @permission ohos.permission.READ_HEALTH_DATA
+   * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3
    * @deprecated since 8
@@ -368,6 +390,7 @@ export interface SubscribeHeartRateOptions {
    * Called when the heart rate sensor data changes.
    * 
    * @permission ohos.permission.READ_HEALTH_DATA
+   * @type { function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3
    * @deprecated since 8
@@ -378,6 +401,7 @@ export interface SubscribeHeartRateOptions {
    * Called when the listening fails
    * 
    * @permission ohos.permission.READ_HEALTH_DATA
+   * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3
    * @deprecated since 8
@@ -396,6 +420,7 @@ export interface OnBodyStateResponse {
   /**
    * Whether the sensor is worn.
    * 
+   * @type { boolean }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3
    * @deprecated since 8
@@ -414,6 +439,7 @@ export interface SubscribeOnBodyStateOptions {
   /**
    * Called when the wearing status changes.
    * 
+   * @type { function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3
    * @deprecated since 8
@@ -423,6 +449,7 @@ export interface SubscribeOnBodyStateOptions {
   /**
    * Called when the listening fails.
    * 
+   * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3
    * @deprecated since 8
@@ -441,6 +468,7 @@ export interface GetOnBodyStateOptions {
   /**
    * Called when the sensor wearing state is obtained
    * 
+   * @type { function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3
    * @deprecated since 8
@@ -450,6 +478,7 @@ export interface GetOnBodyStateOptions {
   /**
    * Called when the sensor wearing state fails to be obtained
    * 
+   * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3
    * @deprecated since 8
@@ -459,6 +488,7 @@ export interface GetOnBodyStateOptions {
   /**
    * Called when the execution is completed
    * 
+   * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3
    * @deprecated since 8
@@ -477,6 +507,7 @@ export interface DeviceOrientationResponse {
   /**
    * alpha
    * 
+   * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 6
    * @deprecated since 8
@@ -486,6 +517,7 @@ export interface DeviceOrientationResponse {
   /**
    * beta
    * 
+   * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 6
    * @deprecated since 8
@@ -495,6 +527,7 @@ export interface DeviceOrientationResponse {
   /**
    * gamma
    * 
+   * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 6
    * @deprecated since 8
@@ -518,6 +551,7 @@ export interface SubscribeDeviceOrientationOptions {
    *   3. normal: Regular frequency (200 ms per callback), which is application to low power consumption.
    * The default value is normal.
    * 
+   * @type { string }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 6
    * @deprecated since 8
@@ -527,6 +561,7 @@ export interface SubscribeDeviceOrientationOptions {
   /**
    * Called when device orientation sensor data changes.
    * 
+   * @type { function}
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 6
    * @deprecated since 8
@@ -536,6 +571,7 @@ export interface SubscribeDeviceOrientationOptions {
   /**
    * Called when the listening fails.
    * 
+   * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 6
    * @deprecated since 8
@@ -556,6 +592,7 @@ export interface GyroscopeResponse {
    * X-coordinate
    * 
    * @permission ohos.permission.GYROSCOPE
+   * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 6
    * @deprecated since 8
@@ -566,6 +603,7 @@ export interface GyroscopeResponse {
    * Y-coordinate
    * 
    * @permission ohos.permission.GYROSCOPE
+   * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 6
    * @deprecated since 8
@@ -576,6 +614,7 @@ export interface GyroscopeResponse {
    * Z-coordinate
    * 
    * @permission ohos.permission.GYROSCOPE
+   * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 6
    * @deprecated since 8
@@ -601,6 +640,7 @@ export interface SubscribeGyroscopeOptions {
    * The default value is normal.
    * 
    * @permission ohos.permission.GYROSCOPE
+   * @type { string }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 6
    * @deprecated since 8
@@ -611,6 +651,7 @@ export interface SubscribeGyroscopeOptions {
    * Called when gyroscope sensor data changes.
    * 
    * @permission ohos.permission.GYROSCOPE
+   * @type { function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 6
    * @deprecated since 8
@@ -621,6 +662,7 @@ export interface SubscribeGyroscopeOptions {
    * Called when the listening fails.
    * 
    * @permission ohos.permission.GYROSCOPE
+   * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 6
    * @deprecated since 8
