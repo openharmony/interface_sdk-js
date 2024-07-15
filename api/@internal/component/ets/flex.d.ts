@@ -30,8 +30,8 @@
  *
  * @interface FlexOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines the options of Flex.
@@ -39,8 +39,8 @@
  * @interface FlexOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines the options of Flex.
@@ -48,9 +48,9 @@
  * @interface FlexOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare interface FlexOptions {
   /**
@@ -65,8 +65,8 @@ declare interface FlexOptions {
    *
    * @type { ?FlexDirection }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Sets the horizontal layout of elements.
@@ -74,8 +74,8 @@ declare interface FlexOptions {
    * @type { ?FlexDirection }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Sets the horizontal layout of elements.
@@ -83,9 +83,9 @@ declare interface FlexOptions {
    * @type { ?FlexDirection }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   direction?: FlexDirection;
 
@@ -101,8 +101,8 @@ declare interface FlexOptions {
    *
    * @type { ?FlexWrap }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Whether the Flex container is a single row/column arrangement or a multi-row/column arrangement.
@@ -110,8 +110,8 @@ declare interface FlexOptions {
    * @type { ?FlexWrap }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Whether the Flex container is a single row/column arrangement or a multi-row/column arrangement.
@@ -119,9 +119,9 @@ declare interface FlexOptions {
    * @type { ?FlexWrap }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   wrap?: FlexWrap;
 
@@ -137,8 +137,8 @@ declare interface FlexOptions {
    *
    * @type { ?FlexAlign }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * The alignment format of the subassembly on the Flex container spindle.
@@ -146,8 +146,8 @@ declare interface FlexOptions {
    * @type { ?FlexAlign }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * The alignment format of the subassembly on the Flex container spindle.
@@ -155,9 +155,9 @@ declare interface FlexOptions {
    * @type { ?FlexAlign }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   justifyContent?: FlexAlign;
 
@@ -173,8 +173,8 @@ declare interface FlexOptions {
    *
    * @type { ?ItemAlign }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Alignment Format for Subassembly on Flex Container Cross Axis.
@@ -182,8 +182,8 @@ declare interface FlexOptions {
    * @type { ?ItemAlign }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Alignment Format for Subassembly on Flex Container Cross Axis.
@@ -191,9 +191,9 @@ declare interface FlexOptions {
    * @type { ?ItemAlign }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   alignItems?: ItemAlign;
 
@@ -209,8 +209,8 @@ declare interface FlexOptions {
    *
    * @type { ?FlexAlign }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * The alignment of multiple lines of content when there is extra space in the cross axis.
@@ -218,8 +218,8 @@ declare interface FlexOptions {
    * @type { ?FlexAlign }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * The alignment of multiple lines of content when there is extra space in the cross axis.
@@ -227,9 +227,9 @@ declare interface FlexOptions {
    * @type { ?FlexAlign }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   alignContent?: FlexAlign;
 
@@ -289,8 +289,8 @@ declare interface FlexSpaceOptions {
  *
  * @interface FlexInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Provides a monthly view component to display information such as date, shift break, and schedule.
@@ -298,8 +298,8 @@ declare interface FlexSpaceOptions {
  * @interface FlexInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Provides a monthly view component to display information such as date, shift break, and schedule.
@@ -307,9 +307,9 @@ declare interface FlexSpaceOptions {
  * @interface FlexInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 interface FlexInterface {
   /**
@@ -326,8 +326,8 @@ interface FlexInterface {
    * @param { FlexOptions } value
    * @returns { FlexAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Defines the constructor of Flex.
@@ -336,8 +336,8 @@ interface FlexInterface {
    * @returns { FlexAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Defines the constructor of Flex.
@@ -346,9 +346,9 @@ interface FlexInterface {
    * @returns { FlexAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   (value?: FlexOptions): FlexAttribute;
 }
@@ -365,8 +365,8 @@ interface FlexInterface {
  *
  * @extends CommonMethod<FlexAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines the Flex attribute functions.
@@ -374,8 +374,8 @@ interface FlexInterface {
  * @extends CommonMethod<FlexAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines the Flex attribute functions.
@@ -383,9 +383,9 @@ interface FlexInterface {
  * @extends CommonMethod<FlexAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare class FlexAttribute extends CommonMethod<FlexAttribute> {
   /**
@@ -410,25 +410,25 @@ declare class FlexAttribute extends CommonMethod<FlexAttribute> {
  * Defines Flex Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines Flex Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines Flex Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const Flex: FlexInterface;
 
@@ -442,24 +442,24 @@ declare const Flex: FlexInterface;
  * Defines Flex Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines Flex Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines Flex Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const FlexInstance: FlexAttribute;
