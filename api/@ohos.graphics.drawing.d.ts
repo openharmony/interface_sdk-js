@@ -372,6 +372,13 @@ declare namespace drawing {
    */
   class Path {
     /**
+     * Creates a Path from other path.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    constructor(path: Path);
+
+    /**
      * Sets the start point of a path
      * @param { number } x - Indicates the x coordinate of the start point.
      * @param { number } y - Indicates the y coordinate of the start point.
