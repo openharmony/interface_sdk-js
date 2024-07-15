@@ -1124,20 +1124,20 @@ declare namespace geoLocationManager {
     /**
      * Satellite constellation type array.
      *
-     * @type { Array<SatelliteConstellationCategory> }
+     * @type { ?Array<SatelliteConstellationCategory> }
      * @syscap SystemCapability.Location.Location.Gnss
      * @since 12
      */
-    satelliteConstellation: Array<SatelliteConstellationCategory>;
+    satelliteConstellation?: Array<SatelliteConstellationCategory>;
 
     /**
      * Satellite additional information array.
      *
-     * @type { Array<number> }
+     * @type { ?Array<number> }
      * @syscap SystemCapability.Location.Location.Gnss
      * @since 12
      */
-    satelliteAdditionalInfo: Array<number>;
+    satelliteAdditionalInfo?: Array<number>;
   }
 
   /**
@@ -2105,52 +2105,52 @@ declare namespace geoLocationManager {
     /**
      * Indicates vertical position accuracy in meters.
      *
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 12
      */
-    altitudeAccuracy: number;
+    altitudeAccuracy?: number;
 
     /**
      * Indicates speed accuracy in meter per seconds.
      *
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 12
      */
-    speedAccuracy: number;
+    speedAccuracy?: number;
 
     /**
      * Indicates direction accuracy in degrees.
      *
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 12
      */
-    directionAccuracy: number;
+    directionAccuracy?: number;
 
     /**
      * Time uncertainty Of timeSinceBoot in nanosecond.
      *
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 12
      */
-    uncertaintyOfTimeSinceBoot: number;
+    uncertaintyOfTimeSinceBoot?: number;
 
     /**
      * Indicates the source of the location.
      *
-     * @type { LocationSourceType }
+     * @type { ?LocationSourceType }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 12
      */
-    sourceType: LocationSourceType;
+    sourceType?: LocationSourceType;
   }
 
   /**
