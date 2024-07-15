@@ -3276,7 +3276,7 @@ declare namespace drawing {
     mapPoints(src: Array<common2D.Point>): Array<common2D.Point>;
     /**
      * Return nine scalar values contained by Matrix.
-     * @returns { Array<number> } nine scalar values contained by Matrixю
+     * @returns { Array<number> } nine scalar values contained by Matrix.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
