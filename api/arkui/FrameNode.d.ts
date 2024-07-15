@@ -1274,7 +1274,7 @@ declare class NodeAdapter {
    */
   insertItem(start: number, count: number): void;
   /**
-   * Define data movement operations.Move the data from to forward by 1.
+   * Define data movement operations. Move data from the starting index to the ending index.
    *
    * @param { number } from - Starting index value.
    * @param { number } to - End index value.
@@ -1314,10 +1314,10 @@ declare class NodeAdapter {
    */
   onDetachFromNode?(): void;
   /**
-   * Call this callback when loading for the first time or when a new node slides in.
+   * Call this callback when loading for the first time or when a new node slides in.Used to generate custom IDs, developers need to ensure the uniqueness of the IDs themselves.
    *
    * @param { number } index - Load the index value of the data.
-   * @returns { number } - Returns the index value of the loaded data.
+   * @returns { number } - Returning the developer's custom ID requires the developer to ensure its uniqueness.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1328,7 +1328,7 @@ declare class NodeAdapter {
    * Call this callback when loading for the first time or when a new node slides in.
    *
    * @param { number } index - Load the index value of the data.
-   * @returns { FrameNode } - Returns the FrameNode node that loads the node. The returned here is a FrameNode node of type ListItem.
+   * @returns { FrameNode } - Returns the FrameNode node that loads the node.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1336,10 +1336,10 @@ declare class NodeAdapter {
    */
   onCreateChild?(index: number): FrameNode;
   /**
-   * Call this callback when the old node slides out.
+   * Called when the child node is about to be destroyed.
    *
-   * @param { number } id - Slide out the index value of the node.
-   * @param { FrameNode } node - Slide out the FrameNode node.
+   * @param { number } id - The child node ID that is about to be destroyed.
+   * @param { FrameNode } node - The FrameNode node that is about to be destroyed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
