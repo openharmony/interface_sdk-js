@@ -4893,7 +4893,8 @@ declare namespace audio {
      */
     setSpatializationEnabled(enable: boolean, callback: AsyncCallback<void>): void;
     /**
-     * Sets the spatialization enabled or disabled. This method uses an asynchronous callback to return the result.
+     * Sets the spatialization enabled or disabled by the specified device.
+     * This method uses an asynchronous callback to return the result.
      * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @param { boolean } enable - Spatialization enable state.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
@@ -4925,7 +4926,8 @@ declare namespace audio {
      */
     setSpatializationEnabled(enable: boolean): Promise<void>;
     /**
-     * Sets the spatialization enabled or disabled. This method uses a promise to return the result.
+     * Sets the spatialization enabled or disabled by the specified device.
+     * This method uses a promise to return the result.
      * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @param { boolean } enable - Spatialization enable state.
      * @param { AudioDeviceDescriptor } deviceDescriptor - Audio device description.
@@ -5044,7 +5046,8 @@ declare namespace audio {
      */
     setHeadTrackingEnabled(enable: boolean, callback: AsyncCallback<void>): void;
     /**
-     * Sets the head tracking enabled or disabled. This method uses an asynchronous callback to return the result.
+     * Sets the head tracking enabled or disabled by the specified device.
+     * This method uses an asynchronous callback to return the result.
      * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @param { boolean } enable - Head tracking enable state.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
@@ -5076,7 +5079,8 @@ declare namespace audio {
      */
     setHeadTrackingEnabled(enable: boolean): Promise<void>;
     /**
-     * Sets the head tracking enabled or disabled. This method uses a promise to return the result.
+     * Sets the head tracking enabled or disabled by the specified device.
+     * This method uses a promise to return the result.
      * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @param { boolean } enable - Head tracking enable state.
      * @param { AudioDeviceDescriptor } deviceDescriptor - Audio device description.
