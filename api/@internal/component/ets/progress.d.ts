@@ -30,8 +30,8 @@
  *
  * @interface ProgressOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines the option of Progress.
@@ -39,8 +39,8 @@
  * @interface ProgressOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines the option of Progress.
@@ -48,9 +48,9 @@
  * @interface ProgressOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare interface ProgressOptions<Type extends keyof ProgressStyleMap> {
   /**
@@ -65,8 +65,8 @@ declare interface ProgressOptions<Type extends keyof ProgressStyleMap> {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Sets the value of Progress.
@@ -74,8 +74,8 @@ declare interface ProgressOptions<Type extends keyof ProgressStyleMap> {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Sets the value of Progress.
@@ -83,9 +83,9 @@ declare interface ProgressOptions<Type extends keyof ProgressStyleMap> {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   value: number;
 
@@ -101,8 +101,8 @@ declare interface ProgressOptions<Type extends keyof ProgressStyleMap> {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Sets the total of Progress.
@@ -110,8 +110,8 @@ declare interface ProgressOptions<Type extends keyof ProgressStyleMap> {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Sets the total of Progress.
@@ -119,9 +119,9 @@ declare interface ProgressOptions<Type extends keyof ProgressStyleMap> {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   total?: number;
 
@@ -148,8 +148,8 @@ declare interface ProgressOptions<Type extends keyof ProgressStyleMap> {
    *
    * @type { ?Type }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Sets the type of Progress.
@@ -157,8 +157,8 @@ declare interface ProgressOptions<Type extends keyof ProgressStyleMap> {
    * @type { ?Type }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Sets the type of Progress.
@@ -166,9 +166,9 @@ declare interface ProgressOptions<Type extends keyof ProgressStyleMap> {
    * @type { ?Type }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   type?: Type
 }
@@ -185,8 +185,8 @@ declare interface ProgressOptions<Type extends keyof ProgressStyleMap> {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Type of progress bar
@@ -194,8 +194,8 @@ declare interface ProgressOptions<Type extends keyof ProgressStyleMap> {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Type of progress bar
@@ -203,9 +203,9 @@ declare interface ProgressOptions<Type extends keyof ProgressStyleMap> {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare enum ProgressType {
   /**
@@ -218,25 +218,25 @@ declare enum ProgressType {
    * Linear progress bar style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Linear progress bar style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Linear progress bar style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   Linear = 0,
 
@@ -250,25 +250,25 @@ declare enum ProgressType {
    * Ring progress bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Ring progress bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Ring progress bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   Ring = 1,
 
@@ -282,25 +282,25 @@ declare enum ProgressType {
    * Eclipse progress bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Eclipse progress bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Eclipse progress bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   Eclipse = 2,
 
@@ -314,25 +314,25 @@ declare enum ProgressType {
    * ScaleRing progress bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * ScaleRing progress bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * ScaleRing progress bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   ScaleRing = 3,
 
@@ -346,25 +346,25 @@ declare enum ProgressType {
    * Capsule progress bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Capsule progress bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Capsule progress bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   Capsule = 4
 }
@@ -431,8 +431,8 @@ declare enum ProgressStatus {
  *
  * @interface ProgressStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines style options for progress component.
@@ -440,8 +440,8 @@ declare enum ProgressStatus {
  * @interface ProgressStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines style options for progress component.
@@ -449,9 +449,9 @@ declare enum ProgressStatus {
  * @interface ProgressStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare interface ProgressStyleOptions extends CommonProgressStyleOptions {
   /**
@@ -466,8 +466,8 @@ declare interface ProgressStyleOptions extends CommonProgressStyleOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Defines the strokeWidth property.
@@ -475,8 +475,8 @@ declare interface ProgressStyleOptions extends CommonProgressStyleOptions {
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Defines the strokeWidth property.
@@ -484,9 +484,9 @@ declare interface ProgressStyleOptions extends CommonProgressStyleOptions {
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   strokeWidth?: Length;
 
@@ -502,8 +502,8 @@ declare interface ProgressStyleOptions extends CommonProgressStyleOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Defines the scaleCount property.
@@ -511,8 +511,8 @@ declare interface ProgressStyleOptions extends CommonProgressStyleOptions {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Defines the scaleCount property.
@@ -520,9 +520,9 @@ declare interface ProgressStyleOptions extends CommonProgressStyleOptions {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   scaleCount?: number;
 
@@ -538,8 +538,8 @@ declare interface ProgressStyleOptions extends CommonProgressStyleOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Defines the scaleWidth property.
@@ -547,8 +547,8 @@ declare interface ProgressStyleOptions extends CommonProgressStyleOptions {
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Defines the scaleWidth property.
@@ -556,9 +556,9 @@ declare interface ProgressStyleOptions extends CommonProgressStyleOptions {
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   scaleWidth?: Length;
 }
@@ -997,8 +997,8 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Type of progress bar
@@ -1006,8 +1006,8 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Type of progress bar
@@ -1015,9 +1015,9 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare enum ProgressStyle {
   /**
@@ -1030,25 +1030,25 @@ declare enum ProgressStyle {
    * Linear progress bar style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Linear progress bar style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Linear progress bar style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   Linear,
 
@@ -1062,25 +1062,25 @@ declare enum ProgressStyle {
    * Ring progress bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Ring progress bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Ring progress bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   Ring,
 
@@ -1094,25 +1094,25 @@ declare enum ProgressStyle {
    * Eclipse progress bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Eclipse progress bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Eclipse progress bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   Eclipse,
 
@@ -1126,25 +1126,25 @@ declare enum ProgressStyle {
    * ScaleRing progress bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * ScaleRing progress bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * ScaleRing progress bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   ScaleRing,
 
@@ -1158,25 +1158,25 @@ declare enum ProgressStyle {
    * Capsule progress bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Capsule progress bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Capsule progress bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   Capsule,
 }
@@ -1285,8 +1285,8 @@ declare interface ProgressStyleMap {
  *
  * @interface ProgressInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Provides the progress bar interface.
@@ -1294,8 +1294,8 @@ declare interface ProgressStyleMap {
  * @interface ProgressInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Provides the progress bar interface.
@@ -1303,9 +1303,9 @@ declare interface ProgressStyleMap {
  * @interface ProgressInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 interface ProgressInterface {
   /**
@@ -1322,8 +1322,8 @@ interface ProgressInterface {
    * @param { ProgressOptions<Type> } options
    * @returns { ProgressAttribute<Type> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when the progress bar is set.
@@ -1332,8 +1332,8 @@ interface ProgressInterface {
    * @returns { ProgressAttribute<Type> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when the progress bar is set.
@@ -1342,9 +1342,9 @@ interface ProgressInterface {
    * @returns { ProgressAttribute<Type> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   <Type extends keyof ProgressStyleMap>(options: ProgressOptions<Type>): ProgressAttribute<Type>;
 }
@@ -1361,8 +1361,8 @@ interface ProgressInterface {
  *
  * @extends CommonMethod<ProgressAttribute<Type>>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines the progress attribute functions.
@@ -1370,8 +1370,8 @@ interface ProgressInterface {
  * @extends CommonMethod<ProgressAttribute<Type>>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines the progress attribute functions.
@@ -1379,9 +1379,9 @@ interface ProgressInterface {
  * @extends CommonMethod<ProgressAttribute<Type>>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof ProgressStyleMap,
   Style extends ProgressStyleMap[Type] = ProgressStyleMap[Type]> extends CommonMethod<ProgressAttribute<Type>> {
@@ -1399,8 +1399,8 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
    * @param { number } value
    * @returns { ProgressAttribute<Type> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when the current progress value is set.
@@ -1409,8 +1409,8 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
    * @returns { ProgressAttribute<Type> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when the current progress value is set.
@@ -1419,9 +1419,9 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
    * @returns { ProgressAttribute<Type> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   value(value: number): ProgressAttribute<Type>;
 
@@ -1439,8 +1439,8 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
    * @param { ResourceColor | LinearGradient } value
    * @returns { ProgressAttribute<Type> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when the progress bar foreground is set.
@@ -1449,8 +1449,8 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
    * @returns { ProgressAttribute<Type> } the attribute of the progress.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when the progress bar foreground is set.
@@ -1459,9 +1459,9 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
    * @returns { ProgressAttribute<Type> } the attribute of the progress.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   color(value: ResourceColor | LinearGradient): ProgressAttribute<Type>;
 
@@ -1479,8 +1479,8 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
    * @param { Style } value
    * @returns { ProgressAttribute<Type> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when the style of progress bar is set.
@@ -1489,8 +1489,8 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
    * @returns { ProgressAttribute<Type> } the attribute of the progress.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when the style of progress bar is set.
@@ -1499,9 +1499,9 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
    * @returns { ProgressAttribute<Type> } the attribute of the progress.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   style(value: Style): ProgressAttribute<Type>;
 
@@ -1569,25 +1569,25 @@ declare interface ProgressConfiguration extends CommonConfiguration<ProgressConf
  * Defines Progress Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines Progress Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines Progress Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const Progress: ProgressInterface;
 
@@ -1601,24 +1601,24 @@ declare const Progress: ProgressInterface;
  * Defines Progress Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines Progress Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines Progress Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const ProgressInstance: ProgressAttribute<keyof ProgressStyleMap>;

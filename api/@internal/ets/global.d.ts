@@ -30,25 +30,25 @@
  * Defines the console info.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines the console info.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines the console info.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 export declare class console {
   /**
@@ -65,8 +65,8 @@ export declare class console {
    * @param { string } message - Text to print.
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Prints "debug" logs.
@@ -75,8 +75,8 @@ export declare class console {
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Prints "debug" logs.
@@ -85,9 +85,9 @@ export declare class console {
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   static debug(message: string, ...arguments: any[]): void;
 
@@ -105,8 +105,8 @@ export declare class console {
    * @param { string } message - Text to print.
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Prints "log" logs.
@@ -115,8 +115,8 @@ export declare class console {
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Prints "log" logs.
@@ -125,9 +125,9 @@ export declare class console {
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   static log(message: string, ...arguments: any[]): void;
 
@@ -145,8 +145,8 @@ export declare class console {
    * @param { string } message - Text to print.
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Prints "info" logs.
@@ -155,8 +155,8 @@ export declare class console {
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Prints "info" logs.
@@ -165,9 +165,9 @@ export declare class console {
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   static info(message: string, ...arguments: any[]): void;
 
@@ -185,8 +185,8 @@ export declare class console {
    * @param { string } message - Text to print.
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Prints "warn" logs.
@@ -195,8 +195,8 @@ export declare class console {
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Prints "warn" logs.
@@ -205,9 +205,9 @@ export declare class console {
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   static warn(message: string, ...arguments: any[]): void;
 
@@ -225,8 +225,8 @@ export declare class console {
    * @param { string } message - Text to print.
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Prints "error" logs.
@@ -235,8 +235,8 @@ export declare class console {
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Prints "error" logs.
@@ -245,9 +245,9 @@ export declare class console {
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   static error(message: string, ...arguments: any[]): void;
 

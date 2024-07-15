@@ -30,8 +30,8 @@
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * DataPanelType enum
@@ -39,8 +39,8 @@
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * DataPanelType enum
@@ -48,9 +48,9 @@
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare enum DataPanelType {
   /**
@@ -63,25 +63,25 @@ declare enum DataPanelType {
    * Line Type
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Line Type
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Line Type
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   Line,
 
@@ -95,25 +95,25 @@ declare enum DataPanelType {
    * Line Rainbow
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Line Rainbow
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Line Rainbow
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   Circle,
 }
@@ -255,8 +255,8 @@ declare interface DataPanelShadowOptions extends MultiShadowOptions {
  *
  * @interface DataPanelOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines the options of DataPanel.
@@ -264,8 +264,8 @@ declare interface DataPanelShadowOptions extends MultiShadowOptions {
  * @interface DataPanelOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines the options of DataPanel.
@@ -273,9 +273,9 @@ declare interface DataPanelShadowOptions extends MultiShadowOptions {
  * @interface DataPanelOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare interface DataPanelOptions {
   /**
@@ -290,8 +290,8 @@ declare interface DataPanelOptions {
    *
    * @type { number[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Current data value. the max length is 9.
@@ -299,8 +299,8 @@ declare interface DataPanelOptions {
    * @type { number[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Current data value. the max length is 9.
@@ -308,9 +308,9 @@ declare interface DataPanelOptions {
    * @type { number[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   values: number[];
 
@@ -326,8 +326,8 @@ declare interface DataPanelOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Maximum value of the current data.
@@ -335,8 +335,8 @@ declare interface DataPanelOptions {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Maximum value of the current data.
@@ -344,9 +344,9 @@ declare interface DataPanelOptions {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   max?: number;
 
@@ -362,8 +362,8 @@ declare interface DataPanelOptions {
    *
    * @type { ?DataPanelType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * DataPanel Type
@@ -371,8 +371,8 @@ declare interface DataPanelOptions {
    * @type { ?DataPanelType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * DataPanel Type
@@ -380,9 +380,9 @@ declare interface DataPanelOptions {
    * @type { ?DataPanelType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   type?: DataPanelType;
 }
@@ -399,8 +399,8 @@ declare interface DataPanelOptions {
  *
  * @interface DataPanelInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines the DataPanel component.
@@ -408,8 +408,8 @@ declare interface DataPanelOptions {
  * @interface DataPanelInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines the DataPanel component.
@@ -417,9 +417,9 @@ declare interface DataPanelOptions {
  * @interface DataPanelInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 interface DataPanelInterface {
   /**
@@ -436,8 +436,8 @@ interface DataPanelInterface {
    * @param { DataPanelOptions } options
    * @returns { DataPanelAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Return a DataPanel.
@@ -446,8 +446,8 @@ interface DataPanelInterface {
    * @returns { DataPanelAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Return a DataPanel.
@@ -456,9 +456,9 @@ interface DataPanelInterface {
    * @returns { DataPanelAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   (options: DataPanelOptions): DataPanelAttribute;
 }
@@ -505,8 +505,8 @@ declare interface DataPanelConfiguration extends CommonConfiguration<DataPanelCo
  *
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
  * @form
+ * @since 9
  */
 /**
  * Defines the DataPanel attribute functions.
@@ -514,8 +514,8 @@ declare interface DataPanelConfiguration extends CommonConfiguration<DataPanelCo
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 10
  * @form
+ * @since 10
  */
 /**
  * Defines the DataPanel attribute functions.
@@ -523,9 +523,9 @@ declare interface DataPanelConfiguration extends CommonConfiguration<DataPanelCo
  * @extends CommonMethod<DataPanelAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
   /**
@@ -542,8 +542,8 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
    * @param { boolean } value
    * @returns { DataPanelAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Disable the special effect of the data ratio chart.
@@ -552,8 +552,8 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
    * @returns { DataPanelAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Disable the special effect of the data ratio chart.
@@ -562,9 +562,9 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
    * @returns { DataPanelAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   closeEffect(value: boolean): DataPanelAttribute;
 
@@ -674,25 +674,25 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
  * Defines DataPanel Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines DataPanel Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines DataPanel Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const DataPanel: DataPanelInterface
 
@@ -706,24 +706,24 @@ declare const DataPanel: DataPanelInterface
  * Defines DataPanel Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines DataPanel Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines DataPanel Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const DataPanelInstance: DataPanelAttribute;

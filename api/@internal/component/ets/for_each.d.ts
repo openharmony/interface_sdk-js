@@ -43,8 +43,8 @@ declare class ForEachAttribute extends DynamicNode<ForEachAttribute> {
  *
  * @interface ForEachInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * looping function.
@@ -52,8 +52,8 @@ declare class ForEachAttribute extends DynamicNode<ForEachAttribute> {
  * @interface ForEachInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * looping function.
@@ -61,9 +61,9 @@ declare class ForEachAttribute extends DynamicNode<ForEachAttribute> {
  * @interface ForEachInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 interface ForEachInterface {
   /**
@@ -84,8 +84,8 @@ interface ForEachInterface {
    * @param { function } keyGenerator
    * @returns { ForEachInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Set the value, array, and key.
@@ -96,8 +96,8 @@ interface ForEachInterface {
    * @returns { ForEachInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Set the value, array, and key.
@@ -108,9 +108,9 @@ interface ForEachInterface {
    * @returns { ForEachInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   /**
    * Set the value, array, and key.
@@ -142,24 +142,24 @@ interface ForEachInterface {
  * Defines ForEach Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines ForEach Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines ForEach Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const ForEach: ForEachInterface;

@@ -36,9 +36,9 @@
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare class TextClockController {
   /**
@@ -59,9 +59,9 @@ declare class TextClockController {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   constructor();
   /**
@@ -82,9 +82,9 @@ declare class TextClockController {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   start();
   /**
@@ -105,9 +105,9 @@ declare class TextClockController {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   stop();
 }
@@ -176,9 +176,9 @@ declare interface TextClockConfiguration extends CommonConfiguration<TextClockCo
  * @interface TextClockInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 interface TextClockInterface {
   /**
@@ -214,9 +214,9 @@ interface TextClockInterface {
    * @returns { TextClockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   (options?: { timeZoneOffset?: number; controller?: TextClockController }): TextClockAttribute;
 }
@@ -242,9 +242,9 @@ interface TextClockInterface {
  * @extends CommonMethod<TextClockAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
   /**
@@ -283,9 +283,9 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @returns { TextClockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   format(value: string): TextClockAttribute;
 
@@ -330,9 +330,9 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @returns { TextClockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   onDateChange(event: (value: number) => void): TextClockAttribute;
 
@@ -360,9 +360,9 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @returns { TextClockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   fontColor(value: ResourceColor): TextClockAttribute;
 
@@ -390,9 +390,9 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @returns { TextClockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   fontSize(value: Length): TextClockAttribute;
 
@@ -420,9 +420,9 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @returns { TextClockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   fontStyle(value: FontStyle): TextClockAttribute;
 
@@ -450,9 +450,9 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @returns { TextClockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   fontWeight(value: number | FontWeight | string): TextClockAttribute;
 
@@ -480,9 +480,9 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @returns { TextClockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   fontFamily(value: ResourceStr): TextClockAttribute;
 
@@ -493,8 +493,8 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @returns { TextClockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * Called when the text shadow is set.
@@ -503,9 +503,9 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @returns { TextClockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   textShadow(value: ShadowOptions | Array<ShadowOptions>): TextClockAttribute;
 
@@ -519,8 +519,8 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @returns { TextClockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * Called when the text fontFeature is set.
@@ -532,9 +532,9 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @returns { TextClockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   fontFeature(value: string): TextClockAttribute;
 

@@ -30,8 +30,8 @@
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Load style of progress bar.
@@ -39,8 +39,8 @@
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Load style of progress bar.
@@ -48,9 +48,9 @@
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare enum LoadingProgressStyle {
   /**
@@ -63,25 +63,25 @@ declare enum LoadingProgressStyle {
    * Default style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Default style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Default style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   Default,
 
@@ -95,25 +95,25 @@ declare enum LoadingProgressStyle {
    * Announcement style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Announcement style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Announcement style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   Circular,
 
@@ -127,25 +127,25 @@ declare enum LoadingProgressStyle {
    * The style of the track.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * The style of the track.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * The style of the track.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   Orbital,
 }
@@ -162,8 +162,8 @@ declare enum LoadingProgressStyle {
  *
  * @interface LoadingProgressInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Provides an interface for extending the loading progress.
@@ -171,8 +171,8 @@ declare enum LoadingProgressStyle {
  * @interface LoadingProgressInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Provides an interface for extending the loading progress.
@@ -180,9 +180,9 @@ declare enum LoadingProgressStyle {
  * @interface LoadingProgressInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 interface LoadingProgressInterface {
   /**
@@ -197,8 +197,8 @@ interface LoadingProgressInterface {
    *
    * @returns { LoadingProgressAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when the progress bar progress is viewed.
@@ -206,8 +206,8 @@ interface LoadingProgressInterface {
    * @returns { LoadingProgressAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when the progress bar progress is viewed.
@@ -215,9 +215,9 @@ interface LoadingProgressInterface {
    * @returns { LoadingProgressAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   (): LoadingProgressAttribute;
 }
@@ -234,8 +234,8 @@ interface LoadingProgressInterface {
  *
  * @extends CommonMethod<LoadingProgressAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Declare the progress bar being loaded
@@ -243,8 +243,8 @@ interface LoadingProgressInterface {
  * @extends CommonMethod<LoadingProgressAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Declare the progress bar being loaded
@@ -252,9 +252,9 @@ interface LoadingProgressInterface {
  * @extends CommonMethod<LoadingProgressAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare class LoadingProgressAttribute extends CommonMethod<LoadingProgressAttribute> {
   /**
@@ -271,8 +271,8 @@ declare class LoadingProgressAttribute extends CommonMethod<LoadingProgressAttri
    * @param { ResourceColor } value
    * @returns { LoadingProgressAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Load the color of the progress bar.
@@ -281,8 +281,8 @@ declare class LoadingProgressAttribute extends CommonMethod<LoadingProgressAttri
    * @returns { LoadingProgressAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Load the color of the progress bar.
@@ -291,9 +291,9 @@ declare class LoadingProgressAttribute extends CommonMethod<LoadingProgressAttri
    * @returns { LoadingProgressAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   color(value: ResourceColor): LoadingProgressAttribute;
 
@@ -360,25 +360,25 @@ declare interface LoadingProgressConfiguration extends CommonConfiguration<Loadi
  * Defines LoadingProgress Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines LoadingProgress Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines LoadingProgress Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const LoadingProgress: LoadingProgressInterface;
 
@@ -392,24 +392,24 @@ declare const LoadingProgress: LoadingProgressInterface;
  * Loading Progress Extensions on Declarative Classes
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Loading Progress Extensions on Declarative Classes
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Loading Progress Extensions on Declarative Classes
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const LoadingProgressInstance: LoadingProgressAttribute;
