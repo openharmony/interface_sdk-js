@@ -1400,7 +1400,7 @@ declare namespace drawing {
 
     /**
      * Sets matrix of canvas.
-     * @param { Matrix } matrix - the matrix to replace existing matrix.
+     * @param { Matrix } matrix - Declares functions related to the matrix object in the drawing module.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -3544,24 +3544,6 @@ declare namespace drawing {
      * @since 12
      */
     REPLACE = 5
-  }
-
-  /**
-   * Defines the options about GPU context.
-   *
-   * @typedef GpuContextOptions
-   * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
-   */
-  interface GpuContextOptions {
-    /**
-     * If true this allows path mask textures to be cached
-     *
-     * @type { boolean }
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
-     */
-    allowPathMaskCaching: boolean;
   }
 
   /**
