@@ -373,6 +373,7 @@ declare namespace drawing {
   class Path {
     /**
      * Creates a Path from other path.
+     * @param { Path } path - the path to copy content from.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -700,7 +701,7 @@ declare namespace drawing {
      * @param { number } distance - The distance from the start of the path, should be greater than 0 and less than 'GetLength()'
      * @param { common2D.Point } position - Sets to the position of distance from the starting position of the path.
      * @param { common2D.Point } tangent - Sets to the tangent of distance from the starting position of the path.
-     * @return { boolean } - Returns true if succeeded, otherwise false.
+     * @returns { boolean } - Returns true if succeeded, otherwise false.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -711,7 +712,7 @@ declare namespace drawing {
     /**
      * Determines whether the current contour is closed.
      * 
-     * @return { boolean } - Returns true if the current contour is closed, otherwise false.
+     * @returns { boolean } - Returns true if the current contour is closed, otherwise false.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -725,7 +726,7 @@ declare namespace drawing {
      * @param { number } distance - The distance from the start of the path.
      * @param { drawing.Matrix } matrix - Indicates the pointer to an Matrix object.
      * @param { PathMeasureMatrixFlags } flags - Indicates what should be returned in the matrix.
-     * @return { boolean } - Returns false if there is no path, or a zero-length path was specified, in which case matrix is unchanged.
+     * @returns { boolean } - Returns false if there is no path, or a zero-length path was specified, in which case matrix is unchanged.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -736,7 +737,7 @@ declare namespace drawing {
      * Parses the SVG format string that describes the drawing path, and sets the path.
      *
      * @param { string } str - A string in SVG format that describes the drawing path.
-     * @return { boolean } true if build succeeded, otherwise false.
+     * @returns { boolean } true if build succeeded, otherwise false.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -883,8 +884,8 @@ declare namespace drawing {
     drawRect(rect: common2D.Rect): void;
 
     /**
-     * Draws a roundrect. If rectangle is stroked, use pen to stroke width describes the line thickness,
-     * else use brush to fill the rectangle.
+     * Draws a rectangle with rounded corners. If rectangle is stroked, use pen to stroke width describes the line 
+     * thickness, else use brush to fill the rectangle.
      * @param { RoundRect } roundRect - RoundRect to draw.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -2778,7 +2779,7 @@ declare namespace drawing {
     getColorFilter(): ColorFilter;
     /**
      * Sets ImageFilter to pen
-     * @param { ImageFilter } filter - ImageFilter to apply to subsequent draw.
+     * @param { ImageFilter | null } filter - ImageFilter to apply to subsequent draw.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -3009,7 +3010,7 @@ declare namespace drawing {
     getColorFilter(): ColorFilter;
     /**
      * Sets ImageFilter to brush
-     * @param { ImageFilter } filter - ImageFilter to apply to subsequent draw.
+     * @param { ImageFilter | null } filter - ImageFilter to apply to subsequent draw.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -3275,6 +3276,7 @@ declare namespace drawing {
     mapPoints(src: Array<common2D.Point>): Array<common2D.Point>;
     /**
      * Return nine scalar values contained by Matrix.
+     * @returns { Array<number> } nine scalar values contained by Matrixю
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
