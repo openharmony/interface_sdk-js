@@ -4893,24 +4893,6 @@ declare namespace audio {
      */
     setSpatializationEnabled(enable: boolean, callback: AsyncCallback<void>): void;
     /**
-     * Sets the spatialization enabled or disabled by the specified device.
-     * This method uses an asynchronous callback to return the result.
-     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
-     * @param { boolean } enable - Spatialization enable state.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @param { AudioDeviceDescriptor } deviceDescriptor - Audio device description.
-     * @throws { BusinessError } 201 - Permission denied. Return by callback.
-     * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                 1.Mandatory parameters are left unspecified;
-     *                                 2.Incorrect parameter types.
-     * @throws { BusinessError } 6800101 - Parameter verification failed.
-     * @syscap SystemCapability.Multimedia.Audio.Spatialization
-     * @systemapi
-     * @since 12
-     */
-    setSpatializationEnabled(enable: boolean, callback: AsyncCallback<void>, deviceDescriptor: AudioDeviceDescriptor): void;
-    /**
      * Sets the spatialization enabled or disabled. This method uses a promise to return the result.
      * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @param { boolean } enable - Spatialization enable state.
@@ -5045,24 +5027,6 @@ declare namespace audio {
      * @since 11
      */
     setHeadTrackingEnabled(enable: boolean, callback: AsyncCallback<void>): void;
-    /**
-     * Sets the head tracking enabled or disabled by the specified device.
-     * This method uses an asynchronous callback to return the result.
-     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
-     * @param { boolean } enable - Head tracking enable state.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @param { AudioDeviceDescriptor } deviceDescriptor - Audio device description.
-     * @throws { BusinessError } 201 - Permission denied. Return by callback.
-     * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                 1.Mandatory parameters are left unspecified;
-     *                                 2.Incorrect parameter types.
-     * @throws { BusinessError } 6800101 - Parameter verification failed.
-     * @syscap SystemCapability.Multimedia.Audio.Spatialization
-     * @systemapi
-     * @since 12
-     */
-    setHeadTrackingEnabled(enable: boolean, callback: AsyncCallback<void>, deviceDescriptor: AudioDeviceDescriptor): void;
     /**
      * Sets the head tracking enabled or disabled. This method uses a promise to return the result.
      * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
