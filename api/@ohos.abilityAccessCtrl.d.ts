@@ -824,6 +824,7 @@ export { Permissions };
 /**
  * PermissionRequestResult interface.
  *
+ * @typedef { _PermissionRequestResult }
  * @syscap SystemCapability.Security.AccessToken
  * @stagemodelonly
  * @crossplatform
@@ -832,6 +833,7 @@ export { Permissions };
 /**
  * PermissionRequestResult interface.
  *
+ * @typedef { _PermissionRequestResult }
  * @syscap SystemCapability.Security.AccessToken
  * @stagemodelonly
  * @crossplatform
@@ -842,6 +844,7 @@ export type PermissionRequestResult = _PermissionRequestResult;
 /**
  * Context interface.
  *
+ * @typedef { _Context }
  * @syscap SystemCapability.Security.AccessToken
  * @stagemodelonly
  * @crossplatform
@@ -850,6 +853,7 @@ export type PermissionRequestResult = _PermissionRequestResult;
 /**
  * Context interface.
  *
+ * @typedef { _Context }
  * @syscap SystemCapability.Security.AccessToken
  * @stagemodelonly
  * @crossplatform
