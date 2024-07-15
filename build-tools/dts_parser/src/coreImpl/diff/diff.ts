@@ -53,6 +53,8 @@ export class DiffHelper {
     const oldSDKApiLocations: Map<string, string[]> = DiffHelper.getApiLocations(clonedOldSDKApiMap, isCheck);
     const newSDKApiLocations: Map<string, string[]> = DiffHelper.getApiLocations(clonedNewSDKApiMap, isCheck);
     DiffHelper.diffKit(clonedOldSDKApiMap, clonedNewSDKApiMap, diffInfos);
+    const oldFilePathSet: Set<string> = new Set(Array.from(clonedOldSDKApiMap.keys()));
+    Array.from(clonedOldSDKApiMap.keys())
     // 先以旧版本为基础进行对比
     for (const key of oldSDKApiLocations.keys()) {
       const apiLocation: string[] = oldSDKApiLocations.get(key) as string[];
@@ -81,11 +83,17 @@ export class DiffHelper {
       const locations: string[] = newSDKApiLocations.get(key) as string[];
       const newApiInfos: ApiInfo[] = Parser.getApiInfo(locations, clonedNewSDKApiMap) as ApiInfo[];
       newApiInfos.forEach((newApiInfo: ApiInfo) => {
+        let isNewFile: boolean = true;
+        if (oldFilePathSet.has(newApiInfo.getFilePath())) {
+          isNewFile = false;
+        }
         diffInfos.push(
           DiffProcessorHelper.wrapDiffInfo(
             undefined,
             newApiInfo,
-            new DiffTypeInfo(ApiStatusCode.NEW_API, ApiDiffType.ADD, undefined, newApiInfo.getDefinedText())
+            new DiffTypeInfo(ApiStatusCode.NEW_API, ApiDiffType.ADD, undefined, newApiInfo.getDefinedText()),
+            false,
+            isNewFile
           )
         );
       });

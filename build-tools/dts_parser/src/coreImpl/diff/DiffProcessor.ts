@@ -39,14 +39,12 @@ import {
   diffMap,
   incompatibleApiDiffTypes,
   JsDocDiffProcessor,
-  parentApiTypeSet,
 } from '../../typedef/diff/ApiInfoDiff';
 import { StringUtils } from '../../utils/StringUtils';
 import { CharMapType, CompareReturnObjType, PermissionsProcessorHelper, RangeChange } from './PermissionsProcessor';
 import { DecoratorInfo } from '../../typedef/parser/Decorator';
 import { CommonFunctions } from '../../utils/checkUtils';
 import { NumberConstant } from '../../utils/Constant';
-import { CommentHelper } from '../parser/JsDocProcessor';
 
 export namespace DiffProcessorHelper {
   /**
@@ -1641,14 +1639,15 @@ export namespace DiffProcessorHelper {
     oldApiInfo: BasicApiInfo | undefined = undefined,
     newApiInfo: BasicApiInfo | undefined = undefined,
     diffTypeInfo: DiffTypeInfo,
-    isSameNameFunction?: boolean
+    isSameNameFunction?: boolean,
+    isNewFile?: boolean
   ): BasicDiffInfo {
     const newPropertyInfo = newApiInfo as PropertyInfo;
     const newMethodInfo = newApiInfo as MethodInfo;
     const parentApiType: string = (newApiInfo && newApiInfo.getParentApiType()) ? newApiInfo.getParentApiType() : '';
     let isCompatible = true;
     if (
-      parentApiTypeSet.has(parentApiType) &&
+      !isNewFile && parentApiType === ApiType.INTERFACE &&
       diffTypeInfo.getDiffType() === ApiDiffType.ADD &&
       ((newApiInfo?.getApiType() === ApiType.METHOD && newMethodInfo.getIsRequired()) ||
         (newApiInfo?.getApiType() === ApiType.PROPERTY && newPropertyInfo.getIsRequired()))
