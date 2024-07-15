@@ -678,8 +678,8 @@ declare namespace drawing {
     reset(): void;
 
     /**
-     * Get Path length.
-     * @param { boolean } forceClosed - Whether to close the path.
+     * Get path length.
+     * @param { boolean } forceClosed - Whether to close the Path.
      * @returns { number } Return path length.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
