@@ -260,6 +260,7 @@ declare namespace abilityDelegatorRegistry {
   /**
    * A global test utility interface used for adding AbilityMonitor objects and control lifecycle states of abilities.
    *
+   * @typedef { _AbilityDelegator }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
@@ -283,6 +284,7 @@ declare namespace abilityDelegatorRegistry {
   /**
    * Store unit testing-related parameters, including test case names, and test runner name.
    *
+   * @typedef { _AbilityDelegatorArgs }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
@@ -309,6 +311,7 @@ declare namespace abilityDelegatorRegistry {
    * Provide methods for matching monitored Ability objects that meet specified conditions.
    * The most recently matched Ability objects will be saved in the AbilityMonitor object.
    *
+   * @typedef { _AbilityMonitor }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
@@ -325,6 +328,7 @@ declare namespace abilityDelegatorRegistry {
   /**
    * A object that records the result of shell command executes.
    *
+   * @typedef { _ShellCmdResult }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 11

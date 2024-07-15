@@ -79,7 +79,7 @@ export class LegalityCheck {
       return apiLegalityCheckResult;
     }
     const tagsTag: string[] = [];
-    apiTags.forEach((apiTag: Comment.CommentTag) => { tagsTag.push(apiTag.tag) });
+    apiTags.forEach((apiTag: Comment.CommentTag) => { tagsTag.push(apiTag.tag); });
     if (tagsTag.includes('deprecated')) {
       return apiLegalityCheckResult;
     }
@@ -223,7 +223,7 @@ export class LegalityCheck {
     // check repeat throws
     const orderedThrowsCode: string[] = apiThrowsCode.sort();
     for (var i = 0; i < orderedThrowsCode.length; i++) {
-      if (orderedThrowsCode[i] == orderedThrowsCode[i + 1]) {
+      if (orderedThrowsCode[i] === orderedThrowsCode[i + 1]) {
         apiRepeatThrows.state = false;
         apiRepeatThrows.errorInfo = CommonFunctions.createErrorInfo(ErrorMessage.ERROR_REPEATLABEL, ['throws']);
       }

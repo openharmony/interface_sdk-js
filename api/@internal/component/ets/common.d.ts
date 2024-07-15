@@ -842,6 +842,17 @@ declare const Watch: (value: string) => PropertyDecorator;
 declare const Builder: MethodDecorator;
 
 /**
+ * Defining LocalBuilder MethodDecorator
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 12
+ */
+declare const LocalBuilder: MethodDecorator;
+
+/**
  * Defining Styles MethodDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -927,6 +938,7 @@ declare const Extend: MethodDecorator & ((value: any) => MethodDecorator);
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare const Monitor: MonitorDecorator;
@@ -940,6 +952,7 @@ declare const Monitor: MonitorDecorator;
  * @returns { MethodDecorator } Monitor decorator
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare type MonitorDecorator = (value: string, ...args: string[]) => MethodDecorator;
@@ -950,6 +963,7 @@ declare type MonitorDecorator = (value: string, ...args: string[]) => MethodDeco
  * @interface IMonitor
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface IMonitor {
@@ -959,6 +973,7 @@ declare interface IMonitor {
    * @type { Array<string> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   dirty: Array<string>;
@@ -971,6 +986,7 @@ declare interface IMonitor {
    * @returns { IMonitorValue<T> | undefined }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   value<T>(path?: string): IMonitorValue<T> | undefined;
@@ -982,6 +998,7 @@ declare interface IMonitor {
  * @interface IMonitorValue<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface IMonitorValue<T> {
@@ -991,6 +1008,7 @@ declare interface IMonitorValue<T> {
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   before: T;
@@ -1001,6 +1019,7 @@ declare interface IMonitorValue<T> {
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   now: T;
@@ -1011,6 +1030,7 @@ declare interface IMonitorValue<T> {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   path: string;
@@ -8430,6 +8450,87 @@ declare interface MouseEvent extends BaseEvent {
 }
 
 /**
+ * The accessibility hover action triggers this method invocation.
+ *
+ * @typedef AccessibilityHoverEvent
+ * @extends BaseEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 12
+ */
+declare interface AccessibilityHoverEvent extends BaseEvent {
+  /**
+   * Type of the accessibility hover event.
+   *
+   * @type { AccessibilityHoverType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  type: AccessibilityHoverType;
+
+  /**
+   * X coordinate of the accessibility hover point relative to the left edge of the event hit element.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  x: number;
+
+  /**
+   * Y coordinate of the accessibility hover point relative to the upper edge of the event hit element.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  y: number;
+
+  /**
+   * X coordinate of the accessibility hover point relative to the left edge of the device screen.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  displayX: number;
+
+  /**
+   * Y coordinate of the accessibility hover point relative to the upper edge of the device screen.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  displayY: number;
+
+  /**
+   * X coordinate of the accessibility hover point relative to the left edge of the current window.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  windowX: number;
+
+  /**
+   * Y coordinate of the accessibility hover point relative to the upper edge of the current window.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  windowY: number;
+}
+
+/**
  * Type of the touch event.
  *
  * @interface TouchObject
@@ -15588,6 +15689,18 @@ declare class CommonMethod<T> {
   onHover(event: (isHover: boolean, event: HoverEvent) => void): T;
 
   /**
+   * Trigger a accessibility hover event.
+   *
+   * @param { AccessibilityCallback } callback - A callback instance used when the component is touched after accessibility mode is enabled.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onAccessibilityHover(callback: AccessibilityCallback): T;
+
+  /**
    * Set hover effect.
    *
    * @param { HoverEffect } value
@@ -22725,6 +22838,19 @@ declare interface Callback<T, V = void> {
  * @since 12
  */
 declare type HoverCallback = (isHover: boolean, event: HoverEvent) => void
+
+/**
+ * Defines the callback type used in accessibility hover events.
+ * The value of isHover indicates whether the touch is hovering over the component.
+ * The value of event contains information about AccessibilityHoverEvent.
+ *
+ * @typedef { function }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare type AccessibilityCallback = (isHover: boolean, event: AccessibilityHoverEvent) => void
 
 /**
  * Defines the options about VisibleAreaEvent.

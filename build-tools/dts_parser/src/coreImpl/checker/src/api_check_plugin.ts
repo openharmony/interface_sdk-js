@@ -172,7 +172,7 @@ export class Check {
         const forbiddenWordsCheckResult: ErrorTagFormat = ForbiddenWordsCheck.forbiddenWordsCheck(singleApi as ClassInfo);
 
         const anonymousFunction: ErrorTagFormat = AnonymousFunctionCheck.checkAnonymousFunction(singleApi);
-        
+
         if (!orderCheckResult.state) {
           const errorBaseInfo: ErrorBaseInfo = new ErrorBaseInfo();
           errorBaseInfo

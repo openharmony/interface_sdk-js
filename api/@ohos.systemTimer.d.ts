@@ -195,6 +195,7 @@ declare namespace systemTimer {
     /**
      * The timer type.
      *
+     * @type { number }
      * @syscap SystemCapability.MiscServices.Time
      * @systemapi Hide this for inner system use.
      * @since 7
@@ -204,6 +205,7 @@ declare namespace systemTimer {
     /**
      * Indicates a repeating timer
      *
+     * @type { boolean }
      * @syscap SystemCapability.MiscServices.Time
      * @systemapi Hide this for inner system use.
      * @since 7
@@ -214,6 +216,7 @@ declare namespace systemTimer {
      * Indicates the interval between two consecutive triggers, in milliseconds.
      * The interval will be set to 5000 milliseconds automatically if the passed value is smaller than 5000.
      *
+     * @type { ?number }
      * @syscap SystemCapability.MiscServices.Time
      * @systemapi Hide this for inner system use.
      * @since 7
@@ -223,6 +226,7 @@ declare namespace systemTimer {
     /**
      * Indicates the intent to send when the timer goes off.
      *
+     * @type { ?WantAgent }
      * @syscap SystemCapability.MiscServices.Time
      * @systemapi Hide this for inner system use.
      * @since 7
@@ -232,6 +236,7 @@ declare namespace systemTimer {
     /**
      * Called back when the timer goes off.
      *
+     * @type { ?function }
      * @syscap SystemCapability.MiscServices.Time
      * @systemapi Hide this for inner system use.
      * @since 7

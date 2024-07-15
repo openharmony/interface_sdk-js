@@ -389,6 +389,31 @@ declare namespace webview {
   }
 
   /**
+   * The memory pressure level that can be set.
+   * @enum {number}
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  enum PressureLevel {
+    /**
+     * Modules are advised to free buffers that are cheap to re-allocate and not immediately needed.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    MEMORY_PRESSURE_LEVEL_MODERATE = 1,
+
+    /**
+     * At this level, modules are advised to free all possible memory.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    MEMORY_PRESSURE_LEVEL_CRITICAL = 2
+  }
+
+  /**
    * Defines the hit test value, related to {@link getHitTestValue} method.
    *
    * @interface HitTestValue
@@ -4944,6 +4969,18 @@ declare namespace webview {
      * @since 12
      */
     setPathAllowingUniversalAccess(pathList: Array<string>): void;
+
+    /**
+     * Trim memory by different memory pressure level.
+     *
+     * @param { PressureLevel } level - The memory pressure level for the ArkWeb.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Parameter string is too long. 3.Parameter verification failed.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static trimMemoryByPressureLevel(level: PressureLevel): void;
   }
 
   /**
@@ -6380,6 +6417,35 @@ declare namespace webview {
   }
 
   /**
+   * The scenarios for suspending the media player.
+   * @enum {number}
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  enum SuspendType {
+    /**
+     * Page enters the BackForwardCache.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    ENTER_BACK_FORWARD_CACHE = 0,
+
+    /**
+     * Page enters background.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    ENTER_BACKGROUND,
+
+    /**
+     * Cleanup when the number of paused media player over limit.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    AUTO_CLEANUP
+  }
+
+  /**
    * The bridge between web core and native media player.
    * Apps should implements this interface, and pass an instance to web core.
    * Then web core can control native media player by this bridge.
@@ -6493,6 +6559,25 @@ declare namespace webview {
      * @since 12
      */
     exitFullscreen(): void
+
+    /**
+     * Resume the native media player.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    resumePlayer?(): void
+
+    /**
+     * Suspend to release native media player, not the NativeMediaPlayerBridge. The
+     * embedder should save the status of player when release the native media player
+     * through NativeMediaPlayerBridge.
+     *
+     * @param { SuspendType } type - The scenario for suspending the media player.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    suspendPlayer?(type: SuspendType): void
   }
 
   /**

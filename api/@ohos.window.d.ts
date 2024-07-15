@@ -1087,6 +1087,66 @@ declare namespace window {
   }
 
   /**
+   * The info of window
+   *
+   * @interface WindowInfo
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi
+   * @since 12
+   */
+  interface WindowInfo {
+    /**
+     * The position and size of the window
+     *
+     * @type { Rect }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi
+     * @since 12
+     */
+    rect: Rect;
+
+    /**
+     * bundleName of window
+     *
+     * @type { string }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi
+     * @since 12
+     */
+    bundleName: string;
+
+    /**
+     * abilityName of window
+     *
+     * @type { string }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi
+     * @since 12
+     */
+    abilityName: string;
+
+    /**
+     * Indicates target window id.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi
+     * @since 12
+     */
+    windowId: number;
+
+    /**
+     * The window status of an application.
+     *
+     * @type { WindowStatusType }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi
+     * @since 12
+     */
+    windowStatusType: WindowStatusType;
+  }
+
+  /**
    * Properties of window, it couldn't update automatically
    *
    * @interface WindowProperties
@@ -2415,6 +2475,19 @@ declare namespace window {
   function shiftAppWindowFocus(sourceWindowId: number, targetWindowId: number): Promise<void>;
 
   /**
+   * Get info of visible windows.
+   *
+   * @returns { Promise<Array<WindowInfo>> } - Promise that returns windowInfo list.
+   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  function getVisibleWindowInfo(): Promise<Array<WindowInfo>>;
+
+  /**
    * gets snapshot of window
    *
    * @param { number } windowId - Indicates target window id.
@@ -3651,6 +3724,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3676,6 +3750,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
      * @atomicservice
      * @since 12
      */

@@ -45,7 +45,7 @@ declare namespace bundleState {
   interface BundleStateInfo {
     /**
      * The identifier of BundleStateInfo.
-     *
+     * @type { number }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7
      * @deprecated since 9
@@ -53,7 +53,7 @@ declare namespace bundleState {
     id: number;
     /**
      * The total duration, in milliseconds.
-     *
+     * @type { ?number }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7
      * @deprecated since 9
@@ -61,7 +61,7 @@ declare namespace bundleState {
     abilityInFgTotalTime?: number;
     /**
      * The last time when the application was accessed, in milliseconds.
-     *
+     * @type { ?number }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7
      * @deprecated since 9
@@ -69,7 +69,7 @@ declare namespace bundleState {
     abilityPrevAccessTime?: number;
     /**
      * The last time when the application was visible in the foreground, in milliseconds.
-     *
+     * @type { ?number }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7
      * @deprecated since 9
@@ -77,7 +77,7 @@ declare namespace bundleState {
     abilityPrevSeenTime?: number;
     /**
      * The total duration, in milliseconds.
-     *
+     * @type { ?number }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7
      * @deprecated since 9
@@ -85,7 +85,7 @@ declare namespace bundleState {
     abilitySeenTotalTime?: number;
     /**
      * The bundle name of the application.
-     *
+     * @type { ?string }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7
      * @deprecated since 9
@@ -93,7 +93,7 @@ declare namespace bundleState {
     bundleName?: string;
     /**
      * The total duration, in milliseconds.
-     *
+     * @type { ?number }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7
      * @deprecated since 9
@@ -101,7 +101,7 @@ declare namespace bundleState {
     fgAbilityAccessTotalTime?: number;
     /**
      * The last time when the foreground application was accessed, in milliseconds.
-     *
+     * @type { ?number }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7
      * @deprecated since 9
@@ -110,7 +110,7 @@ declare namespace bundleState {
     /**
      * The time of the first bundle usage record in this {@code BundleActiveInfo} object,
      * in milliseconds.
-     *
+     * @type { ?number }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7
      * @deprecated since 9
@@ -119,7 +119,7 @@ declare namespace bundleState {
     /**
      * The time of the last bundle usage record in this {@code BundleActiveInfo} object,
      * in milliseconds.
-     *
+     * @type { ?number }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7
      * @deprecated since 9
@@ -149,7 +149,7 @@ declare namespace bundleState {
   interface BundleActiveState {
     /**
      * The usage priority group of the application.
-     *
+     * @type { ?number }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7
      * @deprecated since 9
@@ -157,7 +157,7 @@ declare namespace bundleState {
     appUsagePriorityGroup?: number;
     /**
      * The bundle name.
-     *
+     * @type { ?string }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7
      * @deprecated since 9
@@ -165,7 +165,7 @@ declare namespace bundleState {
     bundleName?: string;
     /**
      * The shortcut ID.
-     *
+     * @type { ?string }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7
      * @deprecated since 9
@@ -173,7 +173,7 @@ declare namespace bundleState {
     indexOfLink?: string;
     /**
      * The class name.
-     *
+     * @type { ?string }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7
      * @deprecated since 9
@@ -181,7 +181,7 @@ declare namespace bundleState {
     nameOfClass?: string;
     /**
      * The time when this state occurred, in milliseconds.
-     *
+     * @type { ?number }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7
      * @deprecated since 9
@@ -189,7 +189,7 @@ declare namespace bundleState {
     stateOccurredTime?: number;
     /**
      * The state type.
-     *
+     * @type { ?number }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7
      * @deprecated since 9

@@ -116,6 +116,7 @@ export interface AbilityMonitor {
   /**
    * Called back when the ability is created for initialization.
    *
+   * @type { ?function }.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
@@ -139,6 +140,7 @@ export interface AbilityMonitor {
   /**
    * Called back when the state of the ability changes to foreground.
    *
+   * @type { ?function }.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
@@ -162,6 +164,7 @@ export interface AbilityMonitor {
   /**
    * Called back when the state of the ability changes to background.
    *
+   * @type { ?function }.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
@@ -185,6 +188,7 @@ export interface AbilityMonitor {
   /**
    * Called back before the ability is destroyed.
    *
+   * @type { ?function }.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
@@ -224,6 +228,7 @@ export interface AbilityMonitor {
   /**
    * Called back when an ability window stage is restored.
    *
+   * @type { ?function }.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 11
@@ -246,6 +251,7 @@ export interface AbilityMonitor {
   /**
    * Called back when an ability window stage is destroyed.
    *
+   * @type { ?function }.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice

@@ -519,6 +519,21 @@ declare namespace camera {
     muteCamera(mute: boolean): void;
 
     /**
+     * Mutes or unmutes camera for persistence purpose.
+     *
+     * @permission ohos.camera.CAMERA_CONTROL
+     * @param { boolean } mute - Mute camera if TRUE, otherwise unmute camera.
+     * @param { PolicyType } type - Type for indicating the calling role.
+     * @throws { BusinessError } 201 - Permission denied. 
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect. 
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    muteCameraPersistent(mute: boolean, type: PolicyType): void;
+
+    /**
      * Creates a CameraInput instance by camera.
      *
      * @permission ohos.permission.CAMERA
@@ -3036,7 +3051,26 @@ declare namespace camera {
     BLACK_WHITE = 3
   }
 
+  /**
+   * Enum for policy type
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 12
+   */
+  enum PolicyType {
     /**
+     * PRIVACY type.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    PRIVACY = 1,
+  }
+
+  /**
    * Color Effect Query object.
    *
    * @interface ColorEffectQuery

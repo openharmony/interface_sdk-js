@@ -168,6 +168,7 @@ crl
 crls
 crops
 crosshair
+crossings
 crowdtest
 crowdtested
 crowdtesting
@@ -328,6 +329,7 @@ freesize
 fstat
 fsync
 ftruncate
+fts
 fulfills
 fuma
 furse
@@ -408,6 +410,7 @@ hierarchically
 hifi
 hilog
 hinote
+hinting
 hisysevent
 hitrace
 hiview
@@ -496,6 +499,8 @@ lacked
 lanes
 lasted
 lastmode
+latitudeyyy
+latitudezzz
 latn
 layoutable
 lbitfield
@@ -566,6 +571,7 @@ mmax
 mmi
 mmicode
 mnc
+mnote
 moderately
 moitor
 moov
@@ -777,6 +783,7 @@ repeates
 replacer
 reposition
 rerouting
+resfile
 resizeable
 resmgr
 resourceschedule
@@ -915,6 +922,7 @@ superimposed
 suscriber
 suscribes
 suspends
+suspending
 swanctl
 switchvideomode
 symantec

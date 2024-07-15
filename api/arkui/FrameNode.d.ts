@@ -1183,3 +1183,200 @@ export namespace typeNode {
    */
   function createNode(context: UIContext, nodeType: 'XComponent'): XComponent;
 }
+
+/**
+ * Used for lazy loading of typeNode.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare class NodeAdapter {
+  /**
+   * Constructor.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  constructor();
+  /**
+   * Dispose the NodeAdapter immediately.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  dispose(): void;
+  /**
+   * Set the total number of node count.
+   *
+   * @param { number } count - The total number of node count.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  set totalNodeCount(count: number);
+  /**
+   * Get the total number of node count.
+   *
+   * @returns { number } - Return the total number of node count.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  get totalNodeCount(): number;
+  /**
+   * Define the operation of reloading all data.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  reloadAllItems(): void;
+  /**
+   * Define the data reload operation.Reload a specified amount of data starting from the index value.
+   *
+   * @param { number } start - Start loading index values for data.
+   * @param { number } count - Load the number of data.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  reloadItem(start: number, count: number): void;
+  /**
+   * Define data deletion operations.Delete a specified amount of data starting from the index value.
+   *
+   * @param { number } start - Start deleting index values for data.
+   * @param { number } count - Delete the number of data.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  removeItem(start: number, count: number): void;
+  /**
+   * Define data insertion operations.Insert a specified amount of data starting from the index value.
+   *
+   * @param { number } start - Start Insert index values for data.
+   * @param { number } count - Insert the number of data.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  insertItem(start: number, count: number): void;
+  /**
+   * Define data movement operations.Move the data from to forward by 1.
+   *
+   * @param { number } from - Starting index value.
+   * @param { number } to - End index value.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  moveItem(from: number, to: number): void;
+  /**
+   * Obtain all data results.
+   *
+   * @returns { Array<FrameNode> } - Return all valid FrameNode collections.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  getAllAvailableItems(): Array<FrameNode>;
+  /**
+   * This callback will be triggered when a FrameNode is bound.
+   *
+   * @param { FrameNode } target - The bound FrameNode node.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onAttachToNode?(target: FrameNode): void;
+  /**
+   * This callback will be triggered when the binding is released.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onDetachFromNode?(): void;
+  /**
+   * Call this callback when loading for the first time or when a new node slides in.
+   *
+   * @param { number } index - Load the index value of the data.
+   * @returns { number } - Returns the index value of the loaded data.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onGetChildId?(index: number): number;
+  /**
+   * Call this callback when loading for the first time or when a new node slides in.
+   *
+   * @param { number } index - Load the index value of the data.
+   * @returns { FrameNode } - Returns the FrameNode node that loads the node. The returned here is a FrameNode node of type ListItem.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onCreateChild?(index: number): FrameNode;
+  /**
+   * Call this callback when the old node slides out.
+   *
+   * @param { number } id - Slide out the index value of the node.
+   * @param { FrameNode } node - Slide out the FrameNode node.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onDisposeChild?(id: number, node: FrameNode): void;
+  /**
+   * Call this callback when reloading or reusing.
+   *
+   * @param { number } id - The index value of the reloaded data.
+   * @param { FrameNode } node - Reused FrameNode nodes.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onUpdateChild?(id: number, node: FrameNode): void;
+  /**
+   * Add a NodeAdapter to bind to the node.A node can only be bound to one NodeAdapter. Binding failure returns false.
+   *
+   * @param { NodeAdapter } adapter - Define lazy loading classes.
+   * @param { FrameNode } node - The bound FrameNode node.
+   * @returns { boolean } Return the binding result.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  static attachNodeAdapter(adapter: NodeAdapter, node: FrameNode): boolean;
+  /**
+   * Remove the bound NodeAdapter from the node.A node can only be bound to one NodeAdapter.
+   *
+   * @param { FrameNode } node - Unbind the FrameNode node.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  static detachNodeAdapter(node: FrameNode): void;
+}

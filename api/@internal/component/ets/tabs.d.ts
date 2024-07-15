@@ -534,7 +534,7 @@ interface DividerStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 12
  */
 declare interface TabsAnimationEvent {
   /**
