@@ -402,6 +402,55 @@ declare namespace securityGuard {
    * @since 12
    */
   function off(type: 'securityEventOccur', securityEventInfo: SecurityEventInfo, callback?: Callback<SecurityEvent>): void;
+
+  /**
+   * Provides policy file information.
+   *
+   * @interface PolicyFile
+   * @syscap SystemCapability.Security.SecurityGuard
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+    interface PolicyFile {
+      /**
+       * The policy file name.
+       *
+       * @type { string }
+       * @syscap SystemCapability.Security.SecurityGuard
+       * @systemapi Hide this for inner system use.
+       * @since 12
+       */
+      name: string;
+
+      /**
+       * The policy file descriptor.
+       *
+       * @type { number }
+       * @syscap SystemCapability.Security.SecurityGuard
+       * @systemapi Hide this for inner system use.
+       * @since 12
+       */
+      fd: number;
+    }
+
+    /**
+     * Update the policy file.
+     *
+     * @permission ohos.permission.MANAGE_SECURITY_GUARD_CONFIG
+     * @param { policyFile } PolicyFile - Indicates the policy file information.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 201 - check permission fail.
+     * @throws { BusinessError } 202 - non-system application uses the system API.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * Possible causes:
+     *   1. Mandatory parameters are left unspecified.
+     *   2. Incorrect parameter types.
+     *   3. Parameter verification failed.
+     * @syscap SystemCapability.Security.SecurityGuard
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    function updatePolicyFile(policyFile: PolicyFile): Promise<void>;
 }
 
 export default securityGuard;
