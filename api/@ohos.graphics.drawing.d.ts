@@ -298,7 +298,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    GET_POS_AND_TAN_MATRIX = 2,
+    GET_POS_AND_TANGENT_MATRIX = 2,
   }
 
   /**
@@ -319,6 +319,40 @@ declare namespace drawing {
      * @since 12
      */
     constructor(rect: common2D.Rect, xRadii: number, yRadii: number);
+
+    /**
+     * Sets the radiusX and radiusY for a specific corner position.
+     * @param { CornerPos } pos - Indicates the corner radius position.
+     * @param { number } x - Indicates the corner radius on x-axis.
+     * @param { number } y - Indicates the corner radius on y-axis.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    setCorner(pos: CornerPos, x: number, y: number): void;
+
+    /**
+     * Gets a point with the values of x-axis and y-axis of the selected corner radius.
+     * @param { CornerPos } pos - Indicates the corner radius position.
+     * @returns { common2D.Point } Returns a point with the values of x-axis and y-axis of the corner radius.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    getCorner(pos: CornerPos): common2D.Point;
+
+    /**
+     * Translates round rect by (dx, dy).
+     * @param { number } dx - Indicates the offsets added to rect left and rect right.
+     * @param { number } dy - Indicates the offsets added to rect top and rect bottom.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    offset(dx: number, dy: number): void;
   }
 
   /**
@@ -742,7 +776,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    buildFromSVGString(str: string): boolean;
+    buildFromSvgString(str: string): boolean;
   }
 
   /**
@@ -3314,28 +3348,28 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    FILL_SCALETOFIT = 0,
+    FILL_SCALE_TO_FIT = 0,
 
     /**
      * Scales and aligns to left and top.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    START_SCALETOFIT = 1,
+    START_SCALE_TO_FIT = 1,
 
     /**
      * Scales and aligns to center.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    CENTER_SCALETOFIT = 2,
+    CENTER_SCALE_TO_FIT = 2,
 
     /**
      * Scales and aligns to right and bottom.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    END_SCALETOFIT = 3
+    END_SCALE_TO_FIT = 3
   }
 
   /**
@@ -3419,64 +3453,6 @@ declare namespace drawing {
      * @since 12
      */
     setRect(left: number, top: number, right: number, bottom: number): boolean;
-  }
-
-  /**
-   * Describes a Rounded Rectangle object.
-   * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
-   */
-  class RoundRect {
-    /**
-     * Create a RoundRect without round corners.
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
-     */
-    constructor();
-
-    /**
-     * Create a RoundRect with round corners.
-     * @param { common2D.Rect } rect - original rectangle.
-     * @param { number} xRad - Indicates the corner radii on x-axis.
-     * @param { number } yRad - Indicates the corner radii on y-axis.
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
-     */
-    constructor(rect: common2D.Rect, xRad: number, yRad: number)
-
-    /**
-     * Sets the radiusX and radiusY for a specific corner position.
-     * @param { CornerPos } pos - Indicates the corner radius position.
-     * @param { number } x - Indicates the corner radius on x-axis.
-     * @param { number } y - Indicates the corner radius on y-axis.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
-     */
-    setCorner(pos: CornerPos, x: number, y: number): void;
-
-    /**
-     * Gets a point with the values ​​of x-axis and y-axis of the selected corner radius.
-     * @param { CornerPos } pos - Indicates the corner radius position.
-     * @returns { common2D.Point } Returns a point with the values ​​of x-axis and y-axis of the corner radius.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
-     */
-    getCorner(pos: CornerPos): common2D.Point;
-
-    /**
-     * Translates round rect by (dx, dy).
-     * @param { number } dx - Indicates the offsets added to rect left and rect right.
-     * @param { number } dy - Indicates the offsets added to rect top and rect bottom.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
-     */
-    offset(dx: number, dy: number): void;
   }
 
   /**
