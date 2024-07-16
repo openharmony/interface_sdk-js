@@ -1667,7 +1667,7 @@ declare interface Rectangle {
 /**
  * Interface for ExpectedFrameRateRange.
  *
- * @interface ExpectedFrameRateRange
+ * @typedef ExpectedFrameRateRange
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
