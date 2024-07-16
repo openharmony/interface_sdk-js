@@ -1503,6 +1503,7 @@ declare namespace print {
   interface PrinterExtensionInfo {
     /**
     * Extension id of printer extension.
+    * @type { string }
     * @syscap SystemCapability.Print.PrintFramework
     * @systemapi
     * @since 10
@@ -1511,6 +1512,7 @@ declare namespace print {
 
     /**
     * Vendor id of extension.
+    * @type { string }
     * @syscap SystemCapability.Print.PrintFramework
     * @systemapi
     * @since 10
@@ -1519,6 +1521,7 @@ declare namespace print {
 
     /**
     * Vendor name.
+    * @type { string }
     * @syscap SystemCapability.Print.PrintFramework
     * @systemapi
     * @since 10
@@ -1527,6 +1530,7 @@ declare namespace print {
 
     /**
     * Vendor icon.
+    * @type { number }
     * @syscap SystemCapability.Print.PrintFramework
     * @systemapi
     * @since 10
@@ -1535,6 +1539,7 @@ declare namespace print {
 
     /**
     * Version of current printer extension.
+    * @type { string }
     * @syscap SystemCapability.Print.PrintFramework
     * @systemapi
     * @since 10
