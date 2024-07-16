@@ -39,6 +39,7 @@ import {
   diffMap,
   incompatibleApiDiffTypes,
   JsDocDiffProcessor,
+  parentApiTypeSet
 } from '../../typedef/diff/ApiInfoDiff';
 import { StringUtils } from '../../utils/StringUtils';
 import { CharMapType, CompareReturnObjType, PermissionsProcessorHelper, RangeChange } from './PermissionsProcessor';
@@ -1647,7 +1648,7 @@ export namespace DiffProcessorHelper {
     const parentApiType: string = (newApiInfo && newApiInfo.getParentApiType()) ? newApiInfo.getParentApiType() : '';
     let isCompatible = true;
     if (
-      !isNewFile && parentApiType === ApiType.INTERFACE &&
+      !isNewFile && parentApiTypeSet.has(parentApiType) &&
       diffTypeInfo.getDiffType() === ApiDiffType.ADD &&
       ((newApiInfo?.getApiType() === ApiType.METHOD && newMethodInfo.getIsRequired()) ||
         (newApiInfo?.getApiType() === ApiType.PROPERTY && newPropertyInfo.getIsRequired()))
