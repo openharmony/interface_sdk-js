@@ -4301,7 +4301,8 @@ declare namespace camera {
      * Must choose preconfig type from {@link PreconfigType}.
      *
      * @param { PreconfigType } preconfigType - preconfig type.
-     * @param { PreconfigRatio } preconfigRatio - the aspect ratio of surface for preconfig.
+     * @param { PreconfigRatio } preconfigRatio - the aspect ratio of surface for preconfig, 
+     *                                            default value {@link PreconfigRatio#PRECONFIG_RATIO_4_3}.
      * @returns { boolean } Whether the choosed preconfig type can be used.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -4314,7 +4315,8 @@ declare namespace camera {
      * Must choose preconfig type from {@link PreconfigType}.
      *
      * @param { PreconfigType } preconfigType - preconfig type.
-     * @param { PreconfigRatio } preconfigRatio - the aspect ratio of surface for preconfig.
+     * @param { PreconfigRatio } preconfigRatio - the aspect ratio of surface for preconfig,
+     *                                            default value {@link PreconfigRatio#PRECONFIG_RATIO_4_3}
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 12
@@ -4478,23 +4480,27 @@ declare namespace camera {
      * Must choose preconfig type from {@link PreconfigType}.
      *
      * @param { PreconfigType } preconfigType - preconfig type.
+     * @param { PreconfigRatio } preconfigRatio - the aspect ratio of surface for preconfig,
+     *                                            default value {@link PreconfigRatio#PRECONFIG_RATIO_16_9}.
      * @returns { boolean } Whether the choosed preconfig type can be used.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 12
      */
-    canPreconfig(preconfigType: PreconfigType): boolean;
+    canPreconfig(preconfigType: PreconfigType, preconfigRatio?: PreconfigRatio): boolean;
 
     /**
      * The preconfig type to configure photo session.
      * Must choose preconfig type from {@link PreconfigType}.
      *
      * @param { PreconfigType } preconfigType - preconfig type.
+     * @param { PreconfigRatio } preconfigRatio - the aspect ratio of surface for preconfig,
+     *                                            default value {@link PreconfigRatio#PRECONFIG_RATIO_16_9}.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 12
      */
-    preconfig(preconfigType: PreconfigType): void;
+    preconfig(preconfigType: PreconfigType, preconfigRatio?: PreconfigRatio): void;
 
     /**
      * Subscribes to error events.
