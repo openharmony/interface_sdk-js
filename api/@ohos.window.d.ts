@@ -6359,19 +6359,6 @@ declare namespace window {
      *
      * @returns { Promise<void> } - The promise returned by the function
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300004 - Unauthorized operation.
-     * @throws { BusinessError } 1300009 - The parent window is invalid.
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @systemapi Hide this for inner system use.
-     * @since 10
-     */
-    /**
-     * Raise app sub window to app top
-     *
-     * @returns { Promise<void> } - The promise returned by the function
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
@@ -6379,7 +6366,7 @@ declare namespace window {
      * @throws { BusinessError } 1300009 - The parent window is invalid.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 10
      */
     raiseToAppTop(): Promise<void>;
 
