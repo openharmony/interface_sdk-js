@@ -884,17 +884,6 @@ declare namespace drawing {
     drawRect(rect: common2D.Rect): void;
 
     /**
-     * Draws a rectangle with rounded corners. If rectangle is stroked, use pen to stroke width describes the line 
-     * thickness, else use brush to fill the rectangle.
-     * @param { RoundRect } roundRect - RoundRect to draw.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
-     */
-    drawRoundRect(roundRect: RoundRect): void;
-
-    /**
      * Draws a rect. If rectangle is stroked, use pen to stroke width describes the line thickness,
      * else use brush to fill the rectangle.
      * @param { number } left - Indicates the left position of the rectangle.
@@ -1818,14 +1807,6 @@ declare namespace drawing {
      * @since 12
      */
     countText(text: string): number;
-
-    /**
-     * Gets whether the font uses sub-pixel rendering.
-     * @returns { boolean } Returns <b>true</b> if the font uses sub-pixel rendering; returns <b>false</b> otherwise.
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
-     */
-    isSubpixel(): boolean;
 
     /**
      * Sets whether the font baselines and pixels alignment when the transformation matrix is ​​axis aligned.
@@ -2769,7 +2750,6 @@ declare namespace drawing {
     * @since 11
     */
     setColorFilter(filter: ColorFilter): void;
-
     /**
      * Gets ColorFilter of pen
      * @returns { ColorFilter } ColorFilter.
@@ -2880,6 +2860,7 @@ declare namespace drawing {
      * @since 12
      */
     getCapStyle(): CapStyle;
+
     /**
      * Resets all pen contents to their initial values.
      * @syscap SystemCapability.Graphics.Drawing

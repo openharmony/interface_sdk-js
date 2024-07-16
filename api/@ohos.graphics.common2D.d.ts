@@ -122,7 +122,7 @@ declare namespace common2D {
      */
     y: number;
   }
-  
+
   /**
    * Provides the definition of the point in 3D.
    *
