@@ -118,6 +118,17 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      */
     objectFit(value: ImageFit): MovingPhotoViewAttribute;
     /**
+     * Called when the image load completed.
+     *
+     * @param { MovingPhotoViewEventCallback } callback
+     * @returns { MovingPhotoViewAttribute }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    onComplete(callback: MovingPhotoViewEventCallback): MovingPhotoViewAttribute;
+    /**
      * Called when the video is played.
      *
      * @param { MovingPhotoViewEventCallback } callback
@@ -172,6 +183,40 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @since 12
      */
     onError(callback: MovingPhotoViewEventCallback): MovingPhotoViewAttribute;
+    /**
+     * Called when setting play range.
+     *
+     * @param { number } start
+     * @param { number } end
+     * @returns { MovingPhotoViewAttribute }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    playRange(start: number, end: number): MovingPhotoViewAttribute;
+    /**
+     * Called when setting autoplay.
+     *
+     * @param { boolean } autoPlayStatus
+     * @returns { MovingPhotoViewAttribute }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    autoPlay(autoPlayStatus: boolean): MovingPhotoViewAttribute;
+    /**
+     * Called when setting loop.
+     *
+     * @param { boolean } loopPlayStatus
+     * @returns { MovingPhotoViewAttribute }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    loop(loopPlayStatus: boolean): MovingPhotoViewAttribute;
 }
 /**
  * Defines the MovingPhotoView controller.
