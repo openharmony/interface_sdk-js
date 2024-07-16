@@ -261,7 +261,7 @@ declare namespace media {
    * Manages and plays sound. Before calling an SoundPool method, you must use createSoundPool()
    * to create an SoundPool instance.
    *
-   * @typedef SoundPool
+   * @typedef { _SoundPool }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
    */
@@ -270,7 +270,7 @@ declare namespace media {
   /**
    * Describes play parameters.
    *
-   * @typedef PlayParameters
+   * @typedef { _PlayParameters }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
    */
@@ -3214,7 +3214,7 @@ declare namespace media {
 
   /**
    * Describes audio playback states.
-   * @typedef AudioState
+   * @typedef { 'idle' | 'playing' | 'paused' | 'stopped' | 'error' }
    * @syscap SystemCapability.Multimedia.Media.AudioPlayer
    * @since 6
    * @deprecated since 9
@@ -4401,7 +4401,7 @@ declare namespace media {
   * The maintenance of this interface has been stopped since version api 9. Please use AVRecorderState.
   * Describes video recorder states.
   * 
-  * @typedef VideoRecordState
+  * @typedef { 'idle' | 'prepared' | 'playing' | 'paused' | 'stopped' | 'error' }
   * @syscap SystemCapability.Multimedia.Media.VideoRecorder
   * @systemapi
   * @since 9
@@ -4625,7 +4625,7 @@ declare namespace media {
 
   /**
    * Describes video playback states.
-   * @typedef VideoPlayState
+   * @typedef { 'idle' | 'prepared' | 'playing' | 'paused' | 'stopped' | 'error' }
    * @syscap SystemCapability.Multimedia.Media.VideoPlayer
    * @since 8
    * @deprecated since 9
