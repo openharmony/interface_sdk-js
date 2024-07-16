@@ -2199,7 +2199,7 @@ declare namespace media {
      * @atomicservice
      * @since 12
      */
-    off(type: 'stateChange'): void;
+    off(type: 'stateChange', callback?: (state: AVPlayerState, reason: StateChangeReason) => void): void;
     /**
      * Register listens for media playback volumeChange event.
      * @param { 'volumeChange' } type - Type of the playback event to listen for.
@@ -2230,7 +2230,7 @@ declare namespace media {
      * @crossplatform
      * @since 12
      */
-    off(type: 'volumeChange'): void;
+    off(type: 'volumeChange', callback?: Callback<number>): void;
     /**
      * Register listens for media playback endOfStream event.
      * @param { 'endOfStream' } type - Type of the playback event to listen for.
@@ -2261,7 +2261,7 @@ declare namespace media {
      * @crossplatform
      * @since 12
      */
-    off(type: 'endOfStream'): void;
+    off(type: 'endOfStream', callback?: Callback<void>): void;
     /**
      * Register listens for media playback seekDone event.
      * @param { 'seekDone' } type - Type of the playback event to listen for.
@@ -2308,7 +2308,7 @@ declare namespace media {
      * @atomicservice
      * @since 12
      */
-    off(type: 'seekDone'): void;
+    off(type: 'seekDone', callback?: Callback<number>): void;
     /**
      * Register listens for media playback speedDone event.
      * @param { 'speedDone' } type - Type of the playback event to listen for.
@@ -2339,7 +2339,7 @@ declare namespace media {
      * @crossplatform
      * @since 12
      */
-    off(type: 'speedDone'): void;
+    off(type: 'speedDone', callback?: Callback<number>): void;
     /**
      * Register listens for media playback setBitrateDone event.
      * @param { 'bitrateDone' } type - Type of the playback event to listen for.
@@ -2362,7 +2362,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
-    off(type: 'bitrateDone'): void;
+    off(type: 'bitrateDone', callback?: Callback<number>): void;
     /**
      * Register listens for media playback timeUpdate event.
      * @param { 'timeUpdate' } type - Type of the playback event to listen for.
@@ -2409,7 +2409,7 @@ declare namespace media {
      * @atomicservice
      * @since 12
      */
-    off(type: 'timeUpdate'): void;
+    off(type: 'timeUpdate', callback?: Callback<number>): void;
     /**
      * Register listens for media playback durationUpdate event.
      * @param { 'durationUpdate' } type - Type of the playback event to listen for.
@@ -2440,7 +2440,7 @@ declare namespace media {
      * @crossplatform
      * @since 12
      */
-    off(type: 'durationUpdate'): void;
+    off(type: 'durationUpdate', callback?: Callback<number>): void;
     /**
      * Register listens for video playback buffering events.
      * @param { 'bufferingUpdate' } type - Type of the playback buffering update event to listen for.
@@ -2475,7 +2475,7 @@ declare namespace media {
      * @crossplatform
      * @since 12
      */
-    off(type: 'bufferingUpdate'): void;
+    off(type: 'bufferingUpdate', callback?: (infoType: BufferingInfoType, value: number) => void): void;
     /**
      * Register listens for start render video frame events.
      * @param { 'startRenderFrame' } type - Type of the playback event to listen for.
@@ -2498,7 +2498,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
-    off(type: 'startRenderFrame'): void;
+    off(type: 'startRenderFrame', callback?: Callback<void>): void;
     /**
      * Register listens for video size change event.
      * @param { 'videoSizeChange' } type - Type of the playback event to listen for.
@@ -2529,7 +2529,7 @@ declare namespace media {
      * @crossplatform
      * @since 12
      */
-    off(type: 'videoSizeChange'): void;
+    off(type: 'videoSizeChange', callback?: (width: number, height: number) => void): void;
     /**
      * Register listens for audio interrupt event, refer to {@link #audio.InterruptEvent}
      * @param { 'audioInterrupt' } type - Type of the playback event to listen for.
@@ -2552,7 +2552,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
-    off(type: 'audioInterrupt'): void;
+    off(type: 'audioInterrupt', callback?: (info: audio.InterruptEvent) => void): void;
     /**
      * Register listens for available bitrate list collect completed events for HLS protocol stream playback.
      * This event will be reported after the {@link #prepare} called.
@@ -2578,7 +2578,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
-    off(type: 'availableBitrates'): void;
+    off(type: 'availableBitrates', callback?: (bitrates: Array<number>) => void): void;
     /**
      * Register listens for playback error events.
      * @param { 'error' } type - Type of the playback error event to listen for.
@@ -2653,7 +2653,7 @@ declare namespace media {
      * @atomicservice
      * @since 12
      */
-    off(type: 'error'): void;
+    off(type: 'error', callback?: ErrorCallback): void;
 
     /**
      * Subscribes output device change event callback.
@@ -3990,7 +3990,7 @@ declare namespace media {
      * @atomicservice
      * @since 12
      */
-    off(type: 'stateChange'): void;
+    off(type: 'stateChange', callback?: (state: AVPlayerState, reason: StateChangeReason) => void): void;
 
     /**
      * Cancel Listens for recording error events.
@@ -4006,7 +4006,7 @@ declare namespace media {
      * @atomicservice
      * @since 12
      */
-    off(type: 'error'): void;
+    off(type: 'error', callback?: ErrorCallback): void;
 
     /**
      * Cancel Listens for recording audioCapturerChange events.
@@ -4014,7 +4014,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11
      */
-    off(type: 'audioCapturerChange'): void;
+    off(type: 'audioCapturerChange', callback?: Callback<audio.AudioCapturerChangeInfo>): void;
   }
 
   /**
