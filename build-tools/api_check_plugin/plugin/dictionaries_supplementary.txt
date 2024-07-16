@@ -97,6 +97,7 @@ bitrates
 blending
 blendmode
 blocklist
+blurs
 bms
 bolder
 bonded
@@ -858,6 +859,7 @@ sar
 satellites
 sbas
 sbc
+scaletofit
 scdma
 scene
 sco
@@ -893,6 +895,7 @@ showcounter
 shrinks
 shuts
 sigalgs
+sigmas
 silenced
 singly
 skews
