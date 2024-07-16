@@ -3550,7 +3550,7 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * Set richEditor placeholder.
    *
    * @param { ResourceStr } value - The value of placeholder.
-   * @param { PlaceholderStyle } options - The style of placeholder.
+   * @param { PlaceholderStyle } [style] - The style of placeholder.
    * @returns { RichEditorAttribute } The attribute of the rich editor.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
