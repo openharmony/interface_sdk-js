@@ -1,6 +1,6 @@
 /*
- * Copyright (c) 2024 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -13,23 +13,28 @@
  * limitations under the License.
  */
 
-
 /**
  * @file
- * @kit AbilityKit
+ * @kit AccessibilityKit
  */
-
 
 /**
- * @namespace abilityAccessCtrl
- * @syscap SystemCapability.Security.AccessToken
+ * Configuration of the accessibility.
+ *
+ * @namespace config
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 12
  */
-declare namespace abilityAccessCtrl {
+declare namespace config {
   /**
+   * A test case for throws tag's legal -no generic error code
+   *
+   * @param { string } name Indicates the accessibility extension name, in "bundleName/abilityName" format.
+   * @param { AsyncCallback<void> } callback
+   * @throws { BusinessError } 888
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 12
    */
-  const daltonizationState: () => void;
-}
+  function disableAbility(name: string, callback: AsyncCallback<void>): void;
 
+}

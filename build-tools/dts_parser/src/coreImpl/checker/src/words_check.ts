@@ -79,7 +79,8 @@ export class WordsCheck {
     let apiWordsArr = fullText.split(/\s/g);
     const errorWords: string[] = [];
     apiWordsArr.forEach((apiWord) => {
-      const basicWords: string[] = WordsCheck.splitComplexWords(apiWord);
+      const basicWords: string[] = [];
+      WordsCheck.splitComplexWords(apiWord, basicWords);
       basicWords.forEach((basicWord) => {
         if (!WordsCheck.checkBaseWord(basicWord.toLowerCase())) {
           errorWords.push(basicWord);
@@ -115,28 +116,26 @@ export class WordsCheck {
    * @param { string } complexWord
    * @returns { string[] }
    */
-  static splitComplexWords(complexWord: string): string[] {
-    let basicWords: string[] = [];
+  static splitComplexWords(complexWord: string, basicWords: string[]): void {
+    let baseWords: string[] = [];
     // splite underlineWord
     if (WordsCheck.hasUnderline(complexWord)) {
-      basicWords = complexWord.split(/(?<!^)\_/g);
+      baseWords = complexWord.split(/(?<!^)\_/g);
     } else {
       // splite complexWord
       if (!/(?<!^)(?=[A-Z])/g.test(complexWord)) {
-        basicWords.push(complexWord);
+        baseWords.push(complexWord);
       } else {
-        basicWords = complexWord.split(/(?<!^)(?=[A-Z])/g);
+        baseWords = complexWord.split(/(?<!^)(?=[A-Z])/g);
       }
     }
-    const newBaseWords: string[] = [];
-    basicWords.forEach((word) => {
+    baseWords.forEach((word) => {
       if (/[0-9]/g.test(word)) {
-        newBaseWords.concat(word.split(/0-9/g));
+        basicWords.concat(word.split(/0-9/g));
       } else {
-        newBaseWords.push(word);
+        basicWords.push(word);
       }
     });
-    return newBaseWords;
   }
 
   /**
