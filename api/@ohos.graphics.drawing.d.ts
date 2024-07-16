@@ -2352,23 +2352,6 @@ declare namespace drawing {
     static createConicalGradient(startPt: common2D.Point, startRadius: number, endPt: common2D.Point,
       endRadius: number, colors: Array<number>, mode: TileMode,
       pos?: Array<number> | null, matrix?: Matrix | null): ShaderEffect;
-    /**
-     * Creates a ShaderEffect that generates an image shader.
-     *
-     * @param { image.PixelMap } pixelmap - PixelMap
-     * @param { uiEffect.TileMode } tileX - TileMode, indicates the tileX
-     * @param { uiEffect.TileMode } tileY - TileMode, indicates the tileY
-     * @param { SamplingOptions } samplingOptions - SamplingOptions used to describe the sampling mode. 
-     * If not passed, default sampling options will be used (FilterMode.FILTER_MODE_NEAREST)
-     * @param { Matrix } matrix - Indicates the Matrix object. If not passed, identity matrix is used.
-     * @returns { ShaderEffect } ShaderEffect
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @static
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
-     */
-    static createImageShader(pixelmap: image.PixelMap, tileX: uiEffect.TileMode, tileY: uiEffect.TileMode, samplingOptions?: SamplingOptions, matrix?: Matrix): ShaderEffect;
   }
 
   /**
