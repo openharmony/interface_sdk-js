@@ -1057,7 +1057,7 @@ declare interface RichEditorTextStyleResult {
   /**
    * Text shadow
    *
-   * @type { Array<ShadowOptions> }
+   * @type { ?Array<ShadowOptions> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
