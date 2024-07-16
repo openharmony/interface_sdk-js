@@ -918,7 +918,7 @@ declare namespace drawing {
     drawRect(rect: common2D.Rect): void;
 
     /**
-     * Draws a rect. If rectangle is stroked, use pen to stroke width describes the line thickness,
+     * If rectangle is stroked, use pen to stroke width describes the line thickness,
      * else use brush to fill the rectangle.
      * @param { number } left - Indicates the left position of the rectangle.
      * @param { number } top - Indicates the top position of the rectangle.
