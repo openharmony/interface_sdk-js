@@ -25,6 +25,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
+ * @atomicservice
  * @since 12
  */
 interface RepeatItem<T> {
@@ -35,6 +36,7 @@ interface RepeatItem<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   item: T,
@@ -45,6 +47,7 @@ interface RepeatItem<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   index: number
@@ -197,6 +200,7 @@ declare class RepeatAttribute<T> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
+ * @atomicservice
  * @since 12
  */
 declare const Repeat: <T>(arr: Array<T>) => RepeatAttribute<T>;

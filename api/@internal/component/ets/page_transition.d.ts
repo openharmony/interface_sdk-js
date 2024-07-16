@@ -235,6 +235,7 @@ declare enum SlideEffect {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   START = 5,
@@ -244,6 +245,7 @@ declare enum SlideEffect {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   END = 6,

@@ -27,6 +27,7 @@
  * @extends SpanAttribute
  * @implements AttributeModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class SpanModifier extends SpanAttribute implements AttributeModifier<SpanAttribute> {
@@ -37,6 +38,7 @@ export declare class SpanModifier extends SpanAttribute implements AttributeModi
    * @param { SpanAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: SpanAttribute): void;

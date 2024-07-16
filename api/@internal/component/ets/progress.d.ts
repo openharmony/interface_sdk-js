@@ -1513,6 +1513,7 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
     privacySensitive(isPrivacySensitiveMode: Optional<boolean>): ProgressAttribute<Type>;
@@ -1524,6 +1525,7 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
    * @returns { ProgressAttribute<Type> } the attribute of the progress.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   contentModifier(modifier: ContentModifier<ProgressConfiguration>): ProgressAttribute<Type>;
@@ -1535,6 +1537,7 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
  * @interface ProgressConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface ProgressConfiguration extends CommonConfiguration<ProgressConfiguration> {
@@ -1544,6 +1547,7 @@ declare interface ProgressConfiguration extends CommonConfiguration<ProgressConf
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   value: number;
@@ -1554,6 +1558,7 @@ declare interface ProgressConfiguration extends CommonConfiguration<ProgressConf
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   total: number;

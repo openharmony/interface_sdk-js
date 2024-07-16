@@ -1115,6 +1115,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   fadingEdge(value: Optional<boolean>): ListAttribute;
@@ -1561,6 +1562,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onScrollVisibleContentChange(handler: OnScrollVisibleContentChangeCallback): ListAttribute;

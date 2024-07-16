@@ -26,6 +26,7 @@
  * @returns { number } main size of the FlowItem at index
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare type GetItemMainSizeByIndex = (index: number) => number;
@@ -35,6 +36,7 @@ declare type GetItemMainSizeByIndex = (index: number) => number;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
 */
 declare class SectionOptions {
@@ -44,6 +46,7 @@ declare class SectionOptions {
    * @type { number } itemsCount - the number of FlowItems in this section
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   itemsCount: number;
@@ -55,6 +58,7 @@ declare class SectionOptions {
    * @default 1 one column in vertical layout, or one row in horizontal layout
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   crossCount?: number;
@@ -66,6 +70,7 @@ declare class SectionOptions {
    * @type { ?GetItemMainSizeByIndex } onGetItemMainSizeByIndex - function that returns item main size by index
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onGetItemMainSizeByIndex?: GetItemMainSizeByIndex;
@@ -77,6 +82,7 @@ declare class SectionOptions {
    * same with columnsGap of WaterFlow if not set
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   columnsGap?: Dimension;
@@ -88,6 +94,7 @@ declare class SectionOptions {
    * same with rowsGap of WaterFlow if not set
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   rowsGap?: Dimension;
@@ -99,6 +106,7 @@ declare class SectionOptions {
    * @default {top: 0, right: 0, bottom: 0, left: 0}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   margin?: Margin | Dimension;
@@ -109,6 +117,7 @@ declare class SectionOptions {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare class WaterFlowSections {
@@ -117,6 +126,7 @@ declare class WaterFlowSections {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   constructor();
@@ -130,6 +140,7 @@ declare class WaterFlowSections {
    * @returns { boolean } Whether the splice was successful.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   splice(start: number, deleteCount?: number, sections?: Array<SectionOptions>): boolean;
@@ -141,6 +152,7 @@ declare class WaterFlowSections {
    * @returns { boolean } Whether the push was successful.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   push(section: SectionOptions): boolean;
@@ -153,6 +165,7 @@ declare class WaterFlowSections {
    * @returns { boolean } Whether the update was successful.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   update(sectionIndex:number, section: SectionOptions): boolean;
@@ -163,6 +176,7 @@ declare class WaterFlowSections {
    * @returns { Array<SectionOptions> } Returns all the section options in the WaterFlow.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   values(): Array<SectionOptions>;
@@ -173,6 +187,7 @@ declare class WaterFlowSections {
    * @returns { number } Returns section counts in the WaterFlow.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   length(): number;
@@ -184,6 +199,7 @@ declare class WaterFlowSections {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare enum WaterFlowLayoutMode {
@@ -192,6 +208,7 @@ declare enum WaterFlowLayoutMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   ALWAYS_TOP_DOWN = 0,
@@ -201,6 +218,7 @@ declare enum WaterFlowLayoutMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   SLIDING_WINDOW = 1,
@@ -289,6 +307,7 @@ declare interface WaterFlowOptions {
    * @type { ?WaterFlowSections } sections - sections with different cross count 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   sections?: WaterFlowSections;
@@ -299,6 +318,7 @@ declare interface WaterFlowOptions {
    * @type { ?WaterFlowLayoutMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   layoutMode?: WaterFlowLayoutMode;

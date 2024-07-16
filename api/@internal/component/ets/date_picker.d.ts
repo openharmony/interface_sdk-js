@@ -584,6 +584,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @type { ?PickerDialogButtonStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   acceptButtonStyle?: PickerDialogButtonStyle;
@@ -594,6 +595,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @type { ?PickerDialogButtonStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   cancelButtonStyle?: PickerDialogButtonStyle;
@@ -830,6 +832,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onWillAppear?: () => void;
@@ -840,6 +843,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onWillDisappear?: () => void;
@@ -850,6 +854,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @type { ?(ShadowOptions | ShadowStyle) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   shadow?: ShadowOptions | ShadowStyle;
@@ -860,6 +865,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @type { ?DateTimeOptions } 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   dateTimeOptions?: DateTimeOptions;

@@ -5583,6 +5583,7 @@ declare enum ImageSize {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   FILL = 3,
@@ -8191,6 +8192,7 @@ declare enum FunctionKey {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   TAB,
@@ -8200,6 +8202,7 @@ declare enum FunctionKey {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   DPAD_UP,
@@ -8209,6 +8212,7 @@ declare enum FunctionKey {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   DPAD_DOWN,
@@ -8218,6 +8222,7 @@ declare enum FunctionKey {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   DPAD_LEFT,
@@ -8227,6 +8232,7 @@ declare enum FunctionKey {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   DPAD_RIGHT,
@@ -8661,6 +8667,7 @@ declare enum NestedScrollMode {
  * @enum { number } ScrollSource
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare enum ScrollSource {
@@ -8668,6 +8675,7 @@ declare enum ScrollSource {
    * Drag events.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   DRAG = 0,
@@ -8676,6 +8684,7 @@ declare enum ScrollSource {
    * Fling after the drag has ended with velocity.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   FLING,
@@ -8684,6 +8693,7 @@ declare enum ScrollSource {
    * Over scroll with EdgeEffect.Spring.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   EDGE_EFFECT,
@@ -8692,6 +8702,7 @@ declare enum ScrollSource {
    * Other user input except drag, such as mouse wheel, key event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   OTHER_USER_INPUT,
@@ -8700,6 +8711,7 @@ declare enum ScrollSource {
    * Drag events of scroll bar.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   SCROLL_BAR,
@@ -8708,6 +8720,7 @@ declare enum ScrollSource {
    * Fling after the drag on scroll bar has ended with velocity.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   SCROLL_BAR_FLING,
@@ -8716,6 +8729,7 @@ declare enum ScrollSource {
    * Member methods of Scroller without animation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   SCROLLER,
@@ -8724,6 +8738,7 @@ declare enum ScrollSource {
    * Member methods of Scroller with animation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   SCROLLER_ANIMATION,
@@ -9140,6 +9155,7 @@ declare enum WordBreak {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare enum LineBreakStrategy  {
@@ -9149,6 +9165,7 @@ declare enum LineBreakStrategy  {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   GREEDY = 0,
@@ -9159,6 +9176,7 @@ declare enum LineBreakStrategy  {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   HIGH_QUALITY  = 1,
@@ -9169,6 +9187,7 @@ declare enum LineBreakStrategy  {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   BALANCED  = 2,
@@ -9463,6 +9482,7 @@ declare enum FoldStatus {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
  */
 declare enum AppRotation {
@@ -9471,6 +9491,7 @@ declare enum AppRotation {
    * App does not rotate to display vertically.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   ROTATION_0 = 0,
@@ -9479,6 +9500,7 @@ declare enum AppRotation {
    * App rotates 90 degrees clockwise to display horizontally.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   ROTATION_90 = 1,
@@ -9487,6 +9509,7 @@ declare enum AppRotation {
    * App rotates 180 degrees clockwise to display vertically in reverse.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   ROTATION_180 = 2,
@@ -9495,6 +9518,7 @@ declare enum AppRotation {
    * App rotates 270 degrees clockwise to display horizontally in reverse.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   ROTATION_270 = 3
@@ -9505,6 +9529,7 @@ declare enum AppRotation {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
  */
 declare enum EmbeddedType {
@@ -9512,6 +9537,7 @@ declare enum EmbeddedType {
    * The EmbeddedComponent show the UI in EmbeddedUIExtensionAbility.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   EMBEDDED_UI_EXTENSION = 0,
@@ -9523,6 +9549,7 @@ declare enum EmbeddedType {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare enum MarqueeUpdateStrategy  {
@@ -9531,6 +9558,7 @@ declare enum MarqueeUpdateStrategy  {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   DEFAULT = 0,
@@ -9540,6 +9568,7 @@ declare enum MarqueeUpdateStrategy  {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   PRESERVE_POSITION = 1
@@ -9551,6 +9580,7 @@ declare enum MarqueeUpdateStrategy  {
  * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare enum TextDecorationStyle {
@@ -9559,6 +9589,7 @@ declare enum TextDecorationStyle {
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   SOLID = 0,
@@ -9568,6 +9599,7 @@ declare enum TextDecorationStyle {
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   DOUBLE = 1,
@@ -9577,6 +9609,7 @@ declare enum TextDecorationStyle {
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   DOTTED = 2,
@@ -9586,6 +9619,7 @@ declare enum TextDecorationStyle {
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   DASHED = 3,
@@ -9595,6 +9629,7 @@ declare enum TextDecorationStyle {
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   WAVY = 4,

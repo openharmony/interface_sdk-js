@@ -27,6 +27,7 @@
  * @extends PolylineAttribute
  * @implements AttributeModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class PolylineModifier extends PolylineAttribute implements AttributeModifier<PolylineAttribute> {
@@ -37,6 +38,7 @@ export declare class PolylineModifier extends PolylineAttribute implements Attri
    * @param { PolylineAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: PolylineAttribute): void;

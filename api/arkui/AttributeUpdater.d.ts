@@ -25,6 +25,7 @@
  * @returns { T }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare type Initializer<T> = () => T;
@@ -35,6 +36,7 @@ declare type Initializer<T> = () => T;
  * @implements AttributeModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 export declare class AttributeUpdater<T, C = Initializer<T>> implements AttributeModifier<T> {
@@ -45,6 +47,7 @@ export declare class AttributeUpdater<T, C = Initializer<T>> implements Attribut
    * @param { T } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: T): void;
@@ -55,6 +58,7 @@ export declare class AttributeUpdater<T, C = Initializer<T>> implements Attribut
    * @param { T } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   initializeModifier(instance: T): void;
@@ -65,6 +69,7 @@ export declare class AttributeUpdater<T, C = Initializer<T>> implements Attribut
    * @returns { T | undefined } The attribute of the modifier.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   get attribute(): T | undefined;
@@ -75,6 +80,7 @@ export declare class AttributeUpdater<T, C = Initializer<T>> implements Attribut
    * @type { C }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   updateConstructorParams: C;

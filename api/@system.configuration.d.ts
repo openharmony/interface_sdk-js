@@ -23,6 +23,12 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @since 3
  */
+/**
+ * @interface LocaleResponse
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @atomicservice
+ * @since 12
+ */
 export interface LocaleResponse {
   /**
    * Current language of the application. Example: zh.
@@ -30,6 +36,14 @@ export interface LocaleResponse {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 3
+   */
+  /**
+   * Current language of the application. Example: zh.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @atomicservice
+   * @since 12
    */
   language: string;
 
@@ -39,6 +53,14 @@ export interface LocaleResponse {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 3
+   */
+  /**
+   * Country or region. Example: CN.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @atomicservice
+   * @since 12
    */
   countryOrRegion: string;
 
@@ -51,12 +73,27 @@ export interface LocaleResponse {
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 3
    */
+  /**
+   * Text layout direction. Available values are as follows:
+   * ltr: The text direction is from left to right.
+   * rtl: The text direction is from right to left.
+   *
+   * @type { "ltr" | "rtl" }
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @atomicservice
+   * @since 12
+   */
   dir: "ltr" | "rtl";
 }
 
 /**
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @since 3
+ */
+/**
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @atomicservice
+ * @since 12
  */
 export default class Configuration {
   /**
@@ -65,6 +102,14 @@ export default class Configuration {
    * @returns { LocaleResponse }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 3
+   */
+  /**
+   * Obtains the current locale of the application, which is the same as the system locale.
+   *
+   * @returns { LocaleResponse }
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @atomicservice
+   * @since 12
    */
   static getLocale(): LocaleResponse;
 }

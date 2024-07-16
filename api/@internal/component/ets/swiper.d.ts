@@ -126,6 +126,7 @@ declare class SwiperController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   changeIndex(index: number, useAnimation?: boolean);
@@ -278,6 +279,7 @@ declare class Indicator<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   start(value: LengthMetrics): T;
@@ -291,6 +293,7 @@ declare class Indicator<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   end(value: LengthMetrics): T;   
@@ -549,6 +552,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * @returns { DotIndicator } return the DotIndicator
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   maxDisplayCount(maxDisplayCount: number): DotIndicator;
@@ -1925,6 +1929,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @returns { SwiperAttribute } the attribute of the swiper.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   customContentTransition(transition: SwiperContentAnimatedTransition): SwiperAttribute;
@@ -1940,6 +1945,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @returns { SwiperAttribute } the attribute of the swiper.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onContentDidScroll(handler: ContentDidScrollCallback): SwiperAttribute;
@@ -1951,6 +1957,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   indicatorInteractive(value: boolean): SwiperAttribute;
@@ -1962,6 +1969,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
  * @interface SwiperContentAnimatedTransition
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface SwiperContentAnimatedTransition {
@@ -1973,6 +1981,7 @@ declare interface SwiperContentAnimatedTransition {
    * @default 0 ms
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   timeout?: number;
@@ -1983,6 +1992,7 @@ declare interface SwiperContentAnimatedTransition {
    * @type { Callback<SwiperContentTransitionProxy> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   transition: Callback<SwiperContentTransitionProxy>;
@@ -1994,6 +2004,7 @@ declare interface SwiperContentAnimatedTransition {
  * @interface SwiperContentTransitionProxy
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface SwiperContentTransitionProxy {
@@ -2003,6 +2014,7 @@ declare interface SwiperContentTransitionProxy {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   selectedIndex: number;
@@ -2013,6 +2025,7 @@ declare interface SwiperContentTransitionProxy {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   index: number;
@@ -2023,6 +2036,7 @@ declare interface SwiperContentTransitionProxy {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   position: number;
@@ -2033,6 +2047,7 @@ declare interface SwiperContentTransitionProxy {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   mainAxisLength: number;
@@ -2042,6 +2057,7 @@ declare interface SwiperContentTransitionProxy {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   finishTransition(): void;
@@ -2057,6 +2073,7 @@ declare interface SwiperContentTransitionProxy {
  * @param { number } mainAxisLength - the swiper main axis length for calculating position.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare type ContentDidScrollCallback = (selectedIndex: number, index: number, position: number, mainAxisLength: number) => void;

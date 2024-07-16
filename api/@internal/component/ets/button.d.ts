@@ -235,6 +235,7 @@ declare enum ButtonStyleMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
+ * @atomicservice
  * @since 12
  */
 declare enum ButtonRole {
@@ -244,6 +245,7 @@ declare enum ButtonRole {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   NORMAL = 0,
@@ -254,6 +256,7 @@ declare enum ButtonRole {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   ERROR = 1,
@@ -267,6 +270,7 @@ declare enum ButtonRole {
  * @param { number } yPos - The value of yPos is y coordinate.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare type ButtonTriggerClickCallback = (xPos: number, yPos: number) => void;
@@ -277,6 +281,7 @@ declare type ButtonTriggerClickCallback = (xPos: number, yPos: number) => void;
  * @interface ButtonConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 
@@ -287,6 +292,7 @@ declare interface ButtonConfiguration extends CommonConfiguration<ButtonConfigur
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   label: string;
@@ -297,6 +303,7 @@ declare interface ButtonConfiguration extends CommonConfiguration<ButtonConfigur
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   pressed: boolean;
@@ -307,6 +314,7 @@ declare interface ButtonConfiguration extends CommonConfiguration<ButtonConfigur
    * @type { ButtonTriggerClickCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   triggerClick: ButtonTriggerClickCallback;
@@ -532,6 +540,7 @@ declare interface ButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
     role?: ButtonRole;
@@ -995,6 +1004,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice 
    * @since 12 
    */
   role(value: ButtonRole): ButtonAttribute;
@@ -1206,6 +1216,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   contentModifier(modifier: ContentModifier<ButtonConfiguration>): ButtonAttribute;

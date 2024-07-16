@@ -122,6 +122,7 @@ declare enum SliderStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   NONE,
@@ -297,6 +298,7 @@ declare enum SliderChangeMode {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare enum SliderInteraction {
@@ -305,6 +307,7 @@ declare enum SliderInteraction {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   SLIDE_AND_CLICK,
@@ -314,6 +317,7 @@ declare enum SliderInteraction {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   SLIDE_ONLY,
@@ -323,6 +327,7 @@ declare enum SliderInteraction {
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   SLIDE_AND_CLICK_UP = 2
@@ -334,6 +339,7 @@ declare enum SliderInteraction {
  * @interface SlideRange
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface SlideRange {
@@ -343,6 +349,7 @@ declare interface SlideRange {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   from?: number;
@@ -353,6 +360,7 @@ declare interface SlideRange {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   to?: number;
@@ -800,6 +808,7 @@ declare interface SliderBlockStyle {
  * @param { SliderChangeMode } mode - The changeMode of slider.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare type SliderTriggerChangeCallback = (value: number, mode: SliderChangeMode) => void;
@@ -810,6 +819,7 @@ declare type SliderTriggerChangeCallback = (value: number, mode: SliderChangeMod
  * @interface SliderConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface SliderConfiguration extends CommonConfiguration<SliderConfiguration> {
@@ -819,6 +829,7 @@ declare interface SliderConfiguration extends CommonConfiguration<SliderConfigur
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   value: number;
@@ -829,6 +840,7 @@ declare interface SliderConfiguration extends CommonConfiguration<SliderConfigur
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   min: number;
@@ -839,6 +851,7 @@ declare interface SliderConfiguration extends CommonConfiguration<SliderConfigur
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   max: number;
@@ -849,6 +862,7 @@ declare interface SliderConfiguration extends CommonConfiguration<SliderConfigur
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   step: number;
@@ -859,6 +873,7 @@ declare interface SliderConfiguration extends CommonConfiguration<SliderConfigur
    * @type { SliderTriggerChangeCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   triggerChange: SliderTriggerChangeCallback;
@@ -1385,6 +1400,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @returns { SliderAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
     selectedBorderRadius(value: Dimension): SliderAttribute;
@@ -1459,6 +1475,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @returns { SliderAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   sliderInteractionMode(value: SliderInteraction): SliderAttribute;
@@ -1470,6 +1487,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @returns { SliderAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   minResponsiveDistance(value: number): SliderAttribute;
@@ -1481,6 +1499,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @returns { SliderAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   contentModifier(modifier: ContentModifier<SliderConfiguration>): SliderAttribute;
@@ -1492,6 +1511,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @returns { SliderAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   slideRange(value: SlideRange): SliderAttribute;

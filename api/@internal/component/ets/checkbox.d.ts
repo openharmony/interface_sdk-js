@@ -131,6 +131,7 @@ declare interface CheckboxOptions {
    * @type { ?CustomBuilder }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   indicatorBuilder?: CustomBuilder;
@@ -142,6 +143,7 @@ declare interface CheckboxOptions {
  * @interface CheckBoxConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface CheckBoxConfiguration extends CommonConfiguration<CheckBoxConfiguration> {
@@ -151,6 +153,7 @@ declare interface CheckBoxConfiguration extends CommonConfiguration<CheckBoxConf
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   name: string;
@@ -161,6 +164,7 @@ declare interface CheckBoxConfiguration extends CommonConfiguration<CheckBoxConf
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   selected: boolean;
@@ -171,6 +175,7 @@ declare interface CheckBoxConfiguration extends CommonConfiguration<CheckBoxConf
    * @type { Callback<boolean> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   triggerChange: Callback<boolean>;
@@ -483,6 +488,7 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * @returns { CheckboxAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   contentModifier(modifier: ContentModifier<CheckBoxConfiguration>): CheckboxAttribute;

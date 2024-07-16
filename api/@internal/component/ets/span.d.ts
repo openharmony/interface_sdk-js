@@ -121,6 +121,7 @@ declare class BaseSpan<T> extends CommonMethod<T> {
    * @returns { T } The attribute of the Span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
     baselineOffset(value: LengthMetrics): T;

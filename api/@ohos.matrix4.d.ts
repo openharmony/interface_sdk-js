@@ -765,6 +765,7 @@ declare namespace matrix4 {
      * @returns { Matrix4Transit } Return to Matrix4Transit
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     skew(x: number, y: number): Matrix4Transit;
@@ -834,6 +835,7 @@ declare namespace matrix4 {
      * @returns { Matrix4Transit } Return to Matrix4Transit
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     setPolyToPoly(options: PolyToPolyOptions): Matrix4Transit

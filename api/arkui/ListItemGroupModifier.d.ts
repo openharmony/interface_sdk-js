@@ -27,6 +27,7 @@
  * @extends ListItemGroupAttribute
  * @implements AttributeModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class ListItemGroupModifier extends ListItemGroupAttribute implements AttributeModifier<ListItemGroupAttribute> {
@@ -37,6 +38,7 @@ export declare class ListItemGroupModifier extends ListItemGroupAttribute implem
    * @param { ListItemGroupAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: ListItemGroupAttribute): void;

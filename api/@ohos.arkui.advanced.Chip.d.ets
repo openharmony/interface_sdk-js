@@ -160,6 +160,7 @@ export interface IconCommonOptions {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   activatedFillColor?: ResourceColor;
@@ -233,6 +234,7 @@ export interface PrefixIconOptions extends IconCommonOptions {}
  * @interface ChipSymbolGlyphOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 export interface ChipSymbolGlyphOptions {
@@ -243,6 +245,7 @@ export interface ChipSymbolGlyphOptions {
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   normal?: SymbolGlyphModifier;
@@ -253,6 +256,7 @@ export interface ChipSymbolGlyphOptions {
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   activated?: SymbolGlyphModifier;
@@ -322,6 +326,7 @@ export interface LabelMarginOptions {
  * @interface LocalizedLabelMarginOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 export interface LocalizedLabelMarginOptions {
@@ -332,6 +337,7 @@ export interface LocalizedLabelMarginOptions {
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
    start?: LengthMetrics;
@@ -342,6 +348,7 @@ export interface LocalizedLabelMarginOptions {
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   end?: LengthMetrics;
@@ -429,6 +436,7 @@ export interface LabelOptions {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   activatedFontColor?: ResourceColor;
@@ -477,6 +485,7 @@ export interface LabelOptions {
    * @type { ?LocalizedLabelMarginOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   localizedLabelMargin?: LocalizedLabelMarginOptions;
@@ -525,6 +534,7 @@ export interface ChipOptions {
    * @type { ?ChipSymbolGlyphOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   prefixSymbol?: ChipSymbolGlyphOptions;
@@ -573,6 +583,7 @@ export interface ChipOptions {
    * @type { ?ChipSymbolGlyphOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   suffixSymbol?: ChipSymbolGlyphOptions;
@@ -621,6 +632,7 @@ export interface ChipOptions {
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   activated?: boolean;
@@ -650,6 +662,7 @@ export interface ChipOptions {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   activatedBackgroundColor?: ResourceColor;
@@ -717,6 +730,7 @@ export interface ChipOptions {
    * @type { ?Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onClicked?: Callback<void>;
@@ -727,6 +741,7 @@ export interface ChipOptions {
    * @type { ?Direction }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
    direction?: Direction;
