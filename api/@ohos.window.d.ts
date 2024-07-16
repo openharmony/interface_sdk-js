@@ -7455,7 +7455,7 @@ declare namespace window {
     setDefaultDensityEnabled(enabled: boolean): void;
   }
 
-   /**
+  /**
    * Attribute of the window for UI service extension ability.
    *
    * @enum { number }
@@ -7465,7 +7465,6 @@ declare namespace window {
    * @since 12
    */
    enum ExtensionWindowAttribute {
-
     /**
      * System window.
      *
@@ -7497,7 +7496,6 @@ declare namespace window {
    * @since 12
    */
   interface SystemWindowOptions {
-
     /**
      * Indicates window type.
      *
@@ -7520,7 +7518,6 @@ declare namespace window {
    * @since 12
    */
   interface ExtensionWindowConfig {
-
     /**
      * Window name.
      *
