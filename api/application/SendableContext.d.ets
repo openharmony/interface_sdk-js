@@ -18,7 +18,7 @@
  * @kit AbilityKit
  */
 
-import lang from '../arkts/@arkts.lang';
+import lang from '../../arkts/@arkts.lang';
 
 /**
  * The sendable context. SendableContext is sendable data that supports the sendable protocol.

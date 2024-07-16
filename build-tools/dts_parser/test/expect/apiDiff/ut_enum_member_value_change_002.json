@@ -8,7 +8,7 @@
     "newApiName": "VALUE_ONE",
     "oldDtsName": "ut_enum_member_value_change_002.d.ts",
     "newDtsName": "ut_enum_member_value_change_002.d.ts",
-    "diffType": 58,
+    "diffType": 74,
     "diffMessage": "枚举赋值发生改变",
     "changeLogUrl": "",
     "changeLogs": [],
@@ -34,6 +34,9 @@
     "oldDescription": "0",
     "newDescription": "6",
     "oldSyscapField": "",
-    "newSyscapField": ""
+    "newSyscapField": "",
+    "oldKitInfo": "",
+    "newKitInfo": "",
+    "isSystemapi": false
   }
 ]

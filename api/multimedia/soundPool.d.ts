@@ -31,6 +31,7 @@ export interface PlayParameters {
   /**
    * loop mode (0 = no loop, -1 = loop forever)
    *
+   * @type { ?number }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
    */
@@ -38,6 +39,7 @@ export interface PlayParameters {
   /**
    * playback rate
    *
+   * @type { ?number }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
    */
@@ -45,6 +47,7 @@ export interface PlayParameters {
   /**
    * left volume value(range = 0.0 to 1.0),current leftVolume = rightVolume
    *
+   * @type { ?number }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
    */
@@ -52,6 +55,7 @@ export interface PlayParameters {
   /**
    * right volume value(range = 0.0 to 1.0),current leftVolume = rightVolume
    *
+   * @type { ?number }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
    */
@@ -59,6 +63,7 @@ export interface PlayParameters {
   /**
    * stream priority (0 = lowest priority)
    *
+   * @type { ?number }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
    */
@@ -66,6 +71,7 @@ export interface PlayParameters {
   /**
    * Flag indicating that the sound effect and audio can be played in parallel.
    *
+   * @type { ?boolean }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @systemapi
    * @since 10

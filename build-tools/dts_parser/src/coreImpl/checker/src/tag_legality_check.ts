@@ -79,7 +79,7 @@ export class LegalityCheck {
       return apiLegalityCheckResult;
     }
     const tagsTag: string[] = [];
-    apiTags.forEach((apiTag: Comment.CommentTag) => { tagsTag.push(apiTag.tag) });
+    apiTags.forEach((apiTag: Comment.CommentTag) => { tagsTag.push(apiTag.tag); });
     if (tagsTag.includes('deprecated')) {
       return apiLegalityCheckResult;
     }
@@ -102,9 +102,16 @@ export class LegalityCheck {
       if (apiLegalityTagsSet.has(apiTag.tag)) {
         apiLegalityTagsSet.delete(apiTag.tag);
       }
+      if (singleApi.getApiType() === ApiType.PROPERTY) {
+        apiLegalityTagsSet.delete('constant');
+        illegalTagsArray.push('constant');
+      }
       if (singleApi.getApiType() === ApiType.INTERFACE && (apiTag.tag === 'typedef' || apiTag.tag === 'interface')) {
         apiLegalityTagsSet.delete('typedef');
         apiLegalityTagsSet.delete('interface');
+      }
+      if (singleApi.getApiType() === ApiType.TYPE_ALIAS && singleApi.getIsExport()) {
+        apiLegalityTagsSet.delete('typedef');
       }
       if ((singleApi.getApiType() === ApiType.METHOD && (singleApi as MethodInfo).getReturnValue().length === 0) ||
         singleApi.getApiType() === ApiType.TYPE_ALIAS && ((singleApi as TypeAliasInfo).getReturnType() === 'void' ||
@@ -216,7 +223,7 @@ export class LegalityCheck {
     // check repeat throws
     const orderedThrowsCode: string[] = apiThrowsCode.sort();
     for (var i = 0; i < orderedThrowsCode.length; i++) {
-      if (orderedThrowsCode[i] == orderedThrowsCode[i + 1]) {
+      if (orderedThrowsCode[i] === orderedThrowsCode[i + 1]) {
         apiRepeatThrows.state = false;
         apiRepeatThrows.errorInfo = CommonFunctions.createErrorInfo(ErrorMessage.ERROR_REPEATLABEL, ['throws']);
       }

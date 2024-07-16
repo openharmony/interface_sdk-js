@@ -8,7 +8,7 @@
     "newApiName": "MyComponent",
     "oldDtsName": "ut_struct_new_decorator.d.ets",
     "newDtsName": "ut_struct_new_decorator.d.ets",
-    "diffType": 61,
+    "diffType": 77,
     "diffMessage": "新增装饰器",
     "changeLogUrl": "",
     "changeLogs": [],
@@ -32,6 +32,9 @@
     "oldDescription": "",
     "newDescription": "Component",
     "oldSyscapField": "",
-    "newSyscapField": ""
+    "newSyscapField": "",
+    "oldKitInfo": "",
+    "newKitInfo": "",
+    "isSystemapi": false
   }
 ]

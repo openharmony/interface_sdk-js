@@ -451,6 +451,7 @@ declare namespace wantAgent {
   /**
    * Provides the information required for triggering a WantAgent.
    *
+   * @typedef { _TriggerInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
@@ -459,6 +460,7 @@ declare namespace wantAgent {
   /**
    * Provides the information required for triggering a WantAgent.
    *
+   * @typedef { _WantAgentInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
@@ -468,6 +470,7 @@ declare namespace wantAgent {
 /**
  * WantAgent object.
  *
+ * @typedef { object }
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 9
  */

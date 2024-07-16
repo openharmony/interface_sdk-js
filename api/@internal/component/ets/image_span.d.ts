@@ -98,6 +98,18 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
   verticalAlign(value: ImageSpanAlignment): ImageSpanAttribute;
 
   /**
+   * Sets the color filter effect on the image span.
+   *
+   * @param { ColorFilter | DrawingColorFilter } filter ColorFilter object.
+   * @returns { ImageSpanAttribute } The attribute of the image span.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  colorFilter(filter: ColorFilter | DrawingColorFilter): ImageSpanAttribute;
+
+  /**
    * Sets the zoom type of an image.
    *
    * @param { ImageFit } value - Image display mode.

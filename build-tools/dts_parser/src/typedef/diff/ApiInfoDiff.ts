@@ -14,7 +14,7 @@
  */
 
 import ts from 'typescript';
-import { ApiInfo, MethodInfo, ApiType  } from '../parser/ApiInfoDefination';
+import { ApiInfo, MethodInfo, ApiType } from '../parser/ApiInfoDefination';
 import { Comment } from '../parser/Comment';
 import { NumberConstant } from '../../utils/Constant';
 export class BasicDiffInfo {
@@ -60,7 +60,11 @@ export class BasicDiffInfo {
   newSyscapField: string = '';
   //kit信息
   oldKitInfo: string = '';
-  newKitInfo:string = '';
+  newKitInfo: string = '';
+  //是否为系统API
+  isSystemapi: boolean = false;
+  //是否为同名函数的变更
+  isSameNameFunction: boolean = false;
 
   setApiType(apiType: string): BasicDiffInfo {
     if (apiType) {
@@ -267,7 +271,7 @@ export class BasicDiffInfo {
     return this.newSyscapField;
   }
 
-  setOldKitInfo(kitInfo: string) {
+  setOldKitInfo(kitInfo: string): BasicDiffInfo {
     this.oldKitInfo = kitInfo;
     return this;
   }
@@ -276,13 +280,33 @@ export class BasicDiffInfo {
     return this.oldKitInfo;
   }
 
-  setNewKitInfo(kitInfo: string) {
+  setNewKitInfo(kitInfo: string): BasicDiffInfo {
     this.newKitInfo = kitInfo;
     return this;
   }
 
   getNewKitInfo(): string {
     return this.newKitInfo;
+  }
+
+  setIsSystemapi(isSystemapi: boolean | undefined): BasicDiffInfo {
+    if (isSystemapi) {
+      this.isSystemapi = isSystemapi;
+    }
+    return this;
+  }
+
+  getIsSystemapi(): boolean {
+    return this.isSystemapi;
+  }
+
+  setIsSameNameFunction(isSameNameFunction: boolean): BasicDiffInfo {
+    this.isSameNameFunction = isSameNameFunction;
+    return this;
+  }
+
+  getIsSameNameFunction(): boolean {
+    return this.isSameNameFunction;
   }
 }
 
@@ -356,6 +380,8 @@ export class DiffNumberInfo {
   diffTypeNumber: number = 0;
   isApi: boolean = true;
   apiRelation: string = '';
+  isSystemapi: boolean = false;
+  isSameNameFunction: boolean = false;
 
   setApiName(apiName: string): DiffNumberInfo {
     this.apiName = apiName;
@@ -399,7 +425,7 @@ export class DiffNumberInfo {
     return this.apiType;
   }
 
-  setAllDiffType(diffType: string): DiffNumberInfo{
+  setAllDiffType(diffType: string): DiffNumberInfo {
     this.allDiffType.push(diffType);
     return this;
   }
@@ -432,9 +458,9 @@ export class DiffNumberInfo {
     return this.newDiffMessage;
   }
 
-  setAllChangeType(changeType: string | undefined): DiffNumberInfo{
+  setAllChangeType(changeType: string | undefined): DiffNumberInfo {
     if (!changeType) {
-      return this
+      return this;
     }
     this.allChangeType.push(changeType);
     return this;
@@ -444,7 +470,7 @@ export class DiffNumberInfo {
     return this.allChangeType;
   }
 
-  setAllCompatible(isCompatible: boolean): DiffNumberInfo{
+  setAllCompatible(isCompatible: boolean): DiffNumberInfo {
     this.allCompatible.push(isCompatible);
     return this;
   }
@@ -461,7 +487,7 @@ export class DiffNumberInfo {
     return this.diffTypeNumber;
   }
 
-  setIsApi(isApi: boolean) {
+  setIsApi(isApi: boolean): DiffNumberInfo {
     this.isApi = isApi;
     return this;
   }
@@ -470,18 +496,37 @@ export class DiffNumberInfo {
     return this.isApi;
   }
 
-  setApiRelation(apiRelation: string) {
+  setApiRelation(apiRelation: string): DiffNumberInfo {
     this.apiRelation = apiRelation;
     return this;
   }
 
-  getApiRelation(): string{
+  getApiRelation(): string {
     return this.apiRelation;
+  }
+
+  setIsSystemapi(isSystemapi: boolean): DiffNumberInfo {
+    this.isSystemapi = isSystemapi;
+    return this;
+  }
+
+  getIsSystemapi(): boolean {
+    return this.isSystemapi;
+  }
+
+  setIsSameNameFunction(isSameNameFunction: boolean): DiffNumberInfo {
+    this.isSameNameFunction = isSameNameFunction;
+    return this;
+  }
+
+  getIsSameNameFunction(): boolean {
+    return this.isSameNameFunction;
   }
 }
 
 export interface JsDocDiffProcessor {
-  (oldJsDocInfo: Comment.JsDocInfo | undefined, newJsDocInfo: Comment.JsDocInfo | undefined, isAllDeprecated?: boolean, isAllSheet?: boolean): DiffTypeInfo | undefined;
+  (oldJsDocInfo: Comment.JsDocInfo | undefined, newJsDocInfo: Comment.JsDocInfo | undefined, isAllDeprecated?: boolean,
+    isAllSheet?: boolean): DiffTypeInfo | undefined;
 }
 
 export interface ApiSceneDiffProcessor {
@@ -634,6 +679,7 @@ export enum ApiDiffType {
   KIT_CHANGE,
   ATOMIC_SERVICE_NA_TO_HAVE,
   ATOMIC_SERVICE_HAVE_TO_NA,
+  PROPERTY_TYPE_SIGN_CHANGE,
 }
 
 export const diffTypeMap: Map<ApiDiffType, string> = new Map([
@@ -693,6 +739,7 @@ export const diffTypeMap: Map<ApiDiffType, string> = new Map([
   [ApiDiffType.PROPERTY_READONLY_REDUCE, '属性变更'],
   [ApiDiffType.PROPERTY_WRITABLE_ADD, '属性变更'],
   [ApiDiffType.PROPERTY_WRITABLE_REDUCE, '属性变更'],
+  [ApiDiffType.PROPERTY_TYPE_SIGN_CHANGE, '属性变更'],
   [ApiDiffType.CONSTANT_VALUE_CHANGE, '常量变更'],
   [ApiDiffType.TYPE_ALIAS_CHANGE, '自定义类型变更'],
   [ApiDiffType.TYPE_ALIAS_ADD, '自定义类型变更'],
@@ -776,6 +823,7 @@ export const diffMap: Map<ApiDiffType, string> = new Map([
   [ApiDiffType.PROPERTY_WRITABLE_TO_UNREQUIRED, '可写属性由必选变为可选'],
   [ApiDiffType.PROPERTY_WRITABLE_TO_REQUIRED, '可写属性由可选变为必选'],
   [ApiDiffType.PROPERTY_TYPE_CHANGE, '属性类型发生改变'],
+  [ApiDiffType.PROPERTY_TYPE_SIGN_CHANGE, '属性类型发生改变'],
   [ApiDiffType.PROPERTY_READONLY_ADD, '只读属性类型范围扩大'],
   [ApiDiffType.PROPERTY_READONLY_REDUCE, '只读属性类型范围缩小'],
   [ApiDiffType.PROPERTY_WRITABLE_ADD, '可写属性类型范围扩大'],
@@ -859,11 +907,13 @@ export const apiChangeMap: Map<ApiDiffType, string> = new Map([
   [ApiDiffType.FUNCTION_PARAM_TYPE_ADD, 'API修改（原型修改）'],
   [ApiDiffType.FUNCTION_PARAM_TYPE_REDUCE, 'API修改（原型修改）'],
   [ApiDiffType.FUNCTION_CHANGES, 'API修改（原型修改）'],
+  [ApiDiffType.FUNCTION_PARAM_CHANGE, 'API修改（原型修改）'],
   [ApiDiffType.PROPERTY_READONLY_TO_UNREQUIRED, 'API修改（约束变化）'],
   [ApiDiffType.PROPERTY_READONLY_TO_REQUIRED, 'API修改（约束变化）'],
   [ApiDiffType.PROPERTY_WRITABLE_TO_UNREQUIRED, 'API修改（约束变化）'],
   [ApiDiffType.PROPERTY_WRITABLE_TO_REQUIRED, 'API修改（约束变化）'],
   [ApiDiffType.PROPERTY_TYPE_CHANGE, 'API修改（原型修改）'],
+  [ApiDiffType.PROPERTY_TYPE_SIGN_CHANGE, 'API修改（原型修改）'],
   [ApiDiffType.PROPERTY_READONLY_ADD, 'API修改（约束变化）'],
   [ApiDiffType.PROPERTY_READONLY_REDUCE, 'API修改（约束变化）'],
   [ApiDiffType.PROPERTY_WRITABLE_ADD, 'API修改（约束变化）'],
@@ -881,6 +931,21 @@ export const apiChangeMap: Map<ApiDiffType, string> = new Map([
   [ApiDiffType.SINCE_VERSION_HAVE_TO_NA, 'API修改（约束变化）'],
   [ApiDiffType.SINCE_VERSION_NA_TO_HAVE, 'API修改（约束变化）'],
   [ApiDiffType.KIT_CHANGE, '非API变更'],
+  [ApiDiffType.ATOMIC_SERVICE_HAVE_TO_NA, 'API修改（约束变化）'],
+  [ApiDiffType.ATOMIC_SERVICE_NA_TO_HAVE, 'API修改（约束变化）'],
+  [ApiDiffType.TYPE_ALIAS_FUNCTION_RETURN_TYPE_ADD, 'API修改（原型修改）'],
+  [ApiDiffType.TYPE_ALIAS_FUNCTION_RETURN_TYPE_REDUCE, 'API修改（原型修改）'],
+  [ApiDiffType.TYPE_ALIAS_FUNCTION_RETURN_TYPE_CHANGE, 'API修改（原型修改）'],
+  [ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_POS_CHAHGE, 'API修改（原型修改）'],
+  [ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_UNREQUIRED_ADD, 'API修改（原型修改）'],
+  [ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_REQUIRED_ADD, 'API修改（原型修改）'],
+  [ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_REDUCE, 'API修改（原型修改）'],
+  [ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_TO_UNREQUIRED, 'API修改（原型修改）'],
+  [ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_TO_REQUIRED, 'API修改（原型修改）'],
+  [ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_TYPE_CHANGE, 'API修改（原型修改）'],
+  [ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_TYPE_ADD, 'API修改（原型修改）'],
+  [ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_TYPE_REDUCE, 'API修改（原型修改）'],
+  [ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_CHANGE, 'API修改（原型修改）'],
 ]);
 
 /**
@@ -932,6 +997,9 @@ export const incompatibleApiDiffTypes: Set<ApiDiffType> = new Set([
   ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_CHANGE,
   ApiDiffType.ATOMIC_SERVICE_HAVE_TO_NA,
   ApiDiffType.DELETE_DECORATOR,
+  ApiDiffType.SYSCAP_A_TO_B,
+  ApiDiffType.SYSCAP_HAVE_TO_NA,
+  ApiDiffType.SYSCAP_NA_TO_HAVE,
 ]);
 
 export const isNotApiSet: Set<string> = new Set([

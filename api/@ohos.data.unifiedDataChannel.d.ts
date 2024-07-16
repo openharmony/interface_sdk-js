@@ -76,12 +76,12 @@ declare namespace unifiedDataChannel {
 
   /**
    * Indicates type of value.
-   * @typedef {number | string | image.PixelMap | Want | ArrayBuffer}
+   * @typedef {number | string | boolean | image.PixelMap | Want | ArrayBuffer | object | null | undefined}
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
    * @since 12
    */
-  type ValueType = number | string | image.PixelMap | Want | ArrayBuffer;
+  type ValueType = number | string | boolean | image.PixelMap | Want | ArrayBuffer | object | null | undefined;
 
   /**
    * Describe the unified data properties.

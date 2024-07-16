@@ -143,6 +143,7 @@ declare namespace batteryStats {
    * @param { number } uid Indicates the uid.
    * @returns { number } Power consumption information(mAh).
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @throws { BusinessError } 4600101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.BatteryStatistics
    * @systemapi
@@ -156,6 +157,7 @@ declare namespace batteryStats {
    * @param { number } uid Indicates the uid.
    * @returns { number } Power consumption information(Percent).
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @throws { BusinessError } 4600101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.BatteryStatistics
    * @systemapi
@@ -205,6 +207,7 @@ declare namespace batteryStats {
   interface BatteryStatsInfo {
     /** The uid related with the power consumption info.
      *
+     * @type { number }
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
      * @since 8
@@ -213,6 +216,7 @@ declare namespace batteryStats {
 
     /** The type related with the power consumption info.
      *
+     * @type { ConsumptionType }
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
      * @since 8
@@ -221,6 +225,7 @@ declare namespace batteryStats {
 
     /** The power consumption value(mAh).
      *
+     * @type { number }
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
      * @since 8

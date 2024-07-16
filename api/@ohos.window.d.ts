@@ -1087,6 +1087,66 @@ declare namespace window {
   }
 
   /**
+   * The info of window
+   *
+   * @interface WindowInfo
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi
+   * @since 12
+   */
+  interface WindowInfo {
+    /**
+     * The position and size of the window
+     *
+     * @type { Rect }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi
+     * @since 12
+     */
+    rect: Rect;
+
+    /**
+     * bundleName of window
+     *
+     * @type { string }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi
+     * @since 12
+     */
+    bundleName: string;
+
+    /**
+     * abilityName of window
+     *
+     * @type { string }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi
+     * @since 12
+     */
+    abilityName: string;
+
+    /**
+     * Indicates target window id.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi
+     * @since 12
+     */
+    windowId: number;
+
+    /**
+     * The window status of an application.
+     *
+     * @type { WindowStatusType }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi
+     * @since 12
+     */
+    windowStatusType: WindowStatusType;
+  }
+
+  /**
    * Properties of window, it couldn't update automatically
    *
    * @interface WindowProperties
@@ -1952,6 +2012,23 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 9
    */
+  /**
+   * Create a window with a specific configuration
+   *
+   * @param { Configuration } config - Parameters for window creation.
+   * @param { AsyncCallback<Window> } callback - Callback used to return the window created.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+   *                                                                  2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 1300001 - Repeated operation.
+   * @throws { BusinessError } 1300004 - Unauthorized operation.
+   * @throws { BusinessError } 1300006 - This window context is abnormal.
+   * @throws { BusinessError } 1300008 - The display device is abnormal.
+   * @throws { BusinessError } 1300009 - The parent window is invalid.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 12
+   */
   function createWindow(config: Configuration, callback: AsyncCallback<Window>): void;
 
   /**
@@ -1968,6 +2045,23 @@ declare namespace window {
    * @throws { BusinessError } 1300009 - The parent window is invalid.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 9
+   */
+  /**
+   * Create a window with a specific configuration
+   *
+   * @param { Configuration } config - Parameters for window creation.
+   * @returns { Promise<Window> } Promise used to return the window created.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+   *                                                                  2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 1300001 - Repeated operation.
+   * @throws { BusinessError } 1300004 - Unauthorized operation.
+   * @throws { BusinessError } 1300006 - This window context is abnormal.
+   * @throws { BusinessError } 1300008 - The display device is abnormal.
+   * @throws { BusinessError } 1300009 - The parent window is invalid.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 12
    */
   function createWindow(config: Configuration): Promise<Window>;
 
@@ -2379,6 +2473,19 @@ declare namespace window {
    * @since 11
    */
   function shiftAppWindowFocus(sourceWindowId: number, targetWindowId: number): Promise<void>;
+
+  /**
+   * Get info of visible windows.
+   *
+   * @returns { Promise<Array<WindowInfo>> } - Promise that returns windowInfo list.
+   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  function getVisibleWindowInfo(): Promise<Array<WindowInfo>>;
 
   /**
    * gets snapshot of window
@@ -3617,6 +3724,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3642,6 +3750,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -6378,7 +6487,7 @@ declare namespace window {
     /**
      * Set the visibility of the window decor.
      *
-     * @param { boolean } - Enable the decor visible if true, otherwise means the opposite.
+     * @param { boolean } isVisible - Enable the decor visible if true, otherwise means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
      *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -6393,7 +6502,7 @@ declare namespace window {
     /**
      * Set the modality of the window.
      *
-     * @param { boolean } - Enable the window modal if true, otherwise means the opposite.
+     * @param { boolean } isModal - Enable the window modal if true, otherwise means the opposite.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
@@ -6421,7 +6530,7 @@ declare namespace window {
     /**
      * Set the height of the window decor.
      *
-     * @param { number } - The height of window decor.
+     * @param { number } height - The height of window decor.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
      *                                                                  2. Incorrect parameter types;
      *                                                                  3. Parameter verification failed.

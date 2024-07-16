@@ -765,6 +765,15 @@ declare enum LaunchMode {
    * @since 12
    */
   POP_TO_SINGLETON = 2,
+  
+  /**
+   * Forced to create a new NavDestination instance.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  NEW_INSTANCE = 3,
 }
 
 /**
@@ -2434,8 +2443,8 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
     * @returns { NavigationAttribute }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
-    * @since 10
     * @form
+    * @since 10
     */
   /**
     * Configure toolbar with default style parameter or custom parameter.
@@ -2445,9 +2454,9 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
     * @returns { NavigationAttribute }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
+    * @form
     * @atomicservice
     * @since 11
-    * @form
     */
   toolbarConfiguration(value: Array<ToolbarItem> | CustomBuilder, options?: NavigationToolbarOptions): NavigationAttribute;
 

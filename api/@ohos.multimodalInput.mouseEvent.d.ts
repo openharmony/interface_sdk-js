@@ -218,7 +218,7 @@ export declare enum Axis {
 export declare interface AxisValue {
   /**
    * Axis type
-   *
+   * @type { Axis }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
@@ -226,7 +226,7 @@ export declare interface AxisValue {
 
   /**
    * Axis value
-   *
+   * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
@@ -284,7 +284,7 @@ export declare enum ToolType {
 export declare interface MouseEvent extends InputEvent {
   /**
    * Mouse event action
-   *
+   * @type { Action }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
@@ -292,7 +292,7 @@ export declare interface MouseEvent extends InputEvent {
 
   /**
    * X coordinate of the mouse pointer on the screen
-   *
+   * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
@@ -300,7 +300,7 @@ export declare interface MouseEvent extends InputEvent {
 
   /**
    * Y coordinate of the mouse pointer on the screen
-   *
+   * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
@@ -308,7 +308,7 @@ export declare interface MouseEvent extends InputEvent {
 
   /**
    * X coordinate of the mouse pointer in the window
-   *
+   * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
@@ -316,7 +316,7 @@ export declare interface MouseEvent extends InputEvent {
 
   /**
    * Y coordinate of the mouse pointer in the window
-   *
+   * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
@@ -325,7 +325,7 @@ export declare interface MouseEvent extends InputEvent {
   /**
    * X axis offset relative to the previous reported mouse pointer position. When the mouse pointer is at
    * the edge of the screen, the value may be less than the difference of the X coordinate reported twice.
-   *
+   * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
@@ -333,7 +333,7 @@ export declare interface MouseEvent extends InputEvent {
 
   /**
    * Y axis offset relative to the previous reported mouse pointer position
-   *
+   * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
@@ -349,7 +349,7 @@ export declare interface MouseEvent extends InputEvent {
 
   /**
    * Button that is being pressed
-   *
+   * @type { Button[] }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
@@ -357,7 +357,7 @@ export declare interface MouseEvent extends InputEvent {
 
   /**
    * All axis data contained in the event
-   *
+   * @type { AxisValue[] }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
@@ -365,7 +365,7 @@ export declare interface MouseEvent extends InputEvent {
 
   /**
    * List of pressed keys
-   *
+   * @type { KeyCode[] }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
@@ -373,7 +373,7 @@ export declare interface MouseEvent extends InputEvent {
 
   /**
    * Whether ctrlKey is being pressed
-   *
+   * @type { boolean }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
@@ -381,7 +381,7 @@ export declare interface MouseEvent extends InputEvent {
 
   /**
    * Whether altKey is being pressed
-   *
+   * @type { boolean }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
@@ -389,7 +389,7 @@ export declare interface MouseEvent extends InputEvent {
 
   /**
    * Whether shiftKey is being pressed
-   *
+   * @type { boolean }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
@@ -405,7 +405,7 @@ export declare interface MouseEvent extends InputEvent {
 
   /**
    * Whether fnKey is being pressed
-   *
+   * @type { boolean }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
@@ -413,7 +413,7 @@ export declare interface MouseEvent extends InputEvent {
 
   /**
    * Whether capsLock is active
-   *
+   * @type { boolean }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
@@ -421,7 +421,7 @@ export declare interface MouseEvent extends InputEvent {
 
   /**
    * Whether numLock is active
-   *
+   * @type { boolean }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
@@ -429,7 +429,7 @@ export declare interface MouseEvent extends InputEvent {
 
   /**
    * Whether scrollLock is active
-   *
+   * @type { boolean }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */

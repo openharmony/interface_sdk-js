@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
 import ExtensionAbility from './@ohos.app.ability.ExtensionAbility';
 import PhotoEditorExtensionContext from './application/PhotoEditorExtensionContext';
 import type UIExtensionContentSession from './@ohos.app.ability.UIExtensionContentSession';

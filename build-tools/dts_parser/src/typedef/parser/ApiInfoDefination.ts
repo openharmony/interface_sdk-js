@@ -66,16 +66,16 @@ export class BasicApiInfo {
   jsDocText: string = '';
   isJoinType: boolean = false;
   genericInfo: GenericInfo[] = [];
-  parentApiType: string | undefined = '';
+  parentApiType: string = '';
   fileAbsolutePath: string = ''; //绝对路径
 
   constructor(apiType: string = '', node: ts.Node, parentApi: BasicApiInfo | undefined) {
     this.node = node;
     this.setParentApi(parentApi);
-    this.setParentApiType(parentApi?.getApiType())
+    this.setParentApiType(parentApi?.getApiType());
     if (parentApi) {
       this.setFilePath(parentApi.getFilePath());
-      this.setFileAbsolutePath(parentApi.getFileAbsolutePath())
+      this.setFileAbsolutePath(parentApi.getFileAbsolutePath());
       this.setIsStruct(parentApi.getIsStruct());
     }
     this.setApiType(apiType);
@@ -147,12 +147,14 @@ export class BasicApiInfo {
   getParentApi(): BasicApiInfo | undefined {
     return this.parentApi;
   }
-  
+
   setParentApiType(parentApiType: string | undefined): void {
-    this.parentApiType = parentApiType;
+    if (parentApiType) {
+      this.parentApiType = parentApiType; 
+    }
   }
 
-  getParentApiType(): string | undefined {
+  getParentApiType(): string {
     return this.parentApiType;
   }
 
@@ -490,7 +492,7 @@ export class PropertyInfo extends ApiInfo {
   typeKind: ts.SyntaxKind = ts.SyntaxKind.Unknown; //type类型的kind值
   typeLocations: TypeLocationInfo[] = []; // 参数、返回值的JsDoc信息
   objLocations: TypeLocationInfo[] = []; // 匿名类型的JsDoc信息
-  
+
   constructor(apiType: string = '', node: ts.Node, parentApi: BasicApiInfo | undefined) {
     super(apiType, node, parentApi);
     let propertyNode: PropertyNode = node as PropertyNode;
@@ -672,6 +674,7 @@ export class MethodInfo extends ApiInfo {
   returnValueType: ts.SyntaxKind = ts.SyntaxKind.Unknown;
   typeLocations: Comment.JsDocInfo[] = []; // 参数、返回值的JsDoc信息
   objLocations: Comment.JsDocInfo[] = []; // 匿名类型的JsDoc信息
+  isRequired: boolean = false;
 
   setCallForm(callForm: string): void {
     this.callForm = callForm;
@@ -735,6 +738,14 @@ export class MethodInfo extends ApiInfo {
 
   getSync(): string {
     return this.sync;
+  }
+
+  setIsRequired(isRequired: boolean):void {
+    this.isRequired = isRequired;
+  }
+
+  getIsRequired(): boolean {
+    return this.isRequired;
   }
 }
 
@@ -942,8 +953,8 @@ export class ParserParam {
         const value: ts.ResolvedModule = {
           resolvedFileName: '',
           isExternalLibraryImport: false
-        }
-        const alias: { [key: string]: string } = {
+        };
+        const alias: { [key: string]: string; } = {
           "^(@ohos\\.inner\\.)(.*)$": "../../../base/ets/api/",
           "^(@ohos\\.)(.*)$": "../../../base/ets/api/",
         };
@@ -968,7 +979,7 @@ export class ParserParam {
             break;
           }
         }
-        const resolvedFileName: string | undefined = ts.resolveModuleName(moduleName, containingFile, compilerOptions, compilerHost).resolvedModule?.resolvedFileName
+        const resolvedFileName: string | undefined = ts.resolveModuleName(moduleName, containingFile, compilerOptions, compilerHost).resolvedModule?.resolvedFileName;
         if (resolvedFileName) {
           value.resolvedFileName = resolvedFileName;
           value.isExternalLibraryImport = true;
@@ -986,7 +997,7 @@ export class ParserParam {
   }
 }
 
-export type ExportImportValue = { key: string; value: string };
+export type ExportImportValue = { key: string; value: string; };
 export interface NodeProcessorInterface {
   (node: ts.Node, parentApiInfo: BasicApiInfo): BasicApiInfo;
 }

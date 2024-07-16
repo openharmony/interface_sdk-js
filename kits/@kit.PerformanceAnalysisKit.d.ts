@@ -18,7 +18,6 @@
  * @kit PerformanceAnalysisKit
  */
 
-import bytrace from '@ohos.bytrace';
 import FaultLogger from '@ohos.faultLogger';
 import hiAppEvent from '@ohos.hiviewdfx.hiAppEvent';
 import hichecker from '@ohos.hichecker';
@@ -28,8 +27,9 @@ import hiSysEvent from '@ohos.hiSysEvent';
 import hiTraceChain from '@ohos.hiTraceChain';
 import hiTraceMeter from '@ohos.hiTraceMeter';
 import logLibrary from '@ohos.logLibrary';
+import jsLeakWatcher from '@ohos.hiviewdfx.jsLeakWatcher';
 
 export {
-  FaultLogger, bytrace, hiAppEvent, hiSysEvent, hiTraceChain, hiTraceMeter, hichecker, hidebug, hilog,
-  logLibrary
+  FaultLogger, hiAppEvent, hiSysEvent, hiTraceChain, hiTraceMeter, hichecker, hidebug, hilog,
+  logLibrary, jsLeakWatcher
 };

@@ -24,8 +24,8 @@
  * @interface ComponentOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 11
  * @form
+ * @since 11
  */
 /**
  * Defines the options of Component ClassDecorator.
@@ -33,9 +33,9 @@
  * @interface ComponentOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 12
- * @form
  */
 declare interface ComponentOptions {
   /**
@@ -45,8 +45,8 @@ declare interface ComponentOptions {
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * freeze UI state.
@@ -55,9 +55,9 @@ declare interface ComponentOptions {
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   freezeWhenInactive : boolean,
 }
@@ -171,16 +171,16 @@ declare interface TextDecorationOptions {
  * Defining Component ClassDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
  * @form
+ * @since 9
  */
 /**
  * Defining Component ClassDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 10
  * @form
+ * @since 10
  */
 /**
  * Defining Component ClassDecorator
@@ -188,9 +188,9 @@ declare interface TextDecorationOptions {
  * Component is a ClassDecorator and it supports ComponentOptions as parameters.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const Component: ClassDecorator & ((options: ComponentOptions) => ClassDecorator);
 
@@ -209,17 +209,17 @@ declare const ComponentV2: ClassDecorator & ((options: ComponentOptions) => Clas
  *
  * @interface EntryOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 10
  * @form
+ * @since 10
  */
 /**
  * Defines the options of Entry ClassDecorator.
  *
  * @interface EntryOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare interface EntryOptions {
   /**
@@ -227,17 +227,17 @@ declare interface EntryOptions {
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * Named route name.
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   routeName? : string,
 
@@ -246,17 +246,17 @@ declare interface EntryOptions {
    *
    * @type { ?LocalStorage }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * LocalStorage to be passed.
    *
    * @type { ?LocalStorage }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   storage? : LocalStorage,
 
@@ -266,8 +266,8 @@ declare interface EntryOptions {
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 12
    * @form
+   * @since 12
    */
   useSharedStorage? : boolean,
 }
@@ -283,8 +283,8 @@ declare interface EntryOptions {
  *
  * Entry is a ClassDecorator and it supports LocalStorage as parameters.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines Entry ClassDecorator.
@@ -292,8 +292,8 @@ declare interface EntryOptions {
  * Entry is a ClassDecorator and it supports LocalStorage or EntryOptions as parameters.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines Entry ClassDecorator.
@@ -301,9 +301,9 @@ declare interface EntryOptions {
  * Entry is a ClassDecorator and it supports LocalStorage or EntryOptions as parameters.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const Entry: ClassDecorator & ((options?: LocalStorage | EntryOptions) => ClassDecorator);
 
@@ -317,25 +317,25 @@ declare const Entry: ClassDecorator & ((options?: LocalStorage | EntryOptions) =
  * Defining Observed ClassDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defining Observed ClassDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defining Observed ClassDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const Observed: ClassDecorator;
 
@@ -344,8 +344,8 @@ declare const Observed: ClassDecorator;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
  * @form
+ * @since 12
  */
 declare const ObservedV2: ClassDecorator;
 
@@ -359,25 +359,25 @@ declare const ObservedV2: ClassDecorator;
  * Defining Preview ClassDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defining Preview ClassDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defining Preview ClassDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const Preview: ClassDecorator & ((value: PreviewParams) => ClassDecorator);
 
@@ -386,9 +386,9 @@ declare const Preview: ClassDecorator & ((value: PreviewParams) => ClassDecorato
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const Require: PropertyDecorator;
 
@@ -402,25 +402,25 @@ declare const Require: PropertyDecorator;
  * Defining BuilderParam PropertyDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defining BuilderParam PropertyDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defining BuilderParam PropertyDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const BuilderParam: PropertyDecorator;
 
@@ -470,25 +470,25 @@ declare const Event: PropertyDecorator;
  * Defining State PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defining State PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defining State PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const State: PropertyDecorator;
 
@@ -497,17 +497,17 @@ declare const State: PropertyDecorator;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 11
  * @form
+ * @since 11
  */
 /**
  * Defining Track PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 12
- * @form
  */
 declare const Track: PropertyDecorator;
 
@@ -516,8 +516,8 @@ declare const Track: PropertyDecorator;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
  * @form
+ * @since 12
  */
 declare const Trace: PropertyDecorator;
 
@@ -531,25 +531,25 @@ declare const Trace: PropertyDecorator;
  * Defining Prop PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defining Prop PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defining Prop PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const Prop: PropertyDecorator;
 
@@ -563,25 +563,25 @@ declare const Prop: PropertyDecorator;
  * Defining Link PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defining Link PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defining Link PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const Link: PropertyDecorator;
 
@@ -595,25 +595,25 @@ declare const Link: PropertyDecorator;
  * Defining ObjectLink PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defining ObjectLink PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defining ObjectLink PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const ObjectLink: PropertyDecorator;
 
@@ -623,9 +623,9 @@ declare const ObjectLink: PropertyDecorator;
  * @interface ProvideOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare interface ProvideOptions {
   /**
@@ -635,9 +635,9 @@ declare interface ProvideOptions {
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   allowOverride?: string,
 }
@@ -652,25 +652,25 @@ declare interface ProvideOptions {
  * Defining Provide PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defining Provide PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defining Provide PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const Provide: PropertyDecorator & ((value: string | ProvideOptions) => PropertyDecorator);
 
@@ -692,25 +692,25 @@ declare const Provider: (aliasName?: string) => PropertyDecorator;
  * Defining Consume PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defining Consume PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defining Consume PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const Consume: PropertyDecorator & ((value: string) => PropertyDecorator);
 
@@ -787,25 +787,25 @@ declare const StorageLink: (value: string) => PropertyDecorator;
  * Defining Watch PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defining Watch PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defining Watch PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const Watch: (value: string) => PropertyDecorator;
 
@@ -819,27 +819,38 @@ declare const Watch: (value: string) => PropertyDecorator;
  * Defining Builder MethodDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defining Builder MethodDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defining Builder MethodDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const Builder: MethodDecorator;
+
+/**
+ * Defining LocalBuilder MethodDecorator
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 12
+ */
+declare const LocalBuilder: MethodDecorator;
 
 /**
  * Defining Styles MethodDecorator
@@ -851,25 +862,25 @@ declare const Builder: MethodDecorator;
  * Defining Styles MethodDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defining Styles MethodDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defining Styles MethodDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const Styles: MethodDecorator;
 
@@ -883,25 +894,25 @@ declare const Styles: MethodDecorator;
  * Defining Extend MethodDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defining Extend MethodDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defining Extend MethodDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const Extend: MethodDecorator & ((value: any) => MethodDecorator);
 
@@ -927,6 +938,7 @@ declare const Extend: MethodDecorator & ((value: any) => MethodDecorator);
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare const Monitor: MonitorDecorator;
@@ -940,6 +952,7 @@ declare const Monitor: MonitorDecorator;
  * @returns { MethodDecorator } Monitor decorator
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare type MonitorDecorator = (value: string, ...args: string[]) => MethodDecorator;
@@ -950,6 +963,7 @@ declare type MonitorDecorator = (value: string, ...args: string[]) => MethodDeco
  * @interface IMonitor
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface IMonitor {
@@ -959,6 +973,7 @@ declare interface IMonitor {
    * @type { Array<string> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   dirty: Array<string>;
@@ -971,6 +986,7 @@ declare interface IMonitor {
    * @returns { IMonitorValue<T> | undefined }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   value<T>(path?: string): IMonitorValue<T> | undefined;
@@ -982,6 +998,7 @@ declare interface IMonitor {
  * @interface IMonitorValue<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface IMonitorValue<T> {
@@ -991,6 +1008,7 @@ declare interface IMonitorValue<T> {
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   before: T;
@@ -1001,6 +1019,7 @@ declare interface IMonitorValue<T> {
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   now: T;
@@ -1011,6 +1030,7 @@ declare interface IMonitorValue<T> {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   path: string;
@@ -1202,25 +1222,25 @@ declare const LocalStorageLink: (value: string) => PropertyDecorator;
  * Defining LocalStorageProp PropertyDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defining LocalStorageProp PropertyDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defining LocalStorageProp PropertyDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const LocalStorageProp: (value: string) => PropertyDecorator;
 
@@ -1306,8 +1326,8 @@ declare type Context = import('../api/application/Context').default;
  * @param { Object } action - indicate the router, message or call event.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @StageModelOnly
+ * @form
  * @since 9
- * @form
  */
 /**
  * Post Card Action.
@@ -1317,8 +1337,8 @@ declare type Context = import('../api/application/Context').default;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @StageModelOnly
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Post Card Action.
@@ -1328,9 +1348,9 @@ declare type Context = import('../api/application/Context').default;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @StageModelOnly
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare function postCardAction(component: Object, action: Object): void;
 
@@ -1346,8 +1366,8 @@ declare function postCardAction(component: Object, action: Object): void;
  *
  * @interface Configuration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines the data type of the interface restriction.
@@ -1355,8 +1375,8 @@ declare function postCardAction(component: Object, action: Object): void;
  * @interface Configuration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines the data type of the interface restriction.
@@ -1364,9 +1384,9 @@ declare function postCardAction(component: Object, action: Object): void;
  * @interface Configuration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare interface Configuration {
   /**
@@ -1381,8 +1401,8 @@ declare interface Configuration {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Set colorMode.
@@ -1390,8 +1410,8 @@ declare interface Configuration {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Set colorMode.
@@ -1399,9 +1419,9 @@ declare interface Configuration {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   readonly colorMode: string;
 
@@ -1417,8 +1437,8 @@ declare interface Configuration {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Set fontScale.
@@ -1426,8 +1446,8 @@ declare interface Configuration {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Set fontScale.
@@ -1435,9 +1455,9 @@ declare interface Configuration {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   readonly fontScale: number;
 }
@@ -1454,8 +1474,8 @@ declare interface Configuration {
  *
  * @interface Rectangle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines the data type of the interface restriction.
@@ -1463,8 +1483,8 @@ declare interface Configuration {
  * @interface Rectangle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines the data type of the interface restriction.
@@ -1472,9 +1492,9 @@ declare interface Configuration {
  * @interface Rectangle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare interface Rectangle {
   /**
@@ -1489,8 +1509,8 @@ declare interface Rectangle {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * x:Horizontal coordinate
@@ -1498,8 +1518,8 @@ declare interface Rectangle {
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * x:Horizontal coordinate
@@ -1507,9 +1527,9 @@ declare interface Rectangle {
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   x?: Length;
 
@@ -1525,8 +1545,8 @@ declare interface Rectangle {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * y:Vertical axis coordinate.
@@ -1534,8 +1554,8 @@ declare interface Rectangle {
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * y:Vertical axis coordinate.
@@ -1543,9 +1563,9 @@ declare interface Rectangle {
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   y?: Length;
 
@@ -1561,8 +1581,8 @@ declare interface Rectangle {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Sets the width of the current touchRect.
@@ -1570,8 +1590,8 @@ declare interface Rectangle {
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Sets the width of the current touchRect.
@@ -1579,9 +1599,9 @@ declare interface Rectangle {
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   width?: Length;
 
@@ -1597,8 +1617,8 @@ declare interface Rectangle {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Sets the height of the current touchRect.
@@ -1606,8 +1626,8 @@ declare interface Rectangle {
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Sets the height of the current touchRect.
@@ -1615,9 +1635,9 @@ declare interface Rectangle {
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   height?: Length;
 }
@@ -1674,8 +1694,8 @@ declare interface ExpectedFrameRateRange {
  * @param { any[] } params
  * @returns { Resource }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * global $r function
@@ -1685,8 +1705,8 @@ declare interface ExpectedFrameRateRange {
  * @returns { Resource }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * global $r function
@@ -1696,9 +1716,9 @@ declare interface ExpectedFrameRateRange {
  * @returns { Resource }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare function $r(value: string, ...params: any[]): Resource;
 
@@ -1716,8 +1736,8 @@ declare function $r(value: string, ...params: any[]): Resource;
  * @param { string } value
  * @returns { Resource }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * global $rawfile function
@@ -1726,8 +1746,8 @@ declare function $r(value: string, ...params: any[]): Resource;
  * @returns { Resource }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * global $rawfile function
@@ -1736,9 +1756,9 @@ declare function $r(value: string, ...params: any[]): Resource;
  * @returns { Resource }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare function $rawfile(value: string): Resource;
 
@@ -1757,9 +1777,9 @@ declare function $rawfile(value: string): Resource;
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 12
- * @form
  */
 declare enum FinishCallbackType {
   /**
@@ -1775,9 +1795,9 @@ declare enum FinishCallbackType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   REMOVED = 0,
   /**
@@ -1793,9 +1813,9 @@ declare enum FinishCallbackType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
   */
   LOGICALLY = 1,
 }
@@ -1806,8 +1826,8 @@ declare enum FinishCallbackType {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 11
  * @form
+ * @since 11
  */
 /**
  * Defines the touch test strategy object.
@@ -1815,9 +1835,9 @@ declare enum FinishCallbackType {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 12
- * @form
  */
 declare enum TouchTestStrategy {
   /**
@@ -1825,17 +1845,17 @@ declare enum TouchTestStrategy {
   *
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
-  * @since 11
   * @form
+  * @since 11
   */
  /**
   * Do framework touch test.
   *
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
+  * @form
   * @atomicservice
   * @since 12
-  * @form
   */
   DEFAULT = 0,
 
@@ -1844,17 +1864,17 @@ declare enum TouchTestStrategy {
   *
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
-  * @since 11
   * @form
+  * @since 11
   */
  /**
   * Specify the component to do touch test and follow the framework touch test
   *
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
+  * @form
   * @atomicservice
   * @since 12
-  * @form
   */
   FORWARD_COMPETITION = 1,
 
@@ -1863,17 +1883,17 @@ declare enum TouchTestStrategy {
   *
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
-  * @since 11
   * @form
+  * @since 11
   */
  /**
   * Specify the component to do touch test and not follow the framework touch test
   *
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
+  * @form
   * @atomicservice
   * @since 12
-  * @form
   */
   FORWARD = 2
 }
@@ -1890,8 +1910,8 @@ declare enum TouchTestStrategy {
  *
  * @interface AnimateParam
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines the animate function params.
@@ -1899,8 +1919,8 @@ declare enum TouchTestStrategy {
  * @interface AnimateParam
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines the animate function params.
@@ -1908,9 +1928,9 @@ declare enum TouchTestStrategy {
  * @interface AnimateParam
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare interface AnimateParam {
   /**
@@ -1927,8 +1947,8 @@ declare interface AnimateParam {
    * @type { ?number }
    * @default 1000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Animation duration, in ms.
@@ -1937,8 +1957,8 @@ declare interface AnimateParam {
    * @default 1000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Animation duration, in ms.
@@ -1947,9 +1967,9 @@ declare interface AnimateParam {
    * @default 1000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   duration?: number;
   /**
@@ -1997,8 +2017,8 @@ declare interface AnimateParam {
    * @type { ?(Curve | string | ICurve) }
    * @default Curve.EaseInOut
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Animation curve.
@@ -2007,8 +2027,8 @@ declare interface AnimateParam {
    * @default Curve.EaseInOut
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Animation curve.
@@ -2017,9 +2037,9 @@ declare interface AnimateParam {
    * @default Curve.EaseInOut
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   curve?: Curve | string | ICurve;
 
@@ -2095,8 +2115,8 @@ declare interface AnimateParam {
    * @type { ?PlayMode }
    * @default PlayMode.Normal
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Animation playback mode. By default, the animation is played from the beginning after the playback is complete.
@@ -2105,8 +2125,8 @@ declare interface AnimateParam {
    * @default PlayMode.Normal
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Animation playback mode. By default, the animation is played from the beginning after the playback is complete.
@@ -2115,9 +2135,9 @@ declare interface AnimateParam {
    * @default PlayMode.Normal
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   playMode?: PlayMode;
 
@@ -2133,8 +2153,8 @@ declare interface AnimateParam {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Callback invoked when the animation playback is complete.
@@ -2142,8 +2162,8 @@ declare interface AnimateParam {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Callback invoked when the animation playback is complete.
@@ -2151,9 +2171,9 @@ declare interface AnimateParam {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   onFinish?: () => void;
 
@@ -2163,8 +2183,8 @@ declare interface AnimateParam {
    * @type { ?FinishCallbackType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * Define the type of onFinish callback in animation.
@@ -2172,9 +2192,9 @@ declare interface AnimateParam {
    * @type { ?FinishCallbackType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   finishCallbackType?: FinishCallbackType;
 
@@ -2193,8 +2213,8 @@ declare interface AnimateParam {
  *
  * @interface ICurve
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Interface for curve object.
@@ -2202,8 +2222,8 @@ declare interface AnimateParam {
  * @interface ICurve
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Interface for curve object.
@@ -2211,9 +2231,9 @@ declare interface AnimateParam {
  * @interface ICurve
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 interface ICurve {
   /**
@@ -2223,8 +2243,8 @@ interface ICurve {
    * Note: If the value is less than 0, it will be processed as 0. If the value is greater than 1, 1 is used.
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Get curve value by fraction.
@@ -2234,8 +2254,8 @@ interface ICurve {
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Get curve value by fraction.
@@ -2245,9 +2265,9 @@ interface ICurve {
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   interpolate(fraction: number): number;
 }
@@ -2685,8 +2705,8 @@ declare enum TransitionHierarchyStrategy {
  *
  * @interface TranslateOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines the options of translate.
@@ -2694,8 +2714,8 @@ declare enum TransitionHierarchyStrategy {
  * @interface TranslateOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines the options of translate.
@@ -2703,9 +2723,9 @@ declare enum TransitionHierarchyStrategy {
  * @interface TranslateOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare interface TranslateOptions {
   /**
@@ -2720,8 +2740,8 @@ declare interface TranslateOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * The param of x direction.
@@ -2729,8 +2749,8 @@ declare interface TranslateOptions {
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * The param of x direction.
@@ -2738,9 +2758,9 @@ declare interface TranslateOptions {
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   x?: number | string;
 
@@ -2756,8 +2776,8 @@ declare interface TranslateOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * The param of y direction.
@@ -2765,8 +2785,8 @@ declare interface TranslateOptions {
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * The param of y direction.
@@ -2774,9 +2794,9 @@ declare interface TranslateOptions {
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   y?: number | string;
 
@@ -2792,8 +2812,8 @@ declare interface TranslateOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * The param of z direction.
@@ -2801,8 +2821,8 @@ declare interface TranslateOptions {
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * The param of z direction.
@@ -2810,9 +2830,9 @@ declare interface TranslateOptions {
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   z?: number | string;
 }
@@ -2829,8 +2849,8 @@ declare interface TranslateOptions {
  *
  * @interface ScaleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines the options of scale.
@@ -2838,8 +2858,8 @@ declare interface TranslateOptions {
  * @interface ScaleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines the options of scale.
@@ -2847,9 +2867,9 @@ declare interface TranslateOptions {
  * @interface ScaleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare interface ScaleOptions {
   /**
@@ -2864,8 +2884,8 @@ declare interface ScaleOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * The param of x direction.
@@ -2873,8 +2893,8 @@ declare interface ScaleOptions {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * The param of x direction.
@@ -2882,9 +2902,9 @@ declare interface ScaleOptions {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   x?: number;
 
@@ -2900,8 +2920,8 @@ declare interface ScaleOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * The param of y direction.
@@ -2909,8 +2929,8 @@ declare interface ScaleOptions {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * The param of y direction.
@@ -2918,9 +2938,9 @@ declare interface ScaleOptions {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   y?: number;
 
@@ -2936,8 +2956,8 @@ declare interface ScaleOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * The param of z direction.
@@ -2945,8 +2965,8 @@ declare interface ScaleOptions {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * The param of z direction.
@@ -2954,9 +2974,9 @@ declare interface ScaleOptions {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   z?: number;
 
@@ -2972,8 +2992,8 @@ declare interface ScaleOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * The param of center point of x.
@@ -2981,8 +3001,8 @@ declare interface ScaleOptions {
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * The param of center point of x.
@@ -2990,9 +3010,9 @@ declare interface ScaleOptions {
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   centerX?: number | string;
 
@@ -3008,8 +3028,8 @@ declare interface ScaleOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * The param of center point of y.
@@ -3017,8 +3037,8 @@ declare interface ScaleOptions {
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * The param of center point of y.
@@ -3026,9 +3046,9 @@ declare interface ScaleOptions {
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   centerY?: number | string;
 }
@@ -3038,8 +3058,8 @@ declare interface ScaleOptions {
  *
  * @interface AlignRuleOption
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines the align rule options of relative container.
@@ -3047,8 +3067,8 @@ declare interface ScaleOptions {
  * @interface AlignRuleOption
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines the align rule options of relative container.
@@ -3056,9 +3076,9 @@ declare interface ScaleOptions {
  * @interface AlignRuleOption
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare interface AlignRuleOption {
   /**
@@ -3066,8 +3086,8 @@ declare interface AlignRuleOption {
    *
    * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * The param of left align.
@@ -3075,8 +3095,8 @@ declare interface AlignRuleOption {
    * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * The param of left align.
@@ -3084,9 +3104,9 @@ declare interface AlignRuleOption {
    * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   left?: { anchor: string, align: HorizontalAlign };
 
@@ -3095,8 +3115,8 @@ declare interface AlignRuleOption {
    *
    * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * The param of right align.
@@ -3104,8 +3124,8 @@ declare interface AlignRuleOption {
    * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * The param of right align.
@@ -3113,9 +3133,9 @@ declare interface AlignRuleOption {
    * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   right?: { anchor: string, align: HorizontalAlign };
 
@@ -3124,8 +3144,8 @@ declare interface AlignRuleOption {
    *
    * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * The param of middle align.
@@ -3133,8 +3153,8 @@ declare interface AlignRuleOption {
    * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * The param of middle align.
@@ -3142,9 +3162,9 @@ declare interface AlignRuleOption {
    * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   middle?: { anchor: string, align: HorizontalAlign };
 
@@ -3153,8 +3173,8 @@ declare interface AlignRuleOption {
    *
    * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * The param of top align.
@@ -3162,8 +3182,8 @@ declare interface AlignRuleOption {
    * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * The param of top align.
@@ -3171,9 +3191,9 @@ declare interface AlignRuleOption {
    * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   top?: { anchor: string, align: VerticalAlign };
 
@@ -3182,25 +3202,25 @@ declare interface AlignRuleOption {
    *
    * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * The param of bottom align.
    *
    * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 10
-   * @form
    */
   /**
    * The param of bottom align.
    *
    * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   bottom?: { anchor: string, align: VerticalAlign };
 
@@ -3209,8 +3229,8 @@ declare interface AlignRuleOption {
    *
    * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * The param of center align.
@@ -3218,8 +3238,8 @@ declare interface AlignRuleOption {
    * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * The param of center align.
@@ -3227,9 +3247,9 @@ declare interface AlignRuleOption {
    * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   center?: { anchor: string, align: VerticalAlign };
 
@@ -3240,8 +3260,8 @@ declare interface AlignRuleOption {
    * @default {horizontal:0.5,vertical:0.5}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * Defines the bias ratio in horizontal and vertical direction.
@@ -3250,9 +3270,9 @@ declare interface AlignRuleOption {
    * @default {horizontal:0.5,vertical:0.5}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   bias?: Bias;
 }
@@ -3465,8 +3485,8 @@ declare enum ChainStyle {
  *
  * @interface RotateOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * The param of rotate.
@@ -3474,8 +3494,8 @@ declare enum ChainStyle {
  * @interface RotateOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * The param of rotate.
@@ -3483,9 +3503,9 @@ declare enum ChainStyle {
  * @interface RotateOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare interface RotateOptions {
   /**
@@ -3500,8 +3520,8 @@ declare interface RotateOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * The param of x direction.
@@ -3509,8 +3529,8 @@ declare interface RotateOptions {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * The param of x direction.
@@ -3518,9 +3538,9 @@ declare interface RotateOptions {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   x?: number;
 
@@ -3536,8 +3556,8 @@ declare interface RotateOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * The param of y direction.
@@ -3545,8 +3565,8 @@ declare interface RotateOptions {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * The param of y direction.
@@ -3554,9 +3574,9 @@ declare interface RotateOptions {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   y?: number;
 
@@ -3572,8 +3592,8 @@ declare interface RotateOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * The param of z direction.
@@ -3581,8 +3601,8 @@ declare interface RotateOptions {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * The param of z direction.
@@ -3590,9 +3610,9 @@ declare interface RotateOptions {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   z?: number;
 
@@ -3608,8 +3628,8 @@ declare interface RotateOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * The param of center point of x.
@@ -3617,8 +3637,8 @@ declare interface RotateOptions {
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * The param of center point of x.
@@ -3626,9 +3646,9 @@ declare interface RotateOptions {
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   centerX?: number | string;
 
@@ -3652,8 +3672,8 @@ declare interface RotateOptions {
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * The param of center point of y.
@@ -3661,9 +3681,9 @@ declare interface RotateOptions {
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   centerY?: number | string;
 
@@ -3674,8 +3694,8 @@ declare interface RotateOptions {
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * The param of center point of z.
@@ -3684,9 +3704,9 @@ declare interface RotateOptions {
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   centerZ?: number;
 
@@ -3696,8 +3716,8 @@ declare interface RotateOptions {
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * The param of camera distance, value range (-∞, ∞).
@@ -3705,9 +3725,9 @@ declare interface RotateOptions {
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   perspective?: number;
 
@@ -3723,8 +3743,8 @@ declare interface RotateOptions {
    *
    * @type { number | string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * The param of angle.
@@ -3732,8 +3752,8 @@ declare interface RotateOptions {
    * @type { number | string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * The param of angle.
@@ -3741,9 +3761,9 @@ declare interface RotateOptions {
    * @type { number | string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   angle: number | string;
 }
@@ -3811,8 +3831,8 @@ declare interface TransitionOptions {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 10
  * @form
+ * @since 10
  */
 /**
  * Defines the Edge object.
@@ -3820,9 +3840,9 @@ declare interface TransitionOptions {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare enum TransitionEdge {
   /**
@@ -3830,17 +3850,17 @@ declare enum TransitionEdge {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * Top edge
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   TOP,
 
@@ -3849,17 +3869,17 @@ declare enum TransitionEdge {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * Bottom edge
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   BOTTOM,
 
@@ -3868,17 +3888,17 @@ declare enum TransitionEdge {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * Start edge
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   START,
 
@@ -3887,17 +3907,17 @@ declare enum TransitionEdge {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * End edge
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   END
 }
@@ -3907,17 +3927,17 @@ declare enum TransitionEdge {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 10
  * @form
+ * @since 10
  */
 /**
  * Defines all transition effects.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare type TransitionEffects = {
   identity: undefined;
@@ -3987,17 +4007,17 @@ declare class DrawModifier {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 10
  * @form
+ * @since 10
  */
 /**
  * Defines the transition effect
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare class TransitionEffect<
   Type extends keyof TransitionEffects = keyof TransitionEffects,
@@ -4011,8 +4031,8 @@ declare class TransitionEffect<
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * Defines an identity transition effect
@@ -4022,9 +4042,9 @@ declare class TransitionEffect<
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   static readonly IDENTITY: TransitionEffect<"identity">;
 
@@ -4036,8 +4056,8 @@ declare class TransitionEffect<
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * Defines an opacity transition effect
@@ -4047,9 +4067,9 @@ declare class TransitionEffect<
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   static readonly OPACITY: TransitionEffect<"opacity">;
 
@@ -4065,8 +4085,8 @@ declare class TransitionEffect<
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * Defines a slide transition effect
@@ -4080,9 +4100,9 @@ declare class TransitionEffect<
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   static readonly SLIDE: TransitionEffect<
     "asymmetric",
@@ -4100,8 +4120,8 @@ declare class TransitionEffect<
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * Defines a slide & switch transition effect
@@ -4111,9 +4131,9 @@ declare class TransitionEffect<
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   static readonly SLIDE_SWITCH: TransitionEffect<"slideSwitch">;
 
@@ -4124,8 +4144,8 @@ declare class TransitionEffect<
    * @returns { TransitionEffect<"translate"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * Creates a translate transition effect
@@ -4134,9 +4154,9 @@ declare class TransitionEffect<
    * @returns { TransitionEffect<"translate"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   static translate(options: TranslateOptions): TransitionEffect<"translate">;
 
@@ -4147,8 +4167,8 @@ declare class TransitionEffect<
    * @returns { TransitionEffect<"rotate"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * Creates a rotation transition effect
@@ -4157,9 +4177,9 @@ declare class TransitionEffect<
    * @returns { TransitionEffect<"rotate"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   static rotate(options: RotateOptions): TransitionEffect<"rotate">;
 
@@ -4170,8 +4190,8 @@ declare class TransitionEffect<
    * @returns { TransitionEffect<"scale"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * Creates a scale transition effect
@@ -4180,9 +4200,9 @@ declare class TransitionEffect<
    * @returns { TransitionEffect<"scale"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   static scale(options: ScaleOptions): TransitionEffect<"scale">;
 
@@ -4193,8 +4213,8 @@ declare class TransitionEffect<
    * @returns { TransitionEffect<"opacity"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * Creates an opacity transition effect with alpha value
@@ -4203,9 +4223,9 @@ declare class TransitionEffect<
    * @returns { TransitionEffect<"opacity"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   static opacity(alpha: number): TransitionEffect<"opacity">;
 
@@ -4216,8 +4236,8 @@ declare class TransitionEffect<
    * @returns { TransitionEffect<"move"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * Creates a move transition effect
@@ -4226,9 +4246,9 @@ declare class TransitionEffect<
    * @returns { TransitionEffect<"move"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   static move(edge: TransitionEdge): TransitionEffect<"move">;
 
@@ -4240,8 +4260,8 @@ declare class TransitionEffect<
    * @returns { TransitionEffect<"asymmetric"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * Creates an asymmetric transition effect
@@ -4251,9 +4271,9 @@ declare class TransitionEffect<
    * @returns { TransitionEffect<"asymmetric"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   static asymmetric(
     appear: TransitionEffect,
@@ -4267,8 +4287,8 @@ declare class TransitionEffect<
    * @param { Effect } effect - transition options
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * TransitionEffect constructor
@@ -4277,9 +4297,9 @@ declare class TransitionEffect<
    * @param { Effect } effect - transition options
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   constructor(type: Type, effect: Effect);
 
@@ -4290,8 +4310,8 @@ declare class TransitionEffect<
    * @returns { TransitionEffect }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * Set the animation of current transition effect
@@ -4300,9 +4320,9 @@ declare class TransitionEffect<
    * @returns { TransitionEffect }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   animation(value: AnimateParam): TransitionEffect;
 
@@ -4313,8 +4333,8 @@ declare class TransitionEffect<
    * @returns { TransitionEffect } combined transition effect
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * Combines another transition effect
@@ -4323,9 +4343,9 @@ declare class TransitionEffect<
    * @returns { TransitionEffect } combined transition effect
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   combine(transitionEffect: TransitionEffect): TransitionEffect;
 }
@@ -4335,8 +4355,8 @@ declare class TransitionEffect<
  *
  * @interface PreviewParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
  * @form
+ * @since 9
  */
 /**
  * Define Preview property
@@ -4344,9 +4364,9 @@ declare class TransitionEffect<
  * @interface PreviewParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 interface PreviewParams {
   /**
@@ -4354,8 +4374,8 @@ interface PreviewParams {
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
    * @form
+   * @since 9
    */
   /**
    * Define Preview title
@@ -4363,9 +4383,9 @@ interface PreviewParams {
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   title?: string;
 
@@ -4374,8 +4394,8 @@ interface PreviewParams {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
    * @form
+   * @since 9
    */
   /**
    * Define Preview width
@@ -4383,9 +4403,9 @@ interface PreviewParams {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   width?: number;
 
@@ -4394,8 +4414,8 @@ interface PreviewParams {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
    * @form
+   * @since 9
    */
   /**
    * Define Preview height
@@ -4403,9 +4423,9 @@ interface PreviewParams {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   height?: number;
 
@@ -4414,17 +4434,17 @@ interface PreviewParams {
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
    * @form
+   * @since 9
    */
   /**
    * Define Preview locale
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   locale?: string;
 
@@ -4433,8 +4453,8 @@ interface PreviewParams {
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
    * @form
+   * @since 9
    */
   /**
    * Define Preview colorMode
@@ -4442,9 +4462,9 @@ interface PreviewParams {
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   colorMode?: string;
 
@@ -4453,17 +4473,17 @@ interface PreviewParams {
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
    * @form
+   * @since 9
    */
   /**
    * Define Preview deviceType
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   deviceType?: string;
 
@@ -4472,17 +4492,17 @@ interface PreviewParams {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
    * @form
+   * @since 9
    */
   /**
    * Define Preview dpi
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   dpi?: number;
 
@@ -4491,17 +4511,17 @@ interface PreviewParams {
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
    * @form
+   * @since 9
    */
   /**
    * Define Preview orientation
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   orientation?: string;
 
@@ -4510,17 +4530,17 @@ interface PreviewParams {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
    * @form
+   * @since 9
    */
   /**
    * Define Preview roundScreen
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   roundScreen?: boolean;
 }
@@ -4750,8 +4770,8 @@ declare interface DragItemInfo {
  * @param { AnimateParam } value
  * @param { function } event
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defining animation function.
@@ -4760,8 +4780,8 @@ declare interface DragItemInfo {
  * @param { function } event
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defining animation function.
@@ -4770,9 +4790,9 @@ declare interface DragItemInfo {
  * @param { function } event
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare function animateTo(value: AnimateParam, event: () => void): void;
 
@@ -4801,8 +4821,8 @@ declare function animateToImmediately(value: AnimateParam, event: () => void): v
  * @param { number } value
  * @returns { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Converts a value in vp units to a value in px.
@@ -4811,8 +4831,8 @@ declare function animateToImmediately(value: AnimateParam, event: () => void): v
  * @returns { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Converts a value in vp units to a value in px.
@@ -4821,9 +4841,9 @@ declare function animateToImmediately(value: AnimateParam, event: () => void): v
  * @returns { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare function vp2px(value: number): number;
 
@@ -4841,8 +4861,8 @@ declare function vp2px(value: number): number;
  * @param { number } value
  * @returns { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Converts a number in units of px to a number in units of vp.
@@ -4851,8 +4871,8 @@ declare function vp2px(value: number): number;
  * @returns { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Converts a number in units of px to a number in units of vp.
@@ -4861,9 +4881,9 @@ declare function vp2px(value: number): number;
  * @returns { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare function px2vp(value: number): number;
 
@@ -4881,8 +4901,8 @@ declare function px2vp(value: number): number;
  * @param { number } value
  * @returns { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Converts a number in fp units to a number in px.
@@ -4891,8 +4911,8 @@ declare function px2vp(value: number): number;
  * @returns { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Converts a number in fp units to a number in px.
@@ -4901,9 +4921,9 @@ declare function px2vp(value: number): number;
  * @returns { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare function fp2px(value: number): number;
 
@@ -4921,8 +4941,8 @@ declare function fp2px(value: number): number;
  * @param { number } value
  * @returns { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Converts a number in units of px to a number in units of fp.
@@ -4931,8 +4951,8 @@ declare function fp2px(value: number): number;
  * @returns { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Converts a number in units of px to a number in units of fp.
@@ -4941,9 +4961,9 @@ declare function fp2px(value: number): number;
  * @returns { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare function px2fp(value: number): number;
 
@@ -4961,8 +4981,8 @@ declare function px2fp(value: number): number;
  * @param { number } value
  * @returns { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Converts a number in units of lpx to a number in units of px.
@@ -4971,8 +4991,8 @@ declare function px2fp(value: number): number;
  * @returns { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Converts a number in units of lpx to a number in units of px.
@@ -4981,9 +5001,9 @@ declare function px2fp(value: number): number;
  * @returns { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare function lpx2px(value: number): number;
 
@@ -5001,8 +5021,8 @@ declare function lpx2px(value: number): number;
  * @param { number } value
  * @returns { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Converts a number in units of px to a number in units of lpx.
@@ -5011,8 +5031,8 @@ declare function lpx2px(value: number): number;
  * @returns { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Converts a number in units of px to a number in units of lpx.
@@ -5021,9 +5041,9 @@ declare function lpx2px(value: number): number;
  * @returns { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare function px2lpx(value: number): number;
 
@@ -5033,8 +5053,8 @@ declare function px2lpx(value: number): number;
  * @namespace focusControl
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 9
  * @form
+ * @since 9
  */
 /**
  * Defines the namespace of focus controller.
@@ -5042,9 +5062,9 @@ declare function px2lpx(value: number): number;
  * @namespace focusControl
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare namespace focusControl {
   /**
@@ -5158,8 +5178,8 @@ declare namespace cursorControl {
  *
  * @interface EventTarget
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines the event target.
@@ -5167,8 +5187,8 @@ declare namespace cursorControl {
  * @interface EventTarget
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines the event target.
@@ -5176,9 +5196,9 @@ declare namespace cursorControl {
  * @interface EventTarget
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare interface EventTarget {
   /**
@@ -5193,8 +5213,8 @@ declare interface EventTarget {
    *
    * @type { Area }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Area of current target.
@@ -5202,8 +5222,8 @@ declare interface EventTarget {
    * @type { Area }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Area of current target.
@@ -5211,9 +5231,9 @@ declare interface EventTarget {
    * @type { Area }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   area: Area;
 }
@@ -5443,8 +5463,8 @@ declare enum SourceTool {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines the Border Image Repeat Mode.
@@ -5452,8 +5472,8 @@ declare enum SourceTool {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines the Border Image Repeat Mode.
@@ -5461,34 +5481,34 @@ declare enum SourceTool {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare enum RepeatMode {
   /**
    * Repeat mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Repeat mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Repeat mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   Repeat,
 
@@ -5496,25 +5516,25 @@ declare enum RepeatMode {
    * Stretch mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Stretch mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Stretch mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   Stretch,
 
@@ -5522,25 +5542,25 @@ declare enum RepeatMode {
    * Round mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Round mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Round mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   Round,
 
@@ -5548,25 +5568,25 @@ declare enum RepeatMode {
    * Space mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Space mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Space mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   Space,
 }
@@ -5576,8 +5596,8 @@ declare enum RepeatMode {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * enum Blur style
@@ -5585,8 +5605,8 @@ declare enum RepeatMode {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * enum Blur style
@@ -5594,34 +5614,34 @@ declare enum RepeatMode {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare enum BlurStyle {
   /**
    * Defines the thin card material.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Defines the thin card material.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Defines the thin card material.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   Thin,
 
@@ -5629,25 +5649,25 @@ declare enum BlurStyle {
    * Defines the regular card material.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Defines the regular card material.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Defines the regular card material.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   Regular,
 
@@ -5655,25 +5675,25 @@ declare enum BlurStyle {
    * Defines the thick card material.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Defines the thick card material.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Defines the thick card material.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   Thick,
 
@@ -5689,9 +5709,9 @@ declare enum BlurStyle {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   BACKGROUND_THIN,
 
@@ -5707,9 +5727,9 @@ declare enum BlurStyle {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   BACKGROUND_REGULAR,
 
@@ -5725,9 +5745,9 @@ declare enum BlurStyle {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   BACKGROUND_THICK,
 
@@ -5743,9 +5763,9 @@ declare enum BlurStyle {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   BACKGROUND_ULTRA_THICK,
 
@@ -5754,17 +5774,17 @@ declare enum BlurStyle {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * Defines none material.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */  
   NONE,    
 
@@ -5773,17 +5793,17 @@ declare enum BlurStyle {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * Defines the ultra thin component material.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   COMPONENT_ULTRA_THIN = 8,
 
@@ -5792,17 +5812,17 @@ declare enum BlurStyle {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * Defines the thin component material.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   COMPONENT_THIN = 9,
 
@@ -5811,17 +5831,17 @@ declare enum BlurStyle {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * Defines the regular component material.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   COMPONENT_REGULAR = 10,
 
@@ -5830,17 +5850,17 @@ declare enum BlurStyle {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * Defines the thick component material.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   COMPONENT_THICK = 11,
 
@@ -5849,17 +5869,17 @@ declare enum BlurStyle {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * Defines the ultra thick component material.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   COMPONENT_ULTRA_THICK = 12,
 }
@@ -6776,8 +6796,8 @@ declare enum ShadowType {
  *
  * @interface ShadowOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Define the options of shadow
@@ -6785,8 +6805,8 @@ declare enum ShadowType {
  * @interface ShadowOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Define the options of shadow
@@ -6794,9 +6814,9 @@ declare enum ShadowType {
  * @interface ShadowOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare interface ShadowOptions {
   /**
@@ -6811,8 +6831,8 @@ declare interface ShadowOptions {
    *
    * @type { number | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Define the radius size of shadow
@@ -6820,8 +6840,8 @@ declare interface ShadowOptions {
    * @type { number | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Define the radius size of shadow
@@ -6829,9 +6849,9 @@ declare interface ShadowOptions {
    * @type { number | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   radius: number | Resource;
 
@@ -6868,8 +6888,8 @@ declare interface ShadowOptions {
    *
    * @type { ?(Color | string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
    * @form
+   * @since 9
    */
   /**
    * Define the color of shadow
@@ -6877,8 +6897,8 @@ declare interface ShadowOptions {
    * @type { ?(Color | string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * Define the color or the color strategy of shadow
@@ -6886,9 +6906,9 @@ declare interface ShadowOptions {
    * @type { ?(Color | string | Resource| ColoringStrategy) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   color?: Color | string | Resource | ColoringStrategy;
 
@@ -6904,8 +6924,8 @@ declare interface ShadowOptions {
    *
    * @type { ?(number | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Define the horizontal offset size of shadow
@@ -6913,8 +6933,8 @@ declare interface ShadowOptions {
    * @type { ?(number | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Define the horizontal offset size of shadow
@@ -6922,9 +6942,9 @@ declare interface ShadowOptions {
    * @type { ?(number | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   offsetX?: number | Resource;
 
@@ -6940,8 +6960,8 @@ declare interface ShadowOptions {
    *
    * @type { ?(number | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Define the vertical offset size of shadow
@@ -6949,8 +6969,8 @@ declare interface ShadowOptions {
    * @type { ?(number | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Define the vertical offset size of shadow
@@ -6958,9 +6978,9 @@ declare interface ShadowOptions {
    * @type { ?(number | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   offsetY?: number | Resource;
 
@@ -7471,8 +7491,8 @@ declare enum SheetSize {
  *
  * @interface BaseEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines the base event.
@@ -7480,8 +7500,8 @@ declare enum SheetSize {
  * @interface BaseEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines the base event.
@@ -7489,9 +7509,9 @@ declare enum SheetSize {
  * @interface BaseEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare interface BaseEvent {
   /**
@@ -7506,8 +7526,8 @@ declare interface BaseEvent {
    *
    * @type { EventTarget }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Defines the current target which fires this event.
@@ -7515,8 +7535,8 @@ declare interface BaseEvent {
    * @type { EventTarget }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Defines the current target which fires this event.
@@ -7524,9 +7544,9 @@ declare interface BaseEvent {
    * @type { EventTarget }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   target: EventTarget;
 
@@ -7542,8 +7562,8 @@ declare interface BaseEvent {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Event timestamp.
@@ -7551,8 +7571,8 @@ declare interface BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Event timestamp.
@@ -7560,9 +7580,9 @@ declare interface BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   timestamp: number;
 
@@ -7578,8 +7598,8 @@ declare interface BaseEvent {
    *
    * @type { SourceType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * the event source info.
@@ -7587,8 +7607,8 @@ declare interface BaseEvent {
    * @type { SourceType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * the event source info.
@@ -7596,9 +7616,9 @@ declare interface BaseEvent {
    * @type { SourceType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   source: SourceType;
 
@@ -7608,8 +7628,8 @@ declare interface BaseEvent {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 12
    * @form
+   * @since 12
    */
   axisHorizontal?: number;
 
@@ -7619,8 +7639,8 @@ declare interface BaseEvent {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 12
    * @form
+   * @since 12
    */
   axisVertical?: number;
 
@@ -7629,8 +7649,8 @@ declare interface BaseEvent {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Touch pressure.
@@ -7638,8 +7658,8 @@ declare interface BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Touch pressure.
@@ -7647,9 +7667,9 @@ declare interface BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   pressure: number;
 
@@ -7658,8 +7678,8 @@ declare interface BaseEvent {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * The angle between pencil projection on plane-X-Y and axis-Z.
@@ -7667,8 +7687,8 @@ declare interface BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * The angle between pencil projection on plane-X-Y and axis-Z.
@@ -7676,9 +7696,9 @@ declare interface BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   tiltX: number;
 
@@ -7687,8 +7707,8 @@ declare interface BaseEvent {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * The angle between pencil projection on plane-Y-Z and axis-Z.
@@ -7696,8 +7716,8 @@ declare interface BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * The angle between pencil projection on plane-Y-Z and axis-Z.
@@ -7705,9 +7725,9 @@ declare interface BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   tiltY: number;
 
@@ -7716,8 +7736,8 @@ declare interface BaseEvent {
    *
    * @type { SourceTool }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * The event tool type info.
@@ -7725,8 +7745,8 @@ declare interface BaseEvent {
    * @type { SourceTool }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * The event tool type info.
@@ -7734,9 +7754,9 @@ declare interface BaseEvent {
    * @type { SourceTool }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   sourceTool: SourceTool;
 
@@ -7758,8 +7778,8 @@ declare interface BaseEvent {
  *
  * @interface BorderImageOption
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Border image option
@@ -7767,8 +7787,8 @@ declare interface BaseEvent {
  * @interface BorderImageOption
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Border image option
@@ -7776,9 +7796,9 @@ declare interface BaseEvent {
  * @interface BorderImageOption
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare interface BorderImageOption {
   /**
@@ -7786,8 +7806,8 @@ declare interface BorderImageOption {
    *
    * @type { ?(Length | EdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Border image slice
@@ -7795,8 +7815,8 @@ declare interface BorderImageOption {
    * @type { ?(Length | EdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Border image slice
@@ -7804,9 +7824,9 @@ declare interface BorderImageOption {
    * @type { ?(Length | EdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   /**
    * Border image slice
@@ -7825,8 +7845,8 @@ declare interface BorderImageOption {
    *
    * @type { ?RepeatMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Border image repeat
@@ -7834,8 +7854,8 @@ declare interface BorderImageOption {
    * @type { ?RepeatMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Border image repeat
@@ -7843,9 +7863,9 @@ declare interface BorderImageOption {
    * @type { ?RepeatMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   repeat?: RepeatMode,
 
@@ -7854,8 +7874,8 @@ declare interface BorderImageOption {
    *
    * @type { ?(string | Resource | LinearGradient) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Border image source
@@ -7863,8 +7883,8 @@ declare interface BorderImageOption {
    * @type { ?(string | Resource | LinearGradient) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Border image source
@@ -7872,9 +7892,9 @@ declare interface BorderImageOption {
    * @type { ?(string | Resource | LinearGradient) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   source?: string | Resource | LinearGradient,
 
@@ -7883,8 +7903,8 @@ declare interface BorderImageOption {
    *
    * @type { ?(Length | EdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Border image width
@@ -7892,8 +7912,8 @@ declare interface BorderImageOption {
    * @type { ?(Length | EdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Border image width
@@ -7901,9 +7921,9 @@ declare interface BorderImageOption {
    * @type { ?(Length | EdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   /**
    * Border image width
@@ -7922,8 +7942,8 @@ declare interface BorderImageOption {
    *
    * @type { ?(Length | EdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Border image outset
@@ -7931,8 +7951,8 @@ declare interface BorderImageOption {
    * @type { ?(Length | EdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Border image outset
@@ -7940,9 +7960,9 @@ declare interface BorderImageOption {
    * @type { ?(Length | EdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   /**
    * Border image outset
@@ -7961,8 +7981,8 @@ declare interface BorderImageOption {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Border image center fill
@@ -7970,8 +7990,8 @@ declare interface BorderImageOption {
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Border image center fill
@@ -7979,9 +7999,9 @@ declare interface BorderImageOption {
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   fill?: boolean
 }
@@ -7998,8 +8018,8 @@ declare interface BorderImageOption {
  *
  * @interface ClickEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * The tap action triggers this method invocation.
@@ -8007,8 +8027,8 @@ declare interface BorderImageOption {
  * @interface ClickEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * The tap action triggers this method invocation.
@@ -8016,9 +8036,9 @@ declare interface BorderImageOption {
  * @interface ClickEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare interface ClickEvent extends BaseEvent {
   /**
@@ -8131,8 +8151,8 @@ declare interface ClickEvent extends BaseEvent {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * X coordinate of the click point relative to the left edge of the clicked element.
@@ -8140,8 +8160,8 @@ declare interface ClickEvent extends BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * X coordinate of the click point relative to the left edge of the clicked element.
@@ -8149,9 +8169,9 @@ declare interface ClickEvent extends BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   x: number;
 
@@ -8167,8 +8187,8 @@ declare interface ClickEvent extends BaseEvent {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Y coordinate of the click point relative to the left edge of the clicked element.
@@ -8176,8 +8196,8 @@ declare interface ClickEvent extends BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Y coordinate of the click point relative to the left edge of the clicked element.
@@ -8185,9 +8205,9 @@ declare interface ClickEvent extends BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   y: number;
 
@@ -8427,6 +8447,87 @@ declare interface MouseEvent extends BaseEvent {
    * @since 11
    */
   stopPropagation: () => void;
+}
+
+/**
+ * The accessibility hover action triggers this method invocation.
+ *
+ * @typedef AccessibilityHoverEvent
+ * @extends BaseEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 12
+ */
+declare interface AccessibilityHoverEvent extends BaseEvent {
+  /**
+   * Type of the accessibility hover event.
+   *
+   * @type { AccessibilityHoverType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  type: AccessibilityHoverType;
+
+  /**
+   * X coordinate of the accessibility hover point relative to the left edge of the event hit element.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  x: number;
+
+  /**
+   * Y coordinate of the accessibility hover point relative to the upper edge of the event hit element.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  y: number;
+
+  /**
+   * X coordinate of the accessibility hover point relative to the left edge of the device screen.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  displayX: number;
+
+  /**
+   * Y coordinate of the accessibility hover point relative to the upper edge of the device screen.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  displayY: number;
+
+  /**
+   * X coordinate of the accessibility hover point relative to the left edge of the current window.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  windowX: number;
+
+  /**
+   * Y coordinate of the accessibility hover point relative to the upper edge of the current window.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  windowY: number;
 }
 
 /**
@@ -10956,8 +11057,8 @@ declare interface SheetOptions extends BindOptions {
  *
  * @interface StateStyles
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Component State Styles.
@@ -10965,8 +11066,8 @@ declare interface SheetOptions extends BindOptions {
  * @interface StateStyles
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Component State Styles.
@@ -10974,9 +11075,9 @@ declare interface SheetOptions extends BindOptions {
  * @interface StateStyles
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare interface StateStyles {
   /**
@@ -10991,8 +11092,8 @@ declare interface StateStyles {
    *
    * @type { ?any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Defines normal state styles.
@@ -11000,8 +11101,8 @@ declare interface StateStyles {
    * @type { ?any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Defines normal state styles.
@@ -11009,9 +11110,9 @@ declare interface StateStyles {
    * @type { ?any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   normal?: any;
 
@@ -11027,8 +11128,8 @@ declare interface StateStyles {
    *
    * @type { ?any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Defines pressed state styles.
@@ -11036,8 +11137,8 @@ declare interface StateStyles {
    * @type { ?any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Defines pressed state styles.
@@ -11045,9 +11146,9 @@ declare interface StateStyles {
    * @type { ?any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   pressed?: any;
 
@@ -11063,8 +11164,8 @@ declare interface StateStyles {
    *
    * @type { ?any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Defines disabled state styles.
@@ -11072,8 +11173,8 @@ declare interface StateStyles {
    * @type { ?any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Defines disabled state styles.
@@ -11081,9 +11182,9 @@ declare interface StateStyles {
    * @type { ?any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   disabled?: any;
 
@@ -11099,8 +11200,8 @@ declare interface StateStyles {
    *
    * @type { ?any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Defines focused state styles.
@@ -11108,8 +11209,8 @@ declare interface StateStyles {
    * @type { ?any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Defines focused state styles.
@@ -11117,9 +11218,9 @@ declare interface StateStyles {
    * @type { ?any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   focused?: any;
 
@@ -11135,8 +11236,8 @@ declare interface StateStyles {
    *
    * @type { ?any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Defines clicked state styles.
@@ -11144,8 +11245,8 @@ declare interface StateStyles {
    * @type { ?any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Defines clicked state styles.
@@ -11153,9 +11254,9 @@ declare interface StateStyles {
    * @type { ?any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   clicked?: any;
 
@@ -11165,8 +11266,8 @@ declare interface StateStyles {
    * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * Defines selected state styles.
@@ -11174,9 +11275,9 @@ declare interface StateStyles {
    * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   selected?: object;
 }
@@ -13765,8 +13866,8 @@ declare interface CommonConfiguration<T> {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 11
  * @form
+ * @since 11
  */
 /**
  * Outline Style
@@ -13774,9 +13875,9 @@ declare interface CommonConfiguration<T> {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 12
- * @form
  */
 declare enum OutlineStyle {
   /**
@@ -13784,17 +13885,17 @@ declare enum OutlineStyle {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * Shows as a solid line.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   SOLID = 0,
 
@@ -13803,17 +13904,17 @@ declare enum OutlineStyle {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * Shows as a series of short square dashed lines.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   DASHED = 1,
 
@@ -13822,17 +13923,17 @@ declare enum OutlineStyle {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * Displays as a series of dots with a radius of half the borderWidth.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   DOTTED = 2,
 }
@@ -14131,8 +14232,8 @@ declare interface InvertOptions {
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
  * @form
+ * @since 12
  */
 declare type CircleShape = import('../api/@ohos.arkui.shape').CircleShape;
 
@@ -14141,8 +14242,8 @@ declare type CircleShape = import('../api/@ohos.arkui.shape').CircleShape;
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
  * @form
+ * @since 12
  */
 declare type EllipseShape = import('../api/@ohos.arkui.shape').EllipseShape;
 
@@ -14151,8 +14252,8 @@ declare type EllipseShape = import('../api/@ohos.arkui.shape').EllipseShape;
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
  * @form
+ * @since 12
  */
 declare type PathShape = import('../api/@ohos.arkui.shape').PathShape;
 
@@ -14161,8 +14262,8 @@ declare type PathShape = import('../api/@ohos.arkui.shape').PathShape;
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
  * @form
+ * @since 12
  */
 declare type RectShape = import('../api/@ohos.arkui.shape').RectShape;
 
@@ -14188,25 +14289,25 @@ declare type Optional<T> = T | undefined;
  * CommonMethod.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * CommonMethod.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * CommonMethod.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare class CommonMethod<T> {
   /**
@@ -14221,8 +14322,8 @@ declare class CommonMethod<T> {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 9
    * @form
+   * @since 9
    */
   constructor();
 
@@ -14240,8 +14341,8 @@ declare class CommonMethod<T> {
    * @param { Length } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Sets the width of the current component.
@@ -14250,8 +14351,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Sets the width of the current component.
@@ -14260,9 +14361,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   width(value: Length): T;
 
@@ -14280,8 +14381,8 @@ declare class CommonMethod<T> {
    * @param { Length } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Sets the height of the current component.
@@ -14290,8 +14391,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Sets the height of the current component.
@@ -14300,9 +14401,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   height(value: Length): T;
   
@@ -14366,8 +14467,8 @@ declare class CommonMethod<T> {
    * @param { Array<Rectangle> | Rectangle } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Sets the response region of the current component.
@@ -14376,8 +14477,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Sets the response region of the current component.
@@ -14386,9 +14487,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   responseRegion(value: Array<Rectangle> | Rectangle): T;
 
@@ -14427,8 +14528,8 @@ declare class CommonMethod<T> {
    * @param { SizeOptions } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * The size of the current component.
@@ -14437,8 +14538,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * The size of the current component.
@@ -14447,9 +14548,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   size(value: SizeOptions): T;
 
@@ -14469,8 +14570,8 @@ declare class CommonMethod<T> {
    * @param { ConstraintSizeOptions } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * constraint Size:
@@ -14480,8 +14581,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * constraint Size:
@@ -14491,9 +14592,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   constraintSize(value: ConstraintSizeOptions): T;
 
@@ -14573,8 +14674,8 @@ declare class CommonMethod<T> {
    * @param { number | string } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * layout Weight
@@ -14583,8 +14684,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * layout Weight
@@ -14593,9 +14694,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   layoutWeight(value: number | string): T;
 
@@ -14613,8 +14714,8 @@ declare class CommonMethod<T> {
    * @param { Padding | Length } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Inner margin.
@@ -14623,8 +14724,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Inner margin.
@@ -14633,9 +14734,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   /**
    * Inner margin.
@@ -14664,8 +14765,8 @@ declare class CommonMethod<T> {
    * @param { Margin | Length } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Outer Margin.
@@ -14674,8 +14775,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Outer Margin.
@@ -14684,9 +14785,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   /**
    * Outer Margin.
@@ -14738,8 +14839,8 @@ declare class CommonMethod<T> {
    * @param { ResourceColor } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Background color
@@ -14748,8 +14849,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Background color
@@ -14758,9 +14859,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   backgroundColor(value: ResourceColor): T;
 
@@ -14771,9 +14872,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   pixelRound(value: PixelRoundPolicy): T;
 
@@ -14795,8 +14896,8 @@ declare class CommonMethod<T> {
    * @param { ImageRepeat } repeat
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Background image
@@ -14807,8 +14908,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Background image
@@ -14819,9 +14920,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   /**
    * Background image
@@ -14832,9 +14933,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   backgroundImage(src: ResourceStr | PixelMap, repeat?: ImageRepeat): T;
 
@@ -14852,8 +14953,8 @@ declare class CommonMethod<T> {
    * @param { SizeOptions | ImageSize } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Background image size
@@ -14862,8 +14963,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Background image size
@@ -14872,9 +14973,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   backgroundImageSize(value: SizeOptions | ImageSize): T;
 
@@ -14894,8 +14995,8 @@ declare class CommonMethod<T> {
    * @param { Position | Alignment } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Background image position
@@ -14905,8 +15006,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Background image position
@@ -14916,9 +15017,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   backgroundImagePosition(value: Position | Alignment): T;
 
@@ -14930,8 +15031,8 @@ declare class CommonMethod<T> {
    * @param { BackgroundBlurStyleOptions } options
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Background blur style.
@@ -14942,8 +15043,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Background blur style.
@@ -14954,9 +15055,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   backgroundBlurStyle(value: BlurStyle, options?: BackgroundBlurStyleOptions): T;
 
@@ -15088,8 +15189,8 @@ declare class CommonMethod<T> {
    * @param { number | Resource } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Opacity
@@ -15098,8 +15199,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Opacity
@@ -15108,9 +15209,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   opacity(value: number | Resource): T;
 
@@ -15130,8 +15231,8 @@ declare class CommonMethod<T> {
    * @param { BorderOptions } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Opacity
@@ -15141,8 +15242,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Opacity
@@ -15152,9 +15253,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   border(value: BorderOptions): T;
 
@@ -15172,8 +15273,8 @@ declare class CommonMethod<T> {
    * @param { BorderStyle | EdgeStyles } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Border style
@@ -15182,8 +15283,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Border style
@@ -15192,9 +15293,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   borderStyle(value: BorderStyle | EdgeStyles): T;
 
@@ -15212,8 +15313,8 @@ declare class CommonMethod<T> {
    * @param { Length | EdgeWidths } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Border width
@@ -15222,8 +15323,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Border width
@@ -15232,9 +15333,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   /**
    * Border width
@@ -15263,8 +15364,8 @@ declare class CommonMethod<T> {
    * @param { ResourceColor | EdgeColors } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Border color
@@ -15273,8 +15374,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Border color
@@ -15283,9 +15384,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   /**
    * Border color
@@ -15314,8 +15415,8 @@ declare class CommonMethod<T> {
    * @param { Length | BorderRadiuses } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Border radius
@@ -15324,8 +15425,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Border radius
@@ -15334,9 +15435,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   /**
    * Border radius
@@ -15357,8 +15458,8 @@ declare class CommonMethod<T> {
    * @param { BorderImageOption } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Border image
@@ -15367,8 +15468,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Border image
@@ -15377,9 +15478,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   borderImage(value: BorderImageOption): T;
 
@@ -15391,8 +15492,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * Outline
@@ -15402,9 +15503,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   outline(value: OutlineOptions): T;
 
@@ -15416,8 +15517,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * Outline style
@@ -15426,9 +15527,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   outlineStyle(value: OutlineStyle | EdgeOutlineStyles): T;
 
@@ -15440,8 +15541,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * Outline width
@@ -15450,9 +15551,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   outlineWidth(value: Dimension | EdgeOutlineWidths): T;
 
@@ -15464,8 +15565,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * Outline color
@@ -15488,8 +15589,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * Outline radius
@@ -15498,9 +15599,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   outlineRadius(value: Dimension | OutlineRadiuses): T;
 
@@ -15541,8 +15642,8 @@ declare class CommonMethod<T> {
    * @param { function } event
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Trigger a click event when a click is clicked.
@@ -15551,8 +15652,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Trigger a click event when a click is clicked.
@@ -15561,9 +15662,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   onClick(event: (event: ClickEvent) => void): T;
 
@@ -15586,6 +15687,18 @@ declare class CommonMethod<T> {
    * @since 11
    */
   onHover(event: (isHover: boolean, event: HoverEvent) => void): T;
+
+  /**
+   * Trigger a accessibility hover event.
+   *
+   * @param { AccessibilityCallback } callback - A callback instance used when the component is touched after accessibility mode is enabled.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onAccessibilityHover(callback: AccessibilityCallback): T;
 
   /**
    * Set hover effect.
@@ -15956,8 +16069,8 @@ declare class CommonMethod<T> {
    * @param { AnimateParam } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * animation
@@ -15966,8 +16079,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * animation
@@ -15976,9 +16089,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   animation(value: AnimateParam): T;
 
@@ -15996,8 +16109,8 @@ declare class CommonMethod<T> {
    * @param { TransitionOptions | TransitionEffect } value - transition options
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Transition parameter
@@ -16006,8 +16119,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Transition parameter
@@ -16016,9 +16129,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   transition(value: TransitionOptions | TransitionEffect): T;
 
@@ -16159,8 +16272,8 @@ declare class CommonMethod<T> {
    * @param { number } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
    * @form
+   * @since 9
    */
   /**
    * Adds the content blurring effect for the current component. The input parameter is the blurring radius.
@@ -16171,8 +16284,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * Adds the content blurring effect for the current component. The input parameter is the blurring radius.
@@ -16184,9 +16297,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   blur(value: number, options?: BlurOptions): T;
 
@@ -16231,8 +16344,8 @@ declare class CommonMethod<T> {
    * @param { number } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Adds a highlight effect to the current component.
@@ -16243,8 +16356,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Adds a highlight effect to the current component.
@@ -16255,9 +16368,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   brightness(value: number): T;
 
@@ -16277,8 +16390,8 @@ declare class CommonMethod<T> {
    * @param { number } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Adds a contrast effect to the current component. The input parameter is the contrast value.
@@ -16288,8 +16401,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Adds a contrast effect to the current component. The input parameter is the contrast value.
@@ -16299,9 +16412,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   contrast(value: number): T;
 
@@ -16323,8 +16436,8 @@ declare class CommonMethod<T> {
    * @param { number } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Adds a grayscale effect to the current component.
@@ -16335,8 +16448,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Adds a grayscale effect to the current component.
@@ -16347,9 +16460,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   grayscale(value: number): T;
 
@@ -16367,8 +16480,8 @@ declare class CommonMethod<T> {
    * @param { Color | string | Resource } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Adds a color overlay effect for the current component. The input parameter is the superimposed color.
@@ -16377,8 +16490,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Adds a color overlay effect for the current component. The input parameter is the superimposed color.
@@ -16387,9 +16500,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   colorBlend(value: Color | string | Resource): T;
 
@@ -16413,8 +16526,8 @@ declare class CommonMethod<T> {
    * @param { number } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Adds a saturation effect to the current component.
@@ -16426,8 +16539,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Adds a saturation effect to the current component.
@@ -16439,9 +16552,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   saturate(value: number): T;
 
@@ -16461,8 +16574,8 @@ declare class CommonMethod<T> {
    * @param { number } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Converts the image to sepia. Value defines the scale of the conversion.
@@ -16472,8 +16585,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Converts the image to sepia. Value defines the scale of the conversion.
@@ -16483,9 +16596,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   sepia(value: number): T;
 
@@ -16505,8 +16618,8 @@ declare class CommonMethod<T> {
    * @param { number } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
    * @form
+   * @since 9
    */
   /**
    * Invert the input image. Value defines the scale of the conversion. 100% of the value is a complete reversal.
@@ -16516,8 +16629,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * Invert the input image. Value defines the scale of the conversion. 100% of the value is a complete reversal.
@@ -16527,9 +16640,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   invert(value: number | InvertOptions): T;
 
@@ -16560,8 +16673,8 @@ declare class CommonMethod<T> {
    * @param { number | string } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Adds the hue rotation effect to the current component.
@@ -16572,8 +16685,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Adds the hue rotation effect to the current component.
@@ -16584,9 +16697,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   hueRotate(value: number | string): T;
 
@@ -16607,9 +16720,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   useShadowBatching(value: boolean): T;
 
@@ -16641,8 +16754,8 @@ declare class CommonMethod<T> {
    * @param { number } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
    * @form
+   * @since 9
    */
   /**
    * Adds the background blur effect for the current component. The input parameter is the blur radius.
@@ -16652,8 +16765,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * Adds the background blur effect for the current component. The input parameter is the blur radius.
@@ -16664,9 +16777,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   backdropBlur(value: number, options?: BlurOptions): T;
 
@@ -16731,8 +16844,8 @@ declare class CommonMethod<T> {
    * @param { TranslateOptions } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
    * @form
+   * @since 9
    */
   /**
    * Sets the translation effect during page transition.
@@ -16743,8 +16856,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * Set component translation.
@@ -16753,9 +16866,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   translate(value: TranslateOptions): T;
 
@@ -16773,8 +16886,8 @@ declare class CommonMethod<T> {
    * @param { ScaleOptions } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
    * @form
+   * @since 9
    */
   /**
    * Sets the zoom effect during page transition. The value is the start point of entry and end point of exit.
@@ -16783,8 +16896,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * Set component scaling.
@@ -16793,9 +16906,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   scale(value: ScaleOptions): T;
 
@@ -16876,8 +16989,8 @@ declare class CommonMethod<T> {
    * @param { RotateOptions } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
    * @form
+   * @since 9
    */
   /**
    * Sets the rotation effect during assembly transition.
@@ -16887,8 +17000,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * Set component rotation.
@@ -16897,9 +17010,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   rotate(value: RotateOptions): T;
 
@@ -16946,8 +17059,8 @@ declare class CommonMethod<T> {
    * @param { function } event
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * This callback is triggered when a component mounts a display.
@@ -16956,8 +17069,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * This callback is triggered when a component mounts a display.
@@ -16966,9 +17079,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   onAppear(event: () => void): T;
 
@@ -16986,8 +17099,8 @@ declare class CommonMethod<T> {
    * @param { function } event
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * This callback is triggered when component uninstallation disappears.
@@ -16996,8 +17109,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * This callback is triggered when component uninstallation disappears.
@@ -17006,9 +17119,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   onDisAppear(event: () => void): T;
 
@@ -17077,8 +17190,8 @@ declare class CommonMethod<T> {
    * @param { Visibility } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Controls the display or hide of the current component.
@@ -17087,8 +17200,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Controls the display or hide of the current component.
@@ -17097,9 +17210,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   visibility(value: Visibility): T;
 
@@ -17117,8 +17230,8 @@ declare class CommonMethod<T> {
    * @param { number } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * The percentage of the remaining space of the Flex container allocated to the component on which this property resides.
@@ -17127,8 +17240,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * The percentage of the remaining space of the Flex container allocated to the component on which this property resides.
@@ -17137,9 +17250,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   flexGrow(value: number): T;
 
@@ -17157,8 +17270,8 @@ declare class CommonMethod<T> {
    * @param { number } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * The proportion of the Flex container compression size assigned to the component on which this attribute resides.
@@ -17167,8 +17280,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * The proportion of the Flex container compression size assigned to the component on which this attribute resides.
@@ -17177,9 +17290,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   flexShrink(value: number): T;
 
@@ -17197,8 +17310,8 @@ declare class CommonMethod<T> {
    * @param { number | string } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * The base dimension of the assembly on which this attribute is located in the direction of the principal axis in the Flex container.
@@ -17207,8 +17320,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * The base dimension of the assembly on which this attribute is located in the direction of the principal axis in the Flex container.
@@ -17217,9 +17330,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   flexBasis(value: number | string): T;
 
@@ -17237,8 +17350,8 @@ declare class CommonMethod<T> {
    * @param { ItemAlign } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Overrides the default configuration of alignItems in the Flex Layout container.
@@ -17247,8 +17360,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Overrides the default configuration of alignItems in the Flex Layout container.
@@ -17257,9 +17370,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   alignSelf(value: ItemAlign): T;
 
@@ -17277,8 +17390,8 @@ declare class CommonMethod<T> {
    * @param { number } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Sets the current component and displays the priority in the layout container. This parameter is valid only in Row, Column, and Flex single-row layouts.
@@ -17287,8 +17400,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Sets the current component and displays the priority in the layout container. This parameter is valid only in Row, Column, and Flex single-row layouts.
@@ -17297,9 +17410,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   displayPriority(value: number): T;
 
@@ -17317,8 +17430,8 @@ declare class CommonMethod<T> {
    * @param { number } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * The sibling components in the same container are hierarchically displayed. A larger value of z indicates a higher display level.
@@ -17327,8 +17440,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * The sibling components in the same container are hierarchically displayed. A larger value of z indicates a higher display level.
@@ -17337,9 +17450,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   zIndex(value: number): T;
 
@@ -17389,8 +17502,8 @@ declare class CommonMethod<T> {
    * @param { Direction } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Sets the sliding direction. The enumerated value supports logical AND (&) and logical OR (|).
@@ -17399,8 +17512,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Sets the sliding direction. The enumerated value supports logical AND (&) and logical OR (|).
@@ -17409,9 +17522,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   direction(value: Direction): T;
 
@@ -17429,8 +17542,8 @@ declare class CommonMethod<T> {
    * @param { Alignment } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * align
@@ -17439,8 +17552,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * align
@@ -17449,9 +17562,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   align(value: Alignment): T;
 
@@ -17469,8 +17582,8 @@ declare class CommonMethod<T> {
    * @param { Position } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * position
@@ -17479,8 +17592,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * position
@@ -17489,9 +17602,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   /**
    * position
@@ -17520,8 +17633,8 @@ declare class CommonMethod<T> {
    * @param { Position } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Sets the anchor point of the element when it is positioned. The base point is offset from the top start point of the element.
@@ -17530,8 +17643,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Sets the anchor point of the element when it is positioned. The base point is offset from the top start point of the element.
@@ -17540,9 +17653,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   /**
    * Sets the anchor point of the element when it is positioned. The base point is offset from the top start point of the element.
@@ -17573,8 +17686,8 @@ declare class CommonMethod<T> {
    * @param { Position } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Coordinate offset relative to the layout completion position.
@@ -17584,8 +17697,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Coordinate offset relative to the layout completion position.
@@ -17595,9 +17708,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   /**
    * Coordinate offset relative to the layout completion position.
@@ -17629,8 +17742,8 @@ declare class CommonMethod<T> {
    * @param { boolean } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * If the value is true, the component is available and can respond to operations such as clicking.
@@ -17640,8 +17753,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * If the value is true, the component is available and can respond to operations such as clicking.
@@ -17651,9 +17764,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   enabled(value: boolean): T;
 
@@ -17680,8 +17793,8 @@ declare class CommonMethod<T> {
    * @param { AlignRuleOption } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Specifies the alignRules of relative container
@@ -17690,8 +17803,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Specifies the alignRules of relative container
@@ -17700,9 +17813,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   alignRules(value: AlignRuleOption): T;
 
@@ -17746,8 +17859,8 @@ declare class CommonMethod<T> {
    * @param { number } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Specifies the aspect ratio of the current component.
@@ -17756,8 +17869,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Specifies the aspect ratio of the current component.
@@ -17766,9 +17879,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   aspectRatio(value: number): T;
 
@@ -18026,8 +18139,8 @@ declare class CommonMethod<T> {
    * @param { object } options
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Add mask text to the current component. The layout is the same as that of the current component.
@@ -18037,8 +18150,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Add mask text to the current component. The layout is the same as that of the current component.
@@ -18048,9 +18161,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   /**
    * Add mask text to the current component. The layout is the same as that of the current component.
@@ -18088,8 +18201,8 @@ declare class CommonMethod<T> {
    * @param { object } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Linear Gradient
@@ -18102,8 +18215,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Linear Gradient
@@ -18116,9 +18229,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   /**
    * Linear Gradient
@@ -18131,9 +18244,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   linearGradient(value: {
     angle?: number | string;
@@ -18170,8 +18283,8 @@ declare class CommonMethod<T> {
    * @param { object } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Angle Gradient
@@ -18187,8 +18300,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Angle Gradient
@@ -18204,9 +18317,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   /**
    * Angle Gradient
@@ -18222,9 +18335,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   sweepGradient(value: {
     center: [Length, Length];
@@ -18257,8 +18370,8 @@ declare class CommonMethod<T> {
    * @param { object } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Radial Gradient
@@ -18271,8 +18384,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Radial Gradient
@@ -18285,9 +18398,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   /**
    * Radial Gradient
@@ -18300,9 +18413,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   radialGradient(value: {
     center: [Length, Length];
@@ -18366,8 +18479,8 @@ declare class CommonMethod<T> {
    * @param { ShadowOptions } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Add a shadow effect to the current component
@@ -18376,8 +18489,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Add a shadow effect to the current component
@@ -18386,9 +18499,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   shadow(value: ShadowOptions | ShadowStyle): T;
 
@@ -18433,8 +18546,8 @@ declare class CommonMethod<T> {
    * @param { boolean | CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * When the parameter is of the Shape type, the current component is cropped according to the specified shape.
@@ -18444,8 +18557,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * When the parameter is of the Shape type, the current component is cropped according to the specified shape.
@@ -18455,11 +18568,11 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
    * @deprecated since 12
    * @useinstead common[CommonMethod]#clipShape
-   * @form
    */
   clip(value: boolean | CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute): T;
 
@@ -18501,8 +18614,8 @@ declare class CommonMethod<T> {
    * @param { CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute | ProgressMask } value - indicates the shape of the mask.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Applies a mask of the specified shape to the current assembly.
@@ -18511,8 +18624,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Applies a mask of the specified shape to the current assembly.
@@ -18521,11 +18634,11 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
    * @deprecated since 12
    * @useinstead common[CommonMethod]#maskShape
-   * @form
    */
   mask(value: CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute | ProgressMask): T;
 
@@ -18566,8 +18679,8 @@ declare class CommonMethod<T> {
    * @param { string } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Id. User can set an id to the component to identify it.
@@ -18576,8 +18689,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Id. User can set an id to the component to identify it.
@@ -18586,9 +18699,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   id(value: string): T;
 
@@ -18906,8 +19019,8 @@ declare class CommonMethod<T> {
    * @param { StateStyles } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Sets styles for component state.
@@ -18916,8 +19029,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Sets styles for component state.
@@ -18926,9 +19039,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   stateStyles(value: StateStyles): T;
 
@@ -19109,6 +19222,19 @@ declare class CommonMethod<T> {
   accessibilityText(value: string): T;
 
   /**
+   * Sets accessibilityText
+   *
+   * @param { Resource } text - set accessibility text
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  accessibilityText(text: Resource): T;
+
+  /**
    * Sets accessibilityTextHint
    *
    * @param { string } value - set accessibility text hint
@@ -19152,6 +19278,19 @@ declare class CommonMethod<T> {
    * @since 12
    */
   accessibilityDescription(value: string): T;
+
+  /**
+   * Sets accessibilityDescription
+   *
+   * @param { Resource } description - set description of accessibility
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  accessibilityDescription(description: Resource): T;
 
   /**
    * Sets accessibilityLevel
@@ -19414,8 +19553,8 @@ declare class CommonMethod<T> {
  *
  * @extends CommonMethod<CommonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * CommonAttribute for ide.
@@ -19423,8 +19562,8 @@ declare class CommonMethod<T> {
  * @extends CommonMethod<CommonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * CommonAttribute for ide.
@@ -19432,9 +19571,9 @@ declare class CommonMethod<T> {
  * @extends CommonMethod<CommonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare class CommonAttribute extends CommonMethod<CommonAttribute> {}
 
@@ -19450,8 +19589,8 @@ declare class CommonAttribute extends CommonMethod<CommonAttribute> {}
  *
  * @interface CommonInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * CommonInterface for ide.
@@ -19459,8 +19598,8 @@ declare class CommonAttribute extends CommonMethod<CommonAttribute> {}
  * @interface CommonInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * CommonInterface for ide.
@@ -19468,9 +19607,9 @@ declare class CommonAttribute extends CommonMethod<CommonAttribute> {}
  * @interface CommonInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 interface CommonInterface {
   /**
@@ -19485,8 +19624,8 @@ interface CommonInterface {
    * 
    * @returns { CommonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
    * @form
+   * @since 9
    */
   /**
    * Constructor
@@ -19494,8 +19633,8 @@ interface CommonInterface {
    * @returns { CommonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * Constructor
@@ -19503,9 +19642,9 @@ interface CommonInterface {
    * @returns { CommonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   (): CommonAttribute;
 }
@@ -19520,25 +19659,25 @@ interface CommonInterface {
  * CommonInstance for ide.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * CommonInstance for ide.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * CommonInstance for ide.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const CommonInstance: CommonAttribute;
 
@@ -19552,25 +19691,25 @@ declare const CommonInstance: CommonAttribute;
  * Common for ide.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Common for ide.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Common for ide.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const Common: CommonInterface;
 
@@ -19584,25 +19723,25 @@ declare const Common: CommonInterface;
  * Defines the CustomBuilder Type.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines the CustomBuilder Type.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines the CustomBuilder Type.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare type CustomBuilder = (() => any) | void;
 
@@ -19797,8 +19936,8 @@ declare type FractionStop = [ number, number ];
  *
  * @extends CommonMethod<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * CommonShapeMethod
@@ -19806,8 +19945,8 @@ declare type FractionStop = [ number, number ];
  * @extends CommonMethod<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * CommonShapeMethod
@@ -19815,9 +19954,9 @@ declare type FractionStop = [ number, number ];
  * @extends CommonMethod<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare class CommonShapeMethod<T> extends CommonMethod<T> {
   /**
@@ -19832,8 +19971,8 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 9
    * @form
+   * @since 9
    */
   constructor();
 
@@ -19851,8 +19990,8 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @param { ResourceColor } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * border Color
@@ -19861,8 +20000,8 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * border Color
@@ -19871,9 +20010,9 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   stroke(value: ResourceColor): T;
 
@@ -19891,8 +20030,8 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @param { ResourceColor } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Fill color.
@@ -19901,8 +20040,8 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Fill color.
@@ -19911,9 +20050,9 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   fill(value: ResourceColor): T;
 
@@ -19931,8 +20070,8 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @param { number | string } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Offset from the start point of the border drawing.
@@ -19941,8 +20080,8 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Offset from the start point of the border drawing.
@@ -19951,9 +20090,9 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   strokeDashOffset(value: number | string): T;
 
@@ -19971,8 +20110,8 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @param { LineCapStyle } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Path endpoint drawing style.
@@ -19981,8 +20120,8 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Path endpoint drawing style.
@@ -19991,9 +20130,9 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   strokeLineCap(value: LineCapStyle): T;
 
@@ -20011,8 +20150,8 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @param { LineJoinStyle } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Border corner drawing style.
@@ -20021,8 +20160,8 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Border corner drawing style.
@@ -20031,9 +20170,9 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   strokeLineJoin(value: LineJoinStyle): T;
 
@@ -20051,8 +20190,8 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @param { number | string } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Limits for drawing acute angles as bevels
@@ -20061,8 +20200,8 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Limits for drawing acute angles as bevels
@@ -20071,9 +20210,9 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   strokeMiterLimit(value: number | string): T;
 
@@ -20091,8 +20230,8 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @param { number | string | Resource } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Sets the opacity of the border.
@@ -20101,8 +20240,8 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Sets the opacity of the border.
@@ -20111,9 +20250,9 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   strokeOpacity(value: number | string | Resource): T;
 
@@ -20131,8 +20270,8 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @param { number | string | Resource } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * fill Opacity
@@ -20141,8 +20280,8 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * fill Opacity
@@ -20151,9 +20290,9 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   fillOpacity(value: number | string | Resource): T;
 
@@ -20171,8 +20310,8 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @param { Length } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Sets the width of the dividing line.
@@ -20181,8 +20320,8 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Sets the width of the dividing line.
@@ -20191,9 +20330,9 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   strokeWidth(value: Length): T;
 
@@ -20211,8 +20350,8 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @param { boolean } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Indicates whether to enable anti-aliasing
@@ -20221,8 +20360,8 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Indicates whether to enable anti-aliasing
@@ -20231,9 +20370,9 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   antiAlias(value: boolean): T;
 
@@ -20251,8 +20390,8 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @param { Array<any> } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Sets the gap for the border.
@@ -20261,8 +20400,8 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Sets the gap for the border.
@@ -20271,9 +20410,9 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   strokeDashArray(value: Array<any>): T;
 }
@@ -20420,9 +20559,9 @@ declare interface LinearGradient {
  * @interface PixelRoundPolicy
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare interface PixelRoundPolicy {
   /**
@@ -20432,9 +20571,9 @@ declare interface PixelRoundPolicy {
    * @default PixelRoundCalcPolicy.NO_FORCE_ROUND
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   start?: PixelRoundCalcPolicy;
 
@@ -20445,9 +20584,9 @@ declare interface PixelRoundPolicy {
    * @default PixelRoundCalcPolicy.NO_FORCE_ROUND
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   top?: PixelRoundCalcPolicy;
 
@@ -20458,9 +20597,9 @@ declare interface PixelRoundPolicy {
    * @default PixelRoundCalcPolicy.NO_FORCE_ROUND
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   end?: PixelRoundCalcPolicy;
 
@@ -20471,9 +20610,9 @@ declare interface PixelRoundPolicy {
    * @default PixelRoundCalcPolicy.NO_FORCE_ROUND
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   bottom?: PixelRoundCalcPolicy;
 }
@@ -20563,9 +20702,9 @@ declare interface MotionBlurOptions {
  *
  * @interface LayoutBorderInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
  * @deprecated since 10
- * @form
  */
 declare interface LayoutBorderInfo {
   /**
@@ -20573,9 +20712,9 @@ declare interface LayoutBorderInfo {
    *
    * @type { EdgeWidths }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
    * @deprecated since 10
-   * @form
    */
   borderWidth: EdgeWidths;
 
@@ -20584,9 +20723,9 @@ declare interface LayoutBorderInfo {
    *
    * @type { Margin }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
    * @deprecated since 10
-   * @form
    */
   margin: Margin,
 
@@ -20595,9 +20734,9 @@ declare interface LayoutBorderInfo {
    *
    * @type { Padding }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
    * @deprecated since 10
-   * @form
    */
   padding: Padding,
 }
@@ -20607,9 +20746,9 @@ declare interface LayoutBorderInfo {
  *
  * @interface LayoutInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
  * @deprecated since 10
- * @form
  */
 declare interface LayoutInfo {
   /**
@@ -20617,9 +20756,9 @@ declare interface LayoutInfo {
    *
    * @type { Position }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
    * @deprecated since 10
-   * @form
    */
   position: Position,
 
@@ -20628,9 +20767,9 @@ declare interface LayoutInfo {
    *
    * @type { ConstraintSizeOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
    * @deprecated since 10
-   * @form
    */
   constraint: ConstraintSizeOptions,
 }
@@ -20640,9 +20779,9 @@ declare interface LayoutInfo {
  *
  * @interface LayoutChild
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
  * @deprecated since 10
- * @form
  */
 declare interface LayoutChild {
   /**
@@ -20650,9 +20789,9 @@ declare interface LayoutChild {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
    * @deprecated since 10
-   * @form
    */
   name: string,
 
@@ -20661,9 +20800,9 @@ declare interface LayoutChild {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
    * @deprecated since 10
-   * @form
    */
   id: string,
 
@@ -20672,9 +20811,9 @@ declare interface LayoutChild {
    *
    * @type { ConstraintSizeOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
    * @deprecated since 10
-   * @form
    */
   constraint: ConstraintSizeOptions,
 
@@ -20683,9 +20822,9 @@ declare interface LayoutChild {
    *
    * @type { LayoutBorderInfo }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
    * @deprecated since 10
-   * @form
    */
   borderInfo: LayoutBorderInfo,
 
@@ -20694,9 +20833,9 @@ declare interface LayoutChild {
    *
    * @type { Position }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
    * @deprecated since 10
-   * @form
    */
   position: Position,
 
@@ -20705,9 +20844,9 @@ declare interface LayoutChild {
    *
    * @param { ConstraintSizeOptions } childConstraint
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
    * @deprecated since 10
-   * @form
    */
   measure(childConstraint: ConstraintSizeOptions),
 
@@ -20716,9 +20855,9 @@ declare interface LayoutChild {
    *
    * @param { LayoutInfo } childLayoutInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
    * @deprecated since 10
-   * @form
    */
   layout(childLayoutInfo: LayoutInfo),
 }
@@ -21114,12 +21253,12 @@ declare type Filter = import('../api/@ohos.graphics.uiEffect').default.Filter;
 /**
  * ComponentContent.
  *
- * @typedef {import('../api/arkui/ComponentContent').ComponentContent} ComponentContent
+ * @typedef {import('../api/arkui/ComponentContent').ComponentContent<T>} ComponentContent<T = Object>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
-declare type ComponentContent = import('../api/arkui/ComponentContent').ComponentContent;
+declare type ComponentContent<T = Object> = import('../api/arkui/ComponentContent').ComponentContent<T>;
 
 /**
  * Theme.
@@ -21144,8 +21283,8 @@ declare type Theme = import('../api/@ohos.arkui.theme').Theme;
  *
  * @extends CommonAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Custom Component
@@ -21153,8 +21292,8 @@ declare type Theme = import('../api/@ohos.arkui.theme').Theme;
  * @extends CommonAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Custom Component
@@ -21162,9 +21301,9 @@ declare type Theme = import('../api/@ohos.arkui.theme').Theme;
  * @extends CommonAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare class CustomComponent extends CommonAttribute {
   /**
@@ -21177,25 +21316,25 @@ declare class CustomComponent extends CommonAttribute {
    * Customize the pop-up content constructor.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Customize the pop-up content constructor.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Customize the pop-up content constructor.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   build(): void;
 
@@ -21213,8 +21352,8 @@ declare class CustomComponent extends CommonAttribute {
    * The aboutToAppear function is executed after a new instance of the custom component is created, before its build() function is executed. 
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * aboutToAppear Method
@@ -21223,8 +21362,8 @@ declare class CustomComponent extends CommonAttribute {
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * aboutToAppear Method
@@ -21233,9 +21372,9 @@ declare class CustomComponent extends CommonAttribute {
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   aboutToAppear?(): void;
 
@@ -21253,8 +21392,8 @@ declare class CustomComponent extends CommonAttribute {
    * The aboutToDisappear function executes before a custom component is destroyed. 
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * aboutToDisappear Method
@@ -21263,8 +21402,8 @@ declare class CustomComponent extends CommonAttribute {
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * aboutToDisappear Method
@@ -21273,9 +21412,9 @@ declare class CustomComponent extends CommonAttribute {
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   aboutToDisappear?(): void;
 
@@ -21332,10 +21471,10 @@ declare class CustomComponent extends CommonAttribute {
    * @param { Array<LayoutChild> } children
    * @param { ConstraintSizeOptions } constraint
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
    * @deprecated since 10
    * @useinstead common[CustomComponent]#onPlaceChildren
-   * @form
    */
   onLayout?(children: Array<LayoutChild>, constraint: ConstraintSizeOptions): void;
 
@@ -21368,10 +21507,10 @@ declare class CustomComponent extends CommonAttribute {
    * @param { Array<LayoutChild> } children
    * @param { ConstraintSizeOptions } constraint
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
    * @deprecated since 10
    * @useinstead common[CustomComponent]#onMeasureSize
-   * @form
    */
   onMeasure?(children: Array<LayoutChild>, constraint: ConstraintSizeOptions): void;
 
@@ -21464,8 +21603,8 @@ declare class CustomComponent extends CommonAttribute {
    * @returns { string } status data of ArkTS form UI, this data will be passed in when recover form later
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * onFormRecycle Method, this is only for ArkTS form, if form was marked recyclable by form user, when system memory is low,
@@ -21475,9 +21614,9 @@ declare class CustomComponent extends CommonAttribute {
    * @returns { string } status data of ArkTS form UI, this data will be passed in when recover form later
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   onFormRecycle?(): string;
 
@@ -21487,8 +21626,8 @@ declare class CustomComponent extends CommonAttribute {
    * @param { string } statusData - indicate status data of ArkTS form UI, which is acquired by calling onFormRecycle, it is used to recover form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * onFormRecover Method, this is only for ArkTS form
@@ -21496,9 +21635,9 @@ declare class CustomComponent extends CommonAttribute {
    * @param { string } statusData - indicate status data of ArkTS form UI, which is acquired by calling onFormRecycle, it is used to recover form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   onFormRecover?(statusData: string): void;
 
@@ -21656,8 +21795,8 @@ declare class CustomComponent extends CommonAttribute {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 9
  * @form
+ * @since 9
  */
 declare class View {
   /**
@@ -21676,8 +21815,8 @@ declare class View {
    * @returns { any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 9
    * @form
+   * @since 9
    */
   create(value: any): any;
 }
@@ -22699,6 +22838,19 @@ declare interface Callback<T, V = void> {
  * @since 12
  */
 declare type HoverCallback = (isHover: boolean, event: HoverEvent) => void
+
+/**
+ * Defines the callback type used in accessibility hover events.
+ * The value of isHover indicates whether the touch is hovering over the component.
+ * The value of event contains information about AccessibilityHoverEvent.
+ *
+ * @typedef { function }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare type AccessibilityCallback = (isHover: boolean, event: AccessibilityHoverEvent) => void
 
 /**
  * Defines the options about VisibleAreaEvent.

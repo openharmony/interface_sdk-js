@@ -2278,6 +2278,7 @@ declare namespace osAccount {
    * Options to create an OS account for domain.
    *
    * @interface CreateOsAccountForDomainOptions
+   * @extends CreateOsAccountOptions
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
    * @since 12
@@ -2537,6 +2538,23 @@ declare namespace osAccount {
      * @since 8
      */
     setProperty(request: SetPropertyRequest): Promise<void>;
+
+    /**
+     * Prepares remote authentication.
+     *
+     * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
+     * @param { string } remoteNetworkId - Indicates the remote network identifier.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid remoteNetworkId.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    prepareRemoteAuth(remoteNetworkId: string): Promise<void>;
 
     /**
      * Executes authentication.
@@ -2944,6 +2962,7 @@ declare namespace osAccount {
    * Options for getting domain account information in the domain plugin.
    *
    * @typedef GetDomainAccountInfoPluginOptions
+   * @extends GetDomainAccountInfoOptions
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -4086,6 +4105,7 @@ declare namespace osAccount {
     /**
      * Notifies to set data.
      *
+     * @type { function }
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
@@ -4152,6 +4172,7 @@ declare namespace osAccount {
      * If the authentication fails, the remaining authentication times are returned in extraInfo,
      * If the authentication executor is locked, the freezing time is returned in extraInfo.
      *
+     * @type { function }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -4161,6 +4182,7 @@ declare namespace osAccount {
     /**
      * During an authentication, the TipsCode is returned through the callback.
      *
+     * @type { ?function }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -4180,6 +4202,7 @@ declare namespace osAccount {
     /**
      * The authentication result code is returned through the callback.
      *
+     * @type { function }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -4189,6 +4212,7 @@ declare namespace osAccount {
     /**
      * During an authentication, the TipsCode is returned through the callback.
      *
+     * @type { ?function }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -4729,6 +4753,24 @@ declare namespace osAccount {
      * @since 8
      */
     PIN_MIXED = 10002,
+
+    /**
+     * Indicates the 4-digit credential.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    PIN_FOUR = 10003,
+
+    /**
+     * Indicates the pattern credential.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    PIN_PATTERN = 10004,
 
     /**
      * Indicates the 2D face credential.

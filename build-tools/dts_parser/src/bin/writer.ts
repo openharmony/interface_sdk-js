@@ -19,7 +19,7 @@ import fs from 'fs';
 import { LogUtil } from '../utils/logUtil';
 import { ToolNameExcelCallback, joinNewMessage, joinOldMessage, ToolReturnData } from './config';
 import { BasicDiffInfo, diffTypeMap } from '../typedef/diff/ApiInfoDiff';
-import { OptionObjType } from './config'
+import { OptionObjType } from './config';
 import { SyscapProcessorHelper } from '../coreImpl/diff/syscapFieldProcessor';
 
 export namespace WriterHelper {
@@ -107,7 +107,7 @@ export namespace WriterHelper {
       }
       return data.getOldDtsName();
     }
-    
+
     /**
      * 使用文件名进行排序
      *

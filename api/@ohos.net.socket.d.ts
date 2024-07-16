@@ -112,6 +112,19 @@ declare namespace socket {
   function constructTLSSocketInstance(): TLSSocket;
 
   /**
+   * Creates a TLSSocket object with a TCPSocket object.
+   * @param { TCPSocket } tcpSocket - Parameter for creating a TLSSocket object.
+   * @returns { TLSSocket } the TLSSocket of the constructTLSSocketInstance.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2300002 - System internal error.
+   * @throws { BusinessError } 2303601 - Invalid socket FD.
+   * @throws { BusinessError } 2303602 - Socket is not connected.
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 12
+   */
+  function constructTLSSocketInstance(tcpSocket: TCPSocket): TLSSocket;
+
+  /**
    * Creates a TCPSocketServer object.
    * @returns { TCPSocketServer } the TCPSocketServer of the constructTCPSocketServerInstance.
    * @syscap SystemCapability.Communication.NetStack
@@ -679,6 +692,17 @@ declare namespace socket {
      * @since 10
      */
     bind(address: NetAddress): Promise<void>;
+
+    /**
+     * Obtains the local address of a UDPSocket connection.
+     * @returns { Promise<NetAddress> } The promise returned by the function.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2301009 - Bad file descriptor.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 12
+     */
+    getLocalAddress(): Promise<NetAddress>;
 
     /**
      * Sends data over a UDPSocket connection.
@@ -1429,6 +1453,17 @@ declare namespace socket {
     getExtraOptions(): Promise<ExtraOptionsBase>;
 
     /**
+     * Obtains the local address of a LocalSocket connection.
+     * @returns { Promise<string> } The promise returned by the function.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2301009 - Bad file descriptor.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 12
+     */
+    getLocalAddress(): Promise<string>;
+
+    /**
      * Listens for message receiving events of the LocalSocket connection.
      * @param { 'message' } type Indicates Event name.
      * @param { Callback<LocalSocketMessageInfo> } callback - the callback used to return the result.
@@ -1649,6 +1684,17 @@ declare namespace socket {
     close(): Promise<void>;
 
     /**
+     * Obtains the local address of a LocalSocket client connection.
+     * @returns { Promise<string> } The promise returned by the function.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2301009 - Bad file descriptor.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 12
+     */
+    getLocalAddress(): Promise<string>;
+
+    /**
      * Listens for message receiving events of the LocalSocketConnection.
      * @param { 'message' } type - Indicates Event name.
      * @param { Callback<LocalSocketMessageInfo> } callback - The callback of on.
@@ -1860,6 +1906,17 @@ declare namespace socket {
      * @since 12
      */
     getExtraOptions(): Promise<ExtraOptionsBase>;
+
+    /**
+     * Obtains the local address of the LocalSocketServer connection.
+     * @returns { Promise<string> } The promise returned by the function.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2301009 - Bad file descriptor.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 12
+     */
+    getLocalAddress(): Promise<string>;
 
     /**
      * Listens for connect events of the LocalSocketServer connection.
@@ -2433,6 +2490,17 @@ declare namespace socket {
     setExtraOptions(options: TCPExtraOptions): Promise<void>;
 
     /**
+     * Obtains the local address of a TCPSocket connection.
+     * @returns { Promise<NetAddress> } The promise returned by the function.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2301009 - Bad file descriptor.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 12
+     */
+    getLocalAddress(): Promise<NetAddress>;
+
+    /**
      * Listens for message receiving events of the TCPSocket connection.
      * @param { 'message' } type - Indicates Event name.
      * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - the callback used to return the result.
@@ -2741,6 +2809,17 @@ declare namespace socket {
      * @since 10
      */
     setExtraOptions(options: TCPExtraOptions): Promise<void>;
+
+    /**
+     * Obtains the local address of a TLSSocket connection.
+     * @returns { Promise<NetAddress> } The promise returned by the function.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2301009 - Bad file descriptor.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 12
+     */
+    getLocalAddress(): Promise<NetAddress>;
 
     /**
      * Listens for message receiving events of the TLSSocket connection.
@@ -3674,6 +3753,17 @@ declare namespace socket {
     getRemoteAddress(): Promise<NetAddress>;
 
     /**
+     * Obtains the local address of a TCPSocketServer connection.
+     * @returns { Promise<NetAddress> } The promise returned by the function.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2301009 - Bad file descriptor.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 12
+     */
+    getLocalAddress(): Promise<NetAddress>;
+
+    /**
      * Listens for message receiving events of the TCPSocketConnection.
      * @param { 'message' } type - Indicates Event name.
      * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - The callback of on.
@@ -3865,6 +3955,17 @@ declare namespace socket {
      * @since 10
      */
     setExtraOptions(options: TCPExtraOptions): Promise<void>;
+
+    /**
+     * Obtains the local address of a TCPSocketServer connection.
+     * @returns { Promise<NetAddress> } The promise returned by the function.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2301009 - Bad file descriptor.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 12
+     */
+    getLocalAddress(): Promise<NetAddress>;
 
     /**
      * Listens for connect events of the TCPSocketServer connection.
@@ -4098,6 +4199,17 @@ declare namespace socket {
      * @since 10
      */
     getSignatureAlgorithms(): Promise<Array<string>>;
+
+    /**
+     * Obtains the local address of a TLSSocketServer connection.
+     * @returns { Promise<NetAddress> } The promise returned by the function.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2301009 - Bad file descriptor.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 12
+     */
+    getLocalAddress(): Promise<NetAddress>;
 
     /**
      * Listens for message receiving events of the TLSSocketConnection.
@@ -4369,6 +4481,17 @@ declare namespace socket {
      * @since 10
      */
     getProtocol(): Promise<string>;
+
+    /**
+     * Obtains the local address of the TLSSocketServer connection.
+     * @returns { Promise<NetAddress> } The promise returned by the function.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2301009 - Bad file descriptor.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 12
+     */
+    getLocalAddress(): Promise<NetAddress>;
 
     /**
      * Listens for connect events of the TLSSocketServer connection.

@@ -23,23 +23,25 @@ import { AsyncCallback } from "./@ohos.base";
 /**
  * Events for input devices
  * 
- * @since 9
+ * @namespace inputDeviceCooperate
  * @syscap SystemCapability.MultimodalInput.Input.Cooperator
+ * @since 9
  */
 
 
 declare namespace inputDeviceCooperate {
   /**
    * Enumerates mouse traversal events.
-   * 
-   * @since 9
+   * @enum { number }
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use.
+   * @since 9
    */
   enum EventMsg {
     /**
      * Mouse traversal message: mouse traversal is enabled.
-     *
+     * @syscap SystemCapability.MultimodalInput.Input.Cooperator
+     * @systemapi hide for inner use
      * @since 9
     */
     MSG_COOPERATE_INFO_START = 200,
@@ -47,13 +49,16 @@ declare namespace inputDeviceCooperate {
     /**
      * Mouse traversal message: mouse traversal is successful.
      *
+     * @syscap SystemCapability.MultimodalInput.Input.Cooperator
+     * @systemapi hide for inner use
      * @since 9
     */
     MSG_COOPERATE_INFO_SUCCESS = 201,
 
     /**
      * Mouse traversal message: mouse traversal fails.
-     *
+     * @syscap SystemCapability.MultimodalInput.Input.Cooperator
+     * @systemapi hide for inner use
      * @since 9
     */
     MSG_COOPERATE_INFO_FAIL = 202,
@@ -61,6 +66,8 @@ declare namespace inputDeviceCooperate {
     /**
      * Mouse traversal status: mouse traversal is enabled.
      *
+     * @syscap SystemCapability.MultimodalInput.Input.Cooperator
+     * @systemapi hide for inner use
      * @since 9
     */
     MSG_COOPERATE_STATE_ON = 500,
@@ -68,6 +75,8 @@ declare namespace inputDeviceCooperate {
     /**
      * Mouse traversal status: mouse traversal is disabled.
      *
+     * @syscap SystemCapability.MultimodalInput.Input.Cooperator
+     * @systemapi hide for inner use
      * @since 9
     */
     MSG_COOPERATE_STATE_OFF = 501,
@@ -76,120 +85,120 @@ declare namespace inputDeviceCooperate {
   /**
    * Enable or disable the mouse traversal.
    *
-   * @since 9
+   * @param { boolean } enable Whether to enable mouse traversal.
+   * @param { AsyncCallback<void> } callback Asynchronous callback function.
+   * @throws {BusinessError} 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
-   * @param enable Whether to enable mouse traversal.
-   * @param callback Asynchronous callback function.
-   * @throws {BusinessError} 401 - Parameter error.
+   * @since 9
    */
   function enable(enable: boolean, callback: AsyncCallback<void>): void;
 
   /**
    * Enable or disable the mouse traversal.
    *
-   * @since 9
-   * @syscap SystemCapability.MultimodalInput.Input.Cooperator
-   * @systemapi hide for inner use
    * @param enable Whether to enable mouse traversal.
    * @throws {BusinessError} 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Cooperator
+   * @systemapi hide for inner use
+   * @since 9
    */
   function enable(enable: boolean): Promise<void>;
 
   /**
    * Starts mouse traversal.
    *
-   * @since 9
+   * @param { string } sinkDeviceDescriptor Descriptor of the target network for mouse traversal.
+   * @param { number } srcInputDeviceId Identifier of the peripheral device for mouse traversal.
+   * @param { AsyncCallback<void> } callback Asynchronous callback function.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 4400001 - Incorrect descriptor for the target device.
+   * @throws { BusinessError } 4400002 - Screen hop failed.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
-   * @param sinkDeviceDescriptor Descriptor of the target network for mouse traversal.
-   * @param srcInputDeviceId Identifier of the peripheral device for mouse traversal.
-   * @param callback Asynchronous callback function.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 4400001 - Incorrect descriptor for the target device.
-   * @throws {BusinessError} 4400002 - Screen hop failed.
+   * @since 9
    */
   function start(sinkDeviceDescriptor: string, srcInputDeviceId: number, callback: AsyncCallback<void>): void;
 
   /**
    * Starts mouse traversal.
    *
-   * @since 9
+   * @param { string } sinkDeviceDescriptor Descriptor of the target network for mouse traversal.
+   * @param { number } srcInputDeviceId Identifier of the peripheral device for mouse traversal.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 4400001 - Incorrect descriptor for the target device.
+   * @throws { BusinessError } 4400002 - Screen hop failed.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
-   * @systemapi hide for inner use
-   * @param sinkDeviceDescriptor Descriptor of the target network for mouse traversal.
-   * @param srcInputDeviceId Identifier of the peripheral device for mouse traversal.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 4400001 - Incorrect descriptor for the target device.
-   * @throws {BusinessError} 4400002 - Screen hop failed.
-   */
+   * @systemapi hide for inner use 
+   * @since 9 
+  */
   function start(sinkDeviceDescriptor: string, srcInputDeviceId: number): Promise<void>;
 
   /**
    * Stops mouse traversal.
    *
-   * @since 9
+   * @param { AsyncCallback<void> } callback Asynchronous callback function.
+   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
-   * @param callback Asynchronous callback function.
-   * @throws {BusinessError} 401 - Parameter error.
+   * @since 9
    */
   function stop(callback: AsyncCallback<void>): void;
 
   /**
    * Stops mouse traversal.
    *
-   * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
+   * @since 9
    */
   function stop(): Promise<void>;
 
   /**
    * Obtains the status of the mouse traversal switch.
    *
-   * @since 9
+   * @param {string} deviceDescriptor Descriptor of the target network for mouse traversal.
+   * @param {AsyncCallback<{ state: boolean }>} callback Asynchronous callback used to receive the status of the mouse traversal switch.
+   * @throws {BusinessError} 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
-   * @param deviceDescriptor Descriptor of the target network for mouse traversal.
-   * @param callback Asynchronous callback used to receive the status of the mouse traversal switch.
-   * @throws {BusinessError} 401 - Parameter error.
+   * @since 9
    */
   function getState(deviceDescriptor: string, callback: AsyncCallback<{ state: boolean }>): void;
 
   /**
    * Obtains the status of the mouse traversal switch.
    *
-   * @since 9
-   * @syscap SystemCapability.MultimodalInput.Input.Cooperator
-   * @systemapi hide for inner use
    * @param deviceDescriptor Descriptor of the target network for mouse traversal.
    * @throws {BusinessError} 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Cooperator
+   * @systemapi hide for inner use
+   * @since 9
    */
   function getState(deviceDescriptor: string): Promise<{ state: boolean }>;
 
   /**
    * Enables listening for mouse traversal events.
    * 
-   * @since 9
+   * @param { 'cooperation' } type Registration type.
+   * @param { AsyncCallback<{ deviceDescriptor: string, eventMsg: EventMsg }> } callback Asynchronous callback used to receive mouse traversal events.
+   * @returns Callback for the input device event.
+   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
-   * @param type Registration type.
-   * @param callback Asynchronous callback used to receive mouse traversal events.
-   * @returns Callback for the input device event.
-   * @throws {BusinessError} 401 - Parameter error.
+   * @since 9
    */
   function on(type: 'cooperation', callback: AsyncCallback<{ deviceDescriptor: string, eventMsg: EventMsg }>): void;
 
   /**
    * Disables listening for mouse traversal events.
    * 
-   * @since 9
+   * @param { 'cooperation' } type Registration type.
+   * @param { AsyncCallback<void> } callback Asynchronous callback used to return the result.
+   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
-   * @param type Registration type.
-   * @param callback Asynchronous callback used to return the result.
-   * @throws {BusinessError} 401 - Parameter error.
+   * @since 9
    */
   function off(type: 'cooperation', callback?: AsyncCallback<void>): void;
 

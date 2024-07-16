@@ -63,7 +63,7 @@ export declare enum Action {
 export declare interface Key {
   /**
    * Key code
-   *
+   * @type { KeyCode }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
@@ -71,7 +71,7 @@ export declare interface Key {
 
   /**
    * Time when the key is pressed
-   *
+   * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
@@ -79,7 +79,7 @@ export declare interface Key {
 
   /**
    * Device to which the key belongs
-   *
+   * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
@@ -96,7 +96,7 @@ export declare interface Key {
 export declare interface KeyEvent extends InputEvent {
   /**
    * Key action
-   *
+   * @type { Action }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
@@ -104,7 +104,7 @@ export declare interface KeyEvent extends InputEvent {
 
   /**
    * Key that has changed
-   *
+   * @type { Key }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
@@ -112,7 +112,7 @@ export declare interface KeyEvent extends InputEvent {
 
   /**
    * Unicode character corresponding to the key
-   *
+   * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
@@ -120,7 +120,7 @@ export declare interface KeyEvent extends InputEvent {
 
   /**
    * List of pressed keys
-   *
+   * @type { Key[] }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
@@ -128,7 +128,7 @@ export declare interface KeyEvent extends InputEvent {
 
   /**
    * Whether ctrlKey is being pressed
-   *
+   * @type { boolean }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
@@ -136,7 +136,7 @@ export declare interface KeyEvent extends InputEvent {
 
   /**
    * Whether altKey is being pressed
-   *
+   * @type { boolean }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
@@ -144,7 +144,7 @@ export declare interface KeyEvent extends InputEvent {
 
   /**
    * Whether shiftKey is being pressed
-   *
+   * @type { boolean }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
@@ -152,7 +152,7 @@ export declare interface KeyEvent extends InputEvent {
 
   /**
    * Whether logoKey is being pressed
-   *
+   * @type { boolean }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
@@ -160,7 +160,7 @@ export declare interface KeyEvent extends InputEvent {
 
   /**
    * Whether fnKey is being pressed
-   *
+   * @type { boolean }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
@@ -168,7 +168,7 @@ export declare interface KeyEvent extends InputEvent {
 
   /**
    * Whether capsLock is active
-   *
+   * @type { boolean }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
@@ -176,7 +176,7 @@ export declare interface KeyEvent extends InputEvent {
 
   /**
    * Whether numLock is active
-   *
+   * @type { boolean }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
@@ -184,7 +184,7 @@ export declare interface KeyEvent extends InputEvent {
 
   /**
    * Whether scrollLock is active
-   *
+   * @type { boolean }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */

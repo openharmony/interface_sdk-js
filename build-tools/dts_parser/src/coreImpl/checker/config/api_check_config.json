@@ -182,6 +182,7 @@
     "API_CHANGE_INCOMPATIBLE_33": "Forbid changes: Cannot reduce the range of custom type.",
     "API_CHANGE_INCOMPATIBLE_34": "Forbid changes: Cannot change Enumeration assignment.",
     "API_CHANGE_INCOMPATIBLE_35": "Forbid changes: Historical JSDoc cannot be changed.",
-    "API_CHANGE_INCOMPATIBLE_36": "Forbid changes: API changes must add a new section of JSDoc."
+    "API_CHANGE_INCOMPATIBLE_36": "Forbid changes: API changes must add a new section of JSDoc.",
+    "API_CHANGE_INCOMPATIBLE_37": "Forbid changes: Cannot change from atomicservice to NA."
   }
 }

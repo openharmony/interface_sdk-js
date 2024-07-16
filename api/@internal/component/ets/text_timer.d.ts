@@ -28,17 +28,17 @@
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 10
  * @form
+ * @since 10
  */
 /**
  * Provides a way to control the process.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare class TextTimerController {
   /**
@@ -52,17 +52,17 @@ declare class TextTimerController {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * constructor.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   constructor();
 
@@ -77,17 +77,17 @@ declare class TextTimerController {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * Provides a start event for timer.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   start();
 
@@ -102,17 +102,17 @@ declare class TextTimerController {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * Provides a pause event for timer.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   pause();
 
@@ -127,17 +127,17 @@ declare class TextTimerController {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * Provides an event to reset timer.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   reset();
 }
@@ -208,8 +208,8 @@ declare interface TextTimerConfiguration extends CommonConfiguration<TextTimerCo
  * @interface TextTimerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 10
  * @form
+ * @since 10
  */
 /**
  * Defines the options of TextTimer.
@@ -217,9 +217,9 @@ declare interface TextTimerConfiguration extends CommonConfiguration<TextTimerCo
  * @interface TextTimerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 interface TextTimerOptions {
   /**
@@ -235,8 +235,8 @@ interface TextTimerOptions {
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * Sets whether to countdown.The default value is false.
@@ -244,9 +244,9 @@ interface TextTimerOptions {
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   isCountDown?: boolean;
 
@@ -267,8 +267,8 @@ interface TextTimerOptions {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * Specifies the timer range.
@@ -278,9 +278,9 @@ interface TextTimerOptions {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   count?: number;
 
@@ -297,8 +297,8 @@ interface TextTimerOptions {
    * @type { ?TextTimerController }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * Controller of Texttimer.
@@ -306,9 +306,9 @@ interface TextTimerOptions {
    * @type { ?TextTimerController }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   controller?: TextTimerController;
 }
@@ -326,8 +326,8 @@ interface TextTimerOptions {
  * @interface TextTimerInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 10
  * @form
+ * @since 10
  */
 /**
  * Provides an interface for texttimer containers.
@@ -335,9 +335,9 @@ interface TextTimerOptions {
  * @interface TextTimerInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 interface TextTimerInterface {
   /**
@@ -355,8 +355,8 @@ interface TextTimerInterface {
    * @returns { TextTimerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * Defines the TextTimer constructor.
@@ -365,9 +365,9 @@ interface TextTimerInterface {
    * @returns { TextTimerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   (options?: TextTimerOptions): TextTimerAttribute;
 }
@@ -384,8 +384,8 @@ interface TextTimerInterface {
  * @extends CommonMethod<TextTimerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 10
  * @form
+ * @since 10
  */
 /**
  * Defines the TextTimer attribute functions.
@@ -393,9 +393,9 @@ interface TextTimerInterface {
  * @extends CommonMethod<TextTimerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
   /**
@@ -415,8 +415,8 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @returns { TextTimerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * Set the display time format, for example, now is hh/mm/ss/ms and current: hh-mm-ss-ms.
@@ -426,9 +426,9 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @returns { TextTimerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   format(value: string): TextTimerAttribute;
 
@@ -447,8 +447,8 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @returns { TextTimerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * Called when the font color is set.
@@ -457,9 +457,9 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @returns { TextTimerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   fontColor(value: ResourceColor): TextTimerAttribute;
 
@@ -478,8 +478,8 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @returns { TextTimerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * Called when the font size is set.
@@ -488,9 +488,9 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @returns { TextTimerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   fontSize(value: Length): TextTimerAttribute;
 
@@ -509,8 +509,8 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @returns { TextTimerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * Called when the fontStyle is set
@@ -519,9 +519,9 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @returns { TextTimerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   fontStyle(value: FontStyle): TextTimerAttribute;
 
@@ -540,8 +540,8 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @returns { TextTimerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * Called when the fontWeight is set
@@ -550,9 +550,9 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @returns { TextTimerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   fontWeight(value: number | FontWeight | string): TextTimerAttribute;
 
@@ -571,8 +571,8 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @returns { TextTimerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * Called when the fontFamily is set
@@ -581,9 +581,9 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @returns { TextTimerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   fontFamily(value: ResourceStr): TextTimerAttribute;
 
@@ -602,8 +602,8 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @returns { TextTimerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * Called when the timer value is returned.
@@ -612,9 +612,9 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @returns { TextTimerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   onTimer(event: (utc: number, elapsedTime: number) => void): TextTimerAttribute;
 
@@ -662,17 +662,17 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 10
  * @form
+ * @since 10
  */
 /**
  * Defines TextTimer Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const TextTimer: TextTimerInterface;
 
@@ -687,16 +687,16 @@ declare const TextTimer: TextTimerInterface;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 10
  * @form
+ * @since 10
  */
 /**
  * Defines TextTimer Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const TextTimerInstance: TextTimerAttribute;
