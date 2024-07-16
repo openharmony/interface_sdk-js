@@ -298,7 +298,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    GET_POS_AND_TANGENT_MATRIX = 2,
+    GET_POSITION_AND_TANGENT_MATRIX = 2,
   }
 
   /**
