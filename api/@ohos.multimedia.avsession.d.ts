@@ -781,16 +781,19 @@ declare namespace avSession {
 
   /**
    * Session type, support audio & video
+   * @typedef { 'audio' | 'video' } AVSessionType
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 10
    */
   /**
    * Session type, support audio & video, voice_call
+   * @typedef { 'audio' | 'video' | 'voice_call' } AVSessionType
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 11
    */
   /**
    * Session type supports audio & video, voice_call, video_call
+   * @typedef { 'audio' | 'video' | 'voice_call' | 'video_call' } AVSessionType
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @atomicservice
    * @since 12
@@ -818,6 +821,7 @@ declare namespace avSession {
      */
     /**
      * unique session Id
+     * @type { string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
      * @since 12
@@ -826,11 +830,13 @@ declare namespace avSession {
 
     /**
      * Get current session type
+     * @type { AVSessionType }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     /**
      * Get current session type
+     * @type { AVSessionType }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
      * @since 12
@@ -1923,11 +1929,15 @@ declare namespace avSession {
 
   /**
    * The type of control command
+   * @typedef { 'play' | 'pause' | 'stop' | 'playNext' | 'playPrevious' | 'fastForward' | 'rewind' | 'seek' |
+   *     'setVolume' | 'setSpeed' | 'setLoopMode' | 'toggleFavorite' | 'toggleMute' } AVCastControlCommandType
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @since 10
    */
   /**
    * The type of control command
+   * @typedef { 'play' | 'pause' | 'stop' | 'playNext' | 'playPrevious' | 'fastForward' | 'rewind' | 'seek' |
+   *     'setVolume' | 'setSpeed' | 'setLoopMode' | 'toggleFavorite' | 'toggleMute' } AVCastControlCommandType
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @atomicservice
    * @since 12
@@ -1951,11 +1961,13 @@ declare namespace avSession {
   interface AVCastControlCommand {
     /**
      * The command value {@link AVCastControlCommandType}
+     * 
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
     /**
      * The command value {@link AVCastControlCommandType}
+     * @type { AVCastControlCommandType }
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 12
@@ -1970,6 +1982,7 @@ declare namespace avSession {
      * The setSpeed command must carry the {@link #media.PlaybackSpeed} parameter.
      * The setLoopMode command must carry the {@link LoopMode} parameter.
      * Other commands do not need to carry parameters.
+     * @type { ?(media.PlaybackSpeed | number | string | LoopMode) }
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
@@ -1981,6 +1994,7 @@ declare namespace avSession {
      * The setSpeed command must carry the {@link #media.PlaybackSpeed} parameter.
      * The setLoopMode command must carry the {@link LoopMode} parameter.
      * Other commands do not need to carry parameters.
+     * @type { ?(media.PlaybackSpeed | number | string | LoopMode) }
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 12
@@ -2692,7 +2706,7 @@ declare namespace avSession {
   /**
    * The callback of key request.
    *
-   * @typedef { Function } KeyRequestCallback
+   * @typedef { function } KeyRequestCallback
    * @param { string } assetId - request key for current assetId
    * @param { Uint8Array } requestData - media key request data sent to media key server
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -2736,7 +2750,7 @@ declare namespace avSession {
     /**
      * Display ID.
      * The application can get more display information based on the same id from display interface.
-     *
+     * @type { number }
      * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
      * @since 12
      */
@@ -2744,7 +2758,7 @@ declare namespace avSession {
 
     /**
      * Display name.
-     *
+     * @type { string }
      * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
      * @since 12
      */
@@ -2752,7 +2766,7 @@ declare namespace avSession {
 
     /**
      * The state of display.
-     *
+     * @type { CastDisplayState }
      * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
      * @since 12
      */
@@ -2760,7 +2774,7 @@ declare namespace avSession {
 
     /**
      * Display width, in pixels.
-     *
+     * @type { number }
      * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
      * @since 12
      */
@@ -2768,7 +2782,7 @@ declare namespace avSession {
 
     /**
      * Display height, in pixels.
-     *
+     * @type { number }
      * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
      * @since 12
      */
@@ -2881,6 +2895,7 @@ declare namespace avSession {
 
     /**
      * The artwork of play list, can be a {@link PixelMap} or a URI formatted string,
+     * @type { image.PixelMap | string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @systemapi
      * @since 11
@@ -2990,6 +3005,7 @@ declare namespace avSession {
 
     /**
      * The artwork of play list as a {@link PixelMap} or an uri formatted String,
+     * @type { ?(image.PixelMap | string) }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 11
      */
@@ -3051,12 +3067,14 @@ declare namespace avSession {
     /**
      * The image of the media as a {@link PixelMap} or an uri formatted String,
      * used to display in media center.
+     * @type { ?(image.PixelMap | string) }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     /**
      * The image of the media as a {@link PixelMap} or an uri formatted String,
      * used to display in media center.
+     * @type { ?(image.PixelMap | string) }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
      * @since 12
@@ -3262,12 +3280,14 @@ declare namespace avSession {
     /**
      * The image of this media asset displayed in the media center.
      * It can be a {@link PixelMap} or a URI formatted string,
+     * @type { ?(image.PixelMap | string) }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     /**
      * The image of this media asset displayed in the media center.
      * It can be a {@link PixelMap} or a URI formatted string,
+     * @type { ?(image.PixelMap | string) }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
      * @since 12
@@ -3275,6 +3295,7 @@ declare namespace avSession {
     mediaImage?: image.PixelMap | string;
     /**
      * Any additional attributes that can be represented as key-value pairs
+     * @type { ?object }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -3402,11 +3423,13 @@ declare namespace avSession {
 
     /**
      * Media file descriptor.
+     * @type { ?media.AVFileDescriptor }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     /**
      * Media file descriptor.
+     * @type { ?media.AVFileDescriptor }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
      * @since 12
@@ -3536,11 +3559,13 @@ declare namespace avSession {
 
     /**
      * The media description of the item in the playlist.
+     * @type { ?AVMediaDescription }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     /**
      * The media description of the item in the playlist.
+     * @type { ?AVMediaDescription }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
      * @since 12
@@ -3566,11 +3591,13 @@ declare namespace avSession {
   interface AVPlaybackState {
     /**
      * Current playback state. See {@link PlaybackState}
+     * @type { ?PlaybackState }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     /**
      * Current playback state. See {@link PlaybackState}
+     * @type { ?PlaybackState }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
      * @since 12
@@ -3594,11 +3621,13 @@ declare namespace avSession {
 
     /**
      * Current playback position of this media. See {@link PlaybackPosition}
+     * @type { ?PlaybackPosition }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     /**
      * Current playback position of this media. See {@link PlaybackPosition}
+     * @type { ?PlaybackPosition }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
      * @since 12
@@ -3622,11 +3651,13 @@ declare namespace avSession {
 
     /**
      * Current playback loop mode. See {@link LoopMode}
+     * @type { ?LoopMode }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     /**
      * Current playback loop mode. See {@link LoopMode}
+     * @type { ?LoopMode }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
      * @since 12
@@ -3748,11 +3779,13 @@ declare namespace avSession {
 
     /**
      * Current custom media packets
+     * @type { ?object }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     /**
      * Current custom media packets
+     * @type { ?object }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
      * @since 12
@@ -3846,7 +3879,7 @@ declare namespace avSession {
   interface AVCallState {
     /**
      * Current call state. See {@link CallState}
-     * @type {CallState}
+     * @type { CallState }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 11
      */
@@ -4045,11 +4078,13 @@ declare namespace avSession {
   interface DeviceInfo {
     /**
      * The playback type supported by the device. See {@link AVCastCategory}
+     * @type { AVCastCategory }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     /**
      * The playback type supported by the device. See {@link AVCastCategory}
+     * @type { AVCastCategory }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
      * @since 12
@@ -4058,12 +4093,14 @@ declare namespace avSession {
     /**
      * Audio device id.The length of the audioDeviceId array is greater than 1
      * if output to multiple devices at the same time.
+     * @type { string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     /**
      * Audio device id.The length of the audioDeviceId array is greater than 1
      * if output to multiple devices at the same time.
+     * @type { string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
      * @since 12
@@ -4073,12 +4110,14 @@ declare namespace avSession {
     /**
      * Device name. The length of the deviceName array is greater than 1
      * if output to multiple devices at the same time.
+     * @type { string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     /**
      * Device name. The length of the deviceName array is greater than 1
      * if output to multiple devices at the same time.
+     * @type { string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
      * @since 12
@@ -4087,11 +4126,13 @@ declare namespace avSession {
 
     /**
      * device type.
+     * @type { DeviceType }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     /**
      * device type.
+     * @type { DeviceType }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
      * @since 12
@@ -4100,6 +4141,7 @@ declare namespace avSession {
 
     /**
      * device ip address if available.
+     * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @systemapi
      * @since 10
@@ -4108,6 +4150,7 @@ declare namespace avSession {
 
     /**
      * device provider which supplies the route capability.
+     * @type { ?number }
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @systemapi
      * @since 10
@@ -4166,11 +4209,13 @@ declare namespace avSession {
   interface OutputDeviceInfo {
     /**
      * Arrays of device information
+     * @type { Array<DeviceInfo> }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     /**
      * Arrays of device information
+     * @type { Array<DeviceInfo> }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
      * @since 12
@@ -4477,6 +4522,7 @@ declare namespace avSession {
 
     /**
      * Session type, currently supports audio or video
+     * @type { AVSessionType }
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi
      * @since 9
@@ -4494,6 +4540,7 @@ declare namespace avSession {
 
     /**
      * The elementName of the ability that created this session. See {@link ElementName} in bundle/elementName.d.ts
+     * @type { ElementName }
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi
      * @since 9
@@ -4521,6 +4568,7 @@ declare namespace avSession {
     /**
      * The current output device information.
      * It will be undefined if this is a local session.
+     * @type { OutputDeviceInfo }
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi
      * @since 9
@@ -4537,6 +4585,7 @@ declare namespace avSession {
   interface AVSessionController {
     /**
      * Unique session Id
+     * @type { string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -5372,11 +5421,16 @@ declare namespace avSession {
 
   /**
    * The type of control command
+   * @typedef { 'play' | 'pause' | 'stop' | 'playNext' | 'playPrevious' | 'fastForward' | 'rewind' | 'seek' |
+   *     'setSpeed' | 'setLoopMode' | 'toggleFavorite' } AVControlCommandType
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 10
    */
   /**
    * The type of control command, add new support 'playFromAssetId' | 'answer' | 'hangUp' | 'toggleCallMute'
+   * @typedef { 'play' | 'pause' | 'stop' | 'playNext' | 'playPrevious' | 'fastForward' | 'rewind' | 'seek' |
+   *     'setSpeed' | 'setLoopMode' | 'toggleFavorite' | 'playFromAssetId' | 'answer' | 'hangUp' |
+   *     'toggleCallMute' } AVControlCommandType
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 11
    */
@@ -5392,6 +5446,7 @@ declare namespace avSession {
   interface AVControlCommand {
     /**
      * The command value {@link AVControlCommandType}
+     * @type { AVControlCommandType }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -5404,6 +5459,7 @@ declare namespace avSession {
      * setLoopMode command requires a {@link LoopMode} parameter.
      * toggleFavorite command requires assetId {@link AVMetadata.assetId} parameter
      * other commands need no parameter
+     * @type { ?(LoopMode | string | number) }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
