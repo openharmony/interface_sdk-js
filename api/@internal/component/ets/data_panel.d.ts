@@ -469,6 +469,7 @@ interface DataPanelInterface {
  * @interface DataPanelConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface DataPanelConfiguration extends CommonConfiguration<DataPanelConfiguration> {
@@ -478,6 +479,7 @@ declare interface DataPanelConfiguration extends CommonConfiguration<DataPanelCo
    * @type { number[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   values: number[];
@@ -488,6 +490,7 @@ declare interface DataPanelConfiguration extends CommonConfiguration<DataPanelCo
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   maxValue: number;
@@ -659,6 +662,7 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
    * @returns { DataPanelAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   contentModifier(modifier: ContentModifier<DataPanelConfiguration>): DataPanelAttribute;

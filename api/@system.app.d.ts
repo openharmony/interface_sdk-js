@@ -25,6 +25,14 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @since 3
  */
+/**
+ * Defines the AppResponse info.
+ *
+ * @interface AppResponse
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @atomicservice
+ * @since 12
+ */
 export interface AppResponse {
   /**
    * Application bundleName.
@@ -32,6 +40,14 @@ export interface AppResponse {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
+   */
+  /**
+   * Application bundleName.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
    */
   appID: string;
 
@@ -42,6 +58,14 @@ export interface AppResponse {
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 3
    */
+  /**
+   * Application name.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @atomicservice
+   * @since 12
+   */
   appName: string;
 
   /**
@@ -51,6 +75,14 @@ export interface AppResponse {
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 3
    */
+  /**
+   * Application version name.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @atomicservice
+   * @since 12
+   */
   versionName: string;
 
   /**
@@ -59,6 +91,14 @@ export interface AppResponse {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 3
+   */
+  /**
+   * Application version.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @atomicservice
+   * @since 12
    */
   versionCode: number;
 }
@@ -188,6 +228,13 @@ export interface RequestFullWindowOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @since 3
  */
+/**
+ * Defines the app class info.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @atomicservice
+ * @since 12
+ */
 export default class App {
   /**
    * Obtains the declared information in the config.json file of an application.
@@ -196,6 +243,14 @@ export default class App {
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 3
    */
+  /**
+   * Obtains the declared information in the config.json file of an application.
+   *
+   * @returns { AppResponse }
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @atomicservice
+   * @since 12
+   */
   static getInfo(): AppResponse;
 
   /**
@@ -203,6 +258,13 @@ export default class App {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 3
+   */
+  /**
+   * Destroys the current ability.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @atomicservice
+   * @since 12
    */
   static terminate(): void;
 
@@ -240,6 +302,15 @@ export default class App {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
+  /**
+   * Set image cache capacity of decoded image count.
+   * if not set, the application will not cache any decoded image.
+   *
+   * @param { number } value - capacity of decoded image count.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
   static setImageCacheCount(value: number): void;
 
   /**
@@ -250,6 +321,15 @@ export default class App {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
+  /**
+   * Set image cache capacity of raw image data size in bytes before decode.
+   * if not set, the application will not cache any raw image data.
+   *
+   * @param { number } value - capacity of raw image data size in bytes.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
   static setImageRawDataCacheSize(value: number): void;
 
   /**
@@ -259,6 +339,15 @@ export default class App {
    * @param { number } value - capacity of raw image data size in bytes.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
+   */
+  /**
+   * Set image file cache size in bytes on disk before decode.
+   * if not set, the application will cache 100MB image files on disk.
+   *
+   * @param { number } value - capacity of raw image data size in bytes.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
    */
   static setImageFileCacheSize(value: number): void;
 }

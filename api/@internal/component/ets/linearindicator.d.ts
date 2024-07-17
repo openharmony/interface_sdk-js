@@ -218,6 +218,7 @@ interface LinearIndicatorInterface {
  * @extends CommonMethod<LinearIndicatorAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare class LinearIndicatorAttribute extends CommonMethod<LinearIndicatorAttribute> {

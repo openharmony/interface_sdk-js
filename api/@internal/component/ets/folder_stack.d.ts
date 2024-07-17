@@ -23,6 +23,7 @@
  *
  * @typedef {import('../api/@ohos.window').default.WindowStatusType} WindowStatusType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
  */
 declare type WindowStatusType = import('../api/@ohos.window').default.WindowStatusType;
@@ -132,6 +133,15 @@ declare class FolderStackAttribute extends CommonMethod<FolderStackAttribute> {
      * @crossplatform
      * @since 11
      */
+    /**
+     * folder state.
+     *
+     * @type { FoldStatus }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     foldStatus: FoldStatus
   }) => void): FolderStackAttribute;
 
@@ -142,6 +152,7 @@ declare class FolderStackAttribute extends CommonMethod<FolderStackAttribute> {
    * @param { function } handler - executed when hoverStatus changed
    * @returns { FolderStackAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   onHoverStatusChange(handler: (param: HoverEventParam) => void): FolderStackAttribute;
@@ -194,6 +205,7 @@ declare class FolderStackAttribute extends CommonMethod<FolderStackAttribute> {
  *
  * @interface HoverEventParam
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
  */
 declare interface HoverEventParam {
@@ -202,6 +214,7 @@ declare interface HoverEventParam {
    *
    * @type { FoldStatus }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   foldStatus: FoldStatus
@@ -211,6 +224,7 @@ declare interface HoverEventParam {
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   isHoverMode: boolean
@@ -220,6 +234,7 @@ declare interface HoverEventParam {
    *
    * @type { AppRotation }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   appRotation: AppRotation
@@ -229,6 +244,7 @@ declare interface HoverEventParam {
    *
    * @type { WindowStatusType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   windowStatusType: WindowStatusType

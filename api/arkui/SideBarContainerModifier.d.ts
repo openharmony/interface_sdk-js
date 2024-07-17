@@ -27,6 +27,7 @@
  * @extends SideBarContainerAttribute
  * @implements AttributeModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class SideBarContainerModifier extends SideBarContainerAttribute implements AttributeModifier<SideBarContainerAttribute> {
@@ -37,6 +38,7 @@ export declare class SideBarContainerModifier extends SideBarContainerAttribute 
    * @param { SideBarContainerAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: SideBarContainerAttribute): void;

@@ -25,6 +25,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
+ * @atomicservice
  * @since 12
  */
 declare enum RadioIndicatorType {
@@ -34,6 +35,7 @@ declare enum RadioIndicatorType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   TICK = 0,
@@ -43,6 +45,7 @@ declare enum RadioIndicatorType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   DOT = 1,
@@ -52,6 +55,7 @@ declare enum RadioIndicatorType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   CUSTOM = 2,
@@ -170,6 +174,7 @@ declare interface RadioOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   indicatorType?: RadioIndicatorType;
@@ -180,6 +185,7 @@ declare interface RadioOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   indicatorBuilder?: CustomBuilder;
@@ -486,6 +492,7 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
    * @returns { RadioAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   contentModifier(modifier: ContentModifier<RadioConfiguration>): RadioAttribute;
@@ -497,6 +504,7 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
  * @interface RadioConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface RadioConfiguration extends CommonConfiguration<RadioConfiguration> {
@@ -506,6 +514,7 @@ declare interface RadioConfiguration extends CommonConfiguration<RadioConfigurat
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   value: string;
@@ -516,6 +525,7 @@ declare interface RadioConfiguration extends CommonConfiguration<RadioConfigurat
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   checked: boolean;
@@ -526,6 +536,7 @@ declare interface RadioConfiguration extends CommonConfiguration<RadioConfigurat
    * @type { Callback<boolean> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   triggerChange: Callback<boolean>;
