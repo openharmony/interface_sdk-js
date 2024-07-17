@@ -328,6 +328,7 @@ declare class ListItemGroupAttribute extends CommonMethod<ListItemGroupAttribute
    * @returns { ListItemGroupAttribute } the attribute of the ListItemGroup.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   childrenMainSize(value: ChildrenMainSize): ListItemGroupAttribute;

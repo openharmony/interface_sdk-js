@@ -901,6 +901,15 @@ declare class SegmentButtonItemOptions {
    * @crossplatform
    * @since 11
    */
+  /**
+   * The constructor used to create a SegmentButtonOptionsArray object.
+   *
+   * @param { SegmentButtonItemOptionsConstructorOptions } options - item info.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   constructor(options: SegmentButtonItemOptionsConstructorOptions);
 }
 

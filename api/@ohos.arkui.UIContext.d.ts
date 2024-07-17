@@ -1232,6 +1232,7 @@ declare type GestureEventListenerCallback = (event: GestureEvent, node?: FrameNo
  * @interface PageInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 export interface PageInfo {
@@ -1240,6 +1241,7 @@ export interface PageInfo {
    *
    * @type { ?observer.RouterPageInfo }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   routerPageInfo?: observer.RouterPageInfo;
@@ -1249,6 +1251,7 @@ export interface PageInfo {
    *
    * @type { ?observer.NavDestinationInfo }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   navDestinationInfo?: observer.NavDestinationInfo;
@@ -2139,6 +2142,7 @@ export class DragController {
    * not fully strict.
    * @param { boolean } enable - Indicating enable drag event strict reporting or not.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   setDragEventStrictReportingEnabled(enable: boolean): void;

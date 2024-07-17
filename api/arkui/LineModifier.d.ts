@@ -25,6 +25,7 @@
  * @extends LineAttribute
  * @implements AttributeModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class LineModifier extends LineAttribute implements AttributeModifier<LineAttribute> {
@@ -35,6 +36,7 @@ export declare class LineModifier extends LineAttribute implements AttributeModi
    * @param { LineAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: LineAttribute): void;

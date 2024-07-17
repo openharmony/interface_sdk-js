@@ -148,6 +148,7 @@ declare class TextTimerController {
  * @interface TextTimerConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface TextTimerConfiguration extends CommonConfiguration<TextTimerConfiguration> {
@@ -159,6 +160,7 @@ declare interface TextTimerConfiguration extends CommonConfiguration<TextTimerCo
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   count: number;
@@ -169,6 +171,7 @@ declare interface TextTimerConfiguration extends CommonConfiguration<TextTimerCo
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   isCountDown: boolean;
@@ -179,6 +182,7 @@ declare interface TextTimerConfiguration extends CommonConfiguration<TextTimerCo
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   started: boolean;
@@ -190,6 +194,7 @@ declare interface TextTimerConfiguration extends CommonConfiguration<TextTimerCo
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   elapsedTime: number;
@@ -646,6 +651,7 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @returns { TextTimerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   contentModifier(modifier: ContentModifier<TextTimerConfiguration>): TextTimerAttribute;

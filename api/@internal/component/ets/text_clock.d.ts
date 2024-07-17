@@ -119,6 +119,7 @@ declare class TextClockController {
  * @extends CommonConfiguration<TextClockConfiguration>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface TextClockConfiguration extends CommonConfiguration<TextClockConfiguration> {
@@ -130,6 +131,7 @@ declare interface TextClockConfiguration extends CommonConfiguration<TextClockCo
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   timeZoneOffset: number;
@@ -140,6 +142,7 @@ declare interface TextClockConfiguration extends CommonConfiguration<TextClockCo
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   started: boolean;
@@ -150,6 +153,7 @@ declare interface TextClockConfiguration extends CommonConfiguration<TextClockCo
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   timeValue: number;
@@ -545,6 +549,7 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @returns { TextClockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   contentModifier(modifier: ContentModifier<TextClockConfiguration>): TextClockAttribute;

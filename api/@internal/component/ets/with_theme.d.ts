@@ -71,6 +71,7 @@ declare interface WithThemeOptions {
 * @returns { WithThemeAttribute } withThemeAttribute object
 * @syscap SystemCapability.ArkUI.ArkUI.Full
 * @crossplatform
+* @atomicservice
 * @since 12
 */
 declare type WithThemeInterface = (options: WithThemeOptions) => WithThemeAttribute;

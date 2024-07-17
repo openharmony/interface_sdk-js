@@ -336,6 +336,7 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    * @returns { MarqueeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   marqueeUpdateStrategy(value: MarqueeUpdateStrategy): MarqueeAttribute;

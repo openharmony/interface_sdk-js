@@ -240,6 +240,7 @@ declare interface FlexOptions {
    * @type { ?FlexSpaceOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   space?: FlexSpaceOptions;
@@ -252,6 +253,7 @@ declare interface FlexOptions {
  * @interface FlexSpaceOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 
@@ -262,6 +264,7 @@ declare interface FlexSpaceOptions {
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   main?: LengthMetrics;
@@ -272,6 +275,7 @@ declare interface FlexSpaceOptions {
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   cross?: LengthMetrics;

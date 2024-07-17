@@ -325,6 +325,7 @@ declare class LoadingProgressAttribute extends CommonMethod<LoadingProgressAttri
    * @returns { LoadingProgressAttribute} the attribute of the loading progress
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   contentModifier(modifier: ContentModifier<LoadingProgressConfiguration>): LoadingProgressAttribute;
@@ -336,6 +337,7 @@ declare class LoadingProgressAttribute extends CommonMethod<LoadingProgressAttri
  * @interface LoadingProgressConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface LoadingProgressConfiguration extends CommonConfiguration<LoadingProgressConfiguration> {
@@ -345,6 +347,7 @@ declare interface LoadingProgressConfiguration extends CommonConfiguration<Loadi
    * @type { boolean } 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   enableLoading: boolean;

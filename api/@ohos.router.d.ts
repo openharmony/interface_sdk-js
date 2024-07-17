@@ -291,6 +291,7 @@ declare namespace router {
      * @type { Object }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     params: Object;
@@ -731,6 +732,7 @@ declare namespace router {
    * @param { Object } [params] - params of page.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
  function back(index: number, params?: Object): void;
@@ -817,6 +819,7 @@ declare namespace router {
    * @returns { RouterState | undefined } Page state.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
    function getStateByIndex(index: number): RouterState | undefined;
@@ -828,6 +831,7 @@ declare namespace router {
     * @returns { Array<RouterState> } Page state.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
+    * @atomicservice
     * @since 12
     */
    function getStateByUrl(url: string): Array<RouterState>;
