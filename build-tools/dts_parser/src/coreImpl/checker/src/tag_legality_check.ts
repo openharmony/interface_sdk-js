@@ -67,15 +67,12 @@ export class LegalityCheck {
     const apiTagsName: string[] = [];
     const throwsCodeArr: string[] = [];
     if (apiTags === undefined) {
-      const sinceLost: ErrorTagFormat = {
+      const requiredTagLost: ErrorTagFormat = {
         state: false,
-        errorInfo: CommonFunctions.createErrorInfo(ErrorMessage.ERROR_LOST_LABEL, ['since']),
+        errorInfo: CommonFunctions.createErrorInfo(ErrorMessage.ERROR_LOST_LABEL, ['since']) +
+          CommonFunctions.createErrorInfo(ErrorMessage.ERROR_LOST_LABEL, ['syscap']),
       };
-      const syscapLost: ErrorTagFormat = {
-        state: false,
-        errorInfo: CommonFunctions.createErrorInfo(ErrorMessage.ERROR_LOST_LABEL, ['syscap']),
-      };
-      apiLegalityCheckResult.push(sinceLost, syscapLost);
+      apiLegalityCheckResult.push(requiredTagLost);
       return apiLegalityCheckResult;
     }
     const tagsTag: string[] = [];
@@ -218,7 +215,7 @@ export class LegalityCheck {
     // check systemapi 401
     if (hasError401 && paramApiNumber === 0) {
       apiRedundantThrows.state = false;
-      apiRedundantThrows.errorInfo = CommonFunctions.createErrorInfo(ErrorMessage.ERROR_REPEATLABEL, ['throws']);
+      apiRedundantThrows.errorInfo = CommonFunctions.createErrorInfo(ErrorMessage.ERROR_USE, ['throws 401']);
     }
     // check repeat throws
     const orderedThrowsCode: string[] = apiThrowsCode.sort();

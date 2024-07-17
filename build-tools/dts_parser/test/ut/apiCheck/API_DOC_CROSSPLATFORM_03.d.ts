@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2021 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,26 +13,24 @@
  * limitations under the License.
  */
 
-
 /**
  * @file
- * @kit AbilityKit
+ * @kit ArkUI
  */
-
 
 /**
  * @namespace abilityAccessCtrl
  * @syscap SystemCapability.Security.AccessToken
+ * @crossplatform
+ * @systemapi
  * @since 12
  */
 declare namespace abilityAccessCtrl {
   /**
-   * Obtains the AtManager instance.
-   * @param {object} name
-   * @returns { string } returns the instance of the AtManager.
-   * @syscap SystemCapability.Security.AccessToken
+   * A test case for crossplatform tag's inherit
+   * @returns { AtManager } returns the instance of the AtManager.
+   * @syscap SystemCapability.Security.AccessToken 
    * @since 12
    */
-  function createManager(name: { [key: string]: string[] }): string;
-
+  function createAtManager(): AtManager;
 }

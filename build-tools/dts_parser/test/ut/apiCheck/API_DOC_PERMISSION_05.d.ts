@@ -1,6 +1,6 @@
 /*
- * Copyright (c) 2024 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -13,26 +13,23 @@
  * limitations under the License.
  */
 
-
 /**
  * @file
- * @kit AbilityKit
+ * @kit AccessibilityKit
  */
-
 
 /**
- * @namespace abilityAccessCtrl
- * @syscap SystemCapability.Security.AccessToken
- * @since 12
+ * @namespace config
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @since 9
  */
-declare namespace abilityAccessCtrl {
+declare namespace config {
   /**
-   * Obtains the AtManager instance.
-   * @param {object} name
-   * @returns { string } returns the instance of the AtManager.
-   * @syscap SystemCapability.Security.AccessToken
-   * @since 12
+   * permission tag is missing
+   *
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 9
    */
-  function createManager(name: { [key: string]: string[] }): string;
-
+  function enableAbility(): void;
 }

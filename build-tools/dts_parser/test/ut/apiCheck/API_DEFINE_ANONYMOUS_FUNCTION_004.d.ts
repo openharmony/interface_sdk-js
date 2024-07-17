@@ -31,7 +31,7 @@ declare namespace abilityAccessCtrl {
    * @param {string} name
    * @returns { object } returns the instance of the AtManager.
    * @syscap SystemCapability.Security.AccessToken
-   * @since 11
+   * @since 12
    */
   function createManager(name: string):  { [key: string]: string[] };
  

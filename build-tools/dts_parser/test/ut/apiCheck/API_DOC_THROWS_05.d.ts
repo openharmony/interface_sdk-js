@@ -15,11 +15,33 @@
 
 /**
  * @file
- * @kit ArkUI
+ * @kit AccessibilityKit
  */
 
 /**
- * A test case for typedef tag's lost
+ * Configuration of the accessibility.
+ *
+ * @namespace config
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @since 9
  */
-export interface OnReleaseCallback {
+declare namespace config {
+  /**
+   * A test case for throws tag's legal -miss 201
+   *
+   * @permission ohos.permission.WRITE_ACCESSIBILITY_CONFIG
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 9
+   */
+    function enableAbility(): void;
+
+  /**
+   * A test case for throws tag's legal -miss 202
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 9
+   */
+  function disableAbility(): void;
+
 }

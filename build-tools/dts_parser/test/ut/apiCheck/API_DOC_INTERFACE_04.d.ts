@@ -1,6 +1,6 @@
 /*
- * Copyright (c) 2024 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -13,23 +13,17 @@
  * limitations under the License.
  */
 
-
 /**
  * @file
- * @kit AbilityKit
+ * @kit ArkUI
  */
-
 
 /**
- * @namespace abilityAccessCtrl
- * @syscap SystemCapability.Security.AccessToken
- * @since 12
+ * A test case for interface tag's order
+ * @interface OnReleaseCallback
+ * @namespace
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @since 9
  */
-declare namespace abilityAccessCtrl {
-  /**
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 12
-   */
-  const daltonizationState: () => void;
+export interface OnReleaseCallback {
 }
-
