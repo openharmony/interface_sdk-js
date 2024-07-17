@@ -660,7 +660,6 @@ declare namespace AbilityConstant {
      * Full screen mode.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
      * @stagemodelonly
      * @since 12
      */
