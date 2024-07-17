@@ -40,7 +40,7 @@ import { ApiCountInfo } from '../typedef/count/ApiCount';
 import { ApiCountHelper } from '../coreImpl/count/count';
 import { CommonFunctions } from '../utils/checkUtils';
 import { FunctionUtils, KitData } from '../utils/FunctionUtils';
-import { ApiType } from '../typedef/parser/ApiInfoDefination';
+import { ApiInfo, ApiType } from '../typedef/parser/ApiInfoDefination';
 
 
 /**
@@ -329,6 +329,8 @@ function collectApiCallback(apiData: ApiStatisticsInfo[], workbook: ExcelJS.Work
     'kit',
     '文件路径',
     '子系统',
+    '父节点类型',
+    '父节点API是否可选'
   ];
   let lineNumber = 2;
   apiData.forEach((apiInfo: ApiStatisticsInfo) => {
@@ -358,6 +360,8 @@ function collectApiCallback(apiData: ApiStatisticsInfo[], workbook: ExcelJS.Work
         : apiInfo.getKitInfo(),
       apiInfo.getFilePath(),
       kitData.subsystemMap.get(apiInfo.getFilePath().replace(/\\/g, '/').replace('api/', '')),
+      apiInfo.getParentApiType(),
+      apiInfo.getIsOptional(),
     ];
     lineNumber++;
     apiRelationsSet.add(apiRelations);
