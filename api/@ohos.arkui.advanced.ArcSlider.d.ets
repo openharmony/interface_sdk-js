@@ -21,6 +21,7 @@
 /**
  * Construct parameter types for ArcSliderValueOptions.
  *
+ * @typedef ArcSliderValueOptionsConstructorOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @since 12
@@ -557,6 +558,16 @@ interface ArcSliderOptionsConstructorOptions {
   styleOptions?: ArcSliderStyleOptions;
 
   /**
+   * Set the sensitivity of rotating crown.
+   *
+   * @type { ?CrownSensitivity }
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
+   * @crossplatform
+   * @since 13
+   */
+  digitalCrownSensitivity?: CrownSensitivity;
+
+  /**
    * Touching triggers the callback.
    *
    * @type { ?ArcSliderTouchHandler }
@@ -618,6 +629,17 @@ declare class ArcSliderOptions {
    */
   @Trace
   styleOptions?: ArcSliderStyleOptions;
+
+  /**
+   * Set the sensitivity of rotating crown.
+   *
+   * @type { ?CrownSensitivity }
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
+   * @crossplatform
+   * @since 13
+   */
+  @Trace
+  digitalCrownSensitivity?: CrownSensitivity;
 
   /**
    * Touching triggers the callback.

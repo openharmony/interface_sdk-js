@@ -1506,6 +1506,18 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @since 12
    */
   slideRange(value: SlideRange): SliderAttribute;
+
+  /**
+   * Set the sensitivity of rotating crown.
+   *
+   * @param { Optional<CrownSensitivity> } sensitivity - The sensitivity of rotating crown, default value is { MEDIUM }.
+   * @returns { SliderAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  digitalCrownSensitivity(sensitivity: Optional<CrownSensitivity>): SliderAttribute;
 }
 
 /**
