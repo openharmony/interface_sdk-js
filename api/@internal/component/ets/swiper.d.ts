@@ -561,6 +561,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
 /**
  * Set Swiper column count adaptation.
  *
+ * @typedef { object } SwiperAutoFill
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @since 10
@@ -568,6 +569,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
 /**
  * Set Swiper column count adaptation.
  *
+ * @typedef { object } SwiperAutoFill
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @atomicservice
