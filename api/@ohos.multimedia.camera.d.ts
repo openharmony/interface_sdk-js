@@ -607,11 +607,11 @@ declare namespace camera {
     createPreviewOutput(profile: Profile, surfaceId: string): PreviewOutput;
 
     /**
-     * Creates a PreviewOutput instance without prefile.
+     * Creates a PreviewOutput instance without profile.
      * You can use this method to create a preview output instance without a profile, This instance can
      * only be used in a preconfiged session.
      *
-     * @param { string } surfaceId - Surface object id used in camera photo output.
+     * @param { string } surfaceId - Surface object id used in camera preview output.
      * @returns { PreviewOutput } The PreviewOutput instance.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
@@ -685,7 +685,7 @@ declare namespace camera {
     createVideoOutput(profile: VideoProfile, surfaceId: string): VideoOutput;
 
     /**
-     * Creates a VideoOutput instance without prefile.
+     * Creates a VideoOutput instance without profile.
      * You can use this method to create a video output instance without a profile, This instance can
      * only be used in a preconfiged session.
      *
@@ -884,7 +884,7 @@ declare namespace camera {
      */
     /**
      * Creates a deferred PreviewOutput instance.
-     * You can use the method to create deferred preview output without prefile, then you must add this output
+     * You can use the method to create deferred preview output without profile, then you must add this output
      * to a session which already preconfiged.
      *
      * @param { Profile } profile - Preview output profile.
@@ -4164,7 +4164,7 @@ declare namespace camera {
     PRECONFIG_RATIO_1_1 = 0,
   
     /**
-     * Aspect ratio 1:1 for preconfig.
+     * Aspect ratio 4:3 for preconfig.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 12
@@ -4172,7 +4172,7 @@ declare namespace camera {
     PRECONFIG_RATIO_4_3 = 1,
   
     /**
-     * Aspect ratio 1:1 for preconfig.
+     * Aspect ratio 16:9 for preconfig.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 12
