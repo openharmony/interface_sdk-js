@@ -3779,7 +3779,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - System error.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @systemapi
-     * @since 12
+     * @since 13
      */
     getSupportedAudioEffectProperty(): Array<AudioEffectProperty>;
 
@@ -3799,7 +3799,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - System error.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @systemapi
-     * @since 12
+     * @since 13
      */
     setAudioEffectProperty(propertyArray: Array<AudioEffectProperty>): void;
 
@@ -3811,7 +3811,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - System error.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @systemapi
-     * @since 12
+     * @since 13
      */
     getAudioEffectProperty(): Array<AudioEffectProperty>;
 
@@ -3823,7 +3823,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - System error.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
-     * @since 12
+     * @since 13
      */
     getSupportedAudioEnhanceProperty(): Array<AudioEnhanceProperty>;
 
@@ -3843,7 +3843,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - System error.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
-     * @since 12
+     * @since 13
      */
     setAudioEnhanceProperty(propertyArray: Array<AudioEnhanceProperty>): void;
 
@@ -3855,7 +3855,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - System error.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
-     * @since 12
+     * @since 13
      */
     getAudioEnhanceProperty(): Array<AudioEnhanceProperty>;
 
@@ -7284,7 +7284,7 @@ declare namespace audio {
      * Source type for voice transcription and processing.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 12
+     * @since 13
      */
     SOURCE_TYPE_VOICE_TRANSCRIPTION = 12,
   }
