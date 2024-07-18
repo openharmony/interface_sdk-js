@@ -6254,6 +6254,7 @@ declare namespace camera {
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
    * @since 12
    */
   enum EffectSuggestionType {
@@ -6261,6 +6262,7 @@ declare namespace camera {
      * None.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
      * @since 12
      */
     EFFECT_SUGGESTION_NONE = 0,
@@ -6268,6 +6270,7 @@ declare namespace camera {
      * Portrait.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
      * @since 12
      */
     EFFECT_SUGGESTION_PORTRAIT = 1,
@@ -6275,6 +6278,7 @@ declare namespace camera {
      * Food.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
      * @since 12
      */
     EFFECT_SUGGESTION_FOOD = 2,
@@ -6283,6 +6287,7 @@ declare namespace camera {
      * Sky.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
      * @since 12
      */
     EFFECT_SUGGESTION_SKY = 3,
@@ -6291,6 +6296,7 @@ declare namespace camera {
      * Sunrise and sunset.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
      * @since 12
      */
     EFFECT_SUGGESTION_SUNRISE_SUNSET = 4
@@ -6300,6 +6306,7 @@ declare namespace camera {
    * Effect suggestion status
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
    * @since 12
    */
   class EffectSuggestionStatus {
@@ -6308,6 +6315,7 @@ declare namespace camera {
      *
      * @type { EffectSuggestionType }
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
      * @since 12
      */
     type: EffectSuggestionType;
@@ -6316,6 +6324,7 @@ declare namespace camera {
      *
      * @type { boolean }
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
      * @since 12
      */
     status: boolean;
