@@ -330,9 +330,6 @@ declare interface ButtonStyle {
   /**
    * Set the button icon when sidebar status has changed
    *
-   * @type { ?({shown: string | PixelMap | Resource;
-   * hidden: string | PixelMap | Resource;
-   * switching?: string | PixelMap | Resource;}) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
