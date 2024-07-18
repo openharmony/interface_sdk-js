@@ -587,8 +587,8 @@ declare interface ListItemOptions {
  *
  * @interface ListItemInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Values in the list
@@ -596,8 +596,8 @@ declare interface ListItemOptions {
  * @interface ListItemInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Values in the list
@@ -605,9 +605,9 @@ declare interface ListItemOptions {
  * @interface ListItemInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 interface ListItemInterface {
   /**
@@ -617,8 +617,8 @@ interface ListItemInterface {
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * Called when an interface is used.
@@ -627,9 +627,9 @@ interface ListItemInterface {
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   (value?: ListItemOptions): ListItemAttribute;
 
@@ -647,10 +647,10 @@ interface ListItemInterface {
    * @param { string } value
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
    * @deprecated since 10
    * @useinstead listItem/ListItemInterface
-   * @form
    */
   (value?: string): ListItemAttribute;
 }
@@ -663,23 +663,23 @@ interface ListItemInterface {
 /**
  * @extends CommonMethod<ListItemAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * @extends CommonMethod<ListItemAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * @extends CommonMethod<ListItemAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
   /**
@@ -719,8 +719,8 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
    * @param { boolean } value
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when judging whether it is selectable.
@@ -729,8 +729,8 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when judging whether it is selectable.
@@ -739,9 +739,9 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   selectable(value: boolean): ListItemAttribute;
 
@@ -753,8 +753,8 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
    * @returns { ListItemAttribute } the attribute of the listItem.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * Called when judging whether it is selected.
@@ -764,9 +764,9 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
    * @returns { ListItemAttribute } the attribute of the listItem.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   selected(value: boolean): ListItemAttribute;
 
@@ -813,8 +813,8 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
    * @param { function } event
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when the listItem is selected.
@@ -823,8 +823,8 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when the listItem is selected.
@@ -833,9 +833,9 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   onSelect(event: (isSelected: boolean) => void): ListItemAttribute;
 }
@@ -850,25 +850,25 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
  * Defines ListItem Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines ListItem Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines ListItem Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const ListItemInstance: ListItemAttribute;
 
@@ -882,25 +882,25 @@ declare const ListItemInstance: ListItemAttribute;
  * Defines ListItem Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines ListItem Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines ListItem Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const ListItem: ListItemInterface;
 

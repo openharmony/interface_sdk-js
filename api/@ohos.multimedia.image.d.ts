@@ -402,7 +402,34 @@ declare namespace image {
      * @atomicservice
      * @since 12
      */
-    NV12 = 9
+    NV12 = 9,
+
+    /**
+     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：
+     * R(10bits), G(10bits), B(10bits), A(2bits) and are stored from the higher-order to the lower-order bits.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    RGBA_1010102 = 10,
+
+    /**
+     * Indicates that the storage order is to store Y first and then U V alternately each occupies 10 bits
+     * and are stored from the higher-order to the lower-order bits.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    YCBCR_P010 = 11,
+
+    /**
+     * Indicates that the storage order is to store Y first and then V U alternately each occupies 10 bits
+     * and are stored from the higher-order to the lower-order bits.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    YCRCB_P010 = 12
   }
 
   /**
@@ -6075,6 +6102,21 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     applyColorSpace(targetColorSpace: colorSpaceManager.ColorSpaceManager): Promise<void>;
 
+    /**
+     * The method is used for the transformation of the image formats. Pixel data will be changed by calling this method.
+     *
+     * @param { PixelMapFormat } targetPixelFormat - The pixel format for pixelmap conversion.
+     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 62980115 - Invalid input parameter.
+     * @throws { BusinessError } 62980111 - The image source data is incomplete.
+     * @throws { BusinessError } 62980274 - The conversion failed.
+     * @throws { BusinessError } 62980276 - The type to be converted is an unsupported target pixel format.
+     * @throws { BusinessError } 62980178 - Failed to create the pixelmap.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+     convertPixelFormat(targetPixelFormat: PixelMapFormat): Promise<void>;
+     
      /**
      * Releases this PixelMap object. This method uses a callback to return the result.
      *

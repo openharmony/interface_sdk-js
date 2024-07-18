@@ -8,7 +8,7 @@
     "newApiName": "str",
     "oldDtsName": "ut_property_writable_to_unrequired.d.ts",
     "newDtsName": "ut_property_writable_to_unrequired.d.ts",
-    "diffType": 47,
+    "diffType": 50,
     "diffMessage": "可写属性由必选变为可选",
     "changeLogUrl": "",
     "changeLogs": [],
@@ -34,6 +34,9 @@
     "oldDescription": "str: string;",
     "newDescription": "str?: string;",
     "oldSyscapField": "",
-    "newSyscapField": ""
+    "newSyscapField": "",
+    "oldKitInfo": "",
+    "newKitInfo": "",
+    "isSystemapi": false
   }
 ]

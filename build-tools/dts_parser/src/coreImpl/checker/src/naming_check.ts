@@ -49,7 +49,7 @@ export class ApiNamingCheck {
     });
     let apiWordsArr = apiText.split(/\s/g);
     let basicWords: string[] = [];
-    apiWordsArr.forEach((apiWord) => { basicWords = WordsCheck.splitComplexWords(apiWord); });
+    apiWordsArr.forEach((apiWord) => { WordsCheck.splitComplexWords(apiWord, basicWords); });
     basicWords.forEach((basicWord: string) => {
       if (publishVersion === apiVersionToBeVerified) {
         ApiNamingCheck.checkApiNamingWords(basicWord, tagNameCheckResult);

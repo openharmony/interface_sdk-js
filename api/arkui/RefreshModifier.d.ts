@@ -28,6 +28,7 @@
  * @implements AttributeModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
 */
 export declare class RefreshModifier extends RefreshAttribute implements AttributeModifier<RefreshAttribute> {
@@ -38,6 +39,7 @@ export declare class RefreshModifier extends RefreshAttribute implements Attribu
      * @param { RefreshAttribute } instance
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     applyNormalAttribute?(instance: RefreshAttribute): void;

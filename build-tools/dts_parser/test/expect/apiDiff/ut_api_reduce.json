@@ -8,7 +8,7 @@
     "newApiName": "",
     "oldDtsName": "ut_api_reduce.d.ts",
     "newDtsName": "",
-    "diffType": 60,
+    "diffType": 76,
     "diffMessage": "删除API",
     "changeLogUrl": "",
     "changeLogs": [],
@@ -30,6 +30,9 @@
     "oldDescription": "function func2(str: string): void {}",
     "newDescription": "",
     "oldSyscapField": "",
-    "newSyscapField": ""
+    "newSyscapField": "",
+    "oldKitInfo": "",
+    "newKitInfo": "",
+    "isSystemapi": false
   }
 ]

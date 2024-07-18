@@ -2182,6 +2182,7 @@ declare namespace rpc {
     /**
      * Error code. 0 indicates successful, otherwise it is failed.
      *
+     * @type { number }
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 8
      * @deprecated since 9
@@ -2191,6 +2192,7 @@ declare namespace rpc {
     /**
      * Message code. It is same as the code in {@link SendRequest} method.
      *
+     * @type { number }
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 8
      * @deprecated since 9
@@ -2201,6 +2203,7 @@ declare namespace rpc {
      * MessageParcel object sent to the peer process.
      * It is the same object in {@link SendRequest} method.
      *
+     * @type { MessageParcel }
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 8
      * @deprecated since 9
@@ -2211,6 +2214,7 @@ declare namespace rpc {
      * MessageParcel object returned by the peer process.
      * It is the same object in {@link SendRequest} method.
      *
+     * @type { MessageParcel }
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 8
      * @deprecated since 9
@@ -2231,6 +2235,7 @@ declare namespace rpc {
     /**
      * Error code. 0 indicates successful, otherwise it is failed.
      *
+     * @type { number }
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -2239,6 +2244,7 @@ declare namespace rpc {
     /**
      * Message code. It is same as the code in {@link SendRequest} method.
      *
+     * @type { number }
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -2248,6 +2254,7 @@ declare namespace rpc {
      * MessageSequence object sent to the peer process.
      * It is the same object in {@link SendRequest} method.
      *
+     * @type { MessageSequence }
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -2257,6 +2264,7 @@ declare namespace rpc {
      * MessageSequence object returned by the peer process.
      * It is the same object in {@link SendRequest} method.
      *
+     * @type { MessageSequence }
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -2575,6 +2583,7 @@ declare namespace rpc {
     /**
      * Indicates synchronous call.
      *
+     * @type { number }
      * @default 0
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
@@ -2584,6 +2593,7 @@ declare namespace rpc {
     /**
      * Indicates asynchronous call.
      *
+     * @type { number }
      * @default 1
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
@@ -2593,6 +2603,7 @@ declare namespace rpc {
     /**
      * Indicates the sendRequest API for returning the file descriptor.
      *
+     * @type { number }
      * @default 16
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
@@ -2609,6 +2620,7 @@ declare namespace rpc {
     /**
      * Indicates the wait time for RPC, in seconds. It is NOT used in IPC case.
      *
+     * @type { number }
      * @default 8
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 11
@@ -2975,6 +2987,7 @@ declare namespace rpc {
     /**
      * Indicates the message code for a Ping operation.
      *
+     * @type { number }
      * @default 1599098439
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
@@ -2984,6 +2997,7 @@ declare namespace rpc {
     /**
      * Indicates the message code for a dump operation.
      *
+     * @type { number }
      * @default 1598311760
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
@@ -2993,6 +3007,7 @@ declare namespace rpc {
     /**
      * Indicates the message code for a transmission.
      *
+     * @type { number }
      * @default 1598968902
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
@@ -3003,6 +3018,7 @@ declare namespace rpc {
      * Indicates the minimum value of a valid message code.
      * <p>This constant is used to check the validity of an operation.
      *
+     * @type { number }
      * @default 0x1
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
@@ -3013,6 +3029,7 @@ declare namespace rpc {
      * Indicates the maximum value of a valid message code.
      * <p>This constant is used to check the validity of an operation.
      *
+     * @type { number }
      * @default 0x00FFFFFF
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
@@ -3414,6 +3431,7 @@ declare namespace rpc {
     /**
      * The mapped memory is executable.
      *
+     * @type { number }
      * @default 4
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 8
@@ -3423,6 +3441,7 @@ declare namespace rpc {
     /**
      * The mapped memory is inaccessible.
      *
+     * @type { number }
      * @default 0
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 8
@@ -3432,6 +3451,7 @@ declare namespace rpc {
     /**
      * The mapped memory is readable.
      *
+     * @type { number }
      * @default 1
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 8
@@ -3441,6 +3461,7 @@ declare namespace rpc {
     /**
      * The mapped memory is writable.
      *
+     * @type { number }
      * @default 2
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 8

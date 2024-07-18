@@ -264,9 +264,9 @@ declare namespace dlpPermission {
    * @param { number } fd - Indicates the file descriptor of the file to check.
    * @returns { Promise<boolean> } Returns {@code true} if {@link fd} is a DLP file; returns {@code false} otherwise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types;
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 10
    */
@@ -278,9 +278,9 @@ declare namespace dlpPermission {
    * @param { number } fd - Indicates the file descriptor of the file to check.
    * @param { AsyncCallback<boolean> } callback - Indicates the callback of isDLPFile.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types;
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 10
    */
@@ -291,8 +291,9 @@ declare namespace dlpPermission {
    *
    * @returns { Promise<DLPPermissionInfo> } Returns the {@link DLPPermissionInfo}.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100006 - This API can only be called by DLP sandbox applications.
-   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100006 - No permission to call this API,
+   *     which is available only for DLP sandbox applications.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 10
    */
@@ -302,10 +303,11 @@ declare namespace dlpPermission {
    * Obtains the permission info of this DLP file. This method uses an asynchronous callback to return the result.
    *
    * @param { AsyncCallback<DLPPermissionInfo> } callback - Indicates the callback of getDLPPermissionInfo.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100006 - This API can only be called by DLP sandbox applications.
-   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100006 - No permission to call this API,
+   *     which is available only for DLP sandbox applications.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 10
    */
@@ -317,7 +319,7 @@ declare namespace dlpPermission {
    * @param { string } fileName - Indicates the DLP file name.
    * @returns { string } Returns the original file name obtained.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 10
    */
@@ -327,7 +329,7 @@ declare namespace dlpPermission {
    * Obtains the DLP file name extension.
    *
    * @returns { string } Returns the DLP file name extension obtained.
-   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 10
    */
@@ -340,10 +342,11 @@ declare namespace dlpPermission {
    *     The value of type must be openDLPFile.
    * @param { Callback<AccessedDLPFileInfo> } listener - Indicates the callback invoked when a DLP file is opened by current application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types. 3. Parameter verification failed;
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100007 - This API cannot be called by DLP sandbox applications.
-   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100007 - No permission to call this API,
+   *     which is available only for non-DLP sandbox applications.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 10
    */
@@ -356,10 +359,11 @@ declare namespace dlpPermission {
    *     The value of type must be openDLPFile.
    * @param { Callback<AccessedDLPFileInfo> } listener - Indicates the callback invoked when a DLP file is opened by current application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types. 3. Parameter verification failed;
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100007 - This API cannot be called by DLP sandbox applications.
-   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100007 - No permission to call this API,
+   *     which is available only for non-DLP sandbox applications.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 10
    */
@@ -370,7 +374,7 @@ declare namespace dlpPermission {
    *
    * @returns { Promise<boolean> } Returns {@code true} if current application is in a DLP sandbox; returns {@code false} otherwise.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 10
    */
@@ -382,7 +386,7 @@ declare namespace dlpPermission {
    * @param { AsyncCallback<boolean> } callback - Indicates the callback of isInSandbox.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 10
    */
@@ -393,7 +397,7 @@ declare namespace dlpPermission {
    *
    * @returns { Promise<Array<string>> } Returns the list of file types supported.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 10
    */
@@ -405,7 +409,7 @@ declare namespace dlpPermission {
    * @param { AsyncCallback<Array<string>> } callback - Indicates the callback of getDLPSupportedFileTypes.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 10
    */
@@ -417,10 +421,11 @@ declare namespace dlpPermission {
    * @param { Array<string> } docUris - Indicates the URIs of the files, for which the retention status is to set.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types;
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100006 - This API can only be called by DLP sandbox applications.
-   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100006 - No permission to call this API,
+   *     which is available only for DLP sandbox applications.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 10
    */
@@ -432,10 +437,11 @@ declare namespace dlpPermission {
    * @param { Array<string> } docUris - Indicates the URIs of the files, for which the retention status is to set.
    * @param { AsyncCallback<void> } callback - Indicates the callback of setRetentionState.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types;
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100006 - This API can only be called by DLP sandbox applications.
-   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100006 - No permission to call this API,
+   *     which is available only for DLP sandbox applications.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 10
    */
@@ -447,9 +453,9 @@ declare namespace dlpPermission {
    * @param { Array<string> } docUris - Indicates the list of the file URIs.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types;
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 10
    */
@@ -461,9 +467,9 @@ declare namespace dlpPermission {
    * @param { Array<string> } docUris - Indicates the list of the file URIs.
    * @param { AsyncCallback<void> } callback - Indicates the callback of cancelRetentionState.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types;
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 10
    */
@@ -474,10 +480,11 @@ declare namespace dlpPermission {
    *
    * @param { string } bundleName - Indicates the bundle name of the application.
    * @returns { Promise<Array<RetentionSandboxInfo>> } Returns a list of {@link RetentionSandboxInfo}.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100007 - This API cannot be called by DLP sandbox applications.
-   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100007 - No permission to call this API,
+   *     which is available only for non-DLP sandbox applications.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 10
    */
@@ -488,10 +495,11 @@ declare namespace dlpPermission {
    *
    * @param { string } bundleName - Indicates the bundle name of the application.
    * @param { AsyncCallback<Array<RetentionSandboxInfo>> } callback - Indicates the callback of getRetentionSandboxList.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100007 - This API cannot be called by DLP sandbox applications.
-   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100007 - No permission to call this API,
+   *     which is available only for non-DLP sandbox applications.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 10
    */
@@ -501,10 +509,11 @@ declare namespace dlpPermission {
    * Obtains information about the retained DLP sandboxes of an application. This method uses an asynchronous callback to return the result.
    *
    * @param { AsyncCallback<Array<RetentionSandboxInfo>> } callback - Indicates the callback of getRetentionSandboxList.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100007 - This API cannot be called by DLP sandbox applications.
-   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100007 - No permission to call this API,
+   *     which is available only for non-DLP sandbox applications.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 10
    */
@@ -515,8 +524,9 @@ declare namespace dlpPermission {
    *
    * @returns { Promise<Array<AccessedDLPFileInfo>> } Returns a list of {@link AccessedDLPFileInfo}.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100007 - This API cannot be called by DLP sandbox applications.
-   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100007 - No permission to call this API,
+   *     which is available only for non-DLP sandbox applications.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 10
    */
@@ -526,10 +536,11 @@ declare namespace dlpPermission {
    * Obtains the DLP file access records. This method uses an asynchronous callback to return the result.
    *
    * @param { AsyncCallback<Array<AccessedDLPFileInfo>> } callback - Indicates the callback of getDLPFileAccessRecords.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100007 - This API cannot be called by DLP sandbox applications.
-   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100007 - No permission to call this API,
+   *     which is available only for non-DLP sandbox applications.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 10
    */
@@ -572,11 +583,11 @@ declare namespace dlpPermission {
    * @param { Want } want - Indicates the request to the DLP manager.
    * @returns { Promise<DLPManagerResult> } Returns the {@link DLPManagerResult}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types;
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100011 - System service exception.
-   * @throws { BusinessError } 19100016 - Uri does not exist in want.
-   * @throws { BusinessError } 19100017 - DisplayName does not exist in want (under parameters).
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @throws { BusinessError } 19100016 - uri missing in want.
+   * @throws { BusinessError } 19100017 - displayName missing in want.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @StageModelOnly
    * @since 11
@@ -619,7 +630,7 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -633,9 +644,9 @@ declare namespace dlpPermission {
    * @param { AsyncCallback<GatheringPolicyType> } callback - Indicates the callback of getDLPGatheringPolicy.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -684,9 +695,9 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types;
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -710,9 +721,9 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types;
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -736,9 +747,9 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types;
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -756,9 +767,9 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types;
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -810,9 +821,9 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types. 3. Parameter verification failed;
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -829,9 +840,9 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types. 3. Parameter verification failed;
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -1036,10 +1047,10 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     *     2. Incorrect parameter types;
+     *     2. Incorrect parameter types.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
-     * @throws { BusinessError } 19100011 - System service exception.
+     * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -1056,10 +1067,10 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     *     2. Incorrect parameter types;
+     *     2. Incorrect parameter types.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
-     * @throws { BusinessError } 19100011 - System service exception.
+     * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -1075,7 +1086,7 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
-     * @throws { BusinessError } 19100011 - System service exception.
+     * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -1089,10 +1100,10 @@ declare namespace dlpPermission {
      * @param { AsyncCallback<void> } callback - Indicates the callback of stopFuseLink.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
-     * @throws { BusinessError } 19100011 - System service exception.
+     * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -1108,7 +1119,7 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
-     * @throws { BusinessError } 19100011 - System service exception.
+     * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -1122,10 +1133,10 @@ declare namespace dlpPermission {
      * @param { AsyncCallback<void> } callback - Indicates the callback of resumeFuseLink.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
-     * @throws { BusinessError } 19100011 - System service exception.
+     * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -1141,10 +1152,10 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     *     2. Incorrect parameter types;
+     *     2. Incorrect parameter types.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
-     * @throws { BusinessError } 19100011 - System service exception.
+     * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -1160,10 +1171,10 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     *     2. Incorrect parameter types;
+     *     2. Incorrect parameter types.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
-     * @throws { BusinessError } 19100011 - System service exception.
+     * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -1179,10 +1190,10 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     *     2. Incorrect parameter types;
+     *     2. Incorrect parameter types.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
-     * @throws { BusinessError } 19100011 - System service exception.
+     * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -1198,10 +1209,10 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     *     2. Incorrect parameter types;
+     *     2. Incorrect parameter types.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
-     * @throws { BusinessError } 19100011 - System service exception.
+     * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -1217,16 +1228,16 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     *     2. Incorrect parameter types;
+     *     2. Incorrect parameter types.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100002 - Credential task error.
      * @throws { BusinessError } 19100003 - Credential task time out.
      * @throws { BusinessError } 19100004 - Credential service error.
-     * @throws { BusinessError } 19100005 - Remote credential server error.
-     * @throws { BusinessError } 19100008 - Not DLP file.
+     * @throws { BusinessError } 19100005 - Credential authentication server error.
+     * @throws { BusinessError } 19100008 - The file is not a DLP file.
      * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
-     * @throws { BusinessError } 19100010 - DLP file is read-only.
-     * @throws { BusinessError } 19100011 - System service exception.
+     * @throws { BusinessError } 19100010 - The DLP file is read only.
+     * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -1242,16 +1253,16 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     *     2. Incorrect parameter types;
+     *     2. Incorrect parameter types.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100002 - Credential task error.
      * @throws { BusinessError } 19100003 - Credential task time out.
      * @throws { BusinessError } 19100004 - Credential service error.
-     * @throws { BusinessError } 19100005 - Remote credential server error.
-     * @throws { BusinessError } 19100008 - Not DLP file.
+     * @throws { BusinessError } 19100005 - Credential authentication server error.
+     * @throws { BusinessError } 19100008 - The file is not a DLP file.
      * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
-     * @throws { BusinessError } 19100010 - DLP file is read-only.
-     * @throws { BusinessError } 19100011 - System service exception.
+     * @throws { BusinessError } 19100010 - The DLP file is read only.
+     * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -1267,7 +1278,7 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
-     * @throws { BusinessError } 19100011 - System service exception.
+     * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -1281,10 +1292,10 @@ declare namespace dlpPermission {
      * @param { AsyncCallback<void> } callback - Indicates the callback of closeDLPFile.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
-     * @throws { BusinessError } 19100011 - System service exception.
+     * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -1303,14 +1314,14 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types;
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100002 - Credential task error.
    * @throws { BusinessError } 19100003 - Credential task time out.
    * @throws { BusinessError } 19100004 - Credential service error.
-   * @throws { BusinessError } 19100005 - Remote credential server error.
+   * @throws { BusinessError } 19100005 - Credential authentication server error.
    * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
-   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -1328,14 +1339,14 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types;
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100002 - Credential task error.
    * @throws { BusinessError } 19100003 - Credential task time out.
    * @throws { BusinessError } 19100004 - Credential service error.
-   * @throws { BusinessError } 19100005 - Remote credential server error.
+   * @throws { BusinessError } 19100005 - Credential authentication server error.
    * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
-   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -1357,15 +1368,15 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types;
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100002 - Credential task error.
    * @throws { BusinessError } 19100003 - Credential task time out.
    * @throws { BusinessError } 19100004 - Credential service error.
-   * @throws { BusinessError } 19100005 - Remote credential server error.
-   * @throws { BusinessError } 19100008 - Not DLP file.
+   * @throws { BusinessError } 19100005 - Credential authentication server error.
+   * @throws { BusinessError } 19100008 - The file is not a DLP file.
    * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
-   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @throws { BusinessError } 19100018 - Not authorized application.
    * @throws { BusinessError } 19100019 - The DLP file has expired.
    * @throws { BusinessError } 19100020 - No network connection.
@@ -1385,15 +1396,15 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types;
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100002 - Credential task error.
    * @throws { BusinessError } 19100003 - Credential task time out.
    * @throws { BusinessError } 19100004 - Credential service error.
-   * @throws { BusinessError } 19100005 - Remote credential server error.
-   * @throws { BusinessError } 19100008 - Not DLP file.
+   * @throws { BusinessError } 19100005 - Credential authentication server error.
+   * @throws { BusinessError } 19100008 - The file is not a DLP file.
    * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
-   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @throws { BusinessError } 19100018 - Not authorized application.
    * @throws { BusinessError } 19100019 - The DLP file has expired.
    * @throws { BusinessError } 19100020 - No network connection.
@@ -1409,10 +1420,11 @@ declare namespace dlpPermission {
    * @param { string } configInfo - Configuration of the sandbox application.
    * @returns { Promise<void> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types;
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100007 - This API cannot be called by DLP sandbox applications.
-   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100007 - No permission to call this API,
+   *     which is available only for non-DLP sandbox applications.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @throws { BusinessError } 19100018 - Not authorized application.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 11
@@ -1424,8 +1436,9 @@ declare namespace dlpPermission {
    *
    * @returns { Promise<void> } Promise used to return the result.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100007 - This API cannot be called by DLP sandbox applications.
-   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100007 - No permission to call this API,
+   *     which is available only for non-DLP sandbox applications.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @throws { BusinessError } 19100018 - Not authorized application.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 11
@@ -1437,7 +1450,7 @@ declare namespace dlpPermission {
    *
    * @returns { Promise<string> } Promise used to return the result.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @throws { BusinessError } 19100018 - Not authorized application.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 11
@@ -1448,7 +1461,7 @@ declare namespace dlpPermission {
    * Checks whether the current system provides the DLP feature. This method uses a promise to return the result.
    *
    * @returns { Promise<boolean> } Promise used to return the result.
-   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 12
    */

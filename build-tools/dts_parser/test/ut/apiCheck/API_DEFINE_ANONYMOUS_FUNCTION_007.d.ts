@@ -34,7 +34,7 @@ interface PermissionStateChangeInfo {
    * @type { function }
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since 9
+   * @since 12
    */
   change: () => void;
 

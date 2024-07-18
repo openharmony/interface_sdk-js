@@ -110,10 +110,11 @@ export class Check {
     // for all nodes of the current file
     allNodeInfos.forEach((singleApi: ApiInfo) => {
       const apiJsdoc: Comment.JsDocInfo | undefined = singleApi.getLastJsDocInfo();
+      const apiJsdocTextLength: number = singleApi.getJsDocText().length;
       if (singleApi.getApiType() === 'Method' && singleApi.getParentApi()?.apiType === 'Struct') {
         return;
       }
-      if (apiJsdoc === undefined) {
+      if (apiJsdoc === undefined || apiJsdocTextLength === 0) {
         const errorBaseInfo: ErrorBaseInfo = new ErrorBaseInfo();
         errorBaseInfo
           .setErrorID(ErrorID.NO_JSDOC_ID)
@@ -172,7 +173,7 @@ export class Check {
         const forbiddenWordsCheckResult: ErrorTagFormat = ForbiddenWordsCheck.forbiddenWordsCheck(singleApi as ClassInfo);
 
         const anonymousFunction: ErrorTagFormat = AnonymousFunctionCheck.checkAnonymousFunction(singleApi);
-        
+
         if (!orderCheckResult.state) {
           const errorBaseInfo: ErrorBaseInfo = new ErrorBaseInfo();
           errorBaseInfo

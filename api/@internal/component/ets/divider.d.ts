@@ -30,8 +30,8 @@
  *
  * @interface DividerInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Provides a divider component to separate different content blocks/content elements.
@@ -39,8 +39,8 @@
  * @interface DividerInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Provides a divider component to separate different content blocks/content elements.
@@ -48,9 +48,9 @@
  * @interface DividerInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 interface DividerInterface {
   /**
@@ -65,8 +65,8 @@ interface DividerInterface {
    *
    * @returns { DividerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Return Divider.
@@ -74,8 +74,8 @@ interface DividerInterface {
    * @returns { DividerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Return Divider.
@@ -83,9 +83,9 @@ interface DividerInterface {
    * @returns { DividerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   (): DividerAttribute;
 }
@@ -102,8 +102,8 @@ interface DividerInterface {
  *
  * @extends CommonMethod<DividerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines the Divider attribute functions.
@@ -111,8 +111,8 @@ interface DividerInterface {
  * @extends CommonMethod<DividerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines the Divider attribute functions.
@@ -120,9 +120,9 @@ interface DividerInterface {
  * @extends CommonMethod<DividerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare class DividerAttribute extends CommonMethod<DividerAttribute> {
   /**
@@ -141,8 +141,8 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
    * @param { boolean } value
    * @returns { DividerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Indicates whether to use a horizontal splitter or a vertical splitter.
@@ -152,8 +152,8 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
    * @returns { DividerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Indicates whether to use a horizontal splitter or a vertical splitter.
@@ -163,9 +163,9 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
    * @returns { DividerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   vertical(value: boolean): DividerAttribute;
 
@@ -183,8 +183,8 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
    * @param { ResourceColor } value
    * @returns { DividerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Sets the color of the divider line.
@@ -193,8 +193,8 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
    * @returns { DividerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Sets the color of the divider line.
@@ -203,9 +203,9 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
    * @returns { DividerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   color(value: ResourceColor): DividerAttribute;
 
@@ -223,8 +223,8 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
    * @param { number | string } value
    * @returns { DividerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Sets the width of the dividing line.
@@ -233,8 +233,8 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
    * @returns { DividerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Sets the width of the dividing line.
@@ -243,9 +243,9 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
    * @returns { DividerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   strokeWidth(value: number | string): DividerAttribute;
 
@@ -263,8 +263,8 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
    * @param { LineCapStyle } value
    * @returns { DividerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Sets the end style of the split line. The default value is Butt.
@@ -273,8 +273,8 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
    * @returns { DividerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Sets the end style of the split line. The default value is Butt.
@@ -283,9 +283,9 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
    * @returns { DividerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   lineCap(value: LineCapStyle): DividerAttribute;
 }
@@ -300,25 +300,25 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
  * Defines Divider Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines Divider Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines Divider Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const Divider: DividerInterface;
 
@@ -332,24 +332,24 @@ declare const Divider: DividerInterface;
  * Defines Divider Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines Divider Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines Divider Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const DividerInstance: DividerAttribute;

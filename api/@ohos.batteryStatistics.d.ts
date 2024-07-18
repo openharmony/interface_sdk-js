@@ -207,6 +207,7 @@ declare namespace batteryStats {
   interface BatteryStatsInfo {
     /** The uid related with the power consumption info.
      *
+     * @type { number }
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
      * @since 8
@@ -215,6 +216,7 @@ declare namespace batteryStats {
 
     /** The type related with the power consumption info.
      *
+     * @type { ConsumptionType }
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
      * @since 8
@@ -223,6 +225,7 @@ declare namespace batteryStats {
 
     /** The power consumption value(mAh).
      *
+     * @type { number }
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
      * @since 8
