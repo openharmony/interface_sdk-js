@@ -42,6 +42,7 @@ declare namespace securityManager {
     /**
      * True indicates device is encrypted.
      *
+     * @type { boolean }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @systemapi
      * @stagemodelonly
