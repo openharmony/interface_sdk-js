@@ -13,14 +13,14 @@
  * limitations under the License.
  */
 
-import { Vec2, Vec3, Vec4, Aabb } from './SceneTypes';
-import { Resource } from 'GlobalResource';
-import { Callback } from '../@ohos.base'
-
 /**
  * @file Defines 3D resource related interfaces
  * @kit ArkGraphics3D
  */
+
+import { Vec2, Vec3, Vec4, Aabb } from './SceneTypes';
+import { Resource } from 'GlobalResource';
+import { Callback } from '../@ohos.base'
 
 /**
  * The enum of SceneResource type.
@@ -145,6 +145,7 @@ export interface SceneResource {
 /**
  * Shader resource.
  *
+ * @extends SceneResource
  * @interface Shader
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
@@ -181,6 +182,7 @@ export enum MaterialType {
 /**
  * Material resource.
  *
+ * @extends SceneResource
  * @interface Material
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
@@ -200,6 +202,7 @@ export interface Material extends SceneResource {
 /**
  * Shader material resource.
  *
+ * @extends Material
  * @interface ShaderMaterial
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
@@ -255,6 +258,7 @@ export interface SubMesh {
 /**
  * Mesh resource.
  *
+ * @extends SceneResource
  * @interface Mesh
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
@@ -293,6 +297,7 @@ export interface Mesh extends SceneResource {
 /**
  * Animation resource.
  *
+ * extends SceneResource
  * @interface Animation
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
@@ -448,6 +453,7 @@ export enum EnvironmentBackgroundType {
 /**
  * Environment resource.
  *
+ * @extends SceneResource
  * @interface Environment
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
@@ -520,6 +526,7 @@ export interface Environment extends SceneResource {
 /**
  * Image resource.
  *
+ * @extends SceneResource
  * @interface Image
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
