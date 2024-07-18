@@ -258,6 +258,16 @@ declare namespace media {
   function reportAVScreenCaptureUserChoice(sessionId: number, choice: string): Promise<void>;
 
   /**
+   * Creates a AVTranscoder instance.
+   * 
+   * @returns {Promise<AVTranscoder>} A Promise instance used to return AVTranscoder instance if the operation is successful; returns null otherwise.
+   * @throws { BusinessError } 5400101 - No memory. Return by promise.
+   * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+   * @since 12
+   */
+  function createAVTranscoder(): Promise<AVTranscoder>;
+
+  /**
    * Manages and plays sound. Before calling an SoundPool method, you must use createSoundPool()
    * to create an SoundPool instance.
    *
