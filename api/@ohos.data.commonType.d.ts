@@ -173,6 +173,7 @@ declare namespace commonType {
   /**
    * Indicates several assets
    *
+   * @typedef { Array<Asset> }
    * @syscap SystemCapability.DistributedDataManager.CommonType
    * @crossplatform
    * @since 11
@@ -182,6 +183,7 @@ declare namespace commonType {
   /**
    * Indicates possible value types.
    *
+   * @typedef { null | number | string | boolean | Uint8Array | Asset | Assets }
    * @syscap SystemCapability.DistributedDataManager.CommonType
    * @crossplatform
    * @since 11
@@ -191,6 +193,7 @@ declare namespace commonType {
   /**
    * Values in buckets are stored in key-value pairs.
    *
+   * @typedef { Record<string, ValueType> }
    * @syscap SystemCapability.DistributedDataManager.CommonType
    * @crossplatform
    * @since 11
