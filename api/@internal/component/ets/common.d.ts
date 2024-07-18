@@ -21713,6 +21713,7 @@ declare interface MeasureResult extends SizeResult {
 /**
  * The navigation destination information.
  *
+ * @typedef import('../api/@ohos.arkui.observer').default.NavDestinationInfo NavDestinationInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
