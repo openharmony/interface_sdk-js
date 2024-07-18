@@ -406,12 +406,19 @@ declare namespace drawing {
    */
   class Path {
     /**
+     * Creates a Path.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    constructor();
+
+    /**
      * Creates a Path from other path.
      * @param { Path } path - the path to copy content from.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    constructor(path?: Path);
+    constructor(path: Path);
 
     /**
      * Sets the start point of a path
