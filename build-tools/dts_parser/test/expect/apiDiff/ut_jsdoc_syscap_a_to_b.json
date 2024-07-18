@@ -32,6 +32,9 @@
     "oldDescription": "SystemCapability.Ability.AbilityRuntime.AbilityCore",
     "newDescription": "SystemCapability.Ability.AbilityRuntime.FAModel",
     "oldSyscapField": "Ability",
-    "newSyscapField": "Ability"
+    "newSyscapField": "Ability",
+    "oldKitInfo": "",
+    "newKitInfo": "",
+    "isSystemapi": false
   }
 ]

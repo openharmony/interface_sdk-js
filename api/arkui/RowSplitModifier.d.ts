@@ -27,6 +27,7 @@
  * @extends RowSplitAttribute
  * @implements AttributeModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class RowSplitModifier extends RowSplitAttribute implements AttributeModifier<RowSplitAttribute> {
@@ -37,6 +38,7 @@ export declare class RowSplitModifier extends RowSplitAttribute implements Attri
    * @param { RowSplitAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: RowSplitAttribute): void;

@@ -238,6 +238,13 @@ declare namespace dragController {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
      */
+    /**
+     * A unique identifier to identify which touch point.
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
+     */
     pointerId: number;
 
     /**
@@ -246,6 +253,13 @@ declare namespace dragController {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @since 10
     */
+    /**
+    * Drag data.
+    * @type { ?unifiedDataChannel.UnifiedData }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @atomicservice
+    * @since 12
+    */
     data?: unifiedDataChannel.UnifiedData;
 
     /**
@@ -253,6 +267,13 @@ declare namespace dragController {
     * @type { ?string }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @since 10
+    */
+    /**
+    * Additional information about the drag info.
+    * @type { ?string }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @atomicservice
+    * @since 12
     */
     extraParams?: string;
 

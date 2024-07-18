@@ -274,6 +274,7 @@ export class BuilderNode<Args extends Object[]> {
    * @param { Object } [param] - Parameters for reusing BuilderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   reuse(param?: Object): void;
@@ -283,6 +284,7 @@ export class BuilderNode<Args extends Object[]> {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   recycle(): void;

@@ -8,7 +8,7 @@
     "newApiName": "constant",
     "oldDtsName": "ut_property_readonly_to_required.d.ts",
     "newDtsName": "ut_property_readonly_to_required.d.ts",
-    "diffType": 46,
+    "diffType": 49,
     "diffMessage": "只读属性由可选变为必选",
     "changeLogUrl": "",
     "changeLogs": [],
@@ -34,6 +34,9 @@
     "oldDescription": "readonly constant?: 1;",
     "newDescription": "readonly constant: 1;",
     "oldSyscapField": "",
-    "newSyscapField": ""
+    "newSyscapField": "",
+    "oldKitInfo": "",
+    "newKitInfo": "",
+    "isSystemapi": false
   }
 ]

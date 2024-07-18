@@ -161,6 +161,7 @@ declare interface TextDataDetectorConfig {
  * @interface TextRange
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface TextRange {
@@ -171,6 +172,7 @@ declare interface TextRange {
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   start?: number;
@@ -182,6 +184,7 @@ declare interface TextRange {
    * @default text length
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   end?: number;
@@ -193,6 +196,7 @@ declare interface TextRange {
  * @interface InsertValue
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface InsertValue {
@@ -202,6 +206,7 @@ declare interface InsertValue {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   insertOffset: number;
@@ -212,6 +217,7 @@ declare interface InsertValue {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   insertValue: string;
@@ -223,6 +229,7 @@ declare interface InsertValue {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare enum TextDeleteDirection {
@@ -231,6 +238,7 @@ declare enum TextDeleteDirection {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   BACKWARD = 0,
@@ -240,6 +248,7 @@ declare enum TextDeleteDirection {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   FORWARD = 1,
@@ -251,6 +260,7 @@ declare enum TextDeleteDirection {
  * @interface DeleteValue
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface DeleteValue {
@@ -260,6 +270,7 @@ declare interface DeleteValue {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   deleteOffset: number;
@@ -270,6 +281,7 @@ declare interface DeleteValue {
    * @type { TextDeleteDirection }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   direction: TextDeleteDirection;
@@ -280,6 +292,7 @@ declare interface DeleteValue {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   deleteValue: string;
@@ -293,6 +306,7 @@ declare interface DeleteValue {
  * @param { TextRange } rangeAfter - Range of content that newly added.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare type OnDidChangeCallback = (rangeBefore: TextRange, rangeAfter: TextRange) => void;
@@ -301,14 +315,14 @@ declare type OnDidChangeCallback = (rangeBefore: TextRange, rangeAfter: TextRang
  * Callback when input sometimes has info of previewText.
  *
  * @typedef { function } EditableTextOnChangeCallback
- * @param { string } value - Value of all text.
- * @param { TextRange } [previewRange] - index of previewText in content.
+ * @param { string } value - Value of body text, without previewText value.
+ * @param { PreviewText } [previewText] - info of previewText, contains previewText value and start index.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 12
  */
-declare type EditableTextOnChangeCallback = (value: string, previewRange?: TextRange) => void;
+declare type EditableTextOnChangeCallback = (value: string, previewText?: PreviewText) => void;
 
 /**
  * Define the text selection controller.
@@ -316,6 +330,7 @@ declare type EditableTextOnChangeCallback = (value: string, previewRange?: TextR
  * @interface TextBaseController
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface TextBaseController {
@@ -327,6 +342,7 @@ declare interface TextBaseController {
    * @param { SelectionOptions } [options] - Indicates the options of selection.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   setSelection(selectionStart: number, selectionEnd: number, options?: SelectionOptions): void;
@@ -336,6 +352,7 @@ declare interface TextBaseController {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   closeSelectionMenu(): void;
@@ -358,6 +375,7 @@ declare interface TextBaseController {
  * @interface TextEditControllerEx
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface TextEditControllerEx extends TextBaseController{
@@ -367,6 +385,7 @@ declare interface TextEditControllerEx extends TextBaseController{
    * @returns { boolean } - true means that the component is in editing state, false means is non in editing status
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   isEditing(): boolean;
@@ -376,6 +395,7 @@ declare interface TextEditControllerEx extends TextBaseController{
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   stopEditing(): void;
@@ -387,6 +407,7 @@ declare interface TextEditControllerEx extends TextBaseController{
    * @returns { boolean } - Return true if the caret offset was successfully set, false otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   setCaretOffset(offset: number): boolean;
@@ -397,9 +418,21 @@ declare interface TextEditControllerEx extends TextBaseController{
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getCaretOffset(): number;
+
+  /**
+   * Get PreviewText.
+   *
+   * @returns { PreviewText } - Return the PreviewText.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  getPreviewText?(): PreviewText;
 }
 
 /**
@@ -408,6 +441,7 @@ declare interface TextEditControllerEx extends TextBaseController{
  * @interface StyledStringController
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface StyledStringController {
@@ -417,6 +451,7 @@ declare interface StyledStringController {
    * @param { StyledString } styledString - StyledString.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   setStyledString(styledString: StyledString): void;
@@ -427,6 +462,7 @@ declare interface StyledStringController {
    * @returns { MutableStyledString }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getStyledString(): MutableStyledString;
@@ -438,6 +474,7 @@ declare interface StyledStringController {
  * @interface StyledStringChangedListener
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface StyledStringChangedListener {
@@ -447,6 +484,7 @@ declare interface StyledStringChangedListener {
    * @type { ?Callback<StyledStringChangeValue, boolean> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onWillChange?: Callback<StyledStringChangeValue, boolean>;
@@ -457,6 +495,7 @@ declare interface StyledStringChangedListener {
    * @type { ?OnDidChangeCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onDidChange?: OnDidChangeCallback;
@@ -468,6 +507,7 @@ declare interface StyledStringChangedListener {
  * @interface StyledStringChangeValue
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 interface StyledStringChangeValue {
@@ -477,6 +517,7 @@ interface StyledStringChangeValue {
    * @type { TextRange }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   range: TextRange;
@@ -487,6 +528,7 @@ interface StyledStringChangeValue {
    * @type { StyledString }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   replacementString: StyledString;
@@ -691,6 +733,7 @@ declare class TextMenuItemId {
    * @returns { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   equals(id: TextMenuItemId): boolean;
@@ -766,6 +809,38 @@ declare class TextMenuItemId {
    * @since 12
    */
   static readonly CAMERA_INPUT: TextMenuItemId;
+}
+
+/**
+ * The previewText.
+ * @interface PreviewText
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare interface PreviewText {
+  /**
+   * Start offset of the previewText
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  offset: number;
+
+  /**
+   * Value of the previewText.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  value: string;
 }
 
 /**

@@ -110,6 +110,7 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
    * @param { DrawableDescriptor } [background] - Indicates the background option to create LayeredDrawableDescriptor.
    * @param { DrawableDescriptor } [mask] - Indicates the mask option to create LayeredDrawableDescriptor.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   constructor(
@@ -229,6 +230,7 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
  *
  * @extends DrawableDescriptor
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
  */
 export class PixelMapDrawableDescriptor extends DrawableDescriptor {
@@ -236,6 +238,7 @@ export class PixelMapDrawableDescriptor extends DrawableDescriptor {
    * Creates a new PixelMapDrawableDescriptor.
    * @param { image.PixelMap } src - Indicates the resource to create PixelMapDrawableDescriptor.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   constructor(src?: image.PixelMap);
@@ -247,6 +250,7 @@ export class PixelMapDrawableDescriptor extends DrawableDescriptor {
  * @interface AnimationOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface AnimationOptions {
@@ -256,6 +260,7 @@ declare interface AnimationOptions {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   duration?: number;
@@ -265,6 +270,7 @@ declare interface AnimationOptions {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   iterations?: number;
@@ -276,6 +282,7 @@ declare interface AnimationOptions {
  * @extends DrawableDescriptor
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 export class AnimatedDrawableDescriptor extends DrawableDescriptor {
@@ -286,6 +293,7 @@ export class AnimatedDrawableDescriptor extends DrawableDescriptor {
    * @param { AnimationOptions } [options] - Animation control options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   constructor(pixelMaps: Array<image.PixelMap>, options?: AnimationOptions);

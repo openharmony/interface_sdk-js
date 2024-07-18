@@ -76,6 +76,7 @@ interface MenuInterface {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare enum SubMenuExpandingMode {
@@ -84,6 +85,7 @@ declare enum SubMenuExpandingMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   SIDE_EXPAND = 0,
@@ -93,6 +95,7 @@ declare enum SubMenuExpandingMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   EMBEDDED_EXPAND = 1,
@@ -102,6 +105,7 @@ declare enum SubMenuExpandingMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   STACK_EXPAND = 2,
@@ -218,6 +222,7 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
    * @returns { MenuAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   menuItemDivider(options: DividerStyleOptions | undefined): MenuAttribute;
@@ -229,6 +234,7 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
    * @returns { MenuAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   menuItemGroupDivider(options: DividerStyleOptions | undefined): MenuAttribute;
@@ -240,6 +246,7 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
    * @returns { MenuAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   subMenuExpandingMode(mode: SubMenuExpandingMode): MenuAttribute;

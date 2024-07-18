@@ -506,6 +506,7 @@ declare interface AlertDialogButtonOptions {
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
     primary?: boolean;
@@ -864,6 +865,7 @@ declare interface AlertDialogParam {
    * @type { ?Callback<DismissDialogAction> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onWillDismiss?: Callback<DismissDialogAction>;
@@ -874,6 +876,7 @@ declare interface AlertDialogParam {
    * @type { ?TransitionEffect }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   transition?: TransitionEffect;
@@ -884,6 +887,7 @@ declare interface AlertDialogParam {
    * @type { ?(Dimension | BorderRadiuses | LocalizedBorderRadiuses) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   cornerRadius?: Dimension | BorderRadiuses | LocalizedBorderRadiuses;
@@ -894,6 +898,7 @@ declare interface AlertDialogParam {
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   width?: Dimension;
@@ -904,6 +909,7 @@ declare interface AlertDialogParam {
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   height?: Dimension;
@@ -914,6 +920,7 @@ declare interface AlertDialogParam {
    * @type { ?(Dimension | EdgeWidths | LocalizedEdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   borderWidth?: Dimension | EdgeWidths | LocalizedEdgeWidths;
@@ -924,6 +931,7 @@ declare interface AlertDialogParam {
    * @type { ?(ResourceColor | EdgeColors | LocalizedEdgeColors) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   borderColor?: ResourceColor | EdgeColors | LocalizedEdgeColors;
@@ -934,6 +942,7 @@ declare interface AlertDialogParam {
    * @type { ?(BorderStyle | EdgeStyles) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   borderStyle?: BorderStyle | EdgeStyles;
@@ -944,6 +953,7 @@ declare interface AlertDialogParam {
    * @type { ?(ShadowOptions | ShadowStyle) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   shadow?: ShadowOptions | ShadowStyle;
@@ -1179,6 +1189,7 @@ declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
  * @interface DismissDialogAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface DismissDialogAction {
@@ -1188,6 +1199,7 @@ declare interface DismissDialogAction {
    * @type { Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   dismiss: Callback<void>;
@@ -1198,6 +1210,7 @@ declare interface DismissDialogAction {
    * @type { DismissReason }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   reason: DismissReason;

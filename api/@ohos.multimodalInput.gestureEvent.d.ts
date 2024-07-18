@@ -28,7 +28,7 @@
 export declare interface Pinch {
   /**
    * Action type
-   *
+   * @type { ActionType }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10
    */
@@ -36,7 +36,7 @@ export declare interface Pinch {
 
   /**
    * scale
-   *
+   * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10
    */
@@ -80,7 +80,7 @@ export declare interface Rotate {
 export declare interface ThreeFingersSwipe {
   /**
    * Action type
-   *
+   * @type { ActionType }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10
    */
@@ -88,7 +88,7 @@ export declare interface ThreeFingersSwipe {
 
   /**
    * Coordinate x
-   *
+   * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10
    */
@@ -96,7 +96,7 @@ export declare interface ThreeFingersSwipe {
 
   /**
    * Coordinate y
-   *
+   * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10
    */
@@ -113,7 +113,7 @@ export declare interface ThreeFingersSwipe {
 export declare interface FourFingersSwipe {
   /**
    * Action type
-   *
+   * @type { ActionType }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10
    */
@@ -121,7 +121,7 @@ export declare interface FourFingersSwipe {
 
   /**
    * Coordinate x
-   *
+   * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10
    */
@@ -129,7 +129,7 @@ export declare interface FourFingersSwipe {
 
   /**
    * Coordinate y
-   *
+   * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10
    */

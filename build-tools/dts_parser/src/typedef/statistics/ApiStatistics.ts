@@ -51,6 +51,8 @@ export class ApiStatisticsInfo {
   errorCodes: number[] = [];
   kitInfo: string = '';
   absolutePath: string = ''; //文件绝对路径
+  parentApiType: string = '';
+  isOptional: boolean = false;
 
   setFilePath(fileFilePath: string): ApiStatisticsInfo {
     this.filePath = fileFilePath;
@@ -248,6 +250,23 @@ export class ApiStatisticsInfo {
 
   getAbsolutePath(): string {
     return this.absolutePath;
+  }
+
+  setParentApiType(parentApiType: string): ApiStatisticsInfo {
+    this.parentApiType = parentApiType;
+    return this;
+  }
+
+  getParentApiType(): string {
+    return this.parentApiType;
+  }
+
+  setIsOptional(isOptional: boolean): ApiStatisticsInfo {
+    this.isOptional = isOptional;
+    return this;
+  }
+  getIsOptional(): boolean {
+    return this.isOptional;
   }
 }
 

@@ -38,7 +38,7 @@ export class TagValueCheck {
       return tagValueError;
     }
     const tagsTag: string[] = [];
-    tagsName.forEach((tagName: Comment.CommentTag) => { tagsTag.push(tagName.tag) });
+    tagsName.forEach((tagName: Comment.CommentTag) => { tagsTag.push(tagName.tag); });
     const isDeprecated: boolean = tagsTag.includes('deprecated');
     tagsName.forEach((tag) => {
       let errorTagInfo: ErrorTagFormat = {
@@ -182,7 +182,7 @@ export class TagValueCheck {
     let returnsApiValue: string[] = [];
     const legalApiArr: string[] = [ApiType.METHOD, ApiType.TYPE_ALIAS];
     if (!legalApiArr.includes(singleApi.getApiType())) {
-      return returnsValueCheckResult
+      return returnsValueCheckResult;
     }
     const spacealCase: string[] = CommonFunctions.judgeSpecialCase((singleApi as MethodInfo).returnValueType);
     if (singleApi.getApiType() === ApiType.TYPE_ALIAS) {
@@ -230,7 +230,7 @@ export class TagValueCheck {
         const genericArr: GenericInfo[] = singleApi.getGenericInfo();
         if (genericArr.length > 0) {
           let genericInfo = genericArr.map((generic) => {
-            return generic.getGenericContent()
+            return generic.getGenericContent();
           }).join(',');
           apiValue = apiValue + '<' + genericInfo + '>';
         }
@@ -238,7 +238,8 @@ export class TagValueCheck {
       if (singleApi.getApiType() === 'Interface' && tagValue !== apiValue) {
         outerValueCheckResult.state = false;
         outerValueCheckResult.errorInfo = ErrorMessage.ERROR_INFO_VALUE_TYPEDEF;
-      } else if (singleApi.getApiType() === ApiType.TYPE_ALIAS && tagType.replace(/\s/g, '') !== apiValue) {
+      } else if (singleApi.getApiType() === ApiType.TYPE_ALIAS && !singleApi.getIsExport() &&
+        tagType.replace(/\s/g, '') !== apiValue) {
         outerValueCheckResult.state = false;
         outerValueCheckResult.errorInfo = ErrorMessage.ERROR_INFO_VALUE_TYPEDEF;
       }

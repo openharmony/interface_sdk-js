@@ -8,11 +8,11 @@
     "newApiName": "func",
     "oldDtsName": "ut_function_return_type_reduce.d.ts",
     "newDtsName": "ut_function_return_type_reduce.d.ts",
-    "diffType": 33,
+    "diffType": 34,
     "diffMessage": "函数返回值类型缩小",
     "changeLogUrl": "",
     "changeLogs": [],
-    "isCompatible": true,
+    "isCompatible": false,
     "oldHierarchicalRelations": [
       "ut_function_return_type_reduce.d.ts",
       "test",
@@ -34,6 +34,9 @@
     "oldDescription": "string,number",
     "newDescription": "string",
     "oldSyscapField": "",
-    "newSyscapField": ""
+    "newSyscapField": "",
+    "oldKitInfo": "",
+    "newKitInfo": "",
+    "isSystemapi": false
   }
 ]

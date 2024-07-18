@@ -102,7 +102,6 @@ export class GenerateFile {
     );
   }
 
-  
   /**
    * 将错误信息输出为excel文件
    * @param { ApiResultInfo[] } apiCheckArr
@@ -262,7 +261,7 @@ export class CommonFunctions {
   static getErrorInfo(singleApi: BasicApiInfo | undefined, apiJsdoc: Comment.JsDocInfo | undefined, filePath: string, errorBaseInfo: ErrorBaseInfo): ApiCheckInfo {
     let apiInfo: ApiCheckInfo = new ApiCheckInfo();
     if (singleApi === undefined) {
-      return apiInfo
+      return apiInfo;
     }
     const sinceVersion: number = apiJsdoc === undefined ? -1 : toNumber(apiJsdoc.since);
     apiInfo

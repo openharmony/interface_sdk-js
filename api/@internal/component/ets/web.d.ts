@@ -1924,7 +1924,16 @@ declare enum ProtectedResourceType {
    * @atomicservice
    * @since 11
    */
-  AUDIO_CAPTURE = 'TYPE_AUDIO_CAPTURE'
+  AUDIO_CAPTURE = 'TYPE_AUDIO_CAPTURE',
+
+  /**
+   * The sensor resource, such as accelerometer.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  SENSOR = 'TYPE_SENSOR'
 }
 
 /**

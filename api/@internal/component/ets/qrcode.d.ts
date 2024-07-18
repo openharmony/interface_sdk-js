@@ -30,8 +30,8 @@
  *
  * @interface QRCodeInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Provides an interface for generating QR codes.
@@ -39,8 +39,8 @@
  * @interface QRCodeInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Provides an interface for generating QR codes.
@@ -48,9 +48,9 @@
  * @interface QRCodeInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 interface QRCodeInterface {
   /**
@@ -67,8 +67,8 @@ interface QRCodeInterface {
    * @param { string } value
    * @returns { QRCodeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when a QR code is set.
@@ -77,8 +77,8 @@ interface QRCodeInterface {
    * @returns { QRCodeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when a QR code is set.
@@ -87,9 +87,9 @@ interface QRCodeInterface {
    * @returns { QRCodeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   (value: string): QRCodeAttribute;
 }
@@ -106,8 +106,8 @@ interface QRCodeInterface {
  *
  * @extends CommonMethod<QRCodeAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines the qrcode attribute functions.
@@ -115,8 +115,8 @@ interface QRCodeInterface {
  * @extends CommonMethod<QRCodeAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines the qrcode attribute functions.
@@ -124,9 +124,9 @@ interface QRCodeInterface {
  * @extends CommonMethod<QRCodeAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
   /**
@@ -143,8 +143,8 @@ declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
    * @param { ResourceColor } value
    * @returns { QRCodeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when the QR code color is set.
@@ -153,8 +153,8 @@ declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
    * @returns { QRCodeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when the QR code color is set.
@@ -163,9 +163,9 @@ declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
    * @returns { QRCodeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   color(value: ResourceColor): QRCodeAttribute;
 
@@ -183,8 +183,8 @@ declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
    * @param { ResourceColor } value
    * @returns { QRCodeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when setting the QR code background color.
@@ -193,8 +193,8 @@ declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
    * @returns { QRCodeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when setting the QR code background color.
@@ -203,9 +203,9 @@ declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
    * @returns { QRCodeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   backgroundColor(value: ResourceColor): QRCodeAttribute;
 
@@ -239,25 +239,25 @@ declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
  * Defines QRCode Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines QRCode Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines QRCode Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const QRCode: QRCodeInterface;
 
@@ -271,24 +271,24 @@ declare const QRCode: QRCodeInterface;
  * Defines QRCode Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines QRCode Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines QRCode Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const QRCodeInstance: QRCodeAttribute;

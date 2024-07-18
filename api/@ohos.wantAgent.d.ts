@@ -442,6 +442,7 @@ declare namespace wantAgent {
 /**
  * WantAgent object.
  *
+ * @typedef { object }
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 7
  */

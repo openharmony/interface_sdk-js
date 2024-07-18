@@ -8,7 +8,7 @@
     "newApiName": "str",
     "oldDtsName": "ut_property_type_change.d.ts",
     "newDtsName": "ut_property_type_change.d.ts",
-    "diffType": 49,
+    "diffType": 52,
     "diffMessage": "属性类型发生改变",
     "changeLogUrl": "",
     "changeLogs": [],
@@ -31,9 +31,12 @@
       "line": 21,
       "character": 3
     },
-    "oldDescription": "string",
+    "oldDescription": "tring",
     "newDescription": "number",
     "oldSyscapField": "",
-    "newSyscapField": ""
+    "newSyscapField": "",
+    "oldKitInfo": "",
+    "newKitInfo": "",
+    "isSystemapi": false
   }
 ]

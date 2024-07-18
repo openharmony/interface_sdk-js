@@ -235,6 +235,7 @@ declare enum SlideEffect {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   START = 5,
@@ -244,6 +245,7 @@ declare enum SlideEffect {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   END = 6,
@@ -507,9 +509,9 @@ declare interface PageTransitionOptions {
   curve?: Curve | string | ICurve;
   /**
    * PageTransition animation delay time, in ms.
+   * @type { ?number }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @type { ?number }
    * @since 7
    */
   /**

@@ -74,7 +74,7 @@ declare namespace calendarManager {
   export interface CalendarManager {
     /**
      * Create calendar instance.
-     * @permission ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR
+     * @permission ohos.permission.WRITE_CALENDAR
      * @param { CalendarAccount } calendarAccount - calendar account to create calendar
      * @returns { Promise<Calendar> } the promise with calendar corresponding to account
      * @throws { BusinessError } 201 - Permission denied.
@@ -88,7 +88,7 @@ declare namespace calendarManager {
     /**
      * Create calendar instance.
      *
-     * @permission ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR
+     * @permission ohos.permission.WRITE_CALENDAR
      * @param { CalendarAccount } calendarAccount - calendar account to create calendar
      * @param { AsyncCallback<Calendar> } callback - the callback of createCalendar
      * @throws { BusinessError } 201 - Permission denied.
@@ -102,7 +102,7 @@ declare namespace calendarManager {
     /**
      * Delete calendar instance.
      *
-     * @permission ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR
+     * @permission ohos.permission.WRITE_CALENDAR
      * @param { Calendar } calendar - calendar to be deleted
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
@@ -116,7 +116,7 @@ declare namespace calendarManager {
     /**
      * Delete calendar instance.
      *
-     * @permission ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR
+     * @permission ohos.permission.WRITE_CALENDAR
      * @param { Calendar } calendar - calendar to be deleted
      * @param { AsyncCallback<void> } callback - the callback of deleteCalendar
      * @throws { BusinessError } 201 - Permission denied.
@@ -130,7 +130,7 @@ declare namespace calendarManager {
     /**
      * Get calendar instance from database.
      *
-     * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
+     * @permission ohos.permission.READ_CALENDAR
      * @param { CalendarAccount } calendarAccount - specify calendar account to retrieve
      * @returns { Promise<Calendar> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
@@ -142,7 +142,7 @@ declare namespace calendarManager {
     /**
      * Get calendar instance from database.
      *
-     * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
+     * @permission ohos.permission.READ_CALENDAR
      * @param { CalendarAccount } calendarAccount - specify calendar account to retrieve
      * @returns { Promise<Calendar> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
@@ -157,7 +157,7 @@ declare namespace calendarManager {
     /**
      * Get calendar instance from database by specified account.
      *
-     * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
+     * @permission ohos.permission.READ_CALENDAR
      * @param { CalendarAccount } calendarAccount - specify calendar account to retrieve
      * @param { AsyncCallback<Calendar> } callback - the callback of getCalendar
      * @throws { BusinessError } 201 - Permission denied.
@@ -169,7 +169,7 @@ declare namespace calendarManager {
     /**
      * Get calendar instance from database by specified account.
      *
-     * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
+     * @permission ohos.permission.READ_CALENDAR
      * @param { CalendarAccount } calendarAccount - specify calendar account to retrieve
      * @param { AsyncCallback<Calendar> } callback - the callback of getCalendar
      * @throws { BusinessError } 201 - Permission denied.
@@ -184,7 +184,7 @@ declare namespace calendarManager {
     /**
      * Get default calendar instance from database.
      *
-     * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
+     * @permission ohos.permission.READ_CALENDAR
      * @param { AsyncCallback<Calendar> } callback - the callback of getCalendar with default calendar instance
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -195,7 +195,7 @@ declare namespace calendarManager {
     /**
      * Get default calendar instance from database.
      *
-     * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
+     * @permission ohos.permission.READ_CALENDAR
      * @param { AsyncCallback<Calendar> } callback - the callback of getCalendar with default calendar instance
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -209,7 +209,7 @@ declare namespace calendarManager {
     /**
      * Get all calendar instance.
      *
-     * @permission ohos.permission.READ_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR
+     * @permission ohos.permission.READ_CALENDAR
      * @returns { Promise<Calendar[]> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
@@ -222,7 +222,7 @@ declare namespace calendarManager {
     /**
      * Get all calendar instance.
      *
-     * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
+     * @permission ohos.permission.READ_CALENDAR
      * @param {AsyncCallback<Calendar[]>} callback - the callback of getAllCalendars
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.

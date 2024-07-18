@@ -27,6 +27,7 @@
  * @extends TextTimerAttribute
  * @implements AttributeModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class TextTimerModifier extends TextTimerAttribute implements AttributeModifier<TextTimerAttribute> {
@@ -37,6 +38,7 @@ export declare class TextTimerModifier extends TextTimerAttribute implements Att
    * @param { TextTimerAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: TextTimerAttribute): void;

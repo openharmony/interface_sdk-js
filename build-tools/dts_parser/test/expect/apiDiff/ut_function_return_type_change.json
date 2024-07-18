@@ -8,7 +8,7 @@
     "newApiName": "func",
     "oldDtsName": "ut_function_return_type_change.d.ts",
     "newDtsName": "ut_function_return_type_change.d.ts",
-    "diffType": 34,
+    "diffType": 35,
     "diffMessage": "函数返回值类型改变",
     "changeLogUrl": "",
     "changeLogs": [],
@@ -34,6 +34,9 @@
     "oldDescription": "string",
     "newDescription": "number",
     "oldSyscapField": "",
-    "newSyscapField": ""
+    "newSyscapField": "",
+    "oldKitInfo": "",
+    "newKitInfo": "",
+    "isSystemapi": false
   }
 ]

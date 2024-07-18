@@ -2723,7 +2723,7 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
      * @since 12
      */
-    STATE_ON,
+    STATE_ON = 2,
   }
 
   /**
