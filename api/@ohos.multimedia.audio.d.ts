@@ -3773,6 +3773,7 @@ declare namespace audio {
 
     /**
      * Gets supported audio effect properties based on current devices.
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @returns { Array<AudioEffectProperty> } Array of supported audio effect properties.
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 6800104 - Operation not allowed.
@@ -3785,6 +3786,7 @@ declare namespace audio {
 
     /**
      * Sets current audio effect properties.
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @param { Array<AudioEffectProperty> } propertyArray - array of audio effect property to be set. 
      * Notice that only one effectProp in each effectClass should be set.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -3805,6 +3807,7 @@ declare namespace audio {
 
     /**
      * Gets current audio effect properties.
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @returns { Array<AudioEffectProperty> } Array of current audio effect properties.
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 6800104 - Operation not allowed.
@@ -3817,6 +3820,7 @@ declare namespace audio {
 
     /**
      * Gets supported audio enhance properties based on current devices.
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @returns { Array<AudioEnhanceProperty> } Array of supported audio enhance properties.
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 6800104 - Operation not allowed.
@@ -3829,6 +3833,7 @@ declare namespace audio {
 
     /**
      * Sets current audio enhance properties.
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @param { Array<AudioEnhanceProperty> } propertyArray - array of audio enhance property to be set. 
      * Notice that only one enhanceProp in each enhanceClass should be set.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -3849,6 +3854,7 @@ declare namespace audio {
 
     /**
      * Gets current audio enhance properties.
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @returns { Array<AudioEnhanceProperty> } Array of current audio enhance properties.
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 6800104 - Operation not allowed.
