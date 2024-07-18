@@ -383,7 +383,7 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the details of unified text
      *
-     * @type { Record<string, string> }
+     * @type { ?Record<string, string> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
@@ -431,7 +431,7 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the abstract of text
      *
-     * @type { string }
+     * @type { ?string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
@@ -479,7 +479,7 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the description of a link
      *
-     * @type { string }
+     * @type { ?string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
@@ -527,7 +527,7 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the plain content of html
      *
-     * @type { string }
+     * @type { ?string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
@@ -560,7 +560,7 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the details of unified File
      *
-     * @type { Record<string, string> }
+     * @type { ?Record<string, string> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
@@ -742,7 +742,7 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the details of system defined data
      *
-     * @type { Record<string, number | string | Uint8Array> }
+     * @type { ?Record<string, number | string | Uint8Array> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
@@ -1093,7 +1093,7 @@ declare namespace unifiedDataChannel {
   /**
    * Describe the optional arguments of data operation
    *
-   * @typedef Options
+   * @typedef { object }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
    * @since 11
