@@ -125,7 +125,7 @@ import {
   HoverModeStatus,
   OnHoverStatusChangeHandler,
 } from '@ohos.arkui.advanced.FoldSplitContainer';
-import { AppStorageV2, PersistenceV2, Type } from '@ohos.arkui.StateManagement';
+import { AppStorageV2, PersistenceV2, Type, UIUtils } from '@ohos.arkui.StateManagement';
 import { IDataSourcePrefetching, IPrefetcher, BasicPrefetcher } from '@ohos.arkui.Prefetcher';
 import uiExtension from '@ohos.arkui.uiExtension';
 import { FullScreenLaunchComponent } from '@ohos.arkui.advanced.FullScreenLaunchComponent';
@@ -187,7 +187,7 @@ export {
   Colors, CustomColors, Theme, ThemeControl, CustomTheme, ChipSymbolGlyphOptions,
   ExtraRegionPosition, ExpandedRegionLayoutOptions, HoverModeRegionLayoutOptions, FoldedRegionLayoutOptions, PresetSplitRatio, FoldSplitContainer,
   HoverModeStatus, OnHoverStatusChangeHandler,
-  AppStorageV2, PersistenceV2, Type, typeNode,
+  AppStorageV2, PersistenceV2, Type, UIUtils, typeNode,
   IDataSourcePrefetching, IPrefetcher, BasicPrefetcher, SwiperDynamicSyncScene, SwiperDynamicSyncSceneType, uiExtension, FullScreenLaunchComponent, MeasureUtils,
   CommonModifier, ColumnModifier, ColumnSplitModifier, RowModifier, RowSplitModifier, SideBarContainerModifier,
   BlankModifier, DividerModifier, GridColModifier, GridRowModifier, NavDestinationModifier, NavigatorModifier,
