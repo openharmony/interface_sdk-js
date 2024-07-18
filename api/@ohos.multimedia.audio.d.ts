@@ -3777,7 +3777,6 @@ declare namespace audio {
      * @returns { Array<AudioEffectProperty> } Array of supported audio effect properties.
      * @throws { BusinessError } 201 - Permission denied. Return by callback.
      * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 6800104 - Operation not allowed.
      * @throws { BusinessError } 6800301 - System error.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @systemapi
@@ -3799,7 +3798,6 @@ declare namespace audio {
      *                                 1. More than one effectProps of the same effectClass in input Array
      *                                 2. input audioEffectProperties are not supported by current device.
      *                                 3. names of effectProp or effectClass are incorrect.
-     * @throws { BusinessError } 6800104 - Operation not allowed.
      * @throws { BusinessError } 6800301 - System error.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @systemapi
@@ -3813,7 +3811,6 @@ declare namespace audio {
      * @returns { Array<AudioEffectProperty> } Array of current audio effect properties.
      * @throws { BusinessError } 201 - Permission denied. Return by callback.
      * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 6800104 - Operation not allowed.
      * @throws { BusinessError } 6800301 - System error.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @systemapi
