@@ -288,4 +288,14 @@ export class BuilderNode<Args extends Object[]> {
    * @since 12
    */
   recycle(): void;
+
+  /**
+   * Notify BuilderNode to update the configuration to trigger a reload of the BuilderNode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+   updateConfiguration(): void;
 }
