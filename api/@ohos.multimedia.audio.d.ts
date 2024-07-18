@@ -3836,7 +3836,7 @@ declare namespace audio {
 
     /**
      * Sets current audio enhance properties.
-     * @permission ohos.permission.c
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @param { Array<AudioEnhanceProperty> } propertyArray - array of audio enhance property to be set. 
      * Notice that only one enhanceProp in each enhanceClass should be set.
      * @throws { BusinessError } 201 - Permission denied. Return by callback.
