@@ -26,6 +26,8 @@ import { ErrorCallback, AsyncCallback, Callback } from './@ohos.base';
  */
 /**
  * @namespace audio
+ * @syscap SystemCapability.Multimedia.Audio
+ * @crossplatform
  * @atomicservice
  * @since 12
  */
@@ -96,6 +98,12 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Volume
    * @since 9
    */
+  /**
+   * Define default volume group id for audio
+   * @syscap SystemCapability.Multimedia.Audio.Volume
+   * @crossplatform
+   * @since 12
+   */
   const DEFAULT_VOLUME_GROUP_ID: number;
 
   /**
@@ -111,6 +119,13 @@ declare namespace audio {
    * @returns { AudioManager } this {@link AudioManager} object.
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @since 7
+   */
+  /**
+   * Obtains an {@link AudioManager} instance.
+   * @returns { AudioManager } this {@link AudioManager} object.
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @crossplatform
+   * @since 12
    */
   function getAudioManager(): AudioManager;
 

@@ -39,6 +39,7 @@ declare type DrawableDescriptor = import ('../api/@ohos.arkui.drawableDescriptor
  * @typedef DrawingColorFilter
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare type DrawingColorFilter = import('../api/@ohos.graphics.drawing').default.ColorFilter;
@@ -172,6 +173,7 @@ declare enum ImageContent {
 /**
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
  */
 declare enum DynamicRangeMode {
@@ -179,6 +181,7 @@ declare enum DynamicRangeMode {
    * Allow image content to use an unrestricted extended range.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   HIGH = 0,
@@ -187,6 +190,7 @@ declare enum DynamicRangeMode {
    * Allow image content to use some extended range.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   CONSTRAINT = 1,
@@ -195,6 +199,7 @@ declare enum DynamicRangeMode {
    * Restrict the image content dynamic range to the standard range.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   STANDARD = 2,
@@ -443,6 +448,7 @@ interface ImageInterface {
    * @param { ImageAIOptions } imageAIOptions
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   (src: PixelMap | ResourceStr | DrawableDescriptor, imageAIOptions: ImageAIOptions): ImageAttribute;
@@ -812,6 +818,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { DynamicRangeMode } value - Indicates the resizable options.
    * @returns { ImageAttribute } Returns the instance of the ImageAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   dynamicRangeMode(value: DynamicRangeMode): ImageAttribute;
@@ -1511,6 +1518,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
+   * @atomicservice
    * @since 12
    */
   privacySensitive(supported: boolean): ImageAttribute;

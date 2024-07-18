@@ -27,6 +27,7 @@
  * @extends StepperItemAttribute
  * @implements AttributeModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class StepperItemModifier extends StepperItemAttribute implements AttributeModifier<StepperItemAttribute> {
@@ -37,6 +38,7 @@ export declare class StepperItemModifier extends StepperItemAttribute implements
    * @param { StepperItemAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: StepperItemAttribute): void;

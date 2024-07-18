@@ -420,6 +420,7 @@ export interface PopupOptions {
    * @type { ?Direction }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
    direction?: Direction;

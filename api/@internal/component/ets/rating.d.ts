@@ -100,6 +100,7 @@ interface RatingInterface {
  * @interface RatingConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface RatingConfiguration extends CommonConfiguration<RatingConfiguration> {
@@ -109,6 +110,7 @@ declare interface RatingConfiguration extends CommonConfiguration<RatingConfigur
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   rating: number;
@@ -119,6 +121,7 @@ declare interface RatingConfiguration extends CommonConfiguration<RatingConfigur
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   indicator: boolean;
@@ -129,6 +132,7 @@ declare interface RatingConfiguration extends CommonConfiguration<RatingConfigur
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   stars: number;
@@ -139,6 +143,7 @@ declare interface RatingConfiguration extends CommonConfiguration<RatingConfigur
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   stepSize: number;
@@ -149,6 +154,7 @@ declare interface RatingConfiguration extends CommonConfiguration<RatingConfigur
    * @type { Callback<number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   triggerChange: Callback<number>;
@@ -356,6 +362,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @returns { RatingAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   contentModifier(modifier: ContentModifier<RatingConfiguration>): RatingAttribute;

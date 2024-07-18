@@ -18,6 +18,8 @@ import {
   ApiType,
   BasicApiInfo,
   ContainerApiInfo,
+  MethodInfo,
+  PropertyInfo,
   containerApiTypes,
   notJsDocApiTypes,
 } from '../../typedef/parser/ApiInfoDefination';
@@ -197,6 +199,15 @@ export class ApiStatisticsHelper {
     } else {
       apiStatisticsInfo.setDefinedText(sameNameDefinedText ? sameNameDefinedText : apiInfo.getDefinedText());
     }
+  
+    let isOptional: boolean = false;
+    if (apiInfo.getApiType() === ApiType.METHOD) {
+      const methodInfo: MethodInfo = apiInfo as MethodInfo;
+      isOptional = !methodInfo.getIsRequired();
+    } else if(apiInfo.getApiType() === ApiType.PROPERTY) {
+      const propertyInfo: PropertyInfo = apiInfo as PropertyInfo;
+      isOptional = !propertyInfo.getIsRequired();
+    }
     apiStatisticsInfo
       .setFilePath(apiInfo.getFilePath())
       .setApiType(apiInfo.getApiType())
@@ -204,7 +215,9 @@ export class ApiStatisticsHelper {
       .setPos(apiInfo.getPos())
       .setHierarchicalRelations(relations.join('/'))
       .setDecorators(apiInfo.getDecorators())
-      .setAbsolutePath(apiInfo.getFileAbsolutePath());
+      .setAbsolutePath(apiInfo.getFileAbsolutePath())
+      .setParentApiType(apiInfo.getParentApiType())
+      .setIsOptional(isOptional);
     if (notJsDocApiTypes.has(apiInfo.getApiType())) {
       return apiStatisticsInfo;
     }

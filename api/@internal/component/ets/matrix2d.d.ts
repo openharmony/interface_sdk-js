@@ -531,6 +531,7 @@ declare class Matrix2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   constructor(unit: LengthMetricsUnit);

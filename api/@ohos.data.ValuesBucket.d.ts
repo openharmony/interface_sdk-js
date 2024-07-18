@@ -25,6 +25,14 @@
  * @stagemodelonly
  * @since 10
  */
+/**
+ * Indicates possible value types
+ *
+ * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+ * @stagemodelonly
+ * @crossplatform
+ * @since 12
+ */
 export type ValueType = number | string | boolean;
 
 /**

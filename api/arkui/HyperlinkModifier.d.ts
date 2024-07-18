@@ -26,6 +26,7 @@
  * @extends HyperlinkAttribute
  * @implements AttributeModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class HyperlinkModifier extends HyperlinkAttribute implements AttributeModifier<HyperlinkAttribute> {
@@ -36,6 +37,7 @@ export declare class HyperlinkModifier extends HyperlinkAttribute implements Att
    * @param { HyperlinkAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: HyperlinkAttribute): void;

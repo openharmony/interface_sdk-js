@@ -402,7 +402,34 @@ declare namespace image {
      * @atomicservice
      * @since 12
      */
-    NV12 = 9
+    NV12 = 9,
+
+    /**
+     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：
+     * R(10bits), G(10bits), B(10bits), A(2bits) and are stored from the higher-order to the lower-order bits.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    RGBA_1010102 = 10,
+
+    /**
+     * Indicates that the storage order is to store Y first and then U V alternately each occupies 10 bits
+     * and are stored from the higher-order to the lower-order bits.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    YCBCR_P010 = 11,
+
+    /**
+     * Indicates that the storage order is to store Y first and then V U alternately each occupies 10 bits
+     * and are stored from the higher-order to the lower-order bits.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    YCRCB_P010 = 12
   }
 
   /**

@@ -33,7 +33,7 @@ interface PermissionStateChangeInfo {
    *
    * @type { object }
    * @syscap SystemCapability.Security.AccessToken
-   * @since 9
+   * @since 12
    */
   get: { [key: string]: string[] };
 }

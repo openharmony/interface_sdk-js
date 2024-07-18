@@ -23,6 +23,7 @@
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare type DrawingCanvas = import('../api/@ohos.graphics.drawing').default.Canvas;
@@ -1070,6 +1071,7 @@ declare class Path2D extends CanvasPath {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   constructor(unit: LengthMetricsUnit);
@@ -1118,6 +1120,7 @@ declare class Path2D extends CanvasPath {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   constructor(path: Path2D, unit: LengthMetricsUnit);
@@ -1166,6 +1169,7 @@ declare class Path2D extends CanvasPath {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   constructor(description: string, unit: LengthMetricsUnit);
@@ -1970,6 +1974,7 @@ declare class ImageBitmap {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   constructor(src: string, unit: LengthMetricsUnit);
@@ -2007,6 +2012,7 @@ declare class ImageBitmap {
    * @param { LengthMetricsUnit } [unit] - the unit mode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   constructor(data: PixelMap, unit: LengthMetricsUnit);
@@ -2205,6 +2211,7 @@ declare class ImageData {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   constructor(width: number, height: number, data?: Uint8ClampedArray, unit?: LengthMetricsUnit);
@@ -4995,6 +5002,7 @@ declare class CanvasRenderer extends CanvasPath {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   saveLayer(): void;
@@ -5004,6 +5012,7 @@ declare class CanvasRenderer extends CanvasPath {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   restoreLayer(): void;
@@ -5013,6 +5022,7 @@ declare class CanvasRenderer extends CanvasPath {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
   reset(): void;
@@ -5181,6 +5191,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @throws { BusinessError } 110001 - Image analysis feature is not supported.
    * @throws { BusinessError } 110002 - Image analysis is currently being executed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   startImageAnalyzer(config: ImageAnalyzerConfig): Promise<void>;
@@ -5188,6 +5199,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
   /**
    * Stop image analyzer.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   stopImageAnalyzer(): void;
@@ -5236,6 +5248,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   constructor(settings?: RenderingContextSettings, unit?: LengthMetricsUnit);
@@ -5414,6 +5427,7 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   constructor(width: number, height: number, settings?: RenderingContextSettings, unit?: LengthMetricsUnit);
@@ -5635,6 +5649,7 @@ declare class OffscreenCanvas {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   constructor(width: number, height: number, unit: LengthMetricsUnit);
@@ -5646,6 +5661,7 @@ declare class OffscreenCanvas {
  * @interface Size
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface Size {
@@ -5655,6 +5671,7 @@ declare interface Size {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   width: number;
@@ -5665,6 +5682,7 @@ declare interface Size {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   height: number;
@@ -5675,6 +5693,7 @@ declare interface Size {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare class DrawingRenderingContext {
@@ -5685,6 +5704,7 @@ declare class DrawingRenderingContext {
    * @returns { Size } The size of the DrawingRenderingContext.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   get size(): Size;
@@ -5695,6 +5715,7 @@ declare class DrawingRenderingContext {
    * @returns { DrawingCanvas } The canvas of the DrawingRenderingContext.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   get canvas(): DrawingCanvas;
@@ -5704,6 +5725,7 @@ declare class DrawingRenderingContext {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   invalidate(): void;
@@ -5715,6 +5737,7 @@ declare class DrawingRenderingContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   constructor(unit?: LengthMetricsUnit);
@@ -5813,6 +5836,7 @@ interface CanvasInterface {
    * @param { ImageAIOptions } imageAIOptions
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   (context: CanvasRenderingContext2D | DrawingRenderingContext, imageAIOptions: ImageAIOptions): CanvasAttribute;
@@ -5899,6 +5923,7 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
    * @param { boolean } enable
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   enableAnalyzer(enable: boolean): CanvasAttribute;

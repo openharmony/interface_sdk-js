@@ -298,6 +298,7 @@ declare interface XComponentOptions {
    *
    * @type { ?ImageAIOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   imageAIOptions?: ImageAIOptions;

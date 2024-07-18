@@ -189,6 +189,7 @@ declare interface GaugeIndicatorOptions {
  * @interface GaugeConfiguration 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface GaugeConfiguration extends CommonConfiguration<GaugeConfiguration> {
@@ -198,6 +199,7 @@ declare interface GaugeConfiguration extends CommonConfiguration<GaugeConfigurat
    * @type { number } data value - the current data value.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   value: number;
@@ -208,6 +210,7 @@ declare interface GaugeConfiguration extends CommonConfiguration<GaugeConfigurat
    * @type { number } segment minimum value - the current segment minimum value.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   min: number;
@@ -218,6 +221,7 @@ declare interface GaugeConfiguration extends CommonConfiguration<GaugeConfigurat
    * @type { number } segment maximum value - the current segment maximum value.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   max: number;
@@ -521,6 +525,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
     privacySensitive(isPrivacySensitiveMode: Optional<boolean>): GaugeAttribute;
@@ -532,6 +537,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @returns { GaugeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   contentModifier(modifier: ContentModifier<GaugeConfiguration>): GaugeAttribute;
