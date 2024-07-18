@@ -808,7 +808,7 @@ declare namespace hidebug {
   /**
    * Set the resource limitation of application.Please note that this function is only valid
    * when the developer options switch of setting is turned on.
-   * 
+   *
    * @param { string } type - resource type. It could be pss_memory、js_heap、fd、or thread.
    * @param { number } value - For different resource type, values could have different meaning:
    *                           1.For pss_memory, it means the baseline PSS memory size for the application,
@@ -829,5 +829,14 @@ declare namespace hidebug {
    * @since 12
    */
   function setAppResourceLimit(type: string, value: number, enableDebugLog: boolean): void;
+
+  /**
+   * Judge if the application is in debugged state, including either in arkui layer or native layer debugged state.
+   *
+   * @returns { boolean } true if the application is debugged.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 13
+   */
+  function isDebugState(): boolean;
 }
 export default hidebug;
