@@ -513,7 +513,7 @@ declare namespace stream {
      * @atomicservice
      * @since 12
      */
-    push(chunk:  Uint8Array | string | null, encoding?: string): boolean;
+    push(chunk: Uint8Array | string | null, encoding?: string): boolean;
     /**
      * Returns boolean indicating whether it is in ObjectMode.
      *
@@ -547,7 +547,7 @@ declare namespace stream {
      * @atomicservice
      * @since 12
      */
-    readonly readableHighWatermark: number
+    readonly readableHighWatermark: number;
     /**
      * This property reflects the current state of the readable stream null/true/false.
      *
