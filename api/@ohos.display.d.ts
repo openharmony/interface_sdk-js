@@ -900,6 +900,7 @@ declare namespace display {
     /**
      * The display ID is used to identify the screen where the crease is located.
      *
+     * @type { number }
      * @readonly
      * @syscap SystemCapability.Window.SessionManager
      * @since 10
@@ -907,6 +908,7 @@ declare namespace display {
     /**
      * The display ID is used to identify the screen where the crease is located.
      *
+     * @type { number }
      * @readonly
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -917,6 +919,7 @@ declare namespace display {
     /**
      * Crease Region.
      *
+     * @type { Array<Rect> }
      * @readonly
      * @syscap SystemCapability.Window.SessionManager
      * @since 10
@@ -924,6 +927,7 @@ declare namespace display {
     /**
      * Crease Region.
      *
+     * @type { Array<Rect> }
      * @readonly
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -951,12 +955,14 @@ declare namespace display {
     /**
      * The X-axis coordinate of the upper left vertex of the rectangle, in pixels.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
     /**
      * The X-axis coordinate of the upper left vertex of the rectangle, in pixels.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -966,12 +972,14 @@ declare namespace display {
     /**
      * The Y-axis coordinate of the upper left vertex of the rectangle, in pixels.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
     /**
      * The Y-axis coordinate of the upper left vertex of the rectangle, in pixels.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -981,12 +989,14 @@ declare namespace display {
     /**
      * Width of the rectangle, in pixels.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
     /**
      * Width of the rectangle, in pixels.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -996,12 +1006,14 @@ declare namespace display {
     /**
      * Height of the rectangle, in pixels.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
     /**
      * Height of the rectangle, in pixels.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -1028,12 +1040,14 @@ declare namespace display {
     /**
      * Indicates the size of left side curved area of the waterfall screen.
      *
+     * @type { Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
     /**
      * Indicates the size of left side curved area of the waterfall screen.
      *
+     * @type { Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -1043,12 +1057,14 @@ declare namespace display {
     /**
      * Indicates the size of right side curved area of the waterfall screen.
      *
+     * @type { Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
     /**
      * Indicates the size of right side curved area of the waterfall screen.
      *
+     * @type { Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -1058,12 +1074,14 @@ declare namespace display {
     /**
      * Indicates the size of top side curved area of the waterfall screen.
      *
+     * @type { Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
     /**
      * Indicates the size of top side curved area of the waterfall screen.
      *
+     * @type { Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -1073,12 +1091,14 @@ declare namespace display {
     /**
      * Indicates the size of bottom side curved area of the waterfall screen.
      *
+     * @type { Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
     /**
      * Indicates the size of bottom side curved area of the waterfall screen.
      *
+     * @type { Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -1105,12 +1125,14 @@ declare namespace display {
     /**
      * Bounding rectangles of the cutout areas of the display.
      *
+     * @type { Array<Rect> }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
     /**
      * Bounding rectangles of the cutout areas of the display.
      *
+     * @type { Array<Rect> }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -1120,12 +1142,14 @@ declare namespace display {
     /**
      * Rectangles of curved parts on each side of a waterfall display.
      *
+     * @type { WaterfallDisplayAreaRects }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
     /**
      * Rectangles of curved parts on each side of a waterfall display.
      *
+     * @type { WaterfallDisplayAreaRects }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -1161,12 +1185,14 @@ declare namespace display {
     /**
      * Display ID.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
      * Display ID.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
@@ -1174,6 +1200,7 @@ declare namespace display {
     /**
      * Display ID.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
@@ -1184,12 +1211,14 @@ declare namespace display {
     /**
      * Display name.
      *
+     * @type { string }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
      * Display name.
      *
+     * @type { string }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -1199,12 +1228,14 @@ declare namespace display {
     /**
      * The display is alive.
      *
+     * @type { boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
      * The display is alive.
      *
+     * @type { boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -1214,12 +1245,14 @@ declare namespace display {
     /**
      * The state of display.
      *
+     * @type { DisplayState }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
      * The state of display.
      *
+     * @type { DisplayState }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -1229,12 +1262,14 @@ declare namespace display {
     /**
      * Refresh rate, in Hz.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
      * Refresh rate, in Hz.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -1244,6 +1279,7 @@ declare namespace display {
     /**
      * Rotation degrees of the display.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
@@ -1254,7 +1290,7 @@ declare namespace display {
      * The value 2 indicates that the screen of the display rotates clockwise by 180°.
      * The value 3 indicates that the screen of the display rotates clockwise by 270°.
      * 
-     *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 11
@@ -1264,12 +1300,14 @@ declare namespace display {
     /**
      * Display width, in pixels.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
      * Display width, in pixels.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
@@ -1277,6 +1315,7 @@ declare namespace display {
     /**
      * Display width, in pixels.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
@@ -1287,12 +1326,14 @@ declare namespace display {
     /**
      * Display height, in pixels.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
      * Display height, in pixels.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
@@ -1300,6 +1341,7 @@ declare namespace display {
     /**
      * Display height, in pixels.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
@@ -1310,12 +1352,14 @@ declare namespace display {
     /**
      * Display resolution.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
      * Display resolution.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 11
@@ -1323,6 +1367,7 @@ declare namespace display {
     /**
      * Display resolution.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
@@ -1333,6 +1378,7 @@ declare namespace display {
     /**
      * Display orientation.
      *
+     * @type { Orientation }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
@@ -1340,6 +1386,7 @@ declare namespace display {
     /**
      * Display orientation.
      *
+     * @type { Orientation }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
@@ -1350,12 +1397,14 @@ declare namespace display {
     /**
      * Display density, in pixels. The value for a low-resolution display is 1.0.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
      * Display density, in pixels. The value for a low-resolution display is 1.0.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
@@ -1366,12 +1415,14 @@ declare namespace display {
     /**
      * Text scale density of the display.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
      * Text scale density of the display.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 11
@@ -1379,6 +1430,7 @@ declare namespace display {
     /**
      * Text scale density of the display.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
@@ -1389,12 +1441,14 @@ declare namespace display {
     /**
      * DPI on the x-axis.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
      * DPI on the x-axis.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -1404,12 +1458,14 @@ declare namespace display {
     /**
      * DPI on the y-axis.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
      * DPI on the y-axis.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
