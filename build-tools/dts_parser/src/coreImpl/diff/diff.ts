@@ -54,7 +54,7 @@ export class DiffHelper {
     const newSDKApiLocations: Map<string, string[]> = DiffHelper.getApiLocations(clonedNewSDKApiMap, isCheck);
     DiffHelper.diffKit(clonedOldSDKApiMap, clonedNewSDKApiMap, diffInfos);
     const oldFilePathSet: Set<string> = new Set(Array.from(clonedOldSDKApiMap.keys()));
-    Array.from(clonedOldSDKApiMap.keys())
+    Array.from(clonedOldSDKApiMap.keys());
     // 先以旧版本为基础进行对比
     for (const key of oldSDKApiLocations.keys()) {
       const apiLocation: string[] = oldSDKApiLocations.get(key) as string[];
@@ -230,7 +230,7 @@ export class DiffHelper {
           DiffProcessorHelper.JsDocDiffHelper.diffJsDocInfo(oldApiInfo, newApiInfo, diffInfos);
           DiffProcessorHelper.ApiDecoratorsDiffHelper.diffDecorator(oldApiInfo, newApiInfo, diffInfos);
           newMethodInfoMap.delete(oldApiInfo.getDefinedText());
-          oldMethodInfoMap.delete(oldApiInfo.getDefinedText())
+          oldMethodInfoMap.delete(oldApiInfo.getDefinedText());
         } 
       });
 

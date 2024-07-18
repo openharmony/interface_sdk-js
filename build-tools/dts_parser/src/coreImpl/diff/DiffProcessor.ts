@@ -1618,7 +1618,9 @@ export namespace DiffProcessorHelper {
    * @returns {*} {string} 字符串拼接后的节点信息
    */
   function stitchMethodParameters(methodParams: ParamInfo[]): string {
-    if (methodParams.length <= 1) return methodParams[0].getDefinedText();
+    if (methodParams.length <= 1) {
+      return methodParams[0].getDefinedText();
+    }
     return methodParams.reduce((preStr: string, curItem: ParamInfo, idx: number) => {
       let curStr: string = curItem.getDefinedText();
       if (idx !== methodParams.length - 1) {

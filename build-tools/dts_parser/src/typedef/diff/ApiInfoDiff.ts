@@ -1006,7 +1006,7 @@ export const isNotApiSet: Set<string> = new Set([
   ApiType.NAMESPACE,
   ApiType.ENUM,
   ApiType.SOURCE_FILE,
-])
+]);
 
 /**
  * 以下API类型中新增必选属性/方法都是非兼容性变更
@@ -1015,4 +1015,4 @@ export const parentApiTypeSet: Set<string> = new Set([
   ApiType.INTERFACE,
   ApiType.STRUCT,
   ApiType.CLASS
-])
+]);
