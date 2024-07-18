@@ -411,7 +411,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    constructor(path: Path);
+    constructor(path?: Path);
 
     /**
      * Sets the start point of a path
