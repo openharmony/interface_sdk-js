@@ -125,7 +125,7 @@ import {
   HoverModeStatus,
   OnHoverStatusChangeHandler,
 } from '@ohos.arkui.advanced.FoldSplitContainer';
-import { AppStorageV2, PersistenceV2, Type, UIUtils} from '@ohos.arkui.StateManagement';
+import { AppStorageV2, PersistenceV2, Type, UIUtils } from '@ohos.arkui.StateManagement';
 import { IDataSourcePrefetching, IPrefetcher, BasicPrefetcher } from '@ohos.arkui.Prefetcher';
 import uiExtension from '@ohos.arkui.uiExtension';
 import { FullScreenLaunchComponent } from '@ohos.arkui.advanced.FullScreenLaunchComponent';
