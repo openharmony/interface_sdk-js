@@ -448,6 +448,7 @@ declare namespace notificationSubscribe {
   /**
    * Describes a bundleOption in a notification.
    *
+   * @typedef { _BundleOption } BundleOption
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -457,6 +458,7 @@ declare namespace notificationSubscribe {
   /**
    * Sets filter criteria of publishers for subscribing to desired notifications.
    *
+   * @typedef { _NotificationSubscribeInfo } NotificationSubscribeInfo
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -467,6 +469,7 @@ declare namespace notificationSubscribe {
    * Provides methods that will be called back when the subscriber receives a new notification or
    * a notification is canceled.
    *
+   * @typedef { _NotificationSubscriber } NotificationSubscriber
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -477,6 +480,7 @@ declare namespace notificationSubscribe {
    * Provides methods that will be called back when the subscriber receives a new notification or
    * a notification is canceled.
    *
+   * @typedef { _SubscribeCallbackData } SubscribeCallbackData
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -486,6 +490,7 @@ declare namespace notificationSubscribe {
   /**
    * Describes the properties of the application that the permission to send notifications has changed.
    *
+   * @typedef { _EnabledNotificationCallbackData } EnabledNotificationCallbackData
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -495,6 +500,7 @@ declare namespace notificationSubscribe {
   /**
    * Describes the badge number of the application has changed.
    *
+   * @typedef { _BadgeNumberCallbackData } BadgeNumberCallbackData
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11

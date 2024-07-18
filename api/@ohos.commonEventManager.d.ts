@@ -2202,6 +2202,7 @@ declare namespace commonEventManager {
   /**
    * Describes the data of the common event
    *
+   * @typedef { _CommonEventData } CommonEventData
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11
@@ -2217,6 +2218,7 @@ declare namespace commonEventManager {
   /**
    * Describes the subscriber of common event
    *
+   * @typedef { _CommonEventSubscriber } CommonEventSubscriber
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11
@@ -2232,6 +2234,7 @@ declare namespace commonEventManager {
   /**
    * Describes the information of the subscriber
    *
+   * @typedef { _CommonEventSubscribeInfo } CommonEventSubscribeInfo
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11
@@ -2254,6 +2257,7 @@ declare namespace commonEventManager {
   /**
    * Describes the information of the subscriber
    *
+   * @typedef { _CommonEventPublishData } CommonEventPublishData
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
    * @atomicservice
