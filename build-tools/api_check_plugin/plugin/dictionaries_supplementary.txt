@@ -1013,6 +1013,7 @@ touchpad
 trackinfo
 tranlisterated
 transcode
+transcoder
 transferable
 transfunc
 transliterated
