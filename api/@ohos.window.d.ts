@@ -2769,7 +2769,7 @@ declare namespace window {
   }
 
   /**
-   * Enum for window maximize persentation
+   * Enum for window maximize presentation
    *
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
