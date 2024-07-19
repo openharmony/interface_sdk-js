@@ -315,6 +315,7 @@ interface Vector3 {
 /**
  * It's a 4x4 matrix, represent by number[].
  *
+ * @typedef { number[] } Matrix4
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
@@ -322,6 +323,7 @@ interface Vector3 {
 /**
  * It's a 4x4 matrix, represent by number[].
  *
+ * @typedef { number[] } Matrix4
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -349,6 +351,7 @@ export type Matrix4 = [
 /**
  * Offset info.
  *
+ * @typedef { Vector2 } Offset
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
@@ -356,6 +359,7 @@ export type Matrix4 = [
 /**
  * Offset info.
  *
+ * @typedef { Vector2 } Offset
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -366,6 +370,7 @@ export type Offset = Vector2;
 /**
  * Position info.
  *
+ * @typedef { Vector2 } Position
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
@@ -373,6 +378,7 @@ export type Offset = Vector2;
 /**
  * Position info.
  *
+ * @typedef { Vector2 } Position
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -393,6 +399,7 @@ export type PositionT<T> = Vector2T<T>;
 /**
  * Pivot info.
  *
+ * @typedef { Vector2 } Pivot
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
@@ -400,6 +407,7 @@ export type PositionT<T> = Vector2T<T>;
 /**
  * Pivot info.
  *
+ * @typedef { Vector2 } Pivot
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -410,6 +418,7 @@ export type Pivot = Vector2;
 /**
  * Scale info.
  *
+ * @typedef { Vector2 } Scale
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
@@ -417,6 +426,7 @@ export type Pivot = Vector2;
 /**
  * Scale info.
  *
+ * @typedef { Vector2 } Scale
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -427,6 +437,7 @@ export type Scale = Vector2;
 /**
  * Translation info.
  *
+ * @typedef { Vector2 } Translation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
@@ -434,6 +445,7 @@ export type Scale = Vector2;
 /**
  * Translation info.
  *
+ * @typedef { Vector2 } Translation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -444,6 +456,7 @@ export type Translation = Vector2;
 /**
  * Rotation info.
  *
+ * @typedef { Vector3 } Rotation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
@@ -451,6 +464,7 @@ export type Translation = Vector2;
 /**
  * Rotation info.
  *
+ * @typedef { Vector3 } Rotation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -1042,6 +1056,7 @@ interface Corners<T> {
 /**
  * Defines the Corner radius.
  *
+ * @typedef { Corners<Vector2> } CornerRadius
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -1052,6 +1067,7 @@ export type CornerRadius = Corners<Vector2>;
 /**
  * BorderRadiuses info.
  *
+ * @typedef { Corners<number> } BorderRadiuses
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -1062,6 +1078,7 @@ export type BorderRadiuses = Corners<number>;
 /**
  * Rect info.
  *
+ * @typedef { common2D.Rect } Rect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice

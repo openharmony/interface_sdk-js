@@ -1315,6 +1315,7 @@ declare const Reusable: ClassDecorator;
 /**
  * Get context.
  *
+ * @typedef { import('../api/application/Context').default } Context
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @StageModelOnly
  * @since 9
@@ -1322,6 +1323,7 @@ declare const Reusable: ClassDecorator;
 /**
  * Get context.
  *
+ * @typedef { import('../api/application/Context').default } Context
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @StageModelOnly
  * @crossplatform
@@ -1330,6 +1332,7 @@ declare const Reusable: ClassDecorator;
 /**
  * Get context.
  *
+ * @typedef { import('../api/application/Context').default } Context
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @StageModelOnly
  * @crossplatform
@@ -3986,6 +3989,7 @@ declare enum TransitionEdge {
 /**
  * Defines all transition effects.
  *
+ * @typedef { object } TransitionEffects
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -3994,6 +3998,7 @@ declare enum TransitionEdge {
 /**
  * Defines all transition effects.
  *
+ * @typedef { object } TransitionEffects
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -9111,6 +9116,7 @@ declare interface TouchEvent extends BaseEvent {
  * The value of oldValue is last size of the component.
  * The value of newValue is new size of the component.
  *
+ * @typedef { function } SizeChangeCallback
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -13063,6 +13069,7 @@ declare enum MenuPreviewMode {
 /**
  * Defines the animator range of start and end property.
  *
+ * @typedef { [from: T, to: T] } AnimationRange<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
@@ -13070,6 +13077,7 @@ declare enum MenuPreviewMode {
 /**
  * Defines the animator range of start and end property.
  *
+ * @typedef { [from: T, to: T] } AnimationRange<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -13882,6 +13890,7 @@ declare interface PixelStretchEffectOptions {
    * right property. value range (-∞, ∞)
    * If value > 0, expand outward elements. Else first shrink by value and then expand outward pixels.
    *
+   * @type { ?Length }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -13891,6 +13900,7 @@ declare interface PixelStretchEffectOptions {
    * right property. value range (-∞, ∞)
    * If value > 0, expand outward elements. Else first shrink by value and then expand outward pixels.
    *
+   * @type { ?Length }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -14697,6 +14707,7 @@ declare interface InvertOptions {
 /**
  * Import the CircleShape type object for common method.
  * 
+ * @typedef { import('../api/@ohos.arkui.shape').CircleShape } CircleShape
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -14708,6 +14719,7 @@ declare type CircleShape = import('../api/@ohos.arkui.shape').CircleShape;
 /**
  * Import the EllipseShape type object for common method.
  * 
+ * @typedef { import('../api/@ohos.arkui.shape').EllipseShape } EllipseShape
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -14719,6 +14731,7 @@ declare type EllipseShape = import('../api/@ohos.arkui.shape').EllipseShape;
 /**
  * Import the PathShape type object for common method.
  * 
+ * @typedef { import('../api/@ohos.arkui.shape').PathShape } PathShape
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -14730,6 +14743,7 @@ declare type PathShape = import('../api/@ohos.arkui.shape').PathShape;
 /**
  * Import the RectShape type object for common method.
  * 
+ * @typedef { import('../api/@ohos.arkui.shape').RectShape } RectShape
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -20230,12 +20244,14 @@ declare const Common: CommonInterface;
 /**
  * Defines the CustomBuilder Type.
  *
+ * @typedef { (() => any) | void } CustomBuilder
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines the CustomBuilder Type.
  *
+ * @typedef { (() => any) | void } CustomBuilder
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @since 9
@@ -20243,6 +20259,7 @@ declare const Common: CommonInterface;
 /**
  * Defines the CustomBuilder Type.
  *
+ * @typedef { (() => any) | void } CustomBuilder
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -20251,6 +20268,7 @@ declare const Common: CommonInterface;
 /**
  * Defines the CustomBuilder Type.
  *
+ * @typedef { (() => any) | void } CustomBuilder
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -20433,6 +20451,7 @@ declare interface OverlayOffset {
  * The second element means the stop position.
  * The range of this value is [0,1]. A value of 1 means region ending position and 0 means region starting position.
  *
+ * @typedef { [ number, number ] } FractionStop
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
@@ -21573,7 +21592,7 @@ declare interface Measurable {
   /**
    * Call this measure method in onMeasure callback to supply sub component size.
    *
-   * @param { ConstraintSizeOptions } childConstraint
+   * @param { ConstraintSizeOptions } constraint
    * @returns { MeasureResult }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -21582,7 +21601,7 @@ declare interface Measurable {
   /**
    * Call this measure method in onMeasure callback to supply sub component size.
    *
-   * @param { ConstraintSizeOptions } childConstraint
+   * @param { ConstraintSizeOptions } constraint
    * @returns { MeasureResult }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -21763,6 +21782,7 @@ declare type UIContext = import('../api/@ohos.arkui.UIContext').UIContext;
 /**
  * DrawContext
  *
+ * @typedef { import('../api/arkui/Graphics').DrawContext } DrawContext
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice

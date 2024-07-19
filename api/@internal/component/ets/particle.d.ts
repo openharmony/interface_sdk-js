@@ -608,12 +608,16 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
 interface ParticlePropertyUpdaterConfigs<T> {
   /**
    * No effect of particle updater.
+   *
+   * @type { void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
    * No effect of particle updater.
+   *
+   * @type { void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -730,12 +734,16 @@ interface ParticlePropertyOptions<TYPE, UPDATER extends ParticleUpdater> {
 interface ParticleColorPropertyUpdaterConfigs {
   /**
    * No effect of particle color property updater.
+   *
+   * @type { void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
    * No effect of particle color property updater.
+   *
+   * @type { void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
