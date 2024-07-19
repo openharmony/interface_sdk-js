@@ -139,6 +139,26 @@ declare namespace common2D {
      */
     z: number;
   }
+
+  /**
+   * This class provides functionality for common2D objects.
+   * 
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  class Utils {
+    /**
+     * Sets rect to the union of rect and other.
+     * @param { Rect } rect - Rect object. Will be updated with the result of the join.
+     * @param { Rect } other - Rect object.
+     * @returns { boolean } Returns true if rect and other are not nullptr and other is not empty
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+     static joinRect(rect: Rect, other: Rect): boolean;
+  }
 }
 
 export default common2D;
