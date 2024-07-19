@@ -184,39 +184,39 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      */
     onError(callback: MovingPhotoViewEventCallback): MovingPhotoViewAttribute;
     /**
-     * Called when setting play range.
+     * Called when autoPlay need to set period.
      *
-     * @param { number } start
-     * @param { number } end
+     * @param { number } startTime
+     * @param { number } endTime
      * @returns { MovingPhotoViewAttribute }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
      * @since 12
      */
-    playRange(start: number, end: number): MovingPhotoViewAttribute;
+    autoPlayPeriod(startTime: number, endTime: number): MovingPhotoViewAttribute;
     /**
-     * Called when setting autoplay.
+     * Called when autoplay.
      *
-     * @param { boolean } autoPlayStatus
+     * @param { boolean } isAutoPlay
      * @returns { MovingPhotoViewAttribute }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
      * @since 12
      */
-    autoPlay(autoPlayStatus: boolean): MovingPhotoViewAttribute;
+    autoPlay(isAutoPlay: boolean): MovingPhotoViewAttribute;
     /**
-     * Called when setting loop.
+     * Called when repeatPlay.
      *
-     * @param { boolean } loopPlayStatus
+     * @param { boolean } isRepeatPlay
      * @returns { MovingPhotoViewAttribute }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
      * @since 12
      */
-    loop(loopPlayStatus: boolean): MovingPhotoViewAttribute;
+    repeatPlay(isRepeatPlay: boolean): MovingPhotoViewAttribute;
 }
 /**
  * Defines the MovingPhotoView controller.
