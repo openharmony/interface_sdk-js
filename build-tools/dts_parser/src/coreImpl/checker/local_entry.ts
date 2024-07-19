@@ -88,8 +88,8 @@ export class LocalEntry {
       const regex1 = /Prohibited word in \[.*\]:{option}.The word allowed is \[.*\]\./g;
       const regex2 = /Prohibited word in \[.*\]:{ability} in the \[.*\] file\./g;
       const regex3 = /please confirm whether it needs to be corrected to a common word./g;
-      const regex4 =/tag does not exist. Please use a valid JSDoc tag./g;
-      const regex5 =/The event name should be named by small hump./g;
+      const regex4 = /tag does not exist. Please use a valid JSDoc tag./g;
+      const regex5 = /The event name should be named by small hump./g;
       if (/\d/g.test(resultItemInfo)) {
         resultItemInfo = resultItemInfo.replace(/\d+/g, '1');
       }

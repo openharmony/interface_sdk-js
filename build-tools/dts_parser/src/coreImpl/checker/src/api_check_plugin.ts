@@ -43,9 +43,9 @@ import { EventMethodChecker } from './event_method_check';
 import { EventMethodData } from '../../../typedef/checker/event_method_check_interface';
 import { ApiChangeCheck } from './check_api_diff';
 import { TagInheritCheck } from './tag_inherit_check';
-import { ChineseCheck } from "./check_chinese";
+import { ChineseCheck } from './check_chinese';
 import { AnonymousFunctionCheck } from './check_anonymous_function';
-import { CheckErrorCode } from "./check_error_code";
+import { CheckErrorCode } from './check_error_code';
 
 export let currentFilePath: string = '';
 

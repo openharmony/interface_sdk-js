@@ -199,12 +199,11 @@ export class ApiStatisticsHelper {
     } else {
       apiStatisticsInfo.setDefinedText(sameNameDefinedText ? sameNameDefinedText : apiInfo.getDefinedText());
     }
-  
     let isOptional: boolean = false;
     if (apiInfo.getApiType() === ApiType.METHOD) {
       const methodInfo: MethodInfo = apiInfo as MethodInfo;
       isOptional = !methodInfo.getIsRequired();
-    } else if(apiInfo.getApiType() === ApiType.PROPERTY) {
+    } else if (apiInfo.getApiType() === ApiType.PROPERTY) {
       const propertyInfo: PropertyInfo = apiInfo as PropertyInfo;
       isOptional = !propertyInfo.getIsRequired();
     }

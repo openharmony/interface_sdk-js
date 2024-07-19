@@ -600,12 +600,13 @@ export class TypeAliasInfo extends ApiInfo {
     return this;
   }
 
-  getReturnType() {
+  getReturnType(): string {
     return this.returnType;
   }
 
-  setParamInfos(paramInfo: ParamInfo) {
+  setParamInfos(paramInfo: ParamInfo): TypeAliasInfo {
     this.paramInfos.push(paramInfo);
+    return this;
   }
 
   getParamInfos(): ParamInfo[] {
@@ -979,7 +980,8 @@ export class ParserParam {
             break;
           }
         }
-        const resolvedFileName: string | undefined = ts.resolveModuleName(moduleName, containingFile, compilerOptions, compilerHost).resolvedModule?.resolvedFileName;
+        const resolvedFileName: string | undefined = ts.resolveModuleName(moduleName, containingFile, compilerOptions,
+          compilerHost).resolvedModule?.resolvedFileName;
         if (resolvedFileName) {
           value.resolvedFileName = resolvedFileName;
           value.isExternalLibraryImport = true;
