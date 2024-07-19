@@ -170,7 +170,7 @@ declare namespace huks {
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { number } userId - userId indicates the userId of the owner of the key.
    * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
+   * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to use key as user forbidden by permission: ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
    * @throws { BusinessError } 202 - not system app
@@ -309,7 +309,7 @@ declare namespace huks {
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { number } userId - userId indicates the userId of the owner of the key.
    * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
+   * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to use key as user forbidden by permission: ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
    * @throws { BusinessError } 202 - not system app
@@ -467,7 +467,7 @@ declare namespace huks {
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { number } userId - userId indicates the userId of the owner of the key.
    * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
+   * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to use key as user forbidden by permission: ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
    * @throws { BusinessError } 202 - not system app
@@ -560,7 +560,7 @@ declare namespace huks {
    * @param { number } userId - userId indicates the userId of the owner of the key.
    * @param { string } keyAlias - keyAlias indicates the name of key to be imported.
    * @param { string } wrappingKeyAlias - wrappingKeyAlias indicates the name of key for wrapping the key to be imported.
-   * @param { HuksOptions } options - options indicates the properties of the key.
+   * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to use key as user forbidden by permission: ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
    * @throws { BusinessError } 202 - not system app
@@ -722,7 +722,7 @@ declare namespace huks {
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { number } userId - userId indicates the userId of the owner of the key.
    * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
+   * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key.
    * @returns { Promise<HuksReturnResult> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to use key as user forbidden by permission: ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
    * @throws { BusinessError } 202 - not system app
@@ -880,7 +880,7 @@ declare namespace huks {
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { number } userId - userId indicates the userId of the owner of the key.
    * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
+   * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key.
    * @returns { Promise<HuksReturnResult> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to use key as user forbidden by permission: ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
    * @throws { BusinessError } 202 - not system app
@@ -1057,7 +1057,7 @@ declare namespace huks {
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { number } userId - userId indicates the userId of the owner of the key.
    * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
+   * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key.
    * @returns { Promise<boolean> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to use key as user forbidden by permission: ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
    * @throws { BusinessError } 202 - not system app
@@ -1237,7 +1237,7 @@ declare namespace huks {
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { number } userId - userId indicates the userId of the owner of the key.
    * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
+   * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key.
    * @returns { Promise<HuksSessionHandle> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to use key as user forbidden by permission: ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
    * @throws { BusinessError } 202 - not system app
@@ -1805,7 +1805,7 @@ declare namespace huks {
    * @permission ohos.permission.ATTEST_KEY and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { number } userId - userId indicates the userId of the owner of the key.
    * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key attestation operation.
+   * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key attestation operation.
    * @returns { Promise<HuksReturnResult> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to use key as user forbidden by permission: ohos.permission.ATTEST_KEY or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
    * @throws { BusinessError } 202 - not system app
@@ -1911,7 +1911,7 @@ declare namespace huks {
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { number } userId - userId indicates the userId of the owner of the key.
    * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key attestation operation.
+   * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key attestation operation.
    * @returns { Promise<HuksReturnResult> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to use key as user forbidden by permission: ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
    * @throws { BusinessError } 202 - not system app
@@ -2035,6 +2035,7 @@ declare namespace huks {
      * @since 8
      */
     /**
+     * @type { HuksTag }
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
@@ -2045,6 +2046,7 @@ declare namespace huks {
      * @since 8
      */
     /**
+     * @type { boolean | number | bigint | Uint8Array }
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
@@ -2063,18 +2065,21 @@ declare namespace huks {
    */
   export interface HuksHandle {
     /**
+     * @type { number }
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
      */
     errorCode: number;
     /**
+     * @type { number }
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
      */
     handle: number;
     /**
+     * @type { ?Uint8Array }
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
@@ -2103,6 +2108,7 @@ declare namespace huks {
      * @since 9
      */
     /**
+     * @type { number }
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
@@ -2113,6 +2119,7 @@ declare namespace huks {
      * @since 9
      */
     /**
+     * @type { ?Uint8Array }
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
@@ -2141,6 +2148,7 @@ declare namespace huks {
      * @since 8
      */
     /**
+     * @type { ?Array<HuksParam> }
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
@@ -2151,6 +2159,7 @@ declare namespace huks {
      * @since 8
      */
     /**
+     * @type { ?Uint8Array }
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
@@ -2169,24 +2178,28 @@ declare namespace huks {
    */
   export interface HuksResult {
     /**
+     * @type { number }
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
      */
     errorCode: number;
     /**
+     * @type { ?Uint8Array }
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
      */
     outData?: Uint8Array;
     /**
+     * @type { ?Array<HuksParam> }
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
      */
     properties?: Array<HuksParam>;
     /**
+     * @type { ?Array<string> }
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
@@ -2215,6 +2228,7 @@ declare namespace huks {
      * @since 9
      */
     /**
+     * @type { ?Uint8Array }
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
@@ -2225,6 +2239,7 @@ declare namespace huks {
      * @since 9
      */
     /**
+     * @type { ?Array<HuksParam> }
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
@@ -2235,6 +2250,7 @@ declare namespace huks {
      * @since 9
      */
     /**
+     * @type { ?Array<string> }
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
@@ -4066,7 +4082,33 @@ declare namespace huks {
      */
     HUKS_AUTH_ACCESS_ALWAYS_VALID = 1 << 2
   }
-
+ 
+  /**
+   * Enum for huks user auth mode.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 12
+   */
+  export enum HuksUserAuthMode {
+    /**
+     * Auth mode for local scenarios.
+     * 
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @atomicservice
+     * @since 12
+     */
+    HUKS_USER_AUTH_MODE_LOCAL = 0,
+    /**
+     * Auth mode for co-auth scenarios.
+     * 
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @atomicservice
+     * @since 12
+     */
+    HUKS_USER_AUTH_MODE_COAUTH = 1,
+  }
   /**
    * Enum for huks key file storage authentication level.
    *
@@ -4863,6 +4905,14 @@ declare namespace huks {
      * @since 12
      */
     HUKS_TAG_AUTH_STORAGE_LEVEL = HuksTagType.HUKS_TAG_TYPE_UINT | 316,
+
+    /**
+     * Authentication mode of the user authtoken, whose optional values are from enum HuksUserAuthMode.
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @atomicservice
+     * @since 12
+     */
+    HUKS_TAG_USER_AUTH_MODE = HuksTagType.HUKS_TAG_TYPE_UINT | 319,
 
     /* Attestation related TAG: 501 - 600 */
     /**

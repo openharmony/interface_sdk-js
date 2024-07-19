@@ -113,6 +113,7 @@ declare namespace ability {
    * StartAbilityParameter secondary module.Define the Start Ability parameter, which can be used as
    * an input parameter to call [startAbility] to start the specified Ability.
    *
+   * @typedef { _StartAbilityParameter }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 9

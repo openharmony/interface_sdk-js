@@ -161,13 +161,13 @@ type OnRenderProcessRespondingCallback = () => void;
 type OnViewportFitChangedCallback = (viewportFit: ViewportFit) => void;
 
 /**
-* The callback of ads block
-*
-* @typedef OnAdsBlockedCallback
-* @syscap SystemCapability.Web.Webview.Core
-* @atomicservice
-* @since 12
-*/
+ * The callback of ads block
+ *
+ * @typedef {function} OnAdsBlockedCallback
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
 type OnAdsBlockedCallback = (details: AdsBlockedDetails) => void;
 
 /**
@@ -1924,7 +1924,16 @@ declare enum ProtectedResourceType {
    * @atomicservice
    * @since 11
    */
-  AUDIO_CAPTURE = 'TYPE_AUDIO_CAPTURE'
+  AUDIO_CAPTURE = 'TYPE_AUDIO_CAPTURE',
+
+  /**
+   * The sensor resource, such as accelerometer.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  SENSOR = 'TYPE_SENSOR'
 }
 
 /**
@@ -2459,6 +2468,24 @@ declare enum NativeEmbedStatus {
    * @since 11
    */
   DESTROY = 2,
+
+  /**
+   * The embed tag enter backforwardcache.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  ENTER_BFCACHE = 3,
+
+  /**
+   * The embed tag leave backforwardcache.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  LEAVE_BFCACHE = 4,
 }
 
 /**
@@ -5972,6 +5999,53 @@ declare interface JavaScriptProxy {
    * @since 12
    */
   asyncMethodList?: Array<string>;
+  /**
+   * permission configuration defining web page URLs that can access JavaScriptProxy methods.
+   * The configuration can be defined at two levels, object level and method level.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  permission?: string;
+}
+
+/**
+ * Enum type supplied to {@link keyboardAvoidMode} for setting the web keyboard avoid mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+declare enum WebKeyboardAvoidMode {
+  /**
+   * Resize the visual viewport when keyboard avoidance occurs.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  RESIZE_VISUAL = 0,
+
+  /**
+   * Resize the visual and layout viewport when keyboard avoidance occurs.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  RESIZE_CONTENT = 1,
+
+  /**
+   * Do not resize any viewport when keyboard avoidance occurs.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  OVERLAYS_CONTENT = 2,
 }
 
 /**
@@ -8344,17 +8418,28 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onInterceptKeyboardAttach(callback: WebKeyboardCallback): WebAttribute;
 
   /**
-  * Called when received Ads blocked results.
-  * If blocked results exist at end of page loading, the first call will be triggered.
-  * To avoid performance issues, subsequent results will be periodically reported through this api.
-  *
-  * @param { OnAdsBlockedCallback } callback - The callback for OnAdsBlockedCallback.
-  * @returns { WebAttribute }
-  * @syscap SystemCapability.Web.Webview.Core
-  * @atomicservice
-  * @since 12
-  */
+   * Called when received Ads blocked results.
+   * If blocked results exist at the end of page loading, the first call will be triggered.
+   * To avoid performance issues, subsequent results will be periodically reported through this api.
+   *
+   * @param { OnAdsBlockedCallback } callback - The callback for OnAdsBlockedCallback.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
   onAdsBlocked(callback: OnAdsBlockedCallback): WebAttribute;
+
+  /**
+   * Set web avoidance keyboard mode. The default value is WebKeyboardAvoidMode.RESIZE_CONTENT.
+   *
+   * @param { WebKeyboardAvoidMode } mode - The web keyboard avoid mode, which can be {@link WebKeyboardAvoidMode}.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  keyboardAvoidMode(mode: WebKeyboardAvoidMode): WebAttribute;
 }
 
 /**

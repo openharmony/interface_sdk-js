@@ -74,6 +74,7 @@ export class ComponentContent<T extends Object> extends Content{
    * @param { Object } [param] - Parameters for reusing ComponentContent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   reuse(param?: Object): void;
@@ -83,7 +84,18 @@ export class ComponentContent<T extends Object> extends Content{
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   recycle(): void;
+
+  /**
+   * Dispose the ComponentContent immediately.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  dispose(): void;
 }

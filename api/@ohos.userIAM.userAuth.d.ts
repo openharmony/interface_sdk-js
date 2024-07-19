@@ -150,6 +150,7 @@ declare namespace userAuth {
   /**
    * Auth types
    *
+   * @typedef { 'ALL' | 'FACE_ONLY' }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @since 6
    * @deprecated since 8
@@ -159,6 +160,7 @@ declare namespace userAuth {
   /**
    * Secure levels
    *
+   * @typedef { 'S1' | 'S2' | 'S3' | 'S4' }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @since 6
    * @deprecated since 8
@@ -310,6 +312,7 @@ declare namespace userAuth {
      * If the authentication fails, the remaining authentication times are returned in extraInfo,
      * If the authentication executor is locked, the freezing time is returned in extraInfo.
      *
+     * @type { function } 
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
      * @deprecated since 9
@@ -320,6 +323,7 @@ declare namespace userAuth {
     /**
      * During an authentication, the TipsCode is returned through the callback.
      *
+     * @type { ?function }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
      * @deprecated since 9
@@ -729,6 +733,7 @@ declare namespace userAuth {
   /**
    * Authentication events.
    *
+   * @typedef { 'result' | 'tip' }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @since 9
    * @deprecated since 11
@@ -738,6 +743,7 @@ declare namespace userAuth {
   /**
    * Return information of Authentication events.
    *
+   * @typedef { AuthResultInfo | TipInfo }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @since 9
    * @deprecated since 11
@@ -883,6 +889,7 @@ declare namespace userAuth {
      * Start this authentication, an instance can only perform authentication once.
      *
      * @permission ohos.permission.ACCESS_BIOMETRIC
+     * @type { function }
      * @throws { BusinessError } 201 - Permission verification failed.
      * @throws { BusinessError } 401 - Incorrect parameters.
      * @throws { BusinessError } 12500001 - Authentication failed.
@@ -904,6 +911,7 @@ declare namespace userAuth {
      * Cancel this authentication.
      *
      * @permission ohos.permission.ACCESS_BIOMETRIC
+     * @type { function }
      * @throws { BusinessError } 201 - Permission verification failed.
      * @throws { BusinessError } 401 - Incorrect parameters.
      * @throws { BusinessError } 12500002 - General operation error.

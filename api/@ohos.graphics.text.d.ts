@@ -640,6 +640,29 @@ declare namespace text {
   }
 
   /**
+   * Describes font variation of text.
+   * @typedef FontVariation
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  interface FontVariation {
+    /**
+     * The axis of font variation.
+     * @type { string } variation axis
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    axis: string;
+    /**
+     * The value of font variation.
+     * @type { number } variation value
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    value: number;
+  }
+
+  /**
    * Describes text style.
    * @typedef TextStyle
    * @syscap SystemCapability.Graphics.Drawing
@@ -799,6 +822,14 @@ declare namespace text {
      * @since 12
      */
     backgroundRect?: RectStyle;
+
+    /**
+     * Text Style available font variations.
+     * @type { ?Array<FontVariation> } A collection of font variations.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    fontVariations?: Array<FontVariation>;
   }
 
   /**
@@ -823,6 +854,13 @@ declare namespace text {
      * @since 12
      */
     loadFontSync(name: string, path: string | Resource): void;
+
+    /**
+     * Clear font caches.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+     clearCaches(): void;
   }
 
   /**
@@ -913,7 +951,7 @@ declare namespace text {
     heightOverride?: boolean;
 
     /**
-     * Whether the halfleading is enable.
+     * Whether the half leading is enable.
      * @type { ?boolean } it is boolean type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -1143,6 +1181,17 @@ declare namespace text {
      * @since 12
      */
     paint(canvas: drawing.Canvas, x: number, y: number): void;
+
+    /**
+     * Draw the laid out text onto the supplied canvas along the path and offset.
+     * @param { drawing.Canvas } canvas - Canvas used to carry the drawn content and drawing status.
+     * @param { drawing.Path } path - Path used to determine the position of the text.
+     * @param { number } hOffset - Horizontal offset along the path.
+     * @param { number } vOffset - Vertical offset along the path.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    paintOnPath(canvas: drawing.Canvas, path: drawing.Path, hOffset: number, vOffset: number): void;
 
     /**
      * Get max width of horizontal space this paragraph occupied.

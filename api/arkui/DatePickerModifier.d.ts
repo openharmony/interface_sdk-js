@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-/// <reference path="../../component/common.d.ts" />
-/// <reference path="../../component/date_picker.d.ts" />
+
+
 
 /**
  * Defines DatePicker Modifier
@@ -27,6 +27,7 @@
  * @extends DatePickerAttribute
  * @implements AttributeModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class DatePickerModifier extends DatePickerAttribute implements AttributeModifier<DatePickerAttribute> {
@@ -37,6 +38,7 @@ export declare class DatePickerModifier extends DatePickerAttribute implements A
    * @param { DatePickerAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: DatePickerAttribute): void;

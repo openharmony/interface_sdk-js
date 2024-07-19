@@ -46,8 +46,8 @@ declare namespace uiObserver {
    * @enum { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * NavDestination state.
@@ -55,9 +55,9 @@ declare namespace uiObserver {
    * @enum { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   export enum NavDestinationState {
     /**
@@ -65,17 +65,17 @@ declare namespace uiObserver {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @since 11
      * @form
+     * @since 11
      */
     /**
      * When the NavDestination is displayed.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @form
      * @atomicservice
      * @since 12
-     * @form
      */
     ON_SHOWN = 0,
 
@@ -84,17 +84,17 @@ declare namespace uiObserver {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @since 11
      * @form
+     * @since 11
      */
     /**
      * When the NavDestination is hidden.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @form
      * @atomicservice
      * @since 12
-     * @form
      */
     ON_HIDDEN = 1,
 
@@ -103,9 +103,9 @@ declare namespace uiObserver {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @form
      * @atomicservice
      * @since 12
-     * @form
      */
     ON_APPEAR = 2,
 
@@ -114,9 +114,9 @@ declare namespace uiObserver {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @form
      * @atomicservice
      * @since 12
-     * @form
      */
     ON_DISAPPEAR = 3,
 
@@ -169,9 +169,9 @@ declare namespace uiObserver {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @form
      * @atomicservice
      * @since 12
-     * @form
      */
     ON_BACKPRESS = 100
   }
@@ -310,6 +310,37 @@ declare namespace uiObserver {
        */
       SCROLL_STOP = 1
     }
+
+  /**
+   * TabContent state.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  export enum TabContentState {
+    /**
+     * When the TabContent hidden.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    ON_SHOW = 0,
+
+    /**
+     * When the TabContent hidden.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    ON_HIDE = 1
+  }
 
   /**
    * NavDestination info.
@@ -506,6 +537,83 @@ declare namespace uiObserver {
      * @since 12
      */
     offset: number
+  }
+
+  /**
+   * TabContent info.
+   *
+   * @typedef TabContentInfo
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  export interface TabContentInfo {
+    /**
+     * TabContent id.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    tabContentId: string,
+
+    /**
+     * TabContent uniqueId.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    tabContentUniqueId: number,
+
+    /**
+     * The state of TabContent.
+     *
+     * @type { TabContentState }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    state: TabContentState,
+
+    /**
+     * The index of TabContent in Tabs.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    index: number,
+
+    /**
+     * Tabs id.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    id: string,
+
+    /**
+     * Tabs uniqueId.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    uniqueId: number
   }
 
     /**
@@ -959,7 +1067,7 @@ declare namespace uiObserver {
    *
    * @param { 'densityUpdate' } type - The type of event to listen for. Must be 'densityUpdate'.
    * @param { UIContext } context - The context scope of the observer.
-   * @param { Callback<DensityInfo> } callback - The callback function to be called when the router page is updated.
+   * @param { Callback<DensityInfo> } callback - The callback function to be called when the screen density is updated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1034,6 +1142,58 @@ declare namespace uiObserver {
    * @since 12
    */
   export function off(type: 'didLayout', context: UIContext, callback?: Callback<void>): void;
+
+  /**
+   * Registers a callback function to be called when the tabContent is showed or hidden.
+   *
+   * @param { 'tabContentUpdate' } type - The type of event to listen for. Must be 'tabContentUpdate'.
+   * @param { ObserverOptions } options - The options object.
+   * @param { Callback<TabContentInfo> } callback - The callback function to be called when when the tabContent is showed or hidden.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  export function on(type: 'tabContentUpdate', options: ObserverOptions, callback: Callback<TabContentInfo>): void;
+
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'tabContentUpdate' } type - The type of event to remove the listener for. Must be 'tabContentUpdate'.
+   * @param { ObserverOptions } options - The options object.
+   * @param { Callback<TabContentInfo> } callback - The callback function to remove. If not provided, all callbacks for the given event type and
+   *                                                    Tabs ID will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  export function off(type: 'tabContentUpdate', options: ObserverOptions, callback?: Callback<TabContentInfo>): void;
+
+  /**
+   * Registers a callback function to be called when the tabContent is showed or hidden.
+   *
+   * @param { 'tabContentUpdate' } type - The type of event to listen for. Must be 'tabContentUpdate'.
+   * @param { Callback<TabContentInfo> } callback - The callback function to be called when the tabContent is showed or hidden.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  export function on(type: 'tabContentUpdate', callback: Callback<TabContentInfo>): void;
+
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'tabContentUpdate'} type - The type of event to remove the listener for. Must be 'tabContentUpdate'.
+   * @param { Callback<TabContentInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+   *                                                      will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  export function off(type: 'tabContentUpdate', callback?: Callback<TabContentInfo>): void;
 
   /**
    * Registers a callback function to be called when the navigation switched to a new navDestination.

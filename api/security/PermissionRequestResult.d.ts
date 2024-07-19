@@ -46,6 +46,7 @@ export default class PermissionRequestResult {
   /**
    * The permissions passed in by the user.
    *
+   * @type { Array<string> }
    * @syscap SystemCapability.Security.AccessToken
    * @stagemodelonly
    * @since 9
@@ -53,6 +54,7 @@ export default class PermissionRequestResult {
   /**
    * The permissions passed in by the user.
    *
+   * @type { Array<string> }
    * @syscap SystemCapability.Security.AccessToken
    * @stagemodelonly
    * @crossplatform
@@ -61,6 +63,7 @@ export default class PermissionRequestResult {
   /**
    * The permissions passed in by the user.
    *
+   * @type { Array<string> }
    * @syscap SystemCapability.Security.AccessToken
    * @stagemodelonly
    * @crossplatform
@@ -71,16 +74,18 @@ export default class PermissionRequestResult {
 
   /**
    * The results for the corresponding request permissions. The value 0 indicates that a
-   * permission is granted, and the value -1 indicates not.
+   * permission is granted, the value -1 indicates not, and the value 2 indicates the request is invalid.
    *
+   * @type { Array<number> }
    * @syscap SystemCapability.Security.AccessToken
    * @stagemodelonly
    * @since 9
    */
   /**
    * The results for the corresponding request permissions. The value 0 indicates that a
-   * permission is granted, and the value -1 indicates not.
+   * permission is granted, the value -1 indicates not, and the value 2 indicates the request is invalid.
    *
+   * @type { Array<number> }
    * @syscap SystemCapability.Security.AccessToken
    * @stagemodelonly
    * @crossplatform
@@ -88,8 +93,9 @@ export default class PermissionRequestResult {
    */
   /**
    * The results for the corresponding request permissions. The value 0 indicates that a
-   * permission is granted, and the value -1 indicates not.
+   * permission is granted, the value -1 indicates not, and the value 2 indicates the request is invalid.
    *
+   * @type { Array<number> }
    * @syscap SystemCapability.Security.AccessToken
    * @stagemodelonly
    * @crossplatform
@@ -102,6 +108,7 @@ export default class PermissionRequestResult {
    * Specifies whether a dialog box is shown for each requested permission.
    * The value true means that a dialog box is shown, and false means the opposite.
    *
+   * @type { ?Array<boolean> }
    * @syscap SystemCapability.Security.AccessToken
    * @stagemodelonly
    * @atomicservice

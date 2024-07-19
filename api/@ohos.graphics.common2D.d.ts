@@ -122,6 +122,43 @@ declare namespace common2D {
      */
     y: number;
   }
+
+  /**
+   * Provides the definition of the point in 3D.
+   *
+   * @typedef Point3d
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  interface Point3d extends Point {
+    /**
+     * Z-axis coordinate.
+     * @type { number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    z: number;
+  }
+
+  /**
+   * This class provides functionality for common2D objects.
+   * 
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  class Utils {
+    /**
+     * Sets rect to the union of rect and other.
+     * @param { Rect } rect - Rect object. Will be updated with the result of the join.
+     * @param { Rect } other - Rect object.
+     * @returns { boolean } Returns true if rect and other are not nullptr and other is not empty
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+     static joinRect(rect: Rect, other: Rect): boolean;
+  }
 }
 
 export default common2D;

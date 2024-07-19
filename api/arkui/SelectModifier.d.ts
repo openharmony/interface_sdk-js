@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-/// <reference path="../../component/common.d.ts" />
-/// <reference path="../../component/select.d.ts" />
+
+
 
 /**
  * Defines Select Modifier
@@ -27,6 +27,7 @@
  * @extends SelectAttribute
  * @implements AttributeModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class SelectModifier extends SelectAttribute implements AttributeModifier<SelectAttribute> {
@@ -37,6 +38,7 @@ export declare class SelectModifier extends SelectAttribute implements Attribute
    * @param { SelectAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: SelectAttribute): void;

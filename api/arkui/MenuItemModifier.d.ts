@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-/// <reference path="../../component/common.d.ts" />
-/// <reference path="../../component/menu_item.d.ts" />
+
+
 
 /**
  * Defines MenuItem Modifier
@@ -27,6 +27,7 @@
  * @extends MenuItemAttribute
  * @implements AttributeModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class MenuItemModifier extends MenuItemAttribute implements AttributeModifier<MenuItemAttribute> {
@@ -37,6 +38,7 @@ export declare class MenuItemModifier extends MenuItemAttribute implements Attri
    * @param { MenuItemAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: MenuItemAttribute): void;

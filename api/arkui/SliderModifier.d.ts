@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-/// <reference path="../../component/common.d.ts" />
-/// <reference path="../../component/slider.d.ts" />
+
+
 
 /**
  * Defines Slider Modifier
@@ -27,6 +27,7 @@
  * @extends SliderAttribute
  * @implements AttributeModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class SliderModifier extends SliderAttribute implements AttributeModifier<SliderAttribute> {
@@ -37,6 +38,7 @@ export declare class SliderModifier extends SliderAttribute implements Attribute
    * @param { SliderAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: SliderAttribute): void;

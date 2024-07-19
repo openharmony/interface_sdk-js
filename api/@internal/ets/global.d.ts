@@ -18,9 +18,7 @@
  * @kit ArkUI
  */
 
-/// <reference path="../../../component/common.d.ts" />
 
-import { TouchObject, KeyEvent, MouseEvent } from 'SpecialEvent';
 
 /**
  * Defines the console info.
@@ -32,25 +30,25 @@ import { TouchObject, KeyEvent, MouseEvent } from 'SpecialEvent';
  * Defines the console info.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines the console info.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines the console info.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 export declare class console {
   /**
@@ -67,8 +65,8 @@ export declare class console {
    * @param { string } message - Text to print.
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Prints "debug" logs.
@@ -77,8 +75,8 @@ export declare class console {
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Prints "debug" logs.
@@ -87,9 +85,9 @@ export declare class console {
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   static debug(message: string, ...arguments: any[]): void;
 
@@ -107,8 +105,8 @@ export declare class console {
    * @param { string } message - Text to print.
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Prints "log" logs.
@@ -117,8 +115,8 @@ export declare class console {
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Prints "log" logs.
@@ -127,9 +125,9 @@ export declare class console {
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   static log(message: string, ...arguments: any[]): void;
 
@@ -147,8 +145,8 @@ export declare class console {
    * @param { string } message - Text to print.
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Prints "info" logs.
@@ -157,8 +155,8 @@ export declare class console {
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Prints "info" logs.
@@ -167,9 +165,9 @@ export declare class console {
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   static info(message: string, ...arguments: any[]): void;
 
@@ -187,8 +185,8 @@ export declare class console {
    * @param { string } message - Text to print.
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Prints "warn" logs.
@@ -197,8 +195,8 @@ export declare class console {
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Prints "warn" logs.
@@ -207,9 +205,9 @@ export declare class console {
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   static warn(message: string, ...arguments: any[]): void;
 
@@ -227,8 +225,8 @@ export declare class console {
    * @param { string } message - Text to print.
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Prints "error" logs.
@@ -237,8 +235,8 @@ export declare class console {
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Prints "error" logs.
@@ -247,9 +245,9 @@ export declare class console {
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   static error(message: string, ...arguments: any[]): void;
 
@@ -264,6 +262,18 @@ export declare class console {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Prints a message if value is false or omitted.
+   *
+   * @param { Object } [value] - The value tested for being truthy.
+   * @param { Object[] } arguments - Used as error message to print.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @static
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   static assert(value?: Object, ...arguments: Object[]): void;
 
   /**
@@ -277,6 +287,18 @@ export declare class console {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Maintains an internal counter specific to label and print the number of times
+   * console.count() has been called with the given label.
+   *
+   * @param { string } [label] - Counter name. Default: "default".
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @static
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   static count(label?: string): void;
 
   /**
@@ -289,6 +311,17 @@ export declare class console {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Reset the internal counter specific to label.
+   *
+   * @param { string } [label] - Counter name. Default: "default".
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @static
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   static countReset(label?: string): void;
 
   /**
@@ -299,6 +332,16 @@ export declare class console {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Prints properties of the specified JavaScript object.
+   *
+   * @param { Object } [dir] - A JavaScript object whose properties should be output.
+   * @static
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   static dir(dir?: Object): void;
 
@@ -312,6 +355,17 @@ export declare class console {
    * @crossplatform
    * @since 10
    */
+  /**
+   * This method calls console.log() passing it the arguments received.
+   * This method does not produce any XML formatting.
+   *
+   * @param { Object[] } arguments - Text to print.
+   * @static
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   static dirxml(...arguments: Object[]): void;
 
   /**
@@ -322,6 +376,16 @@ export declare class console {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Creates a new inline group, causing any subsequent console messages to be indented by an additional level.
+   *
+   * @param { Object[] } arguments - messages to print first.
+   * @static
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   static group(...arguments: Object[]): void;
 
@@ -334,6 +398,16 @@ export declare class console {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Same as console.group()
+   *
+   * @param { Object[] } arguments - messages to print first.
+   * @static
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   static groupCollapsed(...arguments: Object[]): void;
 
   /**
@@ -343,6 +417,15 @@ export declare class console {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Exit current inline group.
+   *
+   * @static
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   static groupEnd(): void;
 
@@ -354,6 +437,16 @@ export declare class console {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Prints tabular data as a table.
+   *
+   * @param { Object } [tableData] - tabular data.
+   * @static
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   static table(tableData?: Object): void;
 
@@ -367,6 +460,17 @@ export declare class console {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Start a timer.
+   *
+   * @param { string } [label] - Timer name. Default: "default".
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @static
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   static time(label?: string): void;
 
   /**
@@ -378,6 +482,17 @@ export declare class console {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
+   */
+  /**
+   * End a timer and print time duration.
+   *
+   * @param { string } [label] - Timer name. Default: "default".
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @static
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   static timeEnd(label?: string): void;
 
@@ -392,6 +507,18 @@ export declare class console {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Print the elapsed time and other data arguments.
+   *
+   * @param { string } [label] - Timer name. Default: "default".
+   * @param { Object[] } arguments - Text to print.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @static
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   static timeLog(label?: string, ...arguments: Object[]): void;
 
   /**
@@ -403,6 +530,16 @@ export declare class console {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Prints stack information for the current code location.
+   *
+   * @param { Object[] } arguments - message to print.
+   * @static
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   static trace(...arguments: Object[]): void;
 
   /**
@@ -411,6 +548,7 @@ export declare class console {
    * @static
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   static traceHybridStack(): void;
@@ -788,3 +926,17 @@ export declare function sendMouseEvent(event: MouseEvent): boolean;
   * @since 10
   */
 export declare function markModuleCollectable(namespace: Object): void;
+
+/**
+ * Support loading native module during the runtime phase.
+ * 
+ * @param { string } moduleName - Indicates the native module name.
+ * @returns { Object } Returns the default export from the native module.
+ * @throws { BusinessError } 401 - The parameter check failed.
+ * @throws { BusinessError } 10200301 - Loading native module failed.
+ * @syscap SystemCapability.Utils.Lang
+ * @stagemodelonly
+ * @atomicservice
+ * @since 12
+ */
+export declare function loadNativeModule(moduleName: string): Object;

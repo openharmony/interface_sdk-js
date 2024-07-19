@@ -21,6 +21,8 @@ import {
   ErrorLevel,
   ErrorTagFormat,
   ErrorMessage,
+  ApiCheckInfo,
+  ErrorBaseInfo,
 } from '../../../typedef/checker/result_type';
 import { BasicApiInfo } from '../../../typedef/parser/ApiInfoDefination';
 import { tagsArrayOfOrder, officialTagArr, CommonFunctions } from '../../../utils/checkUtils';
@@ -77,7 +79,8 @@ export class WordsCheck {
     let apiWordsArr = fullText.split(/\s/g);
     const errorWords: string[] = [];
     apiWordsArr.forEach((apiWord) => {
-      const basicWords: string[] = WordsCheck.splitComplexWords(apiWord);
+      const basicWords: string[] = [];
+      WordsCheck.splitComplexWords(apiWord, basicWords);
       basicWords.forEach((basicWord) => {
         if (!WordsCheck.checkBaseWord(basicWord.toLowerCase())) {
           errorWords.push(basicWord);
@@ -85,20 +88,15 @@ export class WordsCheck {
             state: false,
             errorInfo: CommonFunctions.createErrorInfo(ErrorMessage.ERROR_WORD, [apiWord, basicWord]),
           };
-          AddErrorLogs.addAPICheckErrorLogs(
-            ErrorID.MISSPELL_WORDS_ID,
-            ErrorLevel.MIDDLE,
-            baseInfo.getFilePath(),
-            baseInfo.getPos(),
-            ErrorType.MISSPELL_WORDS,
-            LogType.LOG_JSDOC,
-            -1,
-            baseInfo.getApiName(),
-            baseInfo.getDefinedText(),
-            wordsCheckFormat.errorInfo,
-            compositiveResult,
-            compositiveLocalResult
-          );
+          const errorBaseInfo: ErrorBaseInfo = new ErrorBaseInfo();
+          errorBaseInfo
+            .setErrorID(ErrorID.MISSPELL_WORDS_ID)
+            .setErrorLevel(ErrorLevel.MIDDLE)
+            .setErrorType(ErrorType.MISSPELL_WORDS)
+            .setLogType(LogType.LOG_JSDOC)
+            .setErrorInfo(wordsCheckFormat.errorInfo);
+          const apiInfoSpell: ApiCheckInfo = CommonFunctions.getErrorInfo(baseInfo, undefined, baseInfo.getFileAbsolutePath(), errorBaseInfo);
+          AddErrorLogs.addAPICheckErrorLogs(apiInfoSpell, compositiveResult, compositiveLocalResult);
         }
       });
     });
@@ -118,28 +116,26 @@ export class WordsCheck {
    * @param { string } complexWord
    * @returns { string[] }
    */
-  static splitComplexWords(complexWord: string): string[] {
-    let basicWords: string[] = [];
+  static splitComplexWords(complexWord: string, basicWords: string[]): void {
+    let baseWords: string[] = [];
     // splite underlineWord
     if (WordsCheck.hasUnderline(complexWord)) {
-      basicWords = complexWord.split(/(?<!^)\_/g);
+      baseWords = complexWord.split(/(?<!^)\_/g);
     } else {
       // splite complexWord
       if (!/(?<!^)(?=[A-Z])/g.test(complexWord)) {
-        basicWords.push(complexWord);
+        baseWords.push(complexWord);
       } else {
-        basicWords = complexWord.split(/(?<!^)(?=[A-Z])/g);
+        baseWords = complexWord.split(/(?<!^)(?=[A-Z])/g);
       }
     }
-    const newBaseWords: string[] = [];
-    basicWords.forEach((word) => {
+    baseWords.forEach((word) => {
       if (/[0-9]/g.test(word)) {
-        newBaseWords.concat(word.split(/0-9/g));
+        basicWords.concat(word.split(/0-9/g));
       } else {
-        newBaseWords.push(word);
+        basicWords.push(word);
       }
     });
-    return newBaseWords;
   }
 
   /**

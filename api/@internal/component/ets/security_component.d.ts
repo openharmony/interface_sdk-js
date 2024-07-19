@@ -178,7 +178,18 @@ declare class SecurityComponentMethod<T> {
    * @atomicservice
    * @since 11
    */
-  offset(value: Position): T;
+  /**
+   * Coordinate offset relative to the layout completion position.
+   * Setting this attribute does not affect the layout of the parent container.
+   * The position is adjusted only during drawing.
+   *
+   * @param { Position | Edges | LocalizedEdges } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  offset(value: Position | Edges | LocalizedEdges): T;
 
   /**
    * Font size of the inner text.
@@ -447,6 +458,15 @@ declare class SecurityComponentMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
+  /**
+   * Sets the width of the component.
+   *
+   * @param { Length } value - Indicates the width of the security component.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
   width(value: Length): T;
 
   /**
@@ -456,6 +476,15 @@ declare class SecurityComponentMethod<T> {
    * @returns { T } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
+   */
+  /**
+   * Sets the height of the component.
+   *
+   * @param { Length } value - Indicates the height of the security component.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
    */
   height(value: Length): T;
 
@@ -467,6 +496,15 @@ declare class SecurityComponentMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
+  /**
+   * The size of the component.
+   *
+   * @param { SizeOptions } value - Indicates the size of the security component.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
   size(value: SizeOptions): T;
 
   /**
@@ -477,6 +515,16 @@ declare class SecurityComponentMethod<T> {
    * @returns { T } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
+   */
+  /**
+   * constraint Size:
+   * minWidth: minimum Width, maxWidth: maximum Width, minHeight: minimum Height, maxHeight: maximum Height.
+   *
+   * @param { ConstraintSizeOptions } value - Indicates the constraint size of the security component.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
    */
   constraintSize(value: ConstraintSizeOptions): T;
 }

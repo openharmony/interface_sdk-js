@@ -20,7 +20,7 @@ import { DiffHelper } from '../../diff/diff';
 import { FileUtils } from '../../../utils/FileUtils';
 import { BasicDiffInfo } from '../../../typedef/diff/ApiInfoDiff';
 import { AddErrorLogs } from './compile_info';
-import { compositiveResult, compositiveLocalResult } from '../../../utils/checkUtils';
+import { compositiveResult, compositiveLocalResult, CommonFunctions } from '../../../utils/checkUtils';
 import {
   ErrorType,
   ErrorID,
@@ -28,31 +28,41 @@ import {
   ErrorLevel,
   ErrorMessage,
   incompatibleApiDiffTypes,
+  ApiCheckInfo,
+  ErrorBaseInfo,
 } from '../../../typedef/checker/result_type';
 import { ApiDiffType } from '../../../typedef/diff/ApiInfoDiff';
+import { ApiInfo } from '../../../typedef/parser/ApiInfoDefination';
 
 export class ApiChangeCheck {
-  static checkApiChange(prId?: string): void {
-    const rootDir = path.resolve(
+  static checkApiChange(prId: string): void {
+    let rootDir: string = '';
+    const onlineDir: string = path.resolve(
       FileUtils.getBaseDirName(),
-      `../../../../../Archive/patch_info/openharmony_interface_sdk-js_${prId}`
+      `../../../../Archive/patch_info/openharmony_interface_sdk-js_${prId}`
     );
-    if (!fs.existsSync(rootDir)) {
-      return;
+    const localDir: string = path.resolve(FileUtils.getBaseDirName(), prId);
+
+    if (fs.existsSync(onlineDir)) {
+      rootDir = onlineDir;
+    } else if (fs.existsSync(localDir)) {
+      rootDir = localDir;
     }
     const oldFileDir: string = path.resolve(rootDir, './old');
     const newFileDir: string = path.resolve(rootDir, './new');
-
+    if (!fs.existsSync(oldFileDir) || !fs.existsSync(newFileDir)) {
+      return;
+    }
     const status: fs.Stats = fs.statSync(oldFileDir);
     let diffInfos: BasicDiffInfo[] = [];
     if (status.isDirectory()) {
       const oldSDKApiMap: FilesMap = Parser.parseDir(oldFileDir);
       const newSDKApiMap: FilesMap = Parser.parseDir(newFileDir);
-      diffInfos = DiffHelper.diffSDK(oldSDKApiMap, newSDKApiMap, true);
+      diffInfos = DiffHelper.diffSDK(oldSDKApiMap, newSDKApiMap, false, true);
     } else {
       const oldSDKApiMap: FilesMap = Parser.parseFile(path.resolve(oldFileDir, '..'), oldFileDir);
       const newSDKApiMap: FilesMap = Parser.parseFile(path.resolve(newFileDir, '..'), newFileDir);
-      diffInfos = DiffHelper.diffSDK(oldSDKApiMap, newSDKApiMap, true);
+      diffInfos = DiffHelper.diffSDK(oldSDKApiMap, newSDKApiMap, false, true);
     }
     diffInfos.forEach((diffInfo: BasicDiffInfo) => {
       if (diffInfo.getIsCompatible() !== false) {
@@ -61,36 +71,45 @@ export class ApiChangeCheck {
       const errorInfo: ErrorMessage | undefined = incompatibleApiDiffTypes.get(diffInfo.getDiffType());
       if (diffInfo.getDiffType() === ApiDiffType.REDUCE) {
         const dtsName = path.basename(diffInfo.getOldDtsName());
-        AddErrorLogs.addAPICheckErrorLogs(
-          ErrorID.API_CHANGE_ERRORS_ID,
-          ErrorLevel.MIDDLE,
-          dtsName,
-          diffInfo.getOldPos(),
-          ErrorType.API_CHANGE_ERRORS,
-          LogType.LOG_API,
-          -1,
-          diffInfo.getOldApiName(),
-          diffInfo.getOldApiDefinedText(),
-          errorInfo as string,
-          compositiveResult,
-          compositiveLocalResult
-        );
+        let apiInfoDiff: ApiCheckInfo = new ApiCheckInfo();
+        const hierarchicalRelations: string[] = diffInfo.getOldHierarchicalRelations();
+        const parentModuleName: string = hierarchicalRelations[hierarchicalRelations.length - 1];
+        apiInfoDiff
+          .setErrorID(ErrorID.API_CHANGE_ERRORS_ID)
+          .setErrorLevel(ErrorLevel.MIDDLE)
+          .setFilePath(dtsName)
+          .setApiPostion(diffInfo.getOldPos())
+          .setErrorType(ErrorType.API_CHANGE_ERRORS)
+          .setLogType(LogType.LOG_JSDOC)
+          .setSinceNumber(-1)
+          .setApiName(diffInfo.getOldApiName())
+          .setApiType(diffInfo.getApiType())
+          .setApiText(diffInfo.getOldApiDefinedText())
+          .setErrorInfo(errorInfo as string)
+          .setHierarchicalRelations(diffInfo.getOldHierarchicalRelations().join('|'))
+          .setParentModuleName(parentModuleName);
+
+        AddErrorLogs.addAPICheckErrorLogs(apiInfoDiff, compositiveResult, compositiveLocalResult);
       } else {
         const dtsName = path.basename(diffInfo.getNewDtsName());
-        AddErrorLogs.addAPICheckErrorLogs(
-          ErrorID.API_CHANGE_ERRORS_ID,
-          ErrorLevel.MIDDLE,
-          dtsName,
-          diffInfo.getOldPos(),
-          ErrorType.API_CHANGE_ERRORS,
-          LogType.LOG_API,
-          -1,
-          diffInfo.getNewApiName(),
-          diffInfo.getNewApiDefinedText(),
-          errorInfo as string,
-          compositiveResult,
-          compositiveLocalResult
-        );
+        let apiInfoDiff: ApiCheckInfo = new ApiCheckInfo();
+        const hierarchicalRelations: string[] = diffInfo.getOldHierarchicalRelations();
+        const parentModuleName: string = hierarchicalRelations[hierarchicalRelations.length - 1];
+        apiInfoDiff
+          .setErrorID(ErrorID.API_CHANGE_ERRORS_ID)
+          .setErrorLevel(ErrorLevel.MIDDLE)
+          .setFilePath(dtsName)
+          .setApiPostion(diffInfo.getOldPos())
+          .setErrorType(ErrorType.API_CHANGE_ERRORS)
+          .setLogType(LogType.LOG_JSDOC)
+          .setSinceNumber(-1)
+          .setApiName(diffInfo.getNewApiName())
+          .setApiType(diffInfo.getApiType())
+          .setApiText(diffInfo.getNewApiDefinedText())
+          .setErrorInfo(errorInfo as string)
+          .setHierarchicalRelations(diffInfo.getOldHierarchicalRelations().join('|'))
+          .setParentModuleName(parentModuleName);
+        AddErrorLogs.addAPICheckErrorLogs(apiInfoDiff, compositiveResult, compositiveLocalResult);
       }
     });
   }

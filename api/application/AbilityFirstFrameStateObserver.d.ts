@@ -13,12 +13,12 @@
  * limitations under the License.
  */
 
-import AbilityFirstFrameStateData from './AbilityFirstFrameStateData';
-
 /**
  * @file
  * @kit AbilityKit
  */
+
+import AbilityFirstFrameStateData from './AbilityFirstFrameStateData';
 
 /**
  * The ability first frame state observer.

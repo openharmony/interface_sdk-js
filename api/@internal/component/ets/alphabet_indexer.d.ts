@@ -94,6 +94,7 @@ declare enum IndexerAlign {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   START,
@@ -103,6 +104,7 @@ declare enum IndexerAlign {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   END,
@@ -841,6 +843,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @param { boolean } value - Default value is true, set false to disable haptic feedback.
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   enableHapticFeedback(value: boolean): AlphabetIndexerAttribute;

@@ -118,6 +118,7 @@ declare namespace fileIo {
   export { WriteStream };
   export { Watcher };
   export { WhenceType };
+  export { TaskSignal };
   export { connectDfs };
   export { disconnectDfs };
   export type { Progress };
@@ -5883,6 +5884,7 @@ declare function writeSync(
 /**
  * Connect Distributed File System.
  *
+ * @permission ohos.permission.DISTRIBUTED_DATASYNC
  * @param { string } networkId - The networkId of device.
  * @param { DfsListeners } listeners - The listeners of Distributed File System.
  * @returns { Promise<void> } The promise returned by the function.
@@ -5899,11 +5901,13 @@ declare function connectDfs(networkId: string, listeners: DfsListeners): Promise
 /**
  * Disconnect Distributed File System.
  *
+ * @permission ohos.permission.DISTRIBUTED_DATASYNC
  * @param { string } networkId - The networkId of device.
  * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 201 - Permission denied.
  * @throws { BusinessError } 401 - The parameter check failed.Possible causes:1.Mandatory parameters are left unspecified;
  * <br>2.Incorrect parameter types.
+ * @throws { BusinessError } 13600004 - Failed to unmount.
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
  */
@@ -5994,6 +5998,8 @@ interface CopyOptions {
 /**
  * Listener of copy progress.
  *
+ * @typedef { function } ProgressListener
+ * @param { Progress } progress - indicates the progress data of copyFile
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 11
  */
@@ -7876,6 +7882,7 @@ export interface ReadOptions {
  * ReadTextOptions type
  *
  * @interface ReadTextOptions
+ * @extends ReadOptions
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @atomicservice
  * @since 11
@@ -7896,6 +7903,7 @@ export interface ReadTextOptions extends ReadOptions {
  * WriteOptions type
  *
  * @interface WriteOptions
+ * @extends Options
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @atomicservice
  * @since 11

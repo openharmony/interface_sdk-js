@@ -1116,7 +1116,7 @@ declare namespace connection {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2100002 - Failed to connect to the service.
      * @throws { BusinessError } 2100003 - System internal error.
-     * @throws { BusinessError } 2101007 - The callback does not exists.
+     * @throws { BusinessError } 2101007 - The callback does not exist.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8
      */
@@ -1127,7 +1127,7 @@ declare namespace connection {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2100002 - Failed to connect to the service.
      * @throws { BusinessError } 2100003 - System internal error.
-     * @throws { BusinessError } 2101007 - The callback does not exists.
+     * @throws { BusinessError } 2101007 - The callback does not exist.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
      * @since 10
@@ -1139,7 +1139,7 @@ declare namespace connection {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2100002 - Failed to connect to the service.
      * @throws { BusinessError } 2100003 - System internal error.
-     * @throws { BusinessError } 2101007 - The callback does not exists.
+     * @throws { BusinessError } 2101007 - The callback does not exist.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
      * @atomicservice
@@ -1151,7 +1151,7 @@ declare namespace connection {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2100002 - Failed to connect to the service.
      * @throws { BusinessError } 2100003 - System internal error.
-     * @throws { BusinessError } 2101007 - The callback does not exists.
+     * @throws { BusinessError } 2101007 - The callback does not exist.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
      * @atomicservice
@@ -1816,12 +1816,26 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 8
    */
+  /**
+   * Defines a network address.
+   * @interface NetAddress
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @atomicservice
+   * @since 12
+   */
   export interface NetAddress {
     /**
      * Network address.
      * @type {string}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8
+     */
+    /**
+     * Network address.
+     * @type {string}
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @atomicservice
+     * @since 12
      */
     address: string;
 
@@ -1831,6 +1845,13 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8
      */
+    /**
+     * Address family identifier. The value is 1 for IPv4 and 2 for IPv6. The default value is 1.
+     * @type {?number}
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @atomicservice
+     * @since 12
+     */
     family?: number; 
 
     /**
@@ -1838,6 +1859,13 @@ declare namespace connection {
      * @type {?number}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8
+     */
+    /**
+     * Port number. The value ranges from 0 to 65535.
+     * @type {?number}
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @atomicservice
+     * @since 12
      */
     port?: number; 
   }

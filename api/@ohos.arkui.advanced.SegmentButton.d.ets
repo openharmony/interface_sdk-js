@@ -18,9 +18,9 @@
  * @kit ArkUI
  */
 
-/// <reference path="../component/units.d.ts" />
 
-import { ResourceStr } from 'GlobalResource';
+
+
 
 /**
  * Defines text only item of SegmentButton.
@@ -445,6 +445,7 @@ interface CommonSegmentButtonOptions {
    * {{ top: LengthMetrics.vp(6), end: LengthMetrics.vp(8), bottom: LengthMetrics.vp(6), start: LengthMetrics.vp(8) }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   localizedButtonPadding?: LocalizedPadding;
@@ -476,6 +477,7 @@ interface CommonSegmentButtonOptions {
    * @type { ?LocalizedPadding }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   localizedTextPadding?: LocalizedPadding;
@@ -505,6 +507,7 @@ interface CommonSegmentButtonOptions {
    * @type { ?Direction }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   direction?: Direction;
@@ -618,7 +621,7 @@ interface TabSegmentButtonConstructionOptions extends CommonSegmentButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 12
  */
 interface CapsuleSegmentButtonConstructionOptions extends CommonSegmentButtonOptions {
   /**
@@ -897,6 +900,15 @@ declare class SegmentButtonItemOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * The constructor used to create a SegmentButtonOptionsArray object.
+   *
+   * @param { SegmentButtonItemOptionsConstructorOptions } options - item info.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   constructor(options: SegmentButtonItemOptionsConstructorOptions);
 }
@@ -1336,6 +1348,7 @@ declare class SegmentButtonOptions {
    * @type { ?LocalizedPadding }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   localizedButtonPadding?: LocalizedPadding;
@@ -1365,6 +1378,7 @@ declare class SegmentButtonOptions {
    * @type { ?LocalizedPadding }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   localizedTextPadding?: LocalizedPadding;
@@ -1459,6 +1473,7 @@ declare class SegmentButtonOptions {
    * @type { ?Direction }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   direction?: Direction;

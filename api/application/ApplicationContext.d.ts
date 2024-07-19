@@ -392,6 +392,20 @@ export default class ApplicationContext extends Context {
   /**
    * Kill all processes of the application
    *
+   * @param { boolean } clearPageStack - The flag that indicates whether the page stack need to be cleared.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+  killAllProcesses(clearPageStack: boolean): Promise<void>;
+
+  /**
+   * Kill all processes of the application
+   *
    * @param { AsyncCallback<void> } callback - The callback of killAllProcesses.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000011 - The context does not exist.
@@ -498,21 +512,17 @@ export default class ApplicationContext extends Context {
    * @stagemodelonly
    * @since 12
    */
-    preloadUIExtensionAbility(want: Want): Promise<void>;
+  preloadUIExtensionAbility(want: Want): Promise<void>;
 
   /**
    * Set the state about whether the application supports process cache or not.
    *
-   * @permission ohos.permission.SET_PROCESS_CACHE_STATE
    * @param { boolean } isSupported - Indicates the process cache support state.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system App.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000200 - The supported process cache state cannot be set more than once.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
    * @stagemodelonly
    * @since 12
    */

@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-/// <reference path="../../component/common.d.ts" />
-/// <reference path="../../component/tabs.d.ts" />
+
+
 
 /**
  * Defines Tabs Modifier
@@ -27,6 +27,7 @@
  * @extends TabsAttribute
  * @implements AttributeModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class TabsModifier extends TabsAttribute implements AttributeModifier<TabsAttribute> {
@@ -37,6 +38,7 @@ export declare class TabsModifier extends TabsAttribute implements AttributeModi
    * @param { TabsAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: TabsAttribute): void;

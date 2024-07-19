@@ -406,12 +406,14 @@ declare namespace hiAppEvent {
     /**
      * Configuration item: application event logging switch.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
     /**
      * Configuration item: application event logging switch.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11
@@ -421,12 +423,14 @@ declare namespace hiAppEvent {
     /**
      * Configuration item: event file directory storage quota size.
      *
+     * @type { ?string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
     /**
      * Configuration item: event file directory storage quota size.
      *
+     * @type { ?string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11
@@ -453,12 +457,14 @@ declare namespace hiAppEvent {
     /**
      * The domain of the event.
      *
+     * @type { string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
     /**
      * The domain of the event.
      *
+     * @type { string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11
@@ -468,12 +474,14 @@ declare namespace hiAppEvent {
     /**
      * The name of the event.
      *
+     * @type { string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
     /**
      * The name of the event.
      *
+     * @type { string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11
@@ -483,12 +491,14 @@ declare namespace hiAppEvent {
     /**
      * The type of the event.
      *
+     * @type { EventType }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
     /**
      * The type of the event.
      *
+     * @type { EventType }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11
@@ -498,12 +508,14 @@ declare namespace hiAppEvent {
     /**
      * The params of the event.
      *
+     * @type { object }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
     /**
      * The params of the event.
      *
+     * @type { object }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11
@@ -634,12 +646,14 @@ declare namespace hiAppEvent {
     /**
      * The id of the package.
      *
+     * @type { number }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
     /**
      * The id of the package.
      *
+     * @type { number }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11
@@ -649,12 +663,14 @@ declare namespace hiAppEvent {
     /**
      * The number of events contained in the package.
      *
+     * @type { number }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
     /**
      * The number of events contained in the package.
      *
+     * @type { number }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11
@@ -664,12 +680,14 @@ declare namespace hiAppEvent {
     /**
      * The total size of events contained in the package.
      *
+     * @type { number }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
     /**
      * The total size of events contained in the package.
      *
+     * @type { number }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11
@@ -679,12 +697,14 @@ declare namespace hiAppEvent {
     /**
      * The events data contained in the package.
      *
+     * @type { string[] }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
     /**
      * The events data contained in the package.
      *
+     * @type { string[] }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11
@@ -805,12 +825,14 @@ declare namespace hiAppEvent {
     /**
      * The number of write events that trigger callback.
      *
+     * @type { ?number }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
     /**
      * The number of write events that trigger callback.
      *
+     * @type { ?number }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11
@@ -820,12 +842,14 @@ declare namespace hiAppEvent {
     /**
      * The size of write events that trigger callback.
      *
+     * @type { ?number }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
     /**
      * The size of write events that trigger callback.
      *
+     * @type { ?number }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11
@@ -835,12 +859,14 @@ declare namespace hiAppEvent {
     /**
      * The interval for triggering callback.
      *
+     * @type { ?number }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
     /**
      * The interval for triggering callback.
      *
+     * @type { ?number }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11
@@ -867,12 +893,14 @@ declare namespace hiAppEvent {
     /**
      * The name of the event domain to be monitored by the watcher.
      *
+     * @type { string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
     /**
      * The name of the event domain to be monitored by the watcher.
      *
+     * @type { string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11
@@ -882,12 +910,14 @@ declare namespace hiAppEvent {
     /**
      * The types of the events to be monitored by the watcher.
      *
+     * @type { ?EventType[] }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
     /**
      * The types of the events to be monitored by the watcher.
      *
+     * @type { ?EventType[] }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11
@@ -954,12 +984,14 @@ declare namespace hiAppEvent {
     /**
      * The name of watcher.
      *
+     * @type { string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
     /**
      * The name of watcher.
      *
+     * @type { string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11
@@ -969,12 +1001,14 @@ declare namespace hiAppEvent {
     /**
      * The condition for triggering callback.
      *
+     * @type { ?TriggerCondition }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
     /**
      * The condition for triggering callback.
      *
+     * @type { ?TriggerCondition }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11
@@ -984,12 +1018,14 @@ declare namespace hiAppEvent {
     /**
      * The event filters for monitoring events.
      *
+     * @type { ?AppEventFilter[] }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
     /**
      * The event filters for monitoring events.
      *
+     * @type { ?AppEventFilter[] }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11
@@ -999,12 +1035,14 @@ declare namespace hiAppEvent {
     /**
      * The callback function of watcher.
      *
+     * @type { ?function }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
     /**
      * The callback function of watcher.
      *
+     * @type { ?function }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11

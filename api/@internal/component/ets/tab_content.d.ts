@@ -442,6 +442,7 @@ declare interface LabelStyle {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   selectedColor?: ResourceColor;
@@ -452,6 +453,7 @@ declare interface LabelStyle {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   unselectedColor?: ResourceColor;
@@ -463,6 +465,7 @@ declare interface LabelStyle {
  * @interface TabBarIconStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface TabBarIconStyle {
@@ -472,6 +475,7 @@ declare interface TabBarIconStyle {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   selectedColor?: ResourceColor;
@@ -482,6 +486,7 @@ declare interface TabBarIconStyle {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   unselectedColor?: ResourceColor;
@@ -492,6 +497,7 @@ declare interface TabBarIconStyle {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare class TabBarSymbol {
@@ -501,6 +507,7 @@ declare class TabBarSymbol {
    * @type { SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   normal: SymbolGlyphModifier;
@@ -511,6 +518,7 @@ declare class TabBarSymbol {
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   selected?: SymbolGlyphModifier;
@@ -803,6 +811,7 @@ declare class BottomTabBarStyle {
    * @param { ResourceStr } text - indicates the text of the bottom tab bar
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   constructor(icon: ResourceStr | TabBarSymbol, text: ResourceStr);
@@ -839,6 +848,7 @@ declare class BottomTabBarStyle {
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   static of(icon: ResourceStr | TabBarSymbol, text: ResourceStr): BottomTabBarStyle;
@@ -890,6 +900,7 @@ declare class BottomTabBarStyle {
    * @returns { BottomTabBarStyle } the style of the bottom tab bar
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   padding(value: Padding | Dimension | LocalizedPadding): BottomTabBarStyle;
@@ -985,6 +996,7 @@ declare class BottomTabBarStyle {
    * @returns { BottomTabBarStyle } the style of the bottom tab bar
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   iconStyle(style: TabBarIconStyle): BottomTabBarStyle;

@@ -285,6 +285,14 @@ declare namespace configPolicy {
    * @systemapi Hide this for inner system use.
    * @since 8
    */
+  /**
+   * Gets the list of configuration level directories, sorted in ascending order of priority.
+   *
+   * @returns { Promise<Array<string>> } the promise returns the list of configuration level directories.
+   * @syscap SystemCapability.Customization.ConfigPolicy
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
   function getCfgDirList(): Promise<Array<string>>;
 
   /**
@@ -295,6 +303,14 @@ declare namespace configPolicy {
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
    * @since 11
+   */
+  /**
+   * Gets the list of configuration level directories, sorted in ascending order of priority.
+   *
+   * @returns { Array<string> } the list of configuration level directories.
+   * @syscap SystemCapability.Customization.ConfigPolicy
+   * @systemapi Hide this for inner system use.
+   * @since 12
    */
   function getCfgDirListSync(): Array<string>;
 }

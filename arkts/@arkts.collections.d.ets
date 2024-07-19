@@ -25,7 +25,6 @@ import lang from './@arkts.lang'
  *
  * @namespace collections
  * @syscap SystemCapability.Utils.Lang
- * @crossplatform
  * @atomicservice
  * @since 12
  */
@@ -38,7 +37,6 @@ declare namespace collections {
    * @param { number } index - The index in the original array.
    * @returns { ToElementType } The transformed value.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -53,7 +51,6 @@ declare namespace collections {
    * @param { ArrayType } array - The array that the element belongs to.
    * @returns { boolean } True if the value meets the predicate, otherwise false.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -67,7 +64,6 @@ declare namespace collections {
    * @param { number } index - The index of the element.
    * @param { ArrayType } array - The array that the element belongs to.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -83,6 +79,7 @@ declare namespace collections {
    * @param { ArrayType } array - The array that the element belongs to.
    * @returns { ElementType } The result of the mapping.
    * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
    * @since 12
    */
   type TypedArrayMapCallback<ElementType, ArrayType> =
@@ -97,7 +94,6 @@ declare namespace collections {
    * @param { ArrayType } array - The array that the element belongs to.
    * @returns { AccType } The result of the reduction.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -111,7 +107,6 @@ declare namespace collections {
    * @param { ElementType } second - The second element of the comparison.
    * @returns { number } The result of the comparison.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -121,7 +116,6 @@ declare namespace collections {
    *
    * @typedef { lang.ISendable } ISendable
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -132,6 +126,7 @@ declare namespace collections {
    * @interface ConcatArray
    * @extends ISendable
    * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
    * @since 12
    */
   interface ConcatArray<T> extends ISendable {
@@ -141,6 +136,7 @@ declare namespace collections {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     readonly length: number;
@@ -153,6 +149,7 @@ declare namespace collections {
      *     If ConcatArray.length is 0, the empty string is returned.
      * @throws { BusinessError } 401 - Parameter error. Invalid separator.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     join(separator?: string): string;
@@ -167,6 +164,7 @@ declare namespace collections {
      * @returns { ConcatArray<T> } A new ConcatArray containing the extracted elements.
      * @throws { BusinessError } 401 - Parameter error. Invalid `start` or `end` parameters.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     slice(start?: number, end?: number): ConcatArray<T>;
@@ -179,7 +177,6 @@ declare namespace collections {
    * 
    * @implements ConcatArray<T>
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -191,7 +188,6 @@ declare namespace collections {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -205,7 +201,6 @@ declare namespace collections {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The create method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -219,7 +214,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The from method cannot be bound.
      * @static
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -229,7 +223,6 @@ declare namespace collections {
      *
      * @throws { BusinessError } 10200012 - The Array's constructor cannot be directly invoked.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -242,7 +235,6 @@ declare namespace collections {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200012 - The Array's constructor cannot be directly invoked.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -255,7 +247,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The pop method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -269,7 +260,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The push method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -284,7 +274,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The join method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -297,7 +286,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The shift method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -311,7 +299,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The unshift method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -331,7 +318,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The slice method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -347,7 +333,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The sort method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -363,7 +348,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The indexOf method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -377,7 +361,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -393,7 +376,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The map method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -409,7 +391,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The filter method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -427,7 +408,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -448,7 +428,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
     */
@@ -468,11 +447,19 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The at method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
     at(index: number): T | undefined;
+    /**
+     * Returns an iterator that can be used to iterate over elements of type T.
+     *
+     * @returns { IterableIterator<T> } Iterator object.
+     * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
+     * @syscap SystemCapability.Utils.Lang
+     * @since 12
+     */
+    [Symbol.iterator](): IterableIterator<T>;
     /**
      * Returns an iterable of key, value pairs for every entry in the array
      * 
@@ -480,7 +467,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The entries method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -492,7 +478,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The keys method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -504,7 +489,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The values method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -522,7 +506,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The find method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -538,7 +521,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The includes method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -555,7 +537,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The findIndex method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -573,7 +554,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The fill method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -588,7 +568,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The shrinkTo method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -605,7 +584,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The extendTo method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -619,7 +597,6 @@ declare namespace collections {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200001 - The value of index is out of range.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -633,9 +610,45 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The concat method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     concat(...items: ConcatArray<T>[]): Array<T>;
+    /**
+     * Removes elements from the array at the specified position.
+     *
+     * @param { number } start - The zero-based index at which to start changing the contents of the array.
+     *    All the elements from start to the end of the array will be deleted.
+     * @returns { Array<T> } An array containing the deleted elements.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200011 - The splice method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    splice(start: number): Array<T>;
+    /**
+     * Removes elements from the array and, if necessary, inserts new elements at the specified position.
+     *
+     * @param { number } start - The zero-based index at which to start changing the contents of the array.
+     * @param { number } deleteCount - The number of elements to remove from the array,
+     *    starting at the index specified by the start parameter.
+     * @param { T[] } items - An array of elements to insert into the array,
+     *    starting at the index specified by the start parameter.
+     * @returns { Array<T> } An array containing the deleted elements.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200011 - The splice method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    splice(start: number, deleteCount: number, ...items: T[]): Array<T>;
   }
   
   /**
@@ -645,7 +658,6 @@ declare namespace collections {
    * it must be synchronized externally.
    * 
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -657,7 +669,6 @@ declare namespace collections {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -670,11 +681,19 @@ declare namespace collections {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200012 - The Map's constructor cannot be directly invoked.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
     constructor(entries?: readonly (readonly [K, V])[] | null)
+    /**
+     * Returns an iterator that iterates over key-value pairs.
+     *
+     * @returns { IterableIterator<[K, V]> } Iterator object that yields key-value pairs.
+     * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
+     * @syscap SystemCapability.Utils.Lang
+     * @since 12
+     */
+    [Symbol.iterator](): IterableIterator<[K, V]>
     /**
      * Returns an iterable of key, value pairs for every entry in the map.
      *
@@ -682,7 +701,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The entries method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -694,7 +712,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The keys method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -706,7 +723,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The values method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -717,7 +733,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The clear method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -732,7 +747,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The delete method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -746,7 +760,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -764,7 +777,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The get method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -778,7 +790,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The has method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -794,7 +805,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The set method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -808,7 +818,6 @@ declare namespace collections {
    * it must be synchronized externally.
    * 
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -820,7 +829,6 @@ declare namespace collections {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -834,11 +842,19 @@ declare namespace collections {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200012 - The Set's constructor cannot be directly invoked.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
     constructor(values?: readonly T[] | null);
+    /**
+     * Returns an iterator that can be used to iterate over elements of type T.
+     *
+     * @returns { IterableIterator<T> } Iterator object.
+     * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
+     * @syscap SystemCapability.Utils.Lang
+     * @since 12
+     */
+    [Symbol.iterator](): IterableIterator<T>;
     /**
      * Returns an iterable of [value, value] pairs for each element in this set.
      * 
@@ -846,7 +862,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The entries method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -858,7 +873,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The keys method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -870,7 +884,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The values method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -883,7 +896,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The add method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -894,7 +906,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The clear method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -907,7 +918,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The delete method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -921,7 +931,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -936,7 +945,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The has method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -952,7 +960,6 @@ declare namespace collections {
    * it must be synchronized externally.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -964,7 +971,6 @@ declare namespace collections {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -976,7 +982,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200012 - The ArrayBuffer's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -992,7 +997,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The slice method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -1006,7 +1010,6 @@ declare namespace collections {
    * it must be synchronized externally.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1019,7 +1022,6 @@ declare namespace collections {
      * @readonly
      * @static
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -1030,7 +1032,6 @@ declare namespace collections {
      * @type { ArrayBuffer }
      * @readonly
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -1041,7 +1042,6 @@ declare namespace collections {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -1052,7 +1052,6 @@ declare namespace collections {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -1063,7 +1062,6 @@ declare namespace collections {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -1073,7 +1071,6 @@ declare namespace collections {
      *
      * @throws { BusinessError } 10200012 - The Int8Array's constructor cannot be directly invoked.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -1085,7 +1082,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200012 - The Int8Array's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -1097,7 +1093,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200012 - The Int8Array's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -1113,7 +1108,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200012 - The Int8Array's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -1126,7 +1120,6 @@ declare namespace collections {
      * @throws { BusinessError } 401 - Parameter error.
      * @static
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -1141,7 +1134,6 @@ declare namespace collections {
      * @throws { BusinessError } 401 - Parameter error.
      * @static
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -1156,7 +1148,6 @@ declare namespace collections {
      * @throws { BusinessError } 401 - Parameter error.
      * @static
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -1175,7 +1166,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The copyWithin method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -1192,7 +1182,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The every method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -1210,7 +1199,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The fill method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -1225,7 +1213,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The filter method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -1243,7 +1230,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The find method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -1260,7 +1246,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The findIndex method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -1275,7 +1260,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -1291,7 +1275,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The indexOf method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -1306,7 +1289,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The join method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -1315,7 +1297,7 @@ declare namespace collections {
      * Calls a defined callback function on each element of an array, and returns an array that
      * contains the results.
      *
-     * @param { TypedArrayForEachCallback<number, Int8Array> } callbackFn - A function that
+     * @param { TypedArrayMapCallback<number, Int8Array> } callbackFn - A function that
      *     accepts up to three arguments.
      *     The map method calls the callbackfn function one time for each element in the array.
      * @returns { Int8Array } The array itself.
@@ -1323,11 +1305,10 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The map method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
-    map(callbackFn: TypedArrayForEachCallback<number, Int8Array>): Int8Array;
+    map(callbackFn: TypedArrayMapCallback<number, Int8Array>): Int8Array;
     /**
      * Calls the specified callback function for all the elements in an array. The return value of
      * the callback function is the accumulated result, and is provided as an argument in the next
@@ -1342,7 +1323,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -1364,7 +1344,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -1386,7 +1365,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -1399,7 +1377,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reverse method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -1413,7 +1390,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The set method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -1429,7 +1405,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The slice method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -1446,7 +1421,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The some method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -1464,7 +1438,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The sort method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -1480,7 +1453,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The subarray method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -1497,11 +1469,19 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The at method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
     at(index: number): number | undefined;
+    /**
+     * Returns an iterator that iterates over numbers.
+     *
+     * @returns { IterableIterator<number> } Iterator object that yields numbers.
+     * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
+     * @syscap SystemCapability.Utils.Lang
+     * @since 12
+     */
+    [Symbol.iterator](): IterableIterator<number>;
     /**
      * Returns an iterable of key, value pairs for every entry in the array
      *
@@ -1509,7 +1489,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -1521,7 +1500,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -1533,7 +1511,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -1549,7 +1526,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The at method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -1558,7 +1534,6 @@ declare namespace collections {
      * Returns the item at that index.
      * 
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -1573,6 +1548,7 @@ declare namespace collections {
    * it must be synchronized externally.
    *
    * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
    * @since 12
    */
   @Sendable
@@ -1584,6 +1560,7 @@ declare namespace collections {
      * @readonly
      * @static
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     static readonly BYTES_PER_ELEMENT: number;
@@ -1593,6 +1570,7 @@ declare namespace collections {
      * @type { ArrayBuffer }
      * @readonly
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     readonly buffer: ArrayBuffer;
@@ -1602,6 +1580,7 @@ declare namespace collections {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     readonly byteLength: number;
@@ -1611,6 +1590,7 @@ declare namespace collections {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     readonly byteOffset: number;
@@ -1620,6 +1600,7 @@ declare namespace collections {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     readonly length: number;
@@ -1628,6 +1609,7 @@ declare namespace collections {
      *
      * @throws { BusinessError } 10200012 - The Uint8ClampedArray's constructor cannot be directly invoked.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     constructor();
@@ -1638,6 +1620,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200012 - The Uint8ClampedArray's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     constructor(length: number);
@@ -1648,6 +1631,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200012 - The Uint8ClampedArray's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     constructor(array: ArrayLike<number> | ArrayBuffer);
@@ -1662,6 +1646,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200012 - The Uint8ClampedArray's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     constructor(buffer: ArrayBuffer, byteOffset?: number, length?: number);
@@ -1673,6 +1658,7 @@ declare namespace collections {
      * @throws { BusinessError } 401 - Parameter error.
      * @static
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     static from(arrayLike: ArrayLike<number>): Uint8ClampedArray;
@@ -1686,6 +1672,7 @@ declare namespace collections {
      * @throws { BusinessError } 401 - Parameter error.
      * @static
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     static from<T>(arrayLike: ArrayLike<T>, mapFn: TypedArrayFromMapFn<T, number>): Uint8ClampedArray;
@@ -1699,6 +1686,7 @@ declare namespace collections {
      * @throws { BusinessError } 401 - Parameter error.
      * @static
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     static from(arrayLike: Iterable<number>, mapFn?: TypedArrayFromMapFn<number, number>): Uint8ClampedArray;
@@ -1716,6 +1704,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The copyWithin method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     copyWithin(target: number, start: number, end?: number): Uint8ClampedArray;
@@ -1732,6 +1721,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The every method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     every(predicate: TypedArrayPredicateFn<number, Uint8ClampedArray>): boolean;
@@ -1748,6 +1738,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The fill method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     fill(value: number, start?: number, end?: number): Uint8ClampedArray;
@@ -1762,6 +1753,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The filter method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     filter(predicate: TypedArrayPredicateFn<number, Uint8ClampedArray>): Uint8ClampedArray;
@@ -1778,6 +1770,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The find method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     find(predicate: TypedArrayPredicateFn<number, Uint8ClampedArray>): number | undefined;
@@ -1794,6 +1787,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The findIndex method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     findIndex(predicate: TypedArrayPredicateFn<number, Uint8ClampedArray>): number;
@@ -1807,6 +1801,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     forEach(callbackFn: TypedArrayForEachCallback<number, Uint8ClampedArray>): void;
@@ -1821,6 +1816,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The indexOf method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     indexOf(searchElement: number, fromIndex?: number): number;
@@ -1834,6 +1830,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The join method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     join(separator?: string): string;
@@ -1849,6 +1846,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The map method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     map(callbackFn: TypedArrayMapCallback<number, Uint8ClampedArray>): Uint8ClampedArray;
@@ -1866,6 +1864,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     reduce(callbackFn: TypedArrayReduceCallback<number, number, Uint8ClampedArray>): number;
@@ -1886,6 +1885,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     reduce<U = number>(callbackFn: TypedArrayReduceCallback<U, number, Uint8ClampedArray>, initialValue: U): U;
@@ -1897,6 +1897,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reverse method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     reverse(): Uint8ClampedArray;
@@ -1909,6 +1910,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The set method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     set(array: ArrayLike<number>, offset?: number): void;
@@ -1923,6 +1925,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The slice method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     slice(start?: number, end?: number): Uint8ClampedArray;
@@ -1939,6 +1942,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The some method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     some(predicate: TypedArrayPredicateFn<number, Uint8ClampedArray>): boolean;
@@ -1955,6 +1959,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The sort method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     sort(compareFn?: TypedArrayCompareFn<number>): Uint8ClampedArray;
@@ -1969,6 +1974,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The subarray method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     subarray(begin?: number, end?: number): Uint8ClampedArray;
@@ -1984,9 +1990,19 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The at method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     at(index: number): number | undefined;
+    /**
+     * Returns an iterator that iterates over numbers.
+     *
+     * @returns { IterableIterator<number> } Iterator object that yields numbers.
+     * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
+     * @syscap SystemCapability.Utils.Lang
+     * @since 12
+     */
+    [Symbol.iterator](): IterableIterator<number>;
     /**
      * Returns an iterable of key, value pairs for every entry in the array
      *
@@ -1994,6 +2010,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     entries(): IterableIterator<[number, number]>;
@@ -2004,6 +2021,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     keys(): IterableIterator<number>;
@@ -2014,6 +2032,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     values(): IterableIterator<number>;
@@ -2028,6 +2047,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The at method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     includes(searchElement: number, fromIndex?: number): boolean;
@@ -2035,6 +2055,7 @@ declare namespace collections {
      * Returns the item at that index.
      * 
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     [index: number]: number;
@@ -2047,7 +2068,6 @@ declare namespace collections {
    * it must be synchronized externally.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -2060,7 +2080,6 @@ declare namespace collections {
      * @readonly
      * @static
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2071,7 +2090,6 @@ declare namespace collections {
      * @type { ArrayBuffer }
      * @readonly
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2082,7 +2100,6 @@ declare namespace collections {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2093,7 +2110,6 @@ declare namespace collections {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2104,7 +2120,6 @@ declare namespace collections {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2114,7 +2129,6 @@ declare namespace collections {
      *
      * @throws { BusinessError } 10200012 - The Uint8Array's constructor cannot be directly invoked.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2126,7 +2140,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200012 - The Uint8Array's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2138,7 +2151,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200012 - The Uint8Array's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2154,7 +2166,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200012 - The Uint8Array's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2167,7 +2178,6 @@ declare namespace collections {
      * @throws { BusinessError } 401 - Parameter error.
      * @static
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2181,7 +2191,6 @@ declare namespace collections {
      * @throws { BusinessError } 401 - Parameter error.
      * @static
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2196,7 +2205,6 @@ declare namespace collections {
      * @throws { BusinessError } 401 - Parameter error.
      * @static
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2215,7 +2223,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The copyWithin method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2232,7 +2239,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The every method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2250,7 +2256,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The fill method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2265,7 +2270,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The filter method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2283,7 +2287,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The find method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2300,7 +2303,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The findIndex method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2315,7 +2317,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2331,7 +2332,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The indexOf method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2346,7 +2346,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The join method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2355,7 +2354,7 @@ declare namespace collections {
      * Calls a defined callback function on each element of an array, and returns an array that
      * contains the results.
      *
-     * @param { TypedArrayForEachCallback<number, Uint8Array> } callbackFn - A function that
+     * @param { TypedArrayMapCallback<number, Uint8Array> } callbackFn - A function that
      *     accepts up to three arguments.
      *     The map method calls the callbackfn function one time for each element in the array.
      * @returns { Uint8Array } The array itself.
@@ -2363,11 +2362,10 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The map method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
-    map(callbackFn: TypedArrayForEachCallback<number, Uint8Array>): Uint8Array;
+    map(callbackFn: TypedArrayMapCallback<number, Uint8Array>): Uint8Array;
     /**
      * Calls the specified callback function for all the elements in an array. The return value of
      * the callback function is the accumulated result, and is provided as an argument in the next
@@ -2382,7 +2380,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2404,7 +2401,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2426,7 +2422,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2439,7 +2434,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reverse method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2453,7 +2447,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The set method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2469,7 +2462,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The slice method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2486,7 +2478,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The some method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2504,7 +2495,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The sort method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2520,7 +2510,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The subarray method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2537,11 +2526,19 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The at method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
     at(index: number): number | undefined;
+    /**
+     * Returns an iterator that iterates over numbers.
+     *
+     * @returns { IterableIterator<number> } Iterator object that yields numbers.
+     * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
+     * @syscap SystemCapability.Utils.Lang
+     * @since 12
+     */
+    [Symbol.iterator](): IterableIterator<number>;
     /**
      * Returns an iterable of key, value pairs for every entry in the array
      *
@@ -2549,7 +2546,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2561,7 +2557,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2573,7 +2568,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2589,7 +2583,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The at method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2598,7 +2591,6 @@ declare namespace collections {
      * Returns the item at that index.
      * 
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2612,7 +2604,6 @@ declare namespace collections {
    * it must be synchronized externally. 
    *
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -2625,7 +2616,6 @@ declare namespace collections {
      * @readonly
      * @static
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2636,7 +2626,6 @@ declare namespace collections {
      * @type { ArrayBuffer }
      * @readonly
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2647,7 +2636,6 @@ declare namespace collections {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2658,7 +2646,6 @@ declare namespace collections {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2669,7 +2656,6 @@ declare namespace collections {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2679,7 +2665,6 @@ declare namespace collections {
      *
      * @throws { BusinessError } 10200012 - The Int16Array's constructor cannot be directly invoked.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2691,7 +2676,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200012 - The Int16Array's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2703,7 +2687,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200012 - The Int16Array's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2719,7 +2702,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200012 - The Int16Array's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2732,7 +2714,6 @@ declare namespace collections {
      * @throws { BusinessError } 401 - Parameter error.
      * @static
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2746,7 +2727,6 @@ declare namespace collections {
      * @throws { BusinessError } 401 - Parameter error.
      * @static
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2761,7 +2741,6 @@ declare namespace collections {
      * @throws { BusinessError } 401 - Parameter error.
      * @static
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2780,7 +2759,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The copyWithin method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2797,7 +2775,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The every method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2815,7 +2792,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The fill method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2830,7 +2806,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The filter method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2848,7 +2823,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The find method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2865,7 +2839,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The findIndex method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2880,7 +2853,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2896,7 +2868,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The indexOf method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2911,7 +2882,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The join method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2920,7 +2890,7 @@ declare namespace collections {
      * Calls a defined callback function on each element of an array, and returns an array that
      * contains the results.
      *
-     * @param { TypedArrayForEachCallback<number, Int16Array> } callbackFn - A function that
+     * @param { TypedArrayMapCallback<number, Int16Array> } callbackFn - A function that
      *     accepts up to three arguments.
      *     The map method calls the callbackfn function one time for each element in the array.
      * @returns { Int16Array } The array itself.
@@ -2928,11 +2898,10 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The map method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
-    map(callbackFn: TypedArrayForEachCallback<number, Int16Array>): Int16Array;
+    map(callbackFn: TypedArrayMapCallback<number, Int16Array>): Int16Array;
     /**
      * Calls the specified callback function for all the elements in an array. The return value of
      * the callback function is the accumulated result, and is provided as an argument in the next
@@ -2947,7 +2916,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2969,7 +2937,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -2991,7 +2958,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3004,7 +2970,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reverse method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3018,7 +2983,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The set method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3034,7 +2998,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The slice method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3051,7 +3014,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The some method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3069,7 +3031,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The sort method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3085,7 +3046,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The subarray method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3102,11 +3062,19 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The at method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
     at(index: number): number | undefined;
+    /**
+     * Returns an iterator that iterates over numbers.
+     *
+     * @returns { IterableIterator<number> } Iterator object that yields numbers.
+     * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
+     * @syscap SystemCapability.Utils.Lang
+     * @since 12
+     */
+    [Symbol.iterator](): IterableIterator<number>;
     /**
      * Returns an iterable of key, value pairs for every entry in the array
      *
@@ -3114,7 +3082,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3126,7 +3093,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3138,7 +3104,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3154,7 +3119,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The at method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3163,7 +3127,6 @@ declare namespace collections {
      * Returns the item at that index.
      * 
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3177,7 +3140,6 @@ declare namespace collections {
    * it must be synchronized externally. 
    *
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -3190,7 +3152,6 @@ declare namespace collections {
      * @readonly
      * @static
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3201,7 +3162,6 @@ declare namespace collections {
      * @type { ArrayBuffer }
      * @readonly
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3212,7 +3172,6 @@ declare namespace collections {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3223,7 +3182,6 @@ declare namespace collections {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3234,7 +3192,6 @@ declare namespace collections {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3244,7 +3201,6 @@ declare namespace collections {
      *
      * @throws { BusinessError } 10200012 - The Uint16Array's constructor cannot be directly invoked.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3256,7 +3212,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200012 - The Uint16Array's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3268,7 +3223,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200012 - The Uint16Array's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3284,7 +3238,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200012 - The Uint16Array's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3297,7 +3250,6 @@ declare namespace collections {
      * @throws { BusinessError } 401 - Parameter error.
      * @static
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3311,7 +3263,6 @@ declare namespace collections {
      * @throws { BusinessError } 401 - Parameter error.
      * @static
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3326,7 +3277,6 @@ declare namespace collections {
      * @throws { BusinessError } 401 - Parameter error.
      * @static
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3345,7 +3295,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The copyWithin method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3362,7 +3311,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The every method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3380,7 +3328,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The fill method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3395,7 +3342,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The filter method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3413,7 +3359,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The find method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3430,7 +3375,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The findIndex method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3445,7 +3389,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3461,7 +3404,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The indexOf method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3476,7 +3418,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The join method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3485,18 +3426,17 @@ declare namespace collections {
      * Calls a defined callback function on each element of an array, and returns an array that
      * contains the results.
      *
-     * @param { TypedArrayForEachCallback<number, Uint16Array> } callbackFn - A function that accepts up to
+     * @param { TypedArrayMapCallback<number, Uint16Array> } callbackFn - A function that accepts up to
      *     three arguments. The map method calls the callbackfn function one time for each element in the array.
      * @returns { Uint16Array } The array itself.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The map method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
-    map(callbackFn: TypedArrayForEachCallback<number, Uint16Array>): Uint16Array;
+    map(callbackFn: TypedArrayMapCallback<number, Uint16Array>): Uint16Array;
     /**
      * Calls the specified callback function for all the elements in an array. The return value of
      * the callback function is the accumulated result, and is provided as an argument in the next
@@ -3511,7 +3451,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3533,7 +3472,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3555,7 +3493,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3568,7 +3505,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reverse method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3582,7 +3518,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The set method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3598,7 +3533,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The slice method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3615,7 +3549,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The some method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3633,7 +3566,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The sort method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3649,7 +3581,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The subarray method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3666,11 +3597,19 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The at method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
     at(index: number): number | undefined;
+    /**
+     * Returns an iterator that iterates over numbers.
+     *
+     * @returns { IterableIterator<number> } Iterator object that yields numbers.
+     * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
+     * @syscap SystemCapability.Utils.Lang
+     * @since 12
+     */
+    [Symbol.iterator](): IterableIterator<number>;
     /**
      * Returns an iterable of key, value pairs for every entry in the array
      *
@@ -3678,7 +3617,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3690,7 +3628,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3702,7 +3639,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3718,7 +3654,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The at method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3727,7 +3662,6 @@ declare namespace collections {
      * Returns the item at that index.
      * 
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3741,7 +3675,6 @@ declare namespace collections {
    * it must be synchronized externally. 
    *
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -3754,7 +3687,6 @@ declare namespace collections {
      * @readonly
      * @static
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3765,7 +3697,6 @@ declare namespace collections {
      * @type { ArrayBuffer }
      * @readonly
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3776,7 +3707,6 @@ declare namespace collections {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3787,7 +3717,6 @@ declare namespace collections {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3798,7 +3727,6 @@ declare namespace collections {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3808,7 +3736,6 @@ declare namespace collections {
      *
      * @throws { BusinessError } 10200012 - The Int32Array's constructor cannot be directly invoked.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3820,7 +3747,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200012 - The Int32Array's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3832,7 +3758,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200012 - The Int32Array's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3848,7 +3773,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200012 - The Int32Array's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3861,7 +3785,6 @@ declare namespace collections {
      * @throws { BusinessError } 401 - Parameter error.
      * @static
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3875,7 +3798,6 @@ declare namespace collections {
      * @throws { BusinessError } 401 - Parameter error.
      * @static
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3890,7 +3812,6 @@ declare namespace collections {
      * @throws { BusinessError } 401 - Parameter error.
      * @static
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3909,7 +3830,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The copyWithin method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3926,7 +3846,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The every method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3944,7 +3863,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The fill method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3959,7 +3877,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The filter method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3977,7 +3894,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The find method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3994,7 +3910,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The findIndex method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4009,7 +3924,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4025,7 +3939,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The indexOf method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4040,7 +3953,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The join method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4049,7 +3961,7 @@ declare namespace collections {
      * Calls a defined callback function on each element of an array, and returns an array that
      * contains the results.
      *
-     * @param { TypedArrayForEachCallback<number, Int32Array> } callbackFn - A function that
+     * @param { TypedArrayMapCallback<number, Int32Array> } callbackFn - A function that
      *     accepts up to three arguments.
      *     The map method calls the callbackfn function one time for each element in the array.
      * @returns { Int32Array } The array itself.
@@ -4057,11 +3969,10 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The map method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
-    map(callbackFn: TypedArrayForEachCallback<number, Int32Array>): Int32Array;
+    map(callbackFn: TypedArrayMapCallback<number, Int32Array>): Int32Array;
     /**
      * Calls the specified callback function for all the elements in an array. The return value of
      * the callback function is the accumulated result, and is provided as an argument in the next
@@ -4076,7 +3987,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4098,7 +4008,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4120,7 +4029,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4133,7 +4041,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reverse method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4147,7 +4054,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The set method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4163,7 +4069,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The slice method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4180,7 +4085,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The some method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4198,7 +4102,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The sort method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4214,7 +4117,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The subarray method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4231,11 +4133,19 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The at method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
     at(index: number): number | undefined;
+    /**
+     * Returns an iterator that iterates over numbers.
+     *
+     * @returns { IterableIterator<number> } Iterator object that yields numbers.
+     * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
+     * @syscap SystemCapability.Utils.Lang
+     * @since 12
+     */
+    [Symbol.iterator](): IterableIterator<number>;
     /**
      * Returns an iterable of key, value pairs for every entry in the array
      *
@@ -4243,7 +4153,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4255,7 +4164,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4267,7 +4175,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4283,7 +4190,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The at method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4292,7 +4198,6 @@ declare namespace collections {
      * Returns the item at that index.
      * 
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4306,7 +4211,6 @@ declare namespace collections {
    * it must be synchronized externally. 
    *
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -4319,7 +4223,6 @@ declare namespace collections {
      * @readonly
      * @static
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4330,7 +4233,6 @@ declare namespace collections {
      * @type { ArrayBuffer }
      * @readonly
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4341,7 +4243,6 @@ declare namespace collections {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4352,7 +4253,6 @@ declare namespace collections {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4363,7 +4263,6 @@ declare namespace collections {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4373,7 +4272,6 @@ declare namespace collections {
      *
      * @throws { BusinessError } 10200012 - The Uint32Array's constructor cannot be directly invoked.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4385,7 +4283,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200012 - The Uint32Array's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4397,7 +4294,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200012 - The Uint32Array's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4413,7 +4309,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200012 - The Uint32Array's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4426,7 +4321,6 @@ declare namespace collections {
      * @throws { BusinessError } 401 - Parameter error.
      * @static
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4440,7 +4334,6 @@ declare namespace collections {
      * @throws { BusinessError } 401 - Parameter error.
      * @static
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4455,7 +4348,6 @@ declare namespace collections {
      * @throws { BusinessError } 401 - Parameter error.
      * @static
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4474,7 +4366,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The copyWithin method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4491,7 +4382,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The every method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4509,7 +4399,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The fill method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4524,7 +4413,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The filter method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4542,7 +4430,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The find method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4559,7 +4446,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The findIndex method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4574,7 +4460,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4590,7 +4475,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The indexOf method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4605,7 +4489,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The join method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4614,18 +4497,17 @@ declare namespace collections {
      * Calls a defined callback function on each element of an array, and returns an array that
      * contains the results.
      *
-     * @param { TypedArrayForEachCallback<number, Uint32Array> } callbackFn - A function that accepts up to
+     * @param { TypedArrayMapCallback<number, Uint32Array> } callbackFn - A function that accepts up to
      *     three arguments. The map method calls the callbackfn function one time for each element in the array.
      * @returns { Uint32Array } The array itself.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The map method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
-    map(callbackFn: TypedArrayForEachCallback<number, Uint32Array>): Uint32Array;
+    map(callbackFn: TypedArrayMapCallback<number, Uint32Array>): Uint32Array;
     /**
      * Calls the specified callback function for all the elements in an array. The return value of
      * the callback function is the accumulated result, and is provided as an argument in the next
@@ -4640,7 +4522,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4662,7 +4543,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4684,7 +4564,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4697,7 +4576,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reverse method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4711,7 +4589,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The set method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4727,7 +4604,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The slice method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4744,7 +4620,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The some method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4762,7 +4637,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The sort method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4778,7 +4652,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The subarray method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4795,11 +4668,19 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The at method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
     at(index: number): number | undefined;
+    /**
+     * Returns an iterator that iterates over numbers.
+     *
+     * @returns { IterableIterator<number> } Iterator object that yields numbers.
+     * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
+     * @syscap SystemCapability.Utils.Lang
+     * @since 12
+     */
+    [Symbol.iterator](): IterableIterator<number>;
     /**
      * Returns an iterable of key, value pairs for every entry in the array
      *
@@ -4807,7 +4688,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4819,7 +4699,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4831,7 +4710,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4847,7 +4725,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The at method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4856,7 +4733,516 @@ declare namespace collections {
      * Returns the item at that index.
      * 
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    [index: number]: number;
+  }
+  /**
+   * The Float32Array typed array represents an array of 32-bit float numbers.
+   * The contents are initialized to 0.
+   * If multiple threads access a Float32Array instance concurrently, 
+   * and at least one of the threads modifies the array structurally,
+   * it must be synchronized externally.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 12
+   */
+  @Sendable
+  class Float32Array {
+    /**
+     * The size in bytes of each element in the array.
+     *
+     * @type { number }
+     * @readonly
+     * @static
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    static readonly BYTES_PER_ELEMENT: number;
+    /**
+     * The ArrayBuffer instance referenced by the array.
+     *
+     * @type { ArrayBuffer }
+     * @readonly
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    readonly buffer: ArrayBuffer;
+    /**
+     * The length in bytes of the array.
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    readonly byteLength: number;
+    /**
+     * The offset in bytes of the array.
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    readonly byteOffset: number;
+    /**
+     * The length of the array.
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    readonly length: number;
+    /**
+     * A constructor used to create an Float32Array.
+     *
+     * @throws { BusinessError } 10200012 - The Float32Array's constructor cannot be directly invoked.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    constructor();
+    /**
+     * A constructor used to create an Float32Array.
+     *
+     * @param { number } length - The length of the array
+     * @throws { BusinessError } 10200012 - The Float32Array's constructor cannot be directly invoked.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    constructor(length: number);
+    /**
+     * A constructor used to create an Float32Array.
+     *
+     * @param { ArrayLike<number> | ArrayBuffer } array - An array is initialized with the given elements
+     * @throws { BusinessError } 10200012 - The Float32Array's constructor cannot be directly invoked.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    constructor(array: ArrayLike<number> | ArrayBuffer);
+    /**
+     * A constructor used to create an Float32Array.
+     *
+     * @param { ArrayBuffer } buffer - An array is initialized with the given elements
+     * @param { number } [byteOffset] - The byteOffset (in bytes) parameter specifies the memory range
+     *     that will be exposed by the typed array view.
+     * @param { number } [length] - The length parameter specifies the memory range
+     *     that will be exposed by the typed array view.
+     * @throws { BusinessError } 10200012 - The Float32Array's constructor cannot be directly invoked.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    constructor(buffer: ArrayBuffer, byteOffset?: number, length?: number);
+    /**
+     * Creates an Float32Array from an array-like object.
+     *
+     * @param { ArrayLike<number> } arrayLike - An array-like object to convert to an Float32Array.
+     * @returns { Float32Array } A new Float32Array instance
+     * @throws { BusinessError } 401 - Parameter error.
+     * @static
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    static from(arrayLike: ArrayLike<number>): Float32Array;
+    /**
+     * Creates an Float32Array from an array-like object.
+     *
+     * @param { ArrayLike<T> } arrayLike - An array-like object to convert to an Float32Array.
+     * @param { TypedArrayFromMapFn<T, number> } mapFn - A mapping function to call on every element of the array.
+     * @returns { Float32Array } A new Float32Array instance
+     * @throws { BusinessError } 401 - Parameter error.
+     * @static
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    static from<T>(arrayLike: ArrayLike<T>, mapFn: TypedArrayFromMapFn<T, number>): Float32Array;
+    /**
+     * Creates an Float32Array from an iterable object.
+     *
+     * @param { Iterable<number> } arrayLike - An iterable object to convert to an Float32Array.
+     * @param { TypedArrayFromMapFn<number, number> } [mapFn] - A mapping function to
+     *     call on every element of the array.
+     * @returns { Float32Array } A new Float32Array instance
+     * @throws { BusinessError } 401 - Parameter error.
+     * @static
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    static from(arrayLike: Iterable<number>, mapFn?: TypedArrayFromMapFn<number, number>): Float32Array;
+    /**
+     * Returns the this object after copying a section of the array identified by start and end
+     * to the same array starting at position target.
+     *
+     * @param { number } target - If target is negative, it is treated as length+target where length is the
+     *     length of the array.
+     * @param { number } start - If start is negative, it is treated as length+start. If end is negative, it
+     *     is treated as length+end.
+     * @param { number } [end] - If not specified, length of the this object is used as its default value.
+     * @returns { Float32Array } The array itself.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 10200011 - The copyWithin method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    copyWithin(target: number, start: number, end?: number): Float32Array;
+    /**
+     * Determines whether all the members of an array satisfy the specified test.
+     *
+     * @param { TypedArrayPredicateFn<number, Float32Array> } predicate - A function
+     *     that accepts up to three arguments.
+     *     The every method calls the predicate function for each element in the array until
+     *     the predicate returns a value which is coercible to the Boolean value false, or until the end of the array.
+     * @returns { boolean } true unless predicate returns a false value for a typed array element,
+     *     in which case false is immediately returned.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 10200011 - The every method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    every(predicate: TypedArrayPredicateFn<number, Float32Array>): boolean;
+    /**
+     * Returns the this object after filling the section identified by start and end with value.
+     *
+     * @param { number } value - value to fill array section with.
+     * @param { number } [start] - index to start filling the array at. If start is negative, it is treated as
+     *     length+start where length is the length of the array.
+     * @param { number } [end] - index to stop filling the array at. If end is negative, it is treated as
+     *     length+end.
+     * @returns { Float32Array } The array itself.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 10200011 - The fill method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    fill(value: number, start?: number, end?: number): Float32Array;
+    /**
+     * Returns the elements of an array that meet the condition specified in a callback function.
+     *
+     * @param { TypedArrayPredicateFn<number, Float32Array> } predicate - A function
+     *     that accepts up to three arguments.
+     *     The filter method calls the predicate function one time for each element in the array.
+     * @returns { Float32Array } The array itself.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 10200011 - The filter method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    filter(predicate: TypedArrayPredicateFn<number, Float32Array>): Float32Array;
+    /**
+     * Returns the value of the first element in the array where predicate is true, and undefined
+     * otherwise.
+     *
+     * @param { TypedArrayPredicateFn<number, Float32Array> } predicate - find calls predicate once for
+     *     each element of the array, in ascending order, until it finds one where predicate returns true.
+     *     If such an element is found, find immediately returns that element value. Otherwise, find returns undefined.
+     * @returns { number | undefined } The first element in the typed array
+     *     that satisfies the provided testing function. Otherwise, undefined is returned.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 10200011 - The find method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    find(predicate: TypedArrayPredicateFn<number, Float32Array>): number | undefined;
+    /**
+     * Returns the index of the first element in the array where predicate is true, and -1
+     * otherwise.
+     *
+     * @param { TypedArrayPredicateFn<number, Float32Array> } predicate - find calls predicate once for
+     *     each element of the array, in ascending order, until it finds one where predicate returns true.
+     *     If such an element is found, findIndex immediately returns that element index.
+     *     Otherwise, findIndex returns -1.
+     * @returns { number } The index of the first element in the typed array that passes the test. Otherwise, -1.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 10200011 - The findIndex method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    findIndex(predicate: TypedArrayPredicateFn<number, Float32Array>): number;
+    /**
+     * Performs the specified action for each element in an array.
+     *
+     * @param { TypedArrayForEachCallback<number, Float32Array> } callbackFn -  A function that
+     *     accepts up to three arguments.
+     *     forEach calls the callbackfn function one time for each element in the array.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    forEach(callbackFn: TypedArrayForEachCallback<number, Float32Array>): void;
+    /**
+     * Returns the index of the first occurrence of a value in an array.
+     *
+     * @param { number } searchElement - The value to locate in the array.
+     * @param { number } [fromIndex] - The array index at which to begin the search. If fromIndex is omitted, the
+     *      search starts at index 0.
+     * @returns { number } The first index of searchElement in the typed array; -1 if not found.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 10200011 - The indexOf method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    indexOf(searchElement: number, fromIndex?: number): number;
+    /**
+     * Adds all the elements of an array separated by the specified separator string.
+     * @param { string } [separator] - A string used to separate one element of an array from the next in the
+     *     resulting String. If omitted, the array elements are separated with a comma.
+     * @returns { string } A string with all typed array elements joined.
+     *     If array.length is 0, the empty string is returned.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 10200011 - The join method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    join(separator?: string): string;
+    /**
+     * Calls a defined callback function on each element of an array, and returns an array that
+     * contains the results.
+     *
+     * @param { TypedArrayMapCallback<number, Float32Array> } callbackFn - A function that
+     *     accepts up to three arguments.
+     *     The map method calls the callbackfn function one time for each element in the array.
+     * @returns { Float32Array } The array itself.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 10200011 - The map method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    map(callbackFn: TypedArrayMapCallback<number, Float32Array>): Float32Array;
+    /**
+     * Calls the specified callback function for all the elements in an array. The return value of
+     * the callback function is the accumulated result, and is provided as an argument in the next
+     * call to the callback function.
+     *
+     * @param { TypedArrayReduceCallback<number, number, Float32Array> } callbackFn - A function that
+     *     accepts up to four arguments.
+     *     The reduce method calls the callbackfn function one time for each element in the array.
+     * @returns { number } The value that results from running the "reducer" callback function to
+     *     completion over the entire typed array.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    reduce(callbackFn: TypedArrayReduceCallback<number, number, Float32Array>): number;
+    /**
+     * Calls the specified callback function for all the elements in an array. The return value of
+     * the callback function is the accumulated result, and is provided as an argument in the next
+     * call to the callback function.
+     *
+     * @param { TypedArrayReduceCallback<U, number, Float32Array> } callbackFn - A function that
+     *     accepts up to four arguments.
+     *     The reduce method calls the callbackfn function one time for each element in the array.
+     * @param { U } initialValue - If initialValue is specified, it is used as the initial value to start
+     *     the accumulation. The first call to the callbackfn function provides this value as an argument
+     *     instead of an array value.
+     * @returns { U } The value that results from running the "reducer" callback function to
+     *     completion over the entire typed array.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    reduce<U = number>(callbackFn: TypedArrayReduceCallback<U, number, Float32Array>, initialValue: U): U;
+    /**
+     * Reverses the elements in an Array.
+     *
+     * @returns { Float32Array } The reference to the original typed array, now reversed.
+     *     <br>Note that the typed array is reversed in place, and no copy is made.
+     * @throws { BusinessError } 10200011 - The reverse method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    reverse(): Float32Array;
+    /**
+     * Sets a value or an array of values.
+     *
+     * @param { ArrayLike<number> } array - A typed or untyped array of values to set.
+     * @param { number } [offset] - The index in the current array at which the values are to be written.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 10200011 - The set method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    set(array: ArrayLike<number>, offset?: number): void;
+    /**
+     * Returns a section of an array.
+     *
+     * @param { number } [start] - The beginning of the specified portion of the array.
+     * @param { number } [end] - The end of the specified portion of the array.
+     *     This is exclusive of the element at the index 'end'.
+     * @returns { Float32Array } A new typed array containing the extracted elements.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 10200011 - The slice method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    slice(start?: number, end?: number): Float32Array;
+    /**
+     * Determines whether the specified callback function returns true for any element of an array.
+     *
+     * @param { TypedArrayPredicateFn<number, Float32Array> } predicate - A function
+     *     that accepts up to three arguments.
+     *     The some method calls the predicate function for each element in the array until
+     *     the predicate returns a value which is coercible to the Boolean value true, or until the end of the array.
+     * @returns { boolean } false unless predicate returns a truthy value for a typed array element,
+     *     in which case true is immediately returned.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 10200011 - The some method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    some(predicate: TypedArrayPredicateFn<number, Float32Array>): boolean;
+    /**
+     * Sorts an array.
+     *
+     * @param { TypedArrayCompareFn<number> } [compareFn] - Function used to determine the order of the elements.
+     *     It is expected to return a negative value if first argument is less than second argument,
+     *     zero if they're equal and a positive value otherwise.
+     *     If omitted, the elements are sorted in ascending, ASCII character order.
+     * @returns { Float32Array } The reference to the original typed array, now sorted.
+     *     Note that the typed array is sorted in place and no copy is made.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 10200011 - The sort method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    sort(compareFn?: TypedArrayCompareFn<number>): Float32Array;
+    /**
+     * Gets a new Float32Array view of the ArrayBuffer store for this array, referencing the elements
+     * at begin, inclusive, up to end, exclusive.
+     *
+     * @param { number } [begin] - The index of the beginning of the array.
+     * @param { number } [end] - The index of the end of the array.
+     * @returns { Float32Array } A new Float32Array object.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 10200011 - The subarray method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    subarray(begin?: number, end?: number): Float32Array;
+    /**
+     * Returns the item located at the specified index.
+     *
+     * @param { number } index - The zero-based index of the desired code unit.<br/>
+     *     A negative index will count back from the last item.
+     * @returns { number | undefined } The element in the array matching the given index.<br/>
+     *     Always returns undefined if index < -array.length or
+     *     index >= array.length without attempting to access the corresponding property.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 10200011 - The at method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    at(index: number): number | undefined;
+    /**
+     * Returns an iterable of key, value pairs for every entry in the array
+     *
+     * @returns { IterableIterator<[number, number]> } A new iterable iterator object.
+     * @throws { BusinessError } 10200011 - The method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    entries(): IterableIterator<[number, number]>;
+    /**
+     * Returns an iterable of keys in the array
+     *
+     * @returns { IterableIterator<number> } A new iterable iterator object.
+     * @throws { BusinessError } 10200011 - The method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    keys(): IterableIterator<number>;
+    /**
+     * Returns an iterable of values in the array
+     *
+     * @returns { IterableIterator<number> } A new iterable iterator object.
+     * @throws { BusinessError } 10200011 - The method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    values(): IterableIterator<number>;
+    /**
+     * Determines whether an array includes a certain element, returning true or false as appropriate.
+     *
+     * @param { number } searchElement - The element to search for.
+     * @param { number } [fromIndex] - The position in this array at which to begin searching for searchElement.
+     * @returns { boolean } A boolean value which is true if the value searchElement is found <br/>
+     *     within the typed array (or the part of the typed array indicated by the index fromIndex, if specified).
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 10200011 - The at method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    includes(searchElement: number, fromIndex?: number): boolean;
+    /**
+     * Returns the item at that index.
+     * 
+     * @syscap SystemCapability.Utils.Lang
      * @atomicservice
      * @since 12
      */
@@ -4869,7 +5255,6 @@ declare namespace collections {
    * it must be synchronized externally. 
    *
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -4880,7 +5265,6 @@ declare namespace collections {
      *
      * @param { number } length - The length of BitVector object.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4889,9 +5273,8 @@ declare namespace collections {
      * Gets the element number of the BitVector. This is a number one higher than the highest index in the bit vector.
      * It can be changed by resize().
      *
-     * @syscap SystemCapability.Utils.Lang
      * @readonly
-     * @crossplatform
+     * @syscap SystemCapability.Utils.Lang
      * @atomicservice
      * @since 12
      */
@@ -4907,7 +5290,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The push method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4919,7 +5301,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The pop method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4939,7 +5320,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The has method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4957,7 +5337,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The setBitsByRange method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4972,7 +5351,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The setAllBits method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -4990,7 +5368,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The getBitsByRange method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -5006,7 +5383,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The resize method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -5025,7 +5401,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The getBitCountByRange method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -5045,7 +5420,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The getIndexOf method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -5065,7 +5439,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The getLastIndexOf method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -5081,7 +5454,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The flipBitByIndex method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -5098,7 +5470,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The flipBitsByRange method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -5110,7 +5481,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The values method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -5119,7 +5489,6 @@ declare namespace collections {
      * Returns the item at that index.
      * 
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 12
      */

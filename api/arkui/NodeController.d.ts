@@ -19,7 +19,6 @@
  */
 
 import { UIContext } from '../@ohos.arkui.UIContext';
-import { TouchEvent } from 'touchEvent';
 import { FrameNode } from './FrameNode';
 import { Size } from './Graphics';
 

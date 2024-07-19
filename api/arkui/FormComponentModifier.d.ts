@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-/// <reference path="../../component/common.d.ts" />
-/// <reference path="../../component/form_component.d.ts" />
+
+
 
 /**
  * Defines FormComponent Modifier
@@ -27,6 +27,7 @@
  * @extends FormComponentAttribute
  * @implements AttributeModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class FormComponentModifier extends FormComponentAttribute implements AttributeModifier<FormComponentAttribute> {
@@ -37,6 +38,7 @@ export declare class FormComponentModifier extends FormComponentAttribute implem
    * @param { FormComponentAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: FormComponentAttribute): void;

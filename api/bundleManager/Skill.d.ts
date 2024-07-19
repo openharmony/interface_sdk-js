@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit AbilityKit
+ */
+
+/**
  * Obtains configuration information about an skill
  *
  * @typedef Skill

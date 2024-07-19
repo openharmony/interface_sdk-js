@@ -28,6 +28,7 @@ export interface BatteryResponse {
   /**
    * Whether the battery is being charged.
    *
+   * @type { boolean }
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
    * @since 3
    * @deprecated since 6
@@ -37,6 +38,7 @@ export interface BatteryResponse {
   /**
    * Current battery level, which ranges from 0.00 to 1.00.
    *
+   * @type { number }
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
    * @since 3
    * @deprecated since 6
@@ -54,6 +56,7 @@ export interface GetStatusOptions {
   /**
    * Called when the current charging state and battery level are obtained.
    *
+   * @type { ?function }
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
    * @since 3
    * @deprecated since 6
@@ -63,6 +66,7 @@ export interface GetStatusOptions {
   /**
    * Called when the current charging state and battery level fail to be obtained.
    *
+   * @type { ?function }
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
    * @since 3
    * @deprecated since 6
@@ -72,6 +76,7 @@ export interface GetStatusOptions {
   /**
    * Called when the execution is completed.
    *
+   * @type { ?function }
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
    * @since 3
    * @deprecated since 6

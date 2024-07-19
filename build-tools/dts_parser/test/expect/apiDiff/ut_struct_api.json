@@ -8,7 +8,7 @@
     "newApiName": "",
     "oldDtsName": "ut_struct_api.d.ets",
     "newDtsName": "",
-    "diffType": 60,
+    "diffType": 76,
     "diffMessage": "删除API",
     "changeLogUrl": "",
     "changeLogs": [],
@@ -29,7 +29,10 @@
     "oldDescription": " struct MyComponent",
     "newDescription": "",
     "oldSyscapField": "",
-    "newSyscapField": ""
+    "newSyscapField": "",
+    "oldKitInfo": "",
+    "newKitInfo": "",
+    "isSystemapi": false
   },
   {
     "apiType": "Struct",
@@ -40,7 +43,7 @@
     "newApiName": "MyComponents",
     "oldDtsName": "",
     "newDtsName": "ut_struct_api.d.ets",
-    "diffType": 59,
+    "diffType": 75,
     "diffMessage": "新增API",
     "changeLogUrl": "",
     "changeLogs": [],
@@ -61,6 +64,9 @@
     "oldDescription": "",
     "newDescription": " struct MyComponents",
     "oldSyscapField": "",
-    "newSyscapField": ""
+    "newSyscapField": "",
+    "oldKitInfo": "",
+    "newKitInfo": "",
+    "isSystemapi": false
   }
 ]

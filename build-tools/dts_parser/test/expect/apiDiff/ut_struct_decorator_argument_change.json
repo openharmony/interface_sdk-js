@@ -8,7 +8,7 @@
     "newApiName": "count",
     "oldDtsName": "ut_struct_decorator_argument_change.d.ets",
     "newDtsName": "ut_struct_decorator_argument_change.d.ets",
-    "diffType": 61,
+    "diffType": 77,
     "diffMessage": "新增装饰器",
     "changeLogUrl": "",
     "changeLogs": [],
@@ -34,7 +34,10 @@
     "oldDescription": "",
     "newDescription": "Provide",
     "oldSyscapField": "",
-    "newSyscapField": ""
+    "newSyscapField": "",
+    "oldKitInfo": "",
+    "newKitInfo": "",
+    "isSystemapi": false
   },
   {
     "apiType": "Property",
@@ -45,11 +48,11 @@
     "newApiName": "count",
     "oldDtsName": "ut_struct_decorator_argument_change.d.ets",
     "newDtsName": "ut_struct_decorator_argument_change.d.ets",
-    "diffType": 62,
+    "diffType": 78,
     "diffMessage": "删除装饰器",
     "changeLogUrl": "",
     "changeLogs": [],
-    "isCompatible": true,
+    "isCompatible": false,
     "oldHierarchicalRelations": [
       "ut_struct_decorator_argument_change.d.ets",
       "MyComponent",
@@ -71,6 +74,9 @@
     "oldDescription": "Provide",
     "newDescription": "",
     "oldSyscapField": "",
-    "newSyscapField": ""
+    "newSyscapField": "",
+    "oldKitInfo": "",
+    "newKitInfo": "",
+    "isSystemapi": false
   }
 ]

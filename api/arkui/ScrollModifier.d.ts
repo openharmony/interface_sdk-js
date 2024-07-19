@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-/// <reference path="../../component/common.d.ts" />
-/// <reference path="../../component/scroll.d.ts" />
+
+
 
 /**
  * Defines Scroll Modifier
@@ -27,6 +27,7 @@
  * @extends ScrollAttribute
  * @implements AttributeModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class ScrollModifier extends ScrollAttribute implements AttributeModifier<ScrollAttribute> {
@@ -37,6 +38,7 @@ export declare class ScrollModifier extends ScrollAttribute implements Attribute
    * @param { ScrollAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: ScrollAttribute): void;

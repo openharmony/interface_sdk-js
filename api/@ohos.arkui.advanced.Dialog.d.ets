@@ -18,9 +18,9 @@
  * @kit ArkUI
  */
 
-/// <reference path="../component/units.d.ts" />
 
-import { ResourceStr } from 'GlobalResource';
+
+
 import { Theme, CustomTheme } from '@ohos.arkui.theme';
 
 /**
@@ -99,6 +99,7 @@ export declare class ButtonOptions {
    * @default ButtonStyleMode.TEXTUAL
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   buttonStyle?: ButtonStyleMode;
@@ -108,6 +109,7 @@ export declare class ButtonOptions {
    * @default ButtonRole.NORMAL
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   role?: ButtonRole;
@@ -248,6 +250,7 @@ export declare struct TipsDialog {
    * Sets the TipsDialog CheckBox Callback.
    * @type { ?(isChecked: boolean) => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   checkAction?: (isChecked: boolean) => void;
@@ -303,6 +306,7 @@ export declare struct TipsDialog {
    * Sets the TipsDialog CheckBox Callback.
    * @type { ?Callback<boolean> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   onCheckedChange?: Callback<boolean>;
@@ -562,6 +566,7 @@ export declare struct ConfirmDialog {
    * Sets the ConfirmDialog CheckBox Callback.
    * @type { ?Callback<boolean> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   onCheckedChange?: Callback<boolean>;
@@ -599,6 +604,7 @@ export declare struct AlertDialog {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   primaryTitle?: ResourceStr;
@@ -607,6 +613,7 @@ export declare struct AlertDialog {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   secondaryTitle?: ResourceStr;
@@ -741,6 +748,7 @@ export declare struct LoadingDialog {
  * Declare custom content dialog
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 @CustomDialog
@@ -750,6 +758,7 @@ export declare struct CustomContentDialog {
    * @type { CustomDialogController }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   controller: CustomDialogController;
@@ -758,6 +767,7 @@ export declare struct CustomContentDialog {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   primaryTitle?: ResourceStr;
@@ -766,6 +776,7 @@ export declare struct CustomContentDialog {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   secondaryTitle?: ResourceStr;
@@ -774,6 +785,7 @@ export declare struct CustomContentDialog {
    * @type { () => void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   @BuilderParam contentBuilder: () => void;
@@ -782,14 +794,25 @@ export declare struct CustomContentDialog {
    * @type { ?Padding }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   contentAreaPadding?: Padding;
+  /**
+     * Sets the CustomContentDialog content area localized padding.
+     * @type { ?LocalizedPadding }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+  localizedContentAreaPadding?: LocalizedPadding;
   /**
    * Sets the CustomContentDialog buttons.
    * @type { ?ButtonOptions[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   buttons?: ButtonOptions[];
@@ -820,6 +843,7 @@ export declare struct CustomContentDialog {
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 @Component
@@ -830,6 +854,7 @@ export declare struct PopupDialog {
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   @Link
@@ -840,6 +865,7 @@ export declare struct PopupDialog {
    * @type { PopupDialogOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   @Prop
@@ -850,6 +876,7 @@ export declare struct PopupDialog {
    * @type { Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   @BuilderParam targetBuilder: Callback<void>;
@@ -862,6 +889,7 @@ export declare struct PopupDialog {
  * @extends CustomPopupOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 export declare interface PopupDialogOptions extends CustomPopupOptions {

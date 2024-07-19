@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-/// <reference path="../../component/common.d.ts" />
-/// <reference path="../../component/qrcode.d.ts" />
+
+
 
 /**
  * Defines QRCode Modifier
@@ -27,6 +27,7 @@
  * @extends QRCodeAttribute
  * @implements AttributeModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class QRCodeModifier extends QRCodeAttribute implements AttributeModifier<QRCodeAttribute> {
@@ -37,6 +38,7 @@ export declare class QRCodeModifier extends QRCodeAttribute implements Attribute
    * @param { QRCodeAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: QRCodeAttribute): void;

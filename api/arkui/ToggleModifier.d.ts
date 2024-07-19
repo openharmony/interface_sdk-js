@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-/// <reference path="../../component/common.d.ts" />
-/// <reference path="../../component/toggle.d.ts" />
+
+
 
 /**
  * Defines Toggle Modifier
@@ -27,6 +27,7 @@
  * @extends ToggleAttribute
  * @implements AttributeModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class ToggleModifier extends ToggleAttribute implements AttributeModifier<ToggleAttribute> {
@@ -37,6 +38,7 @@ export declare class ToggleModifier extends ToggleAttribute implements Attribute
    * @param { ToggleAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: ToggleAttribute): void;

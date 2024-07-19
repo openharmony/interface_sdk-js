@@ -18,8 +18,7 @@
  * @kit ArkUI
  */
 
-/// <reference path="../../component/common.d.ts" />
-/// <reference path="../../component/blank.d.ts" />
+
 
 /**
  * Defines Blank Modifier
@@ -27,6 +26,7 @@
  * @extends BlankAttribute
  * @implements AttributeModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class BlankModifier extends BlankAttribute implements AttributeModifier<BlankAttribute> {
@@ -37,6 +37,7 @@ export declare class BlankModifier extends BlankAttribute implements AttributeMo
    * @param { BlankAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: BlankAttribute): void;

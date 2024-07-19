@@ -32,6 +32,7 @@ export interface VibrateOptions {
    * The default value is long.
    *
    * @permission ohos.permission.VIBRATE
+   * @type { ?('long' | 'short') }
    * @syscap SystemCapability.Sensors.MiscDevice.Lite
    * @since 3
    * @deprecated since 8
@@ -42,6 +43,7 @@ export interface VibrateOptions {
    * Called when success to trigger vibration.
    *
    * @permission ohos.permission.VIBRATE
+   * @type { function }
    * @syscap SystemCapability.Sensors.MiscDevice.Lite
    * @since 3
    * @deprecated since 8
@@ -52,6 +54,7 @@ export interface VibrateOptions {
    * Called when fail to trigger vibration.
    *
    * @permission ohos.permission.VIBRATE
+   * @type { ?function }
    * @syscap SystemCapability.Sensors.MiscDevice.Lite
    * @since 3
    * @deprecated since 8
@@ -62,6 +65,7 @@ export interface VibrateOptions {
    * Called when the execution is completed.
    *
    * @permission ohos.permission.VIBRATE
+   * @type { ?function }
    * @syscap SystemCapability.Sensors.MiscDevice.Lite
    * @since 3
    * @deprecated since 8

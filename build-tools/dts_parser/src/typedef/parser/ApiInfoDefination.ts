@@ -66,12 +66,16 @@ export class BasicApiInfo {
   jsDocText: string = '';
   isJoinType: boolean = false;
   genericInfo: GenericInfo[] = [];
+  parentApiType: string = '';
+  fileAbsolutePath: string = ''; //绝对路径
 
   constructor(apiType: string = '', node: ts.Node, parentApi: BasicApiInfo | undefined) {
     this.node = node;
     this.setParentApi(parentApi);
+    this.setParentApiType(parentApi?.getApiType());
     if (parentApi) {
       this.setFilePath(parentApi.getFilePath());
+      this.setFileAbsolutePath(parentApi.getFileAbsolutePath());
       this.setIsStruct(parentApi.getIsStruct());
     }
     this.setApiType(apiType);
@@ -104,6 +108,14 @@ export class BasicApiInfo {
     return this.filePath;
   }
 
+  setFileAbsolutePath(absolutePath: string): void {
+    this.fileAbsolutePath = absolutePath;
+  }
+
+  getFileAbsolutePath(): string {
+    return this.fileAbsolutePath;
+  }
+
   setApiType(apiType: string): void {
     this.apiType = apiType as ApiType;
   }
@@ -134,6 +146,16 @@ export class BasicApiInfo {
 
   getParentApi(): BasicApiInfo | undefined {
     return this.parentApi;
+  }
+
+  setParentApiType(parentApiType: string | undefined): void {
+    if (parentApiType) {
+      this.parentApiType = parentApiType; 
+    }
+  }
+
+  getParentApiType(): string {
+    return this.parentApiType;
   }
 
   setIsExport(isExport: boolean): void {
@@ -470,7 +492,7 @@ export class PropertyInfo extends ApiInfo {
   typeKind: ts.SyntaxKind = ts.SyntaxKind.Unknown; //type类型的kind值
   typeLocations: TypeLocationInfo[] = []; // 参数、返回值的JsDoc信息
   objLocations: TypeLocationInfo[] = []; // 匿名类型的JsDoc信息
-  
+
   constructor(apiType: string = '', node: ts.Node, parentApi: BasicApiInfo | undefined) {
     super(apiType, node, parentApi);
     let propertyNode: PropertyNode = node as PropertyNode;
@@ -553,7 +575,7 @@ export class TypeAliasInfo extends ApiInfo {
   type: string[] = []; // type定义的类型
   typeName: TypeAliasType = '' as TypeAliasType; //type的类型
   returnType: string = ''; //type类型为function时的返回值
-  paramInfos: TypeParamInfo[] = []; //type类型为function时的参数名和参数类型
+  paramInfos: ParamInfo[] = []; //type类型为function时的参数名和参数类型
   typeIsFunction: boolean = false; //type类型是否为function
 
   addType(type: string[]): void {
@@ -578,15 +600,16 @@ export class TypeAliasInfo extends ApiInfo {
     return this;
   }
 
-  getReturnType() {
+  getReturnType(): string {
     return this.returnType;
   }
 
-  setParamInfos(paramInfo: TypeParamInfo) {
+  setParamInfos(paramInfo: ParamInfo): TypeAliasInfo {
     this.paramInfos.push(paramInfo);
+    return this;
   }
 
-  getParamInfos(): TypeParamInfo[] {
+  getParamInfos(): ParamInfo[] {
     return this.paramInfos;
   }
 
@@ -652,6 +675,7 @@ export class MethodInfo extends ApiInfo {
   returnValueType: ts.SyntaxKind = ts.SyntaxKind.Unknown;
   typeLocations: Comment.JsDocInfo[] = []; // 参数、返回值的JsDoc信息
   objLocations: Comment.JsDocInfo[] = []; // 匿名类型的JsDoc信息
+  isRequired: boolean = false;
 
   setCallForm(callForm: string): void {
     this.callForm = callForm;
@@ -715,6 +739,14 @@ export class MethodInfo extends ApiInfo {
 
   getSync(): string {
     return this.sync;
+  }
+
+  setIsRequired(isRequired: boolean):void {
+    this.isRequired = isRequired;
+  }
+
+  getIsRequired(): boolean {
+    return this.isRequired;
   }
 }
 
@@ -922,8 +954,8 @@ export class ParserParam {
         const value: ts.ResolvedModule = {
           resolvedFileName: '',
           isExternalLibraryImport: false
-        }
-        const alias: { [key: string]: string } = {
+        };
+        const alias: { [key: string]: string; } = {
           "^(@ohos\\.inner\\.)(.*)$": "../../../base/ets/api/",
           "^(@ohos\\.)(.*)$": "../../../base/ets/api/",
         };
@@ -948,7 +980,8 @@ export class ParserParam {
             break;
           }
         }
-        const resolvedFileName: string | undefined = ts.resolveModuleName(moduleName, containingFile, compilerOptions, compilerHost).resolvedModule?.resolvedFileName
+        const resolvedFileName: string | undefined = ts.resolveModuleName(moduleName, containingFile, compilerOptions,
+          compilerHost).resolvedModule?.resolvedFileName;
         if (resolvedFileName) {
           value.resolvedFileName = resolvedFileName;
           value.isExternalLibraryImport = true;
@@ -966,7 +999,7 @@ export class ParserParam {
   }
 }
 
-export type ExportImportValue = { key: string; value: string };
+export type ExportImportValue = { key: string; value: string; };
 export interface NodeProcessorInterface {
   (node: ts.Node, parentApiInfo: BasicApiInfo): BasicApiInfo;
 }

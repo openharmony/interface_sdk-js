@@ -495,6 +495,7 @@ export interface AnimatorResult {
    * Trigger when vSync callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onFrame: (progress: number) => void;
@@ -525,6 +526,7 @@ export interface AnimatorResult {
    * The animation is finished.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onFinish: () => void;
@@ -555,6 +557,7 @@ export interface AnimatorResult {
    * The animation is canceled.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onCancel: () => void;
@@ -585,6 +588,7 @@ export interface AnimatorResult {
    * The animation is repeated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onRepeat: () => void;
@@ -593,6 +597,7 @@ export interface AnimatorResult {
    * The expected frame rate of dynamical of rate range.
    * @param { ExpectedFrameRateRange } rateRange - Indicates ExpectedFrameRateRange.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   setExpectedFrameRateRange(rateRange: ExpectedFrameRateRange): void;
