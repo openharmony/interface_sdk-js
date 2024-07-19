@@ -5175,12 +5175,14 @@ declare namespace focusControl {
 /**
  * Import the PointerStyle type object for setCursor.
  *
+ * @typedef { import('../api/@ohos.multimodalInput.pointer').default.PointerStyle } PointerStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 11
  */
 /**
  * Import the PointerStyle type object for setCursor.
  *
+ * @typedef { import('../api/@ohos.multimodalInput.pointer').default.PointerStyle } PointerStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
@@ -9252,6 +9254,7 @@ declare enum DragBehavior {
 /**
  * Import the UnifiedData type object for ui component.
  *
+ * @typedef { import('../api/@ohos.data.unifiedDataChannel').default.UnifiedData } UnifiedData
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -9259,6 +9262,7 @@ declare enum DragBehavior {
 /**
  * Import the UnifiedData type object for ui component.
  *
+ * @typedef { import('../api/@ohos.data.unifiedDataChannel').default.UnifiedData } UnifiedData
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -9269,12 +9273,14 @@ declare type UnifiedData = import('../api/@ohos.data.unifiedDataChannel').defaul
 /**
  * Import the Summary type object for ui component.
  *
+ * @typedef { import('../api/@ohos.data.unifiedDataChannel').default.Summary } Summary
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
 /**
  * Import the Summary type object for ui component.
  *
+ * @typedef { import('../api/@ohos.data.unifiedDataChannel').default.Summary } Summary
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
@@ -9284,12 +9290,14 @@ declare type Summary = import('../api/@ohos.data.unifiedDataChannel').default.Su
 /**
  * Import the UniformDataType type object for ui component.
  *
+ * @typedef { import('../api/@ohos.data.uniformTypeDescriptor').default.UniformDataType } UniformDataType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
 /**
  * Import the UniformDataType type object for ui component.
  *
+ * @typedef { import('../api/@ohos.data.uniformTypeDescriptor').default.UniformDataType } UniformDataType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
@@ -10343,12 +10351,14 @@ declare interface DragEvent {
 /**
  * Import the IntentionCode type object for IntentionCode.
  *
+ * @typedef { import('../api/@ohos.multimodalInput.intentionCode').IntentionCode } IntentionCode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
 /**
  * Import the IntentionCode type object for IntentionCode.
  *
+ * @typedef { import('../api/@ohos.multimodalInput.intentionCode').IntentionCode } IntentionCode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
