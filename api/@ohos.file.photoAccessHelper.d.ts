@@ -1604,7 +1604,14 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12
      */
-    DYNAMIC_RANGE_TYPE = 'dynamic_range_type'
+    DYNAMIC_RANGE_TYPE = 'dynamic_range_type',
+    /**
+     * Cover position of the asset, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    COVER_POSITION = 'cover_position'
   }
 
   /**
