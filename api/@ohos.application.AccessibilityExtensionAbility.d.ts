@@ -117,6 +117,7 @@ export default class AccessibilityExtensionAbility {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
+   * @deprecated since 12
    */
   onConnect(): void;
 
@@ -125,6 +126,7 @@ export default class AccessibilityExtensionAbility {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
+   * @deprecated since 12
    */
   onDisconnect(): void;
 
@@ -134,6 +136,7 @@ export default class AccessibilityExtensionAbility {
    * @param { AccessibilityEvent } event Indicates an accessibility event.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
+   * @deprecated since 12
    */
   onAccessibilityEvent(event: AccessibilityEvent): void;
 
@@ -144,6 +147,7 @@ export default class AccessibilityExtensionAbility {
    * @returns { boolean }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
+   * @deprecated since 12
    */
   onKeyEvent(keyEvent: KeyEvent): boolean;
 }
