@@ -28,6 +28,7 @@ import dataShare from './@ohos.data.dataShare';
 /**
    * Struct for a batch update operation.
    *
+   * @typedef { dataShare.UpdateOperation }
    * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
    * @systemapi
    * @stagemodelonly

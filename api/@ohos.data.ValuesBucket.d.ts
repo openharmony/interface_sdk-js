@@ -28,6 +28,7 @@
 /**
  * Indicates possible value types
  *
+ * @typedef { number | string | boolean }
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
  * @stagemodelonly
  * @crossplatform
@@ -38,6 +39,7 @@ export type ValueType = number | string | boolean;
 /**
  * Values in buckets are stored in key-value pairs
  *
+ * @typedef { Record<string, ValueType | Uint8Array | null> }
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
  * @stagemodelonly
  * @since 10
