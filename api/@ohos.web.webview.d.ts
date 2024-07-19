@@ -97,6 +97,7 @@ declare namespace webview {
      */
     /**
      * Gets the key of the request/response header.
+     * @type { string }
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
@@ -117,6 +118,7 @@ declare namespace webview {
      */
     /**
      * Gets the value of the request/response header.
+     * @type { string }
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
@@ -447,6 +449,7 @@ declare namespace webview {
     /**
      * Get the hit test type.
      *
+     * @type { WebHitTestType }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -462,6 +465,7 @@ declare namespace webview {
     /**
      * Get the hit test extra data.
      *
+     * @type { string }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -503,6 +507,7 @@ declare namespace webview {
     /**
      * Name of the custom scheme.
      *
+     * @type { string }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -518,6 +523,7 @@ declare namespace webview {
     /**
      * Whether Cross-Origin Resource Sharing is supported.
      *
+     * @type { boolean }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -533,6 +539,7 @@ declare namespace webview {
     /**
      * Whether fetch request is supported.
      *
+     * @type { boolean }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -544,6 +551,7 @@ declare namespace webview {
      * schemes needs to comply with the URL normalization and parsing rules defined in Section 3.1 of RFC 1738,
      * which can be found in the http://www.ietf.org/rfc/rfc1738.txt.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -554,6 +562,7 @@ declare namespace webview {
      * If isLocal is true, the same security rules as those applied to the "file" URL will be
      * used to handle the scheme.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -564,6 +573,7 @@ declare namespace webview {
      * If isDisplayIsolated is true, then the scheme can only be displayed from other content
      * hosted using the same scheme.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -574,6 +584,7 @@ declare namespace webview {
      * If isSecure is true, the same security rules as those applied to the "https" URL will be
      * used to handle the scheme.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -584,6 +595,7 @@ declare namespace webview {
      * If isCspBypassing is true, then this scheme can bypass Content Security Policy (CSP)
      * checks. In most cases, this value should not be true when isStandard is true.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -633,6 +645,7 @@ declare namespace webview {
     /**
      * Url source.
      *
+     * @type { string }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -647,6 +660,7 @@ declare namespace webview {
     /**
      * Specify the amount of storage for the source.
      *
+     * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -661,6 +675,7 @@ declare namespace webview {
     /**
      * the callback of getOriginUsage.
      *
+     * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -679,6 +694,7 @@ declare namespace webview {
   interface RequestInfo {
     /**
      * Gets the url of the request.
+     * @type { string }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -687,6 +703,7 @@ declare namespace webview {
 
     /**
      * Gets the method of the request.
+     * @type { string }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -695,6 +712,7 @@ declare namespace webview {
 
     /**
      * Gets the form data of the request.
+     * @type { string }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -1981,6 +1999,7 @@ declare namespace webview {
   /**
    * WebMessage type supplied to {@link onMessageEventExt} for indicating the type of web message.
    *
+   * @typedef { ArrayBuffer | string }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
@@ -2018,6 +2037,7 @@ declare namespace webview {
     /**
      * The flag indicates whether more formats are supported than string and array buffers.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -2151,6 +2171,7 @@ declare namespace webview {
      */
     /**
      * Pixelmap of icon.
+     * @type { image.PixelMap }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -2164,6 +2185,7 @@ declare namespace webview {
      */
     /**
      * Url of this history item.
+     * @type { string }
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
@@ -2178,6 +2200,7 @@ declare namespace webview {
      */
     /**
      * Original request url of this history item.
+     * @type { string }
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
@@ -2192,6 +2215,7 @@ declare namespace webview {
      */
     /**
      * Title of this history item.
+     * @type { string }
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
@@ -2230,6 +2254,7 @@ declare namespace webview {
      */
     /**
      * Current index in BackForwardList.
+     * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
@@ -2244,6 +2269,7 @@ declare namespace webview {
      */
     /**
      * Size of in BackForwardList.
+     * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
@@ -2600,6 +2626,7 @@ declare namespace webview {
      * Response headers used to configure the validation key of code cache.
      * Currently only support E-Tag and Last-Modified.
      *
+     * @type { Array<WebHeader> }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12
      */
@@ -6000,7 +6027,7 @@ declare namespace webview {
     /**
      * Set the response encoding.
      *
-     * @param { string } type - Encoding.
+     * @param { string } encoding - Encoding.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -6021,7 +6048,7 @@ declare namespace webview {
      *
      * @param { string } name - Header name.
      * @param { string } value - Header value.
-     * @param { boolean } name - Whether to overwrite.
+     * @param { boolean } overwrite - Whether to overwrite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
@@ -6659,6 +6686,7 @@ declare namespace webview {
   class MediaSourceInfo {
     /**
      * Source type, most time is URL.
+     * @type { SourceType }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12
      */
@@ -6666,6 +6694,7 @@ declare namespace webview {
 
     /**
      * Media source, most time is Uri.
+     * @type { string }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -6674,6 +6703,7 @@ declare namespace webview {
 
     /**
      * Media format, such as mp4, webm, m3u8 etc.
+     * @type { string }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -6733,6 +6763,7 @@ declare namespace webview {
   class NativeMediaPlayerSurfaceInfo {
     /**
      * Id of surface.
+     * @type { string }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -6796,6 +6827,7 @@ declare namespace webview {
     embedID: string,
     /**
      * Media type : Video or Audio.
+     * @type { MediaType }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -6803,6 +6835,7 @@ declare namespace webview {
     mediaType: MediaType,
     /**
      * Media source list, player should choose an appropriate one to play.
+     * @type { MediaSourceInfo[] }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -6810,6 +6843,7 @@ declare namespace webview {
     mediaSrcList: MediaSourceInfo[],
     /**
      * Surface to render media content on.
+     * @type { NativeMediaPlayerSurfaceInfo }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -6817,6 +6851,7 @@ declare namespace webview {
     surfaceInfo: NativeMediaPlayerSurfaceInfo,
     /**
      * Should show media controls.
+     * @type { boolean }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -6825,6 +6860,7 @@ declare namespace webview {
     /**
      * Limit media controls items.
      *  Such as 'nodownload', 'nofullscreen', 'noremoteplayback'
+     * @type { string[] }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -6832,6 +6868,7 @@ declare namespace webview {
     controlList: string[],
     /**
      * Player should be muted;
+     * @type { boolean }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -6839,6 +6876,7 @@ declare namespace webview {
     muted: boolean,
     /**
      * Player should show poster before media first frame shown.
+     * @type { string }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -6846,6 +6884,7 @@ declare namespace webview {
     posterUrl: string,
     /**
      * Preload type.
+     * @type { Preload }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -6853,12 +6892,14 @@ declare namespace webview {
     preload: Preload,
     /**
      * Header information of a media network request.
+     * @type { Record<string, string> }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12
      */
     headers: Record<string, string>,
     /**
      * The information list of attributes of media tag.
+     * @type { Record<string, string> }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12
      */
@@ -6868,6 +6909,10 @@ declare namespace webview {
   /**
    * The callback of creating a native media player.
    *
+   * @typedef { function }
+   * @param { NativeMediaPlayerHandler } handler - callback information of onCreateNativeMediaPlayer.
+   * @param { MediaInfo } mediaInfo - callback information of onCreateNativeMediaPlayer.
+   * @returns { NativeMediaPlayerBridge } Returns whether the app takes over the media.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
