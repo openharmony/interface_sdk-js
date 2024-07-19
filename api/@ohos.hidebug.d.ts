@@ -808,7 +808,7 @@ declare namespace hidebug {
   /**
    * Set the resource limitation of application.Please note that this function is only valid
    * when the developer options switch of setting is turned on.
-   *
+   * 
    * @param { string } type - resource type. It could be pss_memory、js_heap、fd、or thread.
    * @param { number } value - For different resource type, values could have different meaning:
    *                           1.For pss_memory, it means the baseline PSS memory size for the application,
@@ -838,5 +838,27 @@ declare namespace hidebug {
    * @since 13
    */
   function isDebugState(): boolean;
+
+  /**
+   * Get the graphics memory of application
+   *
+   * @returns { Promise<number> } Returns the graphics memory of application, in kilobyte.
+   * @throws { BusinessError } 11400104 - Failed to get the application memory due to a remote exception.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @atomicservice
+   * @since 13
+   */
+  function getGraphicsMemory(): Promise<number>;
+
+  /**
+   * Get the graphics memory of application
+   *
+   * @returns { number } Returns the graphics memory of application, in kilobyte.
+   * @throws { BusinessError } 11400104 - Failed to get the application memory due to a remote exception.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @atomicservice
+   * @since 13
+   */
+  function getGraphicsMemorySync(): number;
 }
 export default hidebug;
