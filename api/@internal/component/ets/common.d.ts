@@ -7864,6 +7864,17 @@ declare interface BaseEvent {
    * @since 12
    */
   getModifierKeyState?(keys: Array<string>): boolean;
+
+  /**
+   * Indicates the ID of the input device that triggers the current event.
+   *
+   * @type { ?number } [deviceId] The ID of the input device that triggers the current event
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  deviceId?: number;
 }
 
 /**
