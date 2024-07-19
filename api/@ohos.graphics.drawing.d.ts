@@ -772,7 +772,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
     */
-    getMatrix(forceClosed: boolean, distance: number, matrix: drawing.Matrix, flags: PathMeasureMatrixFlags): boolean
+    getMatrix(forceClosed: boolean, distance: number, matrix: drawing.Matrix, flags: PathMeasureMatrixFlags): boolean;
 
     /**
      * Parses the SVG format string that describes the drawing path, and sets the path.
