@@ -1190,6 +1190,39 @@ export class PromptAction {
      * @since 12
      */
     closeCustomDialog<T extends Object>(dialogContent: ComponentContent<T>): Promise<void>;
+
+    /**
+     * Open the custom dialog.
+     *
+     * @param { promptAction.CustomDialogOptions } options - Options.
+     * @returns { Promise<number> } return the dialog id that will be used by closeCustomDialog.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
+     * @throws { BusinessError } 100001 - Internal error.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    openCustomDialog(options: promptAction.CustomDialogOptions): Promise<number>;
+
+    /**
+     * Close the custom dialog.
+     *
+     * @param { number } dialogId - the dialog id that returned by openCustomDialog.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
+     * @throws { BusinessError } 100001 - Internal error.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    closeCustomDialog(dialogId: number): void;
 }
 
 /**
