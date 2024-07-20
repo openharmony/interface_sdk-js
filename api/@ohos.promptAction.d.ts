@@ -1053,6 +1053,7 @@ declare namespace promptAction {
      * The array structure is {text:'button', color: '#666666'}.
      * One to six buttons are supported.
      *
+     * @type { [Button, Button?, Button?, Button?, Button?, Button?] }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 9
      */
@@ -1061,6 +1062,7 @@ declare namespace promptAction {
      * The array structure is {text:'button', color: '#666666'}.
      * One to six buttons are supported.
      *
+     * @type { [Button, Button?, Button?, Button?, Button?, Button?] }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
@@ -1070,6 +1072,7 @@ declare namespace promptAction {
      * The array structure is {text:'button', color: '#666666'}.
      * One to six buttons are supported.
      *
+     * @type { [Button, Button?, Button?, Button?, Button?, Button?] }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
