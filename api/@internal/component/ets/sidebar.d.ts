@@ -337,6 +337,7 @@ declare interface ButtonStyle {
   /**
    * Set the button icon when sidebar status has changed
    *
+   * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
