@@ -130,6 +130,7 @@ declare namespace pasteboard {
    */
   /**
    * Indicates type of value.
+   * @typedef { string | image.PixelMap | Want | ArrayBuffer }
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 11
