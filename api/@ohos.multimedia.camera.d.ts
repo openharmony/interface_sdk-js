@@ -4476,7 +4476,7 @@ declare namespace camera {
    */
   interface VideoSession extends Session, Flash, AutoExposure, Focus, Zoom, Stabilization, ColorManagement {
     /**
-     * Gets whether the choosed preconfig type can be used to configure photo session.
+     * Gets whether the choosed preconfig type can be used to configure video session.
      * Must choose preconfig type from {@link PreconfigType}.
      *
      * @param { PreconfigType } preconfigType - preconfig type.
@@ -4490,7 +4490,7 @@ declare namespace camera {
     canPreconfig(preconfigType: PreconfigType, preconfigRatio?: PreconfigRatio): boolean;
 
     /**
-     * The preconfig type to configure photo session.
+     * Configure video session with the preconfig type.
      * Must choose preconfig type from {@link PreconfigType}.
      *
      * @param { PreconfigType } preconfigType - preconfig type.
@@ -6306,7 +6306,7 @@ declare namespace camera {
     /**
      * Gets the current preconfig type if you had already call preconfig interface.
      *
-     * @returns { Profile } The current preconfig type {@link PreconfigType}.
+     * @returns { Profile } The current preconfig type.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 12
@@ -7118,7 +7118,7 @@ declare namespace camera {
     /**
      * Gets the current preconfig type if you had already call preconfig interface.
      *
-     * @returns { Profile } The current preconfig type {@link PreconfigType}.
+     * @returns { Profile } The current preconfig type.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 12
@@ -7513,7 +7513,7 @@ declare namespace camera {
     /**
      * Gets the current preconfig type if you had already call preconfig interface.
      *
-     * @returns { VideoProfile } The current preconfig type {@link PreconfigType}.
+     * @returns { VideoProfile } The current preconfig type.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 12
