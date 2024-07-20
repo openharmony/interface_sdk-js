@@ -2327,6 +2327,7 @@ export abstract class FrameCallback {
  * The base context of an ability or an application. It allows access to
  * application-specific resources.
  *
+ * @typedef { common.Context } Context
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
  * @crossplatform
