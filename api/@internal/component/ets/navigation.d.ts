@@ -1163,6 +1163,18 @@ declare class NavPathStack {
   removeByName(name: string): number;
 
   /**
+   * Remove the specified NavDestination by its navDestinationId.
+   *
+   * @param { string } navDestinationId - Indicates the navDestinationId of the NavDestination to be removed.
+   * @returns { boolean } Returns true if remove successfully, otherwise returns false.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  removeByNavDestinationId(navDestinationId: string): boolean;
+
+  /**
    * Pops the top NavDestination out of the stack.
    *
    * @returns { NavPathInfo | undefined } Returns the top NavPathInfo if the stack is not empty, otherwise returns undefined.
