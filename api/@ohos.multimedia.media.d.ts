@@ -18,7 +18,7 @@
  * @kit MediaKit
  */
 
-import { ErrorCallback, AsyncCallback, Callback } from './@ohos.base';
+import { ErrorCallback, AsyncCallback, Callback, BusinessError } from './@ohos.base';
 import audio from "./@ohos.multimedia.audio";
 import type image from './@ohos.multimedia.image';
 import type { SoundPool as _SoundPool } from './multimedia/soundPool';
@@ -2926,7 +2926,18 @@ declare namespace media {
      * @since 12
      */
     isWatermarkSupported(): Promise<boolean>;
-
+    /**
+     * Set watermark image to recorder.
+     * @param { image.PixelMap } watermark : Watermark image.
+     * @param { WatermarkConfig } config : Configures of the watermark.
+     * @returns { Promise<void> } A Promise instance used to return when the function is finished.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @systemapi
+     * @since 12
+     */
+    setWatermark(watermark: image.PixelMap, config: WatermarkConfig): Promise<void>
     /**
      * Update the video orientation before recorder start.
      * @param { number } rotation - Rotation angle, should be [0, 90, 180, 270].
@@ -3438,6 +3449,30 @@ declare namespace media {
      * @since 6
      */
     longitude: number;
+  }
+  /**
+   * Set configures of a watermark to AVRecorder. The position starts at top left corner.
+   *
+   * @typedef WatermarkConfig
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @systemapi
+   * @since 12
+   */
+  interface WatermarkConfig {
+    /**
+     * Offset of the watermark to the top line of pixel.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @systemapi
+     * @since 12
+     */
+    top: number;
+    /**
+     * Offset of the watermark to the left line of pixel.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @systemapi
+     * @since 12
+     */
+    left: number;
   }
 
   /**
