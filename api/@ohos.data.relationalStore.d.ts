@@ -747,6 +747,7 @@ declare namespace relationalStore {
   /**
    * Describes the subscription type.
    *
+   * @permission ohos.permission.DISTRIBUTED_DATASYNC
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 9
@@ -764,6 +765,7 @@ declare namespace relationalStore {
     /**
      * Subscription to cloud data changes
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */
@@ -772,6 +774,7 @@ declare namespace relationalStore {
     /**
      * Subscription to cloud data changes details
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */
@@ -797,6 +800,7 @@ declare namespace relationalStore {
     /**
      * Means the change type is data change.
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
@@ -805,6 +809,7 @@ declare namespace relationalStore {
     /**
      * Means the change type is asset change.
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
@@ -866,6 +871,7 @@ declare namespace relationalStore {
   /**
    * Describes the distribution type of the tables.
    *
+   * @permission ohos.permission.DISTRIBUTED_DATASYNC
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10
@@ -883,6 +889,7 @@ declare namespace relationalStore {
     /**
      * Indicates the table is distributed between the cloud and the devices.
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */
@@ -5782,7 +5789,7 @@ declare namespace relationalStore {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { Array<string> } tables - Indicates the table names you want to set.
      * @param { DistributedType } type - Indicates the distributed type {@link DistributedType}.
-     * ohos.permission.DISTRIBUTED_DATASYNC is required only when type is DISTRIBUTED_DEVICE.
+     * This method only works when type equals to DistributedType.DISTRIBUTED_CLOUD
      * @param { AsyncCallback<void> } callback - The callback of setDistributedTables.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -5817,7 +5824,7 @@ declare namespace relationalStore {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { Array<string> } tables - Indicates the table names you want to set.
      * @param { DistributedType } type - Indicates the distributed type {@link DistributedType}.
-     * ohos.permission.DISTRIBUTED_DATASYNC is required only when type is DISTRIBUTED_DEVICE.
+     * This method only works when type equals to DistributedType.DISTRIBUTED_CLOUD
      * @param { DistributedConfig } config - Indicates the distributed config of the tables. For details, see {@link DistributedConfig}.
      * @param { AsyncCallback<void> } callback - The callback of setDistributedTables.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -5859,7 +5866,7 @@ declare namespace relationalStore {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { Array<string> } tables - Indicates the table names you want to set.
      * @param { DistributedType } type - Indicates the distributed type {@link DistributedType}.
-     * ohos.permission.DISTRIBUTED_DATASYNC is required only when type is DISTRIBUTED_DEVICE.
+     * This method only works when type equals to DistributedType.DISTRIBUTED_CLOUD
      * @param { DistributedConfig } config - Indicates the distributed config of the tables. For details, see {@link DistributedConfig}.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -6025,11 +6032,13 @@ declare namespace relationalStore {
     /**
      * Sync data to cloud.
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { SyncMode } mode - indicates the database synchronization mode.
      * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
      * @param { AsyncCallback<void> } callback - {Array<[string, number]>}: devices sync status array, {string}: device id, {number}: device sync status.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
      * 3. The mode must be a SyncMode of cloud. 4. The progress must be a callback type. 5. The callback must be a function.
+     * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
@@ -6052,11 +6061,13 @@ declare namespace relationalStore {
     /**
      * Sync data to cloud.
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { SyncMode } mode - indicates the database synchronization mode.
      * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
      * @returns { Promise<void> } : devices sync status array, {string}: device id, {number}: device sync status.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
      * 3. The mode must be a SyncMode of cloud. 4. The progress must be a callback type.
+     * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
@@ -6079,6 +6090,7 @@ declare namespace relationalStore {
     /**
      * Sync data to cloud.
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { SyncMode } mode - indicates the database synchronization mode.
      * @param { string[] } tables - indicates the database synchronization mode.
      * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
@@ -6086,6 +6098,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
      * 3. The mode must be a SyncMode of cloud. 4. The tablesNames must be not empty. 5. The progress must be a callback type.
      * 6. The callback must be a function.
+     * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
@@ -6115,12 +6128,14 @@ declare namespace relationalStore {
     /**
      * Sync data to cloud.
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { SyncMode } mode - indicates the database synchronization mode.
      * @param { string[] } tables - indicates the database synchronization mode.
      * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
      * @returns { Promise<void> } : devices sync status array, {string}: device id, {number}: device sync status.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
      * 3. The mode must be a SyncMode of cloud. 4. The tablesNames must be not empty. 5. The progress must be a callback type.
+     * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
