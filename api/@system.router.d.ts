@@ -225,6 +225,7 @@ export interface DisableAlertBeforeBackPageOptions {
 /**
  * Define ParamsInterface.
  *
+ * @typedef { object } ParamsInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  * @deprecated since 8
