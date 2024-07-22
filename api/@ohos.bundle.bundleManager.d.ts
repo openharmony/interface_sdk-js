@@ -3605,16 +3605,6 @@ declare namespace bundleManager {
   export type RecoverableApplicationInfo = _RecoverableApplicationInfo;
 
   /**
-   * Indicates the information of preinstalled application.
-   *
-   * @typedef { _PreinstalledApplicationInfo  }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
-   * @since 12
-   */
-  export type PreinstalledApplicationInfo = _PreinstalledApplicationInfo;
-
-  /**
    * Obtains configuration information about an skill
    *
    * @typedef { _Skill.Skill }
@@ -3633,6 +3623,16 @@ declare namespace bundleManager {
    * @since 12
    */
   export type SkillUrl = _Skill.SkillUri;
+
+  /**
+   * Indicates the information of preinstalled application.
+   *
+   * @typedef { _PreinstalledApplicationInfo  }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  export type PreinstalledApplicationInfo = _PreinstalledApplicationInfo;
 }
 
 export default bundleManager;
