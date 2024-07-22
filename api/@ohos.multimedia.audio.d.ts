@@ -8449,7 +8449,7 @@ declare namespace audio {
      * @systemapi
      * @since 12
      */
-    SetAsrWhisperDetectionMode(mode: AsrWhisperDetectionMode): boolean;
+    setAsrWhisperDetectionMode(mode: AsrWhisperDetectionMode): boolean;
 
     /**
      * Get ASR whisper detection mode.
