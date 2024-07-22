@@ -8420,7 +8420,7 @@ declare namespace audio {
 
     /**
      * Set ASR voice mute mode.
-     * @param { AsrVoiceControlMode } mode - ASR voice mute mode.
+     * @param { AsrVoiceMuteMode } mode - ASR voice mute mode.
      * @param { boolean } enable - Indicates whether to switch on/off this mode.
      * @returns { boolean } Indicates whether the mode has been successfully set.
      * @throws { BusinessError } 202 - Caller is not a system application.
