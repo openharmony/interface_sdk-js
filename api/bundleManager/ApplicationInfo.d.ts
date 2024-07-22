@@ -586,6 +586,17 @@ export interface ApplicationInfo {
    * @since 12
    */
   readonly releaseType: string;
+
+  /**
+   * Indicates whether the application enables cloud file sync.
+   *
+   * @type { boolean }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  readonly cloudFileSyncEnabled: boolean;
 }
 
 /**

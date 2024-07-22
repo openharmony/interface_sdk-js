@@ -493,6 +493,8 @@ export interface AnimatorResult {
 
   /**
    * Trigger when vSync callback.
+   *
+   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -524,6 +526,8 @@ export interface AnimatorResult {
 
   /**
    * The animation is finished.
+   *
+   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -555,6 +559,8 @@ export interface AnimatorResult {
 
   /**
    * The animation is canceled.
+   *
+   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -586,6 +592,8 @@ export interface AnimatorResult {
 
   /**
    * The animation is repeated.
+   *
+   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
