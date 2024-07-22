@@ -784,6 +784,7 @@ declare abstract class SubscribedAbstractProperty<T> {
   /**
    * Private user ID.
    *
+   * @type { any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 7
@@ -793,6 +794,7 @@ declare abstract class SubscribedAbstractProperty<T> {
   /**
    * Private user information.
    *
+   * @type { ?any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 7
@@ -1065,6 +1067,7 @@ interface IPropertySubscriber {
  * Defines the state value.
  *
  * @extends SubscribedAbstractProperty<T>
+ * @implements ISinglePropertyChangeSubscriber<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 7
@@ -1076,6 +1079,7 @@ declare class SyncedPropertyTwoWay<T>
   /**
    * Sources of synchronization attributes bidirectionally.
    *
+   * @type { any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 7
@@ -1139,6 +1143,7 @@ declare class SyncedPropertyTwoWay<T>
  * Defines the prop state value.
  *
  * @extends SubscribedAbstractProperty<T>
+ * @implements ISinglePropertyChangeSubscriber<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 7
@@ -1150,6 +1155,7 @@ declare class SyncedPropertyOneWay<T>
   /**
    * Pack value for single-item binding.
    *
+   * @type { any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 7
@@ -1159,6 +1165,7 @@ declare class SyncedPropertyOneWay<T>
   /**
    * Sources of synchronization attributes bidirectionally.
    *
+   * @type { any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 7
@@ -1249,6 +1256,7 @@ declare abstract class SubscribaleAbstract {
   /**
    * Returns the ownership attribute set by the.
    *
+   * @type { Set<number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 7
