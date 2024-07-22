@@ -185,6 +185,9 @@ export enum ErrorMessage {
   ERROR_CHANGES_ENUM_MEMBER_VALUE = 'Forbid changes: Cannot change Enumeration assignment.',
   ERROR_CHANGES_JSDOC_CHANGE = 'Forbid changes: Historical JSDoc cannot be changed.',
   ERROR_CHANGES_JSDOC_NUMBER = 'Forbid changes: API changes must add a new section of JSDoc.',
+  ERROR_CHANGES_SYSCAP_NA_TO_HAVE = 'Forbid changes: Cannot change from NA to syscap.',
+  ERROR_CHANGES_SYSCAP_HAVE_TO_NA = 'Forbid changes: Cannot change from syscap to NA.',
+  ERROR_CHANGES_SYSCAP_A_TO_B = 'Forbid changes: Cannot change syscap value.',
 }
 
 export const incompatibleApiDiffTypes: Map<ApiDiffType, ErrorMessage> = new Map(
@@ -240,6 +243,10 @@ export const incompatibleApiDiffTypes: Map<ApiDiffType, ErrorMessage> = new Map(
     [ApiDiffType.ENUM_MEMBER_VALUE_CHANGE, ErrorMessage.ERROR_CHANGES_ENUM_MEMBER_VALUE],
     // 16.是否拥有元服务能力
     [ApiDiffType.ATOMIC_SERVICE_HAVE_TO_NA, ErrorMessage.ERROR_CHANGES_JSDOC_ATOMICSERVICE_TO_NA],
+    // 17.syscap变更
+    [ApiDiffType.SYSCAP_NA_TO_HAVE, ErrorMessage.ERROR_CHANGES_SYSCAP_NA_TO_HAVE],
+    [ApiDiffType.SYSCAP_HAVE_TO_NA, ErrorMessage.ERROR_CHANGES_SYSCAP_HAVE_TO_NA],
+    [ApiDiffType.SYSCAP_A_TO_B, ErrorMessage.ERROR_CHANGES_SYSCAP_A_TO_B],
   ]
 );
 
