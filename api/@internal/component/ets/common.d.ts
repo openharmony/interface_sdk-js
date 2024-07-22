@@ -9196,6 +9196,7 @@ declare type TransitionFinishCallback = (transitionIn: boolean) => void;
 /**
  * Defines the PixelMap type object for ui component.
  *
+ * @typedef { import('../api/@ohos.multimedia.image').default.PixelMap } PixelMap
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -14529,6 +14530,7 @@ declare enum MenuPolicy {
 /**
  * ImageModifier
  *
+ * @typedef { import('../api/arkui/ImageModifier').ImageModifier } ImageModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice

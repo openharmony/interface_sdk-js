@@ -27,6 +27,7 @@
 /**
  * Use the DrawableDescriptor class to get drawable image.
  *
+ * @typedef { import ('../api/@ohos.arkui.drawableDescriptor').DrawableDescriptor } DrawableDescriptor
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
@@ -1473,7 +1474,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   /**
    * Enable image analyzer.
    *
-   * @param { boolean} config
+   * @param { boolean} enable
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
@@ -1481,7 +1482,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   /**
    * Enable image analyzer.
    *
-   * @param { boolean} config
+   * @param { boolean} enable
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -1623,6 +1624,8 @@ declare const ImageInstance: ImageAttribute;
  * @since 10
  */
 /**
+ * @typedef { function } ImageErrorCallback
+ * @param { ImageError } error
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
