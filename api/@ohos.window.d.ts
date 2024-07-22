@@ -145,8 +145,8 @@ declare namespace window {
      */
     /**
      * Float.
+     * Require "ohos.permission.SYSTEM_FLOAT_WINDOW" permission
      *
-     * @permission ohos.permission.SYSTEM_FLOAT_WINDOW
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
      * @atomicservice
@@ -618,6 +618,7 @@ declare namespace window {
     /**
      * The color of the status bar.
      *
+     * @type { ?string }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -633,6 +634,7 @@ declare namespace window {
     /**
      * The light icon of the status bar.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -648,6 +650,7 @@ declare namespace window {
     /**
      * The content color of the status bar
      *
+     * @type { ?string }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -663,6 +666,7 @@ declare namespace window {
     /**
      * The color of the navigation bar.
      *
+     * @type { ?string }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -678,6 +682,7 @@ declare namespace window {
     /**
      * The light icon of the navigation bar.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -693,6 +698,7 @@ declare namespace window {
     /**
      * The content color of the navigation bar
      *
+     * @type { ?string }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -702,6 +708,7 @@ declare namespace window {
     /**
      * Enable the animation of the status bar.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12
@@ -711,6 +718,7 @@ declare namespace window {
     /**
      * Enable the animation of the navigation bar.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12
@@ -730,6 +738,7 @@ declare namespace window {
     /**
      * The content color of the status bar
      *
+     * @type { ?string }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -749,6 +758,7 @@ declare namespace window {
     /**
      * System bar type
      *
+     * @type { WindowType }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -758,6 +768,7 @@ declare namespace window {
     /**
      * The visibility of system bar
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -767,6 +778,7 @@ declare namespace window {
     /**
      * The region of system bar
      *
+     * @type { ?Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -776,6 +788,7 @@ declare namespace window {
     /**
      * The background color of the system bar.
      *
+     * @type { ?string }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -785,6 +798,7 @@ declare namespace window {
     /**
      * The content color of the system bar.
      *
+     * @type { ?string }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -804,6 +818,7 @@ declare namespace window {
     /**
      * Id of display
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -812,6 +827,7 @@ declare namespace window {
     /**
      * Region tint of systembar
      *
+     * @type { Array<SystemBarRegionTint> }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -861,6 +877,7 @@ declare namespace window {
     /**
      * The left of the Rect.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
@@ -884,6 +901,7 @@ declare namespace window {
     /**
      * The top of the Rect.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
@@ -907,6 +925,7 @@ declare namespace window {
     /**
      * The width of the Rect.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
@@ -930,6 +949,7 @@ declare namespace window {
     /**
      * The height of the Rect.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
@@ -1579,6 +1599,7 @@ declare namespace window {
     /**
      * The scale param of x direction. Default is 1.f
      *
+     * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
@@ -1588,6 +1609,7 @@ declare namespace window {
     /**
      * The scale param of y direction. Default is 1.f
      *
+     * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
@@ -1597,6 +1619,7 @@ declare namespace window {
     /**
      * The scale param of pivot point of x. Default is 0.5f, Interval is 0.f - 1.f
      *
+     * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
@@ -1606,6 +1629,7 @@ declare namespace window {
     /**
      * The scale param of pivot point of y. Default is 0.5f, Interval is 0.f - 1.f
      *
+     * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
