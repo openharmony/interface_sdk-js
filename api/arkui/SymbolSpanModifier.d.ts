@@ -17,7 +17,7 @@
  * @kit ArkUI
  */
 /**
- * Defines SymbolSpan Modifier
+ * Defines SymbolSpan Modifier. Provided for use by the SymbolSpan component
  *
  * @extends SymbolSpanAttribute
  * @implements AttributeModifier
@@ -39,11 +39,11 @@ export declare class SymbolSpanModifier extends SymbolSpanAttribute implements A
     /**
      * Defines the normal update attribute function.
      *
-     * @param { SymbolSpanAttribute } instance
+     * @param { SymbolSpanAttribute } attribute
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 12
      */
-    applyNormalAttribute?(instance: SymbolSpanAttribute): void;
+    applyNormalAttribute?(attribute: SymbolSpanAttribute): void;
 }

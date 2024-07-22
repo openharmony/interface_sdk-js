@@ -257,6 +257,7 @@ declare namespace freeInstall {
   /**
    * The dispatch info class.
    *
+   * @typedef { _DispatchInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -266,6 +267,7 @@ declare namespace freeInstall {
   /**
    * The bundle pack info class.
    *
+   * @typedef { _PackInfo.BundlePackInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -275,6 +277,7 @@ declare namespace freeInstall {
   /**
    * The package info class.
    *
+   * @typedef { _PackInfo.PackageConfig }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -284,6 +287,7 @@ declare namespace freeInstall {
   /**
    * The package summary class.
    *
+   * @typedef { _PackInfo.PackageSummary }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -293,6 +297,7 @@ declare namespace freeInstall {
   /**
    * The bundle summary class.
    *
+   * @typedef { _PackInfo.BundleConfigInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -302,6 +307,7 @@ declare namespace freeInstall {
   /**
    * The extension ability forms class.
    *
+   * @typedef { _PackInfo.ExtensionAbility }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -311,6 +317,7 @@ declare namespace freeInstall {
   /**
    * The module summary of a bundle.
    *
+   * @typedef { _PackInfo.ModuleConfigInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -320,6 +327,7 @@ declare namespace freeInstall {
   /**
    * The bundle info summary class.
    *
+   * @typedef { _PackInfo.ModuleDistroInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -329,6 +337,7 @@ declare namespace freeInstall {
   /**
    * The ability info of a module.
    *
+   * @typedef { _PackInfo.ModuleAbilityInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -338,6 +347,7 @@ declare namespace freeInstall {
   /**
    * The form info of an ability.
    *
+   * @typedef { _PackInfo.AbilityFormInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -347,6 +357,7 @@ declare namespace freeInstall {
   /**
    * The bundle version class.
    *
+   * @typedef { _PackInfo.Version }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -356,6 +367,7 @@ declare namespace freeInstall {
   /**
    * The bundle Api version class.
    *
+   * @typedef { _PackInfo.ApiVersion }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9

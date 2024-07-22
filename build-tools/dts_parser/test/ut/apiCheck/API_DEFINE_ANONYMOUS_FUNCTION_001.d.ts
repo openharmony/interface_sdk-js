@@ -29,7 +29,7 @@ declare namespace abilityAccessCtrl {
    * Obtains the AtManager instance.
    * @param {function} id
    * @syscap SystemCapability.Security.AccessToken
-   * @since 11
+   * @since 12
    */
   function createAtManager(id: (event: string, node?: null) => void): void;
   

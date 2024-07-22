@@ -33,6 +33,7 @@ import { HapModuleInfo } from './hapModuleInfo';
  */
 export interface UsedScene {
   /**
+   * @type { Array<string> }
    * @default Indicates the abilities that need the permission
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -41,6 +42,7 @@ export interface UsedScene {
   abilities: Array<string>;
 
   /**
+   * @type { string }
    * @default Indicates the time when the permission is used
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -60,6 +62,7 @@ export interface UsedScene {
  */
 export interface ReqPermissionDetail {
   /**
+   * @type { string }
    * @default Indicates the name of this required permissions
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -68,6 +71,7 @@ export interface ReqPermissionDetail {
   name: string;
 
   /**
+   * @type { string }
    * @default Indicates the reason of this required permissions
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -76,6 +80,7 @@ export interface ReqPermissionDetail {
   reason: string;
 
   /**
+   * @type { UsedScene }
    * @default Indicates the used scene of this required permissions
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -95,6 +100,7 @@ export interface ReqPermissionDetail {
  */
 export interface BundleInfo {
   /**
+   * @type { string }
    * @default Indicates the name of this bundle
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -103,6 +109,7 @@ export interface BundleInfo {
   readonly name: string;
 
   /**
+   * @type { string }
    * @default Indicates the name of this original bundle
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -111,6 +118,7 @@ export interface BundleInfo {
   readonly type: string;
 
   /**
+   * @type { string }
    * @default Indicates the ID of the application to which this bundle belongs
    * The application ID uniquely identifies an application. It is determined by the bundle name and signature
    * @syscap SystemCapability.BundleManager.BundleFramework
@@ -120,6 +128,7 @@ export interface BundleInfo {
   readonly appId: string;
 
   /**
+   * @type { number }
    * @default Indicates the UID of the application to which this bundle belongs
    * The UID uniquely identifies an application. It is determined by the process and user IDs of the application
    * After an application is installed, its UID remains unchanged unless it is uninstalled and then reinstalled
@@ -130,6 +139,7 @@ export interface BundleInfo {
   readonly uid: number;
 
   /**
+   * @type { number }
    * @default Indicates the hap install time
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -138,6 +148,7 @@ export interface BundleInfo {
   readonly installTime: number;
 
   /**
+   * @type { number }
    * @default Indicates the hap update time
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -146,6 +157,7 @@ export interface BundleInfo {
   readonly updateTime: number;
 
   /**
+   * @type { ApplicationInfo }
    * @default Obtains configuration information about an application
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -154,6 +166,7 @@ export interface BundleInfo {
   readonly appInfo: ApplicationInfo;
 
   /**
+   * @type { Array<AbilityInfo> }
    * @default Obtains configuration information about an ability
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -162,6 +175,7 @@ export interface BundleInfo {
   readonly abilityInfos: Array<AbilityInfo>;
 
   /**
+   * @type { Array<string> }
    * @default Indicates the required permissions name defined in file config.json
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -170,6 +184,7 @@ export interface BundleInfo {
   readonly reqPermissions: Array<string>;
 
   /**
+   * @type { Array<ReqPermissionDetail> }
    * @default Indicates the required permissions details defined in file config.json
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -178,6 +193,7 @@ export interface BundleInfo {
   readonly reqPermissionDetails: Array<ReqPermissionDetail>;
 
   /**
+   * @type { string }
    * @default Describes the bundle vendor
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -186,6 +202,7 @@ export interface BundleInfo {
   readonly vendor: string;
 
   /**
+   * @type { number }
    * @default Indicates the version number of the bundle
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -194,6 +211,7 @@ export interface BundleInfo {
   readonly versionCode: number;
 
   /**
+   * @type { string }
    * @default Indicates the text description of the bundle version
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -202,6 +220,7 @@ export interface BundleInfo {
   readonly versionName: string;
 
   /**
+   * @type { number }
    * @default Indicates the compatible version number of the bundle
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -210,6 +229,7 @@ export interface BundleInfo {
   readonly compatibleVersion: number;
 
   /**
+   * @type { number }
    * @default Indicates the target version number of the bundle
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -218,6 +238,7 @@ export interface BundleInfo {
   readonly targetVersion: number;
 
   /**
+   * @type { boolean }
    * @default Indicates is compress native libs
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -226,6 +247,7 @@ export interface BundleInfo {
   readonly isCompressNativeLibs: boolean;
 
   /**
+   * @type { Array<HapModuleInfo> }
    * @default Obtains configuration information about a module
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -234,6 +256,7 @@ export interface BundleInfo {
   readonly hapModuleInfos: Array<HapModuleInfo>;
 
   /**
+   * @type { string }
    * @default Indicates entry module name
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -242,6 +265,7 @@ export interface BundleInfo {
   readonly entryModuleName: string;
 
   /**
+   * @type { string }
    * @default Indicates the cpuAbi information of this bundle.
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -250,6 +274,7 @@ export interface BundleInfo {
   readonly cpuAbi: string;
 
   /**
+   * @type { string }
    * @default Indicates is silent installation
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -258,6 +283,7 @@ export interface BundleInfo {
   readonly isSilentInstallation: string;
 
   /**
+   * @type { number }
    * @default Indicates the earliest historical version compatible with the bundle
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -266,6 +292,7 @@ export interface BundleInfo {
   readonly minCompatibleVersionCode: number;
 
   /**
+   * @type { boolean }
    * @default Indicates whether free installation of the entry is supported
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -274,6 +301,7 @@ export interface BundleInfo {
   readonly entryInstallationFree: boolean;
 
   /**
+   * @type { Array<number> }
    * @default Indicates the grant status of required permissions
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 8

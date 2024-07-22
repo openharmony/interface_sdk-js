@@ -70,6 +70,7 @@ declare namespace bundleMonitor {
   /**
    * Indicates the event type of bundle change
    *
+   * @typedef { 'add' | 'update' | 'remove' }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9

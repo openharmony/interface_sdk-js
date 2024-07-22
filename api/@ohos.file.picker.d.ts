@@ -757,6 +757,17 @@ declare namespace picker {
      * @since 12
      */
     save(callback: AsyncCallback<Array<string>>): void;
+
+    /**
+     * Obtain the saving type selected by the user.
+     *
+     * @returns { number } Returns the index of the suffix array fileSuffixChoices configured by the user in DocumentSaveOptions.
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    getSelectedIndex(): number;
   }
 
   /**
@@ -769,6 +780,7 @@ declare namespace picker {
    * AudioSelectOptions Object.
    *
    * @syscap SystemCapability.FileManagement.UserFileService
+   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -790,6 +802,13 @@ declare namespace picker {
    *
    * @syscap SystemCapability.FileManagement.UserFileService
    * @since 9
+   */
+  /**
+   * AudioSaveOptions Object
+   *
+   * @syscap SystemCapability.FileManagement.UserFileService
+   * @crossplatform
+   * @since 12
    */
   class AudioSaveOptions {
     /**
@@ -815,6 +834,13 @@ declare namespace picker {
    *
    * @syscap SystemCapability.FileManagement.UserFileService
    * @since 9
+   */
+  /**
+   * AudioViewPicker Object
+   *
+   * @syscap SystemCapability.FileManagement.UserFileService
+   * @crossplatform
+   * @since 12
    */
   class AudioViewPicker {
     /**

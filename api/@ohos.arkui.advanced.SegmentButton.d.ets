@@ -621,7 +621,7 @@ interface TabSegmentButtonConstructionOptions extends CommonSegmentButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 12
  */
 interface CapsuleSegmentButtonConstructionOptions extends CommonSegmentButtonOptions {
   /**
@@ -900,6 +900,15 @@ declare class SegmentButtonItemOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * The constructor used to create a SegmentButtonOptionsArray object.
+   *
+   * @param { SegmentButtonItemOptionsConstructorOptions } options - item info.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   constructor(options: SegmentButtonItemOptionsConstructorOptions);
 }

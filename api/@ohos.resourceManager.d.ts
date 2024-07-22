@@ -528,6 +528,15 @@ declare namespace resourceManager {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Indicates the screen direction of the current device.
+     * 
+     * @type { Direction }
+     * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     direction: Direction;
 
     /**
@@ -550,6 +559,15 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Indicates the current system language, for example, zh-Hans-CN.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     locale: string;
 
@@ -652,6 +670,15 @@ declare namespace resourceManager {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Indicates the screen density of the current device.
+     *
+     * @type { ScreenDensity }
+     * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     screenDensity: ScreenDensity;
 
     /**
@@ -674,6 +701,15 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Indicates the type of the current device.
+     *
+     * @type { DeviceType }
+     * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     deviceType: DeviceType;
   }

@@ -30,8 +30,8 @@
  *
  * @interface CounterInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Counter component, which provides corresponding increment or decrement counting operations.
@@ -39,8 +39,8 @@
  * @interface CounterInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Counter component, which provides corresponding increment or decrement counting operations.
@@ -48,9 +48,9 @@
  * @interface CounterInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 interface CounterInterface {
   /**
@@ -65,8 +65,8 @@ interface CounterInterface {
    *
    * @returns { CounterAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Return Counter.
@@ -74,8 +74,8 @@ interface CounterInterface {
    * @returns { CounterAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Return Counter.
@@ -83,9 +83,9 @@ interface CounterInterface {
    * @returns { CounterAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   (): CounterAttribute;
 }
@@ -102,8 +102,8 @@ interface CounterInterface {
  *
  * @extends CommonMethod<CounterAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines the Counter attribute functions.
@@ -111,8 +111,8 @@ interface CounterInterface {
  * @extends CommonMethod<CounterAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines the Counter attribute functions.
@@ -120,9 +120,9 @@ interface CounterInterface {
  * @extends CommonMethod<CounterAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare class CounterAttribute extends CommonMethod<CounterAttribute> {
   /**
@@ -139,8 +139,8 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    * @param { function } event
    * @returns { CounterAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Listen to the event that the value increases.
@@ -149,8 +149,8 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    * @returns { CounterAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Listen to the event that the value increases.
@@ -159,9 +159,9 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    * @returns { CounterAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   onInc(event: () => void): CounterAttribute;
 
@@ -179,8 +179,8 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    * @param { function } event
    * @returns { CounterAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Listens to the number decrease event.
@@ -189,8 +189,8 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    * @returns { CounterAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Listens to the number decrease event.
@@ -199,9 +199,9 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    * @returns { CounterAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   onDec(event: () => void): CounterAttribute;
 
@@ -258,25 +258,25 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
  * Defines Counter Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines Counter Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines Counter Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const CounterInstance: CounterAttribute;
 
@@ -290,24 +290,24 @@ declare const CounterInstance: CounterAttribute;
  * Defines Counter Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines Counter Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines Counter Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const Counter: CounterInterface;

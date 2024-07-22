@@ -21,6 +21,7 @@
 /**
  * Defines the data type of the interface restriction.
  *
+ * @typedef { import('../api/global/resource').Resource } Resource
  * @interface Resource
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
@@ -28,71 +29,80 @@
 /**
  * Defines the data type of the interface restriction.
  *
+ * @typedef { import('../api/global/resource').Resource } Resource
  * @interface Resource
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines the data type of the interface restriction.
  *
+ * @typedef { import('../api/global/resource').Resource } Resource
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines the data type of the interface restriction.
  *
+ * @typedef { import('../api/global/resource').Resource } Resource
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare type Resource = import('../api/global/resource').Resource;
 
 /**
  * Defines the length property with string, number and resource unit.
  *
+ * @typedef { string | number | Resource } Length
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the length property with string, number and resource unit.
  *
+ * @typedef { string | number | Resource } Length
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines the length property with string, number and resource unit.
  *
+ * @typedef { string | number | Resource } Length
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines the length property with string, number and resource unit.
  *
+ * @typedef { string | number | Resource } Length
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare type Length = string | number | Resource;
 
 /**
  * Defines the length property with number in units of px.
  *
+ * @typedef { `${number}px` } PX
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
 /**
  * Defines the length property with number in units of px.
  *
+ * @typedef { `${number}px` } PX
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
@@ -102,12 +112,14 @@ declare type PX = `${number}px`;
 /**
  * Defines the length property with number or number in units of vp.
  *
+ * @typedef { `${number}vp` | number } VP
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
 /**
  * Defines the length property with number or number in units of vp.
  *
+ * @typedef { `${number}vp` | number } VP
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
@@ -117,12 +129,14 @@ declare type VP = `${number}vp` | number;
 /**
  * Defines the length property with number in units of fp.
  *
+ * @typedef { `${number}fp` } FP
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
 /**
  * Defines the length property with number in units of fp.
  *
+ * @typedef { `${number}fp` } FP
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
@@ -132,12 +146,14 @@ declare type FP = `${number}fp`;
 /**
  * Defines the length property with number in units of lpx.
  *
+ * @typedef { `${number}lpx` } LPX
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
 /**
  * Defines the length property with number in units of lpx.
  *
+ * @typedef { `${number}lpx` } LPX
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
@@ -147,12 +163,14 @@ declare type LPX = `${number}lpx`;
 /**
  * Defines the length property with number in units of Percentage.
  *
+ * @typedef { `${number}%` } Percentage
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
 /**
  * Defines the length property with number in units of Percentage.
  *
+ * @typedef { `${number}%` } Percentage
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
@@ -162,12 +180,14 @@ declare type Percentage = `${number}%`;
 /**
  * Defines the angle property with number in units of deg.
  *
+ * @typedef { `${number}deg` } Degree
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
 /**
  * Defines the angle property with number in units of deg.
  *
+ * @typedef { `${number}deg` } Degree
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
@@ -177,12 +197,14 @@ declare type Degree = `${number}deg`;
 /**
  * Defines the dimension property with number with units(vp|px|fp|lpx|%), and resource.
  *
+ * @typedef { PX | VP | FP | LPX | Percentage | Resource } Dimension
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
 /**
  * Defines the dimension property with number with units(vp|px|fp|lpx|%), and resource.
  *
+ * @typedef { PX | VP | FP | LPX | Percentage | Resource } Dimension
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
@@ -192,32 +214,36 @@ declare type Dimension = PX | VP | FP | LPX | Percentage | Resource;
 /**
  * Defines the string which can use resource.
  *
+ * @typedef { string | Resource } ResourceStr
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the string which can use resource.
  *
+ * @typedef { string | Resource } ResourceStr
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines the string which can use resource.
  *
+ * @typedef { string | Resource } ResourceStr
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines the string which can use resource.
  *
+ * @typedef { string | Resource } ResourceStr
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare type ResourceStr = string | Resource;
 
@@ -231,25 +257,26 @@ declare type ResourceStr = string | Resource;
  * Defines the padding property.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines the padding property.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines the padding property.
  *
+ * @typedef { object } Padding
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare type Padding = {
   /**
@@ -460,38 +487,43 @@ declare interface LocalizedPadding {
 /**
  * Defines the margin property.
  *
+ * @typedef { Padding } Margin
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the margin property.
  *
+ * @typedef { Padding } Margin
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines the margin property.
  *
+ * @typedef { Padding } Margin
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines the margin property.
  *
+ * @typedef { Padding } Margin
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare type Margin = Padding;
 
 /**
  * Defines the border width property.
  *
+ * @typedef { EdgeWidths } EdgeWidth
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -499,6 +531,7 @@ declare type Margin = Padding;
 /**
  * Defines the border width property.
  *
+ * @typedef { EdgeWidths } EdgeWidth
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -509,26 +542,29 @@ declare type EdgeWidth = EdgeWidths;
 /**
  * Defines the border width property.
  *
+ * @typedef { object } EdgeWidths
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines the border width property.
  *
+ * @typedef { object } EdgeWidths
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines the border width property.
  *
+ * @typedef { object } EdgeWidths
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare type EdgeWidths = {
   /**
@@ -713,17 +749,18 @@ declare interface LocalizedEdgeWidths {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 11
  * @form
+ * @since 11
  */
 /**
  * Defines the outline width property.
  *
+ * @typedef { object } EdgeOutlineWidths
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 12
- * @form
  */
 declare type EdgeOutlineWidths = {
   /**
@@ -734,6 +771,16 @@ declare type EdgeOutlineWidths = {
    * @crossplatform
    * @since 11
    * @form
+   */
+  /**
+   * top outline width property.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
    */
   top?: Dimension;
 
@@ -746,6 +793,16 @@ declare type EdgeOutlineWidths = {
    * @since 11
    * @form
    */
+  /**
+   * right outline width property.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
   right?: Dimension;
 
   /**
@@ -756,6 +813,16 @@ declare type EdgeOutlineWidths = {
    * @crossplatform
    * @since 11
    * @form
+   */
+  /**
+   * bottom outline width property.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
    */
   bottom?: Dimension;
 
@@ -768,32 +835,45 @@ declare type EdgeOutlineWidths = {
    * @since 11
    * @form
    */
+  /**
+   * left outline width property.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
   left?: Dimension;
 };
 
 /**
  * Defines the border radius property.
  *
+ * @typedef { object } BorderRadiuses
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines the border radius property.
  *
+ * @typedef { object } BorderRadiuses
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines the border radius property.
  *
+ * @typedef { object } BorderRadiuses
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare type BorderRadiuses = {
   /**
@@ -976,19 +1056,21 @@ declare interface LocalizedBorderRadiuses  {
 /**
  * Defines the outline radius property.
  *
+ * @typedef { object } OutlineRadiuses
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 11
  * @form
+ * @since 11
  */
 /**
  * Defines the outline radius property.
  *
+ * @typedef { object } OutlineRadiuses
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 12
- * @form
  */
 declare type OutlineRadiuses = {
   /**
@@ -999,6 +1081,16 @@ declare type OutlineRadiuses = {
    * @crossplatform
    * @since 11
    * @form
+   */
+  /**
+   * top-left property.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
    */
   topLeft?: Dimension;
 
@@ -1011,6 +1103,16 @@ declare type OutlineRadiuses = {
    * @since 11
    * @form
    */
+  /**
+   * top-right property.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
   topRight?: Dimension;
 
   /**
@@ -1021,6 +1123,16 @@ declare type OutlineRadiuses = {
    * @crossplatform
    * @since 11
    * @form
+   */
+  /**
+   * bottom-left property.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
    */
   bottomLeft?: Dimension;
 
@@ -1033,32 +1145,45 @@ declare type OutlineRadiuses = {
    * @since 11
    * @form
    */
+  /**
+   * bottom-right property.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
   bottomRight?: Dimension;
 };
 
 /**
  * Defines the border color property.
  *
+ * @typedef { object } EdgeColors
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines the border color property.
  *
+ * @typedef { object } EdgeColors
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines the border color property.
  *
+ * @typedef { object } EdgeColors
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare type EdgeColors = {
   /**
@@ -1253,26 +1378,29 @@ declare type LocalizedMargin = LocalizedPadding;
 /**
  * Defines the border style property.
  *
+ * @typedef { object } EdgeStyles
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines the border style property.
  *
+ * @typedef { object } EdgeStyles
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines the border style property.
  *
+ * @typedef { object } EdgeStyles
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare type EdgeStyles = {
   /**
@@ -1395,19 +1523,21 @@ declare type EdgeStyles = {
 /**
  * Defines the outline style property.
  *
+ * @typedef { object } EdgeOutlineStyles
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 11
  * @form
+ * @since 11
  */
 /**
  * Defines the outline style property.
  *
+ * @typedef { object } EdgeOutlineStyles
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 12
- * @form
  */
 declare type EdgeOutlineStyles = {
   /**
@@ -1418,6 +1548,16 @@ declare type EdgeOutlineStyles = {
    * @crossplatform
    * @since 11
    * @form
+   */
+  /**
+   * top property.
+   *
+   * @type { ?OutlineStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
    */
   top?: OutlineStyle;
 
@@ -1430,6 +1570,16 @@ declare type EdgeOutlineStyles = {
    * @since 11
    * @form
    */
+  /**
+   * right property.
+   *
+   * @type { ?OutlineStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
   right?: OutlineStyle;
 
   /**
@@ -1441,6 +1591,16 @@ declare type EdgeOutlineStyles = {
    * @since 11
    * @form
    */
+  /**
+   * bottom property.
+   *
+   * @type { ?OutlineStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
   bottom?: OutlineStyle;
 
   /**
@@ -1451,6 +1611,16 @@ declare type EdgeOutlineStyles = {
    * @crossplatform
    * @since 11
    * @form
+   */
+  /**
+   * left property.
+   *
+   * @type { ?OutlineStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
    */
   left?: OutlineStyle;
 };
@@ -1533,58 +1703,65 @@ declare type Offset = {
 /**
  * Defines the color which can use resource.
  *
+ * @typedef { Color | number | string | Resource } ResourceColor
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the color which can use resource.
  *
+ * @typedef { Color | number | string | Resource } ResourceColor
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines the color which can use resource.
  *
+ * @typedef { Color | number | string | Resource } ResourceColor
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines the color which can use resource.
  *
+ * @typedef { Color | number | string | Resource } ResourceColor
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare type ResourceColor = Color | number | string | Resource;
 
 /**
  * Defines the length constrain property.
  *
+ * @typedef { object } LengthConstrain
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines the length constrain property.
  *
+ * @typedef { object } LengthConstrain
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines the length constrain property.
  *
+ * @typedef { object } LengthConstrain
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare type LengthConstrain = {
   /**
@@ -1649,6 +1826,7 @@ declare type LengthConstrain = {
 /**
  * Defines VoidCallback.
  *
+ * @typedef { function } VoidCallback
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -1832,8 +2010,8 @@ declare interface Font {
  *
  * @interface Area
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines the area property.
@@ -1841,8 +2019,8 @@ declare interface Font {
  * @interface Area
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines the area property.
@@ -1850,9 +2028,9 @@ declare interface Font {
  * @interface Area
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare interface Area {
   /**
@@ -1867,8 +2045,8 @@ declare interface Area {
    *
    * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Defines the width property.
@@ -1876,8 +2054,8 @@ declare interface Area {
    * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Defines the width property.
@@ -1885,9 +2063,9 @@ declare interface Area {
    * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   width: Length;
 
@@ -1903,8 +2081,8 @@ declare interface Area {
    *
    * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Defines the height property.
@@ -1912,8 +2090,8 @@ declare interface Area {
    * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Defines the height property.
@@ -1921,9 +2099,9 @@ declare interface Area {
    * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   height: Length;
 
@@ -1939,8 +2117,8 @@ declare interface Area {
    *
    * @type { Position }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Defines the local position.
@@ -1948,8 +2126,8 @@ declare interface Area {
    * @type { Position }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Defines the local position.
@@ -1957,9 +2135,9 @@ declare interface Area {
    * @type { Position }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   position: Position;
 
@@ -1975,8 +2153,8 @@ declare interface Area {
    *
    * @type { Position }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Defines the global position.
@@ -1984,8 +2162,8 @@ declare interface Area {
    * @type { Position }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Defines the global position.
@@ -1993,9 +2171,9 @@ declare interface Area {
    * @type { Position }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   globalPosition: Position;
 }
@@ -2012,8 +2190,8 @@ declare interface Area {
  *
  * @interface Position
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines the position.
@@ -2021,8 +2199,8 @@ declare interface Area {
  * @interface Position
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines the position.
@@ -2030,9 +2208,9 @@ declare interface Area {
  * @interface Position
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare interface Position {
   /**
@@ -2047,8 +2225,8 @@ declare interface Position {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Coordinate x of the Position.
@@ -2056,8 +2234,8 @@ declare interface Position {
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Coordinate x of the Position.
@@ -2065,9 +2243,9 @@ declare interface Position {
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   x?: Length;
 
@@ -2083,8 +2261,8 @@ declare interface Position {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Coordinate y of the Position.
@@ -2092,8 +2270,8 @@ declare interface Position {
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Coordinate y of the Position.
@@ -2101,9 +2279,9 @@ declare interface Position {
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   y?: Length;
 }
@@ -2147,9 +2325,9 @@ declare interface LocalizedPosition {
  * @interface Edges
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 12
- * @form
  */
 declare interface Edges {
   /**
@@ -2158,9 +2336,9 @@ declare interface Edges {
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   top?: Dimension;
 
@@ -2170,9 +2348,9 @@ declare interface Edges {
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   left?: Dimension;
 
@@ -2182,9 +2360,9 @@ declare interface Edges {
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   bottom?: Dimension;
 
@@ -2194,9 +2372,9 @@ declare interface Edges {
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   right?: Dimension;
 }
@@ -2262,8 +2440,8 @@ declare interface LocalizedEdges {
  * @interface Bias
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 11
  * @form
+ * @since 11
  */
 /**
  * Defines the Bias.
@@ -2271,9 +2449,9 @@ declare interface LocalizedEdges {
  * @interface Bias
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 12
- * @form
  */
 declare interface Bias {
   /**
@@ -2283,8 +2461,8 @@ declare interface Bias {
    * @default 0.5
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * Horizontal ratio of the Bias, it must be >= 0.
@@ -2293,9 +2471,9 @@ declare interface Bias {
    * @default 0.5
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   horizontal?: number;
 
@@ -2306,8 +2484,8 @@ declare interface Bias {
    * @default 0.5
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * Vertical ratio of the Bias, it must be >= 0.
@@ -2316,9 +2494,9 @@ declare interface Bias {
    * @default 0.5
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   vertical?: number;
 }
@@ -2335,8 +2513,8 @@ declare interface Bias {
  *
  * @interface ConstraintSizeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines the constrain size options.
@@ -2344,8 +2522,8 @@ declare interface Bias {
  * @interface ConstraintSizeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines the constrain size options.
@@ -2353,9 +2531,9 @@ declare interface Bias {
  * @interface ConstraintSizeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare interface ConstraintSizeOptions {
   /**
@@ -2370,8 +2548,8 @@ declare interface ConstraintSizeOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Defines the min width.
@@ -2379,8 +2557,8 @@ declare interface ConstraintSizeOptions {
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Defines the min width.
@@ -2388,9 +2566,9 @@ declare interface ConstraintSizeOptions {
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   minWidth?: Length;
 
@@ -2406,8 +2584,8 @@ declare interface ConstraintSizeOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Defines the max width.
@@ -2415,8 +2593,8 @@ declare interface ConstraintSizeOptions {
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Defines the max width.
@@ -2424,9 +2602,9 @@ declare interface ConstraintSizeOptions {
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   maxWidth?: Length;
 
@@ -2442,8 +2620,8 @@ declare interface ConstraintSizeOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Defines the min height.
@@ -2451,8 +2629,8 @@ declare interface ConstraintSizeOptions {
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Defines the min height.
@@ -2460,9 +2638,9 @@ declare interface ConstraintSizeOptions {
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   minHeight?: Length;
 
@@ -2478,8 +2656,8 @@ declare interface ConstraintSizeOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Defines the max height.
@@ -2487,8 +2665,8 @@ declare interface ConstraintSizeOptions {
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Defines the max height.
@@ -2496,9 +2674,9 @@ declare interface ConstraintSizeOptions {
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   maxHeight?: Length;
 }
@@ -2515,8 +2693,8 @@ declare interface ConstraintSizeOptions {
  *
  * @interface SizeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines the size options.
@@ -2524,8 +2702,8 @@ declare interface ConstraintSizeOptions {
  * @interface SizeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines the size options.
@@ -2533,9 +2711,9 @@ declare interface ConstraintSizeOptions {
  * @interface SizeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare interface SizeOptions {
   /**
@@ -2550,8 +2728,8 @@ declare interface SizeOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Defines the width.
@@ -2559,8 +2737,8 @@ declare interface SizeOptions {
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Defines the width.
@@ -2568,9 +2746,9 @@ declare interface SizeOptions {
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   width?: Length;
 
@@ -2586,8 +2764,8 @@ declare interface SizeOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Defines the height.
@@ -2595,8 +2773,8 @@ declare interface SizeOptions {
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Defines the height.
@@ -2604,9 +2782,9 @@ declare interface SizeOptions {
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   height?: Length;
 }
@@ -2623,8 +2801,8 @@ declare interface SizeOptions {
  *
  * @interface BorderOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines the options of border.
@@ -2632,8 +2810,8 @@ declare interface SizeOptions {
  * @interface BorderOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines the options of border.
@@ -2641,9 +2819,9 @@ declare interface SizeOptions {
  * @interface BorderOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 /**
  * Defines the options of border.
@@ -2651,9 +2829,9 @@ declare interface SizeOptions {
  * @interface BorderOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 12
- * @form
  */
 declare interface BorderOptions {
   /**
@@ -2668,8 +2846,8 @@ declare interface BorderOptions {
    *
    * @type { ?(EdgeWidths | Length) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Defines the border width.
@@ -2677,8 +2855,8 @@ declare interface BorderOptions {
    * @type { ?(EdgeWidths | Length) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Defines the border width.
@@ -2686,9 +2864,9 @@ declare interface BorderOptions {
    * @type { ?(EdgeWidths | Length) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   /**
    * Defines the border width.
@@ -2714,8 +2892,8 @@ declare interface BorderOptions {
    *
    * @type { ?(EdgeColors | ResourceColor) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Defines the border color.
@@ -2723,8 +2901,8 @@ declare interface BorderOptions {
    * @type { ?(EdgeColors | ResourceColor) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Defines the border color.
@@ -2732,9 +2910,9 @@ declare interface BorderOptions {
    * @type { ?(EdgeColors | ResourceColor) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   /**
    * Defines the border color.
@@ -2760,8 +2938,8 @@ declare interface BorderOptions {
    *
    * @type { ?(BorderRadiuses | Length) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Defines the border radius.
@@ -2769,8 +2947,8 @@ declare interface BorderOptions {
    * @type { ?(BorderRadiuses | Length) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Defines the border radius.
@@ -2778,9 +2956,9 @@ declare interface BorderOptions {
    * @type { ?(BorderRadiuses | Length) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   /**
    * Defines the border radius.
@@ -2806,8 +2984,8 @@ declare interface BorderOptions {
    *
    * @type { ?(EdgeStyles | BorderStyle) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Defines the border style.
@@ -2815,8 +2993,8 @@ declare interface BorderOptions {
    * @type { ?(EdgeStyles | BorderStyle) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Defines the border style.
@@ -2824,9 +3002,9 @@ declare interface BorderOptions {
    * @type { ?(EdgeStyles | BorderStyle) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   style?: EdgeStyles | BorderStyle;
 
@@ -2859,8 +3037,8 @@ declare interface BorderOptions {
  * @interface OutlineOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 11
  * @form
+ * @since 11
  */
 /**
  * Defines the options of border.
@@ -2868,9 +3046,9 @@ declare interface BorderOptions {
  * @interface OutlineOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 12
- * @form
  */
 declare interface OutlineOptions {
   /**
@@ -2879,8 +3057,8 @@ declare interface OutlineOptions {
    * @type { ?(EdgeOutlineWidths | Dimension) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * Defines the outline width.
@@ -2888,9 +3066,9 @@ declare interface OutlineOptions {
    * @type { ?(EdgeOutlineWidths | Dimension) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   width?: EdgeOutlineWidths | Dimension;
 
@@ -2900,8 +3078,8 @@ declare interface OutlineOptions {
    * @type { ?(EdgeColors | ResourceColor) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * Defines the outline color.
@@ -2921,8 +3099,8 @@ declare interface OutlineOptions {
    * @type { ?(OutlineRadiuses | Dimension) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * Defines the outline radius.
@@ -2930,9 +3108,9 @@ declare interface OutlineOptions {
    * @type { ?(OutlineRadiuses | Dimension) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   radius?: OutlineRadiuses | Dimension;
 
@@ -2942,8 +3120,8 @@ declare interface OutlineOptions {
    * @type { ?(EdgeOutlineStyles | OutlineStyle) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * Defines the outline style.
@@ -2951,9 +3129,9 @@ declare interface OutlineOptions {
    * @type { ?(EdgeOutlineStyles | OutlineStyle) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   style?: EdgeOutlineStyles | OutlineStyle;
 }
@@ -3038,25 +3216,25 @@ declare interface MarkStyle {
  * Defines the ColorFilter object.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines the ColorFilter object.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines the ColorFilter object.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare class ColorFilter {
   /**
@@ -3064,8 +3242,8 @@ declare class ColorFilter {
    *
    * @param { number[] } value 4*5 color matrix values. The value[m*n] is located in the m row and n column. The matrix is row-first.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Creates ColorFilter with 4*5 matrix.
@@ -3073,8 +3251,8 @@ declare class ColorFilter {
    * @param { number[] } value 4*5 color matrix values. The value[m*n] is located in the m row and n column. The matrix is row-first.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Creates ColorFilter with 4*5 matrix.
@@ -3082,9 +3260,9 @@ declare class ColorFilter {
    * @param { number[] } value 4*5 color matrix values. The value[m*n] is located in the m row and n column. The matrix is row-first.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   constructor(value: number[]);
 }

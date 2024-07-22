@@ -25,7 +25,7 @@ export class CommentHelper {
   static referenceRegexp: RegExp = /\/\/\/\s*<reference\s*path/g;
   static referenceCommentRegexp: RegExp = /\/\s*<reference\s*path/g;
   static mutiCommentDelimiter: string = '/**';
-  static fileJsDoc: RegExp = /\@kit/g;
+  static fileTag: RegExp = /\@file|\@kit/g;
 
   /**
    * 获取指定AST节点上的注释，若无注释返回空数组。
@@ -114,7 +114,7 @@ export class CommentHelper {
         defaultValue: tag.default ? tag.default : undefined,
       });
     }
-    if (StringUtils.hasSubstring(commentString, this.fileJsDoc)) {
+    if (StringUtils.hasSubstring(commentString, this.fileTag)) {
       commentInfo.isFileJsDoc = true;
     }
     commentInfo.isApiComment = true;

@@ -43,9 +43,9 @@ import { EventMethodChecker } from './event_method_check';
 import { EventMethodData } from '../../../typedef/checker/event_method_check_interface';
 import { ApiChangeCheck } from './check_api_diff';
 import { TagInheritCheck } from './tag_inherit_check';
-import { ChineseCheck } from "./check_chinese";
+import { ChineseCheck } from './check_chinese';
 import { AnonymousFunctionCheck } from './check_anonymous_function';
-import { CheckErrorCode } from "./check_error_code";
+import { CheckErrorCode } from './check_error_code';
 
 export let currentFilePath: string = '';
 
@@ -110,10 +110,11 @@ export class Check {
     // for all nodes of the current file
     allNodeInfos.forEach((singleApi: ApiInfo) => {
       const apiJsdoc: Comment.JsDocInfo | undefined = singleApi.getLastJsDocInfo();
+      const apiJsdocTextLength: number = singleApi.getJsDocText().length;
       if (singleApi.getApiType() === 'Method' && singleApi.getParentApi()?.apiType === 'Struct') {
         return;
       }
-      if (apiJsdoc === undefined) {
+      if (apiJsdoc === undefined || apiJsdocTextLength === 0) {
         const errorBaseInfo: ErrorBaseInfo = new ErrorBaseInfo();
         errorBaseInfo
           .setErrorID(ErrorID.NO_JSDOC_ID)
@@ -172,7 +173,7 @@ export class Check {
         const forbiddenWordsCheckResult: ErrorTagFormat = ForbiddenWordsCheck.forbiddenWordsCheck(singleApi as ClassInfo);
 
         const anonymousFunction: ErrorTagFormat = AnonymousFunctionCheck.checkAnonymousFunction(singleApi);
-        
+
         if (!orderCheckResult.state) {
           const errorBaseInfo: ErrorBaseInfo = new ErrorBaseInfo();
           errorBaseInfo

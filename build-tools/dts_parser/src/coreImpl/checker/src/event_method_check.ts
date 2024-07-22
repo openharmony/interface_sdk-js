@@ -52,8 +52,10 @@ export class EventMethodChecker {
       const onEventPublishVersionValue: string = onEvent.length > 0 ? onEvent[0].jsDocInfos[0].since : '-1';
       const offEvent: MethodInfo[] = eventMethod.offEvents.length > 0 ? eventMethod.offEvents : [];
       const offEventPublishVersionValue: string = offEvent.length > 0 ? offEvent[0].jsDocInfos[0].since : '-1';
-      const isLostOnEvent: boolean = eventMethod.onEvents.length === 0 && eventMethod.offEvents.length !== 0 && offEventPublishVersionValue === JSON.stringify(ApiCheckVersion);
-      const isLostOffEvent: boolean = eventMethod.onEvents.length !== 0 && eventMethod.offEvents.length === 0 && onEventPublishVersionValue === JSON.stringify(ApiCheckVersion);
+      const isLostOnEvent: boolean = eventMethod.onEvents.length === 0 && eventMethod.offEvents.length !== 0 &&
+        offEventPublishVersionValue === JSON.stringify(ApiCheckVersion);
+      const isLostOffEvent: boolean = eventMethod.onEvents.length !== 0 && eventMethod.offEvents.length === 0 &&
+        onEventPublishVersionValue === JSON.stringify(ApiCheckVersion);
 
       // check on&off event pair
       if (isLostOnEvent || isLostOffEvent) {

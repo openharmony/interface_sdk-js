@@ -28,6 +28,7 @@ export interface CheckPackageHasInstalledResponse {
   /**
    * Whether the application exists, or whether the native application has been installed.
    *
+   * @type { boolean }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 3
    * @deprecated since 9
@@ -45,6 +46,7 @@ export interface CheckPackageHasInstalledOptions {
   /**
    * Application bundle name.
    *
+   * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 3
    * @deprecated since 9
@@ -54,6 +56,7 @@ export interface CheckPackageHasInstalledOptions {
   /**
    * Called when native applications are installed.
    *
+   * @type { ?function }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 3
    * @deprecated since 9
@@ -63,6 +66,7 @@ export interface CheckPackageHasInstalledOptions {
   /**
    * Called when native applications fail to be installed.
    *
+   * @type { ?function }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 3
    * @deprecated since 9
@@ -72,6 +76,7 @@ export interface CheckPackageHasInstalledOptions {
   /**
    * Called when the execution is completed.
    *
+   * @type { ?function }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 3
    * @deprecated since 9

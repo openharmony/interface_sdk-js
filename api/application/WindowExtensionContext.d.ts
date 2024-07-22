@@ -47,6 +47,20 @@ export default class WindowExtensionContext extends ExtensionContext {
    * @stagemodelonly
    * @since 9
    */
+  /**
+   * Window extension uses this method to start a specific ability.
+   *
+   * @param { Want } want - Indicates the ability to start.
+   * @param { StartOptions } options - Indicates the start options.
+   * @param { AsyncCallback<void> } callback - The callback of startAbility.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
+   *                                                                  2.Incorrect parameter types.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
   startAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
 
   /**
@@ -61,6 +75,20 @@ export default class WindowExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 9
+   */
+  /**
+   * Window extension uses this method to start a specific ability.
+   *
+   * @param { Want } want - Indicates the ability to start.
+   * @param { StartOptions } [options] - Indicates the start options.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
+   *                                                                  2.Incorrect parameter types.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
    */
   startAbility(want: Want, options?: StartOptions): Promise<void>;
 }

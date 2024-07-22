@@ -30,8 +30,8 @@
  *
  * @interface TextInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Provides an interface for writing texts.
@@ -39,8 +39,8 @@
  * @interface TextInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Provides an interface for writing texts.
@@ -48,9 +48,9 @@
  * @interface TextInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 interface TextInterface {
   /**
@@ -67,8 +67,8 @@ interface TextInterface {
    * @param { string | Resource } content
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
    * @form
+   * @since 9
    */
   /**
    * Called when writing text.
@@ -77,8 +77,8 @@ interface TextInterface {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * Called when writing text.
@@ -103,23 +103,23 @@ interface TextInterface {
 /**
  * @extends CommonMethod<TextAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * @extends CommonMethod<TextAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * @extends CommonMethod<TextAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare class TextAttribute extends CommonMethod<TextAttribute> {
   /**
@@ -156,8 +156,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { ResourceColor } value
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when the font color is set.
@@ -166,8 +166,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when the font color is set.
@@ -176,9 +176,9 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   fontColor(value: ResourceColor): TextAttribute;
 
@@ -196,8 +196,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { number | string | Resource } value
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when the font size is set.
@@ -206,8 +206,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when the font size is set.
@@ -216,9 +216,9 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   fontSize(value: number | string | Resource): TextAttribute;
 
@@ -236,8 +236,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { number | string | Resource } value
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when the minimum font size of the font is set.
@@ -246,8 +246,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when the minimum font size of the font is set.
@@ -256,9 +256,9 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   minFontSize(value: number | string | Resource): TextAttribute;
 
@@ -276,8 +276,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { number | string | Resource } value
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when the maximum font size of the font is set.
@@ -286,8 +286,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when the maximum font size of the font is set.
@@ -296,11 +296,33 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   maxFontSize(value: number | string | Resource): TextAttribute;
+
+  /**
+   * Called when the minimum font scale of the font is set.
+   *
+   * @param { number | Resource } scale
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  minFontScale(scale: number | Resource): TextAttribute;
+
+  /**
+   * Called when the maximum font scale of the font is set.
+   *
+   * @param { number | Resource  } scale
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  maxFontScale(scale: number | Resource): TextAttribute;
 
   /**
    * Called when the font style of a font is set.
@@ -316,8 +338,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { FontStyle } value
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when the font style of a font is set.
@@ -326,8 +348,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when the font style of a font is set.
@@ -336,9 +358,9 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   fontStyle(value: FontStyle): TextAttribute;
 
@@ -356,8 +378,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { number | FontWeight | string } value
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when the font weight is set.
@@ -366,8 +388,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when the font weight is set.
@@ -376,9 +398,9 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   fontWeight(value: number | FontWeight | string): TextAttribute;
 
@@ -389,6 +411,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   lineSpacing(value: LengthMetrics): TextAttribute;
@@ -407,8 +430,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { TextAlign } value
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when the horizontal center mode of the font is set.
@@ -417,8 +440,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when the horizontal center mode of the font is set.
@@ -427,9 +450,9 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   textAlign(value: TextAlign): TextAttribute;
 
@@ -447,8 +470,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { number | string | Resource } value
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when the vertical center mode of the font is set.
@@ -457,8 +480,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when the vertical center mode of the font is set.
@@ -467,9 +490,9 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   lineHeight(value: number | string | Resource): TextAttribute;
 
@@ -487,8 +510,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { object } value
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when the overflow mode of the font is set.
@@ -497,8 +520,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when the overflow mode of the font is set.
@@ -507,9 +530,9 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   textOverflow(value: { overflow: TextOverflow }): TextAttribute;
 
@@ -527,8 +550,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { string | Resource } value
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when the font list of text is set.
@@ -537,8 +560,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when the font list of text is set.
@@ -547,9 +570,9 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   fontFamily(value: string | Resource): TextAttribute;
 
@@ -567,8 +590,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { number } value
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when the maximum number of lines of text is set.
@@ -577,8 +600,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when the maximum number of lines of text is set.
@@ -587,9 +610,9 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   maxLines(value: number): TextAttribute;
 
@@ -607,8 +630,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { object } value
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when the text decoration of the text is set.
@@ -617,8 +640,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when the text decoration of the text is set.
@@ -627,9 +650,9 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   /**
    * Called when the text decoration of the text is set.
@@ -658,8 +681,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { number | string } value
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when the distance between text fonts is set.
@@ -668,8 +691,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when the distance between text fonts is set.
@@ -678,9 +701,9 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   letterSpacing(value: number | string): TextAttribute;
 
@@ -698,8 +721,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { TextCase } value
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when the type of letter in the text font is set.
@@ -708,8 +731,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when the type of letter in the text font is set.
@@ -718,9 +741,9 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   textCase(value: TextCase): TextAttribute;
 
@@ -738,8 +761,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { number | string } value
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when the baseline offset is set.
@@ -748,8 +771,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when the baseline offset is set.
@@ -758,9 +781,9 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   baselineOffset(value: number | string): TextAttribute;
 
@@ -770,8 +793,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { CopyOptions } value
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Allow replication.
@@ -780,8 +803,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Allow replication.
@@ -790,9 +813,9 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   copyOption(value: CopyOptions): TextAttribute;
 
@@ -822,8 +845,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * Called when the text shadow is set.
@@ -832,9 +855,9 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   textShadow(value: ShadowOptions | Array<ShadowOptions>): TextAttribute;
 
@@ -899,6 +922,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   lineBreakStrategy(strategy: LineBreakStrategy): TextAttribute;
@@ -1047,6 +1071,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   fontFeature(value: string): TextAttribute;
@@ -1058,6 +1083,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   marqueeOptions(value: Optional<MarqueeOptions>): TextAttribute;
@@ -1069,6 +1095,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute } returns the instance of the TextAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onMarqueeStateChange(callback: Callback<MarqueeState>): TextAttribute;
@@ -1080,6 +1107,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
+   * @atomicservice
    * @since 12
    */
   privacySensitive(supported: boolean): TextAttribute;
@@ -1119,25 +1147,25 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
  * Defines Text Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines Text Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines Text Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const TextInstance: TextAttribute;
 
@@ -1151,25 +1179,25 @@ declare const TextInstance: TextAttribute;
  * Defines Text Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines Text Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines Text Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const Text: TextInterface;
 
@@ -1319,6 +1347,7 @@ declare enum TextResponseType {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare enum MarqueeState {
@@ -1327,6 +1356,7 @@ declare enum MarqueeState {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   START = 0,
@@ -1336,6 +1366,7 @@ declare enum MarqueeState {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   BOUNCE = 1,
@@ -1345,6 +1376,7 @@ declare enum MarqueeState {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   FINISH = 2,
@@ -1356,6 +1388,7 @@ declare enum MarqueeState {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare enum MarqueeStartPolicy {
@@ -1364,6 +1397,7 @@ declare enum MarqueeStartPolicy {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   DEFAULT = 0,
@@ -1373,6 +1407,7 @@ declare enum MarqueeStartPolicy {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   ON_FOCUS = 1,
@@ -1422,6 +1457,7 @@ declare interface TextOptions {
  * @interface MarqueeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface MarqueeOptions {
@@ -1431,6 +1467,7 @@ declare interface MarqueeOptions {
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   start: boolean;
@@ -1441,6 +1478,7 @@ declare interface MarqueeOptions {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   step?: number;
@@ -1451,6 +1489,7 @@ declare interface MarqueeOptions {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   loop?: number;
@@ -1461,6 +1500,7 @@ declare interface MarqueeOptions {
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   fromStart?: boolean;
@@ -1471,6 +1511,7 @@ declare interface MarqueeOptions {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   delay?: number;
@@ -1481,6 +1522,7 @@ declare interface MarqueeOptions {
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   fadeout?: boolean;
@@ -1491,6 +1533,7 @@ declare interface MarqueeOptions {
    * @type { ?MarqueeStartPolicy }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   marqueeStartPolicy?: MarqueeStartPolicy;
@@ -1535,6 +1578,7 @@ declare class TextController {
    * @param { StyledString } value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   setStyledString(value: StyledString): void;

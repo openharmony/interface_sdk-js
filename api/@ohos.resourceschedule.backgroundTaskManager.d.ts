@@ -265,7 +265,7 @@ declare namespace backgroundTaskManager {
    * @param { Context } context - App running context.
    * @param { AsyncCallback<void> } callback - The callback of the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Parcel operation failed.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
@@ -284,7 +284,7 @@ declare namespace backgroundTaskManager {
    * @param { Context } context - App running context.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Parcel operation failed.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
