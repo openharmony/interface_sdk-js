@@ -953,42 +953,6 @@ declare namespace installer {
     updateBundleForSelf(hapFilePaths: Array<string>, installParam?: InstallParam): Promise<void>;
 
     /**
-   * Add extend resources.
-   *
-   * @permission ohos.permission.INSTALL_BUNDLE
-   * @param { string } bundleName - Indicates the bundleName.
-   * @param { Array<string> } filePaths - Indicates the file path for extend resources.
-   * @returns { Promise<void> } Returns addExtResource result.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
-   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @throws { BusinessError } 17700301 - AddExtResource failed due to parse file failed.
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
-   * @since 12
-   */
-  addExtResource(bundleName: string, filePaths: Array<string>): Promise<void>;
-
-  /**
-  * Remove extend resources.
-  *
-  * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
-  * @param { string } bundleName - Indicates the bundleName.
-  * @param { Array<string> } moduleNames - Indicates the moduleNames for extend resources.
-  * @returns { Promise<void> } Returns removeExtResource result.
-  * @throws { BusinessError } 201 - Permission denied.
-  * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-  * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
-  * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-  * @throws { BusinessError } 17700302 - RemoveExtResource failed due to module does not exist.
-  * @syscap SystemCapability.BundleManager.BundleFramework.Core
-  * @systemapi
-  * @since 12
-  */
-  removeExtResource(bundleName: string, moduleNames: Array<string>): Promise<void>;
-
-    /**
      * Uninstall updates for a pre-installed application.
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
@@ -1008,6 +972,42 @@ declare namespace installer {
     uninstallUpdates(bundleName: string, installParam?: InstallParam): Promise<void>;
 
     /**
+     * Add extend resources.
+     *
+     * @permission ohos.permission.INSTALL_BUNDLE
+     * @param { string } bundleName - Indicates the bundleName.
+     * @param { Array<string> } filePaths - Indicates the file path for extend resources.
+     * @returns { Promise<void> } Returns addExtResource result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Permission denied, non-system app called system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+     * @throws { BusinessError } 17700301 - AddExtResource failed due to parse file failed.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    addExtResource(bundleName: string, filePaths: Array<string>): Promise<void>;
+
+    /**
+     * Remove extend resources.
+     *
+     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
+     * @param { string } bundleName - Indicates the bundleName.
+     * @param { Array<string> } moduleNames - Indicates the moduleNames for extend resources.
+     * @returns { Promise<void> } Returns removeExtResource result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Permission denied, non-system app called system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+     * @throws { BusinessError } 17700302 - RemoveExtResource failed due to module does not exist.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    removeExtResource(bundleName: string, moduleNames: Array<string>): Promise<void>;
+
+    /**
      * Create clone instance for an application.
      *
      * @permission ohos.permission.INSTALL_CLONE_BUNDLE
@@ -1025,7 +1025,7 @@ declare namespace installer {
      * @systemapi
      * @since 12
      */
-    createAppClone(bundleName: string, createAppCloneParam?: CreateAppCloneParam): Promise<number>;
+     createAppClone(bundleName: string, createAppCloneParam?: CreateAppCloneParam): Promise<number>;
 
     /**
      * Destroy clone instance for an application.
@@ -1045,7 +1045,7 @@ declare namespace installer {
      * @systemapi
      * @since 12
      */
-    destroyAppClone(bundleName: string, appIndex: number, userId?: number): Promise<void>;
+     destroyAppClone(bundleName: string, appIndex: number, userId?: number): Promise<void>;
   }
 
   /**
@@ -1056,7 +1056,7 @@ declare namespace installer {
    * @systemapi
    * @since 9
    */
-  export interface HashParam {
+   export interface HashParam {
     /**
      * Indicates the moduleName
      *
