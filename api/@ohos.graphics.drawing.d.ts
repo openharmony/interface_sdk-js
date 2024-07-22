@@ -1062,6 +1062,17 @@ declare namespace drawing {
     drawColor(color: common2D.Color, blendMode?: BlendMode): void;
 
     /**
+     * Fills clip with the specified ARGB color of hexadecimal format.
+     * @param { number } color - Number must be ARGB color of hexadecimal format.
+     * @param { BlendMode } blendMode - Used to combine source color and destination. The default value is SRC_OVER.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    drawColor(color: number, blendMode?: BlendMode): void;
+
+    /**
      * Fills the clipped rectangle with the specified ARGB color.
      * @param { number } alpha - Alpha channel of color. The range of alpha must be [0, 255].
      * @param { number } red - Red channel of color. The range of red must be [0, 255].
@@ -2419,6 +2430,22 @@ declare namespace drawing {
      * @since 12
      */
     static create(blurRadius: number, x: number, y: number, color: common2D.Color): ShadowLayer;
+
+    /**
+     * Makes a new ShadowLayer with the specified ARGB color of hexadecimal format.
+     *
+     * @param { number } blurRadius - The blur radius of the shadow. The blur radius must be greater than 0.
+     * @param { number } x - The offset point on x-axis.
+     * @param { number } y - The offset point on y-axis.
+     * @param { number } color - The shadow color. Number must be ARGB color of hexadecimal format.
+     * @returns { ShadowLayer } ShadowLayer object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    static create(blurRadius: number, x: number, y: number, color: number): ShadowLayer;
   }
 
   /**
@@ -2440,6 +2467,20 @@ declare namespace drawing {
      * @since 11
      */
     static createBlendModeColorFilter(color: common2D.Color, mode: BlendMode): ColorFilter;
+
+    /**
+     * Makes a color filter with the given ARGB color of hexadecimal format and blend mode.
+     * @param { number } color - Number must be ARGB color of hexadecimal format.
+     * @param { BlendMode } mode - BlendMode.
+     * @returns { ColorFilter } Colorfilter object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    static createBlendModeColorFilter(color: number, mode: BlendMode): ColorFilter;
+
     /**
      * Create a color filter consisting of two filters.
      * @param { ColorFilter } outer - The filter is used next.
@@ -2685,6 +2726,16 @@ declare namespace drawing {
     * @since 11
     */
     setColor(color: common2D.Color): void;
+
+    /**
+    * Set the specified ARGB color of hexadecimal format to the pen.
+    * @param { number } color - Number must be ARGB color of hexadecimal format.
+    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+    * @syscap SystemCapability.Graphics.Drawing
+    * @since 12
+    */
+    setColor(color: number): void;
 
     /**
     * Set the AGRB color of the pen.
@@ -2937,6 +2988,16 @@ declare namespace drawing {
      * @since 11
      */
     setColor(color: common2D.Color): void;
+
+    /**
+     * Set the specified ARGB color of hexadecimal format to the brush.
+     * @param { number } color - Number must be ARGB color of hexadecimal format.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    setColor(color: number): void;
 
     /**
      * Set the ARGB color of the brush.
