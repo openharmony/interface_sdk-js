@@ -769,6 +769,12 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */
+    /**
+     * Subscription to cloud data changes
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 12
+     */
     SUBSCRIBE_TYPE_CLOUD,
 
     /**
@@ -777,6 +783,12 @@ declare namespace relationalStore {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
+     */
+    /**
+     * Subscription to cloud data changes details
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 12
      */
     SUBSCRIBE_TYPE_CLOUD_DETAILS,
 
@@ -804,6 +816,12 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
+    /**
+     * Means the change type is data change.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
     DATA_CHANGE,
 
     /**
@@ -812,6 +830,12 @@ declare namespace relationalStore {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
+     */
+    /**
+     * Means the change type is asset change.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
      */
     ASSET_CHANGE
   }
@@ -892,6 +916,12 @@ declare namespace relationalStore {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
+     */
+    /**
+     * Indicates the table is distributed between the cloud and the devices.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 12
      */
     DISTRIBUTED_CLOUD
   }
