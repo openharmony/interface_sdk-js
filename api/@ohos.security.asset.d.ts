@@ -29,6 +29,8 @@
 declare namespace asset {
   /**
    * Add an Asset.
+   * Permission ohos.permission.STORE_PERSISTENT_DATA is required when the asset needs to be stored persistently
+   *     by setting {@link Tag.IS_PERSISTENT} tag.
    *
    * @param { AssetMap } attributes - a map object containing attributes of the Asset to be added.
    * @returns { Promise<void> } the promise object returned by the function.
@@ -57,6 +59,8 @@ declare namespace asset {
 
   /**
    * Add an Asset to a specific user space.
+   * Permission ohos.permission.STORE_PERSISTENT_DATA is required when the asset needs to be stored persistently
+   *     by setting {@link Tag.IS_PERSISTENT} tag.
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { number } userId - the user identifier to add an Asset. The user identifier cannot be lower than 100.
@@ -89,6 +93,8 @@ declare namespace asset {
 
   /**
    * Add an Asset.
+   * Permission ohos.permission.STORE_PERSISTENT_DATA is required when the asset needs to be stored persistently
+   *     by setting {@link Tag.IS_PERSISTENT} tag.
    *
    * @param { AssetMap } attributes - a map object containing attributes of the Asset to be added.
    * @throws { BusinessError } 201 - The caller doesn't have the permission.
@@ -792,9 +798,7 @@ declare namespace asset {
     SYNC_TYPE = TagType.NUMBER | 0x10,
     /**
      * A tag whose value is a bool indicating whether Asset is stored persistently.
-     * The permission needs to be verified only when this attribute is set in the {@link add} function.
      *
-     * @permission ohos.permission.STORE_PERSISTENT_DATA
      * @syscap SystemCapability.Security.Asset
      * @since 11
      */
