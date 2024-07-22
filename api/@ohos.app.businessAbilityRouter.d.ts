@@ -139,6 +139,7 @@ declare namespace businessAbilityRouter {
   /**
    * Obtains business ability info.
    *
+   * @typedef { _BusinessAbilityInfo.BusinessAbilityInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10

@@ -201,6 +201,7 @@ declare namespace distributedBundleManager {
   /**
    * Contains basic remote ability information.
    *
+   * typedef { _RemoteAbilityInfo }
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
    * @since 9

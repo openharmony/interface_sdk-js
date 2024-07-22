@@ -975,7 +975,7 @@ declare namespace installer {
   *
   * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
   * @param { string } bundleName - Indicates the bundleName.
-  * @param { Array<string> } moduleName - Indicates the moduleNames for extend resources.
+  * @param { Array<string> } moduleNames - Indicates the moduleNames for extend resources.
   * @returns { Promise<void> } Returns removeExtResource result.
   * @throws { BusinessError } 201 - Permission denied.
   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1060,6 +1060,7 @@ declare namespace installer {
     /**
      * Indicates the moduleName
      *
+     * @type { string }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -1069,6 +1070,7 @@ declare namespace installer {
     /**
      * Indicates the hash value
      *
+     * @type { string }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -1151,6 +1153,7 @@ declare namespace installer {
     /**
      * Indicates the user id
      *
+     * @type { ?number }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -1160,6 +1163,7 @@ declare namespace installer {
     /**
      * Indicates the installation type. The value 0x00 means normal installation, 0x01 means overwrite installation, and 0x10 means installation-free.
      *
+     * @type { ?number }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -1169,6 +1173,7 @@ declare namespace installer {
     /**
      * Indicates whether the param has data
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -1178,6 +1183,7 @@ declare namespace installer {
     /**
      * Indicates the hash params
      *
+     * @type { ?Array<HashParam> }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -1187,6 +1193,7 @@ declare namespace installer {
     /**
      * Indicates the deadline of the crowdtesting bundle
      *
+     * @type { ?number }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -1196,6 +1203,7 @@ declare namespace installer {
     /**
      * Indicates the shared bundle dir paths.
      *
+     * @type { ?Array<String> }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10
@@ -1205,6 +1213,7 @@ declare namespace installer {
     /**
      * Indicates the distribution type specified during bundle installation.
      *
+     * @type { ?string }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10
@@ -1214,6 +1223,7 @@ declare namespace installer {
     /**
      * Indicates the additional information during bundle installation.
      *
+     * @type { ?string }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10
@@ -1254,6 +1264,7 @@ declare namespace installer {
     /**
      * Indicates the shared bundle name
      *
+     * @type { string }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10
@@ -1263,6 +1274,7 @@ declare namespace installer {
     /**
      * Indicates the shared version code. If default, indicates that all version sharing bundles are uninstalled
      *
+     * @type { ?number }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10
