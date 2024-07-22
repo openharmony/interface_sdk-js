@@ -2129,7 +2129,7 @@ declare namespace media {
     /**
      * Register listens for mediaKeySystemInfoUpdate events.
      * @param { 'mediaKeySystemInfoUpdate' } type - Type of the event to listen for.
-     * @param { function } callback - Callback used to listen for the mediaKeySystemInfoUpdate event.
+     * @param { Callback(Array<drm.MediaKeySystemInfo>) } callback - Callback used to listen for the mediaKeySystemInfoUpdate event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
@@ -2146,7 +2146,7 @@ declare namespace media {
     /**
      * Unregister listens for mediaKeySystemInfoUpdate events.
      * @param { 'mediaKeySystemInfoUpdate' } type - Type of the event to listen for.
-     * @param { function } callback - Callback for event.
+     * @param { Callback(Array<drm.MediaKeySystemInfo>) } callback - Callback for event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
@@ -3963,7 +3963,7 @@ declare namespace media {
     /**
      * Defines the onMove callback.
      * 
-     * @typedef { function } onStateChangeHandler
+     * @typedef { function } OnStateChangeHandler
      * @param { AVRecorderState } state - state value for AVRecorder.
      * @param { StateChangeReason } reason - Reason for state change.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -3971,7 +3971,7 @@ declare namespace media {
      * @atomicservice
      * @since 12
      */
-    declare type onStateChangeHandler = (state: AVRecorderState, reason: StateChangeReason) => void;
+    declare type OnStateChangeHandler = (state: AVRecorderState, reason: StateChangeReason) => void;
 
     /**
      * Listens for recording stateChange events.
@@ -3985,7 +3985,7 @@ declare namespace media {
     /**
      * Listens for recording stateChange events.
      * @param { 'stateChange' } type - Type of the recording event to listen for.
-     * @param { onStateChangeHandler } callback - Callback used to listen for the recorder stateChange event.
+     * @param { OnStateChangeHandler } callback - Callback used to listen for the recorder stateChange event.
      * @throws { BusinessError } 5400103 - IO error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
@@ -3993,7 +3993,7 @@ declare namespace media {
      * @atomicservice
      * @since 12
      */
-    on(type: 'stateChange', callback: onStateChangeHandler): void;
+    on(type: 'stateChange', callback: OnStateChangeHandler): void;
 
     /**
      * Listens for recording error events.
@@ -4059,13 +4059,13 @@ declare namespace media {
     /**
      * Cancel Listens for recording stateChange events.
      * @param { 'stateChange' } type - Type of the recording stateChange event to listen for.
-     * @param { onStateChangeHandler } callback - Callback used to listen for the recorder stateChange event.
+     * @param { OnStateChangeHandler } callback - Callback used to listen for the recorder stateChange event.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @atomicservice
      * @since 12
      */
-    off(type: 'stateChange', callback?: onStateChangeHandler): void;
+    off(type: 'stateChange', callback?: OnStateChangeHandler): void;
 
     /**
      * Cancel Listens for recording error events.
