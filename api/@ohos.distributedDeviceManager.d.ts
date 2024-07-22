@@ -39,6 +39,7 @@ declare namespace distributedDeviceManager {
   interface DeviceBasicInfo {
     /**
      * Device unique identifier, The actual value is the udid-hash confused with the appid based on sha256.
+     * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
      */
@@ -46,6 +47,7 @@ declare namespace distributedDeviceManager {
 
     /**
      * Device name.
+     * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
      */
@@ -62,6 +64,7 @@ declare namespace distributedDeviceManager {
 
     /**
      * Device network id.
+     * @type { ?string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
      */
