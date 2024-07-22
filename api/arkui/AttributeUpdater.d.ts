@@ -84,4 +84,15 @@ export declare class AttributeUpdater<T, C = Initializer<T>> implements Attribut
    * @since 12
    */
   updateConstructorParams: C;
+
+  /**
+   * Defines a function executed when component changed.
+   *
+   * @param { T } component
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onComponentChanged(component: T): void;
 }
