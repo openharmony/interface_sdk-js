@@ -29,7 +29,7 @@
 declare namespace asset {
   /**
    * Add an Asset.
-   * Permission ohos.permission.STORE_PERSISTENT_DATA is required when the asset needs to be stored persistently
+   * Permission ohos.permission.STORE_PERSISTENT_DATA is required when the Asset needs to be stored persistently
    *     by setting {@link Tag.IS_PERSISTENT} tag.
    *
    * @param { AssetMap } attributes - a map object containing attributes of the Asset to be added.
@@ -59,7 +59,7 @@ declare namespace asset {
 
   /**
    * Add an Asset to a specific user space.
-   * Permission ohos.permission.STORE_PERSISTENT_DATA is required when the asset needs to be stored persistently
+   * Permission ohos.permission.STORE_PERSISTENT_DATA is required when the Asset needs to be stored persistently
    *     by setting {@link Tag.IS_PERSISTENT} tag.
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
@@ -93,7 +93,7 @@ declare namespace asset {
 
   /**
    * Add an Asset.
-   * Permission ohos.permission.STORE_PERSISTENT_DATA is required when the asset needs to be stored persistently
+   * Permission ohos.permission.STORE_PERSISTENT_DATA is required when the Asset needs to be stored persistently
    *     by setting {@link Tag.IS_PERSISTENT} tag.
    *
    * @param { AssetMap } attributes - a map object containing attributes of the Asset to be added.
