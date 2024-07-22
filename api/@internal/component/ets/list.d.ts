@@ -1109,18 +1109,6 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   edgeEffect(value: EdgeEffect, options?: EdgeEffectOptions): ListAttribute;
 
   /**
-   * Called when setting whether to enable fading Edge effect.
-   *
-   * @param { Optional<boolean> } value - Whether to turn on the edge fade effect
-   * @returns { ListAttribute } the attribute of the list.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  fadingEdge(value: Optional<boolean>): ListAttribute;
-
-  /**
    * Called when need to decide contentStartOffset the list will show.
    * @param { number } value - the value Of startOffset.
    * @returns { ListAttribute } the attribute of the list.
