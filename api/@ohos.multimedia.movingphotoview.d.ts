@@ -184,10 +184,10 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      */
     onError(callback: MovingPhotoViewEventCallback): MovingPhotoViewAttribute;
     /**
-     * Called when autoPlay need to set period.
+     * setting autoPlay Period
      *
-     * @param { number } startTime
-     * @param { number } endTime
+     * @param { number } startTime video plays start time
+     * @param { number } endTime   video plays end time
      * @returns { MovingPhotoViewAttribute }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
@@ -198,7 +198,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
     /**
      * Called when autoplay.
      *
-     * @param { boolean } isAutoPlay
+     * @param { boolean } isAutoPlay  Whether to autoPlay
      * @returns { MovingPhotoViewAttribute }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
@@ -209,7 +209,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
     /**
      * Called when repeatPlay.
      *
-     * @param { boolean } isRepeatPlay
+     * @param { boolean } isRepeatPlay  Whether to repeatPlay
      * @returns { MovingPhotoViewAttribute }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
