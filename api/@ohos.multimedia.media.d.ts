@@ -2161,7 +2161,7 @@ declare namespace media {
      * @param { StateChangeReason } reason - reason for state change.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
-     * @atmicservice
+     * @atomicservice
      * @since 12
      */
     declare type OnstateChangeHandle = (state: AVPlayerState, reason: StateChangeReason) => void;
