@@ -196,7 +196,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      */
     autoPlayPeriod(startTime: number, endTime: number): MovingPhotoViewAttribute;
     /**
-     * Called when autoplay.
+     * movingphotoview is played once according to the autoPlay period
      *
      * @param { boolean } isAutoPlay  Whether to autoPlay
      * @returns { MovingPhotoViewAttribute }
@@ -207,7 +207,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      */
     autoPlay(isAutoPlay: boolean): MovingPhotoViewAttribute;
     /**
-     * Called when repeatPlay.
+     * movingphotoview is played once and once according to the full video duration
      *
      * @param { boolean } isRepeatPlay  Whether to repeatPlay
      * @returns { MovingPhotoViewAttribute }
