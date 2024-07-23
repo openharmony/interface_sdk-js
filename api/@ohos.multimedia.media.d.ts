@@ -5520,7 +5520,7 @@ declare namespace media {
      * @param { AVScreenCaptureRecordConfig } config - AVScreenCaptureRecorder config.
      * @returns { Promise<void> } A Promise instance used to return when init completed.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed. Return by promise.
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
