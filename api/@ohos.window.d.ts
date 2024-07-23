@@ -4241,6 +4241,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 12
      */
     setWindowLayoutFullScreen(isLayoutFullScreen: boolean, callback: AsyncCallback<void>): void;
 
@@ -4332,6 +4333,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 12
      */
     setWindowSystemBarEnable(names: Array<'status' | 'navigation'>, callback: AsyncCallback<void>): void;
 
@@ -4458,6 +4460,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
+     * @deprecated since 12
      */
     setWindowSystemBarProperties(systemBarProperties: SystemBarProperties, callback: AsyncCallback<void>): void;
 
