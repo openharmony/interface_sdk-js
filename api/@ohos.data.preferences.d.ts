@@ -179,6 +179,7 @@ declare namespace preferences {
     /**
      * The preferences file name.
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
@@ -196,6 +197,7 @@ declare namespace preferences {
     /**
      * Application Group Id.
      *
+     * @type { ?string | ?null | ?undefined }
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @StageModelOnly
      * @atomicservice
