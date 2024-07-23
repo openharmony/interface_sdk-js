@@ -184,8 +184,8 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      */
     onError(callback: MovingPhotoViewEventCallback): MovingPhotoViewAttribute;
     /**
-     * Sets automatic play period, If not set, the movingphoto plays the full video duration.
-     * If set, the movingphoto plays the automatic play period.
+     * Sets automatic play period, If not set, the movingphoto plays in the full video duration.
+     * If set, the movingphoto plays in the automatic play period.
      *
      * @param { number } startTime video plays start time
      * @param { number } endTime   video plays end time
@@ -197,7 +197,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      */
     autoPlayPeriod(startTime: number, endTime: number): MovingPhotoViewAttribute;
     /**
-     * Sets whether to allow automatic play. If the value is true,the movingphoto starts 
+     * Sets whether to allow automatic play. If the value is true, the movingphoto starts 
      * automaticlly after the resource is loaded.
      *
      * @param { boolean } isAutoPlay  Whether to automatic play
@@ -209,7 +209,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      */
     autoPlay(isAutoPlay: boolean): MovingPhotoViewAttribute;
     /**
-     * Sets whether to allow repeat play. If the value is true,the movingphoto plays 
+     * Sets whether to allow repeat play. If the value is true, the movingphoto plays 
      * repeatly after the resource is loaded.
      *
      * @param { boolean } isRepeatPlay  Whether to repeat play
