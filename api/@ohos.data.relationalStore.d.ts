@@ -114,6 +114,7 @@ declare namespace relationalStore {
     /**
      * The name of asset.
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -123,6 +124,7 @@ declare namespace relationalStore {
     /**
      * The uri of asset.
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -132,6 +134,7 @@ declare namespace relationalStore {
     /**
      * The path of asset.
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -141,6 +144,7 @@ declare namespace relationalStore {
     /**
      * The create time of asset.
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -150,6 +154,7 @@ declare namespace relationalStore {
     /**
      * The modify time of asset.
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -159,6 +164,7 @@ declare namespace relationalStore {
     /**
      * The size of asset.
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -168,6 +174,7 @@ declare namespace relationalStore {
     /**
      * The status of asset.
      *
+     * @type { ?AssetStatus }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -287,6 +294,7 @@ declare namespace relationalStore {
     /**
      * The database name.
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -296,6 +304,7 @@ declare namespace relationalStore {
     /**
      * Specifies the security level of the database.
      *
+     * @type { SecurityLevel }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 9
@@ -305,6 +314,7 @@ declare namespace relationalStore {
     /**
      * Specifies whether the database is encrypted.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -313,6 +323,7 @@ declare namespace relationalStore {
     /**
      * The data group id of application.
      *
+     * @type { ?string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @StageModelOnly
      * @since 10
@@ -432,6 +443,7 @@ declare namespace relationalStore {
     /**
      * Describes the total number of data to sync.
      *
+     * @type { number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
@@ -440,6 +452,7 @@ declare namespace relationalStore {
     /**
      * Describes the number of successfully synced data.
      *
+     * @type { number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
@@ -448,6 +461,7 @@ declare namespace relationalStore {
     /**
      * Describes the number of data failed to sync.
      *
+     * @type { number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
@@ -456,6 +470,7 @@ declare namespace relationalStore {
     /**
      * Describes the number of data remained to sync.
      *
+     * @type { number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
@@ -473,6 +488,7 @@ declare namespace relationalStore {
     /**
      * Describes the {@code Statistic} details of the upload process.
      *
+     * @type { Statistic }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
@@ -481,6 +497,7 @@ declare namespace relationalStore {
     /**
      * Describes the {@code Statistic} details of the download process.
      *
+     * @type { Statistic }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
@@ -571,6 +588,7 @@ declare namespace relationalStore {
     /**
      * Describes the status of data sync progress.
      *
+     * @type { Progress }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
@@ -579,6 +597,7 @@ declare namespace relationalStore {
     /**
      * Describes the code of data sync progress.
      *
+     * @type { ProgressCode }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
@@ -756,7 +775,6 @@ declare namespace relationalStore {
   /**
    * Describes the subscription type.
    *
-   * @permission ohos.permission.DISTRIBUTED_DATASYNC
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 9
@@ -765,7 +783,6 @@ declare namespace relationalStore {
     /**
      * Subscription to remote data changes
      *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -774,7 +791,6 @@ declare namespace relationalStore {
     /**
      * Subscription to cloud data changes
      *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */
@@ -783,7 +799,6 @@ declare namespace relationalStore {
     /**
      * Subscription to cloud data changes details
      *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */
@@ -809,7 +824,6 @@ declare namespace relationalStore {
     /**
      * Means the change type is data change.
      *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
@@ -818,7 +832,6 @@ declare namespace relationalStore {
     /**
      * Means the change type is asset change.
      *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
@@ -836,6 +849,7 @@ declare namespace relationalStore {
     /**
      * Indicates the changed table
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
@@ -844,6 +858,7 @@ declare namespace relationalStore {
     /**
      * Indicates the changed type
      *
+     * @type { ChangeType }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
@@ -853,6 +868,7 @@ declare namespace relationalStore {
      * Indicates if there is a string primary key, the inserted will keep data's primary keys
      * otherwise it will keep the data's rowid.
      *
+     * @type { Array<string> | Array<number> }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
@@ -862,6 +878,7 @@ declare namespace relationalStore {
      * Indicates if there is a string primary key, the updated will keep data's primary keys
      * otherwise it will keep the data's rowid.
      *
+     * @type { Array<string> | Array<number> }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
@@ -871,6 +888,7 @@ declare namespace relationalStore {
      * Indicates if there is a string primary key, the deleted will keep data's primary keys
      * otherwise it will keep the data's rowid.
      *
+     * @type { Array<string> | Array<number> }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
@@ -880,7 +898,6 @@ declare namespace relationalStore {
   /**
    * Describes the distribution type of the tables.
    *
-   * @permission ohos.permission.DISTRIBUTED_DATASYNC
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10
@@ -889,7 +906,6 @@ declare namespace relationalStore {
     /**
      * Indicates the table is distributed among the devices
      *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
@@ -956,6 +972,7 @@ declare namespace relationalStore {
     /**
      * Specifies whether the database auto sync.
      *
+     * @type { boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
@@ -1978,6 +1995,7 @@ declare namespace relationalStore {
      * The column names are returned as a string array, in which the strings are in the same order
      * as the columns in the result set.
      *
+     * @type { Array<string> }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -1997,6 +2015,7 @@ declare namespace relationalStore {
      * The returned number is equal to the length of the string array returned by the
      * columnNames method.
      *
+     * @type { number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2012,6 +2031,7 @@ declare namespace relationalStore {
     /**
      * Obtains the number of rows in the result set.
      *
+     * @type { number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2029,6 +2049,7 @@ declare namespace relationalStore {
      * Obtains the current index of the result set.
      * The result set index starts from 0.
      *
+     * @type { number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2044,6 +2065,7 @@ declare namespace relationalStore {
     /**
      * Checks whether the cursor is positioned at the first row.
      *
+     * @type { boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2059,6 +2081,7 @@ declare namespace relationalStore {
     /**
      * Checks whether the cursor is positioned at the last row.
      *
+     * @type { boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2074,6 +2097,7 @@ declare namespace relationalStore {
     /**
      * Checks whether the cursor is positioned after the last row.
      *
+     * @type { boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2089,6 +2113,7 @@ declare namespace relationalStore {
     /**
      * Checks whether the cursor is positioned before the first row.
      *
+     * @type { boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2106,6 +2131,7 @@ declare namespace relationalStore {
      * Checks whether the current result set is closed.
      * If the result set is closed by calling the close method, true will be returned.
      *
+     * @type { boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -3142,6 +3168,7 @@ declare namespace relationalStore {
      * Set RdbStore version. The version number must be an integer greater than 0.
      * Obtains the RdbStore version.
      *
+     * @type { number }
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
