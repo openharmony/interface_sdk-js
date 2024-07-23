@@ -4199,6 +4199,7 @@ declare namespace window {
      *
      * @param { boolean } isLayoutFullScreen - The window can layout in full screen
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      * @deprecated since 9
