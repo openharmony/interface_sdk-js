@@ -73,6 +73,7 @@ import type UIAbilityContext from './application/UIAbilityContext';
  * @namespace notificationManager
  * @syscap SystemCapability.Notification.Notification
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare namespace notificationManager {
@@ -2885,12 +2886,27 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
+  /**
+   * Describes NotificationSlot types.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Notification.Notification
+   * @atomicservice
+   * @since 12
+   */
   export enum SlotType {
     /**
      * NotificationSlot of an unknown type.
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 9
+     */
+    /**
+     * NotificationSlot of an unknown type.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @atomicservice
+     * @since 12
      */
     UNKNOWN_TYPE = 0,
 
@@ -2900,6 +2916,13 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @since 9
      */
+    /**
+     * NotificationSlot for social communication.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @atomicservice
+     * @since 12
+     */
     SOCIAL_COMMUNICATION = 1,
 
     /**
@@ -2907,6 +2930,13 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 9
+     */
+    /**
+     * NotificationSlot for service information.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @atomicservice
+     * @since 12
      */
     SERVICE_INFORMATION = 2,
 
@@ -2916,6 +2946,13 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @since 9
      */
+    /**
+     * NotificationSlot for content information.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @atomicservice
+     * @since 12
+     */
     CONTENT_INFORMATION = 3,
 
     /**
@@ -2924,6 +2961,13 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @since 11
      */
+    /**
+     * NotificationSlot for live view.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @atomicservice
+     * @since 12
+     */
     LIVE_VIEW = 4,
 
     /**
@@ -2931,6 +2975,13 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 11
+     */
+    /**
+     * NotificationSlot for customer service.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @atomicservice
+     * @since 12
      */
     CUSTOMER_SERVICE = 5,
 
@@ -2949,6 +3000,13 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @since 9
      */
+    /**
+     * NotificationSlot for other purposes.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @atomicservice
+     * @since 12
+     */
     OTHER_TYPES = 0xFFFF
   }
 
@@ -2965,6 +3023,7 @@ declare namespace notificationManager {
    * @enum { number }
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   export enum ContentType {
@@ -2979,6 +3038,7 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     NOTIFICATION_CONTENT_BASIC_TEXT,
@@ -2994,6 +3054,7 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     NOTIFICATION_CONTENT_LONG_TEXT,
@@ -3004,6 +3065,13 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @since 9
      */
+    /**
+     * Picture-attached notification.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @atomicservice
+     * @since 12
+     */
     NOTIFICATION_CONTENT_PICTURE,
 
     /**
@@ -3011,6 +3079,13 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 9
+     */
+    /**
+     * Conversation notification.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @atomicservice
+     * @since 12
      */
     NOTIFICATION_CONTENT_CONVERSATION,
 
@@ -3025,6 +3100,7 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     NOTIFICATION_CONTENT_MULTILINE,
@@ -3035,6 +3111,13 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @since 11
      */
+    /**
+     * System local live view notification.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @atomicservice
+     * @since 12
+     */
     NOTIFICATION_CONTENT_SYSTEM_LIVE_VIEW,
 
     /**
@@ -3042,6 +3125,13 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 11
+     */
+    /**
+     * Common live view notification.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @atomicservice
+     * @since 12
      */
     NOTIFICATION_CONTENT_LIVE_VIEW,
   }
