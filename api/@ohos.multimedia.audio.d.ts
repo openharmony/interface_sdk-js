@@ -9318,7 +9318,7 @@ declare namespace audio {
    * @typedef AudioEffectProperty
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    * @systemapi
-   * @since 12
+   * @since 13
    */
   interface AudioEffectProperty {
     /**
@@ -9326,7 +9326,7 @@ declare namespace audio {
      * @type { string }
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @systemapi
-     * @since 12
+     * @since 13
      */
     effectProp: string;
 
@@ -9335,7 +9335,7 @@ declare namespace audio {
      * @type { string }
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @systemapi
-     * @since 12
+     * @since 13
      */
     effectClass: string;
   }
@@ -9345,7 +9345,7 @@ declare namespace audio {
    * @typedef AudioEnhanceProperty
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @systemapi
-   * @since 12
+   * @since 13
    */
   interface AudioEnhanceProperty {
     /**
@@ -9353,7 +9353,7 @@ declare namespace audio {
      * @type { string }
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
-     * @since 12
+     * @since 13
      */
     enhanceProp: string;
 
@@ -9362,7 +9362,7 @@ declare namespace audio {
      * @type { string }
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
-     * @since 12
+     * @since 13
      */
     enhanceClass: string;
   }
