@@ -36,7 +36,6 @@ declare namespace sendablePreferences {
   /**
    * Maximum length of a key.
    *
-   * @constant
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @atomicservice
    * @since 12
@@ -46,7 +45,6 @@ declare namespace sendablePreferences {
   /**
    * Maximum length of a value.
    *
-   * @constant
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @atomicservice
    * @since 12
@@ -75,7 +73,7 @@ declare namespace sendablePreferences {
     /**
      * Application group ID.
      *
-     * @type { ?string | ?null }
+     * @type { ?(string | null) }
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @StageModelOnly
      * @atomicservice
@@ -205,7 +203,7 @@ declare namespace sendablePreferences {
    * to remove the {@link Preferences} instance from the cache.
    *
    * @interface Preferences
-   * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+   * @extends Preferences
    * @atomicservice
    * @since 12
    */
