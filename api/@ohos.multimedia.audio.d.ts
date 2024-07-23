@@ -4890,6 +4890,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
+     * @deprecated since 12
      */
     setSpatializationEnabled(enable: boolean, callback: AsyncCallback<void>): void;
     /**
@@ -4905,6 +4906,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
+     * @deprecated since 12
      */
     setSpatializationEnabled(enable: boolean): Promise<void>;
     /**
@@ -4932,6 +4934,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
+     * @deprecated since 12
      */
     isSpatializationEnabled(): boolean;
     /**
@@ -4962,6 +4965,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
+     * @deprecated since 12
      */
     on(type: 'spatializationEnabledChange', callback: Callback<boolean>): void;
     /**
@@ -4979,7 +4983,7 @@ declare namespace audio {
      * @systemapi
      * @since 12
      */
-    on(type: 'spatializationEnabledChange', deviceDescriptor: AudioDeviceDescriptor, callback: Callback<boolean>): void;
+    on(type: 'spatializationEnabledChange', callback: Callback<AudioDeviceDescriptor, boolean>): void;
 
     /**
      * Unsubscribes to the spatialization enable state change events.
@@ -4993,6 +4997,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
+     * @deprecated since 12
      */
     off(type: 'spatializationEnabledChange', callback?: Callback<boolean>): void;
     /**
@@ -5009,7 +5014,7 @@ declare namespace audio {
      * @systemapi
      * @since 12
      */
-    off(type: 'spatializationEnabledChange', deviceDescriptor: AudioDeviceDescriptor, callback?: Callback<boolean>): void;
+    off(type: 'spatializationEnabledChange', callback?: Callback<AudioDeviceDescriptor, boolean>): void;
 
     /**
      * Sets the head tracking enabled or disabled. This method uses an asynchronous callback to return the result.
@@ -5025,6 +5030,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
+     * @deprecated since 12
      */
     setHeadTrackingEnabled(enable: boolean, callback: AsyncCallback<void>): void;
     /**
@@ -5040,6 +5046,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
+     * @deprecated since 12
      */
     setHeadTrackingEnabled(enable: boolean): Promise<void>;
     /**
@@ -5067,6 +5074,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
+     * @deprecated since 12
      */
     isHeadTrackingEnabled(): boolean;
     /**
@@ -5097,6 +5105,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
+     * @deprecated since 12
      */
     on(type: 'headTrackingEnabledChange', callback: Callback<boolean>): void;
     /**
@@ -5114,7 +5123,7 @@ declare namespace audio {
      * @systemapi
      * @since 12
      */
-    on(type: 'headTrackingEnabledChange', deviceDescriptor: AudioDeviceDescriptor, callback: Callback<boolean>): void;
+    on(type: 'headTrackingEnabledChange', callback: Callback<AudioDeviceDescriptor, boolean>): void;
 
     /**
      * Unsubscribes to the head tracking enable state change events.
@@ -5128,6 +5137,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
+     * @deprecated since 12
      */
     off(type: 'headTrackingEnabledChange', callback?: Callback<boolean>): void;
     /**
@@ -5144,7 +5154,7 @@ declare namespace audio {
      * @systemapi
      * @since 12
      */
-    off(type: 'headTrackingEnabledChange', deviceDescriptor: AudioDeviceDescriptor, callback?: Callback<boolean>): void;
+    off(type: 'headTrackingEnabledChange', callback?: Callback<AudioDeviceDescriptor, boolean>): void;
 
     /**
      * Updates the spatial device state.
