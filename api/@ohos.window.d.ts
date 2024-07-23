@@ -4755,9 +4755,6 @@ declare namespace window {
      * Get the UIContext associate with the window content.
      *
      * @returns { UIContext } the object of UIContext.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 
-     *                                                                   2. Incorrect parameter types; 
-     *                                                                   3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @stagemodelonly
@@ -7541,7 +7538,6 @@ declare namespace window {
      * Enable landscape multiWindow
      *
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws {BusinessError} 401 - Parameter error.
      * @throws {BusinessError} 1300002 - This window state is abnormal.
      * @throws {BusinessError} 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -7554,7 +7550,6 @@ declare namespace window {
      * Disable landscape multiWindow
      *
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws {BusinessError} 401 - Parameter error.
      * @throws {BusinessError} 1300002 - This window state is abnormal.
      * @throws {BusinessError} 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
