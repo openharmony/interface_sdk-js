@@ -203,7 +203,7 @@ declare namespace sendablePreferences {
    * to remove the {@link Preferences} instance from the cache.
    *
    * @interface Preferences
-   * @extends Preferences
+   * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @atomicservice
    * @since 12
    */
