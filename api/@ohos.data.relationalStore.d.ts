@@ -6062,13 +6062,11 @@ declare namespace relationalStore {
     /**
      * Sync data to cloud.
      *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { SyncMode } mode - indicates the database synchronization mode.
      * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
      * @param { AsyncCallback<void> } callback - {Array<[string, number]>}: devices sync status array, {string}: device id, {number}: device sync status.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
      * 3. The mode must be a SyncMode of cloud. 4. The progress must be a callback type. 5. The callback must be a function.
-     * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
@@ -6091,13 +6089,11 @@ declare namespace relationalStore {
     /**
      * Sync data to cloud.
      *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { SyncMode } mode - indicates the database synchronization mode.
      * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
      * @returns { Promise<void> } : devices sync status array, {string}: device id, {number}: device sync status.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
      * 3. The mode must be a SyncMode of cloud. 4. The progress must be a callback type.
-     * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
@@ -6120,7 +6116,6 @@ declare namespace relationalStore {
     /**
      * Sync data to cloud.
      *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { SyncMode } mode - indicates the database synchronization mode.
      * @param { string[] } tables - indicates the database synchronization mode.
      * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
@@ -6128,7 +6123,6 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
      * 3. The mode must be a SyncMode of cloud. 4. The tablesNames must be not empty. 5. The progress must be a callback type.
      * 6. The callback must be a function.
-     * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
@@ -6158,14 +6152,12 @@ declare namespace relationalStore {
     /**
      * Sync data to cloud.
      *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { SyncMode } mode - indicates the database synchronization mode.
      * @param { string[] } tables - indicates the database synchronization mode.
      * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
      * @returns { Promise<void> } : devices sync status array, {string}: device id, {number}: device sync status.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
      * 3. The mode must be a SyncMode of cloud. 4. The tablesNames must be not empty. 5. The progress must be a callback type.
-     * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
