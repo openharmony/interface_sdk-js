@@ -3845,7 +3845,6 @@ declare namespace audio {
      *                                 1. More than one enhanceProps of the same enhanceClass in input Array
      *                                 2. input audioEnhanceProperties are not supported by current device.
      *                                 3. names of enhanceProp or enhanceClass are incorrect.
-
      * @throws { BusinessError } 6800301 - System error.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
