@@ -3614,7 +3614,7 @@ declare namespace wifiManager {
 
     /**
      * The unique IPv6 address of the Wi-Fi connection
-     * @type { string }
+     * @type { ?string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 12
      */
@@ -3622,7 +3622,7 @@ declare namespace wifiManager {
 
     /**
      * The rand unique IPv6 address of the Wi-Fi connection
-     * @type { string }
+     * @type { ?string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 12
      */
