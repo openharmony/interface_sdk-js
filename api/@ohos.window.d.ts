@@ -4215,6 +4215,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      * @deprecated since 9
+     * 
      * @useinstead ohos.window.Window#setWindowLayoutFullScreen
      */
     setLayoutFullScreen(isLayoutFullScreen: boolean): Promise<void>;
