@@ -65,6 +65,7 @@ declare namespace sendablePreferences {
     /**
      * Name of the preferences file.
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
      * @since 12
@@ -74,6 +75,7 @@ declare namespace sendablePreferences {
     /**
      * Application group ID.
      *
+     * @type { ?string | ?null }
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @StageModelOnly
      * @atomicservice
