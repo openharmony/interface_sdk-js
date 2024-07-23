@@ -783,6 +783,7 @@ declare namespace relationalStore {
     /**
      * Subscription to remote data changes
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -906,6 +907,7 @@ declare namespace relationalStore {
     /**
      * Indicates the table is distributed among the devices
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
@@ -3194,7 +3196,6 @@ declare namespace relationalStore {
      * Set whether the database is rebuilt.
      *
      * @type {RebuildType}
-     * @readonly
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
