@@ -3461,6 +3461,7 @@ declare namespace media {
   interface WatermarkConfig {
     /**
      * Offset of the watermark to the top line of pixel.
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @systemapi
      * @since 12
@@ -3468,6 +3469,7 @@ declare namespace media {
     top: number;
     /**
      * Offset of the watermark to the left line of pixel.
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @systemapi
      * @since 12
