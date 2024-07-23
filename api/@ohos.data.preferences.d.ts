@@ -65,7 +65,7 @@ declare namespace preferences {
    */
   /**
    * Indicates possible value types
-   * 
+   *
    * @typedef {number | string | boolean | Array<number> | Array<string> | Array<boolean> | Uint8Array}
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @atomicservice
@@ -73,7 +73,7 @@ declare namespace preferences {
    */
   /**
    * Indicates possible value types
-   * 
+   *
    * @typedef {number | string | boolean | Array<number> | Array<string> | Array<boolean> | Uint8Array | object | bigint}
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @atomicservice
@@ -108,7 +108,6 @@ declare namespace preferences {
   /**
    * Maximum length of a key.
    *
-   * @constant
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @atomicservice
@@ -143,7 +142,6 @@ declare namespace preferences {
   /**
    * Maximum length of a value.
    *
-   * @constant
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @atomicservice
@@ -197,7 +195,7 @@ declare namespace preferences {
     /**
      * Application Group Id.
      *
-     * @type { ?string | ?null | ?undefined }
+     * @type { ?(string | null | undefined) }
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @StageModelOnly
      * @atomicservice
