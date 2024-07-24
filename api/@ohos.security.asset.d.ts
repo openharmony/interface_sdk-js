@@ -137,6 +137,7 @@ declare namespace asset {
    * @throws { BusinessError } 24000011 - Calling the Bundle Manager service failed.
    * @throws { BusinessError } 24000012 - Calling the OS Account service failed.
    * @throws { BusinessError } 24000013 - Calling the Access Token service failed.
+   * @throws { BusinessError } 24000015 - Getting the system time failed.
    * @syscap SystemCapability.Security.Asset
    * @since 11
    */
@@ -164,6 +165,7 @@ declare namespace asset {
    * @throws { BusinessError } 24000011 - Calling the Bundle Manager service failed.
    * @throws { BusinessError } 24000012 - Calling the OS Account service failed.
    * @throws { BusinessError } 24000013 - Calling the Access Token service failed.
+   * @throws { BusinessError } 24000015 - Getting the system time failed.
    * @syscap SystemCapability.Security.Asset
    * @systemapi
    * @since 12
@@ -186,6 +188,7 @@ declare namespace asset {
    * @throws { BusinessError } 24000011 - Calling the Bundle Manager service failed.
    * @throws { BusinessError } 24000012 - Calling the OS Account service failed.
    * @throws { BusinessError } 24000013 - Calling the Access Token service failed.
+   * @throws { BusinessError } 24000015 - Getting the system time failed.
    * @syscap SystemCapability.Security.Asset
    * @since 12
    */
