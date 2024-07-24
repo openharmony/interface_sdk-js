@@ -1628,12 +1628,14 @@ declare type EdgeOutlineStyles = {
 /**
  * Defines the offset property.
  *
+ * @typedef { object } Offset
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the offset property.
  *
+ * @typedef { object } Offset
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -1641,6 +1643,7 @@ declare type EdgeOutlineStyles = {
 /**
  * Defines the offset property.
  *
+ * @typedef { object } Offset
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
