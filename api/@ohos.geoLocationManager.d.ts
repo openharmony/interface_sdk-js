@@ -34,17 +34,9 @@ import { NotificationRequest } from './notification/notificationRequest';
  * geocoding, reverse geocoding, country code, fencing and other functions.
  *
  * @namespace geoLocationManager
- * @atomicservice
- * @since 11
- */
-/**
- * Provides interfaces for acquiring location information, managing location switches,
- * geocoding, reverse geocoding, country code, fencing and other functions.
- *
- * @namespace geoLocationManager
  * @syscap SystemCapability.Location.Location.Core
  * @atomicservice
- * @since 12
+ * @since 11
  */
 declare namespace geoLocationManager {
   /**
