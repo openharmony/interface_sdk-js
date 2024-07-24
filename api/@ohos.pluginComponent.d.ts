@@ -91,12 +91,14 @@ declare namespace pluginComponentManager {
   /**
    * Defines KVObject
    *
+   * @typedef { object } KVObject
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Defines KVObject
    *
+   * @typedef { object } KVObject
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
@@ -559,12 +561,14 @@ declare namespace pluginComponentManager {
   /**
    * Plugin component push event callback.
    *
+   * @typedef { function } OnPushEventCallback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Plugin component push event callback.
    *
+   * @typedef { function } OnPushEventCallback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
@@ -575,12 +579,14 @@ declare namespace pluginComponentManager {
   /**
    * Plugin component request event callback.
    *
+   * @typedef { function } OnRequestEventCallback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Plugin component request event callback.
    *
+   * @typedef { function } OnRequestEventCallback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
