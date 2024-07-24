@@ -241,6 +241,7 @@ declare namespace picker {
      * The constructor used to create a PhotoViewPicker object.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
      * @since 12
      */
     constructor();
@@ -629,6 +630,7 @@ declare namespace picker {
      * The constructor used to create a DocumentViewPicker object.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
      * @since 12
      */
     constructor();
@@ -638,6 +640,7 @@ declare namespace picker {
      *
      * @param { Context } context - represents the context.
      * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
      * @since 12
      */
     constructor(context: Context);
@@ -808,6 +811,7 @@ declare namespace picker {
    *
    * @syscap SystemCapability.FileManagement.UserFileService
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   class AudioSaveOptions {
@@ -824,6 +828,7 @@ declare namespace picker {
      * @type { ?Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     newFileNames?: Array<string>;
@@ -840,6 +845,7 @@ declare namespace picker {
    *
    * @syscap SystemCapability.FileManagement.UserFileService
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   class AudioViewPicker {
@@ -856,6 +862,7 @@ declare namespace picker {
      *
      * @param { Context } context - represents the context.
      * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
      * @since 12
      */
     constructor(context: Context);
@@ -875,6 +882,7 @@ declare namespace picker {
      * @returns { Promise<Array<string>> } Returns the uris for the selected files.
      * @syscap SystemCapability.FileManagement.UserFileService
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     select(option?: AudioSelectOptions): Promise<Array<string>>;
@@ -930,6 +938,7 @@ declare namespace picker {
      * @returns { Promise<Array<string>> } Returns the uris for the saved files.
      * @syscap SystemCapability.FileManagement.UserFileService
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     save(option?: AudioSaveOptions): Promise<Array<string>>;
