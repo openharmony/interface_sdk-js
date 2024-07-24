@@ -6821,6 +6821,7 @@ declare namespace webview {
   interface MediaInfo {
     /**
      * Id of media element.
+     * @type { string }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12
      */
