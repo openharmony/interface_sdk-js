@@ -2187,6 +2187,78 @@ declare namespace image {
     SCENE_VERSION = 'HwMnoteSceneVersion',
 
     /**
+     * Is Support Xmage
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    IS_SUPPORT_XMAGE = 'HwMnoteIsXmageSupported',
+
+    /**
+     * Xmage Mode
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    XMAGE_MODE = 'HwMnoteXmageMode',
+
+    /**
+     * Xmage X1 Coordinate
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    XMAGE_LEFT = 'HwMnoteXmageLeft',
+
+    /**
+     * Xmage Y1 Coordinate
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    XMAGE_TOP = 'HwMnoteXmageTop',
+
+    /**
+     * Xmage X2 Coordinate
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    XMAGE_RIGHT = 'HwMnoteXmageRight',
+
+    /**
+     * Xmage Y2 Coordinate
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    XMAGE_BOTTOM = 'HwMnoteXmageBottom',
+
+    /**
+     * Cloud Enhance Mode
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    CLOUD_ENHANCE_MODE = 'HwMnoteCloudEnhancementMode',
+
+    /**
+     * Wind Snapshot Mode
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    WIND_SNAPSHOT_MODE = 'HwMnoteWindSnapshotMode',
+
+    /**
      * GIF LOOP COUNT
      * If infinite loop returns 0, other values represent the number of loops
      *
