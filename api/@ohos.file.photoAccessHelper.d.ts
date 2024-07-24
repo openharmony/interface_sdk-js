@@ -1636,7 +1636,7 @@ declare namespace photoAccessHelper {
      */
     BURST_KEY = 'burst_key',
     /**
-     * the cover representation of the burst photos, read only
+     * cover representation of the burst photos, read only
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12
@@ -2646,11 +2646,10 @@ declare namespace photoAccessHelper {
      * @param { string } burstKey - Burst asset uuid
      * @param { FetchOptions } options - Retrieval options.
      * @returns { Promise<FetchResult<PhotoAsset>> } Returns the fetch result.
+     * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 13900012 - Permission denied
-     * @throws { BusinessError } 13900020 - Invalid argument
-     * @throws { BusinessError } 14000011 - System inner fail
+     * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12
      */
