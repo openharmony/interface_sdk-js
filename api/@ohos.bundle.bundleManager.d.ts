@@ -256,6 +256,15 @@ declare namespace bundleManager {
      * @since 12
      */
     GET_BUNDLE_INFO_WITH_SKILL = 0x00000800,
+    /**
+     * Used to return only the applications that have an icon displayed on the homescreen.
+     * Only effective on {@link getAllBundleInfo}
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    GET_BUNDLE_INFO_ONLY_WITH_LAUNCHER_ABILITY = 0x00001000,
   }
 
   /**
