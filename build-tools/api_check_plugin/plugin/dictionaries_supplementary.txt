@@ -129,6 +129,7 @@ channelup
 checkboxgroup
 checksum
 chload
+choosed
 chromaticities
 chromaticity
 chrominance
@@ -709,6 +710,8 @@ pread
 precisiontype
 precomposed
 precon
+preconfig
+preconfiged
 preconnect
 preconnected
 preconnectable
