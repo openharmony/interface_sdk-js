@@ -394,6 +394,7 @@ declare namespace util {
    * @param { string } uuid - String that specifies a UUID
    * @returns { Uint8Array } Return a Uint8Array representing this UUID. Throw SyntaxError if parsing fails.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
+   * @throws { BusinessError } 10200002 - Invalid uuid string.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
