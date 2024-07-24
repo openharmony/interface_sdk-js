@@ -2620,7 +2620,7 @@ declare namespace media {
      * @atomicservice
      * @since 12
      */
-    on(type: 'availableBitrates', Callback<Array<number>>): void;
+    on(type: 'availableBitrates', callback: Callback<Array<number>>): void;
     /**
      * Unregister listens for available bitrate list collect completed events for HLS protocol stream playback.
      * This event will be reported after the {@link #prepare} called.
