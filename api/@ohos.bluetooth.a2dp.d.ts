@@ -391,6 +391,7 @@ declare namespace a2dp {
     /**
      * codec type
      *
+     * @type { CodecType }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 11
      */
@@ -398,6 +399,7 @@ declare namespace a2dp {
     /**
      * codec bits per sample.
      *
+     * @type { CodecBitsPerSample }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 11
      */
@@ -405,6 +407,7 @@ declare namespace a2dp {
     /**
      * codec channel mode.
      *
+     * @type { CodecChannelMode }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 11
      */
@@ -412,6 +415,7 @@ declare namespace a2dp {
     /**
      * codec sample rate.
      *
+     * @type { CodecSampleRate }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 11
      */
