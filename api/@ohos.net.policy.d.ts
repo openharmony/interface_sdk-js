@@ -23,7 +23,7 @@ import type connection from './@ohos.net.connection';
 
 /**
  * Provides interfaces to manage network policy rules.
- * @namespace policytypedef
+ * @namespace policy
  * @syscap SystemCapability.Communication.NetManager.Core
  * @since 10
  */
