@@ -1860,6 +1860,7 @@ declare namespace window {
     /**
      * Indicates window id.
      *
+     * @type { string }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
