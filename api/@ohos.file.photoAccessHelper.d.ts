@@ -1634,14 +1634,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12
      */
-    BURST_KEY = 'burst_key',
-    /**
-     * Cover representation of the burst photos, read only
-     *
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 12
-     */
-    BURST_COVER_LEVEL = 'burst_cover_level'
+    BURST_KEY = 'burst_key'
   }
 
   /**
