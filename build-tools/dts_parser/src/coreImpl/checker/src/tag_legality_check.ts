@@ -99,7 +99,7 @@ export class LegalityCheck {
       if (apiLegalityTagsSet.has(apiTag.tag)) {
         apiLegalityTagsSet.delete(apiTag.tag);
       }
-      if (singleApi.getApiType() === ApiType.PROPERTY) {
+      if (singleApi.getApiType() === ApiType.PROPERTY || singleApi.getApiType() === ApiType.DECLARE_CONST) {
         apiLegalityTagsSet.delete('constant');
         illegalTagsArray.push('constant');
       }

@@ -474,6 +474,7 @@ declare namespace zlib {
     /**
      * Indicates the compress level.
      *
+     * @type { ?CompressLevel }
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @atomicservice
@@ -489,6 +490,7 @@ declare namespace zlib {
     /**
      * Indicates the memory level.
      *
+     * @type { ?MemLevel }
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @atomicservice
@@ -504,6 +506,7 @@ declare namespace zlib {
     /**
      * Indicates the compress strategy.
      *
+     * @type { ?CompressStrategy }
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @atomicservice

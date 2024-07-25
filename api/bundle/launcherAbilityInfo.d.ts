@@ -39,6 +39,7 @@ export interface LauncherAbilityInfo {
   /**
    * Obtains application info information about an launcher ability.
    *
+   * @type { ApplicationInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
    * @since 8
@@ -49,6 +50,7 @@ export interface LauncherAbilityInfo {
   /**
    * Obtains element name about an launcher ability.
    *
+   * @type { ElementName }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
    * @since 8
@@ -59,6 +61,7 @@ export interface LauncherAbilityInfo {
   /**
    * Obtains labelId about an launcher ability.
    *
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
    * @since 8
@@ -69,6 +72,7 @@ export interface LauncherAbilityInfo {
   /**
    * Obtains iconId about an launcher ability.
    *
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
    * @since 8
@@ -79,6 +83,7 @@ export interface LauncherAbilityInfo {
   /**
    * Obtains userId about an launcher ability.
    *
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
    * @since 8
@@ -89,6 +94,7 @@ export interface LauncherAbilityInfo {
   /**
    * Obtains installTime about an launcher ability.
    *
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
    * @since 8

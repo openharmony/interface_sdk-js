@@ -31,6 +31,7 @@ export interface ModuleInfo {
   /**
    * The module name.
    *
+   * @type { string }
    * @default Indicates the name of the .hap package to which the capability belongs
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -41,6 +42,7 @@ export interface ModuleInfo {
   /**
    * The module source path.
    *
+   * @type { string }
    * @default Indicates the module source dir of this module
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7

@@ -126,6 +126,7 @@ declare enum DataPanelType {
  */
 /**
  * ColorStop type
+ * @typedef { object } ColorStop
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice

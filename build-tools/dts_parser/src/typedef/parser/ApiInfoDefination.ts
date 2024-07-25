@@ -68,6 +68,7 @@ export class BasicApiInfo {
   genericInfo: GenericInfo[] = [];
   parentApiType: string = '';
   fileAbsolutePath: string = ''; //绝对路径
+  isSameNameFunction: boolean = false; //是否为同名API
 
   constructor(apiType: string = '', node: ts.Node, parentApi: BasicApiInfo | undefined) {
     this.node = node;
@@ -251,6 +252,14 @@ export class BasicApiInfo {
 
   getGenericInfo(): GenericInfo[] {
     return this.genericInfo;
+  }
+
+  setIsSameNameFunction(isSameNameFunction: boolean): void {
+    this.isSameNameFunction = isSameNameFunction;
+  }
+
+  getIsSameNameFunction(): boolean {
+    return this.isSameNameFunction;
   }
 }
 

@@ -183,6 +183,9 @@
     "API_CHANGE_INCOMPATIBLE_34": "Forbid changes: Cannot change Enumeration assignment.",
     "API_CHANGE_INCOMPATIBLE_35": "Forbid changes: Historical JSDoc cannot be changed.",
     "API_CHANGE_INCOMPATIBLE_36": "Forbid changes: API changes must add a new section of JSDoc.",
-    "API_CHANGE_INCOMPATIBLE_37": "Forbid changes: Cannot change from atomicservice to NA."
+    "API_CHANGE_INCOMPATIBLE_37": "Forbid changes: Cannot change from atomicservice to NA.",
+    "API_CHANGE_INCOMPATIBLE_38": "Forbid changes: Cannot change from NA to syscap.",
+    "API_CHANGE_INCOMPATIBLE_39": "Forbid changes: Cannot change from syscap to NA.",
+    "API_CHANGE_INCOMPATIBLE_40": "Forbid changes: Cannot change syscap value."
   }
 }

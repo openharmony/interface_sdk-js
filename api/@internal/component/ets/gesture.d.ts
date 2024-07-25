@@ -997,12 +997,14 @@ interface FingerInfo {
 /**
  * Defines the Gesture Type.
  *
+ * @typedef { TapGestureInterface | LongPressGestureInterface | PanGestureInterface | PinchGestureInterface | SwipeGestureInterface | RotationGestureInterface | GestureGroupInterface } PointerStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the Gesture Type.
  *
+ * @typedef { TapGestureInterface | LongPressGestureInterface | PanGestureInterface | PinchGestureInterface | SwipeGestureInterface | RotationGestureInterface | GestureGroupInterface } PointerStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -1010,6 +1012,7 @@ interface FingerInfo {
 /**
  * Defines the Gesture Type.
  *
+ * @typedef { TapGestureInterface | LongPressGestureInterface | PanGestureInterface | PinchGestureInterface | SwipeGestureInterface | RotationGestureInterface | GestureGroupInterface } PointerStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -3031,6 +3034,7 @@ declare const GestureGroup: GestureGroupInterface;
 /**
  * Defines the gesture handler.
  *
+ * @implements GestureInterface<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice

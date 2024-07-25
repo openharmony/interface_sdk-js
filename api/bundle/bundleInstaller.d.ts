@@ -33,6 +33,7 @@ import bundle from './../@ohos.bundle';
  */
 export interface InstallParam {
   /**
+   * @type { number }
    * @default Indicates the user id
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
@@ -43,6 +44,7 @@ export interface InstallParam {
   userId: number;
 
   /**
+   * @type { number }
    * @default Indicates the install flag
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
@@ -53,6 +55,7 @@ export interface InstallParam {
   installFlag: number;
 
   /**
+   * @type { boolean }
    * @default Indicates whether the param has data
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
@@ -74,6 +77,7 @@ export interface InstallParam {
  */
 export interface InstallStatus {
   /**
+   * @type { bundle.InstallErrorCode }
    * @default Indicates the install or uninstall error code
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
@@ -83,6 +87,7 @@ export interface InstallStatus {
   status: bundle.InstallErrorCode;
 
   /**
+   * @type { string }
    * @default Indicates the install or uninstall result string message
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use

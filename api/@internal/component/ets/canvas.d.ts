@@ -21,6 +21,7 @@
 /**
  * Import the drawing canvas type object for Canvas.
  *
+ * @typedef { import('../api/@ohos.graphics.drawing').default.Canvas } DrawingCanvas
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -34,6 +35,7 @@ declare type DrawingCanvas = import('../api/@ohos.graphics.drawing').default.Can
  * "evenodd": odd and even round rule
  * "nonzero": (Default) Non-zero Wrap Rules
  *
+ * @typedef { "evenodd" | "nonzero" } CanvasFillRule
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
@@ -43,6 +45,7 @@ declare type DrawingCanvas = import('../api/@ohos.graphics.drawing').default.Can
  * "evenodd": odd and even round rule
  * "nonzero": (Default) Non-zero Wrap Rules
  *
+ * @typedef { "evenodd" | "nonzero" } CanvasFillRule
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @since 9
@@ -53,6 +56,7 @@ declare type DrawingCanvas = import('../api/@ohos.graphics.drawing').default.Can
  * "evenodd": odd and even round rule
  * "nonzero": (Default) Non-zero Wrap Rules
  *
+ * @typedef { "evenodd" | "nonzero" } CanvasFillRule
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -64,6 +68,7 @@ declare type DrawingCanvas = import('../api/@ohos.graphics.drawing').default.Can
  * "evenodd": odd and even round rule
  * "nonzero": (Default) Non-zero Wrap Rules
  *
+ * @typedef { "evenodd" | "nonzero" } CanvasFillRule
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -79,6 +84,7 @@ declare type CanvasFillRule = "evenodd" | "nonzero";
  * "square": The end of the segment ends in a square, but a rectangular area is added that is the same width
  *    as the segment and is half the thickness of the segment.
  *
+ * @typedef { "butt" | "round" | "square" } CanvasLineCap
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
@@ -89,6 +95,7 @@ declare type CanvasFillRule = "evenodd" | "nonzero";
  * "square": The end of the segment ends in a square, but a rectangular area is added that is the same width
  *    as the segment and is half the thickness of the segment.
  *
+ * @typedef { "butt" | "round" | "square" } CanvasLineCap
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @since 9
@@ -100,6 +107,7 @@ declare type CanvasFillRule = "evenodd" | "nonzero";
  * "square": The end of the segment ends in a square, but a rectangular area is added that is the same width
  *    as the segment and is half the thickness of the segment.
  *
+ * @typedef { "butt" | "round" | "square" } CanvasLineCap
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -112,6 +120,7 @@ declare type CanvasFillRule = "evenodd" | "nonzero";
  * "square": The end of the segment ends in a square, but a rectangular area is added that is the same width
  *    as the segment and is half the thickness of the segment.
  *
+ * @typedef { "butt" | "round" | "square" } CanvasLineCap
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -130,6 +139,7 @@ declare type CanvasLineCap = "butt" | "round" | "square";
  * "round": Draw the shape of the corner by filling in an additional sector with the center at the end of the
  *    connected section. The radius of the fillet is the width of the segment.
  *
+ * @typedef { "bevel" | "miter" | "round" } CanvasLineJoin
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
@@ -143,6 +153,7 @@ declare type CanvasLineCap = "butt" | "round" | "square";
  * "round": Draw the shape of the corner by filling in an additional sector with the center at the end of the
  *    connected section. The radius of the fillet is the width of the segment.
  *
+ * @typedef { "bevel" | "miter" | "round" } CanvasLineJoin
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @since 9
@@ -157,6 +168,7 @@ declare type CanvasLineCap = "butt" | "round" | "square";
  * "round": Draw the shape of the corner by filling in an additional sector with the center at the end of the
  *    connected section. The radius of the fillet is the width of the segment.
  *
+ * @typedef { "bevel" | "miter" | "round" } CanvasLineJoin
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -172,6 +184,7 @@ declare type CanvasLineCap = "butt" | "round" | "square";
  * "round": Draw the shape of the corner by filling in an additional sector with the center at the end of the
  *    connected section. The radius of the fillet is the width of the segment.
  *
+ * @typedef { "bevel" | "miter" | "round" } CanvasLineJoin
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -186,6 +199,7 @@ declare type CanvasLineJoin = "bevel" | "miter" | "round";
  * "ltr": The text direction is left to right.
  * "rtl": The text direction is from right to left.
  *
+ * @typedef { "inherit" | "ltr" | "rtl" } CanvasDirection
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
@@ -195,6 +209,7 @@ declare type CanvasLineJoin = "bevel" | "miter" | "round";
  * "ltr": The text direction is left to right.
  * "rtl": The text direction is from right to left.
  *
+ * @typedef { "inherit" | "ltr" | "rtl" } CanvasDirection
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @since 9
@@ -205,6 +220,7 @@ declare type CanvasLineJoin = "bevel" | "miter" | "round";
  * "ltr": The text direction is left to right.
  * "rtl": The text direction is from right to left.
  *
+ * @typedef { "inherit" | "ltr" | "rtl" } CanvasDirection
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -216,6 +232,7 @@ declare type CanvasLineJoin = "bevel" | "miter" | "round";
  * "ltr": The text direction is left to right.
  * "rtl": The text direction is from right to left.
  *
+ * @typedef { "inherit" | "ltr" | "rtl" } CanvasDirection
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -234,6 +251,7 @@ declare type CanvasDirection = "inherit" | "ltr" | "rtl";
  * "start": (Default) Where the text snap line begins (Left alignment refers to the local from left to right,
  *    and right alignment refers to the local from right to left)
  *
+ * @typedef { "center" | "end" | "left" | "right" | "start" } CanvasTextAlign
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
@@ -247,6 +265,7 @@ declare type CanvasDirection = "inherit" | "ltr" | "rtl";
  * "start": (Default) Where the text snap line begins (Left alignment refers to the local from left to right,
  *    and right alignment refers to the local from right to left)
  *
+ * @typedef { "center" | "end" | "left" | "right" | "start" } CanvasTextAlign
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @since 9
@@ -261,6 +280,7 @@ declare type CanvasDirection = "inherit" | "ltr" | "rtl";
  * "start": (Default) Where the text snap line begins (Left alignment refers to the local from left to right,
  *    and right alignment refers to the local from right to left)
  *
+ * @typedef { "center" | "end" | "left" | "right" | "start" } CanvasTextAlign
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -276,6 +296,7 @@ declare type CanvasDirection = "inherit" | "ltr" | "rtl";
  * "start": (Default) Where the text snap line begins (Left alignment refers to the local from left to right,
  *    and right alignment refers to the local from right to left)
  *
+ * @typedef { "center" | "end" | "left" | "right" | "start" } CanvasTextAlign
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -295,6 +316,7 @@ declare type CanvasTextAlign = "center" | "end" | "left" | "right" | "start";
  * "middle": The text baseline is in the middle of the text block.
  * "top": The text baseline is at the top of the text block.
  *
+ * @typedef { "alphabetic" | "bottom" | "hanging" | "ideographic" | "middle" | "top" } CanvasTextBaseline
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
@@ -309,6 +331,7 @@ declare type CanvasTextAlign = "center" | "end" | "left" | "right" | "start";
  * "middle": The text baseline is in the middle of the text block.
  * "top": The text baseline is at the top of the text block.
  *
+ * @typedef { "alphabetic" | "bottom" | "hanging" | "ideographic" | "middle" | "top" } CanvasTextBaseline
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @since 9
@@ -324,6 +347,7 @@ declare type CanvasTextAlign = "center" | "end" | "left" | "right" | "start";
  * "middle": The text baseline is in the middle of the text block.
  * "top": The text baseline is at the top of the text block.
  *
+ * @typedef { "alphabetic" | "bottom" | "hanging" | "ideographic" | "middle" | "top" } CanvasTextBaseline
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -340,6 +364,7 @@ declare type CanvasTextAlign = "center" | "end" | "left" | "right" | "start";
  * "middle": The text baseline is in the middle of the text block.
  * "top": The text baseline is at the top of the text block.
  *
+ * @typedef { "alphabetic" | "bottom" | "hanging" | "ideographic" | "middle" | "top" } CanvasTextBaseline
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -354,6 +379,7 @@ declare type CanvasTextBaseline = "alphabetic" | "bottom" | "hanging" | "ideogra
  * "low": (default)low
  * "medium": medium
  *
+ * @typedef { "high" | "low" | "medium" } ImageSmoothingQuality
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
@@ -363,6 +389,7 @@ declare type CanvasTextBaseline = "alphabetic" | "bottom" | "hanging" | "ideogra
  * "low": (default)low
  * "medium": medium
  *
+ * @typedef { "high" | "low" | "medium" } ImageSmoothingQuality
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @since 9
@@ -373,6 +400,7 @@ declare type CanvasTextBaseline = "alphabetic" | "bottom" | "hanging" | "ideogra
  * "low": (default)low
  * "medium": medium
  *
+ * @typedef { "high" | "low" | "medium" } ImageSmoothingQuality
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -384,6 +412,7 @@ declare type CanvasTextBaseline = "alphabetic" | "bottom" | "hanging" | "ideogra
  * "low": (default)low
  * "medium": medium
  *
+ * @typedef { "high" | "low" | "medium" } ImageSmoothingQuality
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -4450,12 +4479,14 @@ declare class CanvasRenderer extends CanvasPath {
   /**
    * Text drawing direction. For details, see {@link CanvasDirection}.
    *
+   * @type { CanvasDirection }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Text drawing direction. For details, see {@link CanvasDirection}.
    *
+   * @type { CanvasDirection }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
@@ -4463,6 +4494,7 @@ declare class CanvasRenderer extends CanvasPath {
   /**
    * Text drawing direction. For details, see {@link CanvasDirection}.
    *
+   * @type { CanvasDirection }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -4471,6 +4503,7 @@ declare class CanvasRenderer extends CanvasPath {
   /**
    * Text drawing direction. For details, see {@link CanvasDirection}.
    *
+   * @type { CanvasDirection }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form

@@ -700,16 +700,22 @@ export namespace DiffProcessorHelper {
       const diffTypeInfo: DiffTypeInfo = new DiffTypeInfo();
       const oldReturnType: string[] = oldApiInfo.getReturnValue();
       const newReturnType: string[] = newApiInfo.getReturnValue();
-      const olaMethodTypeStr = oldReturnType.toString().replace(/\r|\n|\s+|'|"/g, '');
-      const newMethodTypeStr = newReturnType.toString().replace(/\r|\n|\s+|'|"/g, '');
-      if (olaMethodTypeStr === newMethodTypeStr) {
+      const oldMethodTypeStr = oldReturnType.toString().replace(/\r|\n|\s+|'|"|>/g, '');
+      const newMethodTypeStr = newReturnType.toString().replace(/\r|\n|\s+|'|"|>/g, '');
+      if (oldMethodTypeStr === newMethodTypeStr) {
         return undefined;
       }
-      diffTypeInfo.setOldMessage(olaMethodTypeStr).setNewMessage(newMethodTypeStr);
+      diffTypeInfo.setOldMessage(oldReturnType.toString()).setNewMessage(newReturnType.toString());
       if (checkParentContainChild(newReturnType, oldReturnType)) {
         return diffTypeInfo.setDiffType(ApiDiffType.FUNCTION_RETURN_TYPE_ADD);
       }
+      if (StringUtils.hasSubstring(newMethodTypeStr, oldMethodTypeStr)) {
+        return diffTypeInfo.setDiffType(ApiDiffType.FUNCTION_RETURN_TYPE_ADD);
+      }
       if (checkParentContainChild(oldReturnType, newReturnType)) {
+        return diffTypeInfo.setDiffType(ApiDiffType.FUNCTION_RETURN_TYPE_REDUCE);
+      }
+      if (StringUtils.hasSubstring(oldMethodTypeStr, newMethodTypeStr)) {
         return diffTypeInfo.setDiffType(ApiDiffType.FUNCTION_RETURN_TYPE_REDUCE);
       }
       // 旧版本不包含新版本，新版本也不含旧版本，就定义为返回值变更
@@ -1074,7 +1080,7 @@ export namespace DiffProcessorHelper {
         )!;
         const newParamTypes: string[] = curNewParam.getType();
         // 处理参数类型不一样的,生成返回信息
-        if (oldParamTypes.toString() !== newParamTypes.toString()) {
+        if (oldParamTypes.toString().replace(/\r|\n|\s+|'|"/g, '') !== newParamTypes.toString().replace(/\r|\n|\s+|'|"/g, '')) {
           // 根据参数的差异来获取对应的statusCode
           const diffType: number = diffChangeType(oldParamTypes, newParamTypes, diffMethodType);
           const oldMessage: string = curSame.getDefinedText();
@@ -1402,7 +1408,7 @@ export namespace DiffProcessorHelper {
       const olaTypeAliasTypeStr: string = olaTypeAliasType.toString();
       const newTypeAliasTypeStr: string = newTypeAliasType.toString();
       // 1.两者定义相同,没有变化
-      if (olaTypeAliasTypeStr === newTypeAliasTypeStr) {
+      if (olaTypeAliasTypeStr.replace(/\r|\n|\s+|'|"/g, '') === newTypeAliasTypeStr.replace(/\r|\n|\s+|'|"/g, '')) {
         return undefined;
       }
       // 自定义函数类型
@@ -1642,7 +1648,6 @@ export namespace DiffProcessorHelper {
     oldApiInfo: BasicApiInfo | undefined = undefined,
     newApiInfo: BasicApiInfo | undefined = undefined,
     diffTypeInfo: DiffTypeInfo,
-    isSameNameFunction?: boolean,
     isNewFile?: boolean
   ): BasicDiffInfo {
     const newPropertyInfo = newApiInfo as PropertyInfo;
@@ -1663,6 +1668,10 @@ export namespace DiffProcessorHelper {
     const clonedNewApiInfo = newApiInfo as ApiInfo;
     const oldApiLevel: boolean | undefined = clonedOldApiInfo?.getLastJsDocInfo()?.getIsSystemApi();
     const newApiLevel: boolean | undefined = clonedNewApiInfo?.getLastJsDocInfo()?.getIsSystemApi();
+    let apiIsSameName: boolean | undefined = clonedNewApiInfo?.getIsSameNameFunction();
+    if (!newApiInfo) {
+      apiIsSameName = clonedOldApiInfo?.getIsSameNameFunction();
+    }
 
     if (oldApiInfo) {
       processOldApiDiff(oldApiInfo, diffInfo);
@@ -1678,7 +1687,7 @@ export namespace DiffProcessorHelper {
       .setOldDescription(diffTypeInfo.getOldMessage())
       .setNewDescription(diffTypeInfo.getNewMessage())
       .setIsSystemapi(newApiLevel ? newApiLevel : oldApiLevel)
-      .setIsSameNameFunction(isSameNameFunction ? isSameNameFunction : false);
+      .setIsSameNameFunction(apiIsSameName);
     return diffInfo;
   }
 

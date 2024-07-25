@@ -435,7 +435,8 @@ export class DiffNumberInfo {
   }
 
   setOldDiffMessage(oldDiffMessage: string): DiffNumberInfo {
-    if (oldDiffMessage === '-1') {
+    if (oldDiffMessage === '-1' || oldDiffMessage === '' ) {
+      this.oldDiffMessage.push('NA');
       return this;
     }
     this.oldDiffMessage.push(oldDiffMessage);
@@ -447,7 +448,8 @@ export class DiffNumberInfo {
   }
 
   setNewDiffMessage(newDiffMessage: string): DiffNumberInfo {
-    if (newDiffMessage === '-1') {
+    if (newDiffMessage === '-1' || newDiffMessage === '') {
+      this.newDiffMessage.push('NA');
       return this;
     }
     this.newDiffMessage.push(newDiffMessage);
@@ -798,7 +800,7 @@ export const diffMap: Map<ApiDiffType, string> = new Map([
   [ApiDiffType.PERMISSION_HAVE_TO_NA, '权限从有到无'],
   [ApiDiffType.PERMISSION_RANGE_BIGGER, '增加or或减少and权限'],
   [ApiDiffType.PERMISSION_RANGE_SMALLER, '减少or或增加and权限'],
-  [ApiDiffType.PERMISSION_RANGE_CHANGE, '权限发送改变无法判断范围变化'],
+  [ApiDiffType.PERMISSION_RANGE_CHANGE, '权限发生改变无法判断范围变化'],
   [ApiDiffType.TYPE_RANGE_BIGGER, '类型范围变大'],
   [ApiDiffType.TYPE_RANGE_SMALLER, '类型范围变小'],
   [ApiDiffType.TYPE_RANGE_CHANGE, '类型范围改变'],
@@ -997,6 +999,7 @@ export const incompatibleApiDiffTypes: Set<ApiDiffType> = new Set([
   ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_CHANGE,
   ApiDiffType.ATOMIC_SERVICE_HAVE_TO_NA,
   ApiDiffType.DELETE_DECORATOR,
+  ApiDiffType.NEW_DECORATOR,
   ApiDiffType.SYSCAP_A_TO_B,
   ApiDiffType.SYSCAP_HAVE_TO_NA,
   ApiDiffType.SYSCAP_NA_TO_HAVE,

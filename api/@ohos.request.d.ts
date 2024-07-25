@@ -33,6 +33,7 @@ import BaseContext from './application/BaseContext';
  * upload and download
  *
  * @namespace request
+ * @syscap SystemCapability.Request.FileTransferAgent
  * @crossplatform
  * @since 10
  */
@@ -40,6 +41,7 @@ import BaseContext from './application/BaseContext';
  * upload and download
  *
  * @namespace request
+ * @syscap SystemCapability.Request.FileTransferAgent
  * @crossplatform
  * @atomicservice
  * @since 11
@@ -803,7 +805,6 @@ declare namespace request {
    * DownloadConfig data Structure
    *
    * @interface DownloadConfig
-   * @permission ohos.permission.INTERNET
    * @syscap SystemCapability.MiscServices.Download
    * @since 6
    * @name DownloadConfig
@@ -812,7 +813,6 @@ declare namespace request {
    * DownloadConfig data Structure
    *
    * @typedef DownloadConfig
-   * @permission ohos.permission.INTERNET
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -980,7 +980,6 @@ declare namespace request {
    * DownloadInfo data Structure
    *
    * @interface DownloadInfo
-   * @permission ohos.permission.INTERNET
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    * @name DownloadInfo
@@ -989,7 +988,6 @@ declare namespace request {
    * DownloadInfo data Structure
    *
    * @typedef DownloadInfo
-   * @permission ohos.permission.INTERNET
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -1188,7 +1186,6 @@ declare namespace request {
    * Download task interface
    *
    * @interface DownloadTask
-   * @permission ohos.permission.INTERNET
    * @syscap SystemCapability.MiscServices.Download
    * @since 6
    */
@@ -1196,7 +1193,6 @@ declare namespace request {
    * Download task interface
    *
    * @typedef DownloadTask
-   * @permission ohos.permission.INTERNET
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -1897,7 +1893,6 @@ declare namespace request {
    * File data Structure
    *
    * @interface File
-   * @permission ohos.permission.INTERNET
    * @syscap SystemCapability.MiscServices.Download
    * @since 6
    * @name File
@@ -1906,7 +1901,6 @@ declare namespace request {
    * File data Structure
    *
    * @typedef File
-   * @permission ohos.permission.INTERNET
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -1986,7 +1980,6 @@ declare namespace request {
    * RequestData data Structure
    *
    * @interface RequestData
-   * @permission ohos.permission.INTERNET
    * @syscap SystemCapability.MiscServices.Download
    * @since 6
    * @name RequestData
@@ -1995,7 +1988,6 @@ declare namespace request {
    * RequestData data Structure
    *
    * @typedef RequestData
-   * @permission ohos.permission.INTERNET
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -2041,7 +2033,6 @@ declare namespace request {
    * UploadConfig data Structure
    *
    * @interface UploadConfig
-   * @permission ohos.permission.INTERNET
    * @syscap SystemCapability.MiscServices.Upload
    * @since 6
    * @name UploadConfig
@@ -2050,7 +2041,6 @@ declare namespace request {
    * UploadConfig data Structure
    *
    * @typedef UploadConfig
-   * @permission ohos.permission.INTERNET
    * @syscap SystemCapability.MiscServices.Upload
    * @crossplatform
    * @since 10
@@ -2181,7 +2171,6 @@ declare namespace request {
    * TaskState data Structure
    *
    * @interface TaskState
-   * @permission ohos.permission.INTERNET
    * @syscap SystemCapability.MiscServices.Upload
    * @since 9
    * @name TaskState
@@ -2190,7 +2179,6 @@ declare namespace request {
    * TaskState data Structure
    *
    * @typedef TaskState
-   * @permission ohos.permission.INTERNET
    * @syscap SystemCapability.MiscServices.Upload
    * @crossplatform
    * @since 10
@@ -2253,7 +2241,6 @@ declare namespace request {
    * Upload task interface
    *
    * @interface UploadTask
-   * @permission ohos.permission.INTERNET
    * @syscap SystemCapability.MiscServices.Download
    * @since 6
    */
@@ -2261,7 +2248,6 @@ declare namespace request {
    * Upload task interface
    *
    * @typedef UploadTask
-   * @permission ohos.permission.INTERNET
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10

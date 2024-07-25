@@ -31,7 +31,6 @@ import type { FingerprintEvent } from './@ohos.multimodalInput.shortKey';
  * System API, available only to system processes
  *
  * @namespace inputMonitor
- * @permission ohos.permission.INPUT_MONITORING
  * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
  * @systemapi hide for inner use
  * @since 7
@@ -42,7 +41,6 @@ declare namespace inputMonitor {
    * and the system performs the closing operation.
    *
    * @interface TouchEventReceiver
-   * @permission ohos.permission.INPUT_MONITORING
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 7

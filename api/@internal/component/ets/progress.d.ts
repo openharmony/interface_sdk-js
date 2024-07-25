@@ -1206,6 +1206,7 @@ declare interface ProgressStyleMap {
   /**
    * Defines the map for Linear progress.
    *
+   * @type { LinearStyleOptions | ProgressStyleOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
@@ -1221,6 +1222,7 @@ declare interface ProgressStyleMap {
   /**
    * Defines the map for Ring progress.
    *
+   * @type { RingStyleOptions | ProgressStyleOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
@@ -1236,6 +1238,7 @@ declare interface ProgressStyleMap {
   /**
    * Defines the map for Eclipse progress.
    *
+   * @type { EclipseStyleOptions | ProgressStyleOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
@@ -1251,6 +1254,7 @@ declare interface ProgressStyleMap {
   /**
    * Defines the map for ScaleRing progress.
    *
+   * @type { ScaleRingStyleOptions | ProgressStyleOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
@@ -1266,6 +1270,7 @@ declare interface ProgressStyleMap {
   /**
    * Defines the map for Capsule progress.
    *
+   * @type { CapsuleStyleOptions | ProgressStyleOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11

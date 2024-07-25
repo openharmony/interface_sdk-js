@@ -508,6 +508,7 @@ declare namespace reminderAgentManager {
      * Information about the ability that is automatically started when the reminder arrives.
      * If the device is in use, a notification will be displayed.
      *
+     * @type { ?MaxScreenWantAgent }
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 9
      */

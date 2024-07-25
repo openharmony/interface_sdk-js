@@ -1182,7 +1182,8 @@ declare const Concurrent: MethodDecorator;
  * The Sendable decorator can be used only for classes. A class with this decorator is marked as sendable, and the class object can be shared globally.
  * Since 12, the Sendable decorator can be used for function and typeAlias also.
  * A function with this decorator is marked as sendable, and the function can be an shareable property of sendable-class object.
- * A typeAlias with this decorator is marked as sendable, and the typeAlias can be used to declare properties, variables, and arguments that need to be assigned with sendable-function.
+ * A typeAlias with this decorator is marked as sendable, and the typeAlias can be used to declare properties, variables,
+ * and arguments that need to be assigned with sendable-function.
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -5180,12 +5181,14 @@ declare namespace focusControl {
 /**
  * Import the PointerStyle type object for setCursor.
  *
+ * @typedef { import('../api/@ohos.multimodalInput.pointer').default.PointerStyle } PointerStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 11
  */
 /**
  * Import the PointerStyle type object for setCursor.
  *
+ * @typedef { import('../api/@ohos.multimodalInput.pointer').default.PointerStyle } PointerStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
@@ -9194,6 +9197,7 @@ declare type TransitionFinishCallback = (transitionIn: boolean) => void;
 /**
  * Defines the PixelMap type object for ui component.
  *
+ * @typedef { import('../api/@ohos.multimedia.image').default.PixelMap } PixelMap
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -9269,6 +9273,7 @@ declare enum DragBehavior {
 /**
  * Import the UnifiedData type object for ui component.
  *
+ * @typedef { import('../api/@ohos.data.unifiedDataChannel').default.UnifiedData } UnifiedData
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -9276,6 +9281,7 @@ declare enum DragBehavior {
 /**
  * Import the UnifiedData type object for ui component.
  *
+ * @typedef { import('../api/@ohos.data.unifiedDataChannel').default.UnifiedData } UnifiedData
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -9286,12 +9292,14 @@ declare type UnifiedData = import('../api/@ohos.data.unifiedDataChannel').defaul
 /**
  * Import the Summary type object for ui component.
  *
+ * @typedef { import('../api/@ohos.data.unifiedDataChannel').default.Summary } Summary
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
 /**
  * Import the Summary type object for ui component.
  *
+ * @typedef { import('../api/@ohos.data.unifiedDataChannel').default.Summary } Summary
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
@@ -9301,12 +9309,14 @@ declare type Summary = import('../api/@ohos.data.unifiedDataChannel').default.Su
 /**
  * Import the UniformDataType type object for ui component.
  *
+ * @typedef { import('../api/@ohos.data.uniformTypeDescriptor').default.UniformDataType } UniformDataType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
 /**
  * Import the UniformDataType type object for ui component.
  *
+ * @typedef { import('../api/@ohos.data.uniformTypeDescriptor').default.UniformDataType } UniformDataType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
@@ -10360,12 +10370,14 @@ declare interface DragEvent {
 /**
  * Import the IntentionCode type object for IntentionCode.
  *
+ * @typedef { import('../api/@ohos.multimodalInput.intentionCode').IntentionCode } IntentionCode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
 /**
  * Import the IntentionCode type object for IntentionCode.
  *
+ * @typedef { import('../api/@ohos.multimodalInput.intentionCode').IntentionCode } IntentionCode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
@@ -14519,6 +14531,7 @@ declare enum MenuPolicy {
 /**
  * ImageModifier
  *
+ * @typedef { import('../api/arkui/ImageModifier').ImageModifier } ImageModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -21783,7 +21796,7 @@ declare type NavigationInfo = import('../api/@ohos.arkui.observer').default.Navi
 /**
  * UIContext
  *
- * @typedef {import('../api/@ohos.arkui.UIContext').UIContext} UIContext
+ * @typedef { import('../api/@ohos.arkui.UIContext').UIContext } UIContext
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice

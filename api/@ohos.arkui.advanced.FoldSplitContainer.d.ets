@@ -98,7 +98,7 @@ export interface ExpandedRegionLayoutOptions {
 /**
  * The layout options for the container when the foldable screen is in hover mode.
  *
- * @interface SemiFoldedRegionLayoutOptions
+ * @typedef HoverModeRegionLayoutOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
