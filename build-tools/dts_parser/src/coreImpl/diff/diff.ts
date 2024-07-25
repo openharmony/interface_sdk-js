@@ -54,11 +54,10 @@ export class DiffHelper {
     const newSDKApiLocations: Map<string, string[]> = DiffHelper.getApiLocations(clonedNewSDKApiMap, isCheck);
     DiffHelper.diffKit(clonedOldSDKApiMap, clonedNewSDKApiMap, diffInfos);
     const oldFilePathSet: Set<string> = new Set(Array.from(clonedOldSDKApiMap.keys()));
-    Array.from(clonedOldSDKApiMap.keys());
     // 先以旧版本为基础进行对比
     for (const key of oldSDKApiLocations.keys()) {
       const apiLocation: string[] = oldSDKApiLocations.get(key) as string[];
-      const oldApiInfos: ApiInfo[] = Parser.getApiInfo(apiLocation, clonedOldSDKApiMap) as ApiInfo[];
+      const oldApiInfos: ApiInfo[] = Parser.getApiInfo(apiLocation, clonedOldSDKApiMap, isAllSheet) as ApiInfo[];
       // 如果旧版本中的API在新版本中不存在，则为删除
       if (!newSDKApiLocations.has(key)) {
         oldApiInfos.forEach((oldApiInfo: ApiInfo) => {
@@ -73,7 +72,7 @@ export class DiffHelper {
         continue;
       }
       // 新旧版本均存在，则进行对比
-      const newApiInfos: ApiInfo[] = Parser.getApiInfo(apiLocation, clonedNewSDKApiMap) as ApiInfo[];
+      const newApiInfos: ApiInfo[] = Parser.getApiInfo(apiLocation, clonedNewSDKApiMap, isAllSheet) as ApiInfo[];
       DiffHelper.diffApis(oldApiInfos, newApiInfos, diffInfos, isAllSheet, isCheck);
       // 对比完则将新版本中的对应API进行删除
       newSDKApiLocations.delete(key);
@@ -81,7 +80,7 @@ export class DiffHelper {
     // 对比完还剩下的新版本中的API即为新增API
     for (const key of newSDKApiLocations.keys()) {
       const locations: string[] = newSDKApiLocations.get(key) as string[];
-      const newApiInfos: ApiInfo[] = Parser.getApiInfo(locations, clonedNewSDKApiMap) as ApiInfo[];
+      const newApiInfos: ApiInfo[] = Parser.getApiInfo(locations, clonedNewSDKApiMap, isAllSheet) as ApiInfo[];
       newApiInfos.forEach((newApiInfo: ApiInfo) => {
         let isNewFile: boolean = true;
         if (oldFilePathSet.has(newApiInfo.getFilePath())) {
@@ -92,7 +91,6 @@ export class DiffHelper {
             undefined,
             newApiInfo,
             new DiffTypeInfo(ApiStatusCode.NEW_API, ApiDiffType.ADD, undefined, newApiInfo.getDefinedText()),
-            false,
             isNewFile
           )
         );
@@ -159,6 +157,19 @@ export class DiffHelper {
   }
 
   /**
+   * 通过数组长度判断是否为同名函数
+   *
+   * @param apiInfos
+   */
+  static judgeIsSameNameFunction(apiInfos: BasicApiInfo[]): boolean {
+    let isSameNameFunction: boolean = false;
+    if (apiInfos.length > 1 && apiInfos[0].getApiType() === ApiType.METHOD) {
+      isSameNameFunction = true;
+    }
+    return isSameNameFunction;
+  }
+
+  /**
    * 对比新旧版本API差异，类型为数组是由于同名函数的存在，因此统一为数组方便处理
    *
    * @param { ApiInfo[] } oldApiInfos 老版本API信息
@@ -205,9 +216,9 @@ export class DiffHelper {
 
   /**
    * 删除完全一样的API后，进行对比
-   * @param { ApiInfo[] } oldApiInfos 
-   * @param { ApiInfo[] } newApiInfos 
-   * @param diffInfos 
+   * @param { ApiInfo[] } oldApiInfos
+   * @param { ApiInfo[] } newApiInfos
+   * @param diffInfos
    * @param { boolean } isCheck 是否是api_check工具进行调用
    */
   static diffSameNumberFunction(
@@ -231,7 +242,7 @@ export class DiffHelper {
           DiffProcessorHelper.ApiDecoratorsDiffHelper.diffDecorator(oldApiInfo, newApiInfo, diffInfos);
           newMethodInfoMap.delete(oldApiInfo.getDefinedText());
           oldMethodInfoMap.delete(oldApiInfo.getDefinedText());
-        } 
+        }
       });
 
       if (oldMethodInfoMap.size === 1 && newMethodInfoMap.size === 1) {
@@ -247,7 +258,6 @@ export class DiffHelper {
               undefined,
               apiInfo,
               new DiffTypeInfo(ApiStatusCode.NEW_API, ApiDiffType.ADD, undefined, apiInfo.getDefinedText()),
-              true
             )
           );
         });
@@ -257,7 +267,6 @@ export class DiffHelper {
               apiInfo,
               undefined,
               new DiffTypeInfo(ApiStatusCode.DELETE, ApiDiffType.REDUCE, apiInfo.getDefinedText(), undefined),
-              true
             )
           );
         });
