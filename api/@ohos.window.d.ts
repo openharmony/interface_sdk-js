@@ -7530,6 +7530,7 @@ declare namespace window {
     /**
      * Start move window.
      *
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300001 - Repeated operation.
@@ -7540,12 +7541,13 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @since 13
      */
-    startMove(): void;
+    startMove(): Promise<void>;
 
     /**
      * Enable drag window.
      *
      * @param { boolean } enable - The value true means to enable window dragging, and false means the opposite.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -7557,7 +7559,7 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @since 13
      */
-    enableDrag(enable: boolean): void;
+    enableDrag(enable: boolean): Promise<void>;
 
     /**
      * Disable landscape multiWindow
