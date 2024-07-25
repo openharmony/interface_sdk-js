@@ -4879,7 +4879,7 @@ declare namespace audio {
     /**
      * Sets the spatialization enabled or disabled. This method uses an asynchronous callback to return the result.
      * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
-     * @param { boolean } enabled - Spatialization enable state.
+     * @param { boolean } enable - Spatialization enable state.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied. Return by callback.
      * @throws { BusinessError } 202 - Not system App.
@@ -4892,11 +4892,11 @@ declare namespace audio {
      * @since 11
      * @deprecated since 12
      */
-    setSpatializationEnabled(enabled: boolean, callback: AsyncCallback<void>): void;
+    setSpatializationEnabled(enable: boolean, callback: AsyncCallback<void>): void;
     /**
      * Sets the spatialization enabled or disabled. This method uses a promise to return the result.
      * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
-     * @param { boolean } enabled - Spatialization enable state.
+     * @param { boolean } enable - Spatialization enable state.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied. Return by promise.
      * @throws { BusinessError } 202 - Not system App.
@@ -4908,7 +4908,7 @@ declare namespace audio {
      * @since 11
      * @deprecated since 12
      */
-    setSpatializationEnabled(enabled: boolean): Promise<void>;
+    setSpatializationEnabled(enable: boolean): Promise<void>;
     /**
      * Sets the spatialization enabled or disabled by the specified device.
      * This method uses a promise to return the result.
@@ -4972,7 +4972,7 @@ declare namespace audio {
      * Subscribes to the spatialization enable state change events by the specified device.
      * When the spatialization enable state changes, registered clients will receive the callback.
      * @param { 'spatializationEnabledChange' } type - Type of the event to listen for.
-     * @param { Callback<AudioDeviceDescriptor, boolean> } callback - Callback used to get the spatialization enable state by the specified device.
+     * @param { Callback<{deviceDescriptor: AudioDeviceDescriptor, enabled: boolean}> } callback - Callback used to get the spatialization enable state by the specified device.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
@@ -4982,7 +4982,7 @@ declare namespace audio {
      * @systemapi
      * @since 12
      */
-    on(type: 'spatializationEnabledChange', callback: Callback<AudioDeviceDescriptor, boolean>): void;
+    on(type: 'spatializationEnabledChange', callback: Callback<{deviceDescriptor: AudioDeviceDescriptor, enabled: boolean}>): void;
 
     /**
      * Unsubscribes to the spatialization enable state change events.
@@ -5002,7 +5002,7 @@ declare namespace audio {
     /**
      * Unsubscribes to the spatialization enable state change events by the specified device.
      * @param { 'spatializationEnabledChange' } type - Type of the event to listen for.
-     * @param { Callback<AudioDeviceDescriptor, boolean> } callback - Callback used to get the spatialization enable state by the specified device.
+     * @param { Callback<{deviceDescriptor: AudioDeviceDescriptor, enabled: boolean}> } callback - Callback used to get the spatialization enable state by the specified device.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
@@ -5012,12 +5012,12 @@ declare namespace audio {
      * @systemapi
      * @since 12
      */
-    off(type: 'spatializationEnabledChange', callback?: Callback<AudioDeviceDescriptor, boolean>): void;
+    off(type: 'spatializationEnabledChange', callback?: Callback<{deviceDescriptor: AudioDeviceDescriptor, enabled: boolean}>): void;
 
     /**
      * Sets the head tracking enabled or disabled. This method uses an asynchronous callback to return the result.
      * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
-     * @param { boolean } enabled - Head tracking enable state.
+     * @param { boolean } enable - Head tracking enable state.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied. Return by callback.
      * @throws { BusinessError } 202 - Not system App.
@@ -5030,11 +5030,11 @@ declare namespace audio {
      * @since 11
      * @deprecated since 12
      */
-    setHeadTrackingEnabled(enabled: boolean, callback: AsyncCallback<void>): void;
+    setHeadTrackingEnabled(enable: boolean, callback: AsyncCallback<void>): void;
     /**
      * Sets the head tracking enabled or disabled. This method uses a promise to return the result.
      * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
-     * @param { boolean } enabled - Head tracking enable state.
+     * @param { boolean } enable - Head tracking enable state.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied. Return by promise.
      * @throws { BusinessError } 202 - Not system App.
@@ -5046,7 +5046,7 @@ declare namespace audio {
      * @since 11
      * @deprecated since 12
      */
-    setHeadTrackingEnabled(enabled: boolean): Promise<void>;
+    setHeadTrackingEnabled(enable: boolean): Promise<void>;
     /**
      * Sets the head tracking enabled or disabled by the specified device.
      * This method uses a promise to return the result.
@@ -5110,7 +5110,7 @@ declare namespace audio {
      * Subscribes to the head tracking enable state change events by the specified device.
      * When the head tracking enable state changes, registered clients will receive the callback.
      * @param { 'headTrackingEnabledChange' } type - Type of the event to listen for.
-     * @param { Callback<AudioDeviceDescriptor, boolean> } callback - Callback used to get the head tracking enable state by the specified device.
+     * @param { Callback<{deviceDescriptor: AudioDeviceDescriptor, enabled: boolean}> } callback - Callback used to get the head tracking enable state by the specified device.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
@@ -5120,7 +5120,7 @@ declare namespace audio {
      * @systemapi
      * @since 12
      */
-    on(type: 'headTrackingEnabledChange', callback: Callback<AudioDeviceDescriptor, boolean>): void;
+    on(type: 'headTrackingEnabledChange', callback: Callback<{deviceDescriptor: AudioDeviceDescriptor, enabled: boolean}>): void;
 
     /**
      * Unsubscribes to the head tracking enable state change events.
@@ -5140,7 +5140,7 @@ declare namespace audio {
     /**
      * Unsubscribes to the head tracking enable state change events by the specified device.
      * @param { 'headTrackingEnabledChange' } type - Type of the event to listen for.
-     * @param { Callback<AudioDeviceDescriptor, boolean> } callback - Callback used to get the head tracking enable state by the specified device.
+     * @param { Callback<{deviceDescriptor: AudioDeviceDescriptor, enabled: boolean}> } callback - Callback used to get the head tracking enable state by the specified device.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
@@ -5150,7 +5150,7 @@ declare namespace audio {
      * @systemapi
      * @since 12
      */
-    off(type: 'headTrackingEnabledChange', callback?: Callback<AudioDeviceDescriptor, boolean>): void;
+    off(type: 'headTrackingEnabledChange', callback?: Callback<{deviceDescriptor: AudioDeviceDescriptor, enabled: boolean}>): void;
 
     /**
      * Updates the spatial device state.
