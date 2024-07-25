@@ -686,4 +686,15 @@ export interface WindowSize {
    * @since 11
    */
   readonly minWindowHeight: number;
+
+  /**
+   * Indicates the orientation id of the ability
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 13
+   */
+    readonly orientationId: number;
 }
