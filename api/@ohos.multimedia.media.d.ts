@@ -2742,6 +2742,7 @@ declare namespace media {
     /**
      * Unregister listens for playback error events.
      * @param { 'error' } type - Type of the playback error event to listen for.
+     * @param { ErrorCallback } callback - Callback used to listen for the playback error event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
