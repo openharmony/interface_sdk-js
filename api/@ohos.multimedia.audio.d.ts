@@ -3772,6 +3772,100 @@ declare namespace audio {
     getAudioEffectInfoArraySync(usage: StreamUsage): AudioEffectInfoArray;
 
     /**
+     * Gets supported audio effect properties based on current devices.
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
+     * @returns { Array<AudioEffectProperty> } Array of supported audio effect properties.
+     * @throws { BusinessError } 201 - Permission denied. 
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 6800301 - System error.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     * @since 13
+     */
+    getSupportedAudioEffectProperty(): Array<AudioEffectProperty>;
+
+    /**
+     * Sets current audio effect properties.
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
+     * @param { Array<AudioEffectProperty> } propertyArray - array of audio effect property to be set. 
+     * Notice that only one effectProp in each effectClass should be set.
+     * @throws { BusinessError } 201 - Permission denied. 
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed. Possible causes:
+     *                                 1. More than one effectProps of the same effectClass in input Array
+     *                                 2. input audioEffectProperties are not supported by current device.
+     *                                 3. names of effectProp or effectClass are incorrect.
+     * @throws { BusinessError } 6800301 - System error.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     * @since 13
+     */
+    setAudioEffectProperty(propertyArray: Array<AudioEffectProperty>): void;
+
+    /**
+     * Gets current audio effect properties.
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
+     * @returns { Array<AudioEffectProperty> } Array of current audio effect properties.
+     * @throws { BusinessError } 201 - Permission denied. 
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 6800301 - System error.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     * @since 13
+     */
+    getAudioEffectProperty(): Array<AudioEffectProperty>;
+
+    /**
+     * Gets supported audio enhance properties based on current devices.
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
+     * @returns { Array<AudioEnhanceProperty> } Array of supported audio enhance properties.
+     * @throws { BusinessError } 201 - Permission denied. 
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 6800301 - System error.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 13
+     */
+    getSupportedAudioEnhanceProperty(): Array<AudioEnhanceProperty>;
+
+    /**
+     * Sets current audio enhance properties.
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
+     * @param { Array<AudioEnhanceProperty> } propertyArray - array of audio enhance property to be set. 
+     * Notice that only one enhanceProp in each enhanceClass should be set.
+     * @throws { BusinessError } 201 - Permission denied. 
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed. Possible causes:
+     *                                 1. More than one enhanceProps of the same enhanceClass in input Array
+     *                                 2. input audioEnhanceProperties are not supported by current device.
+     *                                 3. names of enhanceProp or enhanceClass are incorrect.
+     * @throws { BusinessError } 6800301 - System error.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 13
+     */
+    setAudioEnhanceProperty(propertyArray: Array<AudioEnhanceProperty>): void;
+
+    /**
+     * Gets current audio enhance properties.
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
+     * @returns { Array<AudioEnhanceProperty> } Array of current audio enhance properties.
+     * @throws { BusinessError } 201 - Permission denied. 
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 6800301 - System error.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 13
+     */
+    getAudioEnhanceProperty(): Array<AudioEnhanceProperty>;
+
+    /**
      * Listens for audio renderer change events. When there is any audio renderer change,
      * registered clients will receive the callback.
      * @param { 'audioRendererChange' } type - Type of the event to listen for. Only the audioRendererChange event is supported.
@@ -7191,6 +7285,14 @@ declare namespace audio {
      * @since 12
      */
     SOURCE_TYPE_VOICE_MESSAGE = 10,
+
+    /**
+     * Source type for voice transcription and processing.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 13
+     */
+    SOURCE_TYPE_VOICE_TRANSCRIPTION = 12,
   }
 
   /**
@@ -9208,6 +9310,60 @@ declare namespace audio {
      * @since 11
      */
     CH_LAYOUT_AMB_ORDER3_FUMA = 0x100000000103
+  }
+
+  /**
+   * Describes an audio effect property.
+   * @typedef AudioEffectProperty
+   * @syscap SystemCapability.Multimedia.Audio.Renderer
+   * @systemapi
+   * @since 13
+   */
+  interface AudioEffectProperty {
+    /**
+     * Name of effect property.
+     * @type { string }
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     * @since 13
+     */
+    effectProp: string;
+
+    /**
+     * Name of effect class the effectProp belongs to.
+     * @type { string }
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     * @since 13
+     */
+    effectClass: string;
+  }
+
+  /**
+   * Describes an audio enhance property.
+   * @typedef AudioEnhanceProperty
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   * @systemapi
+   * @since 13
+   */
+  interface AudioEnhanceProperty {
+    /**
+     * Name of enhance property.
+     * @type { string }
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 13
+     */
+    enhanceProp: string;
+
+    /**
+     * Name of enhance class the enhanceProp belongs to.
+     * @type { string }
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 13
+     */
+    enhanceClass: string;
   }
 }
 
