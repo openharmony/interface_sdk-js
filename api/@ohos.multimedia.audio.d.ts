@@ -8222,6 +8222,113 @@ declare namespace audio {
   }
 
   /**
+   * ASR voice control mode.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   * @systemapi
+   * @since 12
+   */
+  enum AsrVoiceControlMode {
+    /**
+     * Send output stream to TX.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 12
+     */
+    AUDIO_2_VOICE_TX = 0,
+    /**
+     * Send both output stream and MIC input to TX.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 12
+     */
+    AUDIO_MIX_2_VOICE_TX = 1,
+    /**
+     * Based on the AUDIO_2_VOICE_TX, Send output stream to voice call record.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 12
+     */
+    AUDIO_2_VOICE_TX_EX = 2,
+    /**
+     * Based on the AUDIO_MIX_2_VOICE_TX, Send output stream to voice call record.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 12
+     */
+    AUDIO_MIX_2_VOICE_TX_EX = 3,
+  }
+
+  /**
+   * ASR voice mute mode.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   * @systemapi
+   * @since 12
+   */
+  enum AsrVoiceMuteMode {
+    /**
+     * Mute the local output stream.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 12
+     */
+    OUTPUT_MUTE = 0,
+    /**
+     * Mute the local MIC input stream.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 12
+     */
+    INPUT_MUTE = 1,
+    /**
+     * Send tts output stream to TX and mute the local output stream.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 12
+     */
+    TTS_MUTE  = 2,
+    /**
+     * Mute the voice call stream.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+       * @since 12
+       */
+    CALL_MUTE = 3,
+    /**
+     * Based on the OUTPUT_MUTE, send output stream to voice call record.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 12
+     */
+    OUTPUT_MUTE_EX = 4,
+  }
+
+  /**
+   * ASR whisper detection mode.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   * @systemapi
+   * @since 12
+   */
+  enum AsrWhisperDetectionMode {
+    /**
+     * No operation.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 12
+     */
+    BYPASS = 0,
+    /**
+     * Use standard whisper detection model.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 12
+     */
+    STANDARD = 1,
+  }
+
+  /**
    * ASR processing controller.
    * @typedef AsrProcessingController
    * @syscap SystemCapability.Multimedia.Audio.Capturer
@@ -8293,6 +8400,67 @@ declare namespace audio {
      * @since 12
      */
     isWhispering(): boolean;
+
+    /**
+     * Set ASR voice control mode.
+     * @param { AsrVoiceControlMode } mode - ASR voice control mode.
+     * @param { boolean } enable - Indicates whether to switch on/off this mode.
+     * @returns { boolean } Indicates whether the mode has been successfully set.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters unspecified.
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800104 - Operation not allowed.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 12
+     */
+    setAsrVoiceControlMode(mode: AsrVoiceControlMode, enable: boolean): boolean;
+
+    /**
+     * Set ASR voice mute mode.
+     * @param { AsrVoiceMuteMode } mode - ASR voice mute mode.
+     * @param { boolean } enable - Indicates whether to switch on/off this mode.
+     * @returns { boolean } Indicates whether the mode has been successfully set.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters unspecified.
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800104 - Operation not allowed.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 12
+     */
+    setAsrVoiceMuteMode(mode: AsrVoiceMuteMode, enable: boolean): boolean;
+
+    /**
+     * Set ASR whisper detection mode.
+     * @param { AsrWhisperDetectionMode } mode - ASR whisper detection mode.
+     * @returns { boolean } Indicates whether the mode has been successfully set.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters unspecified.
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800104 - Operation not allowed.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 12
+     */
+    setAsrWhisperDetectionMode(mode: AsrWhisperDetectionMode): boolean;
+
+    /**
+     * Get ASR whisper detection mode.
+     * @returns { AsrWhisperDetectionMode } ASR whisper detection mode.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 6800104 - Operation not allowed.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 12
+     */
+    getAsrWhisperDetectionMode(): AsrWhisperDetectionMode;
   }
 
   /**
