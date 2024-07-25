@@ -30,6 +30,7 @@ import type connection from './@ohos.net.connection';
 declare namespace sharing {
   /**
    * Get the handle of the data network.
+   * @typedef NetHandle
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 9
    */

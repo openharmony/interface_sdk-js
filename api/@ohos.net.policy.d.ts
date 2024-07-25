@@ -23,13 +23,14 @@ import type connection from './@ohos.net.connection';
 
 /**
  * Provides interfaces to manage network policy rules.
- * @namespace policy
+ * @namespace policytypedef
  * @syscap SystemCapability.Communication.NetManager.Core
  * @since 10
  */
 declare namespace policy {
   /**
    * Get network bear type.
+   * @typedef NetBearType
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
    */

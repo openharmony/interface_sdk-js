@@ -571,6 +571,7 @@ declare namespace statistics {
 
   /**
    * An {@link NetStatsInfo} array with start time and end time.
+   * @typedef NetStatsInfoSequence
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 12
@@ -604,6 +605,7 @@ declare namespace statistics {
 
   /**
    * {@link NetStatsInfo} for every UID. Key is UID.
+   * @typedef UidNetStatsInfo
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 12
