@@ -775,6 +775,7 @@ declare namespace relationalStore {
   /**
    * Describes the subscription type.
    *
+   * @permission ohos.permission.DISTRIBUTED_DATASYNC
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 9
@@ -792,6 +793,7 @@ declare namespace relationalStore {
     /**
      * Subscription to cloud data changes
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */
@@ -800,6 +802,7 @@ declare namespace relationalStore {
     /**
      * Subscription to cloud data changes details
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */
@@ -825,6 +828,7 @@ declare namespace relationalStore {
     /**
      * Means the change type is data change.
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
@@ -833,6 +837,7 @@ declare namespace relationalStore {
     /**
      * Means the change type is asset change.
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
@@ -899,6 +904,7 @@ declare namespace relationalStore {
   /**
    * Describes the distribution type of the tables.
    *
+   * @permission ohos.permission.DISTRIBUTED_DATASYNC
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10
