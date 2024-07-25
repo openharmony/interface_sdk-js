@@ -900,7 +900,7 @@ export class NodeProcessorHelper {
    */
   static processDataType(dataType: ts.TypeNode | undefined): string[] {
     const typeArr: string[] = [];
-    if (!dataType || dataType.kind === ts.SyntaxKind.VoidKeyword) {
+    if (!dataType) {
       return typeArr;
     }
     if (ts.isUnionTypeNode(dataType)) {
