@@ -4891,6 +4891,7 @@ declare namespace audio {
      * @systemapi
      * @since 11
      * @deprecated since 12
+     * @useinstead ohos.multimedia.audio.AudioSpatializationManager#setSpatializationEnabled
      */
     setSpatializationEnabled(enable: boolean, callback: AsyncCallback<void>): void;
     /**
@@ -4907,6 +4908,7 @@ declare namespace audio {
      * @systemapi
      * @since 11
      * @deprecated since 12
+     * @useinstead ohos.multimedia.audio.AudioSpatializationManager#setSpatializationEnabled
      */
     setSpatializationEnabled(enable: boolean): Promise<void>;
     /**
@@ -4935,6 +4937,7 @@ declare namespace audio {
      * @systemapi
      * @since 11
      * @deprecated since 12
+     * @useinstead ohos.multimedia.audio.AudioSpatializationManager#isSpatializationEnabled
      */
     isSpatializationEnabled(): boolean;
     /**
@@ -4966,6 +4969,7 @@ declare namespace audio {
      * @systemapi
      * @since 11
      * @deprecated since 12
+     * @useinstead ohos.multimedia.audio.AudioSpatializationManager#on
      */
     on(type: 'spatializationEnabledChange', callback: Callback<boolean>): void;
     /**
@@ -4997,6 +5001,7 @@ declare namespace audio {
      * @systemapi
      * @since 11
      * @deprecated since 12
+     * @useinstead ohos.multimedia.audio.AudioSpatializationManager#off
      */
     off(type: 'spatializationEnabledChange', callback?: Callback<boolean>): void;
     /**
@@ -5029,6 +5034,7 @@ declare namespace audio {
      * @systemapi
      * @since 11
      * @deprecated since 12
+     * @useinstead ohos.multimedia.audio.AudioSpatializationManager#setHeadTrackingEnabled
      */
     setHeadTrackingEnabled(enable: boolean, callback: AsyncCallback<void>): void;
     /**
@@ -5045,6 +5051,7 @@ declare namespace audio {
      * @systemapi
      * @since 11
      * @deprecated since 12
+     * @useinstead ohos.multimedia.audio.AudioSpatializationManager#setHeadTrackingEnabled
      */
     setHeadTrackingEnabled(enable: boolean): Promise<void>;
     /**
@@ -5073,6 +5080,7 @@ declare namespace audio {
      * @systemapi
      * @since 11
      * @deprecated since 12
+     * @useinstead ohos.multimedia.audio.AudioSpatializationManager#isHeadTrackingEnabled
      */
     isHeadTrackingEnabled(): boolean;
     /**
@@ -5104,6 +5112,7 @@ declare namespace audio {
      * @systemapi
      * @since 11
      * @deprecated since 12
+     * @useinstead ohos.multimedia.audio.AudioSpatializationManager#on
      */
     on(type: 'headTrackingEnabledChange', callback: Callback<boolean>): void;
     /**
@@ -5135,6 +5144,7 @@ declare namespace audio {
      * @systemapi
      * @since 11
      * @deprecated since 12
+     * @useinstead ohos.multimedia.audio.AudioSpatializationManager#off
      */
     off(type: 'headTrackingEnabledChange', callback?: Callback<boolean>): void;
     /**
