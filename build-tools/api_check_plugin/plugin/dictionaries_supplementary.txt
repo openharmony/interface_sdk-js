@@ -359,6 +359,8 @@ gbk
 geofence
 geofences
 getunfilteredlinkurl
+getxattr
+getxattrSync
 glasses
 glonass
 gnss
@@ -885,6 +887,8 @@ sensing
 sequenceable
 setsockopt
 settingsdata
+setxattr
+setxattrSync
 seventh
 sfactor
 sgi
