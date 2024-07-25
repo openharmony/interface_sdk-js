@@ -2269,6 +2269,7 @@ declare namespace media {
      * @param { Callback<number> } callback - Callback used to listen for the playback volume event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     off(type: 'volumeChange', callback?: Callback<number>): void;
@@ -2301,6 +2302,7 @@ declare namespace media {
      * @param { Callback<void> } callback - Callback used to listen for the playback end of stream.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     off(type: 'endOfStream', callback?: Callback<void>): void;
@@ -2381,6 +2383,7 @@ declare namespace media {
      * @param { Callback<number> } callback - Callback used to listen for the playback speedDone event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     off(type: 'speedDone', callback?: Callback<number>): void;
@@ -2411,6 +2414,7 @@ declare namespace media {
      * @param { 'bitrateDone' } type - Type of the playback event to listen for.
      * @param { Callback<number> } callback - Callback used to listen for the playback setBitrateDone event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
      * @since 12
      */
     off(type: 'bitrateDone', callback?: Callback<number>): void;
@@ -2491,6 +2495,7 @@ declare namespace media {
      * @param { Callback<number> } callback - Callback used to listen for the playback durationUpdate event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     off(type: 'durationUpdate', callback?: Callback<number>): void;
@@ -2560,6 +2565,7 @@ declare namespace media {
      * @param { 'startRenderFrame' } type - Type of the playback event to listen for.
      * @param { Callback<void> } callback - Callback used to listen for the playback event return .
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
      * @since 12
      */
     off(type: 'startRenderFrame', callback?: Callback<void>): void;
