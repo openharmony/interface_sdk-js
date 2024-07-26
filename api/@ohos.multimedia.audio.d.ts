@@ -1875,7 +1875,7 @@ declare namespace audio {
   }
 
   /**
-   * Describes audio capturer filter.
+   * Describe audio capturer filter.
    * @typedef AudioCapturerFilter
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @systemapi
@@ -1891,9 +1891,9 @@ declare namespace audio {
      */
     uid?: number;
     /**
-     * Renderer information.
+     * Capturer information.
      * @type { ?AudioCapturerInfo }
-     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
      * @since 12
      */
