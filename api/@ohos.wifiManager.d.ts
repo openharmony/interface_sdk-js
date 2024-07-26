@@ -2427,6 +2427,7 @@ declare namespace wifiManager {
 
     /** 
      * Server port for manual configured proxy. 
+     * @type { ?number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -2516,6 +2517,7 @@ declare namespace wifiManager {
 
     /** 
      * content of user's certificate
+     * @type { Uint8Array }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
@@ -2602,12 +2604,13 @@ declare namespace wifiManager {
 
     /**
      * Wi-Fi bssid(MAC): the length is 6.
+     * @type { ?string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
     /**
      * Wi-Fi bssid(MAC): the length is 6.
-     * @type { string }
+     * @type { ?string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
      * @since 12
@@ -2631,6 +2634,7 @@ declare namespace wifiManager {
 
     /**
      * Wi-Fi key: maximum length is 64.
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
@@ -2653,6 +2657,7 @@ declare namespace wifiManager {
 
     /**
      * Security type: reference definition of WifiSecurityType
+     * @type { WifiSecurityType }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
@@ -2686,7 +2691,7 @@ declare namespace wifiManager {
 
     /**
      * Allocated networkId
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -2713,7 +2718,7 @@ declare namespace wifiManager {
 
     /**
      * IP Type
-     * @type { IpType }
+     * @type { ?IpType }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -2937,7 +2942,7 @@ declare namespace wifiManager {
   interface WifiScanInfo {
     /**
      * Wi-Fi SSID: the maximum length is 32 
-     *
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
@@ -2952,7 +2957,7 @@ declare namespace wifiManager {
 
     /**
      * Wi-Fi bssid(MAC): the length is 6
-     *
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
@@ -3005,7 +3010,7 @@ declare namespace wifiManager {
 
     /**
      * Received signal strength indicator (RSSI)
-     *
+     * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
@@ -3028,7 +3033,7 @@ declare namespace wifiManager {
 
     /**
      * Frequency
-     *
+     * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
@@ -3075,7 +3080,7 @@ declare namespace wifiManager {
 
     /**
      * Time stamp
-     *
+     * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
@@ -3369,6 +3374,7 @@ declare namespace wifiManager {
 
     /**
      * The BSSID of the Wi-Fi hotspot
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
@@ -3392,6 +3398,7 @@ declare namespace wifiManager {
 
     /**
      * The RSSI(dBm) of a Wi-Fi access point.
+     * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
@@ -3446,6 +3453,7 @@ declare namespace wifiManager {
 
     /**
      * The frequency of a Wi-Fi access point.
+     * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
@@ -3535,7 +3543,7 @@ declare namespace wifiManager {
 
     /**
      * Channel width of the connected hotspot. 
-     * @type { string }
+     * @type { WifiChannelWidth }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
