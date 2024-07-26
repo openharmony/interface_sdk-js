@@ -1186,3 +1186,9 @@ zoomout
 zoomreset
 zooms
 zpass
+Capitals
+monospaced
+depressed
+Tritanomaly
+Deuteranomaly
+Protanomaly
