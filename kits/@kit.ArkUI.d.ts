@@ -108,6 +108,8 @@ import SystemRouter, {
   BackRouterOptions, DisableAlertBeforeBackPageOptions, EnableAlertBeforeBackPageOptions,
   RouterOptions, RouterState
 } from '@system.router';
+import { ArcList, ArcListItem, ArcListAttribute, ArcListItemAttribute } from '@ohos.arkui.ArcList';
+import { ArcAlphabetIndexer, ArcAlphabetIndexerAttribute } from '@ohos.arkui.ArcAlphabetIndexer';
 
 export {
   AddFormMenuItem, AddFormOptions, AlertDialog, Animator, AnimatorOptions, AnimatorResult, App, AppResponse, AtomicServiceBar,
@@ -135,5 +137,6 @@ export {
   font, inspector, matrix4, mediaquery, performanceMonitor, pluginComponentManager, prompt, promptAction, router,
   screen, screenshot, uiAppearance, uiExtensionHost, uiObserver, window, windowAnimationManager, CustomContentDialog,
   IconOptions, ChipItemLabelOptions, ChipGroupItemOptions, ChipItemStyle, ChipGroupSpaceOptions, IconItemOptions, IconGroupSuffix, ChipGroup,
-  Qrcode, QrcodeOptions, QrcodeState, CommonQrcodeOptions
+  Qrcode, QrcodeOptions, QrcodeState, CommonQrcodeOptions, ArcList, ArcListItem, ArcListAttribute, ArcListItemAttribute,
+  ArcAlphabetIndexer, ArcAlphabetIndexerAttribute
 };
