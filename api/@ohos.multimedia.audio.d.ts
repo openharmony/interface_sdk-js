@@ -3354,7 +3354,7 @@ declare namespace audio {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
-     * @since 9
+     * @since 10
      */
     selectOutputDevice(outputAudioDevices: AudioDeviceDescriptors, callback: AsyncCallback<void>): void;
     /**
