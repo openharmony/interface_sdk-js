@@ -2995,7 +2995,7 @@ declare namespace wifiManager {
 
     /**
      * Security type: reference definition of WifiSecurityType
-     *
+     * @type { WifiSecurityType }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
