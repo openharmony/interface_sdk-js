@@ -457,6 +457,7 @@ declare namespace collections {
      * @returns { IterableIterator<T> } Iterator object.
      * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     [Symbol.iterator](): IterableIterator<T>;
@@ -691,6 +692,7 @@ declare namespace collections {
      * @returns { IterableIterator<[K, V]> } Iterator object that yields key-value pairs.
      * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     [Symbol.iterator](): IterableIterator<[K, V]>
@@ -852,6 +854,7 @@ declare namespace collections {
      * @returns { IterableIterator<T> } Iterator object.
      * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     [Symbol.iterator](): IterableIterator<T>;
@@ -1479,6 +1482,7 @@ declare namespace collections {
      * @returns { IterableIterator<number> } Iterator object that yields numbers.
      * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     [Symbol.iterator](): IterableIterator<number>;
@@ -2000,6 +2004,7 @@ declare namespace collections {
      * @returns { IterableIterator<number> } Iterator object that yields numbers.
      * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     [Symbol.iterator](): IterableIterator<number>;
@@ -2536,6 +2541,7 @@ declare namespace collections {
      * @returns { IterableIterator<number> } Iterator object that yields numbers.
      * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     [Symbol.iterator](): IterableIterator<number>;
@@ -3072,6 +3078,7 @@ declare namespace collections {
      * @returns { IterableIterator<number> } Iterator object that yields numbers.
      * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     [Symbol.iterator](): IterableIterator<number>;
@@ -3607,6 +3614,7 @@ declare namespace collections {
      * @returns { IterableIterator<number> } Iterator object that yields numbers.
      * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     [Symbol.iterator](): IterableIterator<number>;
@@ -4143,6 +4151,7 @@ declare namespace collections {
      * @returns { IterableIterator<number> } Iterator object that yields numbers.
      * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     [Symbol.iterator](): IterableIterator<number>;
@@ -4678,6 +4687,7 @@ declare namespace collections {
      * @returns { IterableIterator<number> } Iterator object that yields numbers.
      * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     [Symbol.iterator](): IterableIterator<number>;
