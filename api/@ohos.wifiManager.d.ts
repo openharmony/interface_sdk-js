@@ -2400,6 +2400,7 @@ declare namespace wifiManager {
   interface WifiProxyConfig {
     /** 
      * Wi-Fi proxy method 
+     * @type { ?ProxyMethods }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -2408,6 +2409,7 @@ declare namespace wifiManager {
 
     /** 
      * PAC web address for auto configured proxy.
+     * @type { ?string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -2416,6 +2418,7 @@ declare namespace wifiManager {
 
     /** 
      * Server host name for manual configured proxy. 
+     * @type { ?string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -2432,6 +2435,7 @@ declare namespace wifiManager {
 
     /** 
      * Exclusion objects for manual configured proxy. objects are separated by ','.
+     * @type { ?string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -2448,6 +2452,7 @@ declare namespace wifiManager {
   interface WifiEapConfig {
     /** 
      * EAP authentication method 
+     * @type { EapMethod }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
@@ -2455,6 +2460,7 @@ declare namespace wifiManager {
 
     /** 
      * Phase 2 authentication method
+     * @type { Phase2Method }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
@@ -2462,6 +2468,7 @@ declare namespace wifiManager {
 
     /** 
      * The identity
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
@@ -2469,6 +2476,7 @@ declare namespace wifiManager {
 
     /** 
      * Anonymous identity
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
@@ -2476,6 +2484,7 @@ declare namespace wifiManager {
 
     /** 
      * Password
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
@@ -2491,6 +2500,7 @@ declare namespace wifiManager {
 
     /** 
      * CA certificate path
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
@@ -2513,6 +2523,7 @@ declare namespace wifiManager {
 
     /** 
      * Password of user's certificate
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
@@ -2520,6 +2531,7 @@ declare namespace wifiManager {
 
     /** 
      * Alternate subject match
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
@@ -2527,6 +2539,7 @@ declare namespace wifiManager {
 
     /** 
      * Domain suffix match
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
@@ -2534,6 +2547,7 @@ declare namespace wifiManager {
 
     /** 
      * Realm for Passpoint credential
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
@@ -2541,6 +2555,7 @@ declare namespace wifiManager {
 
     /** 
      * Public Land Mobile Network of the provider of Passpoint credential
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
@@ -2572,11 +2587,13 @@ declare namespace wifiManager {
   interface WifiDeviceConfig {
     /** 
      * Wi-Fi SSID: the maximum length is 32.
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
     /**
      * Wi-Fi SSID: the maximum length is 32.
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
      * @since 12
@@ -2590,6 +2607,7 @@ declare namespace wifiManager {
      */
     /**
      * Wi-Fi bssid(MAC): the length is 6.
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
      * @since 12
@@ -2618,6 +2636,7 @@ declare namespace wifiManager {
      */
     /**
      * Wi-Fi key: maximum length is 64.
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
      * @since 12
@@ -2626,6 +2645,7 @@ declare namespace wifiManager {
 
     /**
      * Hide SSID or not, false(default): not hide
+     * @type { ?boolean }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
@@ -2639,6 +2659,7 @@ declare namespace wifiManager {
 
 	/**
      * Security type: reference definition of WifiSecurityType
+     * @type { WifiSecurityType }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
      * @since 12
@@ -2647,6 +2668,7 @@ declare namespace wifiManager {
 
     /**
      * The UID of the Wi-Fi configuration creator.
+     * @type { ?number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -2655,6 +2677,7 @@ declare namespace wifiManager {
 
     /**
      * Disable reason
+     * @type { ?number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -2663,6 +2686,7 @@ declare namespace wifiManager {
 
     /**
      * Allocated networkId
+     * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -2671,6 +2695,7 @@ declare namespace wifiManager {
 
     /**
      * Random mac type
+     * @type { ?number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -2679,6 +2704,7 @@ declare namespace wifiManager {
 
     /**
      * Random mac address, the length is 6.
+     * @type { ?string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -2687,6 +2713,7 @@ declare namespace wifiManager {
 
     /**
      * IP Type
+     * @type { IpType }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -2695,6 +2722,7 @@ declare namespace wifiManager {
 
     /**
      * IP config of static
+     * @type { ?IpConfig }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -2711,6 +2739,7 @@ declare namespace wifiManager {
 
     /**
      * Proxy config.
+     * @type { ?WifiProxyConfig }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -2768,6 +2797,7 @@ declare namespace wifiManager {
   interface IpConfig {
     /**
      * IP address.
+     * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -2776,6 +2806,7 @@ declare namespace wifiManager {
 
     /**
      * Gate way.
+     * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -2784,6 +2815,7 @@ declare namespace wifiManager {
 
     /**
      * Prefix length.
+     * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -2792,6 +2824,7 @@ declare namespace wifiManager {
 
     /**
      * DNS servers.
+     * @type { number[] }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -2800,6 +2833,7 @@ declare namespace wifiManager {
 
     /**
      * Domains.
+     * @type { Array<string> }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -2816,7 +2850,7 @@ declare namespace wifiManager {
   interface WifiInfoElem {
     /**
      * Element id
-     *
+     * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
@@ -2824,7 +2858,7 @@ declare namespace wifiManager {
 
     /**
      * Element content
-     *
+     * @type { Uint8Array }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
@@ -2909,7 +2943,7 @@ declare namespace wifiManager {
      */
     /**
      * Wi-Fi SSID: the maximum length is 32 
-     *
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
      * @since 12
@@ -2924,7 +2958,7 @@ declare namespace wifiManager {
      */
     /**
      * Wi-Fi bssid(MAC): the length is 6
-     *
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
      * @since 12
@@ -2948,7 +2982,7 @@ declare namespace wifiManager {
 
     /**
      * Hotspot capability
-     *
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
@@ -2962,7 +2996,7 @@ declare namespace wifiManager {
      */
     /**
      * Security type: reference definition of WifiSecurityType
-     *
+     * @type { WifiSecurityType }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
      * @since 12
@@ -2977,7 +3011,7 @@ declare namespace wifiManager {
      */
     /**
      * Received signal strength indicator (RSSI)
-     *
+     * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
      * @since 12
@@ -2986,7 +3020,7 @@ declare namespace wifiManager {
 
     /**
      * Frequency band, 1: 2.4G, 2: 5G
-     *
+     * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
@@ -3000,7 +3034,7 @@ declare namespace wifiManager {
      */
     /**
      * Frequency
-     *
+     * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
      * @since 12
@@ -3009,7 +3043,7 @@ declare namespace wifiManager {
 
     /**
      * Channel width
-     *
+     * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
@@ -3017,7 +3051,7 @@ declare namespace wifiManager {
 
     /**
      * Center frequency 0.
-     *
+     * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
@@ -3025,7 +3059,7 @@ declare namespace wifiManager {
 
     /**
      * Center frequency 1.
-     *
+     * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
@@ -3033,7 +3067,7 @@ declare namespace wifiManager {
 
     /**
      * Information elements.
-     *
+     * @type { Array<WifiInfoElem> }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
@@ -3049,7 +3083,7 @@ declare namespace wifiManager {
 
     /**
      * Supported wifi category
-     *
+     * @type { WifiCategory }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 12
      */
@@ -3057,7 +3091,7 @@ declare namespace wifiManager {
 
     /**
      * Whether the Wi-Fi hotspot is HiLink network.
-     *
+     * @type { boolean }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 12
      */
@@ -3320,11 +3354,13 @@ declare namespace wifiManager {
   interface WifiLinkedInfo {
     /**
      * The SSID of the Wi-Fi hotspot
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
     /**
      * The SSID of the Wi-Fi hotspot
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
      * @since 12
@@ -3338,6 +3374,7 @@ declare namespace wifiManager {
      */
     /**
      * The BSSID of the Wi-Fi hotspot
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
      * @since 12
@@ -3346,6 +3383,7 @@ declare namespace wifiManager {
 
     /**
      * The ID(uniquely identifies) of a Wi-Fi connection.
+     * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -3359,6 +3397,7 @@ declare namespace wifiManager {
      */
     /**
      * The RSSI(dBm) of a Wi-Fi access point.
+     * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
      * @since 12
@@ -3367,6 +3406,7 @@ declare namespace wifiManager {
 
     /**
      * The frequency band of a Wi-Fi access point.
+     * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
@@ -3374,6 +3414,7 @@ declare namespace wifiManager {
 
     /**
      * The speed of a Wi-Fi access point.
+     * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
@@ -3381,6 +3422,7 @@ declare namespace wifiManager {
 
     /**
      * The rx speed of a Wi-Fi access point.
+     * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
@@ -3388,6 +3430,7 @@ declare namespace wifiManager {
 
     /**
      * Max tx speed of a Wi-Fi access point.
+     * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
@@ -3395,6 +3438,7 @@ declare namespace wifiManager {
 
     /**
      * Max rx speed of a Wi-Fi access point.
+     * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
@@ -3407,6 +3451,7 @@ declare namespace wifiManager {
      */
     /**
      * The frequency of a Wi-Fi access point.
+     * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
      * @since 12
@@ -3415,6 +3460,7 @@ declare namespace wifiManager {
 
     /**
      * Whether the SSID of the access point (AP) of this Wi-Fi connection is hidden.
+     * @type { boolean }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
@@ -3422,6 +3468,7 @@ declare namespace wifiManager {
 
     /**
      * Whether this Wi-Fi connection restricts the data volume.
+     * @type { boolean }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
@@ -3429,6 +3476,7 @@ declare namespace wifiManager {
 
     /**
      * The load value of this Wi-Fi connection. A greater value indicates a higher load.
+     * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -3437,6 +3485,7 @@ declare namespace wifiManager {
 
     /**
      * The signal-to-noise ratio (SNR) of this Wi-Fi connection.
+     * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -3445,6 +3494,7 @@ declare namespace wifiManager {
 
     /**
      * Type of macAddress: 0 - real mac, 1 - random mac.
+     * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
@@ -3452,6 +3502,7 @@ declare namespace wifiManager {
 
     /**
      * The Wi-Fi MAC address of a device. 
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
@@ -3459,6 +3510,7 @@ declare namespace wifiManager {
 
     /**
      * The IP address of this Wi-Fi connection. 
+     * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
@@ -3466,6 +3518,7 @@ declare namespace wifiManager {
 
     /**
      * The state of the supplicant of this Wi-Fi connection. 
+     * @type { SuppState }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -3474,6 +3527,7 @@ declare namespace wifiManager {
 
     /**
      * The state of this Wi-Fi connection. 
+     * @type { ConnState }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
@@ -3481,6 +3535,7 @@ declare namespace wifiManager {
 
     /**
      * Channel width of the connected hotspot. 
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
@@ -3488,6 +3543,7 @@ declare namespace wifiManager {
 
     /**
      * Wifi standard of current connection. 
+     * @type { WifiStandard }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
@@ -3495,7 +3551,7 @@ declare namespace wifiManager {
 
     /**
      * Supported wifi category
-     *
+     * @type { WifiCategory }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 12
      */
@@ -3503,7 +3559,7 @@ declare namespace wifiManager {
 
     /**
      * Whether the Wi-Fi hotspot is HiLink network.
-     *
+     * @type { boolean }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 12
      */
@@ -3519,7 +3575,7 @@ declare namespace wifiManager {
   interface IpInfo {
     /**
      * The IP address of the Wi-Fi connection
-     *
+     * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
@@ -3527,7 +3583,7 @@ declare namespace wifiManager {
 
     /**
      * The gateway of the Wi-Fi connection
-     *
+     * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
@@ -3535,7 +3591,7 @@ declare namespace wifiManager {
 
     /**
      * The network mask of the Wi-Fi connection
-     *
+     * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
@@ -3543,7 +3599,7 @@ declare namespace wifiManager {
 
     /**
      * The primary DNS server IP address of the Wi-Fi connection
-     *
+     * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
@@ -3551,7 +3607,7 @@ declare namespace wifiManager {
 
     /**
      * The secondary DNS server IP address of the Wi-Fi connection
-     *
+     * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
@@ -3559,6 +3615,7 @@ declare namespace wifiManager {
 
     /**
      * The DHCP server IP address of the Wi-Fi connection
+     * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
@@ -3566,6 +3623,7 @@ declare namespace wifiManager {
 
     /**
      * The IP address lease duration of the Wi-Fi connection
+     * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
@@ -3581,7 +3639,7 @@ declare namespace wifiManager {
   interface Ipv6Info {
     /**
      * The link IPv6 address of the Wi-Fi connection
-     *
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
@@ -3589,7 +3647,7 @@ declare namespace wifiManager {
 
     /**
      * The global IPv6 address of the Wi-Fi connection
-     *
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
@@ -3597,7 +3655,7 @@ declare namespace wifiManager {
 
     /**
      * The rand Global IPv6 address of the Wi-Fi connection
-     *
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
@@ -3605,7 +3663,7 @@ declare namespace wifiManager {
 
     /**
      * The gateway of the Wi-Fi connection
-     *
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
@@ -3613,7 +3671,7 @@ declare namespace wifiManager {
 
     /**
      * The network mask of the Wi-Fi connection
-     *
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
@@ -3621,7 +3679,7 @@ declare namespace wifiManager {
 
     /**
      * The primary DNS server IPV6 address of the Wi-Fi connection
-     *
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
@@ -3629,7 +3687,7 @@ declare namespace wifiManager {
 
     /**
      * The secondary DNS server IPV6 address of the Wi-Fi connection
-     *
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
@@ -3646,6 +3704,7 @@ declare namespace wifiManager {
   interface HotspotConfig {
     /**
      * The SSID of the Wi-Fi hotspot
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -3654,6 +3713,7 @@ declare namespace wifiManager {
 
     /**
      * The encryption mode of the Wi-Fi hotspot
+     * @type { WifiSecurityType }
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -3662,6 +3722,7 @@ declare namespace wifiManager {
 
     /**
      * The frequency band of the Wi-Fi hotspot
+     * @type { number }
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -3670,6 +3731,7 @@ declare namespace wifiManager {
 
     /**
      * The channel of the Wi-Fi hotspot.
+     * @type { ?number }
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -3678,6 +3740,7 @@ declare namespace wifiManager {
 
     /**
      * The password of the Wi-Fi hotspot
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -3686,6 +3749,7 @@ declare namespace wifiManager {
 
     /**
      * The maximum number of connections allowed by the Wi-Fi hotspot
+     * @type { number }
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -3694,6 +3758,7 @@ declare namespace wifiManager {
 
     /**
      * IP address of the dhcp server, it's a string, For example 192.168.43.1
+     * @type { ?string }
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -3711,6 +3776,7 @@ declare namespace wifiManager {
   interface StationInfo {
     /**
      * The network name of the Wi-Fi client
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -3719,6 +3785,7 @@ declare namespace wifiManager {
 
     /**
      * The MAC address of the Wi-Fi client
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -3736,6 +3803,7 @@ declare namespace wifiManager {
 
     /**
      * The IP address of the Wi-Fi client
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -3966,7 +4034,7 @@ declare namespace wifiManager {
   interface WifiP2pDevice {
     /**
      * Device name
-     *
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9
      */
@@ -3974,7 +4042,7 @@ declare namespace wifiManager {
 
     /**
      * Device mac address
-     *
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9
      */
@@ -3990,7 +4058,7 @@ declare namespace wifiManager {
 
     /**
      * Primary device type
-     *
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9
      */
@@ -3998,7 +4066,7 @@ declare namespace wifiManager {
 
     /**
      * Device status
-     *
+     * @type { P2pDeviceStatus }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9
      */
@@ -4006,7 +4074,7 @@ declare namespace wifiManager {
 
     /**
      * Device group capabilities
-     *
+     * @type { number }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9
      */
@@ -4023,7 +4091,7 @@ declare namespace wifiManager {
   interface WifiP2PConfig {
     /** 
      * Device mac address
-     *
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9
      */
@@ -4040,7 +4108,7 @@ declare namespace wifiManager {
     /**
      * Group network ID. When creating a group, -1 indicates creates a temporary group,
      * -2: indicates creates a persistent group
-     *
+     * @type { number }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9
      */
@@ -4048,7 +4116,7 @@ declare namespace wifiManager {
 
     /**
      * The passphrase of this {@code WifiP2pConfig} instance 
-     *
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9
      */
@@ -4056,6 +4124,7 @@ declare namespace wifiManager {
 
     /**
      * Group name 
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9
      */
@@ -4063,6 +4132,7 @@ declare namespace wifiManager {
 
     /**
      * Group owner band
+     * @type { GroupOwnerBand }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9
      */
@@ -4079,6 +4149,7 @@ declare namespace wifiManager {
   interface WifiP2pGroupInfo {
     /**
      * Indicates whether it is group owner
+     * @type { boolean }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9
      */
@@ -4086,6 +4157,7 @@ declare namespace wifiManager {
 
     /**
      * Group owner information
+     * @type { WifiP2pDevice }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9
      */
@@ -4093,6 +4165,7 @@ declare namespace wifiManager {
 
     /**
      * The group passphrase
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9
      */
@@ -4100,6 +4173,7 @@ declare namespace wifiManager {
 
     /**
      * Interface name
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9
      */
@@ -4107,6 +4181,7 @@ declare namespace wifiManager {
 
     /**
      * Group name
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9
      */
@@ -4114,6 +4189,7 @@ declare namespace wifiManager {
 
     /**
      * Network ID
+     * @type { number }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9
      */
@@ -4121,6 +4197,7 @@ declare namespace wifiManager {
 
     /**
      * Frequency
+     * @type { number }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9
      */
@@ -4128,6 +4205,7 @@ declare namespace wifiManager {
 
     /**
      * Client list
+     * @type { WifiP2pDevice[] }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9
      */
@@ -4135,6 +4213,7 @@ declare namespace wifiManager {
 
     /**
      * Group owner IP address
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9
      */
@@ -4174,6 +4253,7 @@ declare namespace wifiManager {
   interface WifiP2pLinkedInfo {
     /**
      * Connection status 
+     * @type { P2pConnectState }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9
      */
@@ -4181,6 +4261,7 @@ declare namespace wifiManager {
 
     /**
      * Indicates whether it is group owner
+     * @type { boolean }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9
      */
@@ -4188,7 +4269,7 @@ declare namespace wifiManager {
 
     /**
      * Group owner address
-     *
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9
      */
