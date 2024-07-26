@@ -34,6 +34,7 @@ import { AsyncCallback, Callback } from './@ohos.base';
 /**
  * Provides methods to operate or manage Wi-Fi.
  * @namespace wifiManager
+ * @syscap SystemCapability.Communication.WiFi.STA
  * @crossplatform
  * @atomicservice
  * @since 12
@@ -3602,6 +3603,22 @@ declare namespace wifiManager {
      * @since 10
      */
     randomGlobalIpv6Address: string;
+
+    /**
+     * The unique IPv6 address of the Wi-Fi connection
+     * @type { ?string }
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 12
+     */
+    uniqueIpv6Address?: string;
+
+    /**
+     * The rand unique IPv6 address of the Wi-Fi connection
+     * @type { ?string }
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 12
+     */
+    randomUniqueIpv6Address?: string;
 
     /**
      * The gateway of the Wi-Fi connection
