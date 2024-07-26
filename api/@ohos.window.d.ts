@@ -5621,6 +5621,23 @@ declare namespace window {
     ): void;
 
     /**
+     * Set whether the dialog window responds to back gesture.
+     *
+     * @param { boolean } enabled - Responds to back gesture if true, or ignore back gesture if false.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 12
+     */
+    setDialogBackGestureEnabled(enabled: boolean): Promise<void>;
+
+    /**
      * Whether the window supports thr wide gamut setting.
      *
      * @returns { Promise<boolean> } Promise used to return the result. The value true means that the wide-gamut color space is supported, and false means the opposite.
