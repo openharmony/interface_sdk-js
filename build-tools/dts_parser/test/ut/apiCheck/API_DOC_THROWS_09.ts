@@ -21,16 +21,16 @@
 /**
  * @typedef StartBLEScanOptions
  * @syscap SystemCapability.Communication.Bluetooth.Lite
- * @since 6
+ * @since 12
  */
 export interface StartBLEScanOptions {
   /**
    * Initializes the connected NFC tag.
    *
-   * @throws { BusinessError } 209 - Capability not supported.
+   * @throws { BusinessError } 404 - Capability not supported.
    * @throws { BusinessError } 3200101 - Connected NFC tag running state is abnormal in service.
    * @syscap SystemCapability.Communication.ConnectedTag
-   * @since 9
+   * @since 12
    */
   initialize(): void;
 }

@@ -26,19 +26,21 @@
 declare namespace dataUriUtils {
   /**
    * A test case for param tag's order
+   * 
+   * @param { string } uri Indicates the uri object from which the ID is to be obtained.
+   * @constant
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
-   * @param { string } uri Indicates the uri object from which the ID is to be obtained.
    */
   function getId(uri: string): void;
 }
 
 /**
  * A test case for param tag's order
+ * @param { ClickEvent } event - the information of ClickEvent
  * @typedef { function } 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
- * @param { ClickEvent } event - the information of ClickEvent
  */
 declare type ClickEventListenerCallback = (event: ClickEvent) => void;
