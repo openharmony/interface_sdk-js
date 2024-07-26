@@ -3531,6 +3531,7 @@ declare namespace audio {
      * Get the preferred output devices by the target audio renderer filter.
      * @param { AudioRendererFilter } filter - Audio renderer filter.
      * @returns { AudioDeviceDescriptors } The preferred devices.
+     * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters unspecified.
      *                                 2.Incorrect parameter types.
@@ -3655,6 +3656,7 @@ declare namespace audio {
      * Get the preferred input device for the target audio capturer filter.
      * @param { AudioCapturerFilter } filter - Audio capturer filter.
      * @returns { AudioDeviceDescriptors } The preferred devices.
+     * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters unspecified;
      *                                 2.Incorrect parameter types.
