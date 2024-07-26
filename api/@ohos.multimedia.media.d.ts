@@ -1752,8 +1752,19 @@ declare namespace media {
     getTrackDescription(): Promise<Array<MediaDescription>>;
 
     /**
+     * Get selected tracks, should be called after prepared state.
+     * @returns { Promise<Array<number>> } A Promise instance used to return selected track index.
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 12
+     */
+    getSelectedTracks(): Promise<Array<number>>;
+
+    /**
      * Select specific track to play.
      * @param { number } index : Track index returned by getTrackDescription#MD_KEY_TRACK_INDEX
+     * @param { SwitchMode} mode: set switchmode for track select behavior.
      * @returns { Promise<void> } A Promise instance used to return when select track completed.
      * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
@@ -1761,7 +1772,7 @@ declare namespace media {
      * @atomicservice
      * @since 12
      */
-    selectTrack(index: number): Promise<void>;
+    selectTrack(index: number, mode?: SwitchMode): Promise<void>;
 
     /**
      * Deselect specific track to play.
@@ -6249,6 +6260,41 @@ declare namespace media {
      * @since 12
      */
     SEEK_CONTINUOUS = 3,
+  }
+
+  /**
+   * Enumerates swtich mode.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  enum SwitchMode {
+    /**
+     * switch to the next sync frame of the given timestamp
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    SMOOTH = 0,
+    /**
+     * switch to the previous sync frame of the given timestamp
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    SEGMENT = 1,
+    /**
+     * switch to the closest frame of the given timestamp.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 12
+     */
+    CLOSEST = 2,
   }
 
   /**
