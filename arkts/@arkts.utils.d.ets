@@ -365,6 +365,7 @@ declare namespace utils {
     * @param { ISendable | undefined | null } value - The value of the parsed key value pair.
     * @returns { ISendable | undefined | null } Return the modified ISendable or undefined or null.
     * @syscap SystemCapability.Utils.Lang
+    * @atomicservice
     * @since 12
     */
     type Transformer = (this: ISendable, key: string,

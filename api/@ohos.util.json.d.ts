@@ -120,6 +120,7 @@ declare namespace json {
    * @enum { number } BigIntMode
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   const enum BigIntMode {
@@ -128,6 +129,7 @@ declare namespace json {
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     DEFAULT = 0,
@@ -136,6 +138,7 @@ declare namespace json {
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     PARSE_AS_BIGINT = 1,
@@ -144,6 +147,7 @@ declare namespace json {
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     ALWAYS_PARSE_AS_BIGINT = 2,
@@ -155,6 +159,7 @@ declare namespace json {
    * @typedef ParseOptions
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   interface ParseOptions {
@@ -163,6 +168,7 @@ declare namespace json {
     * @type { BigIntMode }
     * @syscap SystemCapability.Utils.Lang
     * @crossplatform
+    * @atomicservice
     * @since 12
     */
     bigIntMode: BigIntMode;
