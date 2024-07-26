@@ -1303,14 +1303,14 @@ declare namespace media {
    * Defines the OnStateChange callback.
    * 
    * @typedef { function } OnAVPlayerStateChangeHandle
-   * @param { AVRecorderState } state - state for AVPlayer.
+   * @param { AVPlayerState } state - state for AVPlayer.
    * @param { StateChangeReason } reason - reason for state change.
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  type OnAVPlayerStateChangeHandle = (state: AVRecorderState, reason: StateChangeReason) => void;
+  type OnAVPlayerStateChangeHandle = (state: AVPlayerState, reason: StateChangeReason) => void;
 
   /**
    * Defines the OnBufferingUpdateHandler callback.
