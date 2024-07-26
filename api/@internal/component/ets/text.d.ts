@@ -1111,6 +1111,18 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 12
    */
   editMenuOptions(editMenu: EditMenuOptions): TextAttribute;
+
+  /**
+   * Set the text with half leading.
+   *
+   * @param { bool } halfLeading
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  halfLeading(halfLeading: bool): TextAttribute;
 }
 
 /**
