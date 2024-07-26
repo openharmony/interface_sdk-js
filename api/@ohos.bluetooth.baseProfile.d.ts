@@ -136,6 +136,7 @@ declare namespace baseProfile {
     /**
      * The address of device
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
@@ -144,6 +145,7 @@ declare namespace baseProfile {
     /**
      * Profile state value
      *
+     * @type { ProfileConnectionState }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */

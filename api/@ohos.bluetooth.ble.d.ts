@@ -1990,12 +1990,14 @@ declare namespace ble {
     /**
      * The UUID of a GattService instance
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * The UUID of a GattService instance
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2004,12 +2006,14 @@ declare namespace ble {
     /**
      * Indicates whether the GattService instance is primary or secondary.
      *
+     * @type { boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * Indicates whether the GattService instance is primary or secondary.
      *
+     * @type { boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2018,12 +2022,14 @@ declare namespace ble {
     /**
      * The {@link BLECharacteristic} list belongs to this GattService instance
      *
+     * @type { Array<BLECharacteristic> }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * The {@link BLECharacteristic} list belongs to this GattService instance
      *
+     * @type { Array<BLECharacteristic> }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2032,12 +2038,14 @@ declare namespace ble {
     /**
      * The list of GATT services contained in the service
      *
+     * @type { ?Array<GattService> }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * The list of GATT services contained in the service
      *
+     * @type { ?Array<GattService> }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2064,12 +2072,14 @@ declare namespace ble {
     /**
      * The UUID of the {@link GattService} instance to which the characteristic belongs
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * The UUID of the {@link GattService} instance to which the characteristic belongs
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2078,12 +2088,14 @@ declare namespace ble {
     /**
      * The UUID of a BLECharacteristic instance
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * The UUID of a BLECharacteristic instance
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2092,12 +2104,14 @@ declare namespace ble {
     /**
      * The value of a BLECharacteristic instance
      *
+     * @type { ArrayBuffer }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * The value of a BLECharacteristic instance
      *
+     * @type { ArrayBuffer }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2106,12 +2120,14 @@ declare namespace ble {
     /**
      * The list of {@link BLEDescriptor} contained in the characteristic
      *
+     * @type { Array<BLEDescriptor> }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * The list of {@link BLEDescriptor} contained in the characteristic
      *
+     * @type { Array<BLEDescriptor> }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2120,12 +2136,14 @@ declare namespace ble {
     /**
      * The properties of a BLECharacteristic instance
      *
+     * @type { ?GattProperties }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * The properties of a BLECharacteristic instance
      *
+     * @type { ?GattProperties }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2152,12 +2170,14 @@ declare namespace ble {
     /**
      * The UUID of the {@link GattService} instance to which the descriptor belongs
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * The UUID of the {@link GattService} instance to which the descriptor belongs
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2166,12 +2186,14 @@ declare namespace ble {
     /**
      * The UUID of the {@link BLECharacteristic} instance to which the descriptor belongs
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * The UUID of the {@link BLECharacteristic} instance to which the descriptor belongs
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2180,12 +2202,14 @@ declare namespace ble {
     /**
      * The UUID of the BLEDescriptor instance
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * The UUID of the BLEDescriptor instance
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2194,12 +2218,14 @@ declare namespace ble {
     /**
      * The value of the BLEDescriptor instance
      *
+     * @type { ArrayBuffer }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * The value of the BLEDescriptor instance
      *
+     * @type { ArrayBuffer }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2226,12 +2252,14 @@ declare namespace ble {
     /**
      * The UUID of the {@link GattService} instance to which the characteristic belongs
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * The UUID of the {@link GattService} instance to which the characteristic belongs
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2240,12 +2268,14 @@ declare namespace ble {
     /**
      * The UUID of a NotifyCharacteristic instance
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * The UUID of a NotifyCharacteristic instance
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2254,12 +2284,14 @@ declare namespace ble {
     /**
      * The value of a NotifyCharacteristic instance
      *
+     * @type { ArrayBuffer }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * The value of a NotifyCharacteristic instance
      *
+     * @type { ArrayBuffer }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2269,6 +2301,7 @@ declare namespace ble {
      * Specifies whether to request confirmation from the BLE peripheral device (indication) or
      * send a notification. Value {@code true} indicates the former and {@code false} indicates the latter.
      *
+     * @type { boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
@@ -2276,6 +2309,7 @@ declare namespace ble {
      * Specifies whether to request confirmation from the BLE peripheral device (indication) or
      * send a notification. Value {@code true} indicates the former and {@code false} indicates the latter.
      *
+     * @type { boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2302,12 +2336,14 @@ declare namespace ble {
     /**
      * Indicates the address of the client that initiates the read request
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * Indicates the address of the client that initiates the read request
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2316,12 +2352,14 @@ declare namespace ble {
     /**
      * The Id of the read request
      *
+     * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * The Id of the read request
      *
+     * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2330,12 +2368,14 @@ declare namespace ble {
     /**
      * Indicates the byte offset of the start position for reading characteristic value
      *
+     * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * Indicates the byte offset of the start position for reading characteristic value
      *
+     * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2344,12 +2384,14 @@ declare namespace ble {
     /**
      * The UUID of a CharacteristicReadRequest instance
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * The UUID of a CharacteristicReadRequest instance
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2358,12 +2400,14 @@ declare namespace ble {
     /**
      * The UUID of the service to which the characteristic belongs
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * The UUID of the service to which the characteristic belongs
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2390,12 +2434,14 @@ declare namespace ble {
     /**
      * Indicates the address of the client that initiates the write request
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * Indicates the address of the client that initiates the write request
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2404,12 +2450,14 @@ declare namespace ble {
     /**
      * The Id of the write request
      *
+     * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * The Id of the write request
      *
+     * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2418,12 +2466,14 @@ declare namespace ble {
     /**
      * Indicates the byte offset of the start position for writing characteristic value
      *
+     * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * Indicates the byte offset of the start position for writing characteristic value
      *
+     * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2432,12 +2482,14 @@ declare namespace ble {
     /**
      * Whether this request should be pending for later operation
      *
+     * @type { boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * Whether this request should be pending for later operation
      *
+     * @type { boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2446,12 +2498,14 @@ declare namespace ble {
     /**
      * Whether the remote client need a response
      *
+     * @type { boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * Whether the remote client need a response
      *
+     * @type { boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2460,12 +2514,14 @@ declare namespace ble {
     /**
      * Indicates the value to be written
      *
+     * @type { ArrayBuffer }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * Indicates the value to be written
      *
+     * @type { ArrayBuffer }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2474,12 +2530,14 @@ declare namespace ble {
     /**
      * The UUID of a CharacteristicWriteRequest instance
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * The UUID of a CharacteristicWriteRequest instance
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2488,12 +2546,14 @@ declare namespace ble {
     /**
      * The UUID of the service to which the characteristic belongs
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * The UUID of the service to which the characteristic belongs
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2520,12 +2580,14 @@ declare namespace ble {
     /**
      * Indicates the address of the client that initiates the read request
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * Indicates the address of the client that initiates the read request
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2534,12 +2596,14 @@ declare namespace ble {
     /**
      * The Id of the read request
      *
+     * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * The Id of the read request
      *
+     * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2548,12 +2612,14 @@ declare namespace ble {
     /**
      * Indicates the byte offset of the start position for reading characteristic value
      *
+     * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * Indicates the byte offset of the start position for reading characteristic value
      *
+     * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2562,12 +2628,14 @@ declare namespace ble {
     /**
      * The UUID of a DescriptorReadRequest instance
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * The UUID of a DescriptorReadRequest instance
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2576,12 +2644,14 @@ declare namespace ble {
     /**
      * The UUID of the characteristic to which the descriptor belongs
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * The UUID of the characteristic to which the descriptor belongs
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2590,12 +2660,14 @@ declare namespace ble {
     /**
      * The UUID of the service to which the descriptor belongs
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * The UUID of the service to which the descriptor belongs
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2622,12 +2694,14 @@ declare namespace ble {
     /**
      * Indicates the address of the client that initiates the write request
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * Indicates the address of the client that initiates the write request
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2636,12 +2710,14 @@ declare namespace ble {
     /**
      * The Id of the write request
      *
+     * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * The Id of the write request
      *
+     * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2650,12 +2726,14 @@ declare namespace ble {
     /**
      * Indicates the byte offset of the start position for writing characteristic value
      *
+     * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * Indicates the byte offset of the start position for writing characteristic value
      *
+     * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2664,12 +2742,14 @@ declare namespace ble {
     /**
      * Whether this request should be pending for later operation
      *
+     * @type { boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * Whether this request should be pending for later operation
      *
+     * @type { boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2678,12 +2758,14 @@ declare namespace ble {
     /**
      * Whether the remote client need a response
      *
+     * @type { boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * Whether the remote client need a response
      *
+     * @type { boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2692,12 +2774,14 @@ declare namespace ble {
     /**
      * Indicates the value to be written
      *
+     * @type { ArrayBuffer }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * Indicates the value to be written
      *
+     * @type { ArrayBuffer }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2706,12 +2790,14 @@ declare namespace ble {
     /**
      * The UUID of a DescriptorWriteRequest instance
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * The UUID of a DescriptorWriteRequest instance
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2720,12 +2806,14 @@ declare namespace ble {
     /**
      * The UUID of the characteristic to which the descriptor belongs
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * The UUID of the characteristic to which the descriptor belongs
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2734,12 +2822,14 @@ declare namespace ble {
     /**
      * The UUID of the service to which the descriptor belongs
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * The UUID of the service to which the descriptor belongs
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2766,12 +2856,14 @@ declare namespace ble {
     /**
      * Indicates the address of the client to which to send the response
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * Indicates the address of the client to which to send the response
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2780,12 +2872,14 @@ declare namespace ble {
     /**
      * The Id of the write request
      *
+     * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * The Id of the write request
      *
+     * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2794,12 +2888,14 @@ declare namespace ble {
     /**
      * Indicates the status of the read or write request, set this parameter to '0' in normal cases
      *
+     * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * Indicates the status of the read or write request, set this parameter to '0' in normal cases
      *
+     * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2808,12 +2904,14 @@ declare namespace ble {
     /**
      * Indicates the byte offset of the start position for reading or writing operation
      *
+     * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * Indicates the byte offset of the start position for reading or writing operation
      *
+     * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2822,12 +2920,14 @@ declare namespace ble {
     /**
      * Indicates the value to be sent
      *
+     * @type { ArrayBuffer }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * Indicates the value to be sent
      *
+     * @type { ArrayBuffer }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2854,12 +2954,14 @@ declare namespace ble {
     /**
      * Indicates the peer device address
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * Indicates the peer device address
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2868,12 +2970,14 @@ declare namespace ble {
     /**
      * Connection state of the Gatt profile
      *
+     * @type { ProfileConnectionState }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * Connection state of the Gatt profile
      *
+     * @type { ProfileConnectionState }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2900,12 +3004,14 @@ declare namespace ble {
     /**
      * Address of the scanned device
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * Address of the scanned device
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2914,12 +3020,14 @@ declare namespace ble {
     /**
      * RSSI of the remote device
      *
+     * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * RSSI of the remote device
      *
+     * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2928,12 +3036,14 @@ declare namespace ble {
     /**
      * The raw data of broadcast packet
      *
+     * @type { ArrayBuffer }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * The raw data of broadcast packet
      *
+     * @type { ArrayBuffer }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2942,12 +3052,14 @@ declare namespace ble {
     /**
      * The local name of the BLE device
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * The local name of the BLE device
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2956,12 +3068,14 @@ declare namespace ble {
     /**
      * Connectable of the remote device
      *
+     * @type { boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * Connectable of the remote device
      *
+     * @type { boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -2990,6 +3104,7 @@ declare namespace ble {
      * Maximum slot value for the advertising interval, which is {@code 16777215} (10485.759375s)
      * Default slot value for the advertising interval, which is {@code 1600} (1s)
      *
+     * @type { ?number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
@@ -2998,6 +3113,7 @@ declare namespace ble {
      * Maximum slot value for the advertising interval, which is {@code 16777215} (10485.759375s)
      * Default slot value for the advertising interval, which is {@code 1600} (1s)
      *
+     * @type { ?number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -3008,6 +3124,7 @@ declare namespace ble {
      * Maximum transmission power level for advertising, which is {@code 1}
      * Default transmission power level for advertising, which is {@code -7}
      *
+     * @type { ?number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
@@ -3016,6 +3133,7 @@ declare namespace ble {
      * Maximum transmission power level for advertising, which is {@code 1}
      * Default transmission power level for advertising, which is {@code -7}
      *
+     * @type { ?number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -3024,12 +3142,14 @@ declare namespace ble {
     /**
      * Indicates whether the BLE is connectable, default is {@code true}
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * Indicates whether the BLE is connectable, default is {@code true}
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -3056,12 +3176,14 @@ declare namespace ble {
     /**
      * The specified service UUID list to this advertisement
      *
+     * @type { Array<string> }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * The specified service UUID list to this advertisement
      *
+     * @type { Array<string> }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -3070,12 +3192,14 @@ declare namespace ble {
     /**
      * The specified manufacturer data list to this advertisement
      *
+     * @type { Array<ManufactureData> }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * The specified manufacturer data list to this advertisement
      *
+     * @type { Array<ManufactureData> }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -3084,12 +3208,14 @@ declare namespace ble {
     /**
      * The specified service data list to this advertisement
      *
+     * @type { Array<ServiceData> }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * The specified service data list to this advertisement
      *
+     * @type { Array<ServiceData> }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -3098,12 +3224,14 @@ declare namespace ble {
     /**
      * Indicates whether the device name will be included in the advertisement packet.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * Indicates whether the device name will be included in the advertisement packet.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -3246,12 +3374,14 @@ declare namespace ble {
     /**
      * Indicates the manufacturer ID assigned by Bluetooth SIG
      *
+     * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * Indicates the manufacturer ID assigned by Bluetooth SIG
      *
+     * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -3260,12 +3390,14 @@ declare namespace ble {
     /**
      * Indicates the manufacturer data to add
      *
+     * @type { ArrayBuffer }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * Indicates the manufacturer data to add
      *
+     * @type { ArrayBuffer }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -3292,12 +3424,14 @@ declare namespace ble {
     /**
      * Indicates the UUID of the service data to add
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * Indicates the UUID of the service data to add
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -3306,12 +3440,14 @@ declare namespace ble {
     /**
      * Indicates the service data to add
      *
+     * @type { ArrayBuffer }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * Indicates the service data to add
      *
+     * @type { ArrayBuffer }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -3338,12 +3474,14 @@ declare namespace ble {
     /**
      * The address of a BLE peripheral device
      *
+     * @type { ?string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * The address of a BLE peripheral device
      *
+     * @type { ?string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -3353,12 +3491,14 @@ declare namespace ble {
     /**
      * The name of a BLE peripheral device
      *
+     * @type { ?string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * The name of a BLE peripheral device
      *
+     * @type { ?string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -3368,12 +3508,14 @@ declare namespace ble {
     /**
      * The service UUID of a BLE peripheral device
      *
+     * @type { ?string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * The service UUID of a BLE peripheral device
      *
+     * @type { ?string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -3383,12 +3525,14 @@ declare namespace ble {
     /**
      * Service UUID mask.
      *
+     * @type { ?string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * Service UUID mask.
      *
+     * @type { ?string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -3398,12 +3542,14 @@ declare namespace ble {
     /**
      * Service solicitation UUID.
      *
+     * @type { ?string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * Service solicitation UUID.
      *
+     * @type { ?string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -3413,12 +3559,14 @@ declare namespace ble {
     /**
      * Service solicitation UUID mask.
      *
+     * @type { ?string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * Service solicitation UUID mask.
      *
+     * @type { ?string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -3428,12 +3576,14 @@ declare namespace ble {
     /**
      * Service data.
      *
+     * @type { ?ArrayBuffer }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * Service data.
      *
+     * @type { ?ArrayBuffer }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -3443,12 +3593,14 @@ declare namespace ble {
     /**
      * Service data mask.
      *
+     * @type { ?ArrayBuffer }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * Service data mask.
      *
+     * @type { ?ArrayBuffer }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -3458,12 +3610,14 @@ declare namespace ble {
     /**
      * Manufacture id.
      *
+     * @type { ?number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * Manufacture id.
      *
+     * @type { ?number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -3473,12 +3627,14 @@ declare namespace ble {
     /**
      * Manufacture data.
      *
+     * @type { ?ArrayBuffer }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * Manufacture data.
      *
+     * @type { ?ArrayBuffer }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -3488,12 +3644,14 @@ declare namespace ble {
     /**
      * Manufacture data mask.
      *
+     * @type { ?ArrayBuffer }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * Manufacture data mask.
      *
+     * @type { ?ArrayBuffer }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -3520,12 +3678,14 @@ declare namespace ble {
     /**
      * Time of delay for reporting the scan result
      *
+     * @type { ?number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * Time of delay for reporting the scan result
      *
+     * @type { ?number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -3534,12 +3694,14 @@ declare namespace ble {
     /**
      * Bluetooth LE scan mode
      *
+     * @type { ?ScanDuty }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * Bluetooth LE scan mode
      *
+     * @type { ?ScanDuty }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -3548,12 +3710,14 @@ declare namespace ble {
     /**
      * Match mode for Bluetooth LE scan filters hardware match
      *
+     * @type { ?MatchMode }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * Match mode for Bluetooth LE scan filters hardware match
      *
+     * @type { ?MatchMode }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -3562,6 +3726,7 @@ declare namespace ble {
     /**
      * Physical Layer used during scan.
      *
+     * @type { ?PhyType }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -3588,12 +3753,14 @@ declare namespace ble {
     /**
      * Support write property of the characteristic.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * Support write property of the characteristic.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -3602,12 +3769,14 @@ declare namespace ble {
     /**
      * Support write no response property of the characteristic.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * Support write no response property of the characteristic.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -3616,12 +3785,14 @@ declare namespace ble {
     /**
      * Support read property of the characteristic.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * Support read property of the characteristic.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -3630,12 +3801,14 @@ declare namespace ble {
     /**
      * Support notify property of the characteristic.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * Support notify property of the characteristic.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
@@ -3644,12 +3817,14 @@ declare namespace ble {
     /**
      * Support indicate property of the characteristic.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
     /**
      * Support indicate property of the characteristic.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
