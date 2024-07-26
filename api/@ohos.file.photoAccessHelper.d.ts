@@ -5024,7 +5024,7 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 12
      */
-    TASK_STAGE_COMPLETED,
+    TASK_STAGE_COMPLETED
   }
 
   /**
@@ -5045,14 +5045,14 @@ declare namespace photoAccessHelper {
      */
     readonly taskStage: CloudEnhancementTaskStage;
     /**
-     * Indicates the tranfer file size.
+     * Indicates the transfer file size.
      * 
      * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12
      */
-    readonly tranferFileSize?: number;
+    readonly transferFileSize?: number;
     /**
      * Indicates the total file size.
      * 
@@ -5263,7 +5263,7 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 12
      */
-    COMPLETED,
+    COMPLETED
   }
 }
 
