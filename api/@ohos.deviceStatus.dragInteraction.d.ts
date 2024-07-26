@@ -112,7 +112,7 @@ declare namespace dragInteraction {
    *
    * @param { 'drag' } type Indicates the event type.
    * @param { Callback<DragState> } callback Indicates the callback to receive the changed dragging state.
-   * @throws {BusinessError} 202 - Not system application.
+   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
@@ -139,7 +139,7 @@ declare namespace dragInteraction {
    * @param { 'drag' } type Indicates the event type.
    * @param { Callback<DragState> }callback Indicates the callback for which listening is disabled. If this parameter
    * is not specified, listening will be disabled for all registered callbacks.
-   * @throws {BusinessError} 202 - Not system application.
+   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
@@ -152,7 +152,7 @@ declare namespace dragInteraction {
    * Obtains the abstract of a dragged object.
    *
    * @returns { Array<Summary> } Data abstract of the dragged object.
-   * @throws {BusinessError} 202 - Not system application.
+   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
    * @since 11
