@@ -3523,7 +3523,7 @@ declare namespace audio {
     getPreferredOutputDeviceForRendererInfoSync(rendererInfo: AudioRendererInfo): AudioDeviceDescriptors;
 
     /**
-     * Gets the preferred output devices by the target audio renderer filter.
+     * Get the preferred output devices by the target audio renderer filter.
      * @param { AudioRendererFilter } filter - Audio renderer filter.
      * @returns { AudioDeviceDescriptors } The preferred devices.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -3647,7 +3647,7 @@ declare namespace audio {
     getPreferredInputDeviceForCapturerInfo(capturerInfo: AudioCapturerInfo): Promise<AudioDeviceDescriptors>;
 
     /**
-     * Gets the preferred input device for the target audio capturer filter.
+     * Get the preferred input device for the target audio capturer filter.
      * @param { AudioCapturerFilter } filter - Audio capturer filter.
      * @returns { AudioDeviceDescriptors } The preferred devices.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
