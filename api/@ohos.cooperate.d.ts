@@ -296,7 +296,7 @@ declare namespace cooperate {
    * Prepares for screen hopping.
    *
    * @param { AsyncCallback<void> } callback Asynchronous callback used to return the operation result.
-   * @throws {BusinessError} 202 - Not system application.
+   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
@@ -311,7 +311,7 @@ declare namespace cooperate {
    * Prepares for screen hopping.
    *
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws {BusinessError} 202 - Not system application.
+   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    * @throws {BusinessError} 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
@@ -328,7 +328,7 @@ declare namespace cooperate {
    * @permission ohos.permission.COOPERATE_MANAGER
    * @param { AsyncCallback<void> } callback - Asynchronous callback used to return the operation result.
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - Not system application.
+   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
@@ -343,7 +343,7 @@ declare namespace cooperate {
    * @permission ohos.permission.COOPERATE_MANAGER
    * @returns { Promise<void> } the promise returned by the function.
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - Not system application.
+   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
@@ -356,7 +356,7 @@ declare namespace cooperate {
    * Cancels the preparation for screen hopping.
    *
    * @param { AsyncCallback<void> } callback Asynchronous callback used to return the operation result.
-   * @throws {BusinessError} 202 - Not system application.
+   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
@@ -371,7 +371,7 @@ declare namespace cooperate {
    * Cancels the preparation for screen hopping.
    *
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws {BusinessError} 202 - Not system application.
+   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
@@ -388,7 +388,7 @@ declare namespace cooperate {
    * @permission ohos.permission.COOPERATE_MANAGER
    * @param { AsyncCallback<void> } callback - Asynchronous callback used to return the operation result.
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - Not system application.
+   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
@@ -403,7 +403,7 @@ declare namespace cooperate {
    * @permission ohos.permission.COOPERATE_MANAGER
    * @returns { Promise<void> } the promise returned by the function.
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - Not system application.
+   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11
@@ -416,7 +416,7 @@ declare namespace cooperate {
    * @param { string } targetNetworkId Descriptor of the target device for screen hopping.
    * @param { number } inputDeviceId Identifier of the input device for screen hopping.
    * @param { AsyncCallback<void> } callback Asynchronous callback used to return the operation result.
-   * @throws {BusinessError} 202 - Not system application.
+   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @throws {BusinessError} 20900001 - Operation failed.
@@ -434,7 +434,7 @@ declare namespace cooperate {
    * @param { string } targetNetworkId Descriptor of the target device for screen hopping.
    * @param { number }inputDeviceId Identifier of the input device for screen hopping.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws {BusinessError} 202 - Not system application.
+   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @throws {BusinessError} 20900001 - Operation failed.
@@ -454,7 +454,7 @@ declare namespace cooperate {
    * @param { number } inputDeviceId - Identifier of the input device for screen hopping.
    * @param { AsyncCallback<void> } callback - Asynchronous callback used to return the operation result.
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - Not system application.
+   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @throws {BusinessError} 20900001 - Operation failed.
@@ -472,7 +472,7 @@ declare namespace cooperate {
    * @param { number }inputDeviceId - Identifier of the input device for screen hopping.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - Not system application.
+   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @throws {BusinessError} 20900001 - Operation failed.
@@ -487,7 +487,7 @@ declare namespace cooperate {
    *
    * @param { boolean } isUnchained Whether the cross-device link is unchained.
    * @param { AsyncCallback<void> } callback Asynchronous callback used to return the operation result.
-   * @throws {BusinessError} 202 - Not system application.
+   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
@@ -503,7 +503,7 @@ declare namespace cooperate {
    *
    * @param { boolean } isUnchained Whether the cross-device link is unchained.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws {BusinessError} 202 - Not system application.
+   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -519,7 +519,7 @@ declare namespace cooperate {
    * @param { boolean } isUnchained - Whether the cross-device link is unchained.
    * @param { AsyncCallback<void> } callback - Asynchronous callback used to return the operation result.
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - Not system application.
+   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
@@ -535,7 +535,7 @@ declare namespace cooperate {
    * @param { boolean } isUnchained - Whether the cross-device link is unchained.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - Not system application.
+   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11
@@ -547,7 +547,7 @@ declare namespace cooperate {
    *
    * @param { string } networkId Descriptor of the target device for screen hopping.
    * @param { AsyncCallback<boolean> } callback Asynchronous callback used to return the screen hopping status.
-   * @throws {BusinessError} 202 - Not system application.
+   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
@@ -564,7 +564,7 @@ declare namespace cooperate {
    * @param { string } networkId Descriptor of the target device for screen hopping.
    * @returns { Promise<boolean> } Returns {@code true} the screen hopping status;
    *                               returns {@code false} otherwise.
-   * @throws {BusinessError} 202 - Not system application.
+   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
@@ -583,7 +583,7 @@ declare namespace cooperate {
    * @param { string } networkId - Descriptor of the target device for screen hopping.
    * @param { AsyncCallback<boolean> } callback - Asynchronous callback used to return the screen hopping status.
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - Not system application.
+   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
@@ -600,7 +600,7 @@ declare namespace cooperate {
    * @returns { Promise<boolean> } Returns {@code true} the screen hopping status;
    *                               returns {@code false} otherwise.
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - Not system application.
+   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
@@ -615,7 +615,7 @@ declare namespace cooperate {
    * @param { 'cooperate' } type Change type.
    * @param { Callback<{ networkId: string, msg: CooperateMsg }> } callback Asynchronous callback used to
    * <br>return the screen hopping status change event.
-   * @throws {BusinessError} 202 - Not system application.
+   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
@@ -632,7 +632,7 @@ declare namespace cooperate {
    * @param { 'cooperate' } type Change type.
    * @param { Callback<void> } callback Callback for which listening
    * <br>is disabled. If this parameter is not specified, listening will be disabled for all registered callbacks.
-   * @throws {BusinessError} 202 - Not system application.
+   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
@@ -651,7 +651,7 @@ declare namespace cooperate {
    * @param { Callback<CooperateMessage> } callback - Asynchronous callback used to
    * <br>return the screen hopping status change event.
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - Not system application.
+   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
@@ -668,7 +668,7 @@ declare namespace cooperate {
    * @param { Callback<CooperateMessage> } [callback] - Callback for which listening
    * <br>is disabled. If this parameter is not specified, listening will be disabled for all registered callbacks.
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - Not system application.
+   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    * @throws {BusinessError} 401 - Parameter error. Possible causes:1.Incorrect parameter types.2.Parameter 
    * <br>verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
@@ -685,7 +685,7 @@ declare namespace cooperate {
    * @param { string } networkId - Specified device.
    * @param { Callback<MouseLocation> } callback - Callback for receiving reported events.
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - Not system application.
+   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
@@ -703,7 +703,7 @@ declare namespace cooperate {
    * @param { Callback<MouseLocation> } [callback] - Callback for receiving reported events.
    * <br>If no callback is specified, listening will be disabled for all **cooperateMouse** events of the device specified by **networkId**.
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - Not system application.
+   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
