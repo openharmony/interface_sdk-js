@@ -34,8 +34,8 @@ import { AsyncCallback, Callback } from './@ohos.base';
 /**
  * Provides methods to operate or manage Wi-Fi.
  * @namespace wifiManager
- * @crossplatform
  * @syscap SystemCapability.Communication.WiFi.STA
+ * @crossplatform
  * @atomicservice
  * @since 12
  */
