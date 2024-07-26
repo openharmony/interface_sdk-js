@@ -1763,8 +1763,8 @@ declare namespace media {
 
     /**
      * Select specific track to play.
-     * @param { number } index : Track index returned by getTrackDescription#MD_KEY_TRACK_INDEX
-     * @param { SwitchMode } mode: set switchmode for track select behavior.
+     * @param { number } index - Track index returned by getTrackDescription#MD_KEY_TRACK_INDEX
+     * @param { SwitchMode } mode - set switchmode for track select behavior.
      * @returns { Promise<void> } A Promise instance used to return when select track completed.
      * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.

@@ -1186,3 +1186,4 @@ zoomout
 zoomreset
 zooms
 zpass
+switchmode
