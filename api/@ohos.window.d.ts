@@ -145,8 +145,8 @@ declare namespace window {
      */
     /**
      * Float.
+     * Require "ohos.permission.SYSTEM_FLOAT_WINDOW" permission
      *
-     * @permission ohos.permission.SYSTEM_FLOAT_WINDOW
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
      * @atomicservice
@@ -618,6 +618,7 @@ declare namespace window {
     /**
      * The color of the status bar.
      *
+     * @type { ?string }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -633,6 +634,7 @@ declare namespace window {
     /**
      * The light icon of the status bar.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -648,6 +650,7 @@ declare namespace window {
     /**
      * The content color of the status bar
      *
+     * @type { ?string }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -663,6 +666,7 @@ declare namespace window {
     /**
      * The color of the navigation bar.
      *
+     * @type { ?string }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -678,6 +682,7 @@ declare namespace window {
     /**
      * The light icon of the navigation bar.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -693,6 +698,7 @@ declare namespace window {
     /**
      * The content color of the navigation bar
      *
+     * @type { ?string }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -702,6 +708,7 @@ declare namespace window {
     /**
      * Enable the animation of the status bar.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12
@@ -711,6 +718,7 @@ declare namespace window {
     /**
      * Enable the animation of the navigation bar.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12
@@ -730,6 +738,7 @@ declare namespace window {
     /**
      * The content color of the status bar
      *
+     * @type { ?string }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -749,6 +758,7 @@ declare namespace window {
     /**
      * System bar type
      *
+     * @type { WindowType }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -758,6 +768,7 @@ declare namespace window {
     /**
      * The visibility of system bar
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -767,6 +778,7 @@ declare namespace window {
     /**
      * The region of system bar
      *
+     * @type { ?Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -776,6 +788,7 @@ declare namespace window {
     /**
      * The background color of the system bar.
      *
+     * @type { ?string }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -785,6 +798,7 @@ declare namespace window {
     /**
      * The content color of the system bar.
      *
+     * @type { ?string }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -804,6 +818,7 @@ declare namespace window {
     /**
      * Id of display
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -812,6 +827,7 @@ declare namespace window {
     /**
      * Region tint of systembar
      *
+     * @type { Array<SystemBarRegionTint> }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -861,6 +877,7 @@ declare namespace window {
     /**
      * The left of the Rect.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
@@ -884,6 +901,7 @@ declare namespace window {
     /**
      * The top of the Rect.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
@@ -907,6 +925,7 @@ declare namespace window {
     /**
      * The width of the Rect.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
@@ -930,6 +949,7 @@ declare namespace window {
     /**
      * The height of the Rect.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
@@ -1579,6 +1599,7 @@ declare namespace window {
     /**
      * The scale param of x direction. Default is 1.f
      *
+     * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
@@ -1588,6 +1609,7 @@ declare namespace window {
     /**
      * The scale param of y direction. Default is 1.f
      *
+     * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
@@ -1597,6 +1619,7 @@ declare namespace window {
     /**
      * The scale param of pivot point of x. Default is 0.5f, Interval is 0.f - 1.f
      *
+     * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
@@ -1606,6 +1629,7 @@ declare namespace window {
     /**
      * The scale param of pivot point of y. Default is 0.5f, Interval is 0.f - 1.f
      *
+     * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
@@ -1836,6 +1860,7 @@ declare namespace window {
     /**
      * Indicates window id.
      *
+     * @type { string }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -2253,7 +2278,9 @@ declare namespace window {
    */
   /**
    * Create a window with a specific configuration
+   * When config.windowType == TYPE_FLOAT, the "ohos.permission.SYSTEM_FLOAT_WINDOW" permission is required
    *
+   * @permission ohos.permission.SYSTEM_FLOAT_WINDOW
    * @param { Configuration } config - Parameters for window creation.
    * @param { AsyncCallback<Window> } callback - Callback used to return the window created.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
@@ -2288,7 +2315,9 @@ declare namespace window {
    */
   /**
    * Create a window with a specific configuration
+   * When config.windowType == TYPE_FLOAT, the "ohos.permission.SYSTEM_FLOAT_WINDOW" permission is required
    *
+   * @permission ohos.permission.SYSTEM_FLOAT_WINDOW
    * @param { Configuration } config - Parameters for window creation.
    * @returns { Promise<Window> } Promise used to return the window created.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
@@ -4735,9 +4764,6 @@ declare namespace window {
      * Get the UIContext associate with the window content.
      *
      * @returns { UIContext } the object of UIContext.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 
-     *                                                                   2. Incorrect parameter types; 
-     *                                                                   3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @stagemodelonly
@@ -6860,7 +6886,6 @@ declare namespace window {
      * Raise app sub window to app top
      *
      * @param { AsyncCallback<void> } callback - The callback of raiseToAppTop
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
@@ -6876,7 +6901,6 @@ declare namespace window {
      * Raise app sub window to app top
      *
      * @returns { Promise<void> } - The promise returned by the function
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
@@ -7535,7 +7559,6 @@ declare namespace window {
      * Enable landscape multiWindow
      *
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws {BusinessError} 401 - Parameter error.
      * @throws {BusinessError} 1300002 - This window state is abnormal.
      * @throws {BusinessError} 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -7548,7 +7571,6 @@ declare namespace window {
      * Disable landscape multiWindow
      *
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws {BusinessError} 401 - Parameter error.
      * @throws {BusinessError} 1300002 - This window state is abnormal.
      * @throws {BusinessError} 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
