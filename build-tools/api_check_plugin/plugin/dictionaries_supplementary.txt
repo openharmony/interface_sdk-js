@@ -969,6 +969,7 @@ suscribes
 suspending
 suspends
 swanctl
+switchmode
 switchvideomode
 symantec
 symbolglyph
@@ -1186,5 +1187,3 @@ zoomout
 zoomreset
 zooms
 zpass
-switchmode
-SwitchMode
