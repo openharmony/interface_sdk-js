@@ -322,11 +322,8 @@ declare namespace distributedDeviceManager {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { string } deviceId - id of device to bind.
      * @param { object } bindParam - parameters of device to bind, The parameter type is map,such as:
-     *      "bindType" : 1-4,         - This value is type of bind, the values are as follows:
+     *      "bindType" : 1,           - This value is type of bind, the values are as follows:
      *                                  1 - The bind type is pin code .
-     *                                  2 - The bind type is QR code.
-     *                                  3 - The bind type is nfc.
-     *                                  4 - The bind type is no_interaction.
 
      *      "targetPkgName" : "xxxx", - The package name of binding target.
      *      "appName" : "xxxx",       - The app name that try to bind the target.
