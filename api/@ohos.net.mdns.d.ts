@@ -43,7 +43,7 @@ declare namespace mdns {
    */
   /**
    * Get a network address.
-   * @typedef NetAddress
+   * @typedef { connection.NetAddress }
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
    * @since 12

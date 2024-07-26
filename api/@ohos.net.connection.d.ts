@@ -57,7 +57,7 @@ declare namespace connection {
    */
   /**
    * Get an HTTP request task.
-   * @typedef HttpRequest
+   * @typedef { http.HttpRequest }
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @atomicservice
@@ -72,7 +72,7 @@ declare namespace connection {
    */
   /**
    * Get a TCPSocket object.
-   * @typedef TCPSocket
+   * @typedef { socket.TCPSocket }
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @since 10
@@ -86,7 +86,7 @@ declare namespace connection {
    */
   /**
    * Get a UDPSocket object.
-   * @typedef UDPSocket
+   * @typedef { socket.UDPSocket }
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @since 10
