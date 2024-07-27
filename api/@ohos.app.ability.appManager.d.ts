@@ -962,6 +962,23 @@ declare namespace appManager {
   function clearUpAppData(bundleName: string, appCloneIndex?: number): Promise<void>;
 
   /**
+   * Terminate the mission of a UIAbility and back to caller.
+   *
+   * @permission ohos.permission.KILL_APP_PROCESSES
+   * @param { number } missionId - The mission id of the UIAbility need to be terminated.
+   * @returns { Promise<void> } Returns the result of terminateMission.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 12
+   */
+  function terminateMission(missionId: number): Promise<void>;
+
+  /**
    * The ability or extension state data.
    *
    * @typedef { _AbilityStateData.default }
