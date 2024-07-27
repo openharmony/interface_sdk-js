@@ -148,10 +148,10 @@ declare namespace uiAppearance {
   function getFontScale(): number;
 
   /**
-   * Set the system font-wght-scale.
+   * Set the system font-weight-scale.
    *
    * @permission ohos.permission.UPDATE_CONFIGURATION
-   * @param { number } fontWeightScale - indicates the font-wght-scale to set
+   * @param { number } fontWeightScale - indicates the font-weight-scale to set
    * @returns { Promise<void> } the promise returned by the function
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -167,10 +167,10 @@ declare namespace uiAppearance {
   function setFontWeightScale(fontWeightScale: number): Promise<void>;
 
   /**
-   * Acquire the current font-wght-scale.
+   * Acquire the current font-weight-scale.
    *
    * @permission ohos.permission.UPDATE_CONFIGURATION
-   * @returns { number } current font-wght-scale.
+   * @returns { number } current font-weight-scale.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
