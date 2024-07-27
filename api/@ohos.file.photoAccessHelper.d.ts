@@ -5032,6 +5032,7 @@ declare namespace photoAccessHelper {
    * 
    * @interface CloudEnhancementTaskState
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
    * @since 12
    */
   interface CloudEnhancementTaskState {
@@ -5093,7 +5094,6 @@ declare namespace photoAccessHelper {
     /**
      * Get cloud enhancement instance.
      * 
-     * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { Context } context - Hap context information
      * @returns { CloudEnhancement } Returns cloud enhancement instance
      * @throws { BusinessError } 201 - Permission denied
@@ -5177,7 +5177,7 @@ declare namespace photoAccessHelper {
     /**
      * Query cloud enhancement task state.
      * 
-     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @permission ohos.permission.READ_IMAGEVIDEO
      * @param { PhotoAsset } photoAsset - The photo asset requested
      * @returns { Promise<CloudEnhancementTaskState> } Returns cloud enhancement task state
      * @throws { BusinessError } 201 - Permission denied
@@ -5194,7 +5194,7 @@ declare namespace photoAccessHelper {
     /**
      * Sync cloud enhancement task status.
      * 
-     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @permission ohos.permission.READ_IMAGEVIDEO
      * @returns { Promise<void> } Returns void
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 202 - Called by non-system application
@@ -5208,7 +5208,7 @@ declare namespace photoAccessHelper {
     /**
      * Get cloud enhancement pair.
      * 
-     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @permission ohos.permission.READ_IMAGEVIDEO
      * @param { PhotoAsset } asset - The asset requested
      * @returns { Promise<PhotoAsset> } Returns cloud-enhanced asset
      * @throws { BusinessError } 201 - Permission denied
