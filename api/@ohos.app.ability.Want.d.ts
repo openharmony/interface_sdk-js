@@ -57,6 +57,7 @@ export default class Want {
   /**
    * bundle name
    *
+   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
    * @crossplatform
    * @atomicservice
@@ -81,6 +82,7 @@ export default class Want {
   /**
    * ability name
    *
+   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
    * @crossplatform
    * @atomicservice
@@ -233,6 +235,7 @@ export default class Want {
   /**
    * The description of an module name in an want.
    *
+   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
    * @crossplatform
    * @atomicservice

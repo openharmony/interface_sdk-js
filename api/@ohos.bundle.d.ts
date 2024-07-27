@@ -332,6 +332,7 @@ declare namespace bundle {
     /**
      * Indicates the user id
      *
+     * @type { ?number }
      * @syscap SystemCapability.BundleManager.BundleFramework
      * @since 7
      * @deprecated since 9

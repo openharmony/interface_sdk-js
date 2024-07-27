@@ -478,6 +478,7 @@ declare namespace intl {
     /**
      * Indicates the language of the locale.
      *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @form
@@ -510,6 +511,7 @@ declare namespace intl {
     /**
      * Indicates the script of the locale.
      *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @form
@@ -542,6 +544,7 @@ declare namespace intl {
     /**
      * Indicates the region of the locale.
      *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @form
@@ -578,6 +581,7 @@ declare namespace intl {
      * Indicates the basic locale information, which is returned as a substring of
      * a complete locale string.
      *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @form
@@ -610,6 +614,7 @@ declare namespace intl {
     /**
      * Indicates the case first style of the locale.
      *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @form
@@ -642,6 +647,7 @@ declare namespace intl {
     /**
      * Indicates the calendar.
      *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @form
@@ -674,6 +680,7 @@ declare namespace intl {
     /**
      * Indicates the collation.
      *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @form
@@ -706,6 +713,7 @@ declare namespace intl {
     /**
      * Indicates the hour cycle.
      *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @form
@@ -738,6 +746,7 @@ declare namespace intl {
     /**
      * Indicates the numbering system.
      *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @form
@@ -770,6 +779,7 @@ declare namespace intl {
     /**
      * Indicates whether it is numeric.
      *
+     * @type { boolean }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @form
@@ -3771,6 +3781,7 @@ declare namespace intl {
     /**
      * The BCP 47 language tag for the locale actually used.
      *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
@@ -3797,6 +3808,7 @@ declare namespace intl {
      * The length of the internationalized message.
      * Possible values are: long, short, narrow
      *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
@@ -3823,6 +3835,7 @@ declare namespace intl {
      * The format of output message.
      * Possible values are: always, auto
      *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
@@ -3846,6 +3859,7 @@ declare namespace intl {
     /**
      * The value requested using the Unicode extension key "nu" or filled in as a default.
      *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice

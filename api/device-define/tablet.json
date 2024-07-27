@@ -113,6 +113,7 @@
     "SystemCapability.HiviewDFX.HiAppEvent",
     "SystemCapability.HiviewDFX.HiSysEvent",
     "SystemCapability.HiviewDFX.HiProfiler.HiDebug",
+    "SystemCapability.HiviewDFX.HiCollie",
     "SystemCapability.Update.UpdateService",
     "SystemCapability.DistributedHardware.DeviceManager",
     "SystemCapability.Security.DeviceAuth",
@@ -210,6 +211,7 @@
     "SystemCapability.Graphic.Vulkan",
     "SystemCapability.Multimedia.Image.ImageCreator",
     "SystemCapability.Graphic.Graphic2D.WebGL2",
-    "SystemCapability.Ability.AppStartup"
+    "SystemCapability.Ability.AppStartup",
+    "SystemCapability.Ability.AppExtension.PhotoEditorExtension"
   ]
 }

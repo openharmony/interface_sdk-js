@@ -39,12 +39,11 @@ import {
   diffMap,
   incompatibleApiDiffTypes,
   JsDocDiffProcessor,
+  parentApiTypeSet
 } from '../../typedef/diff/ApiInfoDiff';
 import { StringUtils } from '../../utils/StringUtils';
 import { CharMapType, CompareReturnObjType, PermissionsProcessorHelper, RangeChange } from './PermissionsProcessor';
 import { DecoratorInfo } from '../../typedef/parser/Decorator';
-import { ApiStatisticsHelper } from '../statistics/Statistics';
-import { FunctionUtils } from '../../utils/FunctionUtils';
 import { CommonFunctions } from '../../utils/checkUtils';
 import { NumberConstant } from '../../utils/Constant';
 
@@ -70,13 +69,29 @@ export namespace DiffProcessorHelper {
    *
    */
   export class JsDocDiffHelper {
-    static diffJsDocInfo(oldApiInfo: ApiInfo, newApiInfo: ApiInfo, diffInfos: BasicDiffInfo[]): void {
+    static diffJsDocInfo(
+      oldApiInfo: ApiInfo,
+      newApiInfo: ApiInfo,
+      diffInfos: BasicDiffInfo[],
+      isAllDeprecated?: boolean,
+      isAllSheet?: boolean
+    ): void {
       const oldJsDocInfo: Comment.JsDocInfo | undefined = oldApiInfo.getLastJsDocInfo();
       const newJsDocInfo: Comment.JsDocInfo | undefined = newApiInfo.getLastJsDocInfo();
       JsDocDiffHelper.diffSinceVersion(oldApiInfo, newApiInfo, diffInfos);
+      const allDiffTypeInfo: DiffTypeInfo[] | undefined = JsDocDiffHelper.diffErrorCodes(oldJsDocInfo, newJsDocInfo);
+      allDiffTypeInfo?.forEach((diffType: DiffTypeInfo) => {
+        const diffInfo: BasicDiffInfo = DiffProcessorHelper.wrapDiffInfo(oldApiInfo, newApiInfo, diffType);
+        diffInfos.push(diffInfo);
+      });
       for (let i = 0; i < jsDocDiffProcessors.length; i++) {
         const jsDocDiffProcessor: JsDocDiffProcessor | undefined = jsDocDiffProcessors[i];
-        const diffType: DiffTypeInfo | undefined = jsDocDiffProcessor(oldJsDocInfo, newJsDocInfo);
+        const diffType: DiffTypeInfo | undefined = jsDocDiffProcessor(
+          oldJsDocInfo,
+          newJsDocInfo,
+          isAllDeprecated,
+          isAllSheet
+        );
         if (!diffType) {
           continue;
         }
@@ -215,6 +230,26 @@ export namespace DiffProcessorHelper {
       return diffTypeInfo.setDiffType(ApiDiffType.CROSS_PLATFORM_TO_NA);
     }
 
+    static diffAtomicService(
+      oldJsDocInfo: Comment.JsDocInfo | undefined,
+      newJsDocInfo: Comment.JsDocInfo | undefined
+    ): DiffTypeInfo | undefined {
+      const diffTypeInfo: DiffTypeInfo = new DiffTypeInfo();
+      const isAtomicServiceOfOld: boolean | undefined = oldJsDocInfo ? oldJsDocInfo.getIsAtomicService() : false;
+      const isAtomicServiceOfNew: boolean | undefined = newJsDocInfo ? newJsDocInfo.getIsAtomicService() : false;
+      diffTypeInfo
+        .setStatusCode(ApiStatusCode.ATOMICSERVICE_CHANGE)
+        .setOldMessage(StringUtils.transformBooleanToTag(isAtomicServiceOfOld, Comment.JsDocTag.ATOMIC_SERVICE))
+        .setNewMessage(StringUtils.transformBooleanToTag(isAtomicServiceOfNew, Comment.JsDocTag.ATOMIC_SERVICE));
+      if (isAtomicServiceOfOld === isAtomicServiceOfNew) {
+        return undefined;
+      }
+      if (isAtomicServiceOfNew) {
+        return diffTypeInfo.setDiffType(ApiDiffType.ATOMIC_SERVICE_NA_TO_HAVE);
+      }
+      return diffTypeInfo.setDiffType(ApiDiffType.ATOMIC_SERVICE_HAVE_TO_NA);
+    }
+
     static diffPermissions(
       oldJsDocInfo: Comment.JsDocInfo | undefined,
       newJsDocInfo: Comment.JsDocInfo | undefined
@@ -251,12 +286,16 @@ export namespace DiffProcessorHelper {
     static diffErrorCodes(
       oldJsDocInfo: Comment.JsDocInfo | undefined,
       newJsDocInfo: Comment.JsDocInfo | undefined
-    ): DiffTypeInfo | undefined {
+    ): DiffTypeInfo[] | undefined {
       const diffTypeInfo: DiffTypeInfo = new DiffTypeInfo();
       const errorCodesOfOld: number[] = oldJsDocInfo ? oldJsDocInfo.getErrorCode().sort() : [];
       const errorCodesOfNew: number[] = newJsDocInfo ? newJsDocInfo.getErrorCode().sort() : [];
+      const errorCodeSetOfOld: Set<number> = new Set(errorCodesOfOld);
+      const errorCodeSetOfNew: Set<number> = new Set(errorCodesOfNew);
+      const allErrorCodes: Set<number> = new Set(errorCodesOfNew.concat(errorCodesOfOld));
       const errorCodesStringOfOld: string = errorCodesOfOld.toString();
       const errorCodesStringOfNew: string = errorCodesOfNew.toString();
+      const allDiffTypeInfo: DiffTypeInfo[] = [];
       diffTypeInfo
         .setStatusCode(ApiStatusCode.ERRORCODE_CHANGES)
         .setOldMessage(errorCodesStringOfOld)
@@ -265,15 +304,40 @@ export namespace DiffProcessorHelper {
         return undefined;
       }
       if (errorCodesOfOld.length === 0 && errorCodesOfNew.length !== 0) {
-        return diffTypeInfo.setStatusCode(ApiStatusCode.NEW_ERRORCODE).setDiffType(ApiDiffType.ERROR_CODE_NA_TO_HAVE);
+        allDiffTypeInfo.push(
+          diffTypeInfo.setStatusCode(ApiStatusCode.NEW_ERRORCODE).setDiffType(ApiDiffType.ERROR_CODE_NA_TO_HAVE)
+        );
+        return allDiffTypeInfo;
       }
-      if (StringUtils.hasSubstring(errorCodesStringOfNew, errorCodesStringOfOld)) {
-        return diffTypeInfo.setStatusCode(ApiStatusCode.NEW_ERRORCODE).setDiffType(ApiDiffType.ERROR_CODE_ADD);
+      const oldChangeErrorCodes: number[] = [];
+      const newChangeErrorCodes: number[] = [];
+      allErrorCodes.forEach((errorCode: number) => {
+        if (!errorCodeSetOfOld.has(errorCode)) {
+          oldChangeErrorCodes.push(errorCode);
+        }
+        if (!errorCodeSetOfNew.has(errorCode)) {
+          newChangeErrorCodes.push(errorCode);
+        }
+      });
+      if (oldChangeErrorCodes.length !== 0) {
+        const oldDiffTypeInfo: DiffTypeInfo = new DiffTypeInfo();
+        oldDiffTypeInfo
+          .setOldMessage('NA')
+          .setNewMessage(oldChangeErrorCodes.join())
+          .setStatusCode(ApiStatusCode.NEW_ERRORCODE)
+          .setDiffType(ApiDiffType.ERROR_CODE_ADD);
+        allDiffTypeInfo.push(oldDiffTypeInfo);
       }
-      if (StringUtils.hasSubstring(errorCodesStringOfOld, errorCodesStringOfNew)) {
-        return diffTypeInfo.setDiffType(ApiDiffType.ERROR_CODE_REDUCE);
+      if (newChangeErrorCodes.length !== 0) {
+        const newDiffTypeInfo: DiffTypeInfo = new DiffTypeInfo();
+        newDiffTypeInfo
+          .setOldMessage(newChangeErrorCodes.join())
+          .setNewMessage('NA')
+          .setStatusCode(ApiStatusCode.ERRORCODE_DELETE)
+          .setDiffType(ApiDiffType.ERROR_CODE_REDUCE);
+        allDiffTypeInfo.push(newDiffTypeInfo);
       }
-      return diffTypeInfo.setDiffType(ApiDiffType.ERROR_CODE_CHANGE);
+      return allDiffTypeInfo;
     }
 
     static diffSyscap(
@@ -298,7 +362,9 @@ export namespace DiffProcessorHelper {
 
     static diffDeprecated(
       oldJsDocInfo: Comment.JsDocInfo | undefined,
-      newJsDocInfo: Comment.JsDocInfo | undefined
+      newJsDocInfo: Comment.JsDocInfo | undefined,
+      isAllDeprecated?: boolean,
+      isAllSheet?: boolean
     ): DiffTypeInfo | undefined {
       const diffTypeInfo: DiffTypeInfo = new DiffTypeInfo();
       const deprecatedVersionOfOld: string = oldJsDocInfo ? oldJsDocInfo.getDeprecatedVersion() : '-1';
@@ -310,12 +376,26 @@ export namespace DiffProcessorHelper {
       if (deprecatedVersionOfNew === deprecatedVersionOfOld) {
         return undefined;
       }
-      if (deprecatedVersionOfOld === '-1') {
-        return diffTypeInfo.setDiffType(ApiDiffType.DEPRECATED_NA_TO_HAVE);
+      if (isAllSheet) {
+        if (deprecatedVersionOfOld === '-1' && !isAllDeprecated) {
+          return diffTypeInfo.setDiffType(ApiDiffType.DEPRECATED_NOT_All);
+        }
+        if (deprecatedVersionOfOld === '-1' && isAllDeprecated) {
+          return diffTypeInfo.setDiffType(ApiDiffType.DEPRECATED_NA_TO_HAVE);
+        }
+      } else {
+        if (deprecatedVersionOfOld === '-1') {
+          return diffTypeInfo.setDiffType(ApiDiffType.DEPRECATED_NA_TO_HAVE);
+        }
+        if (deprecatedVersionOfNew === '-1') {
+          return diffTypeInfo.setDiffType(ApiDiffType.DEPRECATED_HAVE_TO_NA);
+        }
       }
+
       if (deprecatedVersionOfNew === '-1') {
         return diffTypeInfo.setDiffType(ApiDiffType.DEPRECATED_HAVE_TO_NA);
       }
+
       return diffTypeInfo.setDiffType(ApiDiffType.DEPRECATED_A_TO_B);
     }
   }
@@ -453,6 +533,7 @@ export namespace DiffProcessorHelper {
       const oldJsDocTextArr: Array<string> = oldApiInfo.getJsDocText().split('*/');
       const newJsDocTextArr: Array<string> = newApiInfo.getJsDocText().split('*/');
       const diffTypeInfo: DiffTypeInfo = new DiffTypeInfo();
+
       if (oldApiInfo.getCurrentVersion() === currentVersion) {
         oldJsDocTextArr.splice(NumberConstant.DELETE_CURRENT_JS_DOC);
       } else {
@@ -472,7 +553,7 @@ export namespace DiffProcessorHelper {
         return;
       }
       for (let i = 0; i < oldJsDocTextArr.length; i++) {
-        if (oldJsDocTextArr[i].replace(/\r\n/g, '') !== newJsDocTextArr[i].replace(/\r\n/g, '')) {
+        if (oldJsDocTextArr[i].replace(/\r\n|\n|\s+/g, '') !== newJsDocTextArr[i].replace(/\r\n|\n|\s+/g, '')) {
           diffTypeInfo.setDiffType(ApiDiffType.HISTORICAL_JSDOC_CHANGE);
           const diffInfo: BasicDiffInfo = DiffProcessorHelper.wrapDiffInfo(oldApiInfo, newApiInfo, diffTypeInfo);
           diffInfos.push(diffInfo);
@@ -595,7 +676,9 @@ export namespace DiffProcessorHelper {
       const newReturnType: string[] = newApiInfo.getReturnType()?.split('|');
       const olaMethodTypeStr = oldReturnType.toString().replace(/\r|\n|\s+|'|"/g, '');
       const newMethodTypeStr = newReturnType.toString().replace(/\r|\n|\s+|'|"/g, '');
-      if (olaMethodTypeStr === newMethodTypeStr) return;
+      if (olaMethodTypeStr === newMethodTypeStr) {
+        return undefined;
+      }
       diffTypeInfo.setOldMessage(olaMethodTypeStr).setNewMessage(newMethodTypeStr);
       if (checkParentContainChild(newReturnType, oldReturnType)) {
         return diffTypeInfo.setDiffType(ApiDiffType.TYPE_ALIAS_FUNCTION_RETURN_TYPE_ADD);
@@ -617,16 +700,22 @@ export namespace DiffProcessorHelper {
       const diffTypeInfo: DiffTypeInfo = new DiffTypeInfo();
       const oldReturnType: string[] = oldApiInfo.getReturnValue();
       const newReturnType: string[] = newApiInfo.getReturnValue();
-      const olaMethodTypeStr = oldReturnType.toString().replace(/\r|\n|\s+|'|"/g, '');
-      const newMethodTypeStr = newReturnType.toString().replace(/\r|\n|\s+|'|"/g, '');
-      if (olaMethodTypeStr === newMethodTypeStr) {
+      const oldMethodTypeStr = oldReturnType.toString().replace(/\r|\n|\s+|'|"|>/g, '');
+      const newMethodTypeStr = newReturnType.toString().replace(/\r|\n|\s+|'|"|>/g, '');
+      if (oldMethodTypeStr === newMethodTypeStr) {
         return undefined;
       }
-      diffTypeInfo.setOldMessage(olaMethodTypeStr).setNewMessage(newMethodTypeStr);
+      diffTypeInfo.setOldMessage(oldReturnType.toString()).setNewMessage(newReturnType.toString());
       if (checkParentContainChild(newReturnType, oldReturnType)) {
         return diffTypeInfo.setDiffType(ApiDiffType.FUNCTION_RETURN_TYPE_ADD);
       }
+      if (StringUtils.hasSubstring(newMethodTypeStr, oldMethodTypeStr)) {
+        return diffTypeInfo.setDiffType(ApiDiffType.FUNCTION_RETURN_TYPE_ADD);
+      }
       if (checkParentContainChild(oldReturnType, newReturnType)) {
+        return diffTypeInfo.setDiffType(ApiDiffType.FUNCTION_RETURN_TYPE_REDUCE);
+      }
+      if (StringUtils.hasSubstring(oldMethodTypeStr, newMethodTypeStr)) {
         return diffTypeInfo.setDiffType(ApiDiffType.FUNCTION_RETURN_TYPE_REDUCE);
       }
       // 旧版本不包含新版本，新版本也不含旧版本，就定义为返回值变更
@@ -634,37 +723,37 @@ export namespace DiffProcessorHelper {
     }
 
     /**
-     * 
+     *
      * @param isTypeAlias 是否为自定义节点类型
      * @returns {*} {DiffMethodType} 当前节点类型对应的修改类型
      */
     static getDiffMethodTypes(isTypeAlias: boolean): DiffMethodType & DiffTypeChangeType {
       if (isTypeAlias) {
         return {
-          'POS_CHANGE': ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_POS_CHAHGE,
-          'ADD_OPTIONAL_PARAM': ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_UNREQUIRED_ADD,
-          'ADD_REQUIRED_PARAM': ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_REQUIRED_ADD,
-          'REDUCE_PARAM': ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_REDUCE,
-          'PARAM_TYPE_CHANGE': ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_TYPE_CHANGE,
-          'PARAM_TYPE_ADD': ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_TYPE_ADD,
-          'PARAM_TYPE_REDUCE': ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_TYPE_REDUCE,
-          'PARAM_TO_UNREQUIRED': ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_TO_UNREQUIRED,
-          'PARAM_TO_REQUIRED': ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_TO_REQUIRED,
-          'PARAM_CHANGE': ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_CHANGE
-        }
+          POS_CHANGE: ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_POS_CHAHGE,
+          ADD_OPTIONAL_PARAM: ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_UNREQUIRED_ADD,
+          ADD_REQUIRED_PARAM: ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_REQUIRED_ADD,
+          REDUCE_PARAM: ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_REDUCE,
+          PARAM_TYPE_CHANGE: ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_TYPE_CHANGE,
+          PARAM_TYPE_ADD: ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_TYPE_ADD,
+          PARAM_TYPE_REDUCE: ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_TYPE_REDUCE,
+          PARAM_TO_UNREQUIRED: ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_TO_UNREQUIRED,
+          PARAM_TO_REQUIRED: ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_TO_REQUIRED,
+          PARAM_CHANGE: ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_CHANGE,
+        };
       } else {
         return {
-          'POS_CHANGE': ApiDiffType.FUNCTION_PARAM_POS_CHANGE,
-          'ADD_OPTIONAL_PARAM': ApiDiffType.FUNCTION_PARAM_UNREQUIRED_ADD,
-          'ADD_REQUIRED_PARAM': ApiDiffType.FUNCTION_PARAM_REQUIRED_ADD,
-          'REDUCE_PARAM': ApiDiffType.FUNCTION_PARAM_REDUCE,
-          'PARAM_TYPE_CHANGE': ApiDiffType.FUNCTION_PARAM_TYPE_CHANGE,
-          'PARAM_TYPE_ADD': ApiDiffType.FUNCTION_PARAM_TYPE_ADD,
-          'PARAM_TYPE_REDUCE': ApiDiffType.FUNCTION_PARAM_TYPE_REDUCE,
-          'PARAM_TO_UNREQUIRED': ApiDiffType.FUNCTION_PARAM_TO_UNREQUIRED,
-          'PARAM_TO_REQUIRED': ApiDiffType.FUNCTION_PARAM_TO_REQUIRED,
-          'PARAM_CHANGE': ApiDiffType.FUNCTION_PARAM_CHANGE
-        }
+          POS_CHANGE: ApiDiffType.FUNCTION_PARAM_POS_CHANGE,
+          ADD_OPTIONAL_PARAM: ApiDiffType.FUNCTION_PARAM_UNREQUIRED_ADD,
+          ADD_REQUIRED_PARAM: ApiDiffType.FUNCTION_PARAM_REQUIRED_ADD,
+          REDUCE_PARAM: ApiDiffType.FUNCTION_PARAM_REDUCE,
+          PARAM_TYPE_CHANGE: ApiDiffType.FUNCTION_PARAM_TYPE_CHANGE,
+          PARAM_TYPE_ADD: ApiDiffType.FUNCTION_PARAM_TYPE_ADD,
+          PARAM_TYPE_REDUCE: ApiDiffType.FUNCTION_PARAM_TYPE_REDUCE,
+          PARAM_TO_UNREQUIRED: ApiDiffType.FUNCTION_PARAM_TO_UNREQUIRED,
+          PARAM_TO_REQUIRED: ApiDiffType.FUNCTION_PARAM_TO_REQUIRED,
+          PARAM_CHANGE: ApiDiffType.FUNCTION_PARAM_CHANGE,
+        };
       }
     }
     /**
@@ -674,12 +763,19 @@ export namespace DiffProcessorHelper {
      * @param {MethodInfo} newApiInfo 新版本的方法节点信息
      * @return {*}  {ApiDiffType[]}  返回各个参数的变化情况
      */
-    static diffMethodParams(oldApiInfo: MethodInfo | TypeAliasInfo, newApiInfo: MethodInfo | TypeAliasInfo): DiffTypeInfo[] {
+    static diffMethodParams(
+      oldApiInfo: MethodInfo | TypeAliasInfo,
+      newApiInfo: MethodInfo | TypeAliasInfo
+    ): DiffTypeInfo[] {
       const diffTypeInfos: DiffTypeInfo[] = [];
       const isTypeAlias: boolean = oldApiInfo.getApiType() === 'TypeAlias';
-      const oldMethodParams: ParamInfo[] = isTypeAlias ? (oldApiInfo as TypeAliasInfo).getParamInfos() : (oldApiInfo as MethodInfo).getParams()
-      const newMethodParams: ParamInfo[] = isTypeAlias ? (newApiInfo as TypeAliasInfo).getParamInfos() : (newApiInfo as MethodInfo).getParams();
-      const diffMethodType: DiffMethodType & DiffTypeChangeType = ApiNodeDiffHelper.getDiffMethodTypes(isTypeAlias)
+      const oldMethodParams: ParamInfo[] = isTypeAlias
+        ? (oldApiInfo as TypeAliasInfo).getParamInfos()
+        : (oldApiInfo as MethodInfo).getParams();
+      const newMethodParams: ParamInfo[] = isTypeAlias
+        ? (newApiInfo as TypeAliasInfo).getParamInfos()
+        : (newApiInfo as MethodInfo).getParams();
+      const diffMethodType: DiffMethodType & DiffTypeChangeType = ApiNodeDiffHelper.getDiffMethodTypes(isTypeAlias);
 
       ApiNodeDiffHelper.diffParamsPosition(oldMethodParams, newMethodParams, diffTypeInfos, diffMethodType);
       ApiNodeDiffHelper.diffNewOptionalParam(oldMethodParams, newMethodParams, diffTypeInfos, diffMethodType);
@@ -692,19 +788,27 @@ export namespace DiffProcessorHelper {
     }
     /**
      * 方法参数名变化,且不属于新增、减少的情况，归纳为方法参数变化,
-     * 
+     *
      * @param {ParamInfo[]} oldMethodParams 函数旧参数节点信息
      * @param {ParamInfo[]} newMethodParams 函数新参数节点信息
      * @param diffTypeInfos 处理好的结果信息
      */
-    static diffMethodParamChange(oldMethodParams: ParamInfo[], newMethodParams: ParamInfo[], diffTypeInfos: DiffTypeInfo[], diffMethodType: DiffMethodType) {
+    static diffMethodParamChange(
+      oldMethodParams: ParamInfo[],
+      newMethodParams: ParamInfo[],
+      diffTypeInfos: DiffTypeInfo[],
+      diffMethodType: DiffMethodType
+    ): void {
       const oldParamLen: number = oldMethodParams.length;
       const newParamLen: number = newMethodParams.length;
       // 1.新旧版本参数一个不存在即不符合，直接返回
-      if (!oldParamLen || !newParamLen) return;
+      if (!oldParamLen || !newParamLen) {
+        return;
+      }
       // 2. 判断新旧版本参数名称相同的参数的个数和新旧版本的参数是否相同,相同即为新增或者减少参数
       // 2.1 循环得到所有的参数名称
-      const oldParamNames: string[] = [], newParamNames: string[] = [];
+      const oldParamNames: string[] = [];
+      const newParamNames: string[] = [];
       for (let i: number = 0; i < Math.max(oldParamLen, newParamLen); i++) {
         const newCur: ParamInfo = newMethodParams[i];
         const oldCur: ParamInfo = oldMethodParams[i];
@@ -712,224 +816,282 @@ export namespace DiffProcessorHelper {
         oldCur && oldParamNames.push(oldCur.getApiName());
       }
       // 2.2 找出旧版本不同的参数名称
-      const oldDiffParams: ParamInfo[] = oldMethodParams.filter((oldParam: ParamInfo) => !newParamNames.includes(oldParam.getApiName()));
+      const oldDiffParams: ParamInfo[] = oldMethodParams.filter(
+        (oldParam: ParamInfo) => !newParamNames.includes(oldParam.getApiName())
+      );
       // 2.3 得到参数相同的个数
       const sameParamsLength: number = oldParamLen - oldDiffParams.length;
       // 2.4 判断新旧版本参数名称相同的参数的个数和新旧版本的参数是否相同,相同即为新增或者减少参数
-      if (sameParamsLength === oldParamLen || sameParamsLength === newParamLen) return;
+      if (sameParamsLength === oldParamLen || sameParamsLength === newParamLen) {
+        return;
+      }
 
       let oldDiffInfos: ParamInfo[] = oldMethodParams;
       let newDiffInfos: ParamInfo[] = newMethodParams;
       // 3.将新旧版本参数信息中前面检查出来的信息去掉
       diffTypeInfos.forEach((diffInfo: DiffTypeInfo) => {
         // 循环已经得到的结果信息,找到新旧版本里不在已经得到的结果信息里面的参数信息
-        oldDiffInfos = oldDiffInfos.filter((oldDiffInfo: ParamInfo) => diffInfo.getOldMessage() !== oldDiffInfo.getDefinedText())
-        newDiffInfos = newDiffInfos.filter((newDiffInfo: ParamInfo) => diffInfo.getNewMessage() !== newDiffInfo.getDefinedText())
-      })
+        oldDiffInfos = oldDiffInfos.filter(
+          (oldDiffInfo: ParamInfo) => diffInfo.getOldMessage() !== oldDiffInfo.getDefinedText()
+        );
+        newDiffInfos = newDiffInfos.filter(
+          (newDiffInfo: ParamInfo) => diffInfo.getNewMessage() !== newDiffInfo.getDefinedText()
+        );
+      });
       // 4.剩下的部分就是发生变化的部分,生成返回信息
       const oldNamesStr: string = stitchMethodParameters(oldDiffInfos);
       const newNamesStr: string = stitchMethodParameters(newDiffInfos);
       const diffTypeInfo: DiffTypeInfo = new DiffTypeInfo();
-      diffTypeInfo
-        .setDiffType(diffMethodType.PARAM_CHANGE)
-        .setOldMessage(oldNamesStr)
-        .setNewMessage(newNamesStr)
-      diffTypeInfos.push(diffTypeInfo)
+      diffTypeInfo.setDiffType(diffMethodType.PARAM_CHANGE).setOldMessage(oldNamesStr).setNewMessage(newNamesStr);
+      diffTypeInfos.push(diffTypeInfo);
     }
     /**
      * 比较函数位置发生变化
-     * 
+     *
      * @param {ParamInfo[]} oldMethodParams 函数旧参数节点信息
      * @param {ParamInfo[]} newMethodParams 函数新参数节点信息
-     * @param diffTypeInfos 
+     * @param diffTypeInfos
      */
-    static diffParamsPosition(oldMethodParams: ParamInfo[], newMethodParams: ParamInfo[], diffTypeInfos: DiffTypeInfo[], diffMethodType: DiffMethodType) {
+    static diffParamsPosition(
+      oldMethodParams: ParamInfo[],
+      newMethodParams: ParamInfo[],
+      diffTypeInfos: DiffTypeInfo[],
+      diffMethodType: DiffMethodType
+    ): void {
       const oldParamLen: number = oldMethodParams.length;
       const newParamLen: number = newMethodParams.length;
       // 1.如果旧版本的参数长度不大于1,或者两者长度不一致,直接返回
-      if (oldParamLen <= 1 || oldParamLen !== newParamLen) return;
+      if (oldParamLen <= 1 || oldParamLen !== newParamLen) {
+        return;
+      }
       // 2.判断两个版本的相同位置的参数名称是否一致,相同直接返回
       const isSamePosition: boolean = checkIsSameOfSamePosition(newMethodParams, oldMethodParams);
-      if (isSamePosition) return;
+      if (isSamePosition) {
+        return;
+      }
       // 3.如果旧版本的参数不完全包含新版本的参数或者两个版本的参数是否完全一致,一个不符合直接返回
       const isContain: boolean = checkIsContain(oldMethodParams, newMethodParams);
-      if (!isContain) return;
+      if (!isContain) {
+        return;
+      }
       // 4.上述情况都不符合,处理返回信息
       const oldNamesStr: string = stitchMethodParameters(oldMethodParams);
       const newNamesStr: string = stitchMethodParameters(newMethodParams);
       const diffTypeInfo: DiffTypeInfo = new DiffTypeInfo();
-      diffTypeInfo
-        .setDiffType(diffMethodType.POS_CHANGE)
-        .setOldMessage(oldNamesStr)
-        .setNewMessage(newNamesStr)
-      diffTypeInfos.push(diffTypeInfo)
+      diffTypeInfo.setDiffType(diffMethodType.POS_CHANGE).setOldMessage(oldNamesStr).setNewMessage(newNamesStr);
+      diffTypeInfos.push(diffTypeInfo);
     }
 
     /**
      * 函数新增可选参数
-     * 
-     * @param oldMethodParams 
-     * @param newMethodParams 
-     * @param diffTypeInfos 
+     *
+     * @param oldMethodParams
+     * @param newMethodParams
+     * @param diffTypeInfos
      */
-    static diffNewOptionalParam(oldMethodParams: ParamInfo[], newMethodParams: ParamInfo[], diffTypeInfos: DiffTypeInfo[], diffMethodType: DiffMethodType) {
+    static diffNewOptionalParam(
+      oldMethodParams: ParamInfo[],
+      newMethodParams: ParamInfo[],
+      diffTypeInfos: DiffTypeInfo[],
+      diffMethodType: DiffMethodType
+    ): void {
       const oldParamLen: number = oldMethodParams.length;
       const newParamLen: number = newMethodParams.length;
       // 1.如果新版本参数为空或者旧版本参数长度大于或者等于新版本参数长度,直接返回
-      if (newParamLen === 0 || oldParamLen >= newParamLen) return;
+      if (newParamLen === 0 || oldParamLen >= newParamLen) {
+        return;
+      }
       // 2.新版本参数需要完全包含旧版本,如果不包含,直接返回
       const isContain: boolean = checkIsContain(newMethodParams, oldMethodParams);
-      if (!isContain) return;
+      if (!isContain) {
+        return;
+      }
       // 3.是否存在新增的可选参数
       const oldParamNames: string[] = oldMethodParams.map((oldParam: ParamInfo) => oldParam.getApiName());
       const addParams: ParamInfo[] = newMethodParams.filter((newParam: ParamInfo) => {
         const curParamName: string = newParam.getApiName();
-        return !oldParamNames.includes(curParamName) && !newParam.getIsRequired()
-      })
+        return !oldParamNames.includes(curParamName) && !newParam.getIsRequired();
+      });
       // 4.新版本新增的参数是否存在参数是可选类型,不存在直接返回
-      if (!addParams.length) return;
+      if (!addParams.length) {
+        return;
+      }
       // 5.存在新增的参数是可选参数,处理返回信息
       const addParamNamesStr: string = stitchMethodParameters(addParams);
       const diffTypeInfo: DiffTypeInfo = new DiffTypeInfo();
-      diffTypeInfo
-        .setOldMessage('')
-        .setDiffType(diffMethodType.ADD_OPTIONAL_PARAM)
-        .setNewMessage(addParamNamesStr)
-      diffTypeInfos.push(diffTypeInfo)
+      diffTypeInfo.setOldMessage('').setDiffType(diffMethodType.ADD_OPTIONAL_PARAM).setNewMessage(addParamNamesStr);
+      diffTypeInfos.push(diffTypeInfo);
     }
 
     /**
      * 函数新增必选参数
-     * 
-     * @param oldMethodParams 
-     * @param newMethodParams 
-     * @param diffTypeInfos 
+     *
+     * @param oldMethodParams
+     * @param newMethodParams
+     * @param diffTypeInfos
      */
-    static diffNewRequiredParam(oldMethodParams: ParamInfo[], newMethodParams: ParamInfo[], diffTypeInfos: DiffTypeInfo[], diffMethodType: DiffMethodType) {
+    static diffNewRequiredParam(
+      oldMethodParams: ParamInfo[],
+      newMethodParams: ParamInfo[],
+      diffTypeInfos: DiffTypeInfo[],
+      diffMethodType: DiffMethodType
+    ): void {
       const oldParamLen: number = oldMethodParams.length;
       const newParamLen: number = newMethodParams.length;
       // 1.如果新版本参数为空或者旧版本参数长度大于或者等于新版本参数长度,直接返回
-      if (newParamLen === 0 || oldParamLen >= newParamLen) return;
+      if (newParamLen === 0 || oldParamLen >= newParamLen) {
+        return;
+      }
       // 2.新版本参数需要完全包含旧版本,如果不包含,直接返回
       const isContain: boolean = checkIsContain(newMethodParams, oldMethodParams);
-      if (!isContain) return;
+      if (!isContain) {
+        return;
+      }
       // 3.是否存在新增的必选参数
       const oldParamNames: string[] = oldMethodParams.map((oldParam: ParamInfo) => oldParam.getApiName());
       const addParams: ParamInfo[] = newMethodParams.filter((newParam: ParamInfo) => {
         const curParamName: string = newParam.getApiName();
-        return !oldParamNames.includes(curParamName) && newParam.getIsRequired()
-      })
+        return !oldParamNames.includes(curParamName) && newParam.getIsRequired();
+      });
       // 4.新版本新增的参数是否存在参数是必选类型,不存在直接返回
-      if (!addParams.length) return;
+      if (!addParams.length) {
+        return;
+      }
       // 5.存在新增的参数是可选参数,处理返回信息
       const addParamNamesStr: string = stitchMethodParameters(addParams);
       const diffTypeInfo: DiffTypeInfo = new DiffTypeInfo();
-      diffTypeInfo
-        .setDiffType(diffMethodType.ADD_REQUIRED_PARAM)
-        .setOldMessage('')
-        .setNewMessage(addParamNamesStr)
-      diffTypeInfos.push(diffTypeInfo)
+      diffTypeInfo.setDiffType(diffMethodType.ADD_REQUIRED_PARAM).setOldMessage('').setNewMessage(addParamNamesStr);
+      diffTypeInfos.push(diffTypeInfo);
     }
 
     /**
      * 函数删除参数
-     * 
-     * @param oldMethodParams 
-     * @param newMethodParams 
-     * @param diffTypeInfos 
+     *
+     * @param oldMethodParams
+     * @param newMethodParams
+     * @param diffTypeInfos
      */
-    static diffReducedParam(oldMethodParams: ParamInfo[], newMethodParams: ParamInfo[], diffTypeInfos: DiffTypeInfo[], diffMethodType: DiffMethodType) {
+    static diffReducedParam(
+      oldMethodParams: ParamInfo[],
+      newMethodParams: ParamInfo[],
+      diffTypeInfos: DiffTypeInfo[],
+      diffMethodType: DiffMethodType
+    ): void {
       const oldParamLen: number = oldMethodParams.length;
       const newParamLen: number = newMethodParams.length;
       // 1.旧版本参数为空或者新版本参数长度大于或者等于旧版本参数长度,直接返回
-      if (oldParamLen === 0 || newParamLen >= oldParamLen) return;
+      if (oldParamLen === 0 || newParamLen >= oldParamLen) {
+        return;
+      }
       // 2.如果旧版本的参数不包含新版本的参数,直接返回
       const isContain: boolean = checkIsContain(oldMethodParams, newMethodParams);
-      if (newParamLen > 0 && !isContain) return;
+      if (newParamLen > 0 && !isContain) {
+        return;
+      }
       // 3.参数减少,处理返回信息
       const newParamNames: string[] = newMethodParams.map((newParam: ParamInfo) => newParam.getApiName());
-      const reduceParams: ParamInfo[] = oldMethodParams.filter((oldParam: ParamInfo) => !newParamNames.includes(oldParam.getApiName()));
+      const reduceParams: ParamInfo[] = oldMethodParams.filter(
+        (oldParam: ParamInfo) => !newParamNames.includes(oldParam.getApiName())
+      );
       const reduceNamesStr: string = stitchMethodParameters(reduceParams);
       const diffTypeInfo: DiffTypeInfo = new DiffTypeInfo();
-      diffTypeInfo
-        .setDiffType(diffMethodType.REDUCE_PARAM)
-        .setOldMessage(reduceNamesStr)
-        .setNewMessage('')
-      diffTypeInfos.push(diffTypeInfo)
+      diffTypeInfo.setDiffType(diffMethodType.REDUCE_PARAM).setOldMessage(reduceNamesStr).setNewMessage('');
+      diffTypeInfos.push(diffTypeInfo);
     }
     /**
-       * 比较参数必选/可选的变更,(可选->必选，必选->可选)
-       * 
-       * @param oldMethodParams 
-       * @param newMethodParams 
-       * @param diffTypeInfos 
-       */
-    static diffParamChange(oldMethodParams: ParamInfo[], newMethodParams: ParamInfo[], diffTypeInfos: DiffTypeInfo[], diffMethodType: DiffMethodType) {
+     * 比较参数必选/可选的变更,(可选->必选，必选->可选)
+     *
+     * @param oldMethodParams
+     * @param newMethodParams
+     * @param diffTypeInfos
+     */
+    static diffParamChange(
+      oldMethodParams: ParamInfo[],
+      newMethodParams: ParamInfo[],
+      diffTypeInfos: DiffTypeInfo[],
+      diffMethodType: DiffMethodType
+    ): void {
       // 1.新旧版本的参数长度应大于0
       const oldParamLen: number = oldMethodParams.length;
       const newParamLen: number = newMethodParams.length;
-      if (!oldParamLen || !newParamLen) return;
+      if (!oldParamLen || !newParamLen) {
+        return;
+      }
       // 2.找到参数名称一致和参数类型一致的参数进行比较,不存在直接返回
       const sameParamInfos: ParamInfo[] = oldMethodParams.filter((oldParam: ParamInfo) => {
         const oldParamName: string = oldParam.getApiName();
-        return newMethodParams.find((newParam: ParamInfo) => newParam.getApiName() === oldParamName)
-      })
-      if (!sameParamInfos.length) return;
+        return newMethodParams.find((newParam: ParamInfo) => newParam.getApiName() === oldParamName);
+      });
+      if (!sameParamInfos.length) {
+        return;
+      }
       // 3.比较参数名和类型一致是否发生了可选/必选的变化,参数类型不需要计较
       sameParamInfos.forEach((sameInfo: ParamInfo, idx: number) => {
         const curOldParamName: string = sameInfo.getApiName();
-        const curNewParam: ParamInfo = newMethodParams.find((newParam: ParamInfo) => newParam.getApiName() === curOldParamName)!;
+        const curNewParam: ParamInfo = newMethodParams.find(
+          (newParam: ParamInfo) => newParam.getApiName() === curOldParamName
+        )!;
         if (curNewParam.getIsRequired() !== sameInfo.getIsRequired()) {
           // 参数发生了可选/必选的变化,处理返回信息
           const oldMessage = sameInfo.getDefinedText();
           const newMessage = curNewParam.getDefinedText();
-          const changeType: number = sameInfo.getIsRequired() ? diffMethodType.PARAM_TO_UNREQUIRED : diffMethodType.PARAM_TO_REQUIRED
+          const changeType: number = sameInfo.getIsRequired()
+            ? diffMethodType.PARAM_TO_UNREQUIRED
+            : diffMethodType.PARAM_TO_REQUIRED;
           const diffTypeInfo: DiffTypeInfo = new DiffTypeInfo();
-          diffTypeInfo
-            .setDiffType(changeType)
-            .setOldMessage(oldMessage)
-            .setNewMessage(newMessage)
-          diffTypeInfos.push(diffTypeInfo)
+          diffTypeInfo.setDiffType(changeType).setOldMessage(oldMessage).setNewMessage(newMessage);
+          diffTypeInfos.push(diffTypeInfo);
         }
-      })
+      });
     }
 
     /**
      * 比较参数类型的变更，(参数类型范围扩大/参数类型范围缩小/参数类型变更)
-     * 
-     * @param oldMethodParams 
-     * @param newMethodParams 
-     * @param diffTypeInfos 
+     *
+     * @param oldMethodParams
+     * @param newMethodParams
+     * @param diffTypeInfos
      */
-    static diffParamTypeChange(oldMethodParams: ParamInfo[], newMethodParams: ParamInfo[], diffTypeInfos: DiffTypeInfo[], diffMethodType: DiffMethodType & DiffTypeChangeType) {
+    static diffParamTypeChange(
+      oldMethodParams: ParamInfo[],
+      newMethodParams: ParamInfo[],
+      diffTypeInfos: DiffTypeInfo[],
+      diffMethodType: DiffMethodType & DiffTypeChangeType
+    ): void {
       //1.判断新旧版本参数长度大于0
       const oldParamLen: number = oldMethodParams.length;
       const newParamLen: number = newMethodParams.length;
-      if (!oldParamLen || !newParamLen) return;
-      const newParamName: string[] = newMethodParams.map((newParam: ParamInfo) => newParam.getApiName())
+      if (!oldParamLen || !newParamLen) {
+        return;
+      }
+      const newParamName: string[] = newMethodParams.map((newParam: ParamInfo) => newParam.getApiName());
       // 2.需要新旧版本存在参数名称一致的,不存在直接返回
-      const sameParamInfo: ParamInfo[] = oldMethodParams.filter((oldParam: ParamInfo) => newParamName.includes(oldParam.getApiName()));
-      if (!sameParamInfo.length) return;
+      const sameParamInfo: ParamInfo[] = oldMethodParams.filter((oldParam: ParamInfo) =>
+        newParamName.includes(oldParam.getApiName())
+      );
+      if (!sameParamInfo.length) {
+        return;
+      }
       // 3.寻找参数名称相同的情况下的参数类型变化的
       sameParamInfo.forEach((curSame: ParamInfo, idx: number) => {
         const oldParamTypes: string[] = curSame.getType();
-        const curNewParam: ParamInfo = newMethodParams.find((newParam: ParamInfo) => newParam.getApiName() === curSame.getApiName())!;
+        const curNewParam: ParamInfo = newMethodParams.find(
+          (newParam: ParamInfo) => newParam.getApiName() === curSame.getApiName()
+        )!;
         const newParamTypes: string[] = curNewParam.getType();
         // 处理参数类型不一样的,生成返回信息
-        if (oldParamTypes.toString() !== newParamTypes.toString()) {
+        if (oldParamTypes.toString().replace(/\r|\n|\s+|'|"/g, '') !== newParamTypes.toString().replace(/\r|\n|\s+|'|"/g, '')) {
           // 根据参数的差异来获取对应的statusCode
           const diffType: number = diffChangeType(oldParamTypes, newParamTypes, diffMethodType);
           const oldMessage: string = curSame.getDefinedText();
           const newMessage: string = curNewParam.getDefinedText();
           const diffTypeInfo: DiffTypeInfo = new DiffTypeInfo();
-          diffTypeInfo
-            .setDiffType(diffType)
-            .setOldMessage(oldMessage)
-            .setNewMessage(newMessage)
-          diffTypeInfos.push(diffTypeInfo)
+          diffTypeInfo.setDiffType(diffType).setOldMessage(oldMessage).setNewMessage(newMessage);
+          diffTypeInfos.push(diffTypeInfo);
         }
-      })
+      });
     }
+
     /**
      * 处理方法节点的参数名称
      *
@@ -956,8 +1118,14 @@ export namespace DiffProcessorHelper {
     static diffMethodParamType(oldApiInfo: ParamInfo, newApiInfo: ParamInfo): ApiDiffType | undefined {
       const oldParamType: string[] = oldApiInfo.getType();
       const newParamType: string[] = newApiInfo.getType();
-      const oldParamTypeStr: string = oldParamType.toString().replace(/\r|\n|\s+|'|"/g, '');
-      const newParamTypeStr: string = newParamType.toString().replace(/\r|\n|\s+|'|"/g, '');
+      const oldParamTypeStr: string = oldParamType
+        .toString()
+        .replace(/\r|\n|\s+|'|"/g, '')
+        .replace(/\|/g, '\\|');
+      const newParamTypeStr: string = newParamType
+        .toString()
+        .replace(/\r|\n|\s+|'|"/g, '')
+        .replace(/\|/g, `\\|`);
       if (oldParamTypeStr === newParamTypeStr) {
         return undefined;
       }
@@ -1094,12 +1262,15 @@ export namespace DiffProcessorHelper {
       const newPropertyType: string[] = newApiInfo.getType();
       const oldPropertyIsReadOnly: boolean = oldApiInfo.getIsReadOnly();
       const newPropertyIsReadOnly: boolean = newApiInfo.getIsReadOnly();
-      const olaPropertyTypeStr = olaPropertyType.toString();
-      const newPropertyTypeStr = newPropertyType.toString();
+      const olaPropertyTypeStr = olaPropertyType.toString().replace(/\r|\n|\s+/g, '');
+      const newPropertyTypeStr = newPropertyType.toString().replace(/\r|\n|\s+/g, '');
       if (olaPropertyTypeStr === newPropertyTypeStr) {
         return undefined;
       }
-      diffTypeInfo.setOldMessage(olaPropertyTypeStr).setNewMessage(newPropertyTypeStr);
+      diffTypeInfo.setOldMessage(olaPropertyType.toString()).setNewMessage(newPropertyType.toString());
+      if (olaPropertyTypeStr.replace(/\,|\;/g, '') === newPropertyTypeStr.replace(/\,|\;/g, '')) {
+        return diffTypeInfo.setDiffType(ApiDiffType.PROPERTY_TYPE_SIGN_CHANGE);
+      }
       if (StringUtils.hasSubstring(newPropertyTypeStr, olaPropertyTypeStr)) {
         return diffTypeInfo.setDiffType(
           newPropertyIsReadOnly ? ApiDiffType.PROPERTY_READONLY_ADD : ApiDiffType.PROPERTY_WRITABLE_ADD
@@ -1203,8 +1374,14 @@ export namespace DiffProcessorHelper {
       });
       // 自定义类型为方法
       if ((oldApiInfo as TypeAliasInfo).getTypeIsFunction()) {
-        const diffTypeInfos: DiffTypeInfo[] = ApiNodeDiffHelper.diffMethodParams(oldApiInfo as TypeAliasInfo, newApiInfo as TypeAliasInfo)
-        const diffTypeReturnInfo: DiffTypeInfo | undefined = ApiNodeDiffHelper.diffTypeAliasReturnType(oldApiInfo as TypeAliasInfo, newApiInfo as TypeAliasInfo)
+        const diffTypeInfos: DiffTypeInfo[] = ApiNodeDiffHelper.diffMethodParams(
+          oldApiInfo as TypeAliasInfo,
+          newApiInfo as TypeAliasInfo
+        );
+        const diffTypeReturnInfo: DiffTypeInfo | undefined = ApiNodeDiffHelper.diffTypeAliasReturnType(
+          oldApiInfo as TypeAliasInfo,
+          newApiInfo as TypeAliasInfo
+        );
         diffTypeReturnInfo && diffTypeInfos.push(diffTypeReturnInfo);
         diffTypeInfos.forEach((info: DiffTypeInfo) => {
           const diffInfo: BasicDiffInfo = DiffProcessorHelper.wrapDiffInfo(
@@ -1231,22 +1408,26 @@ export namespace DiffProcessorHelper {
       const olaTypeAliasTypeStr: string = olaTypeAliasType.toString();
       const newTypeAliasTypeStr: string = newTypeAliasType.toString();
       // 1.两者定义相同,没有变化
-      if (olaTypeAliasTypeStr === newTypeAliasTypeStr) return;
+      if (olaTypeAliasTypeStr.replace(/\r|\n|\s+|'|"/g, '') === newTypeAliasTypeStr.replace(/\r|\n|\s+|'|"/g, '')) {
+        return undefined;
+      }
       // 自定义函数类型
-      if (oldApiInfo.getTypeIsFunction()) return;
+      if (oldApiInfo.getTypeIsFunction()) {
+        return undefined;
+      }
       // 2.两者定义不同
       const diffMethodType: DiffTypeChangeType = {
         PARAM_TYPE_CHANGE: ApiDiffType.TYPE_ALIAS_CHANGE,
         PARAM_TYPE_ADD: ApiDiffType.TYPE_ALIAS_ADD,
-        PARAM_TYPE_REDUCE: ApiDiffType.TYPE_ALIAS_REDUCE
-      }
+        PARAM_TYPE_REDUCE: ApiDiffType.TYPE_ALIAS_REDUCE,
+      };
       const diffType: number = diffChangeType(olaTypeAliasType, newTypeAliasType, diffMethodType);
       diffTypeInfo
         .setOldMessage(olaTypeAliasType.join(' | '))
         .setNewMessage(newTypeAliasType.join(' | '))
         .setStatusCode(ApiStatusCode.TYPE_CHNAGES)
         .setDiffType(diffType);
-      return diffTypeInfo
+      return diffTypeInfo;
     }
     /**
      * 处理枚举值节点，获取对应diff信息
@@ -1328,15 +1509,41 @@ export namespace DiffProcessorHelper {
       diffTypeInfo.setOldMessage(olaConstantName).setNewMessage(newConstantName);
       return diffTypeInfo.setDiffType(ApiDiffType.API_NAME_CHANGE);
     }
+
+    /**
+     * 新旧版本参数个数没变化时，判断参数类型范围扩大/缩小/更改
+     *
+     * @param oldTypes 旧版本参数类型
+     * @param newTypes 新版本参数类型
+     * @param diffTypes
+     * @returns
+     */
+    static diffSingleParamType(oldTypes: string[], newTypes: string[], diffTypes: DiffTypeChangeType): number {
+      const oldParamTypeStr: string = oldTypes
+        .toString()
+        .replace(/\r|\n|\s+|'|"|>/g, '')
+        .replace(/\|/g, '\\|');
+      const newParamTypeStr: string = newTypes
+        .toString()
+        .replace(/\r|\n|\s+|'|"|>/g, '')
+        .replace(/\|/g, '\\|');
+      if (StringUtils.hasSubstring(newParamTypeStr, oldParamTypeStr)) {
+        return diffTypes.PARAM_TYPE_ADD;
+      }
+      if (StringUtils.hasSubstring(oldParamTypeStr, newParamTypeStr)) {
+        return diffTypes.PARAM_TYPE_REDUCE;
+      }
+      return diffTypes.PARAM_TYPE_CHANGE;
+    }
   }
 
   /**
-    * 检查父集是否完全包含子集
-    * 
-    * @param {ParamInfo[]} parentInfos 父集节点信息
-    * @param {ParamInfo[]} childInfos 子集节点信息
-    * @returns {*} {boolean} 完全包含为true, 否则为false
-  */
+   * 检查父集是否完全包含子集
+   *
+   * @param {ParamInfo[]} parentInfos 父集节点信息
+   * @param {ParamInfo[]} childInfos 子集节点信息
+   * @returns {*} {boolean} 完全包含为true, 否则为false
+   */
   function checkIsContain(parentInfos: ParamInfo[], childInfos: ParamInfo[]): boolean {
     return childInfos.every((child: ParamInfo) => {
       const curChildName = child.getApiName();
@@ -1344,7 +1551,7 @@ export namespace DiffProcessorHelper {
       const curParentNode = parentInfos.find((item: ParamInfo) => item.getApiName() === curChildName);
       // 相同参数的类型是否一样
       return curParentNode && curParentNode.getApiType() === child.getApiType();
-    })
+    });
   }
 
   function checkParentContainChild(parentStrArr: string[], childStrArr: string[]): boolean {
@@ -1352,23 +1559,23 @@ export namespace DiffProcessorHelper {
   }
 
   interface DiffTypeChangeType {
-    PARAM_TYPE_CHANGE: ApiDiffType,
-    PARAM_TYPE_ADD: ApiDiffType,
-    PARAM_TYPE_REDUCE: ApiDiffType,
+    PARAM_TYPE_CHANGE: ApiDiffType;
+    PARAM_TYPE_ADD: ApiDiffType;
+    PARAM_TYPE_REDUCE: ApiDiffType;
   }
   // statusCode对应的几种变化类型
   interface DiffMethodType {
-    POS_CHANGE: ApiDiffType,
-    ADD_OPTIONAL_PARAM: ApiDiffType,
-    ADD_REQUIRED_PARAM: ApiDiffType,
-    REDUCE_PARAM: ApiDiffType,
-    PARAM_TO_UNREQUIRED: ApiDiffType,
-    PARAM_TO_REQUIRED: ApiDiffType,
-    PARAM_CHANGE: ApiDiffType,
+    POS_CHANGE: ApiDiffType;
+    ADD_OPTIONAL_PARAM: ApiDiffType;
+    ADD_REQUIRED_PARAM: ApiDiffType;
+    REDUCE_PARAM: ApiDiffType;
+    PARAM_TO_UNREQUIRED: ApiDiffType;
+    PARAM_TO_REQUIRED: ApiDiffType;
+    PARAM_CHANGE: ApiDiffType;
   }
   /**
    * 根据参数的差异来获取对应的statusCode
-   * 
+   *
    * @param {string[]} oldTypes 旧参数数组
    * @param {string[]} newTypes 新参数数组
    * @returns {*} {ApiDiffType} statusCode
@@ -1378,48 +1585,55 @@ export namespace DiffProcessorHelper {
     const newLen: number = newTypes.length;
     switch (oldLen - newLen) {
       case 0:
-        return diffTypes.PARAM_TYPE_CHANGE;
+        return DiffProcessorHelper.ApiNodeDiffHelper.diffSingleParamType(oldTypes, newTypes, diffTypes);
       case -newLen:
         return diffTypes.PARAM_TYPE_ADD;
       case oldLen:
         return diffTypes.PARAM_TYPE_REDUCE;
       default:
         if (oldLen > newLen) {
-          return newTypes.every((type: string) => oldTypes.includes(type)) ? diffTypes.PARAM_TYPE_REDUCE : diffTypes.PARAM_TYPE_CHANGE;
+          return newTypes.every((type: string) => oldTypes.includes(type))
+            ? diffTypes.PARAM_TYPE_REDUCE
+            : diffTypes.PARAM_TYPE_CHANGE;
         } else {
-          return oldTypes.every((type: string) => newTypes.includes(type)) ? diffTypes.PARAM_TYPE_ADD : diffTypes.PARAM_TYPE_CHANGE;
+          return oldTypes.every((type: string) => newTypes.includes(type))
+            ? diffTypes.PARAM_TYPE_ADD
+            : diffTypes.PARAM_TYPE_CHANGE;
         }
     }
   }
+
   /**
-    * 检查两个版本的相同位置的参数的参数名是否相同
-    * 
-    * @param {ParamInfo[]} parentInfos 父节点信息
-    * @param {ParamInfo[]} childInfos 子集节点信息
-    * @returns {*} {boolean} 完全相同为true, 否则为false
-    */
+   * 检查两个版本的相同位置的参数的参数名是否相同
+   *
+   * @param {ParamInfo[]} parentInfos 父节点信息
+   * @param {ParamInfo[]} childInfos 子集节点信息
+   * @returns {*} {boolean} 完全相同为true, 否则为false
+   */
   function checkIsSameOfSamePosition(parentInfos: ParamInfo[], childInfos: ParamInfo[]): boolean {
     return parentInfos.every((curParentItem: ParamInfo, idx: number) => {
       const curChildItem: ParamInfo = childInfos[idx];
       return curParentItem.getApiName() === curChildItem.getApiName();
-    })
+    });
   }
 
   /**
    * 根据当前节点信息来拼接返回的新旧信息
-   * 
+   *
    * @param {ParamInfo} methodParams 函数参数的节点信息
    * @returns {*} {string} 字符串拼接后的节点信息
    */
   function stitchMethodParameters(methodParams: ParamInfo[]): string {
-    if (methodParams.length <= 1) return methodParams[0].getDefinedText();
+    if (methodParams.length <= 1) {
+      return methodParams[0].getDefinedText();
+    }
     return methodParams.reduce((preStr: string, curItem: ParamInfo, idx: number) => {
-      let curStr: string = curItem.getDefinedText()
+      let curStr: string = curItem.getDefinedText();
       if (idx !== methodParams.length - 1) {
-        curStr += ', '
+        curStr += ', ';
       }
-      return preStr += curStr
-    }, '')
+      return (preStr += curStr);
+    }, '');
   }
 
   /**
@@ -1433,10 +1647,32 @@ export namespace DiffProcessorHelper {
   export function wrapDiffInfo(
     oldApiInfo: BasicApiInfo | undefined = undefined,
     newApiInfo: BasicApiInfo | undefined = undefined,
-    diffTypeInfo: DiffTypeInfo
+    diffTypeInfo: DiffTypeInfo,
+    isNewFile?: boolean
   ): BasicDiffInfo {
+    const newPropertyInfo = newApiInfo as PropertyInfo;
+    const newMethodInfo = newApiInfo as MethodInfo;
+    const parentApiType: string = (newApiInfo && newApiInfo.getParentApiType()) ? newApiInfo.getParentApiType() : '';
+    let isCompatible = true;
+    if (
+      !isNewFile && parentApiTypeSet.has(parentApiType) &&
+      diffTypeInfo.getDiffType() === ApiDiffType.ADD &&
+      ((newApiInfo?.getApiType() === ApiType.METHOD && newMethodInfo.getIsRequired()) ||
+        (newApiInfo?.getApiType() === ApiType.PROPERTY && newPropertyInfo.getIsRequired()))
+    ) {
+      isCompatible = false;
+    }
     const diffInfo: BasicDiffInfo = new BasicDiffInfo();
     const diffType: ApiDiffType = diffTypeInfo.getDiffType();
+    const clonedOldApiInfo = oldApiInfo as ApiInfo;
+    const clonedNewApiInfo = newApiInfo as ApiInfo;
+    const oldApiLevel: boolean | undefined = clonedOldApiInfo?.getLastJsDocInfo()?.getIsSystemApi();
+    const newApiLevel: boolean | undefined = clonedNewApiInfo?.getLastJsDocInfo()?.getIsSystemApi();
+    let apiIsSameName: boolean | undefined = clonedNewApiInfo?.getIsSameNameFunction();
+    if (!newApiInfo) {
+      apiIsSameName = clonedOldApiInfo?.getIsSameNameFunction();
+    }
+
     if (oldApiInfo) {
       processOldApiDiff(oldApiInfo, diffInfo);
     }
@@ -1447,9 +1683,11 @@ export namespace DiffProcessorHelper {
       .setDiffType(diffType)
       .setDiffMessage(diffMap.get(diffType) as string)
       .setStatusCode(diffTypeInfo.getStatusCode())
-      .setIsCompatible(!incompatibleApiDiffTypes.has(diffType))
+      .setIsCompatible(!isCompatible ? false : !incompatibleApiDiffTypes.has(diffType))
       .setOldDescription(diffTypeInfo.getOldMessage())
-      .setNewDescription(diffTypeInfo.getNewMessage());
+      .setNewDescription(diffTypeInfo.getNewMessage())
+      .setIsSystemapi(newApiLevel ? newApiLevel : oldApiLevel)
+      .setIsSameNameFunction(apiIsSameName);
     return diffInfo;
   }
 
@@ -1519,11 +1757,11 @@ export namespace DiffProcessorHelper {
     JsDocDiffHelper.diffSyscap,
     JsDocDiffHelper.diffDeprecated,
     JsDocDiffHelper.diffPermissions,
-    JsDocDiffHelper.diffErrorCodes,
     JsDocDiffHelper.diffIsForm,
     JsDocDiffHelper.diffIsCrossPlatForm,
     JsDocDiffHelper.diffModelLimitation,
     JsDocDiffHelper.diffIsSystemApi,
+    JsDocDiffHelper.diffAtomicService,
   ];
 
   /**

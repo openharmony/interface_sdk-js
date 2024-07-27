@@ -18,10 +18,8 @@
  * @kit ArkUI
  */
 
-/// <reference path="../component/units.d.ts" />
 
 import { AsyncCallback } from './@ohos.base';
-import { Resource } from 'GlobalResource';
 
 /**
  * @namespace prompt
@@ -107,6 +105,7 @@ declare namespace prompt {
   interface ShowDialogSuccessResponse {
 
     /**
+     * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 8
      * @deprecated since 9

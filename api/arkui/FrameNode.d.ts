@@ -21,8 +21,6 @@
 import { UIContext } from '../@ohos.arkui.UIContext';
 import { RenderNode } from './RenderNode';
 import { Size, Position, Edges, LengthMetrics, SizeT } from './Graphics';
-import { UICommonEvent } from 'commonEvent';
-import { CommonAttribute } from 'commonAttribute';
 import { DrawContext } from './Graphics';
 import { ComponentContent } from './ComponentContent';
 
@@ -32,6 +30,7 @@ import { ComponentContent } from './ComponentContent';
  * @interface LayoutConstraint
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface LayoutConstraint {
@@ -41,6 +40,7 @@ declare interface LayoutConstraint {
    * @type { Size }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   maxSize: Size;
@@ -51,6 +51,7 @@ declare interface LayoutConstraint {
    * @type { Size }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   minSize: Size;
@@ -62,6 +63,7 @@ declare interface LayoutConstraint {
    * @type { Size }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   percentReference: Size;
@@ -127,6 +129,7 @@ export class FrameNode {
    * @returns { boolean } - Returns true if the FrameNode can be modified, otherwise return false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   isModifiable(): boolean;
@@ -138,6 +141,7 @@ export class FrameNode {
    * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   appendChild(node: FrameNode): void;
@@ -150,6 +154,7 @@ export class FrameNode {
    * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   insertChildAfter(child: FrameNode, sibling: FrameNode | null): void;
@@ -161,6 +166,7 @@ export class FrameNode {
    * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   removeChild(node: FrameNode): void;
@@ -171,6 +177,7 @@ export class FrameNode {
    * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   clearChildren(): void;
@@ -182,6 +189,7 @@ export class FrameNode {
    * @returns { FrameNode | null } - Returns a FrameNode. When the required node does not exist, returns null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getChild(index: number): FrameNode | null;
@@ -193,6 +201,7 @@ export class FrameNode {
    * If current FrameNode does not have child node, returns null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getFirstChild(): FrameNode | null;
@@ -203,6 +212,7 @@ export class FrameNode {
    * @returns { FrameNode | null } - Returns a FrameNode. If current FrameNode does not have next sibling node, returns null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getNextSibling(): FrameNode | null;
@@ -213,6 +223,7 @@ export class FrameNode {
    * @returns { FrameNode | null } - Returns a FrameNode. If current FrameNode does not have previous sibling node, returns null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getPreviousSibling(): FrameNode | null;
@@ -223,6 +234,7 @@ export class FrameNode {
    * @returns { FrameNode | null } - Returns a FrameNode. If current FrameNode does not have parent node, returns null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getParent(): FrameNode | null;
@@ -233,6 +245,7 @@ export class FrameNode {
    * @returns { number } - Returns the number of the children of the current FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getChildrenCount(): number;
@@ -242,6 +255,7 @@ export class FrameNode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   dispose(): void;
@@ -252,6 +266,7 @@ export class FrameNode {
    * @returns { Position } - Returns position of the node relative to window.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getPositionToWindow(): Position;
@@ -262,6 +277,7 @@ export class FrameNode {
    * @returns { Position } - Returns position of the node relative to its parent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getPositionToParent(): Position;
@@ -272,6 +288,7 @@ export class FrameNode {
    * @returns { Size } - Returns the size of the FrameNode after measure, with unit PX.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getMeasuredSize(): Size;
@@ -282,6 +299,7 @@ export class FrameNode {
    * @returns { Position } - Returns the offset to the parent of the FrameNode after layout, with unit PX.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getLayoutPosition(): Position;
@@ -292,6 +310,7 @@ export class FrameNode {
    * @returns { Edges<LengthMetrics> } - Returns the user config border width of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getUserConfigBorderWidth(): Edges<LengthMetrics>;
@@ -302,6 +321,7 @@ export class FrameNode {
    * @returns { Edges<LengthMetrics> } - Returns the user config padding of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getUserConfigPadding(): Edges<LengthMetrics>;
@@ -312,6 +332,7 @@ export class FrameNode {
    * @returns { Edges<LengthMetrics> } - Returns the user config margin of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getUserConfigMargin(): Edges<LengthMetrics>;
@@ -322,6 +343,7 @@ export class FrameNode {
    * @returns { SizeT<LengthMetrics> } - Returns the user config size of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getUserConfigSize(): SizeT<LengthMetrics>;
@@ -332,6 +354,7 @@ export class FrameNode {
    * @returns { string } - Returns the id of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getId(): string;
@@ -342,6 +365,7 @@ export class FrameNode {
    * @returns { number } - Returns the unique id of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getUniqueId(): number;
@@ -353,6 +377,7 @@ export class FrameNode {
    * @returns { string } - Returns the type of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getNodeType(): string;
@@ -363,6 +388,7 @@ export class FrameNode {
    * @returns { number } - Returns the opacity of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getOpacity(): number;
@@ -373,6 +399,7 @@ export class FrameNode {
    * @returns { boolean } - Returns if the FrameNode is visible.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   isVisible(): boolean;
@@ -383,6 +410,7 @@ export class FrameNode {
    * @returns { boolean } - Returns if the FrameNode is clip to frame.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   isClipToFrame(): boolean;
@@ -393,6 +421,7 @@ export class FrameNode {
    * @returns { boolean } - Returns if the FrameNode is attached.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   isAttached(): boolean;
@@ -403,6 +432,7 @@ export class FrameNode {
    * @returns { Object } - Returns the inspector information of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getInspectorInfo(): Object;
@@ -414,6 +444,7 @@ export class FrameNode {
    * @returns { Object | undefined } - Returns the value of the custom property.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getCustomProperty(name: string): Object | undefined;
@@ -424,6 +455,7 @@ export class FrameNode {
    * @returns { UICommonEvent } - Returns a Object inside the FrameNode, which is used to set callbacks about different events.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   get commonEvent(): UICommonEvent;
@@ -434,6 +466,7 @@ export class FrameNode {
    * @returns { CommonAttribute } - Returns the CommonAttribute which is used to modify the common attributes of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   get commonAttribute(): CommonAttribute;
@@ -444,6 +477,7 @@ export class FrameNode {
    * @param { DrawContext } context - The DrawContext will be used when executed draw method.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onDraw?(context: DrawContext): void;
@@ -456,6 +490,7 @@ export class FrameNode {
    * method.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onMeasure(constraint: LayoutConstraint): void;
@@ -467,6 +502,7 @@ export class FrameNode {
    * @param { Position } position - The position of the node, will be used when executed layout method.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onLayout(position: Position): void;
@@ -477,6 +513,7 @@ export class FrameNode {
    * @param { Size } size - The size of the FrameNode after measure.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   setMeasuredSize(size: Size): void;
@@ -487,6 +524,7 @@ export class FrameNode {
    * @param { Position } position - The position to the parent of the FrameNode after layout.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   setLayoutPosition(position: Position): void;
@@ -498,6 +536,7 @@ export class FrameNode {
    * @param { LayoutConstraint } constraint - The layout constraint of the node, supplied by the parent node.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   measure(constraint: LayoutConstraint): void;
@@ -510,6 +549,7 @@ export class FrameNode {
    * @param { Position } position - The position of the node, will be used when executed the layout method.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   layout(position: Position): void;
@@ -519,6 +559,7 @@ export class FrameNode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   setNeedsLayout(): void;
@@ -528,6 +569,7 @@ export class FrameNode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   invalidate(): void;
@@ -538,6 +580,7 @@ export class FrameNode {
    * @returns { Position } - Returns position of the node relative to screen.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getPositionToScreen(): Position;
@@ -548,6 +591,7 @@ export class FrameNode {
    * @returns { Position } - Returns position of the node relative to window with transform.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getPositionToWindowWithTransform(): Position;
@@ -558,6 +602,7 @@ export class FrameNode {
    * @returns { Position } - Returns position of the node relative to its parent with transform.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getPositionToParentWithTransform(): Position;
@@ -568,6 +613,7 @@ export class FrameNode {
    * @returns { Position } - Returns position of the node relative to screen with transform.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getPositionToScreenWithTransform(): Position;
@@ -577,6 +623,7 @@ export class FrameNode {
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   disposeTree(): void;
@@ -587,6 +634,7 @@ export class FrameNode {
    * @param { ComponentContent<T> } content - Newly added ComponentContent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   addComponentContent<T>(content: ComponentContent<T>): void;
@@ -598,6 +646,7 @@ export class FrameNode {
  * @interface TypedFrameNode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 export interface TypedFrameNode<C, T> extends FrameNode {
@@ -607,6 +656,7 @@ export interface TypedFrameNode<C, T> extends FrameNode {
    * @type { C }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   initialize: C;
@@ -617,6 +667,7 @@ export interface TypedFrameNode<C, T> extends FrameNode {
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   readonly attribute: T;
@@ -628,6 +679,7 @@ export interface TypedFrameNode<C, T> extends FrameNode {
  * @namespace typeNode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 export namespace typeNode {
@@ -637,6 +689,7 @@ export namespace typeNode {
    * @typedef { TypedFrameNode<TextInterface, TextAttribute> } Text
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   type Text = TypedFrameNode<TextInterface, TextAttribute>;
@@ -648,6 +701,7 @@ export namespace typeNode {
    * @param { 'Text' } nodeType - node type.
    * @returns { Text } - Return Text type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   function createNode(context: UIContext, nodeType: 'Text'): Text;
@@ -658,6 +712,7 @@ export namespace typeNode {
    * @typedef { TypedFrameNode<ColumnInterface, ColumnAttribute> } Column
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   type Column = TypedFrameNode<ColumnInterface, ColumnAttribute>;
@@ -669,6 +724,7 @@ export namespace typeNode {
    * @param { 'Column' } nodeType - node type.
    * @returns { Column } - Return Column type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   function createNode(context: UIContext, nodeType: 'Column'): Column;
@@ -679,6 +735,7 @@ export namespace typeNode {
    * @typedef { TypedFrameNode<RowInterface, RowAttribute> } Row
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   type Row = TypedFrameNode<RowInterface, RowAttribute>;
@@ -690,6 +747,7 @@ export namespace typeNode {
    * @param { 'Row' } nodeType - node type.
    * @returns { Row } - Return Row type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   function createNode(context: UIContext, nodeType: 'Row'): Row;
@@ -700,6 +758,7 @@ export namespace typeNode {
    * @typedef { TypedFrameNode<StackInterface, StackAttribute> } Stack
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   type Stack = TypedFrameNode<StackInterface, StackAttribute>;
@@ -711,6 +770,7 @@ export namespace typeNode {
    * @param { 'Stack' } nodeType - node type.
    * @returns { Stack } - Return Stack type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   function createNode(context: UIContext, nodeType: 'Stack'): Stack;
@@ -721,6 +781,7 @@ export namespace typeNode {
    * @typedef { TypedFrameNode<GridRowInterface, GridRowAttribute> } GridRow
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   type GridRow = TypedFrameNode<GridRowInterface, GridRowAttribute>;
@@ -732,6 +793,7 @@ export namespace typeNode {
    * @param { 'GridRow' } nodeType - node type.
    * @returns { GridRow } - Return GridRow type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   function createNode(context: UIContext, nodeType: 'GridRow'): GridRow;
@@ -742,6 +804,7 @@ export namespace typeNode {
    * @typedef { TypedFrameNode<GridColInterface, GridColAttribute> } GridCol
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   type GridCol = TypedFrameNode<GridColInterface, GridColAttribute>;
@@ -753,6 +816,7 @@ export namespace typeNode {
    * @param { 'GridCol' } nodeType - node type.
    * @returns { GridCol } - Return GridCol type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   function createNode(context: UIContext, nodeType: 'GridCol'): GridCol;
@@ -763,6 +827,7 @@ export namespace typeNode {
    * @typedef { TypedFrameNode<FlexInterface, FlexAttribute> } Flex
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   type Flex = TypedFrameNode<FlexInterface, FlexAttribute>;
@@ -774,6 +839,7 @@ export namespace typeNode {
    * @param { 'Flex' } nodeType - node type.
    * @returns { Flex } - Return Flex type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   function createNode(context: UIContext, nodeType: 'Flex'): Flex;
@@ -784,6 +850,7 @@ export namespace typeNode {
    * @typedef { TypedFrameNode<SwiperInterface, SwiperAttribute> } Swiper
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   type Swiper = TypedFrameNode<SwiperInterface, SwiperAttribute>;
@@ -795,6 +862,7 @@ export namespace typeNode {
    * @param { 'Swiper' } nodeType - node type.
    * @returns { Swiper } - Return Swiper type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   function createNode(context: UIContext, nodeType: 'Swiper'): Swiper;
@@ -805,6 +873,7 @@ export namespace typeNode {
    * @typedef { TypedFrameNode<ProgressInterface, ProgressAttribute> } Progress
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   type Progress = TypedFrameNode<ProgressInterface, ProgressAttribute>;
@@ -816,6 +885,7 @@ export namespace typeNode {
    * @param { 'Progress' } nodeType - node type.
    * @returns { Progress } - Return Progress type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   function createNode(context: UIContext, nodeType: 'Progress'): Progress;
@@ -826,6 +896,7 @@ export namespace typeNode {
    * @typedef { TypedFrameNode<ScrollInterface, ScrollAttribute> } Scroll
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   type Scroll = TypedFrameNode<ScrollInterface, ScrollAttribute>;
@@ -837,6 +908,7 @@ export namespace typeNode {
    * @param { 'Scroll' } nodeType - node type.
    * @returns { Scroll } - Return Scroll type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   function createNode(context: UIContext, nodeType: 'Scroll'): Scroll;
@@ -847,6 +919,7 @@ export namespace typeNode {
    * @typedef { TypedFrameNode<RelativeContainerInterface, RelativeContainerAttribute> } RelativeContainer
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   type RelativeContainer = TypedFrameNode<RelativeContainerInterface, RelativeContainerAttribute>;
@@ -858,6 +931,7 @@ export namespace typeNode {
    * @param { 'RelativeContainer' } nodeType - node type.
    * @returns { RelativeContainer } - Return RelativeContainer type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   function createNode(context: UIContext, nodeType: 'RelativeContainer'): RelativeContainer;
@@ -868,6 +942,7 @@ export namespace typeNode {
    * @typedef { TypedFrameNode<DividerInterface, DividerAttribute> } Divider
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   type Divider = TypedFrameNode<DividerInterface, DividerAttribute>;
@@ -879,6 +954,7 @@ export namespace typeNode {
    * @param { 'Divider' } nodeType - node type.
    * @returns { Divider } - Return Divider type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   function createNode(context: UIContext, nodeType: 'Divider'): Divider;
@@ -889,6 +965,7 @@ export namespace typeNode {
    * @typedef { TypedFrameNode<LoadingProgressInterface, LoadingProgressAttribute> } LoadingProgress
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   type LoadingProgress = TypedFrameNode<LoadingProgressInterface, LoadingProgressAttribute>;
@@ -900,6 +977,7 @@ export namespace typeNode {
    * @param { 'LoadingProgress' } nodeType - node type.
    * @returns { LoadingProgress } - Return LoadingProgress type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   function createNode(context: UIContext, nodeType: 'LoadingProgress'): LoadingProgress;
@@ -910,6 +988,7 @@ export namespace typeNode {
    * @typedef { TypedFrameNode<SearchInterface, SearchAttribute> } Search
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   type Search = TypedFrameNode<SearchInterface, SearchAttribute>;
@@ -921,6 +1000,7 @@ export namespace typeNode {
    * @param { 'Search' } nodeType - node type.
    * @returns { Search } - Return Search type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   function createNode(context: UIContext, nodeType: 'Search'): Search;
@@ -931,6 +1011,7 @@ export namespace typeNode {
    * @typedef { TypedFrameNode<BlankInterface, BlankAttribute> } Blank
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   type Blank = TypedFrameNode<BlankInterface, BlankAttribute>;
@@ -942,6 +1023,7 @@ export namespace typeNode {
    * @param { 'Blank' } nodeType - node type.
    * @returns { Blank } - Return Blank type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   function createNode(context: UIContext, nodeType: 'Blank'): Blank;
@@ -952,6 +1034,7 @@ export namespace typeNode {
    * @typedef { TypedFrameNode<ImageInterface, ImageAttribute> } Image
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   type Image = TypedFrameNode<ImageInterface, ImageAttribute>;
@@ -963,6 +1046,7 @@ export namespace typeNode {
    * @param { 'Image' } nodeType - node type.
    * @returns { Image } - Return Image type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   function createNode(context: UIContext, nodeType: 'Image'): Image;
@@ -973,6 +1057,7 @@ export namespace typeNode {
    * @typedef { TypedFrameNode<ListInterface, ListAttribute> } List
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   type List = TypedFrameNode<ListInterface, ListAttribute>;
@@ -984,6 +1069,7 @@ export namespace typeNode {
    * @param { 'List' } nodeType - node type.
    * @returns { List } - Return List type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   function createNode(context: UIContext, nodeType: 'List'): List;
@@ -994,6 +1080,7 @@ export namespace typeNode {
    * @typedef { TypedFrameNode<ListItemInterface, ListItemAttribute> } ListItem
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   type ListItem = TypedFrameNode<ListItemInterface, ListItemAttribute>;
@@ -1005,7 +1092,343 @@ export namespace typeNode {
    * @param { 'ListItem' } nodeType - node type.
    * @returns { ListItem } - Return ListItem type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   function createNode(context: UIContext, nodeType: 'ListItem'): ListItem;
+
+  /**
+   * Define the FrameNode type for TextInput.
+   * 
+   * @typedef { TypedFrameNode<TextInputInterface, TextInputAttribute> } TextInput
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  type TextInput = TypedFrameNode<TextInputInterface, TextInputAttribute>;
+
+  /**
+   * Create a FrameNode of TextInput type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'TextInput' } nodeType - node type.
+   * @returns { TextInput } - Return TextInput type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  function createNode(context: UIContext, nodeType: 'TextInput'): TextInput;
+
+  /**
+   * Define the FrameNode type for Button.
+   * 
+   * @typedef { TypedFrameNode<ButtonInterface, ButtonAttribute> } Button
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  type Button = TypedFrameNode<ButtonInterface, ButtonAttribute>;
+
+  /**
+   * Create a FrameNode of Button type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Button' } nodeType - node type.
+   * @returns { Button } - Return Button type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  function createNode(context: UIContext, nodeType: 'Button'): Button;
+
+  /**
+   * Define the FrameNode type for ListItemGroup.
+   *
+   * @typedef { TypedFrameNode<ListItemGroupInterface, ListItemGroupAttribute> } ListItemGroup
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  type ListItemGroup = TypedFrameNode<ListItemGroupInterface, ListItemGroupAttribute>;
+
+  /**
+   * Create a FrameNode of ListItemGroup type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'ListItemGroup' } nodeType - node type.
+   * @returns { ListItemGroup } - Return ListItemGroup type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  function createNode(context: UIContext, nodeType: 'ListItemGroup'): ListItemGroup;
+
+  /**
+   * Define the FrameNode type for WaterFlow.
+   *
+   * @typedef { TypedFrameNode<WaterFlowInterface, WaterFlowAttribute> } WaterFlow
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  type WaterFlow = TypedFrameNode<WaterFlowInterface, WaterFlowAttribute>;
+
+  /**
+   * Create a FrameNode of WaterFlow type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'WaterFlow' } nodeType - node type.
+   * @returns { WaterFlow } - Return WaterFlow type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  function createNode(context: UIContext, nodeType: 'WaterFlow'): WaterFlow;
+
+  /**
+   * Define the FrameNode type for FlowItem.
+   *
+   * @typedef { TypedFrameNode<FlowItemInterface, FlowItemAttribute> } FlowItem
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  type FlowItem = TypedFrameNode<FlowItemInterface, FlowItemAttribute>;
+
+  /**
+   * Create a FrameNode of FlowItem type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'FlowItem' } nodeType - node type.
+   * @returns { FlowItem } - Return FlowItem type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  function createNode(context: UIContext, nodeType: 'FlowItem'): FlowItem;
+
+  /**
+   * Define the FrameNode type for XComponent.
+   *
+   * @typedef { TypedFrameNode<XComponentInterface, XComponentAttribute> } XComponent
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  type XComponent = TypedFrameNode<XComponentInterface, XComponentAttribute>;
+
+  /**
+   * Create a FrameNode of XComponent type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'XComponent' } nodeType - node type.
+   * @returns { XComponent } - Return XComponent type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  function createNode(context: UIContext, nodeType: 'XComponent'): XComponent;
+}
+
+/**
+ * Used for lazy loading of typeNode.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare class NodeAdapter {
+  /**
+   * Constructor.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  constructor();
+  /**
+   * Dispose the NodeAdapter immediately.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  dispose(): void;
+  /**
+   * Set the total number of node count.
+   *
+   * @param { number } count - The total number of node count.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  set totalNodeCount(count: number);
+  /**
+   * Get the total number of node count.
+   *
+   * @returns { number } - Return the total number of node count.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  get totalNodeCount(): number;
+  /**
+   * Define the operation of reloading all data.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  reloadAllItems(): void;
+  /**
+   * Define the data reload operation.Reload a specified amount of data starting from the index value.
+   *
+   * @param { number } start - Start loading index values for data.
+   * @param { number } count - Load the number of data.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  reloadItem(start: number, count: number): void;
+  /**
+   * Define data deletion operations.Delete a specified amount of data starting from the index value.
+   *
+   * @param { number } start - Start deleting index values for data.
+   * @param { number } count - Delete the number of data.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  removeItem(start: number, count: number): void;
+  /**
+   * Define data insertion operations.Insert a specified amount of data starting from the index value.
+   *
+   * @param { number } start - Start Insert index values for data.
+   * @param { number } count - Insert the number of data.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  insertItem(start: number, count: number): void;
+  /**
+   * Define data movement operations. Move data from the starting index to the ending index.
+   *
+   * @param { number } from - Starting index value.
+   * @param { number } to - End index value.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  moveItem(from: number, to: number): void;
+  /**
+   * Obtain all data results.
+   *
+   * @returns { Array<FrameNode> } - Return all valid FrameNode collections.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  getAllAvailableItems(): Array<FrameNode>;
+  /**
+   * This callback will be triggered when a FrameNode is bound.
+   *
+   * @param { FrameNode } target - The bound FrameNode node.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onAttachToNode?(target: FrameNode): void;
+  /**
+   * This callback will be triggered when the binding is released.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onDetachFromNode?(): void;
+  /**
+   * Call this callback when loading for the first time or when a new node slides in.Used to generate custom IDs, developers need to ensure the uniqueness of the IDs themselves.
+   *
+   * @param { number } index - Load the index value of the data.
+   * @returns { number } - Returning the developer's custom ID requires the developer to ensure its uniqueness.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onGetChildId?(index: number): number;
+  /**
+   * Call this callback when loading for the first time or when a new node slides in.
+   *
+   * @param { number } index - Load the index value of the data.
+   * @returns { FrameNode } - Returns the FrameNode node that loads the node.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onCreateChild?(index: number): FrameNode;
+  /**
+   * Called when the child node is about to be destroyed.
+   *
+   * @param { number } id - The child node ID that is about to be destroyed.
+   * @param { FrameNode } node - The FrameNode node that is about to be destroyed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onDisposeChild?(id: number, node: FrameNode): void;
+  /**
+   * Call this callback when reloading or reusing.
+   *
+   * @param { number } id - The index value of the reloaded data.
+   * @param { FrameNode } node - Reused FrameNode nodes.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onUpdateChild?(id: number, node: FrameNode): void;
+  /**
+   * Add a NodeAdapter to bind to the node.A node can only be bound to one NodeAdapter. Binding failure returns false.
+   *
+   * @param { NodeAdapter } adapter - Define lazy loading classes.
+   * @param { FrameNode } node - The bound FrameNode node.
+   * @returns { boolean } Return the binding result.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  static attachNodeAdapter(adapter: NodeAdapter, node: FrameNode): boolean;
+  /**
+   * Remove the bound NodeAdapter from the node.A node can only be bound to one NodeAdapter.
+   *
+   * @param { FrameNode } node - Unbind the FrameNode node.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  static detachNodeAdapter(node: FrameNode): void;
 }

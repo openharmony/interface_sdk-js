@@ -16,10 +16,14 @@ import path, { ParsedPath } from 'path';
 import fs, { Stats } from 'fs';
 import { Workbook, Worksheet } from 'exceljs';
 import ts, { LineAndCharacter } from 'typescript';
-import { ApiResultSimpleInfo, ApiResultInfo, ApiResultMessage } from '../typedef/checker/result_type';
-import { ApiInfo, ClassInfo, ParentClass } from '../typedef/parser/ApiInfoDefination';
+import { ApiResultSimpleInfo, ApiResultInfo, ApiResultMessage, ApiCheckInfo, ErrorBaseInfo } from '../typedef/checker/result_type';
+import { ApiInfo, BasicApiInfo, ClassInfo, ParentClass } from '../typedef/parser/ApiInfoDefination';
 import { FileUtils } from './FileUtils';
 import { ApiCheckVersion } from '../coreImpl/checker/config/api_check_version.json';
+import { PunctuationMark } from './Constant';
+import { Comment } from '../typedef/parser/Comment';
+import { currentFilePath } from '../coreImpl/checker/src/api_check_plugin';
+import { toNumber } from 'lodash';
 
 
 export class PosOfNode {
@@ -102,34 +106,40 @@ export class GenerateFile {
    * 将错误信息输出为excel文件
    * @param { ApiResultInfo[] } apiCheckArr
    */
-  static async writeExcelFile(apiCheckArr: ApiResultInfo[]): Promise<void> {
+  static async writeExcelFile(apiCheckArr: ApiResultMessage[]): Promise<void> {
     const workbook: Workbook = new Workbook();
     const sheet: Worksheet = workbook.addWorksheet('Js Api', { views: [{ xSplit: 1 }] });
     sheet.getRow(1).values = [
       'order',
-      'level',
-      'errorType',
-      'fileName',
+      'analyzerName',
+      'buggyFilePath',
+      'codeContextStaerLine',
+      'defectLevel',
+      'defectType',
+      'description',
+      'language',
+      'mainBuggyCode',
       'apiName',
-      'apiContent',
-      'type',
-      'errorInfo',
-      'version',
-      'model',
+      'apiType',
+      'hierarchicalRelations',
+      'parentModuleName'
     ];
     for (let i = 1; i <= apiCheckArr.length; i++) {
-      const apiData: ApiResultInfo = apiCheckArr[i - 1];
+      const apiData: ApiResultMessage = apiCheckArr[i - 1];
       sheet.getRow(i + 1).values = [
         i,
-        apiData.getErrorType(),
-        apiData.getLevel(),
+        apiData.analyzerName,
+        apiData.getFilePath(),
         apiData.getLocation(),
-        apiData.getApiName(),
-        apiData.getApiFullText(),
-        apiData.getApiType(),
+        apiData.getLevel(),
+        apiData.getType(),
         apiData.getMessage(),
-        apiData.getVersion(),
-        apiData.getBaseName(),
+        apiData.language,
+        apiData.getMainBuggyCode(),
+        apiData.getExtendInfo().getApiName(),
+        apiData.getExtendInfo().getApiType(),
+        apiData.getExtendInfo().getHierarchicalRelations(),
+        apiData.getExtendInfo().getParentModuleName()
       ];
     }
     workbook.xlsx.writeBuffer().then((buffer) => {
@@ -168,6 +178,11 @@ export class ObtainFullPath {
 }
 
 export class CommonFunctions {
+  static getSinceVersion(sinceValue: string): string {
+    return sinceValue.indexOf(PunctuationMark.LEFT_PARENTHESES) !== -1 ?
+      sinceValue.substring(sinceValue.indexOf(PunctuationMark.LEFT_PARENTHESES) + 1,
+        sinceValue.indexOf(PunctuationMark.RIGHT_PARENTHESES)) : sinceValue;
+  }
   /**
    * 判断标签是否为官方标签
    */
@@ -242,7 +257,33 @@ export class CommonFunctions {
     return implementsApiValue;
   }
 
-  static getMdFiles(url: string) {
+
+  static getErrorInfo(singleApi: BasicApiInfo | undefined, apiJsdoc: Comment.JsDocInfo | undefined, filePath: string,
+    errorBaseInfo: ErrorBaseInfo): ApiCheckInfo {
+    let apiInfo: ApiCheckInfo = new ApiCheckInfo();
+    if (singleApi === undefined) {
+      return apiInfo;
+    }
+    const sinceVersion: number = apiJsdoc === undefined ? -1 : toNumber(apiJsdoc.since);
+    apiInfo
+      .setErrorID(errorBaseInfo.errorID)
+      .setErrorLevel(errorBaseInfo.errorLevel)
+      .setFilePath(filePath)
+      .setApiPostion(singleApi.getPos())
+      .setErrorType(errorBaseInfo.errorType)
+      .setLogType(errorBaseInfo.logType)
+      .setSinceNumber(sinceVersion)
+      .setApiName(singleApi.getApiName())
+      .setApiType(singleApi.getApiType())
+      .setApiText(singleApi.getDefinedText())
+      .setErrorInfo(errorBaseInfo.errorInfo)
+      .setHierarchicalRelations(singleApi.getHierarchicalRelations().join('|'))
+      .setParentModuleName(singleApi.getParentApi()?.getApiName());
+
+    return apiInfo;
+  }
+
+  static getMdFiles(url: string): string[] {
     const mdFiles: string[] = [];
     const content: string = fs.readFileSync(url, 'utf-8');
     const filePathArr: string[] = content.split(/[(\r\n)\r\n]+/);
@@ -256,12 +297,21 @@ export class CommonFunctions {
     return mdFiles;
   }
 
-  static splitPath(filePath: string, pathElements: Set<string>) {
+  static splitPath(filePath: string, pathElements: Set<string>): void {
     let spliteResult: ParsedPath = path.parse(filePath);
     if (spliteResult.base !== '') {
       pathElements.add(spliteResult.base);
       CommonFunctions.splitPath(spliteResult.dir, pathElements);
     }
+  }
+
+  static isAscending(arr: number[]): boolean {
+    for (let i = 1; i < arr.length; i++) {
+      if (arr[i] < arr[i - 1]) {
+        return false;
+      }
+    }
+    return true;
   }
 }
 
@@ -269,7 +319,7 @@ export class CommonFunctions {
  * The order between labels
  */
 export const tagsArrayOfOrder: string[] = [
-  'namespace', 'struct', 'extends', 'implements', 'typedef', 'interface', 'permission', 'enum', 'constant', 'type',
+  'namespace', 'struct', 'typedef', 'interface', 'extends', 'implements', 'permission', 'enum', 'constant', 'type',
   'param', 'default', 'returns', 'readonly', 'throws', 'static', 'fires', 'syscap', 'systemapi', 'famodelonly',
   'FAModelOnly', 'stagemodelonly', 'StageModelOnly', 'crossplatform', 'form', 'atomicservice', 'since', 'deprecated',
   'useinstead', 'test', 'example'
@@ -290,7 +340,9 @@ export const officialTagArr: string[] = [
  * Inherit tag
  */
 export const inheritTagArr: string[] = ['test', 'famodelonly', 'FAModelOnly', 'stagemodelonly', 'StageModelOnly',
-  'deprecated', 'systemapi', 'atomicservice', 'form'];
+  'deprecated', 'systemapi'];
+
+export const followTagArr: string[] = ['atomicservice', 'form'];
 
 /**
  * Optional tag
@@ -302,7 +354,7 @@ export const optionalTags: string[] = [
 /**
  * conditional optional tag
  */
-export const conditionalOptionalTags: string[] = ['default', 'readonly', 'permission', 'throws', 'constant'];
+export const conditionalOptionalTags: string[] = ['default', 'permission', 'throws'];
 
 /**
  * All api types that can use the permission tag.
@@ -334,7 +386,7 @@ export const apiLegalityCheckTypeMap: Map<ts.SyntaxKind, string[]> = new Map([
   [ts.SyntaxKind.PropertyDeclaration, ['type', 'default', 'permission', 'throws', 'readonly', 'syscap', 'since']],
   [ts.SyntaxKind.PropertySignature, ['type', 'default', 'permission', 'throws', 'readonly', 'syscap', 'since']],
   [ts.SyntaxKind.VariableStatement, ['constant', 'default', 'permission', 'throws', 'syscap', 'since']],
-  [ts.SyntaxKind.TypeAliasDeclaration, ['syscap', 'since', 'typedef']],
+  [ts.SyntaxKind.TypeAliasDeclaration, ['syscap', 'since', 'typedef', 'param', 'returns', 'throws']],
   [ts.SyntaxKind.EnumMember, ['syscap', 'since']],
   [ts.SyntaxKind.NamespaceExportDeclaration, ['syscap', 'since']],
   [ts.SyntaxKind.TypeLiteral, ['syscap', 'since']],

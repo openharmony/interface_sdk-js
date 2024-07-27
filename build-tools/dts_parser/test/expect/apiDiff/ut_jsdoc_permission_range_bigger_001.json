@@ -8,7 +8,7 @@
     "newApiName": "func",
     "oldDtsName": "ut_jsdoc_permission_range_bigger_001.d.ts",
     "newDtsName": "ut_jsdoc_permission_range_bigger_001.d.ts",
-    "diffType": 25,
+    "diffType": 26,
     "diffMessage": "增加or或减少and权限",
     "changeLogUrl": "",
     "changeLogs": [],
@@ -34,6 +34,9 @@
     "oldDescription": "ohos.permission.GET_SENSITIVE_PERMISSIONS",
     "newDescription": "ohos.permission.GET_SENSITIVE_PERMISSIONS or ohos.permission.GRANT_SENSITIVE_PERMISSIONS",
     "oldSyscapField": "",
-    "newSyscapField": ""
+    "newSyscapField": "",
+    "oldKitInfo": "",
+    "newKitInfo": "",
+    "isSystemapi": false
   }
 ]

@@ -18,6 +18,8 @@ import {
   ApiType,
   BasicApiInfo,
   ContainerApiInfo,
+  MethodInfo,
+  PropertyInfo,
   containerApiTypes,
   notJsDocApiTypes,
 } from '../../typedef/parser/ApiInfoDefination';
@@ -42,7 +44,7 @@ export class ApiStatisticsHelper {
    * @param { FilesMap } apiMap 根据接口定义文件处理得到的map结果
    * @returns { ApiStatisticsInfo[] } 返回需要统计的api列表
    */
-  static getApiStatisticsInfos(apiMap: FilesMap): StatisticsInfoValueType {   
+  static getApiStatisticsInfos(apiMap: FilesMap): StatisticsInfoValueType {
     const apiStatisticsInfos: ApiStatisticsInfo[] = [];
     const allApiStatisticsInfos: ApiStatisticsInfo[] = [];
     // map的第一层key均为文件路径名
@@ -197,13 +199,24 @@ export class ApiStatisticsHelper {
     } else {
       apiStatisticsInfo.setDefinedText(sameNameDefinedText ? sameNameDefinedText : apiInfo.getDefinedText());
     }
+    let isOptional: boolean = false;
+    if (apiInfo.getApiType() === ApiType.METHOD) {
+      const methodInfo: MethodInfo = apiInfo as MethodInfo;
+      isOptional = !methodInfo.getIsRequired();
+    } else if (apiInfo.getApiType() === ApiType.PROPERTY) {
+      const propertyInfo: PropertyInfo = apiInfo as PropertyInfo;
+      isOptional = !propertyInfo.getIsRequired();
+    }
     apiStatisticsInfo
       .setFilePath(apiInfo.getFilePath())
       .setApiType(apiInfo.getApiType())
       .setApiName(apiInfo.getApiName())
       .setPos(apiInfo.getPos())
       .setHierarchicalRelations(relations.join('/'))
-      .setDecorators(apiInfo.getDecorators());
+      .setDecorators(apiInfo.getDecorators())
+      .setAbsolutePath(apiInfo.getFileAbsolutePath())
+      .setParentApiType(apiInfo.getParentApiType())
+      .setIsOptional(isOptional);
     if (notJsDocApiTypes.has(apiInfo.getApiType())) {
       return apiStatisticsInfo;
     }

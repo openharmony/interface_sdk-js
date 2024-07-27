@@ -1,14 +1,14 @@
 [
   {
     "apiType": "TypeAlias",
-    "statusCode": -1,
+    "statusCode": 14,
     "oldApiDefinedText": "type Type = 'none' | 'reduce';",
     "newApiDefinedText": "type Type = 'none';",
     "oldApiName": "Type",
     "newApiName": "Type",
     "oldDtsName": "ut_type_alias_reduce.d.ts",
     "newDtsName": "ut_type_alias_reduce.d.ts",
-    "diffType": 57,
+    "diffType": 60,
     "diffMessage": "自定义类型值范围缩小",
     "changeLogUrl": "",
     "changeLogs": [],
@@ -31,9 +31,12 @@
       "line": 21,
       "character": 3
     },
-    "oldDescription": "'none','reduce'",
+    "oldDescription": "'none' | 'reduce'",
     "newDescription": "'none'",
     "oldSyscapField": "",
-    "newSyscapField": ""
+    "newSyscapField": "",
+    "oldKitInfo": "",
+    "newKitInfo": "",
+    "isSystemapi": false
   }
 ]

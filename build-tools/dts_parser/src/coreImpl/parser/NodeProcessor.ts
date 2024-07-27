@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import ts from 'typescript';
+import ts, { TypeParameter, TypeParameterDeclaration } from 'typescript';
 import _ from 'lodash';
 import path from 'path';
 
@@ -230,6 +230,7 @@ export class NodeProcessorHelper {
     if (!subscriotionSet.has(apiInfo.getApiName())) {
       return undefined;
     }
+    apiInfo.setIsJoinType(true);
     if (methodNode.parameters.length === 0) {
       return undefined;
     }
@@ -275,10 +276,17 @@ export class NodeProcessorHelper {
     if (
       ts.isInterfaceDeclaration(node) ||
       ts.isClassDeclaration(node) ||
-      ts.isEnumDeclaration(node) ||
-      ts.isStructDeclaration(node)
+      ts.isEnumDeclaration(node)
     ) {
       return node.members;
+    }
+    if (ts.isStructDeclaration(node)) {
+      return ts.visitNodes(node.members, (node) => {
+        if (ts.isConstructorDeclaration(node)) {
+          return undefined;
+        }
+        return node;
+      });
     }
     if (ts.isTypeAliasDeclaration(node) && ts.isTypeLiteralNode(node.type)) {
       return node.type.members;
@@ -587,7 +595,7 @@ export class NodeProcessorHelper {
         false
       );
     }
-    propertyInfo.setTypeKind(propertyNode.type ? propertyNode.type.kind : -1);
+    propertyInfo.setTypeKind(propertyNode.type?.kind);
     return propertyInfo;
   }
 
@@ -628,6 +636,7 @@ export class NodeProcessorHelper {
       methodName = StringConstant.CONSTRUCTOR_API_NAME;
     }
     methodInfo.setApiName(methodName);
+    methodInfo.setIsRequired(!methodNode.questionToken ? true : false);
     methodNode.typeParameters?.forEach((typeParameter: ts.TypeParameterDeclaration) => {
       methodInfo.setGenericInfo(NodeProcessorHelper.processGenericity(typeParameter));
     });
@@ -669,7 +678,7 @@ export class NodeProcessorHelper {
     paramInfo.setApiName(param.name.getText());
     paramInfo.setIsRequired(!param.questionToken ? true : false);
     paramInfo.setDefinedText(param.getText());
-    paramInfo.setParamType(param.type ? param.type.kind : -1);
+    paramInfo.setParamType(param.type?.kind);
     if (param.type === undefined) {
       return paramInfo;
     }
@@ -730,11 +739,11 @@ export class NodeProcessorHelper {
     const fileSymbolMap: Map<string, ts.Symbol> | undefined =
       NodeProcessorHelper.symbolOfTypeReferenceMap.get(filePath);
     if (!fileSymbolMap) {
-      return;
+      return undefined;
     }
-    const typeSymbol: ts.Symbol | undefined = fileSymbolMap.get(tsNode.getFullText().trim())
+    const typeSymbol: ts.Symbol | undefined = fileSymbolMap.get(tsNode.getFullText().trim());
     if (!typeSymbol) {
-      return;
+      return undefined;
     }
     return typeSymbol;
   }
@@ -768,7 +777,7 @@ export class NodeProcessorHelper {
         if (parameter.type) {
           NodeProcessorHelper.processFunctionTypeNode(parameter.type, methodInfo, paramInfo, isParam);
         }
-      })
+      });
       NodeProcessorHelper.processFunctionTypeNode(typeNode.type, methodInfo, paramInfo, isParam);
     }
     if (!ts.isTypeReferenceNode(typeNode)) {
@@ -796,7 +805,7 @@ export class NodeProcessorHelper {
     const typeArguments: ts.NodeArray<ts.TypeNode> | undefined = typeNode.typeArguments;
     typeArguments?.forEach((typeArgument: ts.TypeNode) => {
       NodeProcessorHelper.processFunctionTypeNode(typeArgument, methodInfo, paramInfo, isParam);
-    })
+    });
     try {
       const tsProgram: ts.Program = parserParam.getTsProgram();
       const filePath: string = parserParam.getFilePath();
@@ -808,7 +817,7 @@ export class NodeProcessorHelper {
           }
           NodeProcessorHelper.setSymbolOfTypeReferenceMap(filePath, tsNode, symbol);
         }
-      })
+      });
       tsProgram.emit();
       const currentTypeSymbol: ts.Symbol | undefined =
         NodeProcessorHelper.getSymbolOfTypeReferenceMap(filePath, typeNode);
@@ -891,7 +900,7 @@ export class NodeProcessorHelper {
    */
   static processDataType(dataType: ts.TypeNode | undefined): string[] {
     const typeArr: string[] = [];
-    if (!dataType || dataType.kind === ts.SyntaxKind.VoidKeyword) {
+    if (!dataType) {
       return typeArr;
     }
     if (ts.isUnionTypeNode(dataType)) {
@@ -1081,6 +1090,7 @@ export class NodeProcessorHelper {
     propertyInfo.setApiName(declarationNode.name.getText());
     propertyInfo.addType(NodeProcessorHelper.processDataType(declarationNode.type));
     propertyInfo.setIsRequired(true);
+    propertyInfo.setTypeKind(declarationNode?.type?.kind);
     if (StringUtils.hasSubstring(definedText, StringConstant.CONST_KEY_WORD)) {
       propertyInfo.setIsReadOnly(true);
     }
@@ -1122,7 +1132,7 @@ export class ModifierHelper {
     }
     if (containerApiTypes.has(apiInfo.apiType)) {
       definedText += ` ${apiInfo.getApiType().toLowerCase()} ${apiInfo.getApiName()}`;
-      apiInfo.setDefinedText(definedText);
+      apiInfo.setDefinedText(definedText.trim());
     }
   }
 }

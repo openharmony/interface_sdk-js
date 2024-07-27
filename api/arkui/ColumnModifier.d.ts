@@ -18,8 +18,6 @@
  * @kit ArkUI
  */
 
-/// <reference path="../../component/common.d.ts" />
-/// <reference path="../../component/column.d.ts" />
 
 /**
  * Defines Column Modifier
@@ -27,6 +25,7 @@
  * @extends ColumnAttribute
  * @implements AttributeModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class ColumnModifier extends ColumnAttribute implements AttributeModifier<ColumnAttribute> {
@@ -37,6 +36,7 @@ export declare class ColumnModifier extends ColumnAttribute implements Attribute
    * @param { ColumnAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: ColumnAttribute): void;

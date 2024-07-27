@@ -23,14 +23,7 @@
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @since 11
- */
-/**
- * Defines the image analyze type.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
  */
 declare enum ImageAnalyzerType {
@@ -38,13 +31,7 @@ declare enum ImageAnalyzerType {
    * Image analyze type subject.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 11
-   */
-  /**
-   * Image analyze type subject.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   SUBJECT = 0,
@@ -53,26 +40,49 @@ declare enum ImageAnalyzerType {
    * Image analyze type text.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 11
-   */
-  /**
-   * Image analyze type text.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   TEXT,
+
+  /**
+   * Image analyze type object lookup.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  OBJECT_LOOKUP,
 }
 
 /**
- * Image analyzer config.
+ * Image analyzer controller.
  *
- * @interface ImageAnalyzerConfig
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @since 11
+ * @atomicservice
+ * @since 12
  */
+declare class ImageAnalyzerController {
+  /**
+   * Constructor.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  constructor();
+
+  /**
+   * Get image analyzer support types.
+   *
+   * @returns { ImageAnalyzerType[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  getImageAnalyzerSupportTypes(): ImageAnalyzerType[];
+}
+
 /**
  * Image analyzer config.
  *
@@ -87,16 +97,38 @@ declare interface ImageAnalyzerConfig {
    *
    * @type { ImageAnalyzerType[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 11
-   */
-  /**
-   * Image analyze types.
-   *
-   * @type { ImageAnalyzerType[] }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
    */
   types: ImageAnalyzerType[];
+}
+
+/**
+ * Image ai options.
+ *
+ * @interface ImageAIOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 12
+ */
+declare interface ImageAIOptions {
+  /**
+   * Image analyze types.
+   *
+   * @type { ?ImageAnalyzerType[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  types?: ImageAnalyzerType[];
+
+  /**
+   * Image analyze types.
+   *
+   * @type { ?ImageAnalyzerController }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  aiController?: ImageAnalyzerController;
 }

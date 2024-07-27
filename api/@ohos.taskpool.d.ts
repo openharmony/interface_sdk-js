@@ -198,7 +198,7 @@ declare namespace taskpool {
      * @param { Function } func - func func Concurrent function to execute in taskpool.
      * @param { unknown[] } args - args args The concurrent function arguments.
      * @throws { BusinessError } 401 - The input parameters are invalid.
-     * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
+     * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
      * @syscap SystemCapability.Utils.Lang
      * @since 9
      */
@@ -208,7 +208,7 @@ declare namespace taskpool {
      * @param { Function } func - func func Concurrent function to execute in taskpool.
      * @param { unknown[] } args - args args The concurrent function arguments.
      * @throws { BusinessError } 401 - The input parameters are invalid.
-     * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
+     * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -219,7 +219,7 @@ declare namespace taskpool {
      * @param { Function } func - func func Concurrent function to execute in taskpool.
      * @param { Object[] } args - args args The concurrent function arguments.
      * @throws { BusinessError } 401 - The input parameters are invalid.
-     * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
+     * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -234,7 +234,7 @@ declare namespace taskpool {
      * @param { Function } func - func func Concurrent function to execute in taskpool.
      * @param { Object[] } args - args args The concurrent function arguments.
      * @throws { BusinessError } 401 - The input parameters are invalid.
-     * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
+     * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -269,7 +269,7 @@ declare namespace taskpool {
      * @param { Object[] } args - Data to be used as the input parameter of the registered callback.
      * @throws { BusinessError } 401 - The input parameters are invalid.
      * @throws { BusinessError } 10200006 - An exception occurred during serialization.
-     * @throws { BusinessError } 10200022 - The function is not called in the taskpool thread.
+     * @throws { BusinessError } 10200022 - The function is not called in the TaskPool thread.
      * @throws { BusinessError } 10200023 - The function is not called in the concurrent function.
      * @throws { BusinessError } 10200024 - The callback is not registered on the host side.
      * @static
@@ -294,7 +294,7 @@ declare namespace taskpool {
      *
      * @param { ArrayBuffer[] } [transfer] - transfer Transfer list of this task, empty array is default.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
-     * @throws { BusinessError } 10200029 - Can not set an arraybuffer to both transferList and cloneList.
+     * @throws { BusinessError } 10200029 - An ArrayBuffer cannot be set as both a transfer list and a clone list.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -311,7 +311,7 @@ declare namespace taskpool {
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types;
      * 3.Parameter verification failed.
-     * @throws { BusinessError } 10200029 - Can not set an arraybuffer to both transferList and cloneList.
+     * @throws { BusinessError } 10200029 - An ArrayBuffer cannot be set as both a transfer list and a clone list.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -608,7 +608,7 @@ declare namespace taskpool {
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types;
      * 3.Parameter verification failed.
-     * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
+     * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -622,7 +622,7 @@ declare namespace taskpool {
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types;
      * 3.Parameter verification failed.
-     * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
+     * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -638,7 +638,7 @@ declare namespace taskpool {
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types;
      * 3.Parameter verification failed.
-     * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
+     * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -651,7 +651,7 @@ declare namespace taskpool {
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types;
      * 3.Parameter verification failed.
-     * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
+     * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -730,9 +730,9 @@ declare namespace taskpool {
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types;
-     * @throws { BusinessError } 10200003 - Worker initialization failure.
+     * @throws { BusinessError } 10200003 - Worker initialization failed.
      * @throws { BusinessError } 10200006 - An exception occurred during serialization.
-     * @throws { BusinessError } 10200025 - Add dependent task to SequenceRunner.
+     * @throws { BusinessError } 10200025 - The task to be added to SequenceRunner has dependent tasks.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -1070,9 +1070,9 @@ declare namespace taskpool {
    * 1.Mandatory parameters are left unspecified;
    * 2.Incorrect parameter types;
    * 3.Parameter verification failed.
-   * @throws { BusinessError } 10200003 - Worker initialization failure.
+   * @throws { BusinessError } 10200003 - Worker initialization failed.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
-   * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
+   * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
    * @syscap SystemCapability.Utils.Lang
    * @since 9
    */
@@ -1086,9 +1086,9 @@ declare namespace taskpool {
    * 1.Mandatory parameters are left unspecified;
    * 2.Incorrect parameter types;
    * 3.Parameter verification failed.
-   * @throws { BusinessError } 10200003 - Worker initialization failure.
+   * @throws { BusinessError } 10200003 - Worker initialization failed.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
-   * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
+   * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -1103,9 +1103,9 @@ declare namespace taskpool {
    * 1.Mandatory parameters are left unspecified;
    * 2.Incorrect parameter types;
    * 3.Parameter verification failed.
-   * @throws { BusinessError } 10200003 - Worker initialization failure.
+   * @throws { BusinessError } 10200003 - Worker initialization failed.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
-   * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
+   * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -1123,9 +1123,9 @@ declare namespace taskpool {
    * 1.Mandatory parameters are left unspecified;
    * 2.Incorrect parameter types;
    * 3.Parameter verification failed.
-   * @throws { BusinessError } 10200003 - Worker initialization failure.
+   * @throws { BusinessError } 10200003 - Worker initialization failed.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
-   * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
+   * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
    * @syscap SystemCapability.Utils.Lang
    * @since 9
    */
@@ -1139,9 +1139,9 @@ declare namespace taskpool {
    * 1.Mandatory parameters are left unspecified;
    * 2.Incorrect parameter types;
    * 3.Parameter verification failed.
-   * @throws { BusinessError } 10200003 - Worker initialization failure.
+   * @throws { BusinessError } 10200003 - Worker initialization failed.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
-   * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
+   * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -1156,9 +1156,9 @@ declare namespace taskpool {
    * 1.Mandatory parameters are left unspecified;
    * 2.Incorrect parameter types;
    * 3.Parameter verification failed.
-   * @throws { BusinessError } 10200003 - Worker initialization failure.
+   * @throws { BusinessError } 10200003 - Worker initialization failed.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
-   * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
+   * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -1285,8 +1285,8 @@ declare namespace taskpool {
    * 1.Mandatory parameters are left unspecified;
    * 2.Incorrect parameter types;
    * 3.Parameter verification failed.
-   * @throws { BusinessError } 10200015 - The task does not exist when it is canceled.
-   * @throws { BusinessError } 10200016 - The task is executing when it is canceled.
+   * @throws { BusinessError } 10200015 - The task to cancel does not exist.
+   * @throws { BusinessError } 10200016 - The task to cancel is being executed.
    * @syscap SystemCapability.Utils.Lang
    * @since 9
    */
@@ -1298,7 +1298,7 @@ declare namespace taskpool {
    * 1.Mandatory parameters are left unspecified;
    * 2.Incorrect parameter types;
    * 3.Parameter verification failed.
-   * @throws { BusinessError } 10200015 - The task does not exist when it is canceled.
+   * @throws { BusinessError } 10200015 - The task to cancel does not exist.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -1311,7 +1311,7 @@ declare namespace taskpool {
    * 1.Mandatory parameters are left unspecified;
    * 2.Incorrect parameter types;
    * 3.Parameter verification failed.
-   * @throws { BusinessError } 10200015 - The task does not exist when it is canceled.
+   * @throws { BusinessError } 10200015 - The task to cancel does not exist.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -1327,7 +1327,7 @@ declare namespace taskpool {
    * 1.Mandatory parameters are left unspecified;
    * 2.Incorrect parameter types;
    * 3.Parameter verification failed.
-   * @throws { BusinessError } 10200018 - The task group does not exist when it is canceled.
+   * @throws { BusinessError } 10200018 - The task group to cancel does not exist.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -1340,7 +1340,7 @@ declare namespace taskpool {
    * 1.Mandatory parameters are left unspecified;
    * 2.Incorrect parameter types;
    * 3.Parameter verification failed.
-   * @throws { BusinessError } 10200018 - The task group does not exist when it is canceled.
+   * @throws { BusinessError } 10200018 - The task group to cancel does not exist.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice

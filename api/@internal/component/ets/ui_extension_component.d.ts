@@ -224,7 +224,7 @@ interface UIExtensionComponentInterface {
    * Called when the UIExtensionComponent is used.
    *
    * @param { import('../api/@ohos.app.ability.Want').default } want - indicates the want of UIExtensionAbility
-   * @param { UIExtensionOptions } [option] - Construction configuration of UIExtensionComponentAttribute
+   * @param { UIExtensionOptions } [options] - Construction configuration of UIExtensionComponentAttribute
    * @returns { UIExtensionComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi

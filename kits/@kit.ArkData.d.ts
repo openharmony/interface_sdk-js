@@ -22,6 +22,7 @@ import DataShareExtensionAbility from '@ohos.application.DataShareExtensionAbili
 import cloudData from '@ohos.data.cloudData';
 import cloudExtension from '@ohos.data.cloudExtension';
 import commonType from '@ohos.data.commonType';
+import dataAbility from '@ohos.data.dataAbility';
 import dataShare from '@ohos.data.dataShare';
 import dataSharePredicates from '@ohos.data.dataSharePredicates';
 import DataShareResultSet, { DataType } from '@ohos.data.DataShareResultSet';
@@ -34,9 +35,11 @@ import uniformTypeDescriptor from '@ohos.data.uniformTypeDescriptor';
 import uniformDataStruct from '@ohos.data.uniformDataStruct';
 import { ValueType, ValuesBucket } from '@ohos.data.ValuesBucket';
 import sendablePreferences from '@ohos.data.sendablePreferences';
+import sendableRelationalStore from '@ohos.data.sendableRelationalStore';
 
 export {
   DataShareExtensionAbility, DataShareResultSet, DataType, ValueType, ValuesBucket, cloudData, cloudExtension, 
   commonType, dataShare, dataSharePredicates, distributedDataObject, distributedKVStore, preferences,
-  relationalStore, unifiedDataChannel, uniformTypeDescriptor, uniformDataStruct, sendablePreferences,
+  relationalStore, unifiedDataChannel, uniformTypeDescriptor, uniformDataStruct, sendablePreferences, dataAbility,
+  sendableRelationalStore
 };

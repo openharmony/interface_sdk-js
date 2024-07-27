@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import ts from 'typescript';
 import { ApiDiffType } from '../../typedef/diff/ApiInfoDiff';
 
 /**
@@ -35,7 +36,8 @@ export enum ErrorType {
   API_CHANGE_ERRORS = 'api change errors',
   TS_SYNTAX_ERROR = 'TS syntax error',
   NO_JSDOC = 'No jsdoc',
-  JSDOC_HAS_CHINESE = 'JSDOC_HAS_CHINESE'
+  JSDOC_HAS_CHINESE = 'JSDOC_HAS_CHINESE',
+  ERROR_ERROR_CODE = 'error_error_code'
 }
 
 /**
@@ -58,7 +60,8 @@ export enum ErrorID {
   API_CHANGE_ERRORS_ID = 12,
   TS_SYNTAX_ERROR_ID = 13,
   NO_JSDOC_ID = 14,
-  JSDOC_HAS_CHINESE = 15
+  JSDOC_HAS_CHINESE = 15,
+  ERROR_ERROR_CODE = 16
 }
 
 /**
@@ -79,6 +82,14 @@ export enum ErrorLevel {
   HIGH = 3,
   MIDDLE = 2,
   LOW = 1,
+}
+
+export enum ParticularErrorCode {
+  ERROR_CODE_201 = '201',
+  ERROR_CODE_202 = '202',
+  ERROR_CODE_401 = '401',
+  ERROR_PERMISSION = 'permission',
+  ERROR_SYSTEMAPI = 'systemapi'
 }
 
 /**
@@ -107,6 +118,7 @@ export enum ErrorMessage {
   ERROR_INFO_VALUE1_THROWS = 'The type of the [$$] [throws] tag is incorrect. Please fill in [BusinessError].',
   ERROR_INFO_VALUE2_THROWS = 'The type of the [$$] [throws] tag is incorrect. Please check if the tag value is a numerical value.',
   ERROR_INFO_INHERIT = 'It was detected that there is an inheritable label [$$] in the current file, but there are child nodes without this label.',
+  ERROR_INFO_FOLLOW = 'It was detected that there is a following label [$$] in the current file, but the parent nodes without this label.',
   ERROR_ORDER = 'JSDoc label order error, please adjust the order of [$$] labels.',
   ERROR_LABELNAME = 'The [$$] tag does not exist. Please use a valid JSDoc tag.',
   ERROR_LOST_LABEL = 'JSDoc tag validity verification failed. Please confirm if the [$$] tag is missing.',
@@ -131,8 +143,11 @@ export enum ErrorMessage {
   ERROR_SMALL_HUMP_NAME = 'This name [$$] should be named by small hump.',
   ERROR_SMALL_HUMP_NAME_FILE = 'This API file should be named by small hump.',
   ERROR_LARGE_HUMP_NAME_FILE = 'This API file should be named by large hump.',
+  ERROR_ANONYMOUS_FUNCTION = 'Anonymous functions or anonymous object that are not allowed are used in this api.',
   ERROR_NO_JSDOC = 'Jsdoc needs to be added to the current API.',
-  ERROR_NO_JSDOC_TAG = 'add tags to the Jsdoc.',
+  ERROR_NO_JSDOC_TAG = 'add  tags to the Jsdoc.',
+  ERROR_HAS_CHINESE = 'Jsdoc has chinese.',
+  ERROR_ERROR_CODE = 'The generic error code does not contain the current error code.',
   ERROR_CHANGES_JSDOC_LEVEL = 'Forbid changes: Cannot change from public API to system API.',
   ERROR_CHANGES_JSDOC_PERMISSION_RANGE = 'Forbid changes: Cannot reduce or permission or increase and permission.',
   ERROR_CHANGES_JSDOC_PERMISSION_VALUE = 'Forbid changes: Cannot change permission value,cannot judge the range change.',
@@ -145,6 +160,7 @@ export enum ErrorMessage {
   ERROR_CHANGES_JSDOC_STAGE_TO_FA = 'Forbid changes: Cannot change from StageModelOnly to FAModelOnly.',
   ERROR_CHANGES_JSDOC_NA_TO_STAGE = 'Forbid changes: Cannot change from nothing to StageModelOnly.',
   ERROR_CHANGES_JSDOC_NA_TO_FA = 'Forbid changes: Cannot change from nothing to FAModelOnly.',
+  ERROR_CHANGES_JSDOC_ATOMICSERVICE_TO_NA = 'Forbid changes: Cannot change from atomicservice to NA.',
   ERROR_CHANGES_FUNCTION_RETURN_TYPE_ADD = 'Forbid changes: The function return value type cannot be extended.',
   ERROR_CHANGES_FUNCTION_RETURN_TYPE_REDUCE = 'Forbid changes: The function return value type cannot be reduced.',
   ERROR_CHANGES_FUNCTION_RETURN_TYPE_CHANGE = 'Forbid changes: Cannot change function return value type.',
@@ -169,8 +185,9 @@ export enum ErrorMessage {
   ERROR_CHANGES_ENUM_MEMBER_VALUE = 'Forbid changes: Cannot change Enumeration assignment.',
   ERROR_CHANGES_JSDOC_CHANGE = 'Forbid changes: Historical JSDoc cannot be changed.',
   ERROR_CHANGES_JSDOC_NUMBER = 'Forbid changes: API changes must add a new section of JSDoc.',
-  ERROR_HAS_CHINESE= 'Jsdoc has chinese.',
-
+  ERROR_CHANGES_SYSCAP_NA_TO_HAVE = 'Forbid changes: Cannot change from NA to syscap.',
+  ERROR_CHANGES_SYSCAP_HAVE_TO_NA = 'Forbid changes: Cannot change from syscap to NA.',
+  ERROR_CHANGES_SYSCAP_A_TO_B = 'Forbid changes: Cannot change syscap value.',
 }
 
 export const incompatibleApiDiffTypes: Map<ApiDiffType, ErrorMessage> = new Map(
@@ -224,6 +241,12 @@ export const incompatibleApiDiffTypes: Map<ApiDiffType, ErrorMessage> = new Map(
     [ApiDiffType.TYPE_ALIAS_REDUCE, ErrorMessage.ERROR_CHANGES_TYPE_ALIAS_REDUCE],
     // 15.枚举类型变更
     [ApiDiffType.ENUM_MEMBER_VALUE_CHANGE, ErrorMessage.ERROR_CHANGES_ENUM_MEMBER_VALUE],
+    // 16.是否拥有元服务能力
+    [ApiDiffType.ATOMIC_SERVICE_HAVE_TO_NA, ErrorMessage.ERROR_CHANGES_JSDOC_ATOMICSERVICE_TO_NA],
+    // 17.syscap变更
+    [ApiDiffType.SYSCAP_NA_TO_HAVE, ErrorMessage.ERROR_CHANGES_SYSCAP_NA_TO_HAVE],
+    [ApiDiffType.SYSCAP_HAVE_TO_NA, ErrorMessage.ERROR_CHANGES_SYSCAP_HAVE_TO_NA],
+    [ApiDiffType.SYSCAP_A_TO_B, ErrorMessage.ERROR_CHANGES_SYSCAP_A_TO_B],
   ]
 );
 
@@ -238,6 +261,10 @@ export class ApiResultSimpleInfo {
   message: string = '';
   type: string = '';
   apiText: string = '';
+  apiName: string = '';
+  apiType: string = '';
+  hierarchicalRelations: string = '';
+  parentModuleName: string | undefined = '';
 
   setID(id: number): ApiResultSimpleInfo {
     this.id = id;
@@ -301,6 +328,43 @@ export class ApiResultSimpleInfo {
   getApiText(): string {
     return this.apiText;
   }
+
+
+  setApiName(apiName: string): ApiResultSimpleInfo {
+    this.apiName = apiName;
+    return this;
+  }
+
+  getApiName(): string {
+    return this.apiName;
+  }
+
+  setApiType(apiType: string): ApiResultSimpleInfo {
+    this.apiType = apiType;
+    return this;
+  }
+
+  getApiType(): string {
+    return this.apiType;
+  }
+
+  setHierarchicalRelations(hierarchicalRelations: string): ApiResultSimpleInfo {
+    this.hierarchicalRelations = hierarchicalRelations;
+    return this;
+  }
+
+  getHierarchicalRelations(): string {
+    return this.hierarchicalRelations;
+  }
+
+  setParentModuleName(parentModuleName: string | undefined): ApiResultSimpleInfo {
+    this.parentModuleName = parentModuleName;
+    return this;
+  }
+
+  getParentModuleName(): string | undefined {
+    return this.parentModuleName;
+  }
 }
 
 /**
@@ -316,6 +380,9 @@ export class ApiResultInfo {
   apiName: string = '';
   apiFullText: string = '';
   baseName: string = '';
+  hierarchicalRelations: string = '';
+  parentModuleName: string | undefined = '';
+  defectType: string = '';
 
   setErrorType(errorType: string): ApiResultInfo {
     this.errorType = errorType;
@@ -395,6 +462,33 @@ export class ApiResultInfo {
   getBaseName(): string {
     return this.baseName;
   }
+
+  setHierarchicalRelations(hierarchicalRelations: string): ApiResultInfo {
+    this.hierarchicalRelations = hierarchicalRelations;
+    return this;
+  }
+
+  getHierarchicalRelations(): string {
+    return this.hierarchicalRelations;
+  }
+
+  setParentModuleName(parentModuleName: string | undefined): ApiResultInfo {
+    this.parentModuleName = parentModuleName;
+    return this;
+  }
+
+  getParentModuleName(): string | undefined {
+    return this.parentModuleName;
+  }
+
+  setDefectType(defectType: string): ApiResultInfo {
+    this.defectType = defectType;
+    return this;
+  }
+
+  getDefectType(): string {
+    return this.defectType;
+  }
 }
 
 /**
@@ -447,9 +541,10 @@ export class ApiResultMessage {
   defectLevel: number = -1;
   defectType: string = '';
   description: string = '';
-  language: string = 'ts';
+  language: string = 'typescript';
   mainBuggyCode: string = '';
   mainBuggyLine: string = '';
+  extendInfo: ApiBaseInfo = new ApiBaseInfo();
 
   setLocation(codeContextStaerLine: string): ApiResultMessage {
     this.codeContextStaerLine = codeContextStaerLine;
@@ -511,5 +606,245 @@ export class ApiResultMessage {
 
   getMainBuggyLine(): string {
     return this.mainBuggyLine;
+  }
+
+  setExtendInfo(extendInfo: ApiBaseInfo): ApiResultMessage {
+    this.extendInfo = extendInfo;
+    return this;
+  }
+
+  getExtendInfo(): ApiBaseInfo {
+    return this.extendInfo;
+  }
+}
+
+/**
+ * error message format
+ */
+export class ApiCheckInfo {
+  errorID: number = -1;
+  errorLevel: number = -1;
+  filePath: string = '';
+  apiPostion: ts.LineAndCharacter = { line: -1, character: -1 };
+  errorType: string = '';
+  logType: string = '';
+  sinceNumber: number = -1;
+  apiName: string = '';
+  apiType: string = '';
+  apiText: string = '';
+  errorInfo: string = '';
+  hierarchicalRelations: string = '';
+  parentModuleName: string | undefined = '';
+
+  setErrorID(errorID: number): ApiCheckInfo {
+    this.errorID = errorID;
+    return this;
+  }
+
+  getErrorID(): number {
+    return this.errorID;
+  }
+
+  setErrorLevel(errorLevel: number): ApiCheckInfo {
+    this.errorLevel = errorLevel;
+    return this;
+  }
+
+  getErrorLevel(): number {
+    return this.errorLevel;
+  }
+
+  setFilePath(filePath: string): ApiCheckInfo {
+    this.filePath = filePath;
+    return this;
+  }
+
+  getFilePath(): string {
+    return this.filePath;
+  }
+
+  setApiPostion(apiPostion: ts.LineAndCharacter): ApiCheckInfo {
+    this.apiPostion = apiPostion;
+    return this;
+  }
+
+  getApiPostion(): ts.LineAndCharacter {
+    return this.apiPostion;
+  }
+
+  setErrorType(errorType: string): ApiCheckInfo {
+    this.errorType = errorType;
+    return this;
+  }
+
+  getErrorType(): string {
+    return this.errorType;
+  }
+
+  setLogType(logType: string): ApiCheckInfo {
+    this.logType = logType;
+    return this;
+  }
+
+  getLogType(): string {
+    return this.logType;
+  }
+
+  setSinceNumber(sinceNumber: number): ApiCheckInfo {
+    this.sinceNumber = sinceNumber;
+    return this;
+  }
+
+  getSinceNumber(): number {
+    return this.sinceNumber;
+  }
+
+  setApiName(apiName: string): ApiCheckInfo {
+    this.apiName = apiName;
+    return this;
+  }
+
+  getApiName(): string {
+    return this.apiName;
+  }
+
+  setApiType(apiType: string): ApiCheckInfo {
+    this.apiType = apiType;
+    return this;
+  }
+
+  getApiType(): string {
+    return this.apiType;
+  }
+
+  setApiText(apiText: string): ApiCheckInfo {
+    this.apiText = apiText;
+    return this;
+  }
+
+  getApiText(): string {
+    return this.apiText;
+  }
+
+  setErrorInfo(errorInfo: string): ApiCheckInfo {
+    this.errorInfo = errorInfo;
+    return this;
+  }
+
+  getErrorInfo(): string {
+    return this.errorInfo;
+  }
+
+  setHierarchicalRelations(hierarchicalRelations: string): ApiCheckInfo {
+    this.hierarchicalRelations = hierarchicalRelations;
+    return this;
+  }
+
+  getHierarchicalRelations(): string {
+    return this.hierarchicalRelations;
+  }
+
+  setParentModuleName(parentModuleName: string | undefined): ApiCheckInfo {
+    this.parentModuleName = parentModuleName;
+    return this;
+  }
+
+  getParentModuleName(): string | undefined {
+    return this.parentModuleName;
+  }
+}
+
+export class ApiBaseInfo {
+  apiName: string = '';
+  apiType: string = '';
+  hierarchicalRelations: string = '';
+  parentModuleName: string | undefined = '';
+
+  setApiName(apiName: string): ApiBaseInfo {
+    this.apiName = apiName;
+    return this;
+  }
+
+  getApiName(): string {
+    return this.apiName;
+  }
+  setApiType(apiType: string): ApiBaseInfo {
+    this.apiType = apiType;
+    return this;
+  }
+
+  getApiType(): string {
+    return this.apiType;
+  }
+  setHierarchicalRelations(hierarchicalRelations: string): ApiBaseInfo {
+    this.hierarchicalRelations = hierarchicalRelations;
+    return this;
+  }
+
+  getHierarchicalRelations(): string {
+    return this.hierarchicalRelations;
+  }
+  setParentModuleName(parentModuleName: string | undefined): ApiBaseInfo {
+    this.parentModuleName = parentModuleName;
+    return this;
+  }
+
+  getParentModuleName(): string | undefined {
+    return this.parentModuleName;
+  }
+
+}
+
+export class ErrorBaseInfo {
+  errorID: number = -1;
+  errorLevel: number = -1;
+  errorType: string = '';
+  logType: string = '';
+  errorInfo: string = '';
+
+  setErrorID(errorID: number): ErrorBaseInfo {
+    this.errorID = errorID;
+    return this;
+  }
+
+  getErrorID(): number {
+    return this.errorID;
+  }
+
+  setErrorLevel(errorLevel: number): ErrorBaseInfo {
+    this.errorLevel = errorLevel;
+    return this;
+  }
+
+  getErrorLevel(): number {
+    return this.errorLevel;
+  }
+
+
+  setErrorType(errorType: string): ErrorBaseInfo {
+    this.errorType = errorType;
+    return this;
+  }
+
+  getErrorType(): string {
+    return this.errorType;
+  }
+
+  setLogType(logType: string): ErrorBaseInfo {
+    this.logType = logType;
+    return this;
+  }
+
+  getLogType(): string {
+    return this.logType;
+  }
+
+  setErrorInfo(errorInfo: string): ErrorBaseInfo {
+    this.errorInfo = errorInfo;
+    return this;
+  }
+
+  getErrorInfo(): string {
+    return this.errorInfo;
   }
 }

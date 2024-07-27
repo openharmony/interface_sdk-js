@@ -206,7 +206,6 @@ declare namespace fileAccess {
    * File Object
    *
    * @interface FileInfo
-   * @permission ohos.permission.FILE_ACCESS_MANAGER
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
@@ -397,7 +396,6 @@ declare namespace fileAccess {
    * FileIterator Object
    *
    * @interface FileIterator
-   * @permission ohos.permission.FILE_ACCESS_MANAGER
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
@@ -455,7 +453,6 @@ declare namespace fileAccess {
    * Root Object
    *
    * @interface RootInfo
-   * @permission ohos.permission.FILE_ACCESS_MANAGER
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
@@ -614,7 +611,6 @@ declare namespace fileAccess {
    * RootIterator Object
    *
    * @interface RootIterator
-   * @permission ohos.permission.FILE_ACCESS_MANAGER
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
@@ -672,7 +668,6 @@ declare namespace fileAccess {
    * Describes the return information of the copy operation.
    *
    * @interface CopyResult
-   * @permission ohos.permission.FILE_ACCESS_MANAGER
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @since 10
@@ -694,7 +689,7 @@ declare namespace fileAccess {
      * Represents a file or directory uri in the target folder
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
-     * @type { number }
+     * @type { string }
      * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
@@ -706,7 +701,7 @@ declare namespace fileAccess {
      * Error code for failure to copy a file or directory.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
-     * @type { string }
+     * @type { number }
      * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
@@ -915,7 +910,6 @@ declare namespace fileAccess {
    * The value of the notify callback function
    *
    * @interface NotifyMessage
-   * @permission ohos.permission.FILE_ACCESS_MANAGER
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
@@ -953,7 +947,6 @@ declare namespace fileAccess {
    * Describes the return information of the move operation.
    *
    * @interface MoveResult
-   * @permission ohos.permission.FILE_ACCESS_MANAGER
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
@@ -1028,7 +1021,6 @@ declare namespace fileAccess {
    * FileAccessHelper Object
    *
    * @interface FileAccessHelper
-   * @permission ohos.permission.FILE_ACCESS_MANAGER
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @since 9

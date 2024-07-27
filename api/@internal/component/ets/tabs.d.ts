@@ -534,7 +534,7 @@ interface DividerStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 12
  */
 declare interface TabsAnimationEvent {
   /**
@@ -1083,6 +1083,18 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   animationMode(mode: Optional<AnimationMode>): TabsAttribute;
 
   /**
+   * Set the effect used when the component is at one of the edges.
+   *
+   * @param { Optional<EdgeEffect> } edgeEffect - the effect used when the component is at one of the edges
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  edgeEffect(edgeEffect: Optional<EdgeEffect>): TabsAttribute;
+
+  /**
    * Called when the tab is switched.
    *
    * @param { function } event
@@ -1320,8 +1332,8 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @returns { TabsAttribute } the attribute of the tabs
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * Custom tab content transition animation.
@@ -1331,9 +1343,9 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @returns { TabsAttribute } the attribute of the tabs
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   customContentTransition(delegate: (from: number, to: number) => TabContentAnimatedTransition | undefined): TabsAttribute;
 
@@ -1372,8 +1384,8 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
  * @interface TabContentAnimatedTransition
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 11
  * @form
+ * @since 11
  */
 /**
  * Defines the Tab Content animated transition options.
@@ -1381,9 +1393,9 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
  * @interface TabContentAnimatedTransition
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 12
- * @form
  */
 declare interface TabContentAnimatedTransition {
   /**
@@ -1394,8 +1406,8 @@ declare interface TabContentAnimatedTransition {
    * @default 1000 ms
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * Defines the timeout of custom content transition animation. The unit is ms.
@@ -1405,9 +1417,9 @@ declare interface TabContentAnimatedTransition {
    * @default 1000 ms
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   timeout?: number;
 
@@ -1417,8 +1429,8 @@ declare interface TabContentAnimatedTransition {
    * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * Called when custom content transition animation start.
@@ -1426,9 +1438,9 @@ declare interface TabContentAnimatedTransition {
    * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   transition: (proxy: TabContentTransitionProxy) => void;
 }
@@ -1439,8 +1451,8 @@ declare interface TabContentAnimatedTransition {
  * @interface TabContentTransitionProxy
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 11
  * @form
+ * @since 11
  */
 /**
  *  The proxy of TabContentAnimatedTransition.
@@ -1448,9 +1460,9 @@ declare interface TabContentAnimatedTransition {
  * @interface TabContentTransitionProxy
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 12
- * @form
  */
 declare interface TabContentTransitionProxy {
   /**
@@ -1459,8 +1471,8 @@ declare interface TabContentTransitionProxy {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * The index of current tab content.
@@ -1468,9 +1480,9 @@ declare interface TabContentTransitionProxy {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   from: number;
 
@@ -1480,8 +1492,8 @@ declare interface TabContentTransitionProxy {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * The index of target tab content.
@@ -1489,9 +1501,9 @@ declare interface TabContentTransitionProxy {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   to: number;
 
@@ -1500,17 +1512,17 @@ declare interface TabContentTransitionProxy {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * Notifies Tabs component the custom content transition animation is complete.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
-   * @since 112
    * @form
+   * @atomicservice
+   * @since 12
    */
   finishTransition(): void;
 }

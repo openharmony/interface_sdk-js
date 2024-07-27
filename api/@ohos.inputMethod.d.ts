@@ -1286,6 +1286,7 @@ declare namespace inputMethod {
     /**
      * The name of input method
      *
+     * @type { string }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      * @deprecated since 9
@@ -1296,6 +1297,7 @@ declare namespace inputMethod {
     /**
      * The id of input method
      *
+     * @type { string }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      * @deprecated since 9
@@ -1306,6 +1308,7 @@ declare namespace inputMethod {
     /**
      * The name of input method
      *
+     * @type { string }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -1314,6 +1317,7 @@ declare namespace inputMethod {
     /**
      * The id of input method
      *
+     * @type { string }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -1322,6 +1326,7 @@ declare namespace inputMethod {
     /**
      * The label of input method
      *
+     * @type { ?string }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -1339,6 +1344,7 @@ declare namespace inputMethod {
     /**
      * The icon of input method
      *
+     * @type { ?string }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */

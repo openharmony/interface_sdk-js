@@ -811,8 +811,6 @@ declare namespace appAccount {
      * <br> have gained the ohos.permission.GET_ALL_APP_ACCOUNTS permission.
      *
      * @returns { Promise<Array<AppAccountInfo>> } Returns a list of application accounts.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9
@@ -2671,6 +2669,7 @@ declare namespace appAccount {
     /**
      * Notifies the client of the authentication result.
      *
+     * @type { function }
      * @syscap SystemCapability.Account.AppAccount
      * @since 8
      * @deprecated since 9
@@ -2680,6 +2679,7 @@ declare namespace appAccount {
     /**
      * Notifies the client that the authentication request need to be redirected.
      *
+     * @type { function }
      * @syscap SystemCapability.Account.AppAccount
      * @since 8
      * @deprecated since 9
@@ -2698,6 +2698,7 @@ declare namespace appAccount {
     /**
      * Notifies the client of the authentication result.
      *
+     * @type { function }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9
      */
@@ -2706,6 +2707,7 @@ declare namespace appAccount {
     /**
      * Notifies the client that the authentication request need to be redirected.
      *
+     * @type { function }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9
      */
@@ -2714,6 +2716,7 @@ declare namespace appAccount {
     /**
      * Notifies the client that the request is continued.
      *
+     * @type { ?function }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9
      */

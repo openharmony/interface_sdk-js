@@ -15,7 +15,6 @@
 
 /**
  * @file
- * @kit AbilityKit
  */
 
 import { AsyncCallback, Callback } from './@ohos.base';
@@ -443,8 +442,17 @@ declare namespace wantAgent {
 /**
  * WantAgent object.
  *
+ * @typedef { object }
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 7
+ */
+/**
+ * WantAgent object.
+ *
+ * @typedef { object }
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @atomicservice
+ * @since 12
  */
 export type WantAgent = object;
 

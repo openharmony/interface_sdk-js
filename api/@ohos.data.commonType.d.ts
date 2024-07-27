@@ -107,14 +107,7 @@ declare namespace commonType {
      * @crossplatform
      * @since 11
      */
-    /**
-     * The name of asset.
-     * @type { string | undefined }
-     * @syscap SystemCapability.DistributedDataManager.CommonType
-     * @crossplatform
-     * @since 12
-     */
-    name: string | undefined;
+    name: string;
 
     /**
      * The uri of asset.
@@ -124,15 +117,7 @@ declare namespace commonType {
      * @crossplatform
      * @since 11
      */
-    /**
-     * The uri of asset.
-     *
-     * @type { string | undefined }
-     * @syscap SystemCapability.DistributedDataManager.CommonType
-     * @crossplatform
-     * @since 12
-     */
-    uri: string | undefined;
+    uri: string;
 
     /**
      * The path of asset.
@@ -142,15 +127,7 @@ declare namespace commonType {
      * @crossplatform
      * @since 11
      */
-    /**
-     * The path of asset.
-     *
-     * @type { string | undefined }
-     * @syscap SystemCapability.DistributedDataManager.CommonType
-     * @crossplatform
-     * @since 12
-     */
-    path: string | undefined;
+    path: string;
 
     /**
      * The created time of asset.
@@ -160,15 +137,7 @@ declare namespace commonType {
      * @crossplatform
      * @since 11
      */
-    /**
-     * The created time of asset.
-     *
-     * @type { string | undefined }
-     * @syscap SystemCapability.DistributedDataManager.CommonType
-     * @crossplatform
-     * @since 12
-     */
-    createTime: string | undefined;
+    createTime: string;
 
     /**
      * The modified time of asset. If this field changes, the asset is considered to have changed.
@@ -178,15 +147,7 @@ declare namespace commonType {
      * @crossplatform
      * @since 11
      */
-    /**
-     * The modified time of asset. If this field changes, the asset is considered to have changed.
-     *
-     * @type { string | undefined }
-     * @syscap SystemCapability.DistributedDataManager.CommonType
-     * @crossplatform
-     * @since 12
-     */
-    modifyTime: string | undefined;
+    modifyTime: string;
 
     /**
      * The size of asset. If this field changes, the asset is considered to have changed.
@@ -196,15 +157,7 @@ declare namespace commonType {
      * @crossplatform
      * @since 11
      */
-    /**
-     * The size of asset. If this field changes, the asset is considered to have changed.
-     *
-     * @type { string | undefined }
-     * @syscap SystemCapability.DistributedDataManager.CommonType
-     * @crossplatform
-     * @since 12
-     */
-    size: string | undefined;
+    size: string;
 
     /**
      * The status of asset.
@@ -214,20 +167,13 @@ declare namespace commonType {
      * @crossplatform
      * @since 11
      */
-    /**
-     * The status of asset.
-     *
-     * @type { ?(AssetStatus | undefined) }
-     * @syscap SystemCapability.DistributedDataManager.CommonType
-     * @crossplatform
-     * @since 12
-     */
-    status?: AssetStatus | undefined;
+    status?: AssetStatus;
   }
 
   /**
    * Indicates several assets
    *
+   * @typedef { Array<Asset> }
    * @syscap SystemCapability.DistributedDataManager.CommonType
    * @crossplatform
    * @since 11
@@ -237,6 +183,7 @@ declare namespace commonType {
   /**
    * Indicates possible value types.
    *
+   * @typedef { null | number | string | boolean | Uint8Array | Asset | Assets }
    * @syscap SystemCapability.DistributedDataManager.CommonType
    * @crossplatform
    * @since 11
@@ -246,6 +193,7 @@ declare namespace commonType {
   /**
    * Values in buckets are stored in key-value pairs.
    *
+   * @typedef { Record<string, ValueType> }
    * @syscap SystemCapability.DistributedDataManager.CommonType
    * @crossplatform
    * @since 11

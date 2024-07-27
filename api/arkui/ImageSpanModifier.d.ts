@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-/// <reference path="../../component/common.d.ts" />
-/// <reference path="../../component/image_span.d.ts" />
+
+
 
 /**
  * Defines ImageSpan Modifier
@@ -27,6 +27,7 @@
  * @extends ImageSpanAttribute
  * @implements AttributeModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class ImageSpanModifier extends ImageSpanAttribute implements AttributeModifier<ImageSpanAttribute> {
@@ -37,6 +38,7 @@ export declare class ImageSpanModifier extends ImageSpanAttribute implements Att
    * @param { ImageSpanAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: ImageSpanAttribute): void;

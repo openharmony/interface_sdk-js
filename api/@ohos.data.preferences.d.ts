@@ -65,7 +65,7 @@ declare namespace preferences {
    */
   /**
    * Indicates possible value types
-   * 
+   *
    * @typedef {number | string | boolean | Array<number> | Array<string> | Array<boolean> | Uint8Array}
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @atomicservice
@@ -73,7 +73,7 @@ declare namespace preferences {
    */
   /**
    * Indicates possible value types
-   * 
+   *
    * @typedef {number | string | boolean | Array<number> | Array<string> | Array<boolean> | Uint8Array | object | bigint}
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @atomicservice
@@ -108,7 +108,6 @@ declare namespace preferences {
   /**
    * Maximum length of a key.
    *
-   * @constant
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @atomicservice
@@ -143,7 +142,6 @@ declare namespace preferences {
   /**
    * Maximum length of a value.
    *
-   * @constant
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @atomicservice
@@ -179,6 +177,7 @@ declare namespace preferences {
     /**
      * The preferences file name.
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
@@ -196,6 +195,7 @@ declare namespace preferences {
     /**
      * Application Group Id.
      *
+     * @type { ?(string | null | undefined) }
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @StageModelOnly
      * @atomicservice
@@ -1670,7 +1670,7 @@ declare namespace preferences {
      * Asynchronously saves the {@link Preferences} object to the file.
      *
      * @param { AsyncCallback<void> } callback - Indicates the callback function.
-     * @throws { BusinessError } 401 - Parameter error. Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error. Mandatory parameters are left unspecified.
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
@@ -1782,7 +1782,6 @@ declare namespace preferences {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *                                                                   2. Incorrect parameter types;
      *                                                                   3. Parameter verification failed.
-     *      The callback must be function.
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice

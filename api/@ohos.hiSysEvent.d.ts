@@ -272,6 +272,7 @@ declare namespace hiSysEvent {
     /**
      * Rule of filter system event
      *
+     * @type { WatchRule[] }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9
@@ -281,6 +282,7 @@ declare namespace hiSysEvent {
     /**
     * Receive system event.
     *
+    * @type { function }
     * @syscap SystemCapability.HiviewDFX.HiSysEvent
     * @systemapi hide for inner use
     * @since 9
@@ -290,6 +292,7 @@ declare namespace hiSysEvent {
     /**
      * Hisysevent service shutdown.
      *
+     * @type { function }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9
@@ -409,6 +412,7 @@ declare namespace hiSysEvent {
     /**
      * Handle query result, the query result will be send in several times.
      *
+     * @type { function }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9
@@ -418,6 +422,7 @@ declare namespace hiSysEvent {
     /**
      * Notify querier execute query has finished.
      *
+     * @type { function }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9
@@ -537,7 +542,7 @@ declare namespace hiSysEvent {
    *                         1. Mandatory parameters are left unspecified.
    *                         2. Incorrect parameter types.
    *                         3. Parameter verification failed.
-   * @throws {BusinessError} 11200305 – Failed to unsubscribe.
+   * @throws {BusinessError} 11200305 – Unsubscription failed.
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 10

@@ -23,6 +23,8 @@ import {
   LogType,
   ErrorLevel,
   ErrorMessage,
+  ApiCheckInfo,
+  ErrorBaseInfo,
 } from '../../../typedef/checker/result_type';
 import { Comment } from '../../../typedef/parser/Comment';
 import {
@@ -33,6 +35,7 @@ import {
 } from '../../../typedef/parser/ApiInfoDefination';
 import { CommonFunctions } from '../../../utils/checkUtils';
 import { compositiveResult, compositiveLocalResult } from '../../../utils/checkUtils';
+import { currentFilePath } from './api_check_plugin';
 
 export class CheckHump {
   /**
@@ -100,18 +103,22 @@ export class CheckHump {
    */
   static checkAPINameOfHump(apiInfo: ApiInfo): void {
     const jsDocInfo: Comment.JsDocInfo | undefined = apiInfo.getLastJsDocInfo();
+    const publishVersion: string = apiInfo.getJsDocInfos().length > 0 ? apiInfo.getJsDocInfos()[0].getSince() : '';
     if (jsDocInfo) {
       if (jsDocInfo.getDeprecatedVersion() !== '-1') {
         return;
       }
-      if (jsDocInfo.getSince() !== String(CommonFunctions.getCheckApiVersion())) {
+      if (publishVersion !== String(CommonFunctions.getCheckApiVersion())) {
         return;
       }
     }
     const apiType: string = apiInfo.getApiType();
     const filePath: string = apiInfo.getFilePath();
-    const apiName: string = apiInfo.getApiName();
+    let apiName: string = apiInfo.getApiName();
     let checkResult: string = '';
+    if (apiInfo.getIsJoinType()) {
+      apiName = apiName.split('_')[0];
+    }
     if (
       apiType === ApiType.ENUM_VALUE ||
       (apiType === ApiType.CONSTANT && filePath.indexOf(`component${path.sep}ets${path.sep}`) === -1)
@@ -140,20 +147,16 @@ export class CheckHump {
     }
 
     if (checkResult !== '') {
-      AddErrorLogs.addAPICheckErrorLogs(
-        ErrorID.TS_SYNTAX_ERROR_ID,
-        ErrorLevel.MIDDLE,
-        filePath,
-        apiInfo.getPos(),
-        ErrorType.NAMING_ERRORS,
-        LogType.LOG_API,
-        -1,
-        apiName,
-        apiInfo.getDefinedText(),
-        checkResult,
-        compositiveResult,
-        compositiveLocalResult
-      );
+      const errorBaseInfo: ErrorBaseInfo = new ErrorBaseInfo();
+      errorBaseInfo
+        .setErrorID(ErrorID.NAMING_ERRORS_ID)
+        .setErrorLevel(ErrorLevel.MIDDLE)
+        .setErrorType(ErrorType.NAMING_ERRORS)
+        .setLogType(LogType.LOG_JSDOC)
+        .setErrorInfo(checkResult);
+      const apiInfoHump: ApiCheckInfo = CommonFunctions.getErrorInfo(apiInfo, undefined, currentFilePath,
+        errorBaseInfo);
+      AddErrorLogs.addAPICheckErrorLogs(apiInfoHump, compositiveResult, compositiveLocalResult);
     }
   }
 
@@ -181,13 +184,13 @@ export class CheckHump {
       apiInfos.forEach((apiInfo) => {
         if (!notJsDocApiTypes.has(apiInfo.getApiType())) {
           const jsDocInfos: Comment.JsDocInfo[] = (apiInfo as ApiInfo).getJsDocInfos();
-          version = jsDocInfos[0] ? jsDocInfos[0].getSince() : version;
+          version = jsDocInfos[0] ? CommonFunctions.getSinceVersion(jsDocInfos[0].getSince()) : version;
         }
         moduleName = apiInfo.getApiType() === ApiType.NAMESPACE ? apiInfo.getApiName() : moduleName;
-        exportAssignment = apiInfo.getApiType() === ApiType.EXPORT_DEFAULT ? apiInfo.getApiName() : exportAssignment;
+        exportAssignment = (apiInfo.getApiType() === ApiType.EXPORT_DEFAULT || apiInfo.getIsExport()) ? apiInfo.getApiName().replace(StringConstant.EXPORT_DEFAULT, '') : exportAssignment;
       });
     }
-    const basename: string = path.basename(filePath).replace(new RegExp(StringConstant.DTS_EXTENSION, 'g'), '');
+    const basename: string = path.basename(filePath).replace(new RegExp(StringConstant.DTS_EXTENSION, 'g'), '').replace(new RegExp(StringConstant.DETS_EXTENSION, 'g'), '');
 
     const basenames: string[] = basename.split('.');
     const lastModuleName: string = basenames.length ? basenames[basenames.length - 1] : '';
@@ -199,20 +202,16 @@ export class CheckHump {
       checkResult = ErrorMessage.ERROR_LARGE_HUMP_NAME_FILE;
     }
     if (checkResult !== '' && version === String(CommonFunctions.getCheckApiVersion())) {
-      AddErrorLogs.addAPICheckErrorLogs(
-        ErrorID.MISSPELL_WORDS_ID,
-        ErrorLevel.MIDDLE,
-        filePath,
-        { line: -1, character: -1 },
-        ErrorType.NAMING_ERRORS,
-        LogType.LOG_API,
-        -1,
-        'NA',
-        'NA',
-        checkResult,
-        compositiveResult,
-        compositiveLocalResult
-      );
+      const errorBaseInfo: ErrorBaseInfo = new ErrorBaseInfo();
+      errorBaseInfo
+        .setErrorID(ErrorID.NAMING_ERRORS_ID)
+        .setErrorLevel(ErrorLevel.MIDDLE)
+        .setErrorType(ErrorType.NAMING_ERRORS)
+        .setLogType(LogType.LOG_JSDOC)
+        .setErrorInfo(checkResult);
+      const apiInfoHump: ApiCheckInfo = CommonFunctions.getErrorInfo(fileApiInfo, undefined, currentFilePath,
+        errorBaseInfo);
+      AddErrorLogs.addAPICheckErrorLogs(apiInfoHump, compositiveResult, compositiveLocalResult);
     }
   }
 }

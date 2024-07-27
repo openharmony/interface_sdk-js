@@ -23,7 +23,6 @@
  *
  * @namespace lang
  * @syscap SystemCapability.Utils.Lang
- * @crossplatform
  * @atomicservice
  * @since 12
  */
@@ -33,7 +32,6 @@ declare namespace lang {
    * 
    * @interface ISendable
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12
    */

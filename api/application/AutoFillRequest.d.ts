@@ -19,6 +19,7 @@
  */
 
 import type { AutoFillType } from './AutoFillType';
+import type CustomData from './CustomData';
 import type AutoFillPopupConfig from './AutoFillPopupConfig';
 import type ViewData from './ViewData';
 
@@ -53,6 +54,17 @@ export interface FillRequest {
    * @since 11
    */
   viewData: ViewData;
+
+  /**
+   * The custom data.
+   *
+   * @type { CustomData }
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+  customData: CustomData;
 
   /**
    * Whether the UI extension window type is popup window.
@@ -147,8 +159,7 @@ export interface FillRequestCallback {
    *
    * @param { FillResponse } response - Indicates the fill response.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameters types.
+   * @throws { BusinessError } 401 - Mandatory parameters are left unspecified.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
@@ -184,8 +195,8 @@ export interface FillRequestCallback {
    *
    * @param { string } [fillContent] - Indicates the content to be filled in.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Incorrect parameter types. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameters types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: <br>1.The input parameter is not valid parameter; 
+   * <br>2. Mandatory parameters are left unspecified.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
@@ -199,8 +210,7 @@ export interface FillRequestCallback {
    *
    * @param { AutoFillPopupConfig } autoFillPopupConfig - Indicates the autofill popup config.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The input parameter is not valid parameter. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameters types.
+   * @throws { BusinessError } 401 - Mandatory parameters are left unspecified.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi

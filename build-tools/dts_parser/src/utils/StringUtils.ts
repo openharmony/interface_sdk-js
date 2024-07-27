@@ -21,7 +21,7 @@ export class StringUtils {
       flag = str.search(sub) !== -1;
     } catch (error) {
       LogUtil.e('StringUtils.hasSubstring', error);
-    } 
+    }
     return flag;
   }
 

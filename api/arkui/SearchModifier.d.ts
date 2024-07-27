@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-/// <reference path="../../component/common.d.ts" />
-/// <reference path="../../component/search.d.ts" />
+
+
 
 /**
  * Defines Search Modifier
@@ -27,6 +27,7 @@
  * @extends SearchAttribute
  * @implements AttributeModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class SearchModifier extends SearchAttribute implements AttributeModifier<SearchAttribute> {
@@ -37,6 +38,7 @@ export declare class SearchModifier extends SearchAttribute implements Attribute
    * @param { SearchAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: SearchAttribute): void;

@@ -98,6 +98,18 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
   verticalAlign(value: ImageSpanAlignment): ImageSpanAttribute;
 
   /**
+   * Sets the color filter effect on the image span.
+   *
+   * @param { ColorFilter | DrawingColorFilter } filter ColorFilter object.
+   * @returns { ImageSpanAttribute } The attribute of the image span.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  colorFilter(filter: ColorFilter | DrawingColorFilter): ImageSpanAttribute;
+
+  /**
    * Sets the zoom type of an image.
    *
    * @param { ImageFit } value - Image display mode.
@@ -126,6 +138,7 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
    * @returns { ImageSpanAttribute } The attribute of the image span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onComplete(callback: ImageCompleteCallback): ImageSpanAttribute;
@@ -138,6 +151,7 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
    * @returns { ImageSpanAttribute } The attribute of the image span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onError(callback: ImageErrorCallback): ImageSpanAttribute;
@@ -148,6 +162,7 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
    * @param { PixelMap } value
    * @returns { ImageSpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   alt(value: PixelMap): ImageSpanAttribute;
@@ -194,6 +209,7 @@ declare const ImageSpanInstance: ImageSpanAttribute;
  * @param { ImageLoadResult } result - the information about the successfully loaded image.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 type ImageCompleteCallback = (result: ImageLoadResult) => void;
@@ -204,6 +220,7 @@ type ImageCompleteCallback = (result: ImageLoadResult) => void;
  * @interface ImageLoadResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface ImageLoadResult {
@@ -213,6 +230,7 @@ declare interface ImageLoadResult {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   width: number;
@@ -222,6 +240,7 @@ declare interface ImageLoadResult {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   height: number;
@@ -231,6 +250,7 @@ declare interface ImageLoadResult {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   componentWidth: number;
@@ -240,6 +260,7 @@ declare interface ImageLoadResult {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   componentHeight: number;
@@ -251,6 +272,7 @@ declare interface ImageLoadResult {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   loadingStatus: number;
@@ -260,6 +282,7 @@ declare interface ImageLoadResult {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   contentWidth: number;
@@ -269,6 +292,7 @@ declare interface ImageLoadResult {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   contentHeight: number;
@@ -278,6 +302,7 @@ declare interface ImageLoadResult {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   contentOffsetX: number;
@@ -287,6 +312,7 @@ declare interface ImageLoadResult {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   contentOffsetY: number;

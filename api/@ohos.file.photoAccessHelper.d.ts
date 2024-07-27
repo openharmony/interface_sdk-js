@@ -22,6 +22,7 @@ import type { AsyncCallback, Callback } from './@ohos.base';
 import type Context from './application/Context';
 import type image from './@ohos.multimedia.image';
 import type dataSharePredicates from './@ohos.data.dataSharePredicates';
+import type { CustomColors } from './@ohos.arkui.theme';
 
 /**
  * Helper functions to access image and video assets
@@ -158,6 +159,30 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     MOVING_PHOTO = 3,
+  }
+
+  /**
+   * Enumeration of dynamic range type
+   *
+   * @enum { number } DynamicRangeType
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 12
+   */
+  enum DynamicRangeType {
+    /**
+     * SDR(Standard-Dynamic Range) format
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    SDR = 0,
+    /**
+     * HDR(High-Dynamic Range) format
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    HDR = 1
   }
 
   /**
@@ -307,7 +332,15 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 12
      */
-    ANALYSIS_VIDEO_LABEL
+    ANALYSIS_VIDEO_LABEL,
+    /**
+     * Analysis of highlight
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    ANALYSIS_HIGHLIGHT
   }
 
   /**
@@ -1572,7 +1605,21 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 12
      */
-    MOVING_PHOTO_EFFECT_MODE = 'moving_photo_effect_mode'
+    MOVING_PHOTO_EFFECT_MODE = 'moving_photo_effect_mode',
+    /**
+     * Dynamic range type of the asset, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    DYNAMIC_RANGE_TYPE = 'dynamic_range_type',
+    /**
+     * Cover position of the asset, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    COVER_POSITION = 'cover_position'
   }
 
   /**
@@ -1679,6 +1726,56 @@ declare namespace photoAccessHelper {
      * @since 10
      */
     cameraShotKey?: string;
+  }
+
+  /**
+   * Config to create photo asset
+   *
+   * @interface PhotoCreationConfig
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 12
+   */
+  interface PhotoCreationConfig {
+    /**
+     * Title of the asset
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    title?: string;
+
+    /**
+     * Extension of the asset
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    fileNameExtension: string;
+
+    /**
+     * Specify photo type of the asset to create, include image or video
+     *
+     * @type { PhotoType }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    photoType: PhotoType;
+
+    /**
+     * Specify photo subtype of the asset to create, include default or moving_photo
+     *
+     * @type { ?PhotoSubtype }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    subtype?: PhotoSubtype;
   }
 
   /**
@@ -2025,7 +2122,13 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 11
      */
-    IMAGE,
+    /**
+     * Image album
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    IMAGE = 1031,
     /**
      * Source album
      *
@@ -2938,6 +3041,22 @@ declare namespace photoAccessHelper {
      */
     registerChange(uri: string, forChildUris: boolean, callback: Callback<ChangeData>): void;
     /**
+     * Get analysis progress of the asset.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { AnalysisType } analysisType - Analysis type
+     * @returns { Promise<string> } Returns analysis progress info into a json string
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+     getDataAnalysisProgress(analysisType: AnalysisType): Promise<string>;
+    /**
      * Unregister change notify for the specified uri.
      *
      * @param { string } uri - PhotoAsset's uri, album's uri or DefaultChangeUri
@@ -2984,6 +3103,39 @@ declare namespace photoAccessHelper {
      * @useinstead photoAccessHelper.MediaAssetChangeRequest#deleteAssets
      */
     createDeleteRequest(uriList: Array<string>): Promise<void>;
+    /**
+     * Create a save dialog to save photos
+     *
+     * @param { Array<string> } srcFileUris - List of the file uris to be saved
+     * @param { Array<PhotoCreationConfig> } photoCreationConfigs - List of the photo asset creation configs
+     * @returns { Promise<Array<string>> } - Returns the media library file uri list to application which has been authorized
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    showAssetsCreationDialog(srcFileUris: Array<string>, photoCreationConfigs: Array<PhotoCreationConfig>): Promise<Array<string>>;
+    /**
+     * Create assets and grant save permission to the app which called the save dialog.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { string } bundleName - BundleName of the application which called the save dialog
+     * @param { string } appName - AppName of the application which called the save dialog
+     * @param { string } appId - AppId of the application which called the save dialog
+     * @param { Array<PhotoCreationConfig> } photoCreationConfigs - List of the photo asset creation configs
+     * @returns { Promise<Array<string>> } - Returns the media library file uri list to application which has been authorized
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    createAssetsForApp(bundleName: string, appName: string, appId: string, photoCreationConfigs: Array<PhotoCreationConfig>): Promise<Array<string>>;
     /**
      * Get the index of the asset in the album
      *
@@ -3125,6 +3277,19 @@ declare namespace photoAccessHelper {
      * @since 11
      */
     applyChanges(mediaChangeRequest: MediaChangeRequest): Promise<void>;
+    /**
+     * Get index construction progress.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @returns { Promise<string> } Returns progress of the photo and video
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    getIndexConstructProgress(): Promise<string>;
   }
 
   /**
@@ -3471,6 +3636,16 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     preselectedUris?: Array<string>;
+
+    /**
+     * Support preview in single selection mode or not
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    isPreviewForSingleSelectionSupported?: boolean;
   }
 
   /**
@@ -3504,6 +3679,36 @@ declare namespace photoAccessHelper {
      * @since 11
      */
     isEditSupported?: boolean;
+
+    /**
+     * Support select original photo or not
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    isOriginalSupported?: boolean;
+
+    /**
+     * SubWindow name
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    subWindowName?: string;
+
+    /**
+     * Theme color
+     *
+     * @type { ?CustomColors }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    themeColor?: CustomColors;
   }
 
   /**
@@ -4155,6 +4360,16 @@ declare namespace photoAccessHelper {
     saveCameraPhoto(): void;
 
     /**
+     * Discard the photo asset captured by camera.
+     *
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @throws { BusinessError } 14000016 - Operation Not Support
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    discardCameraPhoto(): void;
+
+    /**
      * Set effect mode of moving photo.
      *
      * @param { MovingPhotoEffectMode } mode - the new effect mode of the moving photo
@@ -4492,6 +4707,7 @@ declare namespace photoAccessHelper {
    *
    * @interface MovingPhoto
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
    * @since 12
    */
   interface MovingPhoto {
@@ -4507,6 +4723,7 @@ declare namespace photoAccessHelper {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
      * @since 12
      */
     requestContent(imageFileUri: string, videoFileUri: string): Promise<void>;
@@ -4523,6 +4740,7 @@ declare namespace photoAccessHelper {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
      * @since 12
      */
     requestContent(resourceType: ResourceType, fileUri: string): Promise<void>;
@@ -4538,6 +4756,7 @@ declare namespace photoAccessHelper {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
      * @since 12
      */
     requestContent(resourceType: ResourceType): Promise<ArrayBuffer>;
@@ -4550,6 +4769,7 @@ declare namespace photoAccessHelper {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
      * @since 12
      */
     getUri(): string;

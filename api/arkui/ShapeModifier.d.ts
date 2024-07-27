@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-/// <reference path="../../component/common.d.ts" />
-/// <reference path="../../component/shape.d.ts" />
+
+
 
 /**
  * Defines Shape Modifier
@@ -27,6 +27,7 @@
  * @extends ShapeAttribute
  * @implements AttributeModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class ShapeModifier extends ShapeAttribute implements AttributeModifier<ShapeAttribute> {
@@ -37,6 +38,7 @@ export declare class ShapeModifier extends ShapeAttribute implements AttributeMo
    * @param { ShapeAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: ShapeAttribute): void;

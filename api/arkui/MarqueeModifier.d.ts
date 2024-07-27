@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-/// <reference path="../../component/common.d.ts" />
-/// <reference path="../../component/marquee.d.ts" />
+
+
 
 /**
  * Defines Marquee Modifier
@@ -27,6 +27,7 @@
  * @extends MarqueeAttribute
  * @implements AttributeModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class MarqueeModifier extends MarqueeAttribute implements AttributeModifier<MarqueeAttribute> {
@@ -37,6 +38,7 @@ export declare class MarqueeModifier extends MarqueeAttribute implements Attribu
    * @param { MarqueeAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: MarqueeAttribute): void;

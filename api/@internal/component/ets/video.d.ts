@@ -301,6 +301,15 @@ declare enum PlaybackSpeed {
  * @atomicservice
  * @since 11
  */
+/**
+ * Defines the video options.
+ *
+ * @interface VideoOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare interface VideoOptions {
   /**
    * src of video.
@@ -405,6 +414,16 @@ declare interface VideoOptions {
    * @since 11
    */
   controller?: VideoController;
+
+  /**
+   * image ai options of video.
+   *
+   * @type { ?ImageAIOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  imageAIOptions?: ImageAIOptions;
 }
 
 /**
@@ -629,6 +648,7 @@ declare class VideoController {
    * Provide the reset method of video playback.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   reset(): void;
@@ -1212,6 +1232,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onStop(event: Callback<void>): VideoAttribute;
@@ -1222,6 +1243,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { boolean } enable
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   enableAnalyzer(enable: boolean): VideoAttribute;
@@ -1232,6 +1254,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { ImageAnalyzerConfig } config
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   analyzerConfig(config: ImageAnalyzerConfig): VideoAttribute;

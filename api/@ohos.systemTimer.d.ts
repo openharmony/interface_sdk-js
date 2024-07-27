@@ -76,7 +76,8 @@ declare namespace systemTimer {
    * @param { TimerOptions } options - The timer options.
    * @param { AsyncCallback<number> } callback - {number} is the timer ID.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;
+   *     3.Parameter verification failed.
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
    * @since 7
@@ -89,7 +90,8 @@ declare namespace systemTimer {
    * @param { TimerOptions } options - The timer options.
    * @returns { Promise<number> } the timer ID.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;
+   *     3.Parameter verification failed.
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
    * @since 7
@@ -193,6 +195,7 @@ declare namespace systemTimer {
     /**
      * The timer type.
      *
+     * @type { number }
      * @syscap SystemCapability.MiscServices.Time
      * @systemapi Hide this for inner system use.
      * @since 7
@@ -202,6 +205,7 @@ declare namespace systemTimer {
     /**
      * Indicates a repeating timer
      *
+     * @type { boolean }
      * @syscap SystemCapability.MiscServices.Time
      * @systemapi Hide this for inner system use.
      * @since 7
@@ -212,6 +216,7 @@ declare namespace systemTimer {
      * Indicates the interval between two consecutive triggers, in milliseconds.
      * The interval will be set to 5000 milliseconds automatically if the passed value is smaller than 5000.
      *
+     * @type { ?number }
      * @syscap SystemCapability.MiscServices.Time
      * @systemapi Hide this for inner system use.
      * @since 7
@@ -221,6 +226,7 @@ declare namespace systemTimer {
     /**
      * Indicates the intent to send when the timer goes off.
      *
+     * @type { ?WantAgent }
      * @syscap SystemCapability.MiscServices.Time
      * @systemapi Hide this for inner system use.
      * @since 7
@@ -230,6 +236,7 @@ declare namespace systemTimer {
     /**
      * Called back when the timer goes off.
      *
+     * @type { ?function }
      * @syscap SystemCapability.MiscServices.Time
      * @systemapi Hide this for inner system use.
      * @since 7

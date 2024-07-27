@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-/// <reference path="../../component/common.d.ts" />
-/// <reference path="../../component/panel.d.ts" />
+
+
 
 /**
  * Defines Panel Modifier
@@ -27,6 +27,7 @@
  * @extends PanelAttribute
  * @implements AttributeModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class PanelModifier extends PanelAttribute implements AttributeModifier<PanelAttribute> {
@@ -37,6 +38,7 @@ export declare class PanelModifier extends PanelAttribute implements AttributeMo
    * @param { PanelAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: PanelAttribute): void;

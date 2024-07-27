@@ -18,8 +18,7 @@
  * @kit ArkUI
  */
 
-/// <reference path="../../component/common.d.ts" />
-/// <reference path="../../component/calendar_picker.d.ts" />
+
 
 /**
  * Defines CalendarPicker Modifier
@@ -27,6 +26,7 @@
  * @extends CalendarPickerAttribute
  * @implements AttributeModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class CalendarPickerModifier extends CalendarPickerAttribute implements AttributeModifier<CalendarPickerAttribute> {
@@ -37,6 +37,7 @@ export declare class CalendarPickerModifier extends CalendarPickerAttribute impl
    * @param { CalendarPickerAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: CalendarPickerAttribute): void;

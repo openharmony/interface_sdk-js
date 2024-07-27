@@ -196,6 +196,7 @@ declare namespace launcherBundleManager {
   /**
    * Contains basic launcher Ability information, which uniquely identifies an LauncherAbilityInfo.
    *
+   * @typedef { _LauncherAbilityInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 9
@@ -205,6 +206,7 @@ declare namespace launcherBundleManager {
   /**
    * Provides information about a shortcut, including the shortcut ID and label.
    *
+   * @typedef { _ShortcutInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 9
@@ -213,6 +215,7 @@ declare namespace launcherBundleManager {
   /**
    * Obtains information about the ability that a shortcut will start.
    *
+   * @typedef { _ShortcutWant }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 9

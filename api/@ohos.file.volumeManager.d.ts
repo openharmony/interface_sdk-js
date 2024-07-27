@@ -41,6 +41,7 @@ declare namespace volumeManager {
     /**
      * Volume ID.
      *
+     * @type { string }
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
      * @since 9
@@ -50,6 +51,7 @@ declare namespace volumeManager {
     /**
      * Universally unique identifier of volume.
      *
+     * @type { string }
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
      * @since 9
@@ -59,6 +61,7 @@ declare namespace volumeManager {
     /**
      * The ID of disk that volume belongs to.
      *
+     * @type { string }
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
      * @since 9
@@ -68,6 +71,7 @@ declare namespace volumeManager {
     /**
      * The label of the volume.
      *
+     * @type { string }
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
      * @since 9
@@ -77,6 +81,7 @@ declare namespace volumeManager {
     /**
      * The volume is removable or not.
      *
+     * @type { boolean }
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
      * @since 9
@@ -86,6 +91,7 @@ declare namespace volumeManager {
     /**
      * The mount state of the volume.
      *
+     * @type { number }
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
      * @since 9
@@ -95,6 +101,7 @@ declare namespace volumeManager {
     /**
      * The mount path of the volume.
      *
+     * @type { string }
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
      * @since 9

@@ -45,6 +45,7 @@
     "SystemCapability.MultimodalInput.Input.InputSimulator",
     "SystemCapability.MultimodalInput.Input.Pointer",
     "SystemCapability.MultimodalInput.Input.ShortKey",
+    "SystemCapability.MultimodalInput.Input.InfraredEmitter",
     "SystemCapability.PowerManager.BatteryManager.Extension",
     "SystemCapability.PowerManager.DisplayPowerManager",
     "SystemCapability.PowerManager.ThermalManager",
@@ -120,6 +121,7 @@
     "SystemCapability.HiviewDFX.HiAppEvent",
     "SystemCapability.HiviewDFX.HiSysEvent",
     "SystemCapability.HiviewDFX.HiProfiler.HiDebug",
+    "SystemCapability.HiviewDFX.HiCollie",
     "SystemCapability.Update.UpdateService",
     "SystemCapability.DistributedHardware.DeviceManager",
     "SystemCapability.Security.DeviceAuth",
@@ -218,6 +220,7 @@
     "SystemCapability.Graphic.Graphic2D.NativeVsync",
     "SystemCapability.Graphic.Vulkan",
     "SystemCapability.Multimedia.Image.ImageCreator",
-    "SystemCapability.Ability.AppStartup"
+    "SystemCapability.Ability.AppStartup",
+    "SystemCapability.Ability.AppExtension.PhotoEditorExtension"
   ]
 }

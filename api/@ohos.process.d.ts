@@ -755,6 +755,16 @@ declare namespace process {
    * @atomicservice
    * @since 11
    */
+  /**
+   * User Stored Events
+   *
+   * @typedef { function } EventListener
+   * @param { Object } evt - User events
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   type EventListener = (evt: Object) => void;
   
   /**

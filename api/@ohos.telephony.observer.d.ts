@@ -36,7 +36,7 @@ declare namespace observer {
   /**
    * Describes the network registration state.
    *
-   * @typedef NetworkState
+   * @typedef { radio.NetworkState }
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6
    */
@@ -45,7 +45,7 @@ declare namespace observer {
   /**
    * Describes the signal strength information.
    *
-   * @typedef SignalInformation
+   * @typedef { radio.SignalInformation }
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6
    */
@@ -54,7 +54,7 @@ declare namespace observer {
   /**
    * Describes current cell information.
    *
-   * @typedef CellInformation
+   * @typedef { radio.CellInformation }
    * @syscap SystemCapability.Telephony.StateRegistry
    * @systemapi Hide this for inner system use.
    * @since 6
@@ -64,7 +64,7 @@ declare namespace observer {
   /**
    * Describes the cellular data link connection state.
    *
-   * @typedef DataConnectState
+   * @typedef { data.DataConnectState }
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6
    */
@@ -73,7 +73,7 @@ declare namespace observer {
   /**
    * Describes the radio access technology.
    *
-   * @typedef RatType
+   * @typedef { radio.RadioTechnology }
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6
    */
@@ -82,7 +82,7 @@ declare namespace observer {
   /**
    * Describes the cellular data flow type.
    *
-   * @typedef DataFlowType
+   * @typedef { data.DataFlowType }
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6
    */
@@ -91,7 +91,7 @@ declare namespace observer {
   /**
    * Indicates the states of call.
    *
-   * @typedef CallState
+   * @typedef { call.CallState }
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6
    */
@@ -100,7 +100,7 @@ declare namespace observer {
   /**
    * Indicates the SIM card types.
    *
-   * @typedef CardType
+   * @typedef { sim.CardType }
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6
    */
@@ -109,7 +109,7 @@ declare namespace observer {
   /**
    * Indicates the SIM card states.
    *
-   * @typedef SimState
+   * @typedef { sim.SimState }
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6
    */

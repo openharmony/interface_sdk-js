@@ -150,6 +150,7 @@ declare namespace userFileManager {
   /**
    * Indicates the type of file asset member.
    *
+   * @typedef { number | string | boolean } MemberType
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
    * @since 9
@@ -159,6 +160,7 @@ declare namespace userFileManager {
   /**
    * Indicates the type of notify event.
    *
+   * @typedef { 'deviceChange' | 'albumChange' | 'imageChange' | 'audioChange' | 'videoChange' | 'remoteFileChange' } ChangeEvent
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
    * @since 9
@@ -183,6 +185,7 @@ declare namespace userFileManager {
     /**
      * URI of the file.
      *
+     * @type { string }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
      * @since 9
@@ -191,6 +194,7 @@ declare namespace userFileManager {
     /**
      * File type, for example, IMAGE, VIDEO, AUDIO
      *
+     * @type { FileType }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
      * @since 9
@@ -199,6 +203,7 @@ declare namespace userFileManager {
     /**
      * Display name (with a file name extension) of the file.
      *
+     * @type { string }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
      * @since 9
@@ -712,6 +717,7 @@ declare namespace userFileManager {
     /**
      * Indicates the columns to query.
      *
+     * @type { Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
      * @since 9
@@ -720,6 +726,7 @@ declare namespace userFileManager {
     /**
      * Predicate to query
      *
+     * @type { dataSharePredicates.DataSharePredicates }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
      * @since 9
@@ -739,6 +746,7 @@ declare namespace userFileManager {
     /**
      * Predicate to query
      *
+     * @type { dataSharePredicates.DataSharePredicates }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
      * @since 9
@@ -758,6 +766,7 @@ declare namespace userFileManager {
     /**
      * SubType of the photo
      *
+     * @type { ?PhotoSubType }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
      * @since 10
@@ -1031,6 +1040,7 @@ declare namespace userFileManager {
     /**
      * Album type
      *
+     * @type { AlbumType }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
      * @since 10
@@ -1039,6 +1049,7 @@ declare namespace userFileManager {
     /**
      * Album subtype
      *
+     * @type { AlbumSubType }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
      * @since 10
@@ -1047,6 +1058,7 @@ declare namespace userFileManager {
     /**
      * Album name.
      *
+     * @type { string }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
      * @since 9
@@ -1055,6 +1067,7 @@ declare namespace userFileManager {
     /**
      * Album uri.
      *
+     * @type { string }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
      * @since 9
@@ -1063,6 +1076,7 @@ declare namespace userFileManager {
     /**
      * Date (timestamp) when the album was last modified.
      *
+     * @type { number }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
      * @since 9
@@ -1071,6 +1085,7 @@ declare namespace userFileManager {
     /**
      * File count for the album
      *
+     * @type { number }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
      * @since 9
@@ -1079,6 +1094,7 @@ declare namespace userFileManager {
     /**
      * CoverUri for the album
      *
+     * @type { string }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
      * @since 9
@@ -1774,7 +1790,8 @@ declare namespace userFileManager {
   interface ChangeData {
     /**
      * the NotifyType of ChangeData
-     *
+     * 
+     * @type { NotifyType }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
      * @since 10
@@ -1783,6 +1800,7 @@ declare namespace userFileManager {
     /**
      * all uris of the same NotifyType, could be FileAssets' or Albums'
      *
+     * @type { Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
      * @since 10
@@ -1791,6 +1809,7 @@ declare namespace userFileManager {
     /**
      * change details of the Album's FileAssets when uris is the Album's uri type
      *
+     * @type { Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
      * @since 10
@@ -1810,6 +1829,7 @@ declare namespace userFileManager {
     /**
      * Peer device name
      *
+     * @type { string }
      * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
      * @systemapi
      * @since 9
@@ -1818,6 +1838,7 @@ declare namespace userFileManager {
     /**
      * Peer device network id
      *
+     * @type { string }
      * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
      * @systemapi
      * @since 9
@@ -1826,6 +1847,7 @@ declare namespace userFileManager {
     /**
      * Peer device online status
      *
+     * @type { boolean }
      * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
      * @systemapi
      * @since 9

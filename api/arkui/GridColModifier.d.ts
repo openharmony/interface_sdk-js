@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-/// <reference path="../../component/common.d.ts" />
-/// <reference path="../../component/grid_col.d.ts" />
+
+
 
 /**
  * Defines GridCol Modifier
@@ -27,6 +27,7 @@
  * @extends GridColAttribute
  * @implements AttributeModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class GridColModifier extends GridColAttribute implements AttributeModifier<GridColAttribute> {
@@ -37,6 +38,7 @@ export declare class GridColModifier extends GridColAttribute implements Attribu
    * @param { GridColAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: GridColAttribute): void;

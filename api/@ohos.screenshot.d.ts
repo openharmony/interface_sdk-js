@@ -21,19 +21,12 @@
 import { AsyncCallback, ErrorCallback } from './@ohos.base';
 import image from './@ohos.multimedia.image';
 
-/**
- * Declares the screenshot APIs.
- *
- * @namespace screenshot
- * @syscap SystemCapability.WindowManager.WindowManager.Core
- * @systemapi Hide this for inner system use.
- * @since 7
- */
  /**
  * Declares the screenshot APIs.
  *
  * @namespace screenshot
  * @syscap SystemCapability.WindowManager.WindowManager.Core
+ * @atomicservice
  * @since 12
  */
 declare namespace screenshot {
@@ -101,6 +94,7 @@ declare namespace screenshot {
    * @throws { BusinessError } 801 - Capability not supported on this device.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @atomicservice
    * @since 12
    */
   function pick(): Promise<PickInfo>;
@@ -110,6 +104,7 @@ declare namespace screenshot {
    *
    * @interface PickInfo
    * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @atomicservice
    * @since 12
    */
   interface PickInfo {
@@ -118,6 +113,7 @@ declare namespace screenshot {
      *
      * @type { Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
      * @since 12
      */
     pickRect: Rect;
@@ -127,6 +123,7 @@ declare namespace screenshot {
      *
      * @type { image.PixelMap }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
      * @since 12
      */
     pixelMap: image.PixelMap;
@@ -137,14 +134,7 @@ declare namespace screenshot {
    *
    * @interface Rect
    * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @systemapi Hide this for inner system use.
-   * @since 7
-   */
-  /**
-   * Describes the region of the screen to capture.
-   *
-   * @interface Rect
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @atomicservice
    * @since 12
    */
   interface Rect {
@@ -153,14 +143,7 @@ declare namespace screenshot {
      *
      * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @systemapi Hide this for inner system use.
-     * @since 7
-     */
-    /**
-     * The X-axis coordinate of the upper left vertex of the rectangle.
-     *
-     * @type { number }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
      * @since 12
      */
     left: number;
@@ -170,14 +153,7 @@ declare namespace screenshot {
      *
      * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @systemapi Hide this for inner system use.
-     * @since 7
-     */
-    /**
-     * The Y-axis coordinate of the upper left vertex of the rectangle.
-     *
-     * @type { number }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
      * @since 12
      */
     top: number;
@@ -187,14 +163,7 @@ declare namespace screenshot {
      *
      * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @systemapi Hide this for inner system use.
-     * @since 7
-     */
-    /**
-     * Width of the rectangle.
-     *
-     * @type { number }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
      * @since 12
      */
     width: number;
@@ -204,14 +173,7 @@ declare namespace screenshot {
      *
      * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @systemapi Hide this for inner system use.
-     * @since 7
-     */
-    /**
-     * Height of the rectangle.
-     *
-     * @type { number }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
      * @since 12
      */
     height: number;
@@ -259,6 +221,7 @@ declare namespace screenshot {
     /**
      * Region of the screen to capture. If this parameter is null, the full screen will be captured.
      *
+     * @type { ?Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 7
@@ -267,6 +230,7 @@ declare namespace screenshot {
     /**
      * Region of the screen to capture. If this parameter is null, the full screen will be captured.
      *
+     * @type { ?Size }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 7
@@ -275,6 +239,7 @@ declare namespace screenshot {
     /**
      * Rotation angle of the screenshot. The value can be 0, 90, 180, or 270. The default value is 0.
      *
+     * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 7
@@ -283,6 +248,7 @@ declare namespace screenshot {
     /**
      * ID of the screen to be captured.
      *
+     * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 8

@@ -9,10 +9,10 @@
     "oldDtsName": "ut_jsdoc_error_code_na_to_have_001.d.ts",
     "newDtsName": "ut_jsdoc_error_code_na_to_have_001.d.ts",
     "diffType": 20,
-    "diffMessage": "错误码增加",
+    "diffMessage": "错误码从无到有",
     "changeLogUrl": "",
     "changeLogs": [],
-    "isCompatible": true,
+    "isCompatible": false,
     "oldHierarchicalRelations": [
       "ut_jsdoc_error_code_na_to_have_001.d.ts",
       "Test",
@@ -34,6 +34,9 @@
     "oldDescription": "",
     "newDescription": "201,202,401",
     "oldSyscapField": "",
-    "newSyscapField": ""
+    "newSyscapField": "",
+    "oldKitInfo": "",
+    "newKitInfo": "",
+    "isSystemapi": false
   }
 ]

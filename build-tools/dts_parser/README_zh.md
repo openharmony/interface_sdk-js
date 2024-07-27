@@ -1,3 +1,4 @@
+
 将相关文件按规则解析成特定格式，提供处理接口
 
 ## 目录
@@ -85,7 +86,6 @@
 node --nolazy -r ts-node/register ./src/main.ts -N checkOnline --path 待检查文件路径（非build-tools） --checker 检查规则 --prId 兼容性检查文件路径  --output 报告输出目录 --excel false
 ```
 
-
 ### check工具（线下版本）
 
 [代码](src/coreImpl/checker/local_entry.ts)
@@ -94,6 +94,8 @@ node --nolazy -r ts-node/register ./src/main.ts -N checkOnline --path 待检查�
 
 1. checkEntryLocal(filePathArr, fileRuleArr, output, prId, excel)
    根据传入的文件路径和检查规则检查文件中存在的规范错误（默认生成excel表格，默认不执行兼容性变更校验）
+2. 打开interface_sdk-js\build-tools\mdFiles.txt文件，将待检查文件的路径填入此文件。
+   注意：文件名与文件名之间直接换行，行尾无需加任何符号。
 
 工具调用命令
 

@@ -17,13 +17,9 @@
  * @file
  * @kit IMEKit
  */
-
-/// <reference path="../component/common_ts_ets_api.d.ts"/>
-
 import type { AsyncCallback, Callback } from './@ohos.base';
 import type { KeyEvent as InputKeyEvent } from './@ohos.multimodalInput.keyEvent';
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
-import type { LocalStorage } from 'StateManagement';
 import BaseContext from './application/BaseContext';
 import window from './@ohos.window';
 
@@ -1793,6 +1789,7 @@ declare namespace inputMethodEngine {
     /**
      * Editor's pattern
      *
+     * @type { number }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      */
@@ -1801,6 +1798,7 @@ declare namespace inputMethodEngine {
     /**
      * Editor's key type
      *
+     * @type { number }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      */
@@ -1825,6 +1823,7 @@ declare namespace inputMethodEngine {
     /**
      * Key code
      *
+     * @type { number }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      */
@@ -1833,6 +1832,7 @@ declare namespace inputMethodEngine {
     /**
      * Key action
      *
+     * @type { number }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      */

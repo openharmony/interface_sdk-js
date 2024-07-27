@@ -14,14 +14,21 @@
  */
 
 /**
+ * @file Defines all permissions.
+ * @kit AbilityKit
+ */
+
+/**
  * Indicates permissions.
  *
+ * @typedef { string }
  * @syscap SystemCapability.Security.AccessToken
  * @since 9
  */
  /**
  * Indicates permissions.
  *
+ * @typedef { string }
  * @syscap SystemCapability.Security.AccessToken
  * @atomicservice
  * @since 11

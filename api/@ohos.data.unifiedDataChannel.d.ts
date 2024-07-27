@@ -64,6 +64,7 @@ declare namespace unifiedDataChannel {
 
   /**
    * Indicated delay get UnifiedData
+   * 
    * @typedef {function} GetDelayData
    * @param { string } type - the type of UnifiedData required.
    * @returns { UnifiedData } Return the UnifiedData required.
@@ -75,12 +76,12 @@ declare namespace unifiedDataChannel {
 
   /**
    * Indicates type of value.
-   * @typedef {number | string | image.PixelMap | Want | ArrayBuffer}
+   * @typedef {number | string | boolean | image.PixelMap | Want | ArrayBuffer | object | null | undefined}
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
    * @since 12
    */
-  type ValueType = number | string | image.PixelMap | Want | ArrayBuffer;
+  type ValueType = number | string | boolean | image.PixelMap | Want | ArrayBuffer | object | null | undefined;
 
   /**
    * Describe the unified data properties.
@@ -269,6 +270,7 @@ declare namespace unifiedDataChannel {
     /**
      * A map for each type and data size, key is data type, value is the corresponding data size
      *
+     * @type { Record<string, number> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
@@ -283,6 +285,7 @@ declare namespace unifiedDataChannel {
     /**
      * Total data size of data in Bytes
      *
+     * @type { number }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
@@ -380,6 +383,7 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the details of unified text
      *
+     * @type { ?Record<string, string> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
@@ -412,6 +416,7 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the content of text
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
@@ -426,6 +431,7 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the abstract of text
      *
+     * @type { ?string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
@@ -458,6 +464,7 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the url of a link
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
@@ -472,6 +479,7 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the description of a link
      *
+     * @type { ?string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
@@ -504,6 +512,7 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the content of html, with html tags
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
@@ -518,6 +527,7 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the plain content of html
      *
+     * @type { ?string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
@@ -550,6 +560,7 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the details of unified File
      *
+     * @type { ?Record<string, string> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
@@ -564,6 +575,7 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the uri of file
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
@@ -596,6 +608,7 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the uri of image
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
@@ -628,6 +641,7 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the uri of video
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
@@ -660,6 +674,7 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the uri of audio
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
@@ -692,6 +707,7 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the uri of folder
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
@@ -726,6 +742,7 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the details of system defined data
      *
+     * @type { ?Record<string, number | string | Uint8Array> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
@@ -760,6 +777,7 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the id of form
      *
+     * @type { number }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
@@ -774,6 +792,7 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the name of form
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
@@ -788,6 +807,7 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the bundle name of form
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
@@ -802,6 +822,7 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the ability name of form
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
@@ -816,6 +837,7 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the module of form
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
@@ -850,6 +872,7 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the app id
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
@@ -864,6 +887,7 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the app name
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
@@ -878,6 +902,7 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the id of app icon
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
@@ -892,6 +917,7 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the id of app label
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
@@ -906,6 +932,7 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the bundle name of app
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
@@ -920,6 +947,7 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the ability name of app
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
@@ -954,6 +982,7 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the raw data of pixel map
      *
+     * @type { Uint8Array }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
@@ -990,6 +1019,7 @@ declare namespace unifiedDataChannel {
      * Indicates the type of data, should always be started with 'ApplicationDefined.', will
      * return error otherwise
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
@@ -1004,6 +1034,7 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the raw data of application defined data
      *
+     * @type { Uint8Array }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
@@ -1040,7 +1071,17 @@ declare namespace unifiedDataChannel {
      * @atomicservice
      * @since 11
      */
-    DATA_HUB = 'DataHub'
+    DATA_HUB = 'DataHub',
+
+    /**
+     * Indicates the intention of drag
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @systemapi
+     * @StageModelOnly
+     * @since 12
+     */
+     DRAG = 'Drag'
   }
 
   /**
@@ -1052,6 +1093,7 @@ declare namespace unifiedDataChannel {
   /**
    * Describe the optional arguments of data operation
    *
+   * @typedef { object }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
    * @since 11
@@ -1295,6 +1337,36 @@ declare namespace unifiedDataChannel {
    * @since 11
    */
   function deleteData(options: Options): Promise<Array<UnifiedData>>;
+
+  /**
+   * Set app sharing options.
+   *
+   * @param { intention } Describe the sharing channel that UDMF support.
+   * @param { shareOptions } Types of scope that UnifiedData can be used.
+   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                                                   2. Incorrect parameter types.
+   * @throws { BusinessError } 20400001 - Settings already exist.
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @systemapi
+   * @StageModelOnly
+   * @since 12
+   */
+   function setAppShareOptions(intention: Intention, shareOptions: ShareOptions): void;
+
+   /**
+    * Remove app sharing options.
+    *
+    * @param { intention } Describe the sharing channel that UDMF support.
+    * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+    *                                                                   2. Incorrect parameter types.
+    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+    * @systemapi
+    * @StageModelOnly
+    * @since 12
+    */
+   function removeAppShareOptions(intention: Intention): void;
 }
 
 export default unifiedDataChannel;

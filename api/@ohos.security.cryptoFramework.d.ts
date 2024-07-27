@@ -242,6 +242,7 @@ declare namespace cryptoFramework {
    * Provides the IvParamsSpec type, including the parameter iv.
    *
    * @typedef IvParamsSpec
+   * @extends ParamsSpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @since 9
    */
@@ -249,6 +250,7 @@ declare namespace cryptoFramework {
    * Provides the IvParamsSpec type, including the parameter iv.
    *
    * @typedef IvParamsSpec
+   * @extends ParamsSpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
@@ -257,6 +259,7 @@ declare namespace cryptoFramework {
    * Provides the IvParamsSpec type, including the parameter iv.
    *
    * @typedef IvParamsSpec
+   * @extends ParamsSpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @atomicservice
@@ -294,6 +297,7 @@ declare namespace cryptoFramework {
    * Provides the GcmParamsSpec type, including the parameter iv, aad and authTag.
    *
    * @typedef GcmParamsSpec
+   * @extends ParamsSpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @since 9
    */
@@ -301,6 +305,7 @@ declare namespace cryptoFramework {
    * Provides the GcmParamsSpec type, including the parameter iv, aad and authTag.
    *
    * @typedef GcmParamsSpec
+   * @extends ParamsSpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
@@ -309,6 +314,7 @@ declare namespace cryptoFramework {
    * Provides the GcmParamsSpec type, including the parameter iv, aad and authTag.
    *
    * @typedef GcmParamsSpec
+   * @extends ParamsSpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @atomicservice
@@ -398,6 +404,7 @@ declare namespace cryptoFramework {
    * Provides the CcmParamsSpec type, including the parameter iv, aad and authTag.
    *
    * @typedef CcmParamsSpec
+   * @extends ParamsSpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @since 9
    */
@@ -405,6 +412,7 @@ declare namespace cryptoFramework {
    * Provides the CcmParamsSpec type, including the parameter iv, aad and authTag.
    *
    * @typedef CcmParamsSpec
+   * @extends ParamsSpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
@@ -413,6 +421,7 @@ declare namespace cryptoFramework {
    * Provides the CcmParamsSpec type, including the parameter iv, aad and authTag.
    *
    * @typedef CcmParamsSpec
+   * @extends ParamsSpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @atomicservice
@@ -693,6 +702,7 @@ declare namespace cryptoFramework {
    * Provides the SymKey type, which is used for symmetric cryptography.
    *
    * @typedef SymKey
+   * @extends Key
    * @syscap SystemCapability.Security.CryptoFramework
    * @since 9
    */
@@ -700,6 +710,7 @@ declare namespace cryptoFramework {
    * Provides the SymKey type, which is used for symmetric cryptography.
    *
    * @typedef SymKey
+   * @extends Key
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
@@ -708,6 +719,7 @@ declare namespace cryptoFramework {
    * Provides the SymKey type, which is used for symmetric cryptography.
    *
    * @typedef SymKey
+   * @extends Key
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @atomicservice
@@ -742,6 +754,7 @@ declare namespace cryptoFramework {
    * Provides the private key type.
    *
    * @typedef PriKey
+   * @extends Key
    * @syscap SystemCapability.Security.CryptoFramework
    * @since 9
    */
@@ -749,6 +762,7 @@ declare namespace cryptoFramework {
    * Provides the private key type.
    *
    * @typedef PriKey
+   * @extends Key
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
@@ -757,6 +771,7 @@ declare namespace cryptoFramework {
    * Provides the private key type.
    *
    * @typedef PriKey
+   * @extends Key
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @atomicservice
@@ -864,6 +879,7 @@ declare namespace cryptoFramework {
    * Provides the public key interface for asymmetric keys.
    *
    * @typedef PubKey
+   * @extends Key
    * @syscap SystemCapability.Security.CryptoFramework
    * @since 9
    */
@@ -871,6 +887,7 @@ declare namespace cryptoFramework {
    * Provides the public key interface for asymmetric keys.
    *
    * @typedef PubKey
+   * @extends Key
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
@@ -879,6 +896,7 @@ declare namespace cryptoFramework {
    * Provides the public key interface for asymmetric keys.
    *
    * @typedef PubKey
+   * @extends Key
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @atomicservice
@@ -5944,6 +5962,7 @@ declare namespace cryptoFramework {
    * Specifies the set of parameters used in the DSA algorithm.
    *
    * @typedef DSACommonParamsSpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @since 10
    */
@@ -5951,6 +5970,7 @@ declare namespace cryptoFramework {
    * Specifies the set of parameters used in the DSA algorithm.
    *
    * @typedef DSACommonParamsSpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
@@ -5959,6 +5979,7 @@ declare namespace cryptoFramework {
    * Specifies the set of parameters used in the DSA algorithm.
    *
    * @typedef DSACommonParamsSpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @atomicservice
@@ -6048,6 +6069,7 @@ declare namespace cryptoFramework {
    * Specifies the DSA public key with its associated parameters.
    *
    * @typedef DSAPubKeySpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @since 10
    */
@@ -6055,6 +6077,7 @@ declare namespace cryptoFramework {
    * Specifies the DSA public key with its associated parameters.
    *
    * @typedef DSAPubKeySpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
@@ -6063,6 +6086,7 @@ declare namespace cryptoFramework {
    * Specifies the DSA public key with its associated parameters.
    *
    * @typedef DSAPubKeySpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @atomicservice
@@ -6126,6 +6150,7 @@ declare namespace cryptoFramework {
    * Specifies the DSA keypair with its associated parameters.
    *
    * @typedef DSAKeyPairSpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @since 10
    */
@@ -6133,6 +6158,7 @@ declare namespace cryptoFramework {
    * Specifies the DSA keypair with its associated parameters.
    *
    * @typedef DSAKeyPairSpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
@@ -6141,6 +6167,7 @@ declare namespace cryptoFramework {
    * Specifies the DSA keypair with its associated parameters.
    *
    * @typedef DSAKeyPairSpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @atomicservice
@@ -6285,6 +6312,7 @@ declare namespace cryptoFramework {
    * Specifies an elliptic curve finite field with the prime p.
    *
    * @typedef ECFieldFp
+   * @extends ECField
    * @syscap SystemCapability.Security.CryptoFramework
    * @since 10
    */
@@ -6292,6 +6320,7 @@ declare namespace cryptoFramework {
    * Specifies an elliptic curve finite field with the prime p.
    *
    * @typedef ECFieldFp
+   * @extends ECField
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
@@ -6300,6 +6329,7 @@ declare namespace cryptoFramework {
    * Specifies an elliptic curve finite field with the prime p.
    *
    * @typedef ECFieldFp
+   * @extends ECField
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @atomicservice
@@ -6415,6 +6445,7 @@ declare namespace cryptoFramework {
    * Specifies the set of common parameters used in the ECC algorithm.
    *
    * @typedef ECCCommonParamsSpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @since 10
    */
@@ -6422,6 +6453,7 @@ declare namespace cryptoFramework {
    * Specifies the set of common parameters used in the ECC algorithm.
    *
    * @typedef ECCCommonParamsSpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
@@ -6430,6 +6462,7 @@ declare namespace cryptoFramework {
    * Specifies the set of common parameters used in the ECC algorithm.
    *
    * @typedef ECCCommonParamsSpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @atomicservice
@@ -6597,6 +6630,7 @@ declare namespace cryptoFramework {
    * Specifies the ECC private key with its associated parameters.
    *
    * @typedef ECCPriKeySpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @since 10
    */
@@ -6604,6 +6638,7 @@ declare namespace cryptoFramework {
    * Specifies the ECC private key with its associated parameters.
    *
    * @typedef ECCPriKeySpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
@@ -6612,6 +6647,7 @@ declare namespace cryptoFramework {
    * Specifies the ECC private key with its associated parameters.
    *
    * @typedef ECCPriKeySpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @atomicservice
@@ -6675,6 +6711,7 @@ declare namespace cryptoFramework {
    * Specifies the ECC public key with its associated parameters.
    *
    * @typedef ECCPubKeySpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @since 10
    */
@@ -6682,6 +6719,7 @@ declare namespace cryptoFramework {
    * Specifies the ECC public key with its associated parameters.
    *
    * @typedef ECCPubKeySpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
@@ -6690,6 +6728,7 @@ declare namespace cryptoFramework {
    * Specifies the ECC public key with its associated parameters.
    *
    * @typedef ECCPubKeySpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @atomicservice
@@ -6753,6 +6792,7 @@ declare namespace cryptoFramework {
    * Specifies the ECC keypair with its associated parameters.
    *
    * @typedef ECCKeyPairSpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @since 10
    */
@@ -6760,6 +6800,7 @@ declare namespace cryptoFramework {
    * Specifies the ECC keypair with its associated parameters.
    *
    * @typedef ECCKeyPairSpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
@@ -6768,6 +6809,7 @@ declare namespace cryptoFramework {
    * Specifies the ECC keypair with its associated parameters.
    *
    * @typedef ECCKeyPairSpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @atomicservice
@@ -6942,6 +6984,7 @@ declare namespace cryptoFramework {
    * Specifies the set of common parameters used in the DH algorithm.
    *
    * @typedef DHCommonParamsSpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
@@ -6950,6 +6993,7 @@ declare namespace cryptoFramework {
    * Specifies the set of common parameters used in the DH algorithm.
    *
    * @typedef DHCommonParamsSpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @atomicservice
@@ -7018,6 +7062,7 @@ declare namespace cryptoFramework {
    * Specifies the DH private key with its associated parameters.
    *
    * @typedef DHPriKeySpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
@@ -7026,6 +7071,7 @@ declare namespace cryptoFramework {
    * Specifies the DH private key with its associated parameters.
    *
    * @typedef DHPriKeySpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @atomicservice
@@ -7075,6 +7121,7 @@ declare namespace cryptoFramework {
    * Specifies the DH public key with its associated parameters.
    *
    * @typedef DHPubKeySpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
@@ -7083,6 +7130,7 @@ declare namespace cryptoFramework {
    * Specifies the DH public key with its associated parameters.
    *
    * @typedef DHPubKeySpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @atomicservice
@@ -7132,6 +7180,7 @@ declare namespace cryptoFramework {
    * Specifies the DH keypair with its associated parameters.
    *
    * @typedef DHKeyPairSpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
@@ -7140,6 +7189,7 @@ declare namespace cryptoFramework {
    * Specifies the DH keypair with its associated parameters.
    *
    * @typedef DHKeyPairSpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @atomicservice
@@ -7260,6 +7310,7 @@ declare namespace cryptoFramework {
    * Specifies the ED25519 private key with its associated parameters.
    *
    * @typedef ED25519PriKeySpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
@@ -7268,6 +7319,7 @@ declare namespace cryptoFramework {
    * Specifies the ED25519 private key with its associated parameters.
    *
    * @typedef ED25519PriKeySpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @atomicservice
@@ -7298,6 +7350,7 @@ declare namespace cryptoFramework {
    * Specifies the ED25519 public key with its associated parameters.
    *
    * @typedef ED25519PubKeySpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
@@ -7306,6 +7359,7 @@ declare namespace cryptoFramework {
    * Specifies the ED25519 public key with its associated parameters.
    *
    * @typedef ED25519PubKeySpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @atomicservice
@@ -7336,6 +7390,7 @@ declare namespace cryptoFramework {
    * Specifies the ED25519 keypair with its associated parameters.
    *
    * @typedef ED25519KeyPairSpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
@@ -7344,6 +7399,7 @@ declare namespace cryptoFramework {
    * Specifies the ED25519 keypair with its associated parameters.
    *
    * @typedef ED25519KeyPairSpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @atomicservice
@@ -7393,6 +7449,7 @@ declare namespace cryptoFramework {
    * Specifies the X25519 private key with its associated parameters.
    *
    * @typedef X25519PriKeySpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
@@ -7401,6 +7458,7 @@ declare namespace cryptoFramework {
    * Specifies the X25519 private key with its associated parameters.
    *
    * @typedef X25519PriKeySpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @atomicservice
@@ -7431,6 +7489,7 @@ declare namespace cryptoFramework {
    * Specifies the X25519 public key with its associated parameters.
    *
    * @typedef X25519PubKeySpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
@@ -7439,6 +7498,7 @@ declare namespace cryptoFramework {
    * Specifies the X25519 public key with its associated parameters.
    *
    * @typedef X25519PubKeySpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @atomicservice
@@ -7469,6 +7529,7 @@ declare namespace cryptoFramework {
    * Specifies the X25519 keypair with its associated parameters.
    *
    * @typedef X25519KeyPairSpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
@@ -7477,6 +7538,7 @@ declare namespace cryptoFramework {
    * Specifies the X25519 keypair with its associated parameters.
    *
    * @typedef X25519KeyPairSpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @atomicservice
@@ -7526,6 +7588,7 @@ declare namespace cryptoFramework {
    * Specifies the set of common parameters used in the RSA algorithm.
    *
    * @typedef RSACommonParamsSpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @since 10
    */
@@ -7533,6 +7596,7 @@ declare namespace cryptoFramework {
    * Specifies the set of common parameters used in the RSA algorithm.
    *
    * @typedef RSACommonParamsSpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
@@ -7541,6 +7605,7 @@ declare namespace cryptoFramework {
    * Specifies the set of common parameters used in the RSA algorithm.
    *
    * @typedef RSACommonParamsSpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @atomicservice
@@ -7578,6 +7643,7 @@ declare namespace cryptoFramework {
    * Specifies the RSA public key with its associated parameters.
    *
    * @typedef RSAPubKeySpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @since 10
    */
@@ -7585,6 +7651,7 @@ declare namespace cryptoFramework {
    * Specifies the RSA public key with its associated parameters.
    *
    * @typedef RSAPubKeySpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
@@ -7593,6 +7660,7 @@ declare namespace cryptoFramework {
    * Specifies the RSA public key with its associated parameters.
    *
    * @typedef RSAPubKeySpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @atomicservice
@@ -7656,6 +7724,7 @@ declare namespace cryptoFramework {
    * Specifies the RSA keypair with its associated parameters.
    *
    * @typedef RSAKeyPairSpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @since 10
    */
@@ -7663,6 +7732,7 @@ declare namespace cryptoFramework {
    * Specifies the RSA keypair with its associated parameters.
    *
    * @typedef RSAKeyPairSpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
@@ -7671,6 +7741,7 @@ declare namespace cryptoFramework {
    * Specifies the RSA keypair with its associated parameters.
    *
    * @typedef RSAKeyPairSpec
+   * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @atomicservice
@@ -8158,6 +8229,7 @@ declare namespace cryptoFramework {
    * Specifies the PBKDF2 parameters.
    *
    * @typedef PBKDF2Spec
+   * @extends KdfSpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
@@ -8166,6 +8238,7 @@ declare namespace cryptoFramework {
    * Specifies the PBKDF2 parameters.
    *
    * @typedef PBKDF2Spec
+   * @extends KdfSpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @atomicservice
@@ -8253,6 +8326,7 @@ declare namespace cryptoFramework {
    * Specifies the HKDF parameters.
    *
    * @typedef HKDFSpec
+   * @extends KdfSpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @atomicservice

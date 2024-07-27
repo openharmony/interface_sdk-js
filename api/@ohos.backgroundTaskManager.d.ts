@@ -15,7 +15,6 @@
 
 /**
  * @file
- * @kit BackgroundTasksKit
  */
 
 import { AsyncCallback, Callback } from './@ohos.base';
@@ -25,8 +24,9 @@ import Context from './application/BaseContext';
 /**
  * Manages background tasks.
  *
- * @since 7
+ * @namespace backgroundTaskManager
  * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
+ * @since 7
  * @deprecated since 9
  * @useinstead ohos.resourceschedule.backgroundTaskManager
  */
@@ -36,8 +36,8 @@ declare namespace backgroundTaskManager {
    *
    * @name DelaySuspendInfo
    * @interface DelaySuspendInfo
-   * @since 7
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
+   * @since 7
    * @deprecated since 9
    * @useinstead ohos.resourceschedule.backgroundTaskManager.DelaySuspendInfo
    */
@@ -45,8 +45,9 @@ declare namespace backgroundTaskManager {
     /**
      * The unique identifier of the delay request.
      *
-     * @since 7
+     * @type { number }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
+     * @since 7
      * @deprecated since 9
      * @useinstead ohos.resourceschedule.backgroundTaskManager.DelaySuspendInfo
      */
@@ -54,8 +55,9 @@ declare namespace backgroundTaskManager {
     /**
      * The actual delay duration (ms).
      *
-     * @since 7
+     * @type { number }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
+     * @since 7
      * @deprecated since 9
      * @useinstead ohos.resourceschedule.backgroundTaskManager.DelaySuspendInfo
      */
@@ -65,9 +67,9 @@ declare namespace backgroundTaskManager {
   /**
    * Cancels delayed transition to the suspended state.
    *
-   * @since 7
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
    * @param { number } requestId Indicates the identifier of the delay request.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
+   * @since 7
    * @deprecated since 9
    * @useinstead ohos.resourceschedule.backgroundTaskManager.cancelSuspendDelay
    */
@@ -99,11 +101,11 @@ declare namespace backgroundTaskManager {
   /**
    * Requests delayed transition to the suspended state.
    *
-   * @since 7
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
    * @param { string } reason Indicates the reason for delayed transition to the suspended state.
    * @param { Callback<void> } callback The callback delay time expired.
    * @returns { DelaySuspendInfo } Info of delay request
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
+   * @since 7
    * @deprecated since 9
    * @useinstead ohos.resourceschedule.backgroundTaskManager.requestSuspendDelay
    */
@@ -167,8 +169,8 @@ declare namespace backgroundTaskManager {
    * Supported background mode.
    *
    * @enum { number }
-   * @since 8
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.resourceschedule.backgroundTaskManager.BackgroundMode
    */
@@ -176,66 +178,74 @@ declare namespace backgroundTaskManager {
     /**
      * data transfer mode
      *
-     * @since 8
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 8
+     * @deprecated since 9
      */
     DATA_TRANSFER = 1,
 
     /**
      * audio playback mode
      *
-     * @since 8
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 8
+     * @deprecated since 9
      */
     AUDIO_PLAYBACK = 2,
 
     /**
      * audio recording mode
      *
-     * @since 8
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 8
+     * @deprecated since 9
      */
     AUDIO_RECORDING = 3,
 
     /**
      * location mode
      *
-     * @since 8
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 8
+     * @deprecated since 9
      */
     LOCATION = 4,
 
     /**
      * bluetooth interaction mode
      *
-     * @since 8
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 8
+     * @deprecated since 9
      */
     BLUETOOTH_INTERACTION = 5,
 
     /**
      * multi-device connection mode
      *
-     * @since 8
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 8
+     * @deprecated since 9
      */
     MULTI_DEVICE_CONNECTION = 6,
 
     /**
      * wifi interaction mode
      *
-     * @since 8
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @systemapi Hide this for inner system use.
+     * @since 8
+     * @deprecated since 9
      */
     WIFI_INTERACTION = 7,
 
     /**
      * Voice over Internet Phone mode
      *
-     * @since 8
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @systemapi Hide this for inner system use.
+     * @since 8
+     * @deprecated since 9
      */
     VOIP = 8,
 
@@ -243,8 +253,9 @@ declare namespace backgroundTaskManager {
      * background continuous calculate mode, for example 3D render.
      * only supported in particular device
      *
-     * @since 8
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 8
+     * @deprecated since 9
      */
     TASK_KEEPING = 9,
   }

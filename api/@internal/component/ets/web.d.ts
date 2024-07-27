@@ -34,6 +34,7 @@
 /**
  * Provides methods for controlling the web controller.
  *
+ * @typedef { import('../api/@ohos.web.webview').default.WebviewController }
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
@@ -44,6 +45,8 @@ declare type WebviewController = import('../api/@ohos.web.webview').default.Webv
 /**
  * The callback of load committed.
  *
+ * @typedef { function } OnNavigationEntryCommittedCallback
+ * @param { LoadCommittedDetails } loadCommittedDetails - callback information of onNavigationEntryCommitted.
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 11
@@ -53,7 +56,8 @@ type OnNavigationEntryCommittedCallback = (loadCommittedDetails: LoadCommittedDe
 /**
  * The callback of ssl error event.
  *
- * @typedef OnSslErrorEventCallback
+ * @typedef { function } OnSslErrorEventCallback
+ * @param { SslErrorEvent } sslErrorEvent - callback information of onSslErrorEvent.
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12
@@ -63,7 +67,8 @@ type OnSslErrorEventCallback = (sslErrorEvent: SslErrorEvent) => void;
 /**
  * The callback of largestContentfulPaint.
  *
- * @typedef OnLargestContentfulPaintCallback
+ * @typedef { function } OnLargestContentfulPaintCallback
+ * @param { LargestContentfulPaint } largestContentfulPaint - callback information of onLargestContentfulPaint.
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12
@@ -73,7 +78,8 @@ type OnLargestContentfulPaintCallback = (largestContentfulPaint: LargestContentf
 /**
  * The callback of firstMeaningfulPaint.
  *
- * @typedef OnFirstMeaningfulPaintCallback
+ * @typedef { function } OnFirstMeaningfulPaintCallback
+ * @param { FirstMeaningfulPaint } firstMeaningfulPaint - callback information of onFirstMeaningfulPaint.
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12
@@ -83,8 +89,11 @@ type OnFirstMeaningfulPaintCallback = (firstMeaningfulPaint: FirstMeaningfulPain
 /**
  * The callback of onOverrideUrlLoading.
  * Should not call WebviewController.loadUrl with the request's URL and then return true.
- * Returning true causes the current Web to abort loading the URL, false causes the Web to continue loading the url as usual.
  *
+ * @typedef { function } OnOverrideUrlLoadingCallback
+ * @param { WebResourceRequest } webResourceRequest - callback information of onOverrideUrlLoading.
+ * @returns { boolean } - Returning true causes the current Web to abort loading the URL, 
+ *                        false causes the Web to continue loading the url as usual.
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12
@@ -94,6 +103,8 @@ type OnOverrideUrlLoadingCallback = (webResourceRequest: WebResourceRequest) => 
 /**
  * The callback of Intelligent Tracking Prevention.
  *
+ * @typedef { function } OnIntelligentTrackingPreventionCallback
+ * @param { IntelligentTrackingPreventionDetails } details - callback information of onIntelligentTrackingPrevention.
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12
@@ -133,8 +144,8 @@ declare interface NativeMediaPlayerConfig {
 /**
  * The callback of render process not responding.
  *
- * @typedef {function} OnRenderProcessNotRespondingCallback
- * @param {RenderProcessNotRespondingData} data - details of onRenderProcessNotResponding.
+ * @typedef { function } OnRenderProcessNotRespondingCallback
+ * @param { RenderProcessNotRespondingData } data - details of onRenderProcessNotResponding.
  * @syscap SystemCapability.Web.Webview.Core
  * @since 12
  */
@@ -143,7 +154,7 @@ type OnRenderProcessNotRespondingCallback = (data : RenderProcessNotRespondingDa
 /**
  * The callback of render process responding.
  *
- * @typedef {function} OnRenderProcessRespondingCallback
+ * @typedef { function } OnRenderProcessRespondingCallback
  * @syscap SystemCapability.Web.Webview.Core
  * @since 12
  */
@@ -152,8 +163,8 @@ type OnRenderProcessRespondingCallback = () => void;
 /**
 * The callback of ViewportFit Changed.
  *
- * @typedef {function} OnViewportFitChangedCallback
- * @param {ViewportFit} viewportFit - details of OnViewportFitChangedCallback.
+ * @typedef { function } OnViewportFitChangedCallback
+ * @param { ViewportFit } viewportFit - details of OnViewportFitChangedCallback.
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12
@@ -161,13 +172,14 @@ type OnRenderProcessRespondingCallback = () => void;
 type OnViewportFitChangedCallback = (viewportFit: ViewportFit) => void;
 
 /**
-* The callback of ads block
-*
-* @typedef OnAdsBlockedCallback
-* @syscap SystemCapability.Web.Webview.Core
-* @atomicservice
-* @since 12
-*/
+ * The callback of ads block
+ *
+ * @typedef { function } OnAdsBlockedCallback
+ * @param { AdsBlockedDetails } details - details of OnAdsBlockedCallback.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
 type OnAdsBlockedCallback = (details: AdsBlockedDetails) => void;
 
 /**
@@ -328,9 +340,9 @@ declare interface WebKeyboardCallbackInfo {
 /**
  * The callback of onInterceptKeyboardAttach event.
  *
- * @typedef {function} WebKeyboardCallback
- * @param {WebKeyboardCallbackInfo} keyboardCallbackInfo - callback information of onInterceptKeyboardAttach.
- * @returns {WebKeyboardOptions} Return the web keyboard options of this web component.
+ * @typedef { function } WebKeyboardCallback
+ * @param { WebKeyboardCallbackInfo } keyboardCallbackInfo - callback information of onInterceptKeyboardAttach.
+ * @returns { WebKeyboardOptions } Return the web keyboard options of this web component.
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12
@@ -500,6 +512,8 @@ declare enum MixedMode {
 /**
  * The callback of safe browsing check.
  *
+ * @typedef { function } OnSafeBrowsingCheckResultCallback
+ * @param { ThreatType } threatType - callback information of onSafeBrowsingCheckResult.
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 11
@@ -1043,6 +1057,7 @@ declare interface FullScreenEnterEvent {
   /**
    * A function handle to exit full-screen mode.
    *
+   * @type { FullScreenExitHandler }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
@@ -1051,6 +1066,7 @@ declare interface FullScreenEnterEvent {
   /**
    * The intrinsic width of the video if the fullscreen element contains video element, expressed in CSS pixels.
    *
+   * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
@@ -1059,6 +1075,7 @@ declare interface FullScreenEnterEvent {
   /**
    * The intrinsic height of the video if the fullscreen element contains video element, expressed in CSS pixels.
    *
+   * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
@@ -1069,6 +1086,8 @@ declare interface FullScreenEnterEvent {
 /**
  * The callback when the web component enter full screen mode.
  *
+ * @typedef { function } OnFullScreenEnterCallback
+ * @param { FullScreenEnterEvent } event - callback information of onFullScreenEnter.
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12
@@ -1170,6 +1189,7 @@ declare enum RenderExitReason {
   /**
    * The callback of custom hide of the context menu.
    *
+   * @typedef { function } OnContextMenuHideCallback
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
@@ -1924,7 +1944,16 @@ declare enum ProtectedResourceType {
    * @atomicservice
    * @since 11
    */
-  AUDIO_CAPTURE = 'TYPE_AUDIO_CAPTURE'
+  AUDIO_CAPTURE = 'TYPE_AUDIO_CAPTURE',
+
+  /**
+   * The sensor resource, such as accelerometer.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  SENSOR = 'TYPE_SENSOR'
 }
 
 /**
@@ -2459,6 +2488,24 @@ declare enum NativeEmbedStatus {
    * @since 11
    */
   DESTROY = 2,
+
+  /**
+   * The embed tag enter backforward cache.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  ENTER_BFCACHE = 3,
+
+  /**
+   * The embed tag leave backforward cache.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  LEAVE_BFCACHE = 4,
 }
 
 /**
@@ -5966,12 +6013,59 @@ declare interface JavaScriptProxy {
   /**
    * The async method of the application side JavaScript object participating in the registration.
    *
-   * @type { Array<string> }
+   * @type { ?Array<string> }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
    */
   asyncMethodList?: Array<string>;
+  /**
+   * permission configuration defining web page URLs that can access JavaScriptProxy methods.
+   * The configuration can be defined at two levels, object level and method level.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  permission?: string;
+}
+
+/**
+ * Enum type supplied to {@link keyboardAvoidMode} for setting the web keyboard avoid mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+declare enum WebKeyboardAvoidMode {
+  /**
+   * Resize the visual viewport when keyboard avoidance occurs.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  RESIZE_VISUAL = 0,
+
+  /**
+   * Resize the visual and layout viewport when keyboard avoidance occurs.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  RESIZE_CONTENT = 1,
+
+  /**
+   * Do not resize any viewport when keyboard avoidance occurs.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  OVERLAYS_CONTENT = 2,
 }
 
 /**
@@ -7717,13 +7811,24 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Set the default text encodingFormat value of webview. The default value is UTF-8.
    *
-   * @param { string } default text encodingFormat.
+   * @param { string } textEncodingFormat text encodingFormat.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
    */
   defaultTextEncodingFormat(textEncodingFormat: string): WebAttribute;
+
+  /**
+   * Whether force display the scroll bar.
+   *
+   * @param { boolean } enabled {@code true} means show; {@code false} otherwise.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  forceDisplayScrollBar(enabled: boolean): WebAttribute;
 
   /**
    * Whether web component can load resource from network.
@@ -8333,17 +8438,28 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onInterceptKeyboardAttach(callback: WebKeyboardCallback): WebAttribute;
 
   /**
-  * Called when received Ads blocked results.
-  * If blocked results exist at end of page loading, the first call will be triggered.
-  * To avoid performance issues, subsequent results will be periodically reported through this api.
-  *
-  * @param { OnAdsBlockedCallback } callback - The callback for OnAdsBlockedCallback.
-  * @returns { WebAttribute }
-  * @syscap SystemCapability.Web.Webview.Core
-  * @atomicservice
-  * @since 12
-  */
+   * Called when received Ads blocked results.
+   * If blocked results exist at the end of page loading, the first call will be triggered.
+   * To avoid performance issues, subsequent results will be periodically reported through this api.
+   *
+   * @param { OnAdsBlockedCallback } callback - The callback for OnAdsBlockedCallback.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
   onAdsBlocked(callback: OnAdsBlockedCallback): WebAttribute;
+
+  /**
+   * Set web avoidance keyboard mode. The default value is WebKeyboardAvoidMode.RESIZE_CONTENT.
+   *
+   * @param { WebKeyboardAvoidMode } mode - The web keyboard avoid mode, which can be {@link WebKeyboardAvoidMode}.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  keyboardAvoidMode(mode: WebKeyboardAvoidMode): WebAttribute;
 }
 
 /**
@@ -8363,6 +8479,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 /**
  * Defines Web Component.
  *
+ * @constant
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
@@ -8379,6 +8496,7 @@ declare const Web: WebInterface;
 /**
  * Defines Web Component instance.
  *
+ * @constant
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 11
@@ -8397,6 +8515,7 @@ declare interface SslErrorEvent {
   /**
    * Notifies the user of the operation behavior of the web component.
    *
+   * @type { SslErrorHandler }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
@@ -8405,6 +8524,7 @@ declare interface SslErrorEvent {
   /**
    * Error codes.
    *
+   * @type { SslError }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
@@ -8413,6 +8533,7 @@ declare interface SslErrorEvent {
   /**
    * Request url.
    *
+   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
@@ -8421,6 +8542,7 @@ declare interface SslErrorEvent {
   /**
    * Original url.
    *
+   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
@@ -8429,6 +8551,7 @@ declare interface SslErrorEvent {
   /**
    * Referrer.
    *
+   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
@@ -8437,6 +8560,7 @@ declare interface SslErrorEvent {
   /**
    * Whether the error is fatal.
    *
+   * @type { boolean }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
@@ -8445,6 +8569,7 @@ declare interface SslErrorEvent {
   /**
    * Whether the request is main frame.
    *
+   * @type { boolean }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12

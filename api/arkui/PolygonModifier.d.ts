@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-/// <reference path="../../component/common.d.ts" />
-/// <reference path="../../component/polygon.d.ts" />
+
+
 
 /**
  * Defines Polygon Modifier
@@ -27,6 +27,7 @@
  * @extends PolygonAttribute
  * @implements AttributeModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class PolygonModifier extends PolygonAttribute implements AttributeModifier<PolygonAttribute> {
@@ -37,6 +38,7 @@ export declare class PolygonModifier extends PolygonAttribute implements Attribu
    * @param { PolygonAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: PolygonAttribute): void;

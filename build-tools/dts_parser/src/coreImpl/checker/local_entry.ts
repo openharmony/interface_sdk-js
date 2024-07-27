@@ -12,7 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { ApiResultSimpleInfo, ApiResultMessage } from '../../typedef/checker/result_type';
+import { ApiResultSimpleInfo, ApiResultMessage, ApiBaseInfo } from '../../typedef/checker/result_type';
 import { Check } from './src/api_check_plugin';
 import { LogUtil } from '../../utils/logUtil';
 import { GenerateFile } from '../../utils/checkUtils';
@@ -34,8 +34,9 @@ export class LocalEntry {
       LogUtil.e('API_CHECK_ERROR', error);
     } finally {
       GenerateFile.writeFile(apiCheckResult, output, {});
+      
       if (excel === 'true') {
-        GenerateFile.writeExcelFile(compositiveLocalResult);
+        GenerateFile.writeExcelFile(apiCheckResult);
       }
     }
     return allResult;
@@ -55,9 +56,17 @@ export class LocalEntry {
         }
       });
     }
+    let allResultInfoSet: Set<ApiResultSimpleInfo> = new Set(allResultInfo);
     const maskResult: ApiResultSimpleInfo[] = LocalEntry.filterAllResultInfo(allResultInfo,
       apiCheckInfos, apiCheckAdmissiveSet);
     maskResult.forEach(resultItem => {
+      const apiBaseInfos: ApiBaseInfo = new ApiBaseInfo();
+      apiBaseInfos
+        .setApiName(resultItem.apiName)
+        .setApiType(resultItem.apiType)
+        .setHierarchicalRelations(resultItem.hierarchicalRelations)
+        .setParentModuleName(resultItem.parentModuleName);
+
       const apiChecktErrorLog: ApiResultMessage = new ApiResultMessage();
       apiChecktErrorLog
         .setFilePath(resultItem.filePath)
@@ -66,7 +75,8 @@ export class LocalEntry {
         .setType(resultItem.type)
         .setMessage(resultItem.message)
         .setMainBuggyCode(resultItem.apiText)
-        .setMainBuggyLine(resultItem.location);
+        .setMainBuggyLine(resultItem.location)
+        .setExtendInfo(apiBaseInfos);
       apiCheckResult.push(apiChecktErrorLog);
     });
   }
@@ -77,6 +87,9 @@ export class LocalEntry {
       let resultItemInfo: string = resultItem.message.replace(/API check error of \[.*\]: /g, '');
       const regex1 = /Prohibited word in \[.*\]:{option}.The word allowed is \[.*\]\./g;
       const regex2 = /Prohibited word in \[.*\]:{ability} in the \[.*\] file\./g;
+      const regex3 = /please confirm whether it needs to be corrected to a common word./g;
+      const regex4 = /tag does not exist. Please use a valid JSDoc tag./g;
+      const regex5 = /The event name should be named by small hump./g;
       if (/\d/g.test(resultItemInfo)) {
         resultItemInfo = resultItemInfo.replace(/\d+/g, '1');
       }
@@ -85,6 +98,15 @@ export class LocalEntry {
       }
       if (regex2.test(resultItemInfo)) {
         resultItemInfo = JSON.stringify(apiCheckInfos.get('API_DEFINE_NAME_02')).replace(/\"/g, '');
+      }
+      if (regex3.test(resultItemInfo)) {
+        resultItemInfo = resultItemInfo.replace(/\{.*\}/g, '{XXXX}');
+      }
+      if (regex4.test(resultItemInfo)) {
+        resultItemInfo = resultItemInfo.replace(/\[.*\]/g, '[XXXX]');
+      }
+      if (regex5.test(resultItemInfo)) {
+        resultItemInfo = resultItemInfo.replace(/\[.*\]/g, '[XXXX]');
       }
       if (/This name \[.*\] should be named by/g.test(resultItemInfo)) {
         resultItemInfo = resultItemInfo.replace(/\[.*\]/g, '[XXXX]');
@@ -118,7 +140,7 @@ export class LocalEntry {
     } finally {
       GenerateFile.writeFile(apiCheckResult, output, {});
       if (excel === 'true') {
-        GenerateFile.writeExcelFile(compositiveLocalResult);
+        GenerateFile.writeExcelFile(apiCheckResult);
       }
     }
     return apiChangeCheckResult;

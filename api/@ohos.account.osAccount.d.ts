@@ -61,7 +61,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12300008 - Restricted Account.
@@ -85,7 +85,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12300008 - Restricted Account.
@@ -111,7 +111,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12300008 - Restricted Account.
@@ -135,7 +135,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12300008 - Restricted Account.
@@ -156,7 +156,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12300008 - Restricted Account.
      * @syscap SystemCapability.Account.OsAccount
@@ -193,7 +193,7 @@ declare namespace osAccount {
      * @param { AsyncCallback<boolean> } callback - Returns {@code true} if this function is enabled; returns {@code false} otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9
      */
@@ -203,9 +203,7 @@ declare namespace osAccount {
      * Checks whether the function of supporting multiple OS accounts is enabled.
      *
      * @returns { Promise<boolean> } Returns {@code true} if this function is enabled; returns {@code false} otherwise.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9
      */
@@ -246,7 +244,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
@@ -264,7 +262,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
@@ -283,7 +281,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -345,7 +343,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid localId or constraint.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
@@ -369,7 +367,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid localId or constraint.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
@@ -390,7 +388,7 @@ declare namespace osAccount {
      * @returns { Promise<boolean> } Returns whether the given constraint is enabled for the current OS account.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @since 11
      */
@@ -412,7 +410,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -448,7 +446,7 @@ declare namespace osAccount {
      * @param { AsyncCallback<boolean> } callback - Returns {@code true} if this account is testable; returns {@code false} otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9
      */
@@ -458,9 +456,7 @@ declare namespace osAccount {
      * Checks whether current OS account is testable.
      *
      * @returns { Promise<boolean> } Returns {@code true} if this account is testable; returns {@code false} otherwise.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9
      */
@@ -511,7 +507,7 @@ declare namespace osAccount {
      * Checks whether the current OS account is verified.
      *
      * @param { AsyncCallback<boolean> } callback - Indicates the callback for checking whether the current OS account is verified.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9
      * @deprecated since 11
@@ -523,7 +519,7 @@ declare namespace osAccount {
      * Checks whether the current OS account is verified.
      *
      * @returns { Promise<boolean> } Returns whether the current OS account is verified.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9
      * @deprecated since 11
@@ -540,7 +536,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
@@ -558,7 +554,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
@@ -571,7 +567,7 @@ declare namespace osAccount {
      * Checks whether the current OS account is unlocked.
      *
      * @returns { Promise<boolean> } Returns whether the current OS account is unlocked.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @since 11
      */
@@ -587,7 +583,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -605,7 +601,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12300008 - Restricted Account.
@@ -625,7 +621,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12300008 - Restricted Account.
@@ -652,7 +648,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid localId or constraints.
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12300008 - Restricted Account.
@@ -684,7 +680,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid localId or constraints.
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12300008 - Restricted Account.
@@ -705,7 +701,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid localId or localName.
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12300008 - Restricted Account.
@@ -726,7 +722,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid localId or localName.
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12300008 - Restricted Account.
@@ -740,7 +736,7 @@ declare namespace osAccount {
      * Gets the name of the OS account to which the caller belongs.
      *
      * @returns { Promise<string> } The promise returned by the function.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @since 12
      */
@@ -778,7 +774,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * This API can be called only by system applications.
      * @since 9
@@ -791,9 +787,7 @@ declare namespace osAccount {
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
      * @returns { Promise<number> } Returns the number of created OS accounts.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * This API can be called only by system applications.
      * @since 9
@@ -828,7 +822,7 @@ declare namespace osAccount {
      * @param { AsyncCallback<number> } callback - Indicates the callback for getting the local ID of the current OS account.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9
      */
@@ -838,9 +832,7 @@ declare namespace osAccount {
      * Get the local ID of the current OS account.
      *
      * @returns { Promise<number> } Returns the local ID of the current account.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9
      */
@@ -877,7 +869,7 @@ declare namespace osAccount {
      * @param { AsyncCallback<number> } callback - Indicates the callback for getting the local ID of the OS account associated with the specified UID.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid uid.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9
@@ -891,7 +883,7 @@ declare namespace osAccount {
      * @returns { Promise<number> } - Returns the local ID of the OS account associated with the specified UID.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid uid.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9
@@ -947,7 +939,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid domainInfo.
      * @syscap SystemCapability.Account.OsAccount
      * This API can be called only by system applications.
@@ -964,7 +956,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid domainInfo.
      * @syscap SystemCapability.Account.OsAccount
      * This API can be called only by system applications.
@@ -979,7 +971,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 7
@@ -991,9 +983,7 @@ declare namespace osAccount {
      *
      * @returns { Promise<number> } Returns the maximum number of OS accounts that can be created.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 7
@@ -1005,7 +995,7 @@ declare namespace osAccount {
      *
      * @returns { Promise<number> } Returns the maximum number of OS accounts that can be logged in.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12
@@ -1047,7 +1037,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
@@ -1065,7 +1055,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
@@ -1084,7 +1074,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -1101,7 +1091,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 7
@@ -1115,9 +1105,7 @@ declare namespace osAccount {
      * @returns { Promise<Array<OsAccountInfo>> } Returns a list of OS accounts.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 7
@@ -1152,7 +1140,7 @@ declare namespace osAccount {
      * @param { AsyncCallback<Array<number>> } callback - Indicates the callback for getting the local IDs of all activated OS accounts.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9
      */
@@ -1162,9 +1150,7 @@ declare namespace osAccount {
      * Gets the local IDs of all activated OS accounts.
      *
      * @returns { Promise<Array<number>> } Returns all activated accounts.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9
      */
@@ -1175,7 +1161,7 @@ declare namespace osAccount {
      *
      * @returns { Promise<number> } Returns local ID of the foreground OS account.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12
@@ -1194,11 +1180,11 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid localName or type.
      * @throws { BusinessError } 12300005 - Multi-user not supported.
      * @throws { BusinessError } 12300006 - Unsupported account type.
-     * @throws { BusinessError } 12300007 - The number of accounts reaches the upper limit.
+     * @throws { BusinessError } 12300007 - The number of accounts has reached the upper limit.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 7
@@ -1215,12 +1201,12 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid localName or type.
      * @throws { BusinessError } 12300004 - Local name already exists.
      * @throws { BusinessError } 12300005 - Multi-user not supported.
      * @throws { BusinessError } 12300006 - Unsupported account type.
-     * @throws { BusinessError } 12300007 - The number of accounts reaches the upper limit.
+     * @throws { BusinessError } 12300007 - The number of accounts has reached the upper limit.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12
@@ -1239,11 +1225,11 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid localName or type.
      * @throws { BusinessError } 12300005 - Multi-user not supported.
      * @throws { BusinessError } 12300006 - Unsupported account type.
-     * @throws { BusinessError } 12300007 - The number of accounts reaches the upper limit.
+     * @throws { BusinessError } 12300007 - The number of accounts has reached the upper limit.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 7
@@ -1261,13 +1247,13 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid localName, type or options.
      * @throws { BusinessError } 12300004 - Local name already exists.
      * @throws { BusinessError } 12300005 - Multi-user not supported.
      * @throws { BusinessError } 12300006 - Unsupported account type.
-     * @throws { BusinessError } 12300007 - The number of accounts reaches the upper limit.
-     * @throws { BusinessError } 12300015 - Short name already exists.
+     * @throws { BusinessError } 12300007 - The number of accounts has reached the upper limit.
+     * @throws { BusinessError } 12300015 - The short name already exists.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12
@@ -1286,12 +1272,12 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid type or domainInfo.
      * @throws { BusinessError } 12300004 - Account already exists.
      * @throws { BusinessError } 12300005 - Multi-user not supported.
      * @throws { BusinessError } 12300006 - Unsupported account type.
-     * @throws { BusinessError } 12300007 - The number of accounts reaches the upper limit.
+     * @throws { BusinessError } 12300007 - The number of accounts has reached the upper limit.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -1306,14 +1292,15 @@ declare namespace osAccount {
      * @param { AsyncCallback<OsAccountInfo> } callback - Returns information about the created OS account; returns {@code null} if the creation fails.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - Parameters error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid type or domainInfo.
      * @throws { BusinessError } 12300004 - Account already exists.
      * @throws { BusinessError } 12300005 - Multi-user not supported.
      * @throws { BusinessError } 12300006 - Unsupported account type.
-     * @throws { BusinessError } 12300007 - The number of accounts reaches the upper limit.
+     * @throws { BusinessError } 12300007 - The number of accounts has reached the upper limit.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12
@@ -1336,12 +1323,12 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid type or domainInfo.
      * @throws { BusinessError } 12300004 - Account already exists.
      * @throws { BusinessError } 12300005 - Multi-user not supported.
      * @throws { BusinessError } 12300006 - Unsupported account type.
-     * @throws { BusinessError } 12300007 - The number of accounts reaches the upper limit.
+     * @throws { BusinessError } 12300007 - The number of accounts has reached the upper limit.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -1357,15 +1344,16 @@ declare namespace osAccount {
      * @returns { Promise<OsAccountInfo> } Returns information about the created OS account; returns {@code null} if the creation fails.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - Parameters error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid type, domainInfo or options.
      * @throws { BusinessError } 12300004 - Account already exists.
      * @throws { BusinessError } 12300005 - Multi-user not supported.
      * @throws { BusinessError } 12300006 - Unsupported account type.
-     * @throws { BusinessError } 12300007 - The number of accounts reaches the upper limit.
-     * @throws { BusinessError } 12300015 - Short name already exists.
+     * @throws { BusinessError } 12300007 - The number of accounts has reached the upper limit.
+     * @throws { BusinessError } 12300015 - The short name already exists.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12
@@ -1404,7 +1392,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9
      * @deprecated since 11
@@ -1417,7 +1405,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @since 10
      * @deprecated since 11
@@ -1430,9 +1418,7 @@ declare namespace osAccount {
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
      * @returns { Promise<OsAccountInfo> } Returns information about the current OS account; returns {@code null} if the query fails.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9
      * @deprecated since 11
@@ -1443,9 +1429,7 @@ declare namespace osAccount {
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.GET_LOCAL_ACCOUNTS
      * @returns { Promise<OsAccountInfo> } Returns information about the current OS account; returns {@code null} if the query fails.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @since 10
      * @deprecated since 11
@@ -1459,7 +1443,7 @@ declare namespace osAccount {
      * @returns { Promise<OsAccountInfo> } Returns information about the current OS account
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 11
@@ -1476,7 +1460,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
@@ -1495,7 +1479,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
@@ -1535,7 +1519,7 @@ declare namespace osAccount {
      *         {@link OsAccountType#NORMAL}, and {@link OsAccountType#GUEST}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9
      */
@@ -1546,9 +1530,7 @@ declare namespace osAccount {
      *
      * @returns { Promise<OsAccountType> } Returns the OS account type. The value can be {@link OsAccountType#ADMIN},
      *         {@link OsAccountType#NORMAL}, and {@link OsAccountType#GUEST}.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9
      */
@@ -1564,7 +1546,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -1622,7 +1604,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9
      */
@@ -1640,9 +1622,7 @@ declare namespace osAccount {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC or ohos.permission.MANAGE_LOCAL_ACCOUNTS
      * @returns { Promise<string> } Returns the DVID if obtained; returns an empty string if no OHOS account has logged in.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9
      */
@@ -1659,7 +1639,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
@@ -1679,7 +1659,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
@@ -1699,7 +1679,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid localId or photo.
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12300008 - Restricted Account.
@@ -1720,7 +1700,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid localId or photo.
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12300008 - Restricted Account.
@@ -1761,7 +1741,7 @@ declare namespace osAccount {
      * @param { AsyncCallback<number> } callback - Indicates the callback for getting the local ID of the OS account associated with the serial number.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid serialNumber.
      * @throws { BusinessError } 12300003 - The account indicated by serialNumber dose not exist.
      * @syscap SystemCapability.Account.OsAccount
@@ -1776,7 +1756,7 @@ declare namespace osAccount {
      * @returns { Promise<number> } Returns the local ID of the OS account associated with the serial number.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid serialNumber.
      * @throws { BusinessError } 12300003 - The account indicated by serialNumber dose not exist.
      * @syscap SystemCapability.Account.OsAccount
@@ -1815,7 +1795,7 @@ declare namespace osAccount {
      * @param { AsyncCallback<number> } callback - Indicates the callback for getting the serial number for the specified os account local id.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
@@ -1830,7 +1810,7 @@ declare namespace osAccount {
      * @returns { Promise<number> } Returns the serial number according to local ID.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
@@ -1852,7 +1832,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid type or name.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -1871,7 +1851,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid type or name.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -1889,7 +1869,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid type.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -1907,7 +1887,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid type.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -1925,7 +1905,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid type.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -1943,7 +1923,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid type.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -1959,7 +1939,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid uid.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -1975,7 +1955,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid uid.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -2008,7 +1988,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -2023,9 +2003,7 @@ declare namespace osAccount {
      *         returns {@code false} otherwise.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -2044,7 +2022,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid name or constraint.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
@@ -2068,7 +2046,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid name or constraint.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
@@ -2300,6 +2278,7 @@ declare namespace osAccount {
    * Options to create an OS account for domain.
    *
    * @interface CreateOsAccountForDomainOptions
+   * @extends CreateOsAccountOptions
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
    * @since 12
@@ -2446,7 +2425,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid authType or authTrustLevel.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -2464,7 +2443,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid request.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -2480,7 +2459,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid request.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
@@ -2499,7 +2478,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid request.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -2515,7 +2494,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid request.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
@@ -2534,7 +2513,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid request.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -2552,13 +2531,30 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid request.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8
      */
     setProperty(request: SetPropertyRequest): Promise<void>;
+
+    /**
+     * Prepares remote authentication.
+     *
+     * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
+     * @param { string } remoteNetworkId - Indicates the remote network identifier.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid remoteNetworkId.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    prepareRemoteAuth(remoteNetworkId: string): Promise<void>;
 
     /**
      * Executes authentication.
@@ -2573,16 +2569,16 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid challenge, authType or authTrustLevel.
-     * @throws { BusinessError } 12300101 - Credential is incorrect.
-     * @throws { BusinessError } 12300102 - Credential not enrolled.
-     * @throws { BusinessError } 12300105 - Unsupported authTrustLevel.
-     * @throws { BusinessError } 12300106 - Unsupported authType.
-     * @throws { BusinessError } 12300109 - Authentication is canceled.
-     * @throws { BusinessError } 12300110 - Authentication is locked.
-     * @throws { BusinessError } 12300111 - Authentication timeout.
-     * @throws { BusinessError } 12300112 - Authentication service is busy.
+     * @throws { BusinessError } 12300101 - The credential is incorrect.
+     * @throws { BusinessError } 12300102 - The credential does not exist.
+     * @throws { BusinessError } 12300105 - The trust level is not supported.
+     * @throws { BusinessError } 12300106 - The authentication type is not supported.
+     * @throws { BusinessError } 12300109 - The authentication, enrollment, or update operation is canceled.
+     * @throws { BusinessError } 12300110 - The authentication is locked.
+     * @throws { BusinessError } 12300111 - The authentication time out.
+     * @throws { BusinessError } 12300112 - The authentication service is busy.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -2600,16 +2596,16 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid challenge, authType or authTrustLevel.
-     * @throws { BusinessError } 12300101 - Credential is incorrect.
-     * @throws { BusinessError } 12300102 - Credential not enrolled.
-     * @throws { BusinessError } 12300105 - Unsupported authTrustLevel.
-     * @throws { BusinessError } 12300106 - Unsupported authType.
-     * @throws { BusinessError } 12300109 - Authentication is canceled.
-     * @throws { BusinessError } 12300110 - Authentication is locked.
-     * @throws { BusinessError } 12300111 - Authentication timeout.
-     * @throws { BusinessError } 12300112 - Authentication service is busy.
+     * @throws { BusinessError } 12300101 - The credential is incorrect.
+     * @throws { BusinessError } 12300102 - The credential does not exist.
+     * @throws { BusinessError } 12300105 - The trust level is not supported.
+     * @throws { BusinessError } 12300106 - The authentication type is not supported.
+     * @throws { BusinessError } 12300109 - The authentication, enrollment, or update operation is canceled.
+     * @throws { BusinessError } 12300110 - The authentication is locked.
+     * @throws { BusinessError } 12300111 - The authentication time out.
+     * @throws { BusinessError } 12300112 - The authentication service is busy.
      * @throws { BusinessError } 12300117 - PIN is expired.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -2636,17 +2632,17 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid challenge, authType, authTrustLevel or options.
      * @throws { BusinessError } 12300003 - Account not found.
-     * @throws { BusinessError } 12300101 - Credential is incorrect.
-     * @throws { BusinessError } 12300102 - Credential not enrolled.
-     * @throws { BusinessError } 12300105 - Unsupported authTrustLevel.
-     * @throws { BusinessError } 12300106 - Unsupported authType.
-     * @throws { BusinessError } 12300109 - Authentication is canceled.
-     * @throws { BusinessError } 12300110 - Authentication is locked.
-     * @throws { BusinessError } 12300111 - Authentication timeout.
-     * @throws { BusinessError } 12300112 - Authentication service is busy.
+     * @throws { BusinessError } 12300101 - The credential is incorrect.
+     * @throws { BusinessError } 12300102 - The credential does not exist.
+     * @throws { BusinessError } 12300105 - The trust level is not supported.
+     * @throws { BusinessError } 12300106 - The authentication type is not supported.
+     * @throws { BusinessError } 12300109 - The authentication, enrollment, or update operation is canceled.
+     * @throws { BusinessError } 12300110 - The authentication is locked.
+     * @throws { BusinessError } 12300111 - The authentication time out.
+     * @throws { BusinessError } 12300112 - The authentication service is busy.
      * @throws { BusinessError } 12300117 - PIN is expired.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -2674,16 +2670,16 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid userId, challenge, authType or authTrustLevel.
-     * @throws { BusinessError } 12300101 - Credential is incorrect.
-     * @throws { BusinessError } 12300102 - Credential not enrolled.
-     * @throws { BusinessError } 12300105 - Unsupported authTrustLevel.
-     * @throws { BusinessError } 12300106 - Unsupported authType.
-     * @throws { BusinessError } 12300109 - Authentication is canceled.
-     * @throws { BusinessError } 12300110 - Authentication is locked.
-     * @throws { BusinessError } 12300111 - Authentication timeout.
-     * @throws { BusinessError } 12300112 - Authentication service is busy.
+     * @throws { BusinessError } 12300101 - The credential is incorrect.
+     * @throws { BusinessError } 12300102 - The credential does not exist.
+     * @throws { BusinessError } 12300105 - The trust level is not supported.
+     * @throws { BusinessError } 12300106 - The authentication type is not supported.
+     * @throws { BusinessError } 12300109 - The authentication, enrollment, or update operation is canceled.
+     * @throws { BusinessError } 12300110 - The authentication is locked.
+     * @throws { BusinessError } 12300111 - The authentication time out.
+     * @throws { BusinessError } 12300112 - The authentication service is busy.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -2702,17 +2698,17 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid challenge, authType or authTrustLevel.
      * @throws { BusinessError } 12300003 - Account not found.
-     * @throws { BusinessError } 12300101 - Credential is incorrect.
-     * @throws { BusinessError } 12300102 - Credential not enrolled.
-     * @throws { BusinessError } 12300105 - Unsupported authTrustLevel.
-     * @throws { BusinessError } 12300106 - Unsupported authType.
-     * @throws { BusinessError } 12300109 - Authentication is canceled.
-     * @throws { BusinessError } 12300110 - Authentication is locked.
-     * @throws { BusinessError } 12300111 - Authentication timeout.
-     * @throws { BusinessError } 12300112 - Authentication service is busy.
+     * @throws { BusinessError } 12300101 - The credential is incorrect.
+     * @throws { BusinessError } 12300102 - The credential does not exist.
+     * @throws { BusinessError } 12300105 - The trust level is not supported.
+     * @throws { BusinessError } 12300106 - The authentication type is not supported.
+     * @throws { BusinessError } 12300109 - The authentication, enrollment, or update operation is canceled.
+     * @throws { BusinessError } 12300110 - The authentication is locked.
+     * @throws { BusinessError } 12300111 - The authentication time out.
+     * @throws { BusinessError } 12300112 - The authentication service is busy.
      * @throws { BusinessError } 12300117 - PIN is expired.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -2735,7 +2731,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid contextId.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -2772,9 +2768,9 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid inputer.
-     * @throws { BusinessError } 12300103 - Inputer already registered.
+     * @throws { BusinessError } 12300103 - The credential inputer already exists.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -2813,10 +2809,10 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid authType or inputer.
-     * @throws { BusinessError } 12300103 - The credential inputer has been registered.
-     * @throws { BusinessError } 12300106 - Unsupported authType.
+     * @throws { BusinessError } 12300103 - The credential inputer already exists.
+     * @throws { BusinessError } 12300106 - The authentication type is not supported.
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -2966,6 +2962,7 @@ declare namespace osAccount {
    * Options for getting domain account information in the domain plugin.
    *
    * @typedef GetDomainAccountInfoPluginOptions
+   * @extends GetDomainAccountInfoOptions
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -3149,17 +3146,17 @@ declare namespace osAccount {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid domainAccountInfo or credential.
      * @throws { BusinessError } 12300003 - Domain account does not exist.
      * @throws { BusinessError } 12300013 - Network exception.
      * @throws { BusinessError } 12300101 - Authentication failed.
-     * @throws { BusinessError } 12300109 - Authentication is canceled.
-     * @throws { BusinessError } 12300110 - Authentication is locked.
-     * @throws { BusinessError } 12300111 - Authentication timeout.
-     * @throws { BusinessError } 12300112 - Authentication service is busy.
-     * @throws { BusinessError } 12300113 - Authentication service does not exist.
-     * @throws { BusinessError } 12300114 - Authentication service exception.
+     * @throws { BusinessError } 12300109 - The authentication, enrollment, or update operation is canceled.
+     * @throws { BusinessError } 12300110 - The authentication is locked.
+     * @throws { BusinessError } 12300111 - The authentication time out.
+     * @throws { BusinessError } 12300112 - The authentication service is busy.
+     * @throws { BusinessError } 12300113 - The account authentication service does not exist.
+     * @throws { BusinessError } 12300114 - The account authentication service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -3176,16 +3173,16 @@ declare namespace osAccount {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300003 - No domain account is bound.
      * @throws { BusinessError } 12300013 - Network exception.
      * @throws { BusinessError } 12300101 - Authentication failed.
-     * @throws { BusinessError } 12300109 - Authentication is canceled.
-     * @throws { BusinessError } 12300110 - Authentication is locked.
-     * @throws { BusinessError } 12300111 - Authentication timeout.
-     * @throws { BusinessError } 12300112 - Authentication service is busy.
-     * @throws { BusinessError } 12300113 - Authentication service does not exist.
-     * @throws { BusinessError } 12300114 - Authentication service exception.
+     * @throws { BusinessError } 12300109 - The authentication, enrollment, or update operation is canceled.
+     * @throws { BusinessError } 12300110 - The authentication is locked.
+     * @throws { BusinessError } 12300111 - The authentication time out.
+     * @throws { BusinessError } 12300112 - The authentication service is busy.
+     * @throws { BusinessError } 12300113 - The account authentication service does not exist.
+     * @throws { BusinessError } 12300114 - The account authentication service works abnormally.
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -3199,16 +3196,16 @@ declare namespace osAccount {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300003 - No domain account is bound.
      * @throws { BusinessError } 12300013 - Network exception.
      * @throws { BusinessError } 12300101 - Authentication failed.
-     * @throws { BusinessError } 12300109 - Authentication is canceled.
-     * @throws { BusinessError } 12300110 - Authentication is locked.
-     * @throws { BusinessError } 12300111 - Authentication timeout.
-     * @throws { BusinessError } 12300112 - Authentication service is busy.
-     * @throws { BusinessError } 12300113 - Authentication service does not exist.
-     * @throws { BusinessError } 12300114 - Authentication service exception.
+     * @throws { BusinessError } 12300109 - The authentication, enrollment, or update operation is canceled.
+     * @throws { BusinessError } 12300110 - The authentication is locked.
+     * @throws { BusinessError } 12300111 - The authentication time out.
+     * @throws { BusinessError } 12300112 - The authentication service is busy.
+     * @throws { BusinessError } 12300113 - The account authentication service does not exist.
+     * @throws { BusinessError } 12300114 - The account authentication service works abnormally.
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -3227,17 +3224,17 @@ declare namespace osAccount {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - No domain account is bound.
      * @throws { BusinessError } 12300013 - Network exception.
      * @throws { BusinessError } 12300101 - Authentication failed.
-     * @throws { BusinessError } 12300109 - Authentication is canceled.
-     * @throws { BusinessError } 12300110 - Authentication is locked.
-     * @throws { BusinessError } 12300111 - Authentication timeout.
-     * @throws { BusinessError } 12300112 - Authentication service is busy.
-     * @throws { BusinessError } 12300113 - Authentication service does not exist.
-     * @throws { BusinessError } 12300114 - Authentication service exception.
+     * @throws { BusinessError } 12300109 - The authentication, enrollment, or update operation is canceled.
+     * @throws { BusinessError } 12300110 - The authentication is locked.
+     * @throws { BusinessError } 12300111 - The authentication time out.
+     * @throws { BusinessError } 12300112 - The authentication service is busy.
+     * @throws { BusinessError } 12300113 - The account authentication service does not exist.
+     * @throws { BusinessError } 12300114 - The account authentication service works abnormally.
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -3252,17 +3249,17 @@ declare namespace osAccount {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - No domain account is bound.
      * @throws { BusinessError } 12300013 - Network exception.
      * @throws { BusinessError } 12300101 - Authentication failed.
-     * @throws { BusinessError } 12300109 - Authentication is canceled.
-     * @throws { BusinessError } 12300110 - Authentication is locked.
-     * @throws { BusinessError } 12300111 - Authentication timeout.
-     * @throws { BusinessError } 12300112 - Authentication service is busy.
-     * @throws { BusinessError } 12300113 - Authentication service does not exist.
-     * @throws { BusinessError } 12300114 - Authentication service exception.
+     * @throws { BusinessError } 12300109 - The authentication, enrollment, or update operation is canceled.
+     * @throws { BusinessError } 12300110 - The authentication is locked.
+     * @throws { BusinessError } 12300111 - The authentication time out.
+     * @throws { BusinessError } 12300112 - The authentication service is busy.
+     * @throws { BusinessError } 12300113 - The account authentication service does not exist.
+     * @throws { BusinessError } 12300114 - The account authentication service works abnormally.
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -3281,10 +3278,10 @@ declare namespace osAccount {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid domainAccountInfo.
      * @throws { BusinessError } 12300013 - Network exception.
-     * @throws { BusinessError } 12300111 - Operation timeout.
+     * @throws { BusinessError } 12300111 - The operation time out.
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -3303,10 +3300,10 @@ declare namespace osAccount {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid domainAccountInfo.
      * @throws { BusinessError } 12300013 - Network exception.
-     * @throws { BusinessError } 12300111 - Operation timeout.
+     * @throws { BusinessError } 12300111 - The operation time out.
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -3327,7 +3324,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid token.
      * @throws { BusinessError } 12300003 - Account not found.
      * @static
@@ -3354,7 +3351,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid token.
      * @throws { BusinessError } 12300003 - Account not found.
      * @static
@@ -3376,7 +3373,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - The new account info is invalid.
      * @throws { BusinessError } 12300003 - The old account not found.
      * @throws { BusinessError } 12300004 - The new account already exists.
@@ -3398,10 +3395,10 @@ declare namespace osAccount {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12300013 - Network exception.
-     * @throws { BusinessError } 12300111 - Operation timeout.
+     * @throws { BusinessError } 12300111 - The operation time out.
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -3420,10 +3417,10 @@ declare namespace osAccount {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12300013 - Network exception.
-     * @throws { BusinessError } 12300111 - Operation timeout.
+     * @throws { BusinessError } 12300111 - The operation time out.
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -3440,12 +3437,12 @@ declare namespace osAccount {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid business parameters.
      * @throws { BusinessError } 12300003 - Domain account not found.
      * @throws { BusinessError } 12300013 - Network exception.
-     * @throws { BusinessError } 12300014 - Domain account not authenticated.
-     * @throws { BusinessError } 12300111 - Operation timeout.
+     * @throws { BusinessError } 12300014 - The domain account is not authenticated.
+     * @throws { BusinessError } 12300111 - The operation time out.
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -3462,12 +3459,12 @@ declare namespace osAccount {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid business parameters.
      * @throws { BusinessError } 12300003 - Domain account not found.
      * @throws { BusinessError } 12300013 - Network exception.
-     * @throws { BusinessError } 12300014 - Domain account not authenticated.
-     * @throws { BusinessError } 12300111 - Operation timeout.
+     * @throws { BusinessError } 12300014 - The domain account is not authenticated.
+     * @throws { BusinessError } 12300111 - The operation time out.
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -3486,7 +3483,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300003 - Domain account not found.
      * @static
      * @syscap SystemCapability.Account.OsAccount
@@ -3555,7 +3552,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid server config parameters.
      * @throws { BusinessError } 12300211 - Server unreachable.
      * @static
@@ -3576,7 +3573,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300212 - Server config not found.
      * @static
      * @syscap SystemCapability.Account.OsAccount
@@ -3596,7 +3593,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300003 - Domain account not found.
      * @static
      * @syscap SystemCapability.Account.OsAccount
@@ -3637,7 +3634,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -3654,9 +3651,8 @@ declare namespace osAccount {
      * @returns { Promise<Uint8Array> } Returns a challenge value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -3672,7 +3668,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12300008 - Restricted account.
      * @syscap SystemCapability.Account.OsAccount
@@ -3695,12 +3691,12 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid credentialInfo, i.e. authType or authSubType.
-     * @throws { BusinessError } 12300101 - Token is invalid.
-     * @throws { BusinessError } 12300106 - Unsupported authType.
-     * @throws { BusinessError } 12300109 - Operation is canceled.
-     * @throws { BusinessError } 12300111 - Operation timeout.
+     * @throws { BusinessError } 12300101 - The token is invalid.
+     * @throws { BusinessError } 12300106 - The authentication type is not supported.
+     * @throws { BusinessError } 12300109 - The authentication, enrollment, or update operation is canceled.
+     * @throws { BusinessError } 12300111 - The operation time out.
      * @throws { BusinessError } 12300115 - The number of credentials reaches the upper limit.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -3720,14 +3716,14 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid credentialInfo, i.e. authType or authSubType.
-     * @throws { BusinessError } 12300101 - Token is invalid.
+     * @throws { BusinessError } 12300101 - The token is invalid.
      * @throws { BusinessError } 12300003 - Account not found.
-     * @throws { BusinessError } 12300106 - Unsupported authType.
+     * @throws { BusinessError } 12300106 - The authentication type is not supported.
      * @throws { BusinessError } 12300008 - Restricted account.
-     * @throws { BusinessError } 12300109 - Operation is canceled.
-     * @throws { BusinessError } 12300111 - Operation timeout.
+     * @throws { BusinessError } 12300109 - The authentication, enrollment, or update operation is canceled.
+     * @throws { BusinessError } 12300111 - The operation time out.
      * @throws { BusinessError } 12300115 - The number of credentials reaches the upper limit.
      * @throws { BusinessError } 12300116 - Credential complexity verification failed.
      * @syscap SystemCapability.Account.OsAccount
@@ -3746,13 +3742,13 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid credentialInfo, i.e. authType or authSubType.
-     * @throws { BusinessError } 12300101 - Token is invalid.
-     * @throws { BusinessError } 12300102 - Credential not enrolled.
-     * @throws { BusinessError } 12300106 - Unsupported authType.
-     * @throws { BusinessError } 12300109 - Operation is canceled.
-     * @throws { BusinessError } 12300111 - Operation timeout.
+     * @throws { BusinessError } 12300101 - The token is invalid.
+     * @throws { BusinessError } 12300102 - The credential does not exist.
+     * @throws { BusinessError } 12300106 - The authentication type is not supported.
+     * @throws { BusinessError } 12300109 - The authentication, enrollment, or update operation is canceled.
+     * @throws { BusinessError } 12300111 - The operation time out.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -3765,15 +3761,16 @@ declare namespace osAccount {
      * @param { IIdmCallback } callback - Indicates the callback to get results and acquireInfo.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - Parameters error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameter types.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid credentialInfo, i.e. authType or authSubType.
      * @throws { BusinessError } 12300003 - Account not found.
-     * @throws { BusinessError } 12300101 - Token is invalid.
-     * @throws { BusinessError } 12300102 - Credential not enrolled.
-     * @throws { BusinessError } 12300106 - Unsupported authType.
-     * @throws { BusinessError } 12300109 - Operation is canceled.
-     * @throws { BusinessError } 12300111 - Operation timeout.
+     * @throws { BusinessError } 12300101 - The token is invalid.
+     * @throws { BusinessError } 12300102 - The credential does not exist.
+     * @throws { BusinessError } 12300106 - The authentication type is not supported.
+     * @throws { BusinessError } 12300109 - The authentication, enrollment, or update operation is canceled.
+     * @throws { BusinessError } 12300111 - The operation time out.
      * @throws { BusinessError } 12300116 - Credential complexity verification failed.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -3802,8 +3799,8 @@ declare namespace osAccount {
      * @param { number } [accountId] - Indicates the local ID of the OS account.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - Parameters error. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12300008 - Restricted account.
      * @syscap SystemCapability.Account.OsAccount
@@ -3821,7 +3818,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid challenge.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -3839,8 +3836,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
-     * @throws { BusinessError } 12300101 - Token is invalid.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300101 - The token is invalid.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -3858,10 +3855,10 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid credentialId.
-     * @throws { BusinessError } 12300101 - Token is invalid.
-     * @throws { BusinessError } 12300102 - Credential not enrolled.
+     * @throws { BusinessError } 12300101 - The token is invalid.
+     * @throws { BusinessError } 12300102 - The credential does not exist.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -3878,8 +3875,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
-     * @throws { BusinessError } 12300102 - Credential not enrolled.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300102 - The credential does not exist.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -3897,9 +3894,9 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid authType.
-     * @throws { BusinessError } 12300102 - Credential not enrolled.
+     * @throws { BusinessError } 12300102 - The credential does not exist.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -3915,11 +3912,10 @@ declare namespace osAccount {
      * the specified type for the current user.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid authType.
-     * @throws { BusinessError } 12300102 - Credential not enrolled.
+     * @throws { BusinessError } 12300102 - The credential does not exist.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -3935,8 +3931,8 @@ declare namespace osAccount {
      * according to the options.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - Parameters error. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid options.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
@@ -3954,12 +3950,13 @@ declare namespace osAccount {
      * @returns { Promise<Uint8Array> } Returns the enrolled identifier.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - Parameters error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameter types.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid authType.
      * @throws { BusinessError } 12300003 - Account not found.
-     * @throws { BusinessError } 12300102 - Credential not enrolled.
-     * @throws { BusinessError } 12300106 - Unsupported authType.
+     * @throws { BusinessError } 12300102 - The credential does not exist.
+     * @throws { BusinessError } 12300106 - The authentication type is not supported.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12
@@ -4108,6 +4105,7 @@ declare namespace osAccount {
     /**
      * Notifies to set data.
      *
+     * @type { function }
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
@@ -4174,6 +4172,7 @@ declare namespace osAccount {
      * If the authentication fails, the remaining authentication times are returned in extraInfo,
      * If the authentication executor is locked, the freezing time is returned in extraInfo.
      *
+     * @type { function }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -4183,6 +4182,7 @@ declare namespace osAccount {
     /**
      * During an authentication, the TipsCode is returned through the callback.
      *
+     * @type { ?function }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -4202,6 +4202,7 @@ declare namespace osAccount {
     /**
      * The authentication result code is returned through the callback.
      *
+     * @type { function }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -4211,6 +4212,7 @@ declare namespace osAccount {
     /**
      * During an authentication, the TipsCode is returned through the callback.
      *
+     * @type { ?function }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -4751,6 +4753,24 @@ declare namespace osAccount {
      * @since 8
      */
     PIN_MIXED = 10002,
+
+    /**
+     * Indicates the 4-digit credential.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    PIN_FOUR = 10003,
+
+    /**
+     * Indicates the pattern credential.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    PIN_PATTERN = 10004,
 
     /**
      * Indicates the 2D face credential.

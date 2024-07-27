@@ -248,6 +248,7 @@ declare interface OffsetResult {
  * @interface ScrollEdgeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface ScrollEdgeOptions {
@@ -257,9 +258,32 @@ declare interface ScrollEdgeOptions {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   velocity?: number;
+}
+
+/**
+ * Define scrollToIndex options
+ *
+ * @interface ScrollToIndexOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare interface ScrollToIndexOptions {
+  /**
+   * The extra offset of scrolling to the index, unit is vp.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  extraOffset?: LengthMetrics;
 }
 
 /**
@@ -313,6 +337,7 @@ declare interface ScrollAnimationOptions {
  * @interface OffsetOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface OffsetOptions {
@@ -322,6 +347,7 @@ declare interface OffsetOptions {
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   xOffset?: Dimension;
@@ -332,6 +358,7 @@ declare interface OffsetOptions {
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   yOffset?: Dimension;
@@ -628,7 +655,19 @@ declare class Scroller {
    * @atomicservice
    * @since 11
    */
-  scrollToIndex(value: number, smooth?: boolean, align?: ScrollAlign);
+  /**
+   * Scroll to the specified index.
+   *
+   * @param { number } value - Index to jump to.
+   * @param { boolean } [smooth] - If true, scroll to index item with animation. If false, scroll to index item without animation.
+   * @param { ScrollAlign } [align] - Sets the alignment mode of a specified index.
+   * @param { options } [ScrollToIndexOptions] - Sets the options of a specified index, such as extra offset.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  scrollToIndex(value: number, smooth?: boolean, align?: ScrollAlign, options?: ScrollToIndexOptions);
 
   /**
    * Called when the setting slides by offset.
@@ -710,10 +749,11 @@ declare class Scroller {
   getItemRect(index: number): RectResult;
 }
 
-/*
+/**
  * Define scroll page options
  * @interface ScrollPageOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
  */
 declare interface ScrollPageOptions {
@@ -723,6 +763,7 @@ declare interface ScrollPageOptions {
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   next: boolean;
@@ -734,6 +775,7 @@ declare interface ScrollPageOptions {
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   animation?: boolean;
@@ -982,6 +1024,7 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @returns { ScrollAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onWillScroll(handler: ScrollOnWillScrollCallback): ScrollAttribute;
@@ -994,6 +1037,7 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @returns { ScrollAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onDidScroll(handler: ScrollOnScrollCallback): ScrollAttribute;
@@ -1352,6 +1396,7 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @returns { ScrollAttribute } the attribute of the scroll.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   initialOffset(value: OffsetOptions): ScrollAttribute;
@@ -1366,6 +1411,7 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
  * @param { ScrollState } scrollState - current scroll state.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare type ScrollOnScrollCallback = (xOffset: number, yOffset: number, scrollState: ScrollState) => void;
@@ -1382,6 +1428,7 @@ declare type ScrollOnScrollCallback = (xOffset: number, yOffset: number, scrollS
   *     same as (xOffset, yOffset) when no OffsetResult is returned.
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
+  * @atomicservice
   * @since 12
   */
 declare type ScrollOnWillScrollCallback =

@@ -32,6 +32,9 @@
     "oldDescription": "NA",
     "newDescription": "systemapi",
     "oldSyscapField": "",
-    "newSyscapField": ""
+    "newSyscapField": "",
+    "oldKitInfo": "",
+    "newKitInfo": "",
+    "isSystemapi": true
   }
 ]

@@ -256,6 +256,15 @@ declare namespace bundleManager {
      * @since 12
      */
     GET_BUNDLE_INFO_WITH_SKILL = 0x00000800,
+    /**
+     * Used to return only the applications that have an icon displayed on the homescreen.
+     * Only effective on {@link getAllBundleInfo}
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    GET_BUNDLE_INFO_ONLY_WITH_LAUNCHER_ABILITY = 0x00001000,
   }
 
   /**
@@ -3227,12 +3236,12 @@ declare namespace bundleManager {
    * @since 12
    */
   function switchUninstallState(bundleName: string, state: boolean): void;
-  
+
   /**
    * Get the BundleInfo of the specified MultiIsolation App.
-   * 
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } bundleName - Indicates the application bundle name to be queried. 
+   * @param { string } bundleName - Indicates the application bundle name to be queried.
    * @param { number } appIndex - Indicates the index of clone app.
    * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
    * @param { number } [userId] - Indicates the user ID, If the user id is not specified, the current user id is used by default.
@@ -3242,6 +3251,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @throws { BusinessError } 17700061 - AppIndex not in valid range.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
@@ -3251,7 +3261,7 @@ declare namespace bundleManager {
 
   /**
    * Get all BundleInfo of clone app.
-   * 
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Indicates the application bundle name to be queried.
    * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
@@ -3262,6 +3272,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700026 - The specified bundle and clone apps are all disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12
@@ -3475,6 +3486,16 @@ declare namespace bundleManager {
   export type RouterItem = _HapModuleInfo.RouterItem;
 
   /**
+   * Obtains the data item within router item.
+   *
+   * @typedef { _HapModuleInfo.DataItem }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  export type DataItem = _HapModuleInfo.DataItem;
+
+  /**
    * Obtains configuration information about an ability.
    *
    * @typedef { _AbilityInfo.AbilityInfo }
@@ -3593,16 +3614,6 @@ declare namespace bundleManager {
   export type RecoverableApplicationInfo = _RecoverableApplicationInfo;
 
   /**
-   * Indicates the information of preinstalled application.
-   *
-   * @typedef { _PreinstalledApplicationInfo  }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
-   * @since 12
-   */
-  export type PreinstalledApplicationInfo = _PreinstalledApplicationInfo;
-
-  /**
    * Obtains configuration information about an skill
    *
    * @typedef { _Skill.Skill }
@@ -3621,6 +3632,16 @@ declare namespace bundleManager {
    * @since 12
    */
   export type SkillUrl = _Skill.SkillUri;
+
+  /**
+   * Indicates the information of preinstalled application.
+   *
+   * @typedef { _PreinstalledApplicationInfo  }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  export type PreinstalledApplicationInfo = _PreinstalledApplicationInfo;
 }
 
 export default bundleManager;

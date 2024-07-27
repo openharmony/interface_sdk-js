@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-/// <reference path="../../component/common.d.ts" />
-/// <reference path="../../component/rect.d.ts" />
+
+
 
 /**
  * Defines Rect Modifier
@@ -27,6 +27,7 @@
  * @extends RectAttribute
  * @implements AttributeModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class RectModifier extends RectAttribute implements AttributeModifier<RectAttribute> {
@@ -37,6 +38,7 @@ export declare class RectModifier extends RectAttribute implements AttributeModi
    * @param { RectAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: RectAttribute): void;

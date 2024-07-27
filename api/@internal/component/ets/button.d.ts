@@ -30,8 +30,8 @@
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Provides a button component.
@@ -39,8 +39,8 @@
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Provides a button component.
@@ -48,9 +48,9 @@
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare enum ButtonType {
   /**
@@ -63,25 +63,25 @@ declare enum ButtonType {
    * Capsule button (rounded corners default to half the height).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Capsule button (rounded corners default to half the height).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Capsule button (rounded corners default to half the height).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   Capsule,
 
@@ -95,25 +95,25 @@ declare enum ButtonType {
    * Round buttons.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Round buttons.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Round buttons.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   Circle,
 
@@ -127,25 +127,25 @@ declare enum ButtonType {
    * Common button (no rounded corners by default).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Common button (no rounded corners by default).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Common button (no rounded corners by default).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   Normal,
 }
@@ -156,8 +156,8 @@ declare enum ButtonType {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 11
  * @form
+ * @since 11
  */
 /**
  * Enum for button style type.
@@ -165,9 +165,9 @@ declare enum ButtonType {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 12
- * @form
  */
 declare enum ButtonStyleMode {
   /**
@@ -175,17 +175,17 @@ declare enum ButtonStyleMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * Normal button (with normal background color).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   NORMAL = 0,
 
@@ -194,17 +194,17 @@ declare enum ButtonStyleMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * Emphasized button (with emphasized background color).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   EMPHASIZED = 1,
 
@@ -213,17 +213,17 @@ declare enum ButtonStyleMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * Textual button (with none background color).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   TEXTUAL = 2,
 }
@@ -235,6 +235,7 @@ declare enum ButtonStyleMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
+ * @atomicservice
  * @since 12
  */
 declare enum ButtonRole {
@@ -244,6 +245,7 @@ declare enum ButtonRole {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   NORMAL = 0,
@@ -254,6 +256,7 @@ declare enum ButtonRole {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   ERROR = 1,
@@ -267,6 +270,7 @@ declare enum ButtonRole {
  * @param { number } yPos - The value of yPos is y coordinate.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare type ButtonTriggerClickCallback = (xPos: number, yPos: number) => void;
@@ -277,6 +281,7 @@ declare type ButtonTriggerClickCallback = (xPos: number, yPos: number) => void;
  * @interface ButtonConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 
@@ -287,6 +292,7 @@ declare interface ButtonConfiguration extends CommonConfiguration<ButtonConfigur
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   label: string;
@@ -297,6 +303,7 @@ declare interface ButtonConfiguration extends CommonConfiguration<ButtonConfigur
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   pressed: boolean;
@@ -307,6 +314,7 @@ declare interface ButtonConfiguration extends CommonConfiguration<ButtonConfigur
    * @type { ButtonTriggerClickCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   triggerClick: ButtonTriggerClickCallback;
@@ -318,8 +326,8 @@ declare interface ButtonConfiguration extends CommonConfiguration<ButtonConfigur
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 11
  * @form
+ * @since 11
  */
 /**
  * Enum for Control Size.
@@ -327,9 +335,9 @@ declare interface ButtonConfiguration extends CommonConfiguration<ButtonConfigur
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 12
- * @form
  */
 declare enum ControlSize {
   /**
@@ -337,17 +345,17 @@ declare enum ControlSize {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * The component size is small.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   SMALL = 'small',
 
@@ -356,17 +364,17 @@ declare enum ControlSize {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * The component size is normal.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   NORMAL = 'normal',
 }
@@ -383,8 +391,8 @@ declare enum ControlSize {
  *
  * @interface ButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines the button options.
@@ -392,8 +400,8 @@ declare enum ControlSize {
  * @interface ButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines the button options.
@@ -401,9 +409,9 @@ declare enum ControlSize {
  * @interface ButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare interface ButtonOptions {
   /**
@@ -418,8 +426,8 @@ declare interface ButtonOptions {
    *
    * @type { ?ButtonType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Describes the button style.
@@ -427,8 +435,8 @@ declare interface ButtonOptions {
    * @type { ?ButtonType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Describes the button style.
@@ -436,9 +444,9 @@ declare interface ButtonOptions {
    * @type { ?ButtonType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   type?: ButtonType;
 
@@ -454,8 +462,8 @@ declare interface ButtonOptions {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Indicates whether to enable the switchover effect when the button is pressed. When the status is set to false, the switchover effect is disabled.
@@ -463,8 +471,8 @@ declare interface ButtonOptions {
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Indicates whether to enable the switchover effect when the button is pressed. When the status is set to false, the switchover effect is disabled.
@@ -472,9 +480,9 @@ declare interface ButtonOptions {
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   stateEffect?: boolean;
 
@@ -485,8 +493,8 @@ declare interface ButtonOptions {
    * @default ButtonStyleMode.EMPHASIZED
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * Describes the button style.
@@ -495,9 +503,9 @@ declare interface ButtonOptions {
    * @default ButtonStyleMode.EMPHASIZED
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   buttonStyle?: ButtonStyleMode;
 
@@ -508,8 +516,8 @@ declare interface ButtonOptions {
    * @default ControlSize.NORMAL
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * Describes the button size.
@@ -518,9 +526,9 @@ declare interface ButtonOptions {
    * @default ControlSize.NORMAL
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   controlSize?: ControlSize;
 
@@ -532,6 +540,7 @@ declare interface ButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
     role?: ButtonRole;
@@ -549,8 +558,8 @@ declare interface ButtonOptions {
  *
  * @interface ButtonInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines the Button Component.
@@ -558,8 +567,8 @@ declare interface ButtonOptions {
  * @interface ButtonInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines the Button Component.
@@ -567,9 +576,9 @@ declare interface ButtonOptions {
  * @interface ButtonInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 interface ButtonInterface {
   /**
@@ -584,8 +593,8 @@ interface ButtonInterface {
    *
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Button object
@@ -593,8 +602,8 @@ interface ButtonInterface {
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Button object
@@ -602,9 +611,9 @@ interface ButtonInterface {
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   (): ButtonAttribute;
 
@@ -622,8 +631,8 @@ interface ButtonInterface {
    * @param { ButtonOptions } options
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Create Button with Text child.
@@ -632,8 +641,8 @@ interface ButtonInterface {
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Create Button with Text child.
@@ -642,9 +651,9 @@ interface ButtonInterface {
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   (options: ButtonOptions): ButtonAttribute;
 
@@ -664,8 +673,8 @@ interface ButtonInterface {
    * @param { ButtonOptions } options
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Create Button with inner text label.
@@ -675,8 +684,8 @@ interface ButtonInterface {
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Create Button with inner text label.
@@ -686,9 +695,9 @@ interface ButtonInterface {
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   (label: ResourceStr, options?: ButtonOptions): ButtonAttribute;
 }
@@ -838,8 +847,8 @@ declare interface LabelStyle {
  *
  * @extends CommonMethod<ButtonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines the button attribute functions.
@@ -847,8 +856,8 @@ declare interface LabelStyle {
  * @extends CommonMethod<ButtonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines the button attribute functions.
@@ -856,9 +865,9 @@ declare interface LabelStyle {
  * @extends CommonMethod<ButtonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
   /**
@@ -875,8 +884,8 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @param { ButtonType } value
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Describes the button style.
@@ -885,8 +894,8 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Describes the button style.
@@ -895,9 +904,9 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   type(value: ButtonType): ButtonAttribute;
 
@@ -915,8 +924,8 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @param { boolean } value
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Indicates whether to enable the switchover effect when the button is pressed. When the status is set to false, the switchover effect is disabled.
@@ -925,8 +934,8 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Indicates whether to enable the switchover effect when the button is pressed. When the status is set to false, the switchover effect is disabled.
@@ -935,9 +944,9 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   stateEffect(value: boolean): ButtonAttribute;
 
@@ -948,8 +957,8 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * Describes the button style.
@@ -958,9 +967,9 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   buttonStyle(value: ButtonStyleMode): ButtonAttribute;
   
@@ -971,8 +980,8 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /** 
    * Set the Button size.
@@ -981,9 +990,9 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   controlSize(value: ControlSize): ButtonAttribute;
 
@@ -995,6 +1004,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice 
    * @since 12 
    */
   role(value: ButtonRole): ButtonAttribute;
@@ -1013,8 +1023,8 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @param { ResourceColor } value
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Text color.
@@ -1023,8 +1033,8 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Text color.
@@ -1033,9 +1043,9 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   fontColor(value: ResourceColor): ButtonAttribute;
 
@@ -1053,8 +1063,8 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @param { Length } value
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Text size.
@@ -1063,8 +1073,8 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Text size.
@@ -1073,9 +1083,9 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   fontSize(value: Length): ButtonAttribute;
 
@@ -1093,8 +1103,8 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @param { number | FontWeight | string } value
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Font weight.
@@ -1103,8 +1113,8 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Font weight.
@@ -1113,9 +1123,9 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   fontWeight(value: number | FontWeight | string): ButtonAttribute;
 
@@ -1133,8 +1143,8 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @param { FontStyle } value
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Font style.
@@ -1143,8 +1153,8 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Font style.
@@ -1153,9 +1163,9 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   fontStyle(value: FontStyle): ButtonAttribute;
 
@@ -1173,8 +1183,8 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @param { string | Resource } value
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Font family.
@@ -1183,8 +1193,8 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Font family.
@@ -1193,9 +1203,9 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   fontFamily(value: string | Resource): ButtonAttribute;
 
@@ -1206,6 +1216,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   contentModifier(modifier: ContentModifier<ButtonConfiguration>): ButtonAttribute;
@@ -1242,25 +1253,25 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
  * Defines Button Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines Button Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines Button Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const Button: ButtonInterface;
 
@@ -1274,24 +1285,24 @@ declare const Button: ButtonInterface;
  * Defines Button Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines Button Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines Button Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const ButtonInstance: ButtonAttribute;
