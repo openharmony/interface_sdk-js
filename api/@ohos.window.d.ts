@@ -7121,7 +7121,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12
-     * @deprecated since 12
      */
     minimize(callback: AsyncCallback<void>): void;
 
