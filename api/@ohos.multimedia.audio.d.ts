@@ -4915,8 +4915,8 @@ declare namespace audio {
      * Sets the spatialization enabled or disabled by the specified device.
      * This method uses a promise to return the result.
      * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
-     * @param { boolean } enabled - Spatialization enable state.
      * @param { AudioDeviceDescriptor } deviceDescriptor - Audio device description.
+     * @param { boolean } enabled - Spatialization enable state.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied. Return by promise.
      * @throws { BusinessError } 202 - Not system App.
@@ -4927,7 +4927,7 @@ declare namespace audio {
      * @systemapi
      * @since 12
      */
-    setSpatializationEnabled(enabled: boolean, deviceDescriptor: AudioDeviceDescriptor): Promise<void>;
+    setSpatializationEnabled(deviceDescriptor: AudioDeviceDescriptor, enabled: boolean): Promise<void>;
 
     /**
      * Checks whether the spatialization is enabled.
@@ -5058,8 +5058,8 @@ declare namespace audio {
      * Sets the head tracking enabled or disabled by the specified device.
      * This method uses a promise to return the result.
      * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
-     * @param { boolean } enabled - Head tracking enable state.
      * @param { AudioDeviceDescriptor } deviceDescriptor - Audio device description.
+     * @param { boolean } enabled - Head tracking enable state.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied. Return by promise.
      * @throws { BusinessError } 202 - Not system App.
@@ -5070,7 +5070,7 @@ declare namespace audio {
      * @systemapi
      * @since 12
      */
-    setHeadTrackingEnabled(enabled: boolean, deviceDescriptor: AudioDeviceDescriptor): Promise<void>;
+    setHeadTrackingEnabled(deviceDescriptor: AudioDeviceDescriptor, enabled: boolean): Promise<void>;
 
     /**
      * Checks whether the head tracking is enabled.
