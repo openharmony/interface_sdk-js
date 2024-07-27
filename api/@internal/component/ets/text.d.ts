@@ -1115,14 +1115,14 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   /**
    * Set the text with half leading.
    *
-   * @param { bool } halfLeading
+   * @param { boolean } halfLeading
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  halfLeading(halfLeading: bool): TextAttribute;
+  halfLeading(halfLeading: boolean): TextAttribute;
 }
 
 /**
