@@ -2727,7 +2727,7 @@ declare namespace wifiManager {
     wapiConfig?: WifiWapiConfig;
 
     /**
-     * Device config status: 0 - enabled, 1 - diabled, 2 - perminate diabled, 3 - unknown.
+     * Device config status: 0 - enabled, 1 - disabled, 2 - permanent disabled, 3 - unknown.
      * @type { ?number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
