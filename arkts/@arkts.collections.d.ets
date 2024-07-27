@@ -253,6 +253,17 @@ declare namespace collections {
      */
     constructor(first: T, ...left: T[]);
     /**
+     * A constructor used to create an ArkTS Array.
+     *
+     * @param { T[] } items - Elements when initializing an ArkTS Array.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 10200012 - The Array's constructor cannot be directly invoked.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    constructor(...items: T[]);
+    /**
      * Removes the last element from an ArkTS array and returns it.
      * If the array is empty, undefined is returned and the array is not modified.
      * 
