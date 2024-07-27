@@ -3612,6 +3612,17 @@ declare namespace media {
     getInputSurface(): Promise<string>;
 
     /**
+     * Get metadata input surface. it must be called between prepare completed and start.
+     * @returns { Promise<string> } A Promise instance used to return the metadata input surface id in string.
+     * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 12
+     */
+    getInputMetaSurface(): Promise<string>;
+
+    /**
      * Check if the avrecorder has watermark capability.
      * @returns { Promise<boolean> } A Promise instance used to return true or false when the function is finished.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
