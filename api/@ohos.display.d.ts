@@ -1593,12 +1593,10 @@ declare namespace display {
      * Obtain the available area of the display.
      *
      * @returns { Promise<Rect> }
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1400001 - Invalid display or screen.
      * @syscap SystemCapability.Window.SessionManager
-     * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 12
      */
     getAvailableArea(): Promise<Rect>;
 
@@ -1607,14 +1605,12 @@ declare namespace display {
     *
     * @param { 'availableAreaChange' } type - the event of available area changes
     * @param { Callback<Rect> } callback - Callback used to return the available area
-    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
     * <br>2. Incorrect parameter types.
     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
     * @throws { BusinessError } 1400003 - This display manager service works abnormally.
     * @syscap SystemCapability.Window.SessionManager
-    * @systemapi Hide this for inner system use.
-    * @since 11
+    * @since 12
     */
     on(type: 'availableAreaChange', callback: Callback<Rect>): void;
 
@@ -1623,14 +1619,12 @@ declare namespace display {
     *
     * @param { 'availableAreaChange' } type - the event of available area changes
     * @param { Callback<Rect> } [callback] - Callback used to return the available area
-    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
     * <br>2. Incorrect parameter types.
     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
     * @throws { BusinessError } 1400003 - This display manager service works abnormally.
     * @syscap SystemCapability.Window.SessionManager
-    * @systemapi Hide this for inner system use.
-    * @since 11
+    * @since 12
     */
     off(type: 'availableAreaChange', callback?: Callback<Rect>): void;
   }
