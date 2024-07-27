@@ -351,6 +351,30 @@ declare namespace systemDateTime {
    * @since 10
    */
   function getTimezoneSync(): string;
+
+  /**
+   * Updates the NTP time from the ntp server. This method will only update NTP time once within an hour.
+   *
+   * @returns { Promise<void> } The promise returned by the function
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 13000001 - Network connection error or OS error.
+   * @syscap SystemCapability.MiscServices.Time
+   * @systemapi Hide this for inner system use
+   * @since 13
+   */
+  function updateNtpTime(): Promise<void>;
+
+  /**
+   * Obtains the current time of milliseconds since the Unix epoch calculated based on the last updated NTP time.
+   *
+   * @returns { number } The current NTP time returned of getNtpTime.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 13000002 - updateNtpTime() is not called successfully.
+   * @syscap SystemCapability.MiscServices.Time
+   * @systemapi Hide this for inner system use
+   * @since 13
+   */
+  function getNtpTime(): number;
 }
 
 export default systemDateTime;
