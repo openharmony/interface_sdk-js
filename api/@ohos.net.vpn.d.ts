@@ -31,6 +31,7 @@ import type _AbilityContext from './application/UIAbilityContext';
 declare namespace vpn {
   /**
    * Get network link information.
+   * @typedef { connection.LinkAddress }
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
    */
@@ -38,6 +39,7 @@ declare namespace vpn {
 
   /**
    * Get network route information.
+   * @typedef { connection.RouteInfo }
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
    */
@@ -45,6 +47,7 @@ declare namespace vpn {
 
   /**
    * The context of an ability. It allows access to ability-specific resources.
+   * @typedef _AbilityContext
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 10
    */
