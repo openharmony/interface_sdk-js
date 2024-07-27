@@ -120,6 +120,17 @@ declare interface ListItemGroupOptions {
   header?: CustomBuilder;
 
   /**
+    * Describes the ListItemGroup headerCompenent.
+    *
+    * @type { ?ComponentContent }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 13
+    */
+  headerComponent?: ComponentContent;
+
+  /**
    * Describes the ListItemGroup footer.
    *
    * @type { ?CustomBuilder }
@@ -144,6 +155,17 @@ declare interface ListItemGroupOptions {
    * @since 11
    */
   footer?: CustomBuilder;
+
+  /**
+    * Describes the ListItemGroup footerComponent.
+    *
+    * @type { ?ComponentContent }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 13
+    */
+  footerComponent?: ComponentContent;
 
   /**
    * Describes the ListItemGroup space.
