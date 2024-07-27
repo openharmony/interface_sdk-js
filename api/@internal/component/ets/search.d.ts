@@ -549,6 +549,17 @@ interface SearchButtonOptions {
    * @since 11
    */
   fontColor?: ResourceColor;
+
+  /**
+   * Automatically disables the search button before the user enters text
+   *
+   * @type { ?Boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  autoDisable?: Boolean;
 }
 
 /**
