@@ -2400,7 +2400,7 @@ declare namespace wifiManager {
   interface WifiProxyConfig {
     /** 
      * Wi-Fi proxy method 
-     * @type { ?ProxyMethods }
+     * @type { ?ProxyMethod }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 10
