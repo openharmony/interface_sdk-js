@@ -18306,7 +18306,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    * @deprecated since 9
-   * @useinstead grid_col/[GridColColumnOption] and grid_row/[GridRowColumnOption]
+   * @useinstead grid_col/GridColColumnOption and grid_row/GridRowColumnOption
    */
   useSizeType(value: {
     xs?: number | { span: number; offset: number };
