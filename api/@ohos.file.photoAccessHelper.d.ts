@@ -5040,6 +5040,7 @@ declare namespace photoAccessHelper {
      * Indicates the cloud enhancement task stage.
      * 
      * @type { CloudEnhancementTaskStage }
+     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12
@@ -5048,7 +5049,8 @@ declare namespace photoAccessHelper {
     /**
      * Indicates the transfer file size.
      * 
-     * @type { number }
+     * @type { ?number }
+     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12
@@ -5057,7 +5059,8 @@ declare namespace photoAccessHelper {
     /**
      * Indicates the total file size.
      * 
-     * @type { number }
+     * @type { ?number }
+     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12
@@ -5066,7 +5069,8 @@ declare namespace photoAccessHelper {
     /**
      * Indicates the expected duration of cloud enhancement queue time.
      * 
-     * @type { number }
+     * @type { ?number }
+     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12
@@ -5075,7 +5079,8 @@ declare namespace photoAccessHelper {
     /**
      * Status code when failed in cloud enhancement.
      * 
-     * @type { number }
+     * @type { ?number }
+     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12
@@ -5096,7 +5101,6 @@ declare namespace photoAccessHelper {
      * 
      * @param { Context } context - Hap context information
      * @returns { CloudEnhancement } Returns cloud enhancement instance
-     * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 202 - Called by non-system application
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
