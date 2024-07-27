@@ -979,14 +979,14 @@ declare namespace installer {
      * @param { Array<string> } filePaths - Indicates the file path for extend resources.
      * @returns { Promise<void> } Returns addExtResource result.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - Permission denied, non-system app called system API.
+     * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700001 - The specified bundleName is not found.
      * @throws { BusinessError } 17700301 - AddExtResource failed due to parse file failed.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12
-     */
+    */
     addExtResource(bundleName: string, filePaths: Array<string>): Promise<void>;
 
     /**
@@ -997,7 +997,7 @@ declare namespace installer {
      * @param { Array<string> } moduleNames - Indicates the moduleNames for extend resources.
      * @returns { Promise<void> } Returns removeExtResource result.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - Permission denied, non-system app called system API.
+     * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700001 - The specified bundleName is not found.
      * @throws { BusinessError } 17700302 - RemoveExtResource failed due to module does not exist.
@@ -1056,7 +1056,7 @@ declare namespace installer {
    * @systemapi
    * @since 9
    */
-   export interface HashParam {
+  export interface HashParam {
     /**
      * Indicates the moduleName
      *
@@ -1290,7 +1290,7 @@ declare namespace installer {
    * @systemapi
    * @since 12
    */
-  export interface CreateAppCloneParam {
+   export interface CreateAppCloneParam {
     /**
      * Indicates the user id
      * 
