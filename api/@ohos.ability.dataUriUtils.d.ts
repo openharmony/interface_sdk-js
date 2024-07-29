@@ -15,6 +15,7 @@
 
 /**
  * @file
+ * @kit AbilityKit
  */
 
 /**
