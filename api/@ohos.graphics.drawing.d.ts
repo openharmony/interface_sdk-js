@@ -1974,6 +1974,43 @@ declare namespace drawing {
      * @since 12
      */
     getEdging(): FontEdging;
+    /**
+     * Create path object of specified Glyph.
+     * @param { number } index - the index of Glyphs.
+     * @returns { Path } The path object for specified glyph, undefined if not found.
+     * Note: Path use y-axis-goes-down system, y axis is inverted to the y-axis-goes-up system.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    createPathForGlyph(index: number): Path;
+    /**
+     * Retrieves the bounding rect for each glyph in glyphs.
+     * @param { Array<number> } glyphs - Indicates the array of glyph indices to be measured.
+     * @returns { Array<common2D.Rect> } Returns bounds for each glyph relative to (0, 0).
+     * Note: 1. Rect use y-axis-goes-down system, y axis is inverted to the y-axis-goes-up system.
+     * <br>2. Rect use two points(left-bottom & right-top) to describe the bound.
+     * <br>3. The bound rect will be snap to integral boundaries.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    getBounds(glyphs: Array<number>): Array<common2D.Rect>;
+    /**
+     * Get path of text.
+     * @param { string } text - Indicates the character storage encoded with text encoding.
+     * @param { number } byteLength - Indicates the byte length of the text.
+     * @param { number } x - Indicates X coordinate for the starting position of the text within the drawing area.
+     * @param { number } y - Indicates Y coordinate for the starting position of the text within the drawing area.
+     * @returns { Path } The path object for Glyph.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    getTextPath(text: string, byteLength: number, x: number, y: number): Path;
   }
 
   /**
