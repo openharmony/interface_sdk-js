@@ -232,6 +232,19 @@ declare namespace collections {
      */
     static from<T>(arrayLike: ArrayLike<T>): Array<T>;
     /**
+     * Creates an ArkTS Array from an iterable object.
+     * 
+     * @param { Iterable<T> } iterable - An iterable object to convert to an ArkTS Array.
+     * @returns { Array<T> } A new Array instance
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 10200011 - The from method cannot be bound.
+     * @static
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    static from<T>(iterable: Iterable<T>): Array<T>;
+    /**
      * A constructor used to create an ArkTS Array.
      *
      * @throws { BusinessError } 10200012 - The Array's constructor cannot be directly invoked.
@@ -702,7 +715,7 @@ declare namespace collections {
      * A constructor used to create a Map.
      *
      * @param { readonly (readonly [K, V])[] | null } [entries] - An Array or other iterable object
-     * whose elements are key-value pairs.
+     *    whose elements are key-value pairs.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200012 - The Map's constructor cannot be directly invoked.
      * @syscap SystemCapability.Utils.Lang
@@ -710,6 +723,18 @@ declare namespace collections {
      * @since 12
      */
     constructor(entries?: readonly (readonly [K, V])[] | null)
+    /**
+     * A constructor used to create a Map.
+     *
+     * @param { Iterable<readonly [K, V]>} [iterable] - An iterable object to convert to an ArkTS Map.
+     *    whose elements are key-value pairs.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 10200012 - The Map's constructor cannot be directly invoked.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    constructor(iterable: Iterable<readonly [K, V]>);
     /**
      * Returns an iterator that iterates over key-value pairs.
      *
@@ -872,6 +897,19 @@ declare namespace collections {
      * @since 12
      */
     constructor(values?: readonly T[] | null);
+    /**
+     * A constructor used to create a Set.
+     *
+     * @param { Iterable<T>} [iterable] - If an iterable object is passed,
+     *     all of its elements will be added to the new Set.
+     *     If you don't specify this parameter, or its value is null, the new Set is empty.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 10200012 - The Set's constructor cannot be directly invoked.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    constructor(iterable: Iterable<T>);
     /**
      * Returns an iterator that can be used to iterate over elements of type T.
      *
@@ -1113,6 +1151,17 @@ declare namespace collections {
      * @since 12
      */
     constructor(length: number);
+    /**
+     * A constructor used to create an Int8Array.
+     *
+     * @param { Iterable<number> } elements - An iterable object to convert to an Int8Array.
+     * @throws { BusinessError } 10200012 - The Int8Array's constructor cannot be directly invoked.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    constructor(elements: Iterable<number>);
     /**
      * A constructor used to create an Int8Array.
      *
@@ -1655,6 +1704,17 @@ declare namespace collections {
     /**
      * A constructor used to create an Uint8ClampedArray.
      *
+     * @param { Iterable<number> } elements - An iterable object to convert to an Uint8ClampedArray.
+     * @throws { BusinessError } 10200012 - The Uint8ClampedArray's constructor cannot be directly invoked.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    constructor(elements: Iterable<number>);
+    /**
+     * A constructor used to create an Uint8ClampedArray.
+     *
      * @param { ArrayLike<number> | ArrayBuffer } array - An array is initialized with the given elements
      * @throws { BusinessError } 10200012 - The Uint8ClampedArray's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
@@ -2173,6 +2233,17 @@ declare namespace collections {
      * @since 12
      */
     constructor(length: number);
+    /**
+     * A constructor used to create an Uint8Array.
+     *
+     * @param { Iterable<number> } elements - An iterable object to convert to an Uint8Array.
+     * @throws { BusinessError } 10200012 - The Uint8Array's constructor cannot be directly invoked.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    constructor(elements: Iterable<number>);
     /**
      * A constructor used to create an Uint8Array.
      *
@@ -2713,6 +2784,17 @@ declare namespace collections {
     /**
      * A constructor used to create an Int16Array.
      *
+     * @param { Iterable<number> } elements - An iterable object to convert to an Int16Array.
+     * @throws { BusinessError } 10200012 - The Int16Array's constructor cannot be directly invoked.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    constructor(elements: Iterable<number>);
+    /**
+     * A constructor used to create an Int16Array.
+     *
      * @param { ArrayLike<number> | ArrayBuffer } array - An array is initialized with the given elements
      * @throws { BusinessError } 10200012 - The Int16Array's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
@@ -3250,6 +3332,17 @@ declare namespace collections {
     /**
      * A constructor used to create an Uint16Array.
      *
+     * @param { Iterable<number> } elements - An iterable object to convert to an Uint16Array.
+     * @throws { BusinessError } 10200012 - The Uint16Array's constructor cannot be directly invoked.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    constructor(elements: Iterable<number>);
+    /**
+     * A constructor used to create an Uint16Array.
+     *
      * @param { ArrayLike<number> | ArrayBuffer } array - An array is initialized with the given elements
      * @throws { BusinessError } 10200012 - The Uint16Array's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
@@ -3783,6 +3876,17 @@ declare namespace collections {
      * @since 12
      */
     constructor(length: number);
+    /**
+     * A constructor used to create an Int32Array.
+     *
+     * @param { Iterable<number> } elements - An iterable object to convert to an Int32Array.
+     * @throws { BusinessError } 10200012 - The Int32Array's constructor cannot be directly invoked.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    constructor(elements: Iterable<number>);
     /**
      * A constructor used to create an Int32Array.
      *
@@ -4323,6 +4427,17 @@ declare namespace collections {
     /**
      * A constructor used to create an Uint32Array.
      *
+     * @param { Iterable<number> } elements - An iterable object to convert to an Uint32Array.
+     * @throws { BusinessError } 10200012 - The Uint32Array's constructor cannot be directly invoked.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    constructor(elements: Iterable<number>);
+    /**
+     * A constructor used to create an Uint32Array.
+     *
      * @param { ArrayLike<number> | ArrayBuffer } array - An array is initialized with the given elements
      * @throws { BusinessError } 10200012 - The Uint32Array's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
@@ -4856,6 +4971,17 @@ declare namespace collections {
      * @since 12
      */
     constructor(length: number);
+    /**
+     * A constructor used to create an Float32Array.
+     *
+     * @param { Iterable<number> } elements - An iterable object to convert to an Float32Array.
+     * @throws { BusinessError } 10200012 - The Float32Array's constructor cannot be directly invoked.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    constructor(elements: Iterable<number>);
     /**
      * A constructor used to create an Float32Array.
      *
