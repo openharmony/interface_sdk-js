@@ -3613,6 +3613,7 @@ declare namespace media {
 
     /**
      * Get input meta surface for specified meta source type. it must be called between prepare completed and start.
+     * @param { MetaSourceType } type : Meta source type.
      * @returns { Promise<string> } A Promise instance used to return the input surface id in string.
      * @throws { BusinessError } 202 - Called from Non-System applications. Return by promise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -6160,6 +6161,7 @@ declare namespace media {
     videoSourceType?: VideoSourceType;
     /**
      * Meta source types, details see @MetaSourceType .
+     * @type { ?Array<MetaSourceType> }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @systemapi
      * @since 12
