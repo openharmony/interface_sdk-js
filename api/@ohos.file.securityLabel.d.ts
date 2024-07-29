@@ -31,6 +31,7 @@ declare namespace securityLabel {
   /**
    * The security level.
    *
+   * @typedef { 's0' | 's1' | 's2' | 's3' | 's4' }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 9
    */
