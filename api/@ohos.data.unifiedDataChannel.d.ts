@@ -1155,6 +1155,18 @@ declare namespace unifiedDataChannel {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Insert data into unified data channel by Intention
+   *
+   * @param { Options } options - fill the intention field to indicate the target {@link Intention}.
+   * @param { UnifiedData } data - {@link UnifiedData} data object to insert into target intention.
+   * @param { AsyncCallback<string> } callback - {string}: the unique identifier.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect Parameters types.
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @atomicservice
+   * @since 12
+   */
   function insertData(options: Options, data: UnifiedData, callback: AsyncCallback<string>): void;
 
   /**
@@ -1181,6 +1193,18 @@ declare namespace unifiedDataChannel {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Insert data into unified data channel by Intention
+   *
+   * @param { Options } options - fill the intention field to indicate the target {@link Intention}.
+   * @param { UnifiedData } data - {@link UnifiedData} data object to insert into target intention.
+   * @returns { Promise<string> } {string}: the unique identifier.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect Parameters types.
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @atomicservice
+   * @since 12
    */
   function insertData(options: Options, data: UnifiedData): Promise<string>;
 
@@ -1209,6 +1233,18 @@ declare namespace unifiedDataChannel {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Update data to unified data channel by Unique Identifier
+   *
+   * @param { Options } options - fill the unique identifier field to indicate the target {@link UnifiedData}.
+   * @param { UnifiedData } data - {@link UnifiedData} data object to update the target data.
+   * @param { AsyncCallback<void> } callback - the callback of updateData.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect Parameters types.
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @atomicservice
+   * @since 12
+   */
   function updateData(options: Options, data: UnifiedData, callback: AsyncCallback<void>): void;
 
   /**
@@ -1236,6 +1272,18 @@ declare namespace unifiedDataChannel {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Update data to unified data channel by Unique Identifier
+   *
+   * @param { Options } options - fill the unique identifier field to indicate the target {@link UnifiedData}.
+   * @param { UnifiedData } data - {@link UnifiedData} data object to update the target data.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect Parameters types.
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @atomicservice
+   * @since 12
+   */
   function updateData(options: Options, data: UnifiedData): Promise<void>;
 
   /**
@@ -1260,6 +1308,17 @@ declare namespace unifiedDataChannel {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Query data of unified data channel by Intention or Unique Identifier
+   *
+   * @param { Options } options - fill the intention or unique identifier field to indicate the target {@link Intention} or {@link UnifiedData}.
+   * @param { AsyncCallback<Array<UnifiedData>> } callback - {Array<UnifiedData>}: the target {@link UnifiedData} object array.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect Parameters types.
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @atomicservice
+   * @since 12
    */
   function queryData(options: Options, callback: AsyncCallback<Array<UnifiedData>>): void;
 
@@ -1286,6 +1345,17 @@ declare namespace unifiedDataChannel {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Query data of unified data channel by Intention or Unique Identifier
+   *
+   * @param { Options } options - fill the intention or unique identifier field to indicate the target {@link Intention} or {@link UnifiedData}.
+   * @returns { Promise<Array<UnifiedData>> } {Array<UnifiedData>}: the target {@link UnifiedData} object array.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect Parameters types.
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @atomicservice
+   * @since 12
+   */
   function queryData(options: Options): Promise<Array<UnifiedData>>;
 
   /**
@@ -1311,6 +1381,17 @@ declare namespace unifiedDataChannel {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Delete data of unified data channel by Intention or Unique Identifier
+   *
+   * @param { Options } options - fill the intention or unique identifier field to indicate the target {@link Intention} or {@link UnifiedData}.
+   * @param { AsyncCallback<Array<UnifiedData>> } callback - {Array<UnifiedData>}: the deleted {@link UnifiedData} object array.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect Parameters types.
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @atomicservice
+   * @since 12
+   */
   function deleteData(options: Options, callback: AsyncCallback<Array<UnifiedData>>): void;
 
   /**
@@ -1335,6 +1416,17 @@ declare namespace unifiedDataChannel {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Delete data of unified data channel by Intention or Unique Identifier
+   *
+   * @param { Options } options - fill the intention or unique identifier field to indicate the target {@link Intention} or {@link UnifiedData}.
+   * @returns { Promise<Array<UnifiedData>> } {Array<UnifiedData>}: the deleted {@link UnifiedData} object array.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect Parameters types.
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @atomicservice
+   * @since 12
    */
   function deleteData(options: Options): Promise<Array<UnifiedData>>;
 
