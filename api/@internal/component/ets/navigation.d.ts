@@ -76,7 +76,16 @@ declare interface NavigationCommonTitle {
    * @atomicservice
    * @since 11
    */
-  main: string;
+  /**
+   * Sets the main title.
+   *
+   * @type { string | Resource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  main: string | Resource;
 
   /**
    * Sets the sub title.
@@ -102,7 +111,16 @@ declare interface NavigationCommonTitle {
    * @atomicservice
    * @since 11
    */
-  sub: string;
+  /**
+   * Sets the sub title.
+   *
+   * @type { string | Resource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  sub: string | Resource;
 }
 
 /**
@@ -498,7 +516,16 @@ declare interface NavigationMenuItem {
    * @atomicservice
    * @since 11
    */
-  value: string;
+  /**
+   * The value of navigation menu item.
+   *
+   * @type { string | Resource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  value: string | Resource;
 
   /**
    * The icon of navigation menu item.
@@ -524,7 +551,16 @@ declare interface NavigationMenuItem {
    * @atomicservice
    * @since 11
    */
-  icon?: string;
+  /**
+   * The value of navigation menu item.
+   *
+   * @type { ?(string | Resource) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  icon?: string | Resource;
 
   /**
    * The symbol of navigation menu item.
