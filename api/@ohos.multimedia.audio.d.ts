@@ -3728,7 +3728,7 @@ declare namespace audio {
      */
     DEACTIVATED_LOWER_PRIORITY = 0,
     /**
-     * Time out
+     * Time out.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @since 12
@@ -3758,7 +3758,7 @@ declare namespace audio {
      * @crossplatform
      * @since 12
      */  
-    concurrency_mode: AudioConcurrencyMode;
+    concurrencyMode: AudioConcurrencyMode;
   }
 
   /**
@@ -3928,10 +3928,10 @@ declare namespace audio {
      * Activate the audio session for the current pid application.
      * @param { AudioSessionStrategy } strategy - Audio session strategy.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                 1.Mandatory parameters unspecified;
+     *                                 1.Mandatory parameters unspecified.
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
-     * @throws { BusinessError } 6800301 - System error. Return by promise.
+     * @throws { BusinessError } 6800301 - System error. Returned by promise.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @since 12
@@ -3940,17 +3940,17 @@ declare namespace audio {
 
     /**
      * Deactivate the audio session for the current pid application.
-     * @throws { BusinessError } 6800301 - System error. Return by promise.
-     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @throws { BusinessError } 6800301 - System error. Returned by promise.
+     * @syscap SystemCapability.Multimedia.Audio.Core.
      * @crossplatform
      * @since 12
      */
     deactivateAudioSession(): Promise<void>;
 
     /**
-     * Check whether the audio session is activated for the current application.
+     * Check whether the audio session is activated for the current pid application.
      * @returns { boolean } The active audio session status for the current pid application.
-     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @syscap SystemCapability.Multimedia.Audio.Core.
      * @crossplatform
      * @since 12
      */
