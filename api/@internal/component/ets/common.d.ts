@@ -4121,7 +4121,7 @@ declare class TransitionEffect<
   static readonly IDENTITY: TransitionEffect<"identity">;
 
   /**
-   * Defines an opacity transition effect
+   * Specifies a transition effect with transparency of 0, which is equivalent to TransitionEffect.opacity(0).
    *
    * @type { TransitionEffect<"opacity"> }
    * @readonly
@@ -4132,7 +4132,7 @@ declare class TransitionEffect<
    * @since 10
    */
   /**
-   * Defines an opacity transition effect
+   * Specifies a transition effect with transparency of 0, which is equivalent to TransitionEffect.opacity(0).
    *
    * @type { TransitionEffect<"opacity"> }
    * @readonly
@@ -4185,7 +4185,10 @@ declare class TransitionEffect<
   >;
 
   /**
-   * Defines a slide & switch transition effect
+   * Specify a transition effect where the element enters by shrinking first and then expanding as it slides in from the right, 
+   * and exits by shrinking first and then expanding as it slides out to the left, with a minimum scale ratio of 0.8. 
+   * It comes with default animation parameters, which can also be overridden. 
+   * The default animation duration is set to 600ms, and the specified animation curve is cubicBezierCurve(0.24, 0.0, 0.50, 1.0).
    *
    * @type { TransitionEffect<"slideSwitch"> }
    * @readonly
@@ -4196,7 +4199,10 @@ declare class TransitionEffect<
    * @since 10
    */
   /**
-   * Defines a slide & switch transition effect
+   * Specify a transition effect where the element enters by shrinking first and then expanding as it slides in from the right, 
+   * and exits by shrinking first and then expanding as it slides out to the left, with a minimum scale ratio of 0.8. 
+   * It comes with default animation parameters, which can also be overridden. 
+   * The default animation duration is set to 600ms, and the specified animation curve is cubicBezierCurve(0.24, 0.0, 0.50, 1.0).
    *
    * @type { TransitionEffect<"slideSwitch"> }
    * @readonly
@@ -4236,6 +4242,15 @@ declare class TransitionEffect<
    * Creates a rotation transition effect
    *
    * @param { RotateOptions } options - rotate options
+   * Set the rotation effect for component transitions when inserting and deleting. 
+   * The value represents the starting rotation point for the inserting animation and the ending rotation point for the deleting animation.
+   * -x: Horizontal component of the rotational vector.
+   * -y: Vertical component of the rotational vector.
+   * -z: Vertical component of the rotational vector.
+   * -centerX, centerY specify the rotation center point, with default values of "50%", meaning that the default rotation center point is the center point of the component.
+   * -The center point of (0, 0) represents the upper-left corner of the component.
+   * -centerZ refers to the Z-axis anchor point. The default value of centerZ is 0.
+   * -perspective indicates the visual distance. The perspective property does not support transition animation.
    * @returns { TransitionEffect<"rotate"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -4246,6 +4261,15 @@ declare class TransitionEffect<
    * Creates a rotation transition effect
    *
    * @param { RotateOptions } options - rotate options
+   * Set the rotation effect for component transitions when inserting and deleting. 
+   * The value represents the starting rotation point for the inserting animation and the ending rotation point for the deleting animation.
+   * -x: Horizontal component of the rotational vector.
+   * -y: Vertical component of the rotational vector.
+   * -z: Vertical component of the rotational vector.
+   * -centerX, centerY specify the rotation center point, with default values of "50%", meaning that the default rotation center point is the center point of the component.
+   * -The center point of (0, 0) represents the upper-left corner of the component.
+   * -centerZ refers to the Z-axis anchor point. The default value of centerZ is 0.
+   * -perspective indicates the visual distance. The perspective property does not support transition animation.
    * @returns { TransitionEffect<"rotate"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -4281,7 +4305,7 @@ declare class TransitionEffect<
   /**
    * Creates an opacity transition effect with alpha value
    *
-   * @param { number } alpha - opacity alpha value
+   * @param { number } alpha - opacity alpha value, value range [0, 1].
    * @returns { TransitionEffect<"opacity"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -4291,13 +4315,25 @@ declare class TransitionEffect<
   /**
    * Creates an opacity transition effect with alpha value
    *
-   * @param { number } alpha - opacity alpha value
+   * @param { number } alpha - opacity alpha value, value range [0, 1].
    * @returns { TransitionEffect<"opacity"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Creates an opacity transition effect with alpha value
+   *
+   * @param { number } alpha - opacity alpha value, value range [0, 1].
+   * Illegal values less than 0 are treated as 0, and illegal values greater than 1 are treated as 1.
+   * @returns { TransitionEffect<"opacity"> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
    */
   static opacity(alpha: number): TransitionEffect<"opacity">;
 
