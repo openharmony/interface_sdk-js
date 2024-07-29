@@ -1200,8 +1200,8 @@ declare namespace avSession {
      * Get the cast controller when the session is casted to remote device.
      * If the avsession is not under casting state, the controller will return null.
      * @param { AsyncCallback<AVCastController> } callback - async callback for the AVCastController.
-     * @throws {BusinessError} 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @throws {BusinessError} 6600110 - 6600109 - remote connection does not exist
+     * @throws {BusinessError} 6600102 - The session does not exist
+     * @throws {BusinessError} 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
@@ -1211,8 +1211,8 @@ declare namespace avSession {
      * Get the cast controller when the session is casted to remote device.
      * If the avsession is not under casting state, the controller will return null.
      * @returns { Promise<AVCastController> } Promise for the AVCastController
-     * @throws {BusinessError} 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} session does not exist
-     * @throws {BusinessError} 6600110 - 6600109 - remote connection does not exist
+     * @throws {BusinessError} 6600102 - The session does not exist
+     * @throws {BusinessError} 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
@@ -1220,8 +1220,8 @@ declare namespace avSession {
      * Get the cast controller when the session is casted to remote device.
      * If the avsession is not under casting state, the controller will return null.
      * @returns { Promise<AVCastController> } Promise for the AVCastController
-     * @throws {BusinessError} 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} session does not exist
-     * @throws {BusinessError} 6600110 - 6600109 - remote connection does not exist
+     * @throws {BusinessError} 6600102 - The session does not exist
+     * @throws {BusinessError} 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 12
