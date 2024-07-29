@@ -457,6 +457,7 @@ declare namespace config {
   /**
    * Indicates the type of daltonization color filter.
    *
+   * @typedef {'Normal' | 'Protanomaly' | 'Deuteranomaly' | 'Tritanomaly'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 9
@@ -466,6 +467,7 @@ declare namespace config {
   /**
    * Indicates the type of click response time.
    *
+   * @typedef {'Short' | 'Medium' | 'Long'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 11
@@ -475,6 +477,7 @@ declare namespace config {
   /**
    * Indicates the type of ignore repeat click interval.
    *
+   * @typedef {'Shortest' | 'Short' | 'Medium' | 'Long' | 'Longest'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 11

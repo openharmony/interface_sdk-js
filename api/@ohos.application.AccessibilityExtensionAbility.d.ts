@@ -35,6 +35,7 @@ import type * as _AccessibilityExtensionContext from './application/Accessibilit
  * Indicates an accessibility element.
  * Supports querying element attributes, requesting execution actions, and finding child elements by condition.
  *
+ * @typedef {_AccessibilityElement}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 10
  */
@@ -43,6 +44,7 @@ export type AccessibilityElement = _AccessibilityElement;
 /**
  * Indicates the possible attributes of the element and the type of the attribute value.
  *
+ * @typedef {_ElementAttributeValues}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 10
  */
@@ -51,6 +53,7 @@ export type ElementAttributeValues = _ElementAttributeValues;
 /**
  * Indicates the direction of the search focus.
  *
+ * @typedef {_FocusDirection}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 10
  */
@@ -59,6 +62,7 @@ export type FocusDirection = _FocusDirection;
 /**
  * Indicates the key of the attribute value.
  *
+ * @typedef {keyof ElementAttributeValues}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 10
  */
@@ -67,6 +71,7 @@ export type ElementAttributeKeys = keyof ElementAttributeValues;
 /**
  * Indicates the type of the focus.
  *
+ * @typedef {_FocusType}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 10
  */
@@ -75,6 +80,7 @@ export type FocusType = _FocusType;
 /**
  * Indicates the type of the window.
  *
+ * @typedef {_WindowType}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 10
  */
@@ -83,6 +89,7 @@ export type WindowType = _WindowType;
 /**
  * Indicates rectangle.
  *
+ * @typedef {_Rect}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 10
  */
@@ -91,6 +98,7 @@ export type Rect = _Rect;
 /**
  * The accessibility extension context. Used to configure, query information, and inject gestures.
  *
+ * @typedef {_AccessibilityExtensionContext.default}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 10
  */
@@ -107,6 +115,7 @@ export default class AccessibilityExtensionAbility {
   /**
    * Indicates accessibility extension ability context.
    *
+   * @type {AccessibilityExtensionContext}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -224,6 +233,7 @@ declare interface AccessibilityEvent {
  * 'fourFingerDoubleTapAndHold' | 'fourFingerTripleTap' | 'fourFingerTripleTapAndHold' |
  * 'threeFingerSwipeUp' | 'threeFingerSwipeDown' | 'threeFingerSwipeLeft' | 'threeFingerSwipeRight' |
  * 'fourFingerSwipeUp' | 'fourFingerSwipeDown' | 'fourFingerSwipeLeft' | 'fourFingerSwipeRight' }
+* @typedef {'left' | 'leftThenRight' | 'leftThenUp' | 'leftThenDown' | 'right' | 'rightThenLeft' | 'rightThenUp' | 'rightThenDown' | 'up' | 'upThenLeft' | 'upThenRight' | 'upThenDown' | 'down' | 'downThenLeft' | 'downThenRight' | 'downThenUp' | 'twoFingerSingleTap' | 'twoFingerDoubleTap' | 'twoFingerDoubleTapAndHold' | 'twoFingerTripleTap' | 'twoFingerTripleTapAndHold' | 'threeFingerSingleTap' | 'threeFingerDoubleTap' | 'threeFingerDoubleTapAndHold' | 'threeFingerTripleTap' | 'threeFingerTripleTapAndHold' | 'fourFingerSingleTap' | 'fourFingerDoubleTap' | 'fourFingerDoubleTapAndHold' | 'fourFingerTripleTap' | 'fourFingerTripleTapAndHold' | 'threeFingerSwipeUp' | 'threeFingerSwipeDown' | 'threeFingerSwipeLeft' | 'threeFingerSwipeRight' | 'fourFingerSwipeUp' | 'fourFingerSwipeDown' | 'fourFingerSwipeLeft' | 'fourFingerSwipeRight'}
 * @syscap SystemCapability.BarrierFree.Accessibility.Core
 * @since 11
 */
@@ -241,6 +251,7 @@ type GestureType = 'left' | 'leftThenRight' | 'leftThenUp' | 'leftThenDown' |
 /**
  * Indicates the page update type.
  *
+ * @typedef {'pageContentUpdate' | 'pageStateUpdate'}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9
  */
@@ -249,6 +260,7 @@ type PageUpdateType = 'pageContentUpdate' | 'pageStateUpdate';
 /**
  * Indicates the type of touch event during touch browsing.
  *
+ * @typedef {'touchBegin' | 'touchEnd'}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9
  */
