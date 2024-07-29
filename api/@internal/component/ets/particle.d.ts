@@ -1227,24 +1227,24 @@ declare enum ParticleUpdater {
  /**
  * Defines the SizeT type.
  *
- * @typedef { import('../../../../api/arkui/Graphics').SizeT<T> }
+ * @typedef { import('../api/arkui/Graphics').SizeT<T> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 12
  */
-declare type SizeT<T> = import('../../../../api/arkui/Graphics').SizeT<T>;
+declare type SizeT<T> = import('../api/arkui/Graphics').SizeT<T>;
 
  /**
  * Defines the PositionT type.
  *
- * @typedef { import('../../../../api/arkui/Graphics').PositionT<T> }
+ * @typedef { import('../api/arkui/Graphics').PositionT<T> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 12
  */
-declare type PositionT<T> = import('../../../../api/arkui/Graphics').PositionT<T>;
+declare type PositionT<T> = import('../api/arkui/Graphics').PositionT<T>;
 
 /**
  * Defines the Particle component attribute functions.
