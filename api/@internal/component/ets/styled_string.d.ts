@@ -107,6 +107,7 @@ declare class StyledString {
      * @atomicservice
      * @since 12
      */
+
     subStyledString(start: number, length?: number): StyledString;
     /**
      * Returns StyledString from the provided HTML string.
