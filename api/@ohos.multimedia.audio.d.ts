@@ -38,11 +38,24 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @since 9
    */
+  /**
+   * Enumerates audio errors.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @crossplatform
+   * @since 12
+   */
   enum AudioErrors {
     /**
      * Invalid parameter.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 9
+     */
+    /**
+     * Invalid parameter.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
      */
     ERROR_INVALID_PARAM = 6800101,
     /**
@@ -50,17 +63,35 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 9
      */
+    /**
+     * Allocate memory failed.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
+     */
     ERROR_NO_MEMORY = 6800102,
     /**
      * Operation not permit at current state.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 9
      */
+    /**
+     * Operation not permit at current state.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
+     */
     ERROR_ILLEGAL_STATE = 6800103,
     /**
      * Unsupported option.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 9
+     */
+    /**
+     * Unsupported option.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
      */
     ERROR_UNSUPPORTED = 6800104,
     /**
@@ -79,6 +110,12 @@ declare namespace audio {
      * Default error.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 9
+     */
+    /**
+     * Default error.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
      */
     ERROR_SYSTEM = 6800301
   }
@@ -747,6 +784,7 @@ declare namespace audio {
     /**
      * Default device type.
      * @syscap SystemCapability.Multimedia.Audio.Device
+     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3140,7 +3178,6 @@ declare namespace audio {
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
-
      * @crossplatform
      * @since 12
      */
@@ -3170,7 +3207,6 @@ declare namespace audio {
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
-
      * @crossplatform
      * @since 12
      */
@@ -3195,7 +3231,6 @@ declare namespace audio {
      *                                 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
-
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @since 12
@@ -3342,7 +3377,6 @@ declare namespace audio {
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Communication
-
      * @crossplatform
      * @since 12
      */
@@ -5637,13 +5671,6 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 9
      */
-     /**
-     * Volume type of the current stream.
-      * @type { AudioVolumeType }
-     * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @crossplatform
-     * @since 12
-     */
     volumeType: AudioVolumeType;
     /**
      * Volume level.
@@ -5793,12 +5820,26 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Device
    * @since 7
    */
+  /**
+   * Describes the device change type and device information.
+   * @typedef DeviceChangeAction
+   * @syscap SystemCapability.Multimedia.Audio.Device
+   * @crossplatform
+   * @since 12
+   */
   interface DeviceChangeAction {
     /**
      * Device change type.
      * @type { DeviceChangeType }
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 7
+     */
+    /**
+     * Device change type.
+     * @type { DeviceChangeType }
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @crossplatform
+     * @since 12
      */
     type: DeviceChangeType;
 
@@ -5807,6 +5848,13 @@ declare namespace audio {
      * @type { AudioDeviceDescriptors }
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 7
+     */
+    /**
+     * Device information.
+     * @type { AudioDeviceDescriptors }
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @crossplatform
+     * @since 12
      */
     deviceDescriptors: AudioDeviceDescriptors;
   }
@@ -5996,12 +6044,14 @@ declare namespace audio {
    * Enumerates callback result.
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Audio.Core
+   * @crossplatform
    * @since 12
    */
   enum AudioDataCallbackResult {
     /**
      * Indicates data of this callback is invalid.
      * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
      * @since 12
      */
     INVALID = -1,
@@ -6009,6 +6059,7 @@ declare namespace audio {
     /**
      * Indicates data of this callback is valid.
      * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
      * @since 12
      */
     VALID = 0,
@@ -6023,6 +6074,7 @@ declare namespace audio {
    * returned, it indicates the data is valid and will be played. If AudioDataCallbackResult.INVALID is returned, it
    * indicates the data is will not be played.
    * @syscap SystemCapability.Multimedia.Audio.Renderer
+   * @crossplatform
    * @since 12
    */
   type AudioRendererWriteDataCallback = (data: ArrayBuffer) => AudioDataCallbackResult | void;
