@@ -2853,7 +2853,7 @@ declare namespace media {
   }
 
   /**
-   * Enumerates statictics info keys for player.
+   * Enumerates statistics info keys for player.
    * 
    * @enum { string }
    * @syscap SystemCapability.Multimedia.Media.Core
@@ -2882,7 +2882,7 @@ declare namespace media {
     DOWNLOAD_RATE = "download_rate",
 
     /**
-     * Boolean value, ture for current is downloading, false for suspend downloading.
+     * Boolean value, true for current is downloading, false for suspend downloading.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 12
      */
