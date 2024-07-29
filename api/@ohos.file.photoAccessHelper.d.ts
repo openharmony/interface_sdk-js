@@ -5055,7 +5055,7 @@ declare namespace photoAccessHelper {
      */
     readonly taskStage: CloudEnhancementTaskStage;
     /**
-     * Indicates the transfer file size.
+     * Indicates the transferred file size.
      * 
      * @type { ?number }
      * @readonly
@@ -5063,7 +5063,7 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 12
      */
-    readonly transferFileSize?: number;
+    readonly transferredFileSize?: number;
     /**
      * Indicates the total file size.
      * 
@@ -5245,13 +5245,13 @@ declare namespace photoAccessHelper {
    */
   enum CloudEnhancementState {
     /**
-     * Cloud enhancement not available state.
+     * Cloud enhancement unavailable state.
      * 
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12
      */
-    NOT_AVAILABLE = 0,
+    UNAVAILABLE = 0,
     /**
      * Cloud enhancement available state.
      * 
