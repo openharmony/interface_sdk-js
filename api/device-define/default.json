@@ -197,6 +197,7 @@
     "SystemCapability.BundleManager.BundleFramework.DefaultApp",
     "SystemCapability.BundleManager.BundleFramework.Launcher",
     "SystemCapability.BundleManager.BundleFramework.AppControl",
+    "SystemCapability.BundleManager.AppDomainVerify",
     "SystemCapability.Ability.AbilityRuntime.QuickFix",
     "SystemCapability.Graphic.Graphic2D.ColorManager.Core",
     "SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply",
