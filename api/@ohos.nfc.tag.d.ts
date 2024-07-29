@@ -1247,6 +1247,7 @@ declare namespace tag {
      * The uid of this tag, it.
      *
      * @permission ohos.permission.NFC_TAG
+     * @type { number[] }
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12
@@ -1264,6 +1265,7 @@ declare namespace tag {
      * The supported technology list of this tag.
      *
      * @permission ohos.permission.NFC_TAG
+     * @type { number[] }
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12
@@ -1274,6 +1276,7 @@ declare namespace tag {
      * The extra data for each technology of this tag.
      *
      * @permission ohos.permission.NFC_TAG
+     * @type { PacMap[] }
      * @syscap SystemCapability.Communication.NFC.Tag
      * @systemapi hide for inner use.
      * @since 9
@@ -1284,6 +1287,7 @@ declare namespace tag {
      * The the RF discovery id of this tag.
      *
      * @permission ohos.permission.NFC_TAG
+     * @type { number }
      * @syscap SystemCapability.Communication.NFC.Tag
      * @systemapi hide for inner use.
      * @since 9
@@ -1294,6 +1298,7 @@ declare namespace tag {
      * The extra data for the technology of this tag.
      *
      * @permission ohos.permission.NFC_TAG
+     * @type { rpc.RemoteObject }
      * @syscap SystemCapability.Communication.NFC.Tag
      * @systemapi hide for inner use.
      * @since 9
@@ -1337,6 +1342,7 @@ declare namespace tag {
     /**
      * tnf of NdefRecord
      *
+     * @type { number }
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12
@@ -1346,12 +1352,14 @@ declare namespace tag {
     /**
      * RTD type of NdefRecord
      *
+     * @type { number[] }
      * @syscap SystemCapability.Communication.NFC.Tag
      * @since 9
      */
     /**
      * RTD type of NdefRecord
      *
+     * @type { number[] }
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12
@@ -1367,6 +1375,7 @@ declare namespace tag {
     /**
      * id of NdefRecord
      *
+     * @type { number[] }
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12
@@ -1382,6 +1391,7 @@ declare namespace tag {
     /**
      * payload of NdefRecord
      *
+     * @type { number[] }
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12
