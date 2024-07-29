@@ -1013,6 +1013,18 @@ declare namespace pasteboard {
      * @since 11
      */
     replaceRecord(index: number, record: PasteDataRecord): void;
+    /**
+     * Calls to take over the timing of closing the channel
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 12
+     */
+    pasteStart(): void;
+    /**
+     * Actively close the channel
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 12
+     */
+    pasteComplete(): void;
   }
 
   /**
@@ -1476,7 +1488,7 @@ declare namespace pasteboard {
 
     /**
      * Removes the unified ShareOptions of your application.
-     * 
+     *
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @systemapi
