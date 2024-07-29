@@ -18399,8 +18399,8 @@ declare class CommonMethod<T> {
   /**
    * Specifies the direction and style of chain in relative container
    *
-   * @param { Axis } value - indicates direction of the chain
-   * @param { ChainStyle } value - indicates style of the chain
+   * @param { Axis } direction - indicates direction of the chain
+   * @param { ChainStyle } style - indicates style of the chain
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -22734,7 +22734,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   /**
    * Edge scrolling effect.
    *
-   * @param { EdgeEffect } value - edge scrolling effect.
+   * @param { EdgeEffect } edgeEffect - edge scrolling effect.
    * @param { EdgeEffectOptions } options - edge scrolling effect options. 
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -23474,6 +23474,8 @@ declare interface Callback<T, V = void> {
  * The value of event contains information about HoverEvent.
  *
  * @typedef HoverCallback
+ * @param { boolean } isHover
+ * @param { HoverEvent} event
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -23487,6 +23489,8 @@ declare type HoverCallback = (isHover: boolean, event: HoverEvent) => void
  * The value of event contains information about AccessibilityHoverEvent.
  *
  * @typedef { function }
+ * @param { boolean } isHover
+ * @param { AccessibilityHoverEvent } event
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
