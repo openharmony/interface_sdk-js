@@ -19150,7 +19150,7 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    * @deprecated since 12
-   * @useinstead common[CommonMethod]#clipShape
+   * @useinstead CommonMethod#clipShape
    */
   clip(value: boolean | CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute): T;
 
@@ -19216,7 +19216,7 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    * @deprecated since 12
-   * @useinstead common[CommonMethod]#maskShape
+   * @useinstead CommonMethod#maskShape
    */
   mask(value: CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute | ProgressMask): T;
 
@@ -22099,7 +22099,7 @@ declare class CustomComponent extends CommonAttribute {
    * @form
    * @since 9
    * @deprecated since 10
-   * @useinstead common[CustomComponent]#onPlaceChildren
+   * @useinstead CustomComponent#onPlaceChildren
    */
   onLayout?(children: Array<LayoutChild>, constraint: ConstraintSizeOptions): void;
 
@@ -22135,7 +22135,7 @@ declare class CustomComponent extends CommonAttribute {
    * @form
    * @since 9
    * @deprecated since 10
-   * @useinstead common[CustomComponent]#onMeasureSize
+   * @useinstead CustomComponent#onMeasureSize
    */
   onMeasure?(children: Array<LayoutChild>, constraint: ConstraintSizeOptions): void;
 
