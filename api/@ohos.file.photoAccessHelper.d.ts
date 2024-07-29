@@ -4978,13 +4978,21 @@ declare namespace photoAccessHelper {
    */
   enum CloudEnhancementTaskStage {
     /**
+     * Cloud enhancement task exception stage.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    TASK_STAGE_EXCEPTION = -1,
+    /**
      * Cloud enhancement task preparing stage.
      * 
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12
      */
-    TASK_STAGE_PREPARING = 0,
+    TASK_STAGE_PREPARING,
     /**
      * Cloud enhancement task uploading stage.
      * 
