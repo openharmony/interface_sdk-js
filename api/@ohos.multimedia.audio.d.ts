@@ -3675,6 +3675,111 @@ declare namespace audio {
   }
 
   /**
+   * Audio concurrency mode.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @crossplatform
+   * @since 12
+   */
+  enum AudioConcurrencyMode {
+    /**
+     * Default concurrency mode.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
+     */
+    CONCURRENCY_DEFAULT = 0,
+    /**
+     * Mix with others mode.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
+     */
+    CONCURRENCY_MIX_WITH_OTHERS = 1,
+    /**
+     * Duck others mode.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
+     */
+    CONCURRENCY_DUCK_OTHERS = 2,
+    /**
+     * Pause others mode.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * since 12
+     */
+    CONCURRENCY_PAUSE_OTHERS = 3,
+  }
+
+  /**
+   * Audio session deactivated reason.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @crossplatform
+   * @since 12
+   */
+  enum AudioSessionDeactivatedReason {
+    /**
+     * Lower priority.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
+     */
+    DEACTIVATED_LOWER_PRIORITY = 0,
+    /**
+     * Time out
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
+     */
+    DEACTIVATED_TIME_OUT = 1,
+    /**
+     * Audio scence updated.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
+     */
+    DEACTIVATED_AUDIO_SCENCE_UPATED = 2,
+  }
+
+  /**
+   * Audio session strategy.
+   * @typedf AudioSessionStrategy
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @crossplatform
+   * @since 12
+   */
+  interface AudioSessionStrategy {
+    /**
+     * Audio concurrency mode.
+     * @type { AudioConcurrencyMode }
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
+     */  
+    concurrency_mode: AudioConcurrencyMode;
+  }
+
+  /**
+   * Audio session deactivated event.
+   * @typedf AudioSessionDeactivatedEvent
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @crossplatform
+   * @since 12
+   */
+  interface AudioSessionDeactivatedEvent {
+    /**
+     * Audio session deactivated reason.
+     * @type { AudioSessionDeactivatedReason }
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
+     */  
+    reason: AudioSessionDeactivatedReason;
+  }  
+
+  /**
    * Implements audio stream management.
    * @typedef AudioStreamManager
    * @syscap SystemCapability.Multimedia.Audio.Core
@@ -3820,6 +3925,38 @@ declare namespace audio {
     getAudioEffectInfoArraySync(usage: StreamUsage): AudioEffectInfoArray;
 
     /**
+     * Activate the audio session for the current pid application.
+     * @param { AudioSessionStrategy } strategy - Audio session strategy.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - System error. Return by promise.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
+     */
+    activateAudioSession(strategy: AudioSessionStrategy): Promise<void>;
+
+    /**
+     * Deactivate the audio session for the current pid application.
+     * @throws { BusinessError } 6800301 - System error. Return by promise.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
+     */
+    deactivateAudioSession(): Promise<void>;
+
+    /**
+     * Check whether the audio session is activated for the current application.
+     * @returns { boolean } The active audio session status for the current pid application.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
+     */
+    isAudioSessinActivated(): boolean;
+
+    /**
      * Listens for audio renderer change events. When there is any audio renderer change,
      * registered clients will receive the callback.
      * @param { 'audioRendererChange' } type - Type of the event to listen for. Only the audioRendererChange event is supported.
@@ -3918,6 +4055,34 @@ declare namespace audio {
      * @since 12
      */
     off(type: 'audioCapturerChange'): void;
+
+    /**
+     * Listens for audio session deactivated event. When there is audio session deactivated,
+     * registered clients will receive the callback.
+     * @param { 'audioSessionDeactivated' } type - Type of the event to listen for. Only the audioSessionDeactivated event is supported.
+     * @param { Callback<AudioSessionDeactivatedEvent> } callback - Callback invoked for the audio session deactivated event.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters unspecified.
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
+     */
+    on(type: 'audioSessionDeactivated', callback: Callback<AudioSessionDeactivatedEvent>): void;
+
+    /** 
+    * UnSubscribes to audio session deactivated event.
+    * @param { 'audioSessionDeactivated' } type - Type of the event to listen for. Only the audioSessionDeactivated event is supported.
+    * @throws { BusinessError } 401 - Parameter error. Possible causes:
+    *                                 1.Mandatory parameters are left unspecified;
+    *                                 2.Incorrect parameter types.
+    * @throws { BusinessError } 6800101 - Parameter verification failed.
+    * @syscap SystemCapability.Multimedia.Audio.Core
+    * @crossplatform
+    * @since 12
+    */
+   off(type: 'audioSessionDeactivated', callback?: Callback<AudioSessionDeactivatedEvent>): void;
 
     /**
      * Checks whether a stream is active. This method uses an asynchronous callback to return the query result.
