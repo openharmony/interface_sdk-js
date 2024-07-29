@@ -1869,7 +1869,7 @@ declare namespace media {
      */
     addSubtitleFromUrl(url: string): Promise<void>;
 
-    getPlayerInfo(): Promise<PlayerInfo>;
+    getPlaybackInfo(): Promise<PlaybackInfo>;
 
     /**
      * Media URI. Mainstream media formats are supported.
@@ -2830,11 +2830,11 @@ declare namespace media {
     off(type: 'subtitleUpdate', callback?: Callback<SubtitleInfo>): void
   }
 
-  interface PlayerInfo {
+  interface PlaybackInfo {
     [key:string]: Object;
   }
 
-  enum PlayerInfoKey {
+  enum PlaybackInfoKey {
     SERVER_IP_ADDRESS = "server_ip_address",
     AVERAGE_DOWNLOAD_RATE = "average_download_rate",
     DOWNLOAD_RATE = "download_rate",
