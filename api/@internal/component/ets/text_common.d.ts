@@ -898,7 +898,7 @@ declare interface EditMenuOptions {
   /**
    * Passes the default menu, invokes before every display to generate a menu for triggering click events.
    *
-   * @param { TextMenuItem } menuItems - current default menu array.
+   * @param { Array<TextMenuItem> } menuItems - current default menu array.
    * @returns { Array<TextMenuItem> } - Return the menu after operations.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
