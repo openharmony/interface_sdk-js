@@ -1869,6 +1869,12 @@ declare namespace media {
      */
     addSubtitleFromUrl(url: string): Promise<void>;
 
+    /**
+     * Get statistic infos of current player.
+     * @returns { PlaybackInfo } Statistic infos of current player.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 12
+     */
     getPlaybackInfo(): Promise<PlaybackInfo>;
 
     /**
@@ -2830,15 +2836,58 @@ declare namespace media {
     off(type: 'subtitleUpdate', callback?: Callback<SubtitleInfo>): void
   }
 
+  /**
+   * Provides player statistic info.
+   * 
+   * @typedef PlaybackInfo
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @since 12
+   */
   interface PlaybackInfo {
     [key:string]: Object;
   }
 
+  /**
+   * Enumerates statictics info keys for player.
+   * 
+   * @enum { string }
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @since 12
+   */
   enum PlaybackInfoKey {
+    /**
+     * IP address of current network stream.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
     SERVER_IP_ADDRESS = "server_ip_address",
-    AVERAGE_DOWNLOAD_RATE = "average_download_rate",
+
+    /**
+     * Average download rate during playing except for suspend downloading.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
+    AVG_DOWNLOAD_RATE = "average_download_rate",
+
+    /**
+     * Current download rate of the last second except for suspend downloading.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
     DOWNLOAD_RATE = "download_rate",
+
+    /**
+     * Boolean value, ture for current is downloading, false for suspend downloading.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
     IS_DOWNLOADING = "is_downloading",
+
+    /**
+     * Cached duration in milliseconds.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
     BUFFER_DURATION = "buffer_duration",
   }
 
