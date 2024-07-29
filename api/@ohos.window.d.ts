@@ -3394,6 +3394,7 @@ declare namespace window {
    *
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
    * @since 12
    */
   enum MaximizePresentation {
@@ -3401,6 +3402,7 @@ declare namespace window {
      * The value means follow immersive state which set by app
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
      * @since 12
      */
     FOLLOW_APP_IMMERSIVE_SETTING = 0,
@@ -3408,6 +3410,7 @@ declare namespace window {
      * The value means exit immersive state 
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
      * @since 12
      */
     EXIT_IMMERSIVE = 1,
@@ -3415,6 +3418,7 @@ declare namespace window {
      * The value means enter immersive state 
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
      * @since 12
      */
     ENTER_IMMERSIVE = 2,
