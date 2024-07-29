@@ -164,6 +164,7 @@ declare namespace display {
    * @returns { Promise<Array<DisplayPhysicalResolution>> } the result of all display physical resolution
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @atomicservice
    * @since 12
    */
   function getAllDisplayPhysicalResolution(): Promise<Array<DisplayPhysicalResolution>>;
@@ -1652,6 +1653,7 @@ declare namespace display {
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1400001 - Invalid display or screen.
      * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
      * @since 12
      */
     getAvailableArea(): Promise<Rect>;
@@ -1666,6 +1668,7 @@ declare namespace display {
     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
     * @throws { BusinessError } 1400003 - This display manager service works abnormally.
     * @syscap SystemCapability.Window.SessionManager
+    * @atomicservice
     * @since 12
     */
     on(type: 'availableAreaChange', callback: Callback<Rect>): void;
@@ -1680,6 +1683,7 @@ declare namespace display {
     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
     * @throws { BusinessError } 1400003 - This display manager service works abnormally.
     * @syscap SystemCapability.Window.SessionManager
+    * @atomicservice
     * @since 12
     */
     off(type: 'availableAreaChange', callback?: Callback<Rect>): void;

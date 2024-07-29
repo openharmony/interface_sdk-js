@@ -189,6 +189,7 @@ export interface TitleOptions {
    * @type { ?BarStyle }
    * @default BarStyle.STANDARD
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   barStyle?: BarStyle;
