@@ -2844,6 +2844,11 @@ declare namespace media {
    * @since 12
    */
   interface PlaybackInfo {
+    /**
+     * key:value pair, key see @PlaybackInfoKey.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
     [key:string]: Object;
   }
 
