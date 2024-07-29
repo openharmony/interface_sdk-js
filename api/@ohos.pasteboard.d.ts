@@ -1014,13 +1014,13 @@ declare namespace pasteboard {
      */
     replaceRecord(index: number, record: PasteDataRecord): void;
     /**
-     * Calls to take over the timing of closing the channel
+     * Utilized to notify pasteboard service while reading PasteData, in this case, the service will help to preserve the context and resources
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 12
      */
     pasteStart(): void;
     /**
-     * Actively close the channel
+     * Invoked to notify pasteboard service the utilization of PasteData has completed and occupied resources can be released for further usage
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 12
      */
