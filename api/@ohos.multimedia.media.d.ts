@@ -1871,7 +1871,7 @@ declare namespace media {
 
     /**
      * Get statistic infos of current player.
-     * @returns { PlaybackInfo } Statistic infos of current player.
+     * @returns { Promise<PlaybackInfo> } Statistic infos of current player.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 12
      */
