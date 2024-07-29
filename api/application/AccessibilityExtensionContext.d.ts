@@ -366,6 +366,7 @@ declare interface AccessibilityElement {
    *
    * @param { AsyncCallback<number> } callback Indicates the listener.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
    * @since 12
    */
   getCursorPosition(callback: AsyncCallback<number>): void;
@@ -375,6 +376,7 @@ declare interface AccessibilityElement {
    *
    * @returns { Promise<number> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
    * @since 12
    */
   getCursorPosition(): Promise<number>;
@@ -495,6 +497,7 @@ declare interface AccessibilityElement {
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
    * @since 12
    */
   findElement(type: 'textType', condition: string): Promise<Array<AccessibilityElement>>;
@@ -510,6 +513,7 @@ declare interface AccessibilityElement {
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
    * @since 12
    */
   findElement(type: 'elementId', condition: number): Promise<AccessibilityElement>;
