@@ -183,6 +183,16 @@ declare namespace router {
      * @since 11
      */
     params?: Object;
+
+    /**
+     * Set router page stack can be recovered after application is destroyed. When router page stack is recovered,
+     * top page will be recovered, other page recovered when it backs. the default value is 'true'.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Lite
+     * @since 13
+     */
+    recoverable?: boolean;
   }
 
   /**
@@ -998,6 +1008,16 @@ declare namespace router {
      * @since 11
      */
     params?: Object;
+
+    /**
+     * Set router page stack can be recovered after application is destroyed. When router page stack is recovered,
+     * top page will be recovered, other page recovered when it backs. the default value is 'true'.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Lite
+     * @since 13
+     */
+    recoverable?: boolean;
   }
 
   /**
