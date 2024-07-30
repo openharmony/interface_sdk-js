@@ -3625,7 +3625,7 @@ declare namespace media {
      * @systemapi
      * @since 12
      */
-    getInputMetaSurface(type: MetaSourceType): Promise<string>
+    getInputMetaSurface(type: MetaSourceType): Promise<string>;
 
     /**
      * Check if the avrecorder has watermark capability.
