@@ -87,6 +87,7 @@ declare namespace inputDeviceCooperate {
    *
    * @param { boolean } enable Whether to enable mouse traversal.
    * @param { AsyncCallback<void> } callback Asynchronous callback function.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws {BusinessError} 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
@@ -98,6 +99,7 @@ declare namespace inputDeviceCooperate {
    * Enable or disable the mouse traversal.
    *
    * @param enable Whether to enable mouse traversal.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws {BusinessError} 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
@@ -111,6 +113,7 @@ declare namespace inputDeviceCooperate {
    * @param { string } sinkDeviceDescriptor Descriptor of the target network for mouse traversal.
    * @param { number } srcInputDeviceId Identifier of the peripheral device for mouse traversal.
    * @param { AsyncCallback<void> } callback Asynchronous callback function.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 4400001 - Incorrect descriptor for the target device.
    * @throws { BusinessError } 4400002 - Screen hop failed.
@@ -125,6 +128,7 @@ declare namespace inputDeviceCooperate {
    *
    * @param { string } sinkDeviceDescriptor Descriptor of the target network for mouse traversal.
    * @param { number } srcInputDeviceId Identifier of the peripheral device for mouse traversal.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 4400001 - Incorrect descriptor for the target device.
    * @throws { BusinessError } 4400002 - Screen hop failed.
@@ -138,6 +142,7 @@ declare namespace inputDeviceCooperate {
    * Stops mouse traversal.
    *
    * @param { AsyncCallback<void> } callback Asynchronous callback function.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
@@ -149,6 +154,7 @@ declare namespace inputDeviceCooperate {
    * Stops mouse traversal.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @systemapi hide for inner use
    * @since 9
    */
@@ -159,7 +165,8 @@ declare namespace inputDeviceCooperate {
    *
    * @param {string} deviceDescriptor Descriptor of the target network for mouse traversal.
    * @param {AsyncCallback<{ state: boolean }>} callback Asynchronous callback used to receive the status of the mouse traversal switch.
-   * @throws {BusinessError} 401 - Parameter error.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
    * @since 9
@@ -170,7 +177,8 @@ declare namespace inputDeviceCooperate {
    * Obtains the status of the mouse traversal switch.
    *
    * @param deviceDescriptor Descriptor of the target network for mouse traversal.
-   * @throws {BusinessError} 401 - Parameter error.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
    * @since 9
@@ -183,6 +191,7 @@ declare namespace inputDeviceCooperate {
    * @param { 'cooperation' } type Registration type.
    * @param { AsyncCallback<{ deviceDescriptor: string, eventMsg: EventMsg }> } callback Asynchronous callback used to receive mouse traversal events.
    * @returns Callback for the input device event.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
@@ -195,6 +204,7 @@ declare namespace inputDeviceCooperate {
    * 
    * @param { 'cooperation' } type Registration type.
    * @param { AsyncCallback<void> } callback Asynchronous callback used to return the result.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use

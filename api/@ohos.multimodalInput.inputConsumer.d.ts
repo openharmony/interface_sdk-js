@@ -104,6 +104,7 @@ declare namespace inputConsumer {
    * @param { 'key' } type - type of the inputevent about input which is to be subscribed.
    * @param { KeyOptions } keyOptions - the key events about input which is to be subscribed.
    * @param { Callback<KeyOptions> } callback - callback function, receive reported data.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
@@ -118,6 +119,7 @@ declare namespace inputConsumer {
    * @param { 'key' } type - type of the inputevent about input which is to be subscribed.
    * @param { KeyOptions } keyOptions - the key events about input which is to be subscribed.
    * @param { Callback<KeyOptions> } callback - callback function, receive reported data.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
