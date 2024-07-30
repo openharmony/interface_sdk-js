@@ -2588,6 +2588,27 @@ export default class UIAbilityContext extends Context {
   terminateSelfWithResult(parameter: AbilityResult): Promise<void>;
 
   /**
+   * Return to caller application with specified result code and data while not destroying current ability.
+   * If the current application is in the background, you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   *
+   * @param { AbilityResult } abilityResult - Indicates the result to return.
+   * @param { number } requestCode - Indicates the request code of caller ability.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000074 - The caller does not exist.
+   * @throws { BusinessError } 16000075 - Not support back to caller.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+  backToCallerAbilityWithResult(abilityResult: AbilityResult, requestCode: number): Promise<void>;
+
+  /**
    * Connects the current ability to an service extension ability.
    *
    * @param { Want } want - The element name of the service ability
