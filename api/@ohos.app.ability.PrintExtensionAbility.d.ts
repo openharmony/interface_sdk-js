@@ -25,7 +25,7 @@ import type print from './@ohos.print';
  * class of print extensionAbility.
  *
  * @syscap SystemCapability.Print.PrintFramework
- * @StageModelOnly
+ * @stagemodelonly
  * @since 12
  */
 export default class PrintExtensionAbility {
