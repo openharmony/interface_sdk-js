@@ -2865,35 +2865,35 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 12
      */
-    SERVER_IP_ADDRESS = "server_ip_address",
+    SERVER_IP_ADDRESS = 'server_ip_address',
 
     /**
      * Average download rate during playing except for suspend downloading.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 12
      */
-    AVG_DOWNLOAD_RATE = "average_download_rate",
+    AVG_DOWNLOAD_RATE = 'average_download_rate',
 
     /**
      * Current download rate of the last second except for suspend downloading.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 12
      */
-    DOWNLOAD_RATE = "download_rate",
+    DOWNLOAD_RATE = 'download_rate',
 
     /**
      * Boolean value, true for current is downloading, false for suspend downloading.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 12
      */
-    IS_DOWNLOADING = "is_downloading",
+    IS_DOWNLOADING = 'is_downloading',
 
     /**
      * Cached duration in milliseconds.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 12
      */
-    BUFFER_DURATION = "buffer_duration",
+    BUFFER_DURATION = 'buffer_duration',
   }
 
   /**
