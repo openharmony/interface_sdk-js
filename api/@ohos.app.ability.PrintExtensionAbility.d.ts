@@ -84,7 +84,7 @@ export default class PrintExtensionAbility {
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   onStartPrintJob(jobInfo: print.PrintJob): void;
@@ -95,7 +95,7 @@ export default class PrintExtensionAbility {
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   onCancelPrintJob(jobInfo: print.PrintJob): void;
@@ -107,7 +107,7 @@ export default class PrintExtensionAbility {
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   onRequestPrinterCapability(printerId: number): print.PrinterCapability;
@@ -119,7 +119,7 @@ export default class PrintExtensionAbility {
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   onRequestPreview(jobInfo: print.PrintJob): string;
