@@ -18399,8 +18399,8 @@ declare class CommonMethod<T> {
   /**
    * Specifies the direction and style of chain in relative container
    *
-   * @param { Axis } value - indicates direction of the chain
-   * @param { ChainStyle } value - indicates style of the chain
+   * @param { Axis } direction - indicates direction of the chain
+   * @param { ChainStyle } style - indicates style of the chain
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -19150,7 +19150,7 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    * @deprecated since 12
-   * @useinstead common[CommonMethod]#clipShape
+   * @useinstead CommonMethod#clipShape
    */
   clip(value: boolean | CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute): T;
 
@@ -19216,7 +19216,7 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    * @deprecated since 12
-   * @useinstead common[CommonMethod]#maskShape
+   * @useinstead CommonMethod#maskShape
    */
   mask(value: CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute | ProgressMask): T;
 
@@ -22099,7 +22099,7 @@ declare class CustomComponent extends CommonAttribute {
    * @form
    * @since 9
    * @deprecated since 10
-   * @useinstead common[CustomComponent]#onPlaceChildren
+   * @useinstead CustomComponent#onPlaceChildren
    */
   onLayout?(children: Array<LayoutChild>, constraint: ConstraintSizeOptions): void;
 
@@ -22135,7 +22135,7 @@ declare class CustomComponent extends CommonAttribute {
    * @form
    * @since 9
    * @deprecated since 10
-   * @useinstead common[CustomComponent]#onMeasureSize
+   * @useinstead CustomComponent#onMeasureSize
    */
   onMeasure?(children: Array<LayoutChild>, constraint: ConstraintSizeOptions): void;
 
@@ -22734,7 +22734,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   /**
    * Edge scrolling effect.
    *
-   * @param { EdgeEffect } value - edge scrolling effect.
+   * @param { EdgeEffect } edgeEffect - edge scrolling effect.
    * @param { EdgeEffectOptions } options - edge scrolling effect options. 
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -23474,6 +23474,8 @@ declare interface Callback<T, V = void> {
  * The value of event contains information about HoverEvent.
  *
  * @typedef HoverCallback
+ * @param { boolean } isHover
+ * @param { HoverEvent} event
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -23487,6 +23489,8 @@ declare type HoverCallback = (isHover: boolean, event: HoverEvent) => void
  * The value of event contains information about AccessibilityHoverEvent.
  *
  * @typedef { function }
+ * @param { boolean } isHover
+ * @param { AccessibilityHoverEvent } event
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
