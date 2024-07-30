@@ -2714,7 +2714,6 @@ declare interface GeometryTransitionOptions {
    * @default TransitionHierarchyStrategy.ADAPTIVE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @atomicservice
    * @since 12
    */
   hierarchyStrategy?: TransitionHierarchyStrategy
@@ -2729,7 +2728,6 @@ declare interface GeometryTransitionOptions {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @atomicservice
  * @since 12
  */
 declare enum TransitionHierarchyStrategy {
@@ -2739,7 +2737,6 @@ declare enum TransitionHierarchyStrategy {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @atomicservice
    * @since 12
    */
   NONE = 0,
@@ -2751,7 +2748,6 @@ declare enum TransitionHierarchyStrategy {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @atomicservice
    * @since 12
    */
   ADAPTIVE = 1,
