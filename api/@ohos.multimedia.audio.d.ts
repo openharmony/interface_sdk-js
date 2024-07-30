@@ -4041,13 +4041,6 @@ declare namespace audio {
      * @since 12
      */
     DEACTIVATED_TIME_OUT = 1,
-    /**
-     * Audio scence updated.
-     * @syscap SystemCapability.Multimedia.Audio.Core
-     * @crossplatform
-     * @since 12
-     */
-    DEACTIVATED_AUDIO_SCENCE_UPATED = 2,
   }
 
   /**
