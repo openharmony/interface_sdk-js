@@ -433,8 +433,26 @@ declare namespace usbManager {
    * <br>2.Incorrect parameter types.  
    * @syscap SystemCapability.USB.USBManager
    * @since 9
+   * @deprecated since 12
+   * @useinstead ohos.usbManager/usbManager#usbcontrolTransfer
    */
   function controlTransfer(pipe: USBDevicePipe, controlparam: USBControlParams, timeout?: number): Promise<number>;
+
+  /**
+   * Performs usb control transfer.
+   *
+   * @param { USBDevicePipe } pipe - device pipe, which is used to determine the USB device. It cannot be empty.
+   * @param { USBDeviceRequestParams } requestparam - control transfer parameters. It cannot be empty.
+   * @param { number } [timeout] - timeout duration. This parameter is optional. The default value is **0**, indicating no timeout. 
+   * @returns { Promise<number> } returns the size of the transmitted or received data block if the control transfer is successful;
+   * return -1 if an exception occurs.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1.Mandatory parameters are left unspecified.
+   * <br>2.Incorrect parameter types.  
+   * @syscap SystemCapability.USB.USBManager
+   * @since 12
+   */
+  function usbcontrolTransfer(pipe: USBDevicePipe, requestparam: USBDeviceRequestParams, timeout?: number): Promise<number>;
 
   /**
    * Performs bulk transfer.
@@ -1117,6 +1135,69 @@ declare namespace usbManager {
      * @type { Uint8Array }
      * @syscap SystemCapability.USB.USBManager
      * @since 9
+     */
+    data: Uint8Array;
+  }
+
+  /**
+   * Represents control transfer parameters.
+   *
+   * @typedef USBDeviceRequestParams
+   * @syscap SystemCapability.USB.USBManager
+   * @since 12
+   */
+  interface USBDeviceRequestParams {
+    /**
+     * Byte map request type
+     *
+     * @type { number }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 12
+     */
+    bmRequestType: number;
+
+    /**
+     * Byte request
+     *
+     * @type { number }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 12
+     */
+    bRequest: number;
+
+    /**
+     * Request parameter word value
+     *
+     * @type { number }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 12
+     */
+    wValue: number;
+
+    /**
+     * Word index of the parameter value
+     *
+     * @type { number }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 12
+     */
+    wIndex: number;
+
+    /**
+     * Word length of the parameter value
+     *
+     * @type { number }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 12
+     */
+    wLength: number;
+
+    /**
+     * Data written to or read from the buffer
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 12
      */
     data: Uint8Array;
   }
