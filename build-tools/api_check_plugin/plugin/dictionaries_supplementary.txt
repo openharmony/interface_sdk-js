@@ -781,6 +781,7 @@ pss
 pssh
 puk
 pvr
+qualities
 quant
 querier
 queriers
