@@ -15,7 +15,6 @@
 
 /**
  * @file
- * @kit AbilityKit
  */
 
 import { AsyncCallback } from './@ohos.base';
