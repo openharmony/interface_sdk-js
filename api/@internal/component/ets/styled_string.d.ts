@@ -122,7 +122,7 @@ declare class StyledString {
      * @atomicservice
      * @since 12
      */
-    static loadFromHtml(html: string): Promise<StyledString>;
+    static fromHtml(html: string): Promise<StyledString>;
 }
 
 /**
