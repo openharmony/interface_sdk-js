@@ -125,7 +125,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 13
      */
     onComplete(callback: MovingPhotoViewEventCallback): MovingPhotoViewAttribute;
     /**
@@ -193,7 +193,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 13
      */
     autoPlayPeriod(startTime: number, endTime: number): MovingPhotoViewAttribute;
     /**
@@ -205,7 +205,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 13
      */
     autoPlay(isAutoPlay: boolean): MovingPhotoViewAttribute;
     /**
@@ -217,7 +217,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 13
      */
     repeatPlay(isRepeatPlay: boolean): MovingPhotoViewAttribute;
 }
