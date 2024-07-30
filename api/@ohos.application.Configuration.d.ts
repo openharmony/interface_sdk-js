@@ -15,7 +15,6 @@
 
 /**
  * @file
- * @kit AbilityKit
  */
 
 import ConfigurationConstant from './@ohos.application.ConfigurationConstant';
