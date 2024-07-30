@@ -422,6 +422,7 @@ declare namespace accessibility {
    * @returns { CaptionsManager } Returns the captions manager.
    * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
    * @since 8
+   * @deprecated since 12
    */
   function getCaptionsManager(): CaptionsManager;
 
@@ -461,6 +462,7 @@ declare namespace accessibility {
      *     3. Parameter verification failed.
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
      * @since 8
+     * @deprecated since 12
      */
     on(type: 'enableChange', callback: Callback<boolean>): void;
 
@@ -475,6 +477,7 @@ declare namespace accessibility {
      *     3. Parameter verification failed.
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
      * @since 8
+     * @deprecated since 12
      */
     on(type: 'styleChange', callback: Callback<CaptionsStyle>): void;
 
@@ -489,6 +492,7 @@ declare namespace accessibility {
      *     3. Parameter verification failed.
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
      * @since 8
+     * @deprecated since 12
      */
     off(type: 'enableChange', callback?: Callback<boolean>): void;
 
@@ -503,6 +507,7 @@ declare namespace accessibility {
      *     3. Parameter verification failed.
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
      * @since 8
+     * @deprecated since 12
      */
     off(type: 'styleChange', callback?: Callback<CaptionsStyle>): void;
   }
