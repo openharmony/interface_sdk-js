@@ -6188,6 +6188,18 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 12
      */
     release(): Promise<void>;
+
+   /**
+     * Enables the PixelMap object to be transferred across threads and detaches the reference from the current
+     * thread upon transfer.
+     *
+     * @param { boolean } detached A boolean value indicating whether to enable or disable the transfer and
+     * detachment feature.
+     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    setTransferDetached(detached: boolean): void;
   }
 
   /**
