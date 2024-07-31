@@ -13484,6 +13484,18 @@ declare interface ContextMenuOptions {
    * @since 12
    */
   transition?: TransitionEffect;
+
+  /**
+    * Defines the menu's half folded area
+    *
+    * @type { ?HalfFoldedAreaType }
+    * @default HalfFoldedAreaType.DownHalfScreen
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 13
+    */
+    halfFoldedArea?: HalfFoldedAreaType;
 }
 
 /**
