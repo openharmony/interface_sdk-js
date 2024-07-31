@@ -12571,7 +12571,7 @@ declare interface PopupOptions {
    * @atomicservice
    * @since 13
    */
-  halfFoldedArea?: boolean;
+  enableFoldedArea?: boolean;
 }
 
 /**
@@ -13094,7 +13094,7 @@ declare interface CustomPopupOptions {
    * @atomicservice
    * @since 13
    */
-  halfFoldedArea?: boolean;
+  enableFoldedArea?: boolean;
 }
 
 /**
@@ -13519,7 +13519,7 @@ declare interface ContextMenuOptions {
     * @atomicservice
     * @since 13
     */
-    halfFoldedArea?: boolean;
+  enableFoldedArea?: boolean;
 }
 
 /**
