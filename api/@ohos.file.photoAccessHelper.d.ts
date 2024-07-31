@@ -505,6 +505,42 @@ declare namespace photoAccessHelper {
   }
 
   /**
+   * Enum: complete button text
+   *
+   * @enum { number } CompleteButtonText
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 12
+   */
+  enum CompleteButtonText {
+    /**
+     * Complete button text: done
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    TEXT_DONE = 0,
+    /**
+     * Complete button text: send
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    TEXT_SEND = 1,
+
+    /**
+     * Complete button text: add
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    TEXT_ADD = 2,
+  }
+
+  /**
    * Options to request media asset
    *
    * @interface RequestOptions
@@ -3646,6 +3682,16 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     isPreviewForSingleSelectionSupported?: boolean;
+
+    /**
+     * Complete button text
+     *
+     * @type { ?CompleteButtonText }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    completeButtonText?: CompleteButtonText;
   }
 
   /**
