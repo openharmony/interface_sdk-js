@@ -843,6 +843,7 @@ interface ElementAttributeValues {
   /**
    * Indicates whether the element is scrollable.
    *
+   * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
