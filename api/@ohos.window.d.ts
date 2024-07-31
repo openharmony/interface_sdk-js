@@ -4242,6 +4242,7 @@ declare namespace window {
      * @atomicservice
      * @since 12
      * @deprecated since 12
+     * @useinstead ohos.window.Window#setWindowLayoutFullScreen
      */
     setWindowLayoutFullScreen(isLayoutFullScreen: boolean, callback: AsyncCallback<void>): void;
 
@@ -4334,6 +4335,7 @@ declare namespace window {
      * @atomicservice
      * @since 12
      * @deprecated since 12
+     * @useinstead ohos.window.Window#setWindowSystemBarEnable
      */
     setWindowSystemBarEnable(names: Array<'status' | 'navigation'>, callback: AsyncCallback<void>): void;
 
@@ -4461,6 +4463,7 @@ declare namespace window {
      * @atomicservice
      * @since 12
      * @deprecated since 12
+     * @useinstead ohos.window.Window#setWindowSystemBarProperties
      */
     setWindowSystemBarProperties(systemBarProperties: SystemBarProperties, callback: AsyncCallback<void>): void;
 
