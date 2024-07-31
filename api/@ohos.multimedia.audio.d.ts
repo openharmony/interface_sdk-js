@@ -7269,7 +7269,7 @@ declare namespace audio {
     SOURCE_TYPE_PLAYBACK_CAPTURE = 2,
     /**
      * Wakeup source type.
-     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
+     * Permission ohos.permission.MANAGE_INTELLIGENT_VOICE is needed when calling createAudioCapturer with this type.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
      * @since 10
@@ -7278,7 +7278,7 @@ declare namespace audio {
 
     /**
      * Voice call source type.
-     * @permission ohos.permission.RECORD_VOICE_CALL
+     * Permission ohos.permission.RECORD_VOICE_CALL is needed when calling createAudioCapturer with this type.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
      * @since 11
