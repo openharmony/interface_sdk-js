@@ -434,7 +434,7 @@ declare namespace usbManager {
    * @syscap SystemCapability.USB.USBManager
    * @since 9
    * @deprecated since 12
-   * @useinstead ohos.usbManager/usbManager#usbcontrolTransfer
+   * @useinstead ohos.usbManager/usbManager#usbControlTransfer
    */
   function controlTransfer(pipe: USBDevicePipe, controlparam: USBControlParams, timeout?: number): Promise<number>;
 
@@ -452,7 +452,7 @@ declare namespace usbManager {
    * @syscap SystemCapability.USB.USBManager
    * @since 12
    */
-  function usbcontrolTransfer(pipe: USBDevicePipe, requestparam: USBDeviceRequestParams, timeout?: number): Promise<number>;
+  function usbControlTransfer(pipe: USBDevicePipe, requestparam: USBDeviceRequestParams, timeout?: number): Promise<number>;
 
   /**
    * Performs bulk transfer.
