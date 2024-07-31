@@ -1044,7 +1044,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @atomicservice
    * @since 12
    */
-  shadow?: ShadowOptions | ShadowStyle;
+  shadow?: ShadowOptions | ShadowStyle; 
 
   /**
    * Defines the dialog's half folded area
