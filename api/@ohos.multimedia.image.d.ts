@@ -2193,7 +2193,7 @@ declare namespace image {
      * @crossplatform
      * @since 12
      */
-    IS_SUPPORT_XMAGE = 'HwMnoteIsXmageSupported',
+    IS_XMAGE_SUPPORTED = 'HwMnoteIsXmageSupported',
 
     /**
      * Xmage Mode
@@ -2247,7 +2247,7 @@ declare namespace image {
      * @crossplatform
      * @since 12
      */
-    CLOUD_ENHANCE_MODE = 'HwMnoteCloudEnhancementMode',
+    CLOUD_ENHANCEMENT_MODE = 'HwMnoteCloudEnhancementMode',
 
     /**
      * Wind Snapshot Mode
