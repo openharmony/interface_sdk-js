@@ -1044,7 +1044,19 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @atomicservice
    * @since 12
    */
-  shadow?: ShadowOptions | ShadowStyle; 
+  shadow?: ShadowOptions | ShadowStyle;
+
+  /**
+   * Defines the dialog's half folded area
+   *
+   * @type { ?HalfFoldedAreaType }
+   * @default HalfFoldedAreaType.DOWN_HALF_SCREEN
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  halfFoldedArea?: HalfFoldedAreaType;
 }
 
 /**
