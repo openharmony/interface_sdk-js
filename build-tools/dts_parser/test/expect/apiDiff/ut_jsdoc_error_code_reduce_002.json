@@ -1,14 +1,14 @@
 [
   {
     "apiType": "Method",
-    "statusCode": 7,
+    "statusCode": 28,
     "oldApiDefinedText": "func(str: string): void;",
     "newApiDefinedText": "func(str: string): void;",
     "oldApiName": "func",
     "newApiName": "func",
     "oldDtsName": "ut_jsdoc_error_code_reduce_002.d.ts",
     "newDtsName": "ut_jsdoc_error_code_reduce_002.d.ts",
-    "diffType": 21,
+    "diffType": 22,
     "diffMessage": "错误码减少",
     "changeLogUrl": "",
     "changeLogs": [],
@@ -32,8 +32,11 @@
       "character": 3
     },
     "oldDescription": "201,202,401",
-    "newDescription": "",
+    "newDescription": "NA",
     "oldSyscapField": "",
-    "newSyscapField": ""
+    "newSyscapField": "",
+    "oldKitInfo": "",
+    "newKitInfo": "",
+    "isSystemapi": false
   }
 ]

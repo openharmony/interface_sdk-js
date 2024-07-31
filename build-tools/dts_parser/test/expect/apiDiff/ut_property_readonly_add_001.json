@@ -8,11 +8,11 @@
     "newApiName": "constant2",
     "oldDtsName": "",
     "newDtsName": "ut_property_readonly_add_001.d.ts",
-    "diffType": 59,
+    "diffType": 75,
     "diffMessage": "新增API",
     "changeLogUrl": "",
     "changeLogs": [],
-    "isCompatible": true,
+    "isCompatible": false,
     "oldHierarchicalRelations": [],
     "newHierarchicalRelations": [
       "ut_property_readonly_add_001.d.ts",
@@ -30,6 +30,9 @@
     "oldDescription": "",
     "newDescription": "readonly constant2: 2;",
     "oldSyscapField": "",
-    "newSyscapField": ""
+    "newSyscapField": "",
+    "oldKitInfo": "",
+    "newKitInfo": "",
+    "isSystemapi": false
   }
 ]

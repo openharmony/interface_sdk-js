@@ -27,9 +27,8 @@
 declare namespace abilityAccessCtrl {
   
   /**
-   * @constant
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 10
+   * @since 12
    */
   const audioMono: { [key: string]: string[] };
 }

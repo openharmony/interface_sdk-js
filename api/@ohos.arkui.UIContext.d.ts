@@ -1190,6 +1190,39 @@ export class PromptAction {
      * @since 12
      */
     closeCustomDialog<T extends Object>(dialogContent: ComponentContent<T>): Promise<void>;
+
+    /**
+     * Open the custom dialog.
+     *
+     * @param { promptAction.CustomDialogOptions } options - Options.
+     * @returns { Promise<number> } return the dialog id that will be used by closeCustomDialog.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
+     * @throws { BusinessError } 100001 - Internal error.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    openCustomDialog(options: promptAction.CustomDialogOptions): Promise<number>;
+
+    /**
+     * Close the custom dialog.
+     *
+     * @param { number } dialogId - the dialog id that returned by openCustomDialog.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
+     * @throws { BusinessError } 100001 - Internal error.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    closeCustomDialog(dialogId: number): void;
 }
 
 /**
@@ -1232,6 +1265,7 @@ declare type GestureEventListenerCallback = (event: GestureEvent, node?: FrameNo
  * @interface PageInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 export interface PageInfo {
@@ -1240,6 +1274,7 @@ export interface PageInfo {
    *
    * @type { ?observer.RouterPageInfo }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   routerPageInfo?: observer.RouterPageInfo;
@@ -1249,6 +1284,7 @@ export interface PageInfo {
    *
    * @type { ?observer.NavDestinationInfo }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   navDestinationInfo?: observer.NavDestinationInfo;
@@ -2139,6 +2175,7 @@ export class DragController {
    * not fully strict.
    * @param { boolean } enable - Indicating enable drag event strict reporting or not.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   setDragEventStrictReportingEnabled(enable: boolean): void;
@@ -2290,6 +2327,7 @@ export abstract class FrameCallback {
  * The base context of an ability or an application. It allows access to
  * application-specific resources.
  *
+ * @typedef { common.Context } Context
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
  * @crossplatform
@@ -2354,6 +2392,8 @@ export class ComponentSnapshot {
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - The builder is not a valid build function.
+   * @throws { BusinessError } 160001 - An image component in builder is not ready for taking a snapshot. The check for
+   * the ready state is required when the checkImageStatus option is enabled.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -2375,6 +2415,8 @@ export class ComponentSnapshot {
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - The builder is not a valid build function.
+   * @throws { BusinessError } 160001 - An image component in builder is not ready for taking a snapshot. The check for
+   * the ready state is required when the checkImageStatus option is enabled.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice

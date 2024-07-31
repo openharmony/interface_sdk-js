@@ -63,7 +63,10 @@ declare namespace stream {
      * @param { string } [encoding] - Encoding type.
      * @param { Function } [callback] - Callback after writing.
      * @returns { boolean } Write success returns true, write failure returns false.
-     * @throws { BusinessError } 401 - An input parameter is invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types;
+     *     3.Parameter verification failed.
      * @throws { BusinessError } 10200035 - The doWrite method has not been implemented.
      * @throws { BusinessError } 10200036 - The stream has been ended.
      * @throws { BusinessError } 10200037 - The callback is invoked multiple times consecutively.
@@ -80,7 +83,10 @@ declare namespace stream {
      * @param { string } [encoding] - Encoding type.
      * @param { Function } [callback] - Callback after writing.
      * @returns { Writable } Returns the Writable object.
-     * @throws { BusinessError } 401 - An input parameter is invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types;
+     *     3.Parameter verification failed.
      * @throws { BusinessError } 10200035 - The doWrite method has not been implemented.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -93,7 +99,10 @@ declare namespace stream {
      *
      * @param { string } [encoding] - Encoding type.Default: utf8.
      * @returns { boolean } Setting successful returns true, setting failed returns false.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types;
+     *     3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -125,7 +134,10 @@ declare namespace stream {
      *
      * @param { string } event - Register Event.
      * @param { Callback<emitter.EventData> } callback - event callbacks.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types;
+     *     3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -137,7 +149,9 @@ declare namespace stream {
      *
      * @param { string } event - Register Event.
      * @param { Callback<emitter.EventData> } callback - event callbacks.
-     * @throws { BusinessError } 401 - An input parameter is invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -149,7 +163,9 @@ declare namespace stream {
      * After the resource is initialized in the doInitialize method, the callback () method is invoked.
      *
      * @param { Function } callback - Callback when the stream has completed the initial.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -163,7 +179,10 @@ declare namespace stream {
      * @param { string | Uint8Array } [chunk] - Data to be written.
      * @param { string } [encoding] - Encoding type.
      * @param { Function } [callback] - Callback after writing.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types;
+     *     3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -176,7 +195,10 @@ declare namespace stream {
      *
      * @param { string[] | Uint8Array[] } [chunks] - Data to be written.
      * @param { Function } [callback] - Callback after writing.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types;
+     *     3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -289,7 +311,10 @@ declare namespace stream {
      * @param { string } encoding - If the chunk is a string, then this is the encoding type. If chunk is a buffer,
      * then this is the special value 'buffer'. Ignore it in that case.
      * @param { Function } callback - Callback after conversion.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types;
+     *     3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -301,7 +326,10 @@ declare namespace stream {
      * not be called directly, only called by Writable after flushing all data.
      *
      * @param { Function } callback - Callback after flush completion.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types;
+     *     3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -316,6 +344,7 @@ declare namespace stream {
    * @interface ReadableOptions
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   interface ReadableOptions {
@@ -332,6 +361,7 @@ declare namespace stream {
     * @type { ?string }
     * @syscap SystemCapability.Utils.Lang
     * @crossplatform
+    * @atomicservice
     * @since 12
     */
     encoding?: string;
@@ -360,9 +390,12 @@ declare namespace stream {
      *
      * @param { ReadableOptions } options - Provide options.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types;
+     *     3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     constructor(options: ReadableOptions);
@@ -372,7 +405,10 @@ declare namespace stream {
      *
      * @param { number } size - Expected length of the data to be read.
      * @returns { string | null } If no data is available to read, null is returned.
-     * @throws { BusinessError } 401 - An input parameter is invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types;
+     *     3.Parameter verification failed.
      * @throws { BusinessError } 10200038 - The doRead method has not been implemented.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -405,7 +441,9 @@ declare namespace stream {
      *
      * @param { string } [encoding] - Original Data Encoding Type.
      * @returns { boolean } Setting successful returns true, setting failed returns false.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -428,7 +466,10 @@ declare namespace stream {
      * @param { Writable } destination - Output writable stream.
      * @param { Object } [options] - Pipeline Options.
      * @returns { Writable } Returns the Writable object.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types;
+     *     3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -440,7 +481,10 @@ declare namespace stream {
      *
      * @param { Writable } [destination] - Writable Streams Needing to Be Disconnected.
      * @returns { Readable } Returns the Readable object.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types;
+     *     3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -452,7 +496,9 @@ declare namespace stream {
      *
      * @param { string } event - Registering Events.
      * @param { Callback<emitter.EventData> } callback - Event callback.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -464,7 +510,9 @@ declare namespace stream {
      *
      * @param { string } event - Registering Events.
      * @param { Callback<emitter.EventData> } callback - Event callback.
-     * @throws { BusinessError } 401 - An input parameter is invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -476,7 +524,10 @@ declare namespace stream {
      * It must not be called directly.
      *
      * @param { Function } callback - Callback when the stream has completed the initial.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types;
+     *     3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -489,7 +540,10 @@ declare namespace stream {
      * If push is not called, doRead will not be called again.
      * 
      * @param { number } size - Expected length of the data to be read.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types;
+     *     3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -504,13 +558,15 @@ declare namespace stream {
      * @param { string } [encoding] - Binary data encoding type.
      * @returns { boolean } If true is returned, the data in the buffer reaches the highWaterMark. Otherwise, the
      * data in the buffer does not reach the highWaterMark.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12
      */
-    push(chunk:  Uint8Array | string | null, encoding?: string): boolean;
+    push(chunk: Uint8Array | string | null, encoding?: string): boolean;
     /**
      * Returns boolean indicating whether it is in ObjectMode.
      *
@@ -544,7 +600,7 @@ declare namespace stream {
      * @atomicservice
      * @since 12
      */
-    readonly readableHighWatermark: number
+    readonly readableHighWatermark: number;
     /**
      * This property reflects the current state of the readable stream null/true/false.
      *
@@ -621,7 +677,10 @@ declare namespace stream {
      * @param { string } [encoding] - Encoding type.
      * @param { Function } [callback] - Callback after writing.
      * @returns { boolean } Write success returns true, write failure returns false.
-     * @throws { BusinessError } 401 - An input parameter is invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types;
+     *     3.Parameter verification failed.
      * @throws { BusinessError } 10200036 - The stream has been ended.
      * @throws { BusinessError } 10200037 - The callback is invoked multiple times consecutively.
      * @throws { BusinessError } 10200039 - The doTransform method has not been implemented for a class that inherits from Transform.
@@ -638,7 +697,10 @@ declare namespace stream {
      * @param { string } [encoding] - Encoding type.
      * @param { Function } [callback] - Callback after writing.
      * @returns { Writable } Returns the Writable object.
-     * @throws { BusinessError } 401 - An input parameter is invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types;
+     *     3.Parameter verification failed.
      * @throws { BusinessError } 10200039 - The doTransform method has not been implemented for a class that inherits from Transform.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -651,7 +713,10 @@ declare namespace stream {
      *
      * @param { string } [encoding] - Encoding type.Default: utf8.
      * @returns { boolean } Setting successful returns true, setting failed returns false.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types;
+     *     3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -685,7 +750,10 @@ declare namespace stream {
      * @param { string | Uint8Array } [chunk] - Data to be written.
      * @param { string } [encoding] - Encoding type.
      * @param { Function } [callback] - Callback after writing.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types;
+     *     3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -698,7 +766,10 @@ declare namespace stream {
      *
      * @param { string[] | Uint8Array[] } [chunks] - Data to be written.
      * @param { Function } [callback] - Callback after writing.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types;
+     *     3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice

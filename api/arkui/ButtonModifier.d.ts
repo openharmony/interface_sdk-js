@@ -26,6 +26,7 @@
  * @extends ButtonAttribute
  * @implements AttributeModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class ButtonModifier extends ButtonAttribute implements AttributeModifier<ButtonAttribute> {
@@ -36,6 +37,7 @@ export declare class ButtonModifier extends ButtonAttribute implements Attribute
    * @param { ButtonAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: ButtonAttribute): void;

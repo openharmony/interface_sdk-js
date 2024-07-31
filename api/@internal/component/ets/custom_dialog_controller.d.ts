@@ -384,6 +384,7 @@ declare interface CustomDialogControllerOptions {
    * @type { ?Callback<DismissDialogAction> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onWillDismiss?: Callback<DismissDialogAction>;
@@ -394,6 +395,7 @@ declare interface CustomDialogControllerOptions {
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   width?: Dimension;
@@ -404,6 +406,7 @@ declare interface CustomDialogControllerOptions {
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   height?: Dimension;
@@ -414,6 +417,7 @@ declare interface CustomDialogControllerOptions {
    * @type { ?(Dimension | EdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   borderWidth?: Dimension | EdgeWidths;
@@ -424,6 +428,7 @@ declare interface CustomDialogControllerOptions {
    * @type { ?(ResourceColor | EdgeColors) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   borderColor?: ResourceColor | EdgeColors;
@@ -434,6 +439,7 @@ declare interface CustomDialogControllerOptions {
    * @type { ?(BorderStyle | EdgeStyles) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   borderStyle?: BorderStyle | EdgeStyles;
@@ -444,6 +450,7 @@ declare interface CustomDialogControllerOptions {
    * @type { ?(ShadowOptions | ShadowStyle) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   shadow?: ShadowOptions | ShadowStyle;
@@ -455,6 +462,7 @@ declare interface CustomDialogControllerOptions {
    * @default BlurStyle.COMPONENT_ULTRA_THICK
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   backgroundBlurStyle?: BlurStyle;
@@ -466,6 +474,7 @@ declare interface CustomDialogControllerOptions {
  * @interface DismissDialogAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface DismissDialogAction {
@@ -475,6 +484,7 @@ declare interface DismissDialogAction {
    * @type { Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   dismiss: Callback<void>;
@@ -485,6 +495,7 @@ declare interface DismissDialogAction {
    * @type { DismissReason }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   reason: DismissReason;

@@ -519,6 +519,21 @@ declare namespace camera {
     muteCamera(mute: boolean): void;
 
     /**
+     * Mutes or unmutes camera for persistence purpose.
+     *
+     * @permission ohos.camera.CAMERA_CONTROL
+     * @param { boolean } mute - Mute camera if TRUE, otherwise unmute camera.
+     * @param { PolicyType } type - Type for indicating the calling role.
+     * @throws { BusinessError } 201 - Permission denied. 
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect. 
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    muteCameraPersistent(mute: boolean, type: PolicyType): void;
+
+    /**
      * Creates a CameraInput instance by camera.
      *
      * @permission ohos.permission.CAMERA
@@ -592,6 +607,20 @@ declare namespace camera {
     createPreviewOutput(profile: Profile, surfaceId: string): PreviewOutput;
 
     /**
+     * Creates a PreviewOutput instance without profile.
+     * You can use this method to create a preview output instance without a profile, This instance can
+     * only be used in a preconfiged session.
+     *
+     * @param { string } surfaceId - Surface object id used in camera preview output.
+     * @returns { PreviewOutput } The PreviewOutput instance.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
+    createPreviewOutput(surfaceId: string): PreviewOutput;
+
+    /**
      * Creates a PhotoOutput instance.
      *
      * @param { Profile } profile - Photo output profile.
@@ -620,6 +649,8 @@ declare namespace camera {
      * Creates a PhotoOutput instance without surfaceId.
      * Call PhotoOutput capture interface will give a callback,
      * {@link on(type: 'photoAvailable', callback: AsyncCallback<Photo>)}
+     * You can use this method to create a photo output instance without a profile, This instance can
+     * only be used in a preconfiged session.
      *
      * @param { Profile } profile - Photo output profile.
      * @returns { PhotoOutput } The PhotoOutput instance.
@@ -628,7 +659,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 12
      */
-    createPhotoOutput(profile: Profile): PhotoOutput;
+    createPhotoOutput(profile?: Profile): PhotoOutput;
 
     /**
      * Creates a VideoOutput instance.
@@ -652,6 +683,20 @@ declare namespace camera {
      * @since 12
      */
     createVideoOutput(profile: VideoProfile, surfaceId: string): VideoOutput;
+
+    /**
+     * Creates a VideoOutput instance without profile.
+     * You can use this method to create a video output instance without a profile, This instance can
+     * only be used in a preconfiged session.
+     *
+     * @param { string } surfaceId - Surface object id used in camera video output.
+     * @returns { VideoOutput } The VideoOutput instance.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
+    createVideoOutput(surfaceId: string): VideoOutput;
 
     /**
      * Creates a MetadataOutput instance.
@@ -839,6 +884,8 @@ declare namespace camera {
      */
     /**
      * Creates a deferred PreviewOutput instance.
+     * You can use the method to create deferred preview output without profile, then you must add this output
+     * to a session which already preconfiged.
      *
      * @param { Profile } profile - Preview output profile.
      * @returns { PreviewOutput } the PreviewOutput instance.
@@ -848,7 +895,7 @@ declare namespace camera {
      * @systemapi
      * @since 12
      */
-    createDeferredPreviewOutput(profile: Profile): PreviewOutput;
+    createDeferredPreviewOutput(profile?: Profile): PreviewOutput;
 
     /**
      * Check if the device has a torch.
@@ -3036,7 +3083,26 @@ declare namespace camera {
     BLACK_WHITE = 3
   }
 
+  /**
+   * Enum for policy type
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 12
+   */
+  enum PolicyType {
     /**
+     * PRIVACY type.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    PRIVACY = 1,
+  }
+
+  /**
    * Color Effect Query object.
    *
    * @interface ColorEffectQuery
@@ -4040,6 +4106,81 @@ declare namespace camera {
   }
 
   /**
+   * Types of preconfig, which used to configure session conveniently.
+   * Preconfig type contains common use cases of camera output.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @since 12
+   */
+  enum PreconfigType {
+    /**
+     * 720P output for preconfig.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
+    PRECONFIG_720P = 0,
+  
+    /**
+     * 1080P output for preconfig.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
+    PRECONFIG_1080P = 1,
+  
+    /**
+     * 4K output for preconfig.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
+    PRECONFIG_4K = 2,
+  
+    /**
+     * high quality output for preconfig.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
+    PRECONFIG_HIGH_QUALITY = 3
+  }
+
+  /**
+   * The aspect ratios of preconfig, which used to configure session conveniently.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @since 12
+   */
+  enum PreconfigRatio {
+    /**
+     * Aspect ratio 1:1 for preconfig.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
+    PRECONFIG_RATIO_1_1 = 0,
+  
+    /**
+     * Aspect ratio 4:3 for preconfig.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
+    PRECONFIG_RATIO_4_3 = 1,
+  
+    /**
+     * Aspect ratio 16:9 for preconfig.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
+    PRECONFIG_RATIO_16_9 = 2
+  }
+
+  /**
    * Enum for feature type used in scene detection.
    *
    * @enum { number }
@@ -4155,6 +4296,33 @@ declare namespace camera {
    * @since 11
    */
   interface PhotoSession extends Session, Flash, AutoExposure, Focus, Zoom, ColorManagement {
+    /**
+     * Gets whether the choosed preconfig type can be used to configure photo session.
+     * Must choose preconfig type from {@link PreconfigType}.
+     *
+     * @param { PreconfigType } preconfigType - preconfig type.
+     * @param { PreconfigRatio } preconfigRatio - the aspect ratio of surface for preconfig, 
+     *                                            default value {@link PreconfigRatio#PRECONFIG_RATIO_4_3}.
+     * @returns { boolean } Whether the choosed preconfig type can be used.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
+    canPreconfig(preconfigType: PreconfigType, preconfigRatio?: PreconfigRatio): boolean;
+
+    /**
+     * Configure photo session with the preconfig type.
+     * Must choose preconfig type from {@link PreconfigType}.
+     *
+     * @param { PreconfigType } preconfigType - preconfig type.
+     * @param { PreconfigRatio } preconfigRatio - the aspect ratio of surface for preconfig,
+     *                                            default value {@link PreconfigRatio#PRECONFIG_RATIO_4_3}
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
+    preconfig(preconfigType: PreconfigType, preconfigRatio?: PreconfigRatio): void;
+
     /**
      * Subscribes to error events.
      *
@@ -4307,6 +4475,33 @@ declare namespace camera {
    * @since 11
    */
   interface VideoSession extends Session, Flash, AutoExposure, Focus, Zoom, Stabilization, ColorManagement {
+    /**
+     * Gets whether the choosed preconfig type can be used to configure video session.
+     * Must choose preconfig type from {@link PreconfigType}.
+     *
+     * @param { PreconfigType } preconfigType - preconfig type.
+     * @param { PreconfigRatio } preconfigRatio - the aspect ratio of surface for preconfig,
+     *                                            default value {@link PreconfigRatio#PRECONFIG_RATIO_16_9}.
+     * @returns { boolean } Whether the choosed preconfig type can be used.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
+    canPreconfig(preconfigType: PreconfigType, preconfigRatio?: PreconfigRatio): boolean;
+
+    /**
+     * Configure video session with the preconfig type.
+     * Must choose preconfig type from {@link PreconfigType}.
+     *
+     * @param { PreconfigType } preconfigType - preconfig type.
+     * @param { PreconfigRatio } preconfigRatio - the aspect ratio of surface for preconfig,
+     *                                            default value {@link PreconfigRatio#PRECONFIG_RATIO_16_9}.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
+    preconfig(preconfigType: PreconfigType, preconfigRatio?: PreconfigRatio): void;
+
     /**
      * Subscribes to error events.
      *
@@ -6109,6 +6304,16 @@ declare namespace camera {
     getActiveFrameRate(): FrameRateRange;
 
     /**
+     * Gets the current preconfig type if you had already call preconfig interface.
+     *
+     * @returns { Profile } The current preconfig type.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
+    getActiveProfile(): Profile;
+
+    /**
      * Adds a deferred surface.
      *
      * @param { string } surfaceId - Surface object id used in camera photo output.
@@ -6911,6 +7116,16 @@ declare namespace camera {
     off(type: 'error', callback?: ErrorCallback): void;
 
     /**
+     * Gets the current preconfig type if you had already call preconfig interface.
+     *
+     * @returns { Profile } The current preconfig type.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
+    getActiveProfile(): Profile;
+
+    /**
      * Checks whether PhotoOutput supports quick thumbnail.
      * This method is valid after Session.addInput() and Session.addOutput(photoOutput) are called.
      *
@@ -7294,6 +7509,16 @@ declare namespace camera {
      * @since 10
      */
     off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Gets the current preconfig type if you had already call preconfig interface.
+     *
+     * @returns { VideoProfile } The current preconfig type.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
+    getActiveProfile(): VideoProfile;
   }
 
   /**

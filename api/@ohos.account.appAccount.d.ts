@@ -2669,6 +2669,7 @@ declare namespace appAccount {
     /**
      * Notifies the client of the authentication result.
      *
+     * @type { function }
      * @syscap SystemCapability.Account.AppAccount
      * @since 8
      * @deprecated since 9
@@ -2678,6 +2679,7 @@ declare namespace appAccount {
     /**
      * Notifies the client that the authentication request need to be redirected.
      *
+     * @type { function }
      * @syscap SystemCapability.Account.AppAccount
      * @since 8
      * @deprecated since 9
@@ -2696,6 +2698,7 @@ declare namespace appAccount {
     /**
      * Notifies the client of the authentication result.
      *
+     * @type { function }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9
      */
@@ -2704,6 +2707,7 @@ declare namespace appAccount {
     /**
      * Notifies the client that the authentication request need to be redirected.
      *
+     * @type { function }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9
      */
@@ -2712,6 +2716,7 @@ declare namespace appAccount {
     /**
      * Notifies the client that the request is continued.
      *
+     * @type { ?function }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9
      */

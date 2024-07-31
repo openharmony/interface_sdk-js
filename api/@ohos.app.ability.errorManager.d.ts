@@ -186,6 +186,7 @@ declare namespace errorManager {
   /**
    * The observer will be called by system when an error occurs.
    *
+   * @typedef { _ErrorObserver.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 11
@@ -194,6 +195,7 @@ declare namespace errorManager {
   /**
    * The observer will be called when application main thread execute timeout.
    *
+   * @typedef { _LoopObserver }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 12
@@ -202,6 +204,7 @@ declare namespace errorManager {
   /**
    * The observer will be called by system when an unhandled rejection occurs.
    *
+   * @typedef { function }
    * { Error | any } reason - the reason of the rejection, typically of Error type
    * { Promise<any> } promise - the promise that is rejected
    * @syscap SystemCapability.Ability.AbilityRuntime.Core

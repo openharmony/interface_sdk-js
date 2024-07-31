@@ -30,8 +30,8 @@
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Declare scroll status
@@ -39,8 +39,8 @@
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Declare scroll status
@@ -48,9 +48,9 @@
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare enum ScrollState {
   /**
@@ -63,25 +63,25 @@ declare enum ScrollState {
    * Not activated.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Not activated.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Not activated.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   Idle,
 
@@ -95,25 +95,25 @@ declare enum ScrollState {
    * Scrolling status.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Scrolling status.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Scrolling status.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   Scroll,
 
@@ -127,25 +127,25 @@ declare enum ScrollState {
    * Drag status.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Drag status.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Drag status.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   Fling,
 }
@@ -155,8 +155,8 @@ declare enum ScrollState {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Declare list item alignment status
@@ -164,8 +164,8 @@ declare enum ScrollState {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Declare list item alignment status
@@ -173,34 +173,34 @@ declare enum ScrollState {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare enum ListItemAlign {
   /**
    * Start position in the direction of cross axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Start position in the direction of cross axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Start position in the direction of cross axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   Start,
 
@@ -208,25 +208,25 @@ declare enum ListItemAlign {
    * Center position in the direction of cross axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Center position in the direction of cross axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Center position in the direction of cross axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   Center,
 
@@ -234,25 +234,25 @@ declare enum ListItemAlign {
    * End position in the direction of cross axis
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * End position in the direction of cross axis
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * End position in the direction of cross axis
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   End,
 }
@@ -313,8 +313,8 @@ declare enum ListItemGroupArea {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Declare item group sticky style.
@@ -322,8 +322,8 @@ declare enum ListItemGroupArea {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Declare item group sticky style.
@@ -331,34 +331,34 @@ declare enum ListItemGroupArea {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare enum StickyStyle {
   /**
    * The header and footer of each item group will not be pinned.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * The header and footer of each item group will not be pinned.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * The header and footer of each item group will not be pinned.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   None = 0,
 
@@ -366,25 +366,25 @@ declare enum StickyStyle {
    * The header of each item group will be pinned.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * The header of each item group will be pinned.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * The header of each item group will be pinned.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   Header = 1,
 
@@ -392,25 +392,25 @@ declare enum StickyStyle {
    * The footer of each item group will be pinned.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * The footer of each item group will be pinned.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * The footer of each item group will be pinned.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   Footer = 2,
 }
@@ -830,8 +830,8 @@ declare class ListScroller extends Scroller {
  *
  * @interface ListInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * The list interface is extended.
@@ -839,8 +839,8 @@ declare class ListScroller extends Scroller {
  * @interface ListInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * The list interface is extended.
@@ -848,9 +848,9 @@ declare class ListScroller extends Scroller {
  * @interface ListInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 interface ListInterface {
   /**
@@ -867,8 +867,8 @@ interface ListInterface {
    * @param { object } value
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when interface data is called.
@@ -877,8 +877,8 @@ interface ListInterface {
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when interface data is called.
@@ -887,9 +887,9 @@ interface ListInterface {
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   (value?: { initialIndex?: number; space?: number | string; scroller?: Scroller }): ListAttribute;
 }
@@ -902,23 +902,23 @@ interface ListInterface {
 /**
  * @extends CommonMethod<ListAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
  * @form
+ * @since 9
  */
 /**
  * @extends CommonMethod<ListAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 10
  * @form
+ * @since 10
  */
 /**
  * @extends ScrollableCommonMethod<ListAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   /**
@@ -927,8 +927,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @param { number | LengthConstrain } value
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when need to decide how much lanes the list will show.
@@ -938,8 +938,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when need to decide how much lanes the list will show.
@@ -949,9 +949,9 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   lanes(value: number | LengthConstrain, gutter?: Dimension): ListAttribute;
 
@@ -961,8 +961,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @param { ListItemAlign } value
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when need to decide how to align lanes in the direction of the cross axis.
@@ -971,8 +971,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when need to decide how to align lanes in the direction of the cross axis.
@@ -981,9 +981,9 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   alignListItem(value: ListItemAlign): ListAttribute;
 
@@ -1001,8 +1001,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @param { Axis } value
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when the arrangement direction of the list component is set.
@@ -1011,8 +1011,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when the arrangement direction of the list component is set.
@@ -1021,9 +1021,9 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   listDirection(value: Axis): ListAttribute;
 
@@ -1041,8 +1041,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @param { BarState } value
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when the display mode of the side slider is set.
@@ -1051,8 +1051,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when the display mode of the side slider is set.
@@ -1061,9 +1061,9 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   scrollBar(value: BarState): ListAttribute;
 
@@ -1081,8 +1081,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @param { EdgeEffect } value
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
    * @form
+   * @since 9
    */
   /**
    * Called when the sliding effect is set.
@@ -1091,8 +1091,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
    * @form
+   * @since 10
    */
   /**
    * Called when the sliding effect is set.
@@ -1102,22 +1102,11 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   edgeEffect(value: EdgeEffect, options?: EdgeEffectOptions): ListAttribute;
-
-  /**
-   * Called when setting whether to enable fading Edge effect.
-   *
-   * @param { Optional<boolean> } value - Whether to turn on the edge fade effect
-   * @returns { ListAttribute } the attribute of the list.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  fadingEdge(value: Optional<boolean>): ListAttribute;
 
   /**
    * Called when need to decide contentStartOffset the list will show.
@@ -1171,8 +1160,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @param { {strokeWidth: Length;color?: ResourceColor;startMargin?: Length;endMargin?: Length;} | null } value
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when the ListItem split line style is set.
@@ -1181,8 +1170,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when the ListItem split line style is set.
@@ -1191,9 +1180,9 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   divider(
     value: {
@@ -1229,8 +1218,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @param { boolean } value
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when judging whether it is multiSelectable.
@@ -1239,8 +1228,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when judging whether it is multiSelectable.
@@ -1249,9 +1238,9 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   multiSelectable(value: boolean): ListAttribute;
 
@@ -1269,8 +1258,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @param { number } value
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when the minimum number of list item caches is set for long list deferred loading.
@@ -1279,8 +1268,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when the minimum number of list item caches is set for long list deferred loading.
@@ -1289,9 +1278,9 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   cachedCount(value: number): ListAttribute;
 
@@ -1309,8 +1298,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @param { boolean } value
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when setting whether to enable chain linkage dynamic effect.
@@ -1319,8 +1308,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when setting whether to enable chain linkage dynamic effect.
@@ -1329,9 +1318,9 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   chainAnimation(value: boolean): ListAttribute;
 
@@ -1352,8 +1341,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @param { StickyStyle } value
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when header or footer of item group will be pinned.
@@ -1362,8 +1351,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when header or footer of item group will be pinned.
@@ -1372,9 +1361,9 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   sticky(value: StickyStyle): ListAttribute;
 
@@ -1486,8 +1475,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when the offset and status callback of the slide are set.
@@ -1496,8 +1485,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when the offset and status callback of the slide are set.
@@ -1506,11 +1495,11 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
    * @deprecated since 12
    * @useinstead common.ScrollableCommonMethod#onDidScroll
-   * @form
    */
   onScroll(event: (scrollOffset: number, scrollState: ScrollState) => void): ListAttribute;
 
@@ -1528,8 +1517,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when the start and end positions of the display change.
@@ -1538,8 +1527,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when the start and end positions of the display change.
@@ -1548,9 +1537,9 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   onScrollIndex(event: (start: number, end: number, center: number) => void): ListAttribute;
 
@@ -1561,6 +1550,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onScrollVisibleContentChange(handler: OnScrollVisibleContentChangeCallback): ListAttribute;
@@ -1579,8 +1569,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when the list begins to arrive.
@@ -1589,8 +1579,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when the list begins to arrive.
@@ -1599,9 +1589,9 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   onReachStart(event: () => void): ListAttribute;
 
@@ -1619,8 +1609,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when the list reaches the end.
@@ -1629,8 +1619,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when the list reaches the end.
@@ -1639,9 +1629,9 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   onReachEnd(event: () => void): ListAttribute;
 
@@ -1651,8 +1641,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when the slider start.
@@ -1661,8 +1651,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when the slider start.
@@ -1671,9 +1661,9 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   onScrollStart(event: () => void): ListAttribute;
 
@@ -1691,8 +1681,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when the slider stops.
@@ -1701,8 +1691,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when the slider stops.
@@ -1711,9 +1701,9 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   onScrollStop(event: () => void): ListAttribute;
 
@@ -1914,8 +1904,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when scrolling begin each frame.
@@ -1924,8 +1914,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when scrolling begin each frame.
@@ -1934,9 +1924,9 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   onScrollFrameBegin(event: (offset: number, state: ScrollState) => { offsetRemain: number }): ListAttribute;
 }
@@ -1951,25 +1941,25 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
  * Defines List Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines List Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines List Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const List: ListInterface;
 
@@ -1983,24 +1973,24 @@ declare const List: ListInterface;
  * Defines List Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines List Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines List Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const ListInstance: ListAttribute;

@@ -8,7 +8,7 @@
     "newApiName": "func",
     "oldDtsName": "ut_function_param_to_required.d.ts",
     "newDtsName": "ut_function_param_to_required.d.ts",
-    "diffType": 40,
+    "diffType": 41,
     "diffMessage": "函数中的可选参数变为必选参数",
     "changeLogUrl": "",
     "changeLogs": [],
@@ -34,6 +34,9 @@
     "oldDescription": "str2?: string",
     "newDescription": "str2: string",
     "oldSyscapField": "",
-    "newSyscapField": ""
+    "newSyscapField": "",
+    "oldKitInfo": "",
+    "newKitInfo": "",
+    "isSystemapi": false
   }
 ]

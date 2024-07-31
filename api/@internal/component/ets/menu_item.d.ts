@@ -75,6 +75,7 @@ declare interface MenuItemOptions {
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   symbolStartIcon?: SymbolGlyphModifier;
@@ -137,6 +138,7 @@ declare interface MenuItemOptions {
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   symbolEndIcon?: SymbolGlyphModifier;
@@ -349,6 +351,7 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * @returns { MenuItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   selectIcon(value: boolean | ResourceStr | SymbolGlyphModifier): MenuItemAttribute;

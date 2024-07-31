@@ -25,7 +25,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  * @deprecated since 9
- * @useinstead grid_col/[GridColColumnOption] and grid_row/[GridRowColumnOption]
+ * @useinstead grid_col/GridColColumnOption and grid_row/GridRowColumnOption
  */
 declare enum SizeType {
   /**
@@ -81,7 +81,7 @@ declare enum SizeType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  * @deprecated since 9
- * @useinstead grid_col/[GridColOptions] and grid_row/[GridRowOptions]
+ * @useinstead grid_col/GridColOptions and grid_row/GridRowOptions
  */
 declare interface GridContainerOptions {
   /**
@@ -132,7 +132,7 @@ declare interface GridContainerOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  * @deprecated since 9
- * @useinstead grid_col/[GridColInterface] and grid_row/[GridRowInterface]
+ * @useinstead grid_col/GridColInterface and grid_row/GridRowInterface
  */
 interface GridContainerInterface {
   /**
@@ -154,7 +154,7 @@ interface GridContainerInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  * @deprecated since 9
- * @useinstead grid_col/[GridColAttribute] and grid_row/[GridRowAttribute]
+ * @useinstead grid_col/GridColAttribute and grid_row/GridRowAttribute
  */
 declare class GridContainerAttribute extends ColumnAttribute {}
 
@@ -164,7 +164,7 @@ declare class GridContainerAttribute extends ColumnAttribute {}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  * @deprecated since 9
- * @useinstead grid_col/[GridColColumnOption] and grid_row/[GridRowColumnOption]
+ * @useinstead grid_col/GridColColumnOption and grid_row/GridRowColumnOption
  */
 declare const GridContainer: GridContainerInterface
 
@@ -174,6 +174,6 @@ declare const GridContainer: GridContainerInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  * @deprecated since 9
- * @useinstead grid_col/[GridColAttribute] and grid_row/[GridRowAttribute]
+ * @useinstead grid_col/GridColAttribute and grid_row/GridRowAttribute
  */
 declare const GridContainerInstance: GridContainerAttribute;

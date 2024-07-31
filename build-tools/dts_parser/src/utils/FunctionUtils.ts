@@ -27,8 +27,8 @@ export class FunctionUtils {
    */
   static getPackageName(fileFilePath: string): string {
     const packageName =
-      fileFilePath.indexOf('component\\ets\\') >= 0 || fileFilePath.indexOf('component/ets/') >= 0 ? 
-        'ArkUI' : 
+      fileFilePath.indexOf('component\\ets\\') >= 0 || fileFilePath.indexOf('component/ets/') >= 0 ?
+        'ArkUI' :
         path.basename(fileFilePath).replace(/@|.d.ts$/g, '');
     return packageName;
   }

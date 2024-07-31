@@ -27,6 +27,14 @@ import { AsyncCallback } from './@ohos.base';
  * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
  * @since 11
  */
+/**
+ * HDR Capability.
+ *
+ * @namespace hdrCapability
+ * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+ * @atomicservice
+ * @since 12
+ */
 declare namespace hdrCapability {
   /**
    * Enumerates the HDR Format
@@ -35,12 +43,27 @@ declare namespace hdrCapability {
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
    * @since 11
    */
+  /**
+   * Enumerates the HDR Format
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+   * @atomicservice
+   * @since 12
+   */
   enum HDRFormat {
     /**
      * Not support HDR.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @since 11
+     */
+    /**
+     * Not support HDR.
+     *
+     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+     * @atomicservice
+     * @since 12
      */
     NONE = 0,
     /**
@@ -49,12 +72,26 @@ declare namespace hdrCapability {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @since 11
      */
+    /**
+     * HLG format supported by video.
+     *
+     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+     * @atomicservice
+     * @since 12
+     */
     VIDEO_HLG = 1,
     /**
      * HDR10 format supported by video.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @since 11
+     */
+    /**
+     * HDR10 format supported by video.
+     *
+     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+     * @atomicservice
+     * @since 12
      */
     VIDEO_HDR10 = 2,
     /**
@@ -63,12 +100,26 @@ declare namespace hdrCapability {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @since 11
      */
+    /**
+     * HDR Vivid format supported by video.
+     *
+     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+     * @atomicservice
+     * @since 12
+     */
     VIDEO_HDR_VIVID = 3,
     /**
      * HDR Vivid format supported by image, stored in dual JPEG format.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @since 11
+     */
+    /**
+     * HDR Vivid format supported by image, stored in dual JPEG format.
+     *
+     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+     * @atomicservice
+     * @since 12
      */
     IMAGE_HDR_VIVID_DUAL = 4,
     /**
@@ -77,6 +128,13 @@ declare namespace hdrCapability {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @since 11
      */
+    /**
+     * HDR Vivid format supported by image, stored in single HEIF format.
+     *
+     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+     * @atomicservice
+     * @since 12
+     */
     IMAGE_HDR_VIVID_SINGLE = 5,
     /**
      * ISO HDR format supported by image, stored in dual JPEG format.
@@ -84,12 +142,26 @@ declare namespace hdrCapability {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @since 11
      */
+    /**
+     * ISO HDR format supported by image, stored in dual JPEG format.
+     *
+     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+     * @atomicservice
+     * @since 12
+     */
     IMAGE_HDR_ISO_DUAL = 6,
     /**
      * ISO HDR format supported by image, stored in single HEIF format.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @since 11
+     */
+    /**
+     * ISO HDR format supported by image, stored in single HEIF format.
+     *
+     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+     * @atomicservice
+     * @since 12
      */
     IMAGE_HDR_ISO_SINGLE = 7,
   }

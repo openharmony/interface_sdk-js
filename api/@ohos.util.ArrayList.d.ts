@@ -750,6 +750,19 @@ declare class ArrayList<T> {
    */
   isEmpty(): boolean;
   /**
+   * Returns the item at that index.
+   * 
+   * @param { number } index - The zero-based index of the desired code unit.
+   *     Throws error if index < 0 or index >= arraylist.length.
+   * @returns { T } The element in the arraylist matching the given index. 
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 10200001 - The value of index is out of range.
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 12
+   */
+  [index: number]: T;
+  /**
    * If the newCapacity provided by the user is greater than or equal to length,
    * change the capacity of the arraylist to newCapacity, otherwise the capacity will not be changed
    *

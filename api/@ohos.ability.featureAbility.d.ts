@@ -434,6 +434,7 @@ declare namespace featureAbility {
    * application-specific resources, request and verification permissions.
    * Can only be obtained through the ability.
    *
+   * @typedef { _Context }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @FAModelOnly
    * @since 9
@@ -443,6 +444,7 @@ declare namespace featureAbility {
   /**
    * Defines an AppVersionInfo object.
    *
+   * @typedef { _AppVersionInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @FAModelOnly
    * @since 9
@@ -452,6 +454,7 @@ declare namespace featureAbility {
   /**
    * This process information about an application.
    *
+   * @typedef { _ProcessInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @FAModelOnly
    * @since 9

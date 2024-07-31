@@ -32,6 +32,7 @@ import type media from '../@ohos.multimedia.media';
 export interface RingtoneOptions {
   /**
    * Ringtone volume.
+   * @type { number }
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10
@@ -39,6 +40,7 @@ export interface RingtoneOptions {
   volume: number;
   /**
    * Loop value.
+   * @type { boolean }
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10
@@ -56,6 +58,7 @@ export interface RingtoneOptions {
 export interface RingtonePlayer {
   /**
    * Gets player state.
+   * @type { media.AVPlayerState }
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10

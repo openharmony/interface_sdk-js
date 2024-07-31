@@ -66,6 +66,7 @@ import Request, {
   OnDownloadCompleteResponse, RequestData, RequestFile, UploadRequestOptions, UploadResponse
 } from '@system.request';
 import systemLoad from '@ohos.resourceschedule.systemload';
+import intelligentVoice from '@ohos.ai.intelligentVoice';
 
 export {
   AsyncCallback, Battery, BatteryResponse, Brightness, BrightnessModeResponse,
@@ -78,5 +79,5 @@ export {
   customConfig, deviceAttest, deviceInfo, distributedAccount, osAccount, pasteboard, power, print, request, runningLock,
   screenLock, settings, systemCapability, systemDateTime, systemParameter, systemParameterEnhance, systemTime,
   systemTimer, thermal, update, usb, usbManager, wallpaper, zlib, commonEventManager, emitter, StaticSubscriberExtensionAbility,
-  StaticSubscriberExtensionContext, systemLoad
+  StaticSubscriberExtensionContext, systemLoad, intelligentVoice
 };

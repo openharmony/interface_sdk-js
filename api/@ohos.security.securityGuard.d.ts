@@ -314,7 +314,7 @@ declare namespace securityGuard {
    */
   interface ModelResult {
     /**
-     * The result of security model, include 'risk'|'safe'|'unknown'
+     * The result of security model.
      *
      * @type { string }
      * @syscap SystemCapability.Security.SecurityGuard

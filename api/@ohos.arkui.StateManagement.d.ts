@@ -192,3 +192,26 @@ export declare type TypeDecorator = <T>(type: TypeConstructor<T>) => PropertyDec
  * @since 12
  */
 export declare const Type: TypeDecorator;
+
+/**
+ * UIUtils is a state management tool class for operating the observed data.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+export declare class UIUtils {
+  /**
+   * Get raw object from the Object wrapped with an ObservedObject.
+   * If input parameter is a regular Object without ObservedObject, return Object itself.
+   *
+   * @param { T } source input source Object data.
+   * @returns { T } raw object from the Object wrapped with an ObservedObject.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  static getTarget<T extends object>(source: T): T;
+}

@@ -23,6 +23,7 @@ import { ResultsProcessHelper } from './ResultsProcess';
 import { ApiType, BasicApiInfo, ApiInfo } from '../../typedef/parser/ApiInfoDefination';
 import { StringConstant } from '../../utils/Constant';
 import { FileUtils } from '../../utils/FileUtils';
+import { DiffHelper } from '../diff/diff';
 import * as ResultsInfo from '../../typedef/parser/ResultsInfo';
 
 /**
@@ -119,7 +120,7 @@ export class Parser {
    * @param { FilesMap } apiMap api所在的map对象
    * @returns { BasicApiInfo[] | undefined } 查询结果
    */
-  static getApiInfo(locations: string[], apiMap: FilesMap): BasicApiInfo[] {
+  static getApiInfo(locations: string[], apiMap: FilesMap, isAllSheet: boolean): BasicApiInfo[] {
     const apiInfos: BasicApiInfo[] = [];
     if (locations.length === 0) {
       return apiInfos;
@@ -138,6 +139,12 @@ export class Parser {
       return apiInfos;
     }
     apiInfos.push(...(currentMapValue as BasicApiInfo[]));
+    if (isAllSheet) {
+      const isSameNameApi: boolean = DiffHelper.judgeIsSameNameFunction(apiInfos);
+      apiInfos.forEach((apiInfo: BasicApiInfo) => {
+        apiInfo.setIsSameNameFunction(isSameNameApi);
+      });
+    }
     return apiInfos;
   }
 

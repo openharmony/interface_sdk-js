@@ -40,7 +40,7 @@ declare namespace inputEventClient {
   interface KeyEvent {
     /**
      * The status of key.
-     *
+     * @type { boolean }
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @systemapi hide for inner use
      * @since 8
@@ -49,7 +49,7 @@ declare namespace inputEventClient {
 
     /**
      * The keyCode value of key.
-     *
+     * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @systemapi hide for inner use
      * @since 8
@@ -58,7 +58,7 @@ declare namespace inputEventClient {
 
     /**
      * Key hold duration.
-     *
+     * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @systemapi hide for inner use
      * @since 8
@@ -67,7 +67,7 @@ declare namespace inputEventClient {
 
     /**
      * Whether the key is blocked.
-     *
+     * @type { boolean }
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @systemapi hide for inner use
      * @since 8

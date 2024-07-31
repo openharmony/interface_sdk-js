@@ -27,6 +27,7 @@
  * @extends VideoAttribute
  * @implements AttributeModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class VideoModifier extends VideoAttribute implements AttributeModifier<VideoAttribute> {
@@ -37,6 +38,7 @@ export declare class VideoModifier extends VideoAttribute implements AttributeMo
    * @param { VideoAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: VideoAttribute): void;

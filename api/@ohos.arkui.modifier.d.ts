@@ -597,3 +597,23 @@ export { AttributeUpdater } from './arkui/AttributeUpdater';
  * @since 12
  */
 export { ContainerSpanModifier } from './arkui/ContainerSpanModifier';
+
+/**
+ * Export ContainerSpanModifier, which is used to expose applyNormalAttribute function.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+export { SymbolSpanModifier } from './arkui/SymbolSpanModifier';
+
+/**
+ * Export ParticleModifier, which is used to expose applyNormalAttribute function.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+export { ParticleModifier } from './arkui/ParticleModifier';

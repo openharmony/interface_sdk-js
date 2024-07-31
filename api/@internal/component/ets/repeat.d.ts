@@ -14,13 +14,19 @@
  */
 
 /**
+ * @file Defines Repeat component.
+ * @kit ArkUI
+ */
+
+/**
  * Construct a new type for each item.
  *
  * @interface RepeatItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
  * @form
+ * @atomicservice
+ * @since 12
  */
 interface RepeatItem<T> {
   /**
@@ -29,24 +35,26 @@ interface RepeatItem<T> {
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 12
    * @form
+   * @atomicservice
+   * @since 12
    */
   item: T,
   /**
    * index of each item.
    *
-   * @type { ?number }
+   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 12
    * @form
+   * @atomicservice
+   * @since 12
    */
-  index?: number
+  index: number
 }
 
 /**
- * Define the options of repeat virtualScroll to implemation reuse and lazy loading.
+ * Define the options of repeat virtualScroll to implement reuse and lazy loading.
  *
  * @interface VirtualScrollOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -120,8 +128,9 @@ declare type RepeatItemBuilder<T> = (repeatItem: RepeatItem<T>) => void;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
  * @form
+ * @atomicservice
+ * @since 12
  */
 declare class RepeatAttribute<T> {
   /**
@@ -131,8 +140,9 @@ declare class RepeatAttribute<T> {
    * @returns { RepeatAttribute<T> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 12
    * @form
+   * @atomicservice
+   * @since 12
    */
   each(itemGenerator: (repeatItem: RepeatItem<T>) => void): RepeatAttribute<T>;
   /**
@@ -142,8 +152,9 @@ declare class RepeatAttribute<T> {
    * @returns { RepeatAttribute<T> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 12
    * @form
+   * @atomicservice
+   * @since 12
    */
   key(keyGenerator: (item: T, index: number) => string): RepeatAttribute<T>;
   /**
@@ -188,7 +199,8 @@ declare class RepeatAttribute<T> {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
  * @form
+ * @atomicservice
+ * @since 12
  */
 declare const Repeat: <T>(arr: Array<T>) => RepeatAttribute<T>;

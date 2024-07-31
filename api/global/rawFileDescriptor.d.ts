@@ -58,7 +58,8 @@ export interface RawFileDescriptor {
    */
   /**
    * rawfile descriptor
-   *
+   * 
+   * @type { number }
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
@@ -82,6 +83,7 @@ export interface RawFileDescriptor {
   /**
    * the offset from where the raw file starts in the HAP
    *
+   * @type { number }
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
@@ -105,6 +107,7 @@ export interface RawFileDescriptor {
   /**
    * the length of the raw file in the HAP
    *
+   * @type { number }
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice

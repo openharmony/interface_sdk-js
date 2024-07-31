@@ -156,6 +156,7 @@ export interface GetDeviceOptions {
   /**
    * Called when the device information is obtained.
    *
+   * @type  { ?function } 
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3
    */
@@ -164,6 +165,7 @@ export interface GetDeviceOptions {
   /**
    * Called when the device information fails to be obtained.
    *
+   * @type { ?function }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3
    */
@@ -172,6 +174,7 @@ export interface GetDeviceOptions {
   /**
    * Called when the execution is completed.
    *
+   * @type { ?function }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3
    */

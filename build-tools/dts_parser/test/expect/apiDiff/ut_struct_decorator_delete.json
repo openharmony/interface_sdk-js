@@ -8,11 +8,11 @@
     "newApiName": "MyComponent",
     "oldDtsName": "ut_struct_decorator_delete.d.ets",
     "newDtsName": "ut_struct_decorator_delete.d.ets",
-    "diffType": 62,
+    "diffType": 78,
     "diffMessage": "删除装饰器",
     "changeLogUrl": "",
     "changeLogs": [],
-    "isCompatible": true,
+    "isCompatible": false,
     "oldHierarchicalRelations": [
       "ut_struct_decorator_delete.d.ets",
       "MyComponent"
@@ -32,6 +32,9 @@
     "oldDescription": "Component",
     "newDescription": "",
     "oldSyscapField": "",
-    "newSyscapField": ""
+    "newSyscapField": "",
+    "oldKitInfo": "",
+    "newKitInfo": "",
+    "isSystemapi": false
   }
 ]

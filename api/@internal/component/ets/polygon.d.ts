@@ -30,8 +30,8 @@
  *
  * @interface PolygonInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Provides the polygon drawing interface.
@@ -39,8 +39,8 @@
  * @interface PolygonInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Provides the polygon drawing interface.
@@ -48,9 +48,9 @@
  * @interface PolygonInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 interface PolygonInterface {
   /**
@@ -98,8 +98,8 @@ interface PolygonInterface {
    * @param { object } value
    * @returns { PolygonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when drawing a polygon.
@@ -108,8 +108,8 @@ interface PolygonInterface {
    * @returns { PolygonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when drawing a polygon.
@@ -118,9 +118,9 @@ interface PolygonInterface {
    * @returns { PolygonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   (value?: { width?: string | number; height?: string | number }): PolygonAttribute;
 }
@@ -137,8 +137,8 @@ interface PolygonInterface {
  *
  * @extends CommonShapeMethod<PolygonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Provides attribute for Polygon.
@@ -146,8 +146,8 @@ interface PolygonInterface {
  * @extends CommonShapeMethod<PolygonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Provides attribute for Polygon.
@@ -155,9 +155,9 @@ interface PolygonInterface {
  * @extends CommonShapeMethod<PolygonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
   /**
@@ -174,8 +174,8 @@ declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
    * @param { Array<any> } value
    * @returns { PolygonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when the vertex coordinate list of a polygon is set.
@@ -184,8 +184,8 @@ declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
    * @returns { PolygonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when the vertex coordinate list of a polygon is set.
@@ -194,9 +194,9 @@ declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
    * @returns { PolygonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   points(value: Array<any>): PolygonAttribute;
 }
@@ -211,25 +211,25 @@ declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
  * Defines CheckboxGroup Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines CheckboxGroup Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines CheckboxGroup Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const Polygon: PolygonInterface;
 
@@ -243,24 +243,24 @@ declare const Polygon: PolygonInterface;
  * Defines Polygon Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines Polygon Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines Polygon Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const PolygonInstance: PolygonAttribute;

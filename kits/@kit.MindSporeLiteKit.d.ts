@@ -18,7 +18,6 @@
  * @kit MindSporeLiteKit
  */
 
-import intelligentVoice from '@ohos.ai.intelligentVoice';
 import mindSporeLite from '@ohos.ai.mindSporeLite';
 
-export { intelligentVoice, mindSporeLite };
+export { mindSporeLite };

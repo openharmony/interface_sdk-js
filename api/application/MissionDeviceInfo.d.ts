@@ -22,7 +22,6 @@
  * Parameters corresponding to mission.
  *
  * @typedef MissionDeviceInfo
- * @permission ohos.permission.MANAGE_MISSIONS
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi
  * @since 9

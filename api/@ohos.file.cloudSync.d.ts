@@ -36,6 +36,13 @@ declare namespace cloudSync {
    * @systemapi
    * @since 10
    */
+  /**
+   * Describes the Sync state type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+   * @since 12
+   */
   enum SyncState {
     /**
      * Indicates that the sync state is uploading.
@@ -43,6 +50,12 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 10
+     */
+    /**
+     * Indicates that the sync state is uploading.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 12
      */
     UPLOADING,
     /**
@@ -52,6 +65,12 @@ declare namespace cloudSync {
      * @systemapi
      * @since 10
      */
+    /**
+     * Indicates that the sync failed in upload processing.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 12
+     */
     UPLOAD_FAILED,
     /**
      * Indicates that the sync state is downloading.
@@ -59,6 +78,12 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 10
+     */
+        /**
+     * Indicates that the sync state is downloading.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 12
      */
     DOWNLOADING,
     /**
@@ -68,6 +93,12 @@ declare namespace cloudSync {
      * @systemapi
      * @since 10
      */
+    /**
+     * Indicates that the sync failed in download processing.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 12
+     */
     DOWNLOAD_FAILED,
     /**
      * Indicates that the sync finish.
@@ -76,6 +107,12 @@ declare namespace cloudSync {
      * @systemapi
      * @since 10
      */
+    /**
+     * Indicates that the sync finish.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 12
+     */
     COMPLETED,
     /**
      * Indicates that the sync has been stopped.
@@ -83,6 +120,12 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 10
+     */
+     /**
+     * Indicates that the sync has been stopped.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 12
      */
     STOPPED
   }
@@ -95,6 +138,13 @@ declare namespace cloudSync {
    * @systemapi
    * @since 10
    */
+    /**
+   * Describes the Sync Error type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+   * @since 12
+   */
   enum ErrorType {
     /**
      * No error occurred.
@@ -102,6 +152,12 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 10
+     */
+    /**
+     * No error occurred.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 12
      */
     NO_ERROR,
     /**
@@ -111,6 +167,12 @@ declare namespace cloudSync {
      * @systemapi
      * @since 10
      */
+    /**
+     * Synchronization aborted due to network unavailable.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 12
+     */
     NETWORK_UNAVAILABLE,
     /**
      * Synchronization aborted due to wifi unavailable.
@@ -118,6 +180,12 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 10
+     */
+        /**
+     * Synchronization aborted due to wifi unavailable.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 12
      */
     WIFI_UNAVAILABLE,
     /**
@@ -127,6 +195,12 @@ declare namespace cloudSync {
      * @systemapi
      * @since 10
      */
+    /**
+     * Synchronization aborted due to low capacity level.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 12
+     */
     BATTERY_LEVEL_LOW,
     /**
      * Synchronization aborted due to warning low capacity level.
@@ -134,6 +208,12 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 10
+     */
+    /**
+     * Synchronization aborted due to warning low capacity level.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 12
      */
     BATTERY_LEVEL_WARNING,
     /**
@@ -143,6 +223,12 @@ declare namespace cloudSync {
      * @systemapi
      * @since 10
      */
+    /**
+     * Synchronization aborted due to cloud storage is full.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 12
+     */
     CLOUD_STORAGE_FULL,
     /**
      * Synchronization aborted due to local storage is full.
@@ -151,12 +237,17 @@ declare namespace cloudSync {
      * @systemapi
      * @since 10
      */
+        /**
+     * Synchronization aborted due to local storage is full.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 12
+     */
     LOCAL_STORAGE_FULL,
     /**
      * Synchronization aborted due to device temperature is too high.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @systemapi
      * @since 12
      */
     DEVICE_TEMPERATURE_TOO_HIGH,
@@ -171,6 +262,13 @@ declare namespace cloudSync {
    * @systemapi
    * @since 10
    */
+  /**
+   * The SyncProgress data structure.
+   *
+   * @interface SyncProgress
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+   * @since 12
+   */
   interface SyncProgress {
     /**
      * The current sync state.
@@ -180,6 +278,13 @@ declare namespace cloudSync {
      * @systemapi
      * @since 10
      */
+    /**
+     * The current sync state.
+     *
+     * @type { SyncState }
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 12
+     */
     state: SyncState;
     /**
      * The error type of sync.
@@ -188,6 +293,13 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 10
+     */
+    /**
+     * The error type of sync.
+     *
+     * @type { ErrorType }
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 12
      */
     error: ErrorType;
   }
@@ -593,6 +705,12 @@ declare namespace cloudSync {
    * @systemapi
    * @since 11
    */
+  /**
+   * FileSync object.
+   *
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+   * @since 12
+   */
   class FileSync {
     /**
      * A constructor used to create a FileSync object.
@@ -602,6 +720,13 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 11
+     */
+    /**
+     * A constructor used to create a FileSync object.
+     *
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Incorrect parameter types.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 12
      */
     constructor();
     /**
@@ -631,6 +756,17 @@ declare namespace cloudSync {
      * @systemapi
      * @since 11
      */
+    /**
+     * Subscribes to sync progress change event. This method uses a callback to get sync progress changes.
+     *
+     * @param { 'progress' } event - event type.
+     * @param { Callback<SyncProgress> } callback - callback function with a `SyncProgress` argument.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Incorrect parameter types.
+     * @throws { BusinessError } 13600001 - IPC error
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 12
+     */
     on(event: 'progress', callback: Callback<SyncProgress>): void;
     /**
      * Unsubscribes from sync progress event.
@@ -645,6 +781,16 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 11
+     */
+    /**
+     * Unsubscribes from sync progress event.
+     *
+     * @param { 'progress' } event - event type.
+     * @param { Callback<SyncProgress> } [callback] - callback function with a `SyncProgress` argument.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types.
+     * @throws { BusinessError } 13600001 - IPC error
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 12
      */
     off(event: 'progress', callback?: Callback<SyncProgress>): void;
     /**
@@ -663,6 +809,18 @@ declare namespace cloudSync {
      * @systemapi
      * @since 11
      */
+    /**
+     * Start the file sync task.
+     *
+     * @returns { Promise<void> } - Return Promise.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Incorrect parameter types.
+     * @throws { BusinessError } 13600001 - IPC error.
+     * @throws { BusinessError } 22400001 - Cloud status not ready.
+     * @throws { BusinessError } 22400002 - Network unavailable.
+     * @throws { BusinessError } 22400003 - Battery level warning.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 12
+     */
     start(): Promise<void>;
     /**
      * Start the file sync task with callback.
@@ -680,6 +838,18 @@ declare namespace cloudSync {
      * @systemapi
      * @since 11
      */
+    /**
+     * Start the file sync task with callback.
+     *
+     * @param { AsyncCallback<void> } callback - Callback function.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types.
+     * @throws { BusinessError } 13600001 - IPC error.
+     * @throws { BusinessError } 22400001 - Cloud status not ready.
+     * @throws { BusinessError } 22400002 - Network unavailable.
+     * @throws { BusinessError } 22400003 - Battery level warning.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 12
+     */
     start(callback: AsyncCallback<void>): void;
     /**
      * Stop the file sync task.
@@ -693,6 +863,15 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 11
+     */
+    /**
+     * Stop the file sync task.
+     *
+     * @returns { Promise<void> } - Return Promise.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Incorrect parameter types.
+     * @throws { BusinessError } 13600001 - IPC error.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 12
      */
     stop(): Promise<void>;
     /**
@@ -709,6 +888,16 @@ declare namespace cloudSync {
      * @systemapi
      * @since 11
      */
+    /**
+     * Stop the file sync task with callback.
+     *
+     * @param { AsyncCallback<void> } callback - Callback function.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Incorrect parameter types.
+     * @throws { BusinessError } 13600001 - IPC error.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 12
+     */
     stop(callback: AsyncCallback<void>): void;
     /**
      * Get the last synchronization time.
@@ -722,6 +911,15 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 11
+     */
+    /**
+     * Get the last synchronization time.
+     *
+     * @returns { Promise<number> } - Return the date of last synchronization.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Incorrect parameter types.
+     * @throws { BusinessError } 13600001 - IPC error.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 12
      */
     getLastSyncTime(): Promise<number>;
     /**
@@ -737,6 +935,16 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 11
+     */
+    /**
+     * Get the last synchronization time.
+     *
+     * @param { AsyncCallback<number> } callback - Callback function.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Incorrect parameter types.
+     * @throws { BusinessError } 13600001 - IPC error.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 12
      */
     getLastSyncTime(callback: AsyncCallback<number>): void;
   }
@@ -1000,7 +1208,6 @@ declare namespace cloudSync {
    * @param { string } uri - uri of file.
    * @param { boolean } recursion - Whether to monitor the child files.
    * @param { Callback<ChangeData> } callback - Returns the changed data.
-   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
    * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 13900001 - Operation not permitted
@@ -1008,7 +1215,6 @@ declare namespace cloudSync {
    * @throws { BusinessError } 13900012 - Permission denied
    * @throws { BusinessError } 14000002 - Invalid uri.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-   * @systemapi
    * @since 12
    */
   function registerChange(uri: string, recursion: boolean, callback: Callback<ChangeData>): void;
@@ -1016,7 +1222,6 @@ declare namespace cloudSync {
    * Unregister change notify fir the specified uri.
    *
    * @param { string } uri - uri of file.
-   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
    * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 13900001 - Operation not permitted
@@ -1024,7 +1229,6 @@ declare namespace cloudSync {
    * @throws { BusinessError } 13900012 - Permission denied
    * @throws { BusinessError } 14000002 - Invalid uri.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-   * @systemapi
    * @since 12
    */
   function unregisterChange(uri: string): void;
@@ -1034,7 +1238,6 @@ declare namespace cloudSync {
    *
    * @enum { number } NotifyType
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-   * @systemapi
    * @since 12
    */
   enum NotifyType {
@@ -1042,7 +1245,6 @@ declare namespace cloudSync {
      * File has been newly created
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @systemapi
      * @since 12
      */
     NOTIFY_ADDED,
@@ -1050,7 +1252,6 @@ declare namespace cloudSync {
      * File has been modified.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @systemapi
      * @since 12
      */
     NOTIFY_MODIFIED,
@@ -1058,7 +1259,6 @@ declare namespace cloudSync {
      * File has been deleted.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @systemapi
      * @since 12
      */
     NOTIFY_DELETED,
@@ -1066,7 +1266,6 @@ declare namespace cloudSync {
      * File has been renamed or moved.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @systemapi
      * @since 12
      */
     NOTIFY_RENAMED
@@ -1077,7 +1276,6 @@ declare namespace cloudSync {
    * 
    * @interface ChangeData
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-   * @systemapi
    * @since 12
    */
   interface ChangeData {
@@ -1086,7 +1284,6 @@ declare namespace cloudSync {
      * 
      * @type {NotifyType}
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @systemapi
      * @since 12
      */
     type: NotifyType;
@@ -1095,7 +1292,6 @@ declare namespace cloudSync {
      * 
      * @type {Array<boolean>}
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @systemapi
      * @since 12
      */
     isDirectory: Array<boolean>;
@@ -1104,7 +1300,6 @@ declare namespace cloudSync {
      * 
      * @type {Array<string>}
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @systemapi
      * @since 12
      */
     uris: Array<string>;

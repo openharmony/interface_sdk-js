@@ -18,5 +18,8 @@
  * @kit ArkUI
  */
 
+import type { AsyncCallback, Callback } from './@ohos.base';
+import type Want from './@ohos.app.ability.Want';
+import type rpc from './@ohos.rpc';
 
 export interface OnReleaseCallback {}

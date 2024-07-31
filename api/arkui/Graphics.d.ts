@@ -115,6 +115,17 @@ export class DrawContext {
   get size(): Size;
 
   /**
+   * Get size of the DrawContext with pixel unit.
+   *
+   * @returns { Size } The size of the DrawContext with pixel unit.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  get sizeInPixel(): Size;
+
+  /**
    * Get canvas of the DrawContext.
    *
    * @returns { drawing.Canvas } The canvas of the DrawContext.
@@ -304,6 +315,7 @@ interface Vector3 {
 /**
  * It's a 4x4 matrix, represent by number[].
  *
+ * @typedef { number[] } Matrix4
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
@@ -311,6 +323,7 @@ interface Vector3 {
 /**
  * It's a 4x4 matrix, represent by number[].
  *
+ * @typedef { number[] } Matrix4
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -338,6 +351,7 @@ export type Matrix4 = [
 /**
  * Offset info.
  *
+ * @typedef { Vector2 } Offset
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
@@ -345,6 +359,7 @@ export type Matrix4 = [
 /**
  * Offset info.
  *
+ * @typedef { Vector2 } Offset
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -355,6 +370,7 @@ export type Offset = Vector2;
 /**
  * Position info.
  *
+ * @typedef { Vector2 } Position
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
@@ -362,6 +378,7 @@ export type Offset = Vector2;
 /**
  * Position info.
  *
+ * @typedef { Vector2 } Position
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -374,6 +391,7 @@ export type Position = Vector2;
  * @typedef {Vector2T<T> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 export type PositionT<T> = Vector2T<T>;
@@ -381,6 +399,7 @@ export type PositionT<T> = Vector2T<T>;
 /**
  * Pivot info.
  *
+ * @typedef { Vector2 } Pivot
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
@@ -388,6 +407,7 @@ export type PositionT<T> = Vector2T<T>;
 /**
  * Pivot info.
  *
+ * @typedef { Vector2 } Pivot
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -398,6 +418,7 @@ export type Pivot = Vector2;
 /**
  * Scale info.
  *
+ * @typedef { Vector2 } Scale
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
@@ -405,6 +426,7 @@ export type Pivot = Vector2;
 /**
  * Scale info.
  *
+ * @typedef { Vector2 } Scale
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -415,6 +437,7 @@ export type Scale = Vector2;
 /**
  * Translation info.
  *
+ * @typedef { Vector2 } Translation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
@@ -422,6 +445,7 @@ export type Scale = Vector2;
 /**
  * Translation info.
  *
+ * @typedef { Vector2 } Translation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -432,6 +456,7 @@ export type Translation = Vector2;
 /**
  * Rotation info.
  *
+ * @typedef { Vector3 } Rotation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
@@ -439,6 +464,7 @@ export type Translation = Vector2;
 /**
  * Rotation info.
  *
+ * @typedef { Vector3 } Rotation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -700,6 +726,7 @@ export interface SizeT<T> {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 export enum LengthMetricsUnit {
@@ -709,6 +736,7 @@ export enum LengthMetricsUnit {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   DEFAULT = 0,
@@ -718,6 +746,7 @@ export enum LengthMetricsUnit {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   PX = 1
@@ -853,6 +882,7 @@ declare class LengthMetrics {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare class ColorMetrics {
@@ -863,6 +893,7 @@ declare class ColorMetrics {
    * @returns { ColorMetrics } ColorMetrics class
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   static numeric(value: number): ColorMetrics;
@@ -877,6 +908,7 @@ declare class ColorMetrics {
    * @returns { ColorMetrics } ColorMetrics class
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   static rgba(red: number, green: number, blue: number, alpha?: number): ColorMetrics;
@@ -892,6 +924,7 @@ declare class ColorMetrics {
    * 2. The format of the input color string is not RGB or RGBA.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   static resourceColor(color: ResourceColor): ColorMetrics;
@@ -904,6 +937,7 @@ declare class ColorMetrics {
    * @throws { BusinessError } 401 - Parameter error. The type of the input parameter is not ColorMetrics.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   blendColor(overlayColor: ColorMetrics): ColorMetrics;
@@ -914,6 +948,7 @@ declare class ColorMetrics {
    * @returns { string } The color of the ColorMetrics.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
    get color(): string;
@@ -924,6 +959,7 @@ declare class ColorMetrics {
    * @returns { number } The red value of the ColorMetrics.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
    get red(): number;
@@ -934,6 +970,7 @@ declare class ColorMetrics {
    * @returns { number } The green value of the ColorMetrics.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   get green(): number;
@@ -944,6 +981,7 @@ declare class ColorMetrics {
    * @returns { number } The blue value of the ColorMetrics.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   get blue(): number;
@@ -954,6 +992,7 @@ declare class ColorMetrics {
    * @returns { number } The opacity value of the ColorMetrics.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   get alpha(): number;
@@ -965,6 +1004,7 @@ declare class ColorMetrics {
  * @interface Corners
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 interface Corners<T> {
@@ -974,6 +1014,7 @@ interface Corners<T> {
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   topLeft: T,
@@ -984,6 +1025,7 @@ interface Corners<T> {
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   topRight: T,
@@ -994,6 +1036,7 @@ interface Corners<T> {
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   bottomLeft: T,
@@ -1004,6 +1047,7 @@ interface Corners<T> {
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   bottomRight: T
@@ -1012,8 +1056,10 @@ interface Corners<T> {
 /**
  * Defines the Corner radius.
  *
+ * @typedef { Corners<Vector2> } CornerRadius
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 export type CornerRadius = Corners<Vector2>;
@@ -1021,8 +1067,10 @@ export type CornerRadius = Corners<Vector2>;
 /**
  * BorderRadiuses info.
  *
+ * @typedef { Corners<number> } BorderRadiuses
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 export type BorderRadiuses = Corners<number>;
@@ -1030,8 +1078,10 @@ export type BorderRadiuses = Corners<number>;
 /**
  * Rect info.
  *
+ * @typedef { common2D.Rect } Rect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 export type Rect = common2D.Rect;
@@ -1042,6 +1092,7 @@ export type Rect = common2D.Rect;
  * @interface RoundRect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 export interface RoundRect {
@@ -1051,6 +1102,7 @@ export interface RoundRect {
    * @type { Rect }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   rect: Rect,
@@ -1061,6 +1113,7 @@ export interface RoundRect {
    * @type { CornerRadius }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   corners: CornerRadius
@@ -1072,6 +1125,7 @@ export interface RoundRect {
  * @interface Circle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 export interface Circle {
@@ -1081,6 +1135,7 @@ export interface Circle {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   centerX: number,
@@ -1091,6 +1146,7 @@ export interface Circle {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   centerY: number,
@@ -1101,6 +1157,7 @@ export interface Circle {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   radius: number
@@ -1112,6 +1169,7 @@ export interface Circle {
  * @interface CommandPath
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 export interface CommandPath {
@@ -1121,6 +1179,7 @@ export interface CommandPath {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   commands: string
@@ -1131,6 +1190,7 @@ export interface CommandPath {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 export declare class ShapeMask {
@@ -1139,6 +1199,7 @@ export declare class ShapeMask {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   constructor();
@@ -1149,6 +1210,7 @@ export declare class ShapeMask {
    * @param { Rect } rect - The rect shape will be set.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   setRectShape(rect: Rect): void;
@@ -1159,6 +1221,7 @@ export declare class ShapeMask {
    * @param { RoundRect } roundRect - The round rect shape will be set.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   setRoundRectShape(roundRect: RoundRect): void;
@@ -1169,6 +1232,7 @@ export declare class ShapeMask {
    * @param { Circle } circle - The circle shape will be set.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   setCircleShape(circle: Circle): void;
@@ -1179,6 +1243,7 @@ export declare class ShapeMask {
    * @param { Rect } oval - The oval shape will be set.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   setOvalShape(oval: Rect): void;
@@ -1189,6 +1254,7 @@ export declare class ShapeMask {
    * @param { CommandPath } path - The command path will be set.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   setCommandPath(path: CommandPath): void;
@@ -1200,6 +1266,7 @@ export declare class ShapeMask {
    * @default 0XFF000000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   fillColor: number;
@@ -1211,6 +1278,7 @@ export declare class ShapeMask {
    * @default 0XFF000000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   strokeColor: number;
@@ -1222,9 +1290,86 @@ export declare class ShapeMask {
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   strokeWidth: number;
+}
+
+
+/**
+ * Define ShapeClip. Record the type and parameters of the shape used for clipping.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+export declare class ShapeClip {
+  /**
+   * Constructor.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  constructor();
+
+  /**
+   * Set the rect shape of the ShapeClip.
+   *
+   * @param { Rect } rect - The rect shape will be set.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  setRectShape(rect: Rect): void;
+
+  /**
+   * Set the round rect shape of the ShapeClip.
+   *
+   * @param { RoundRect } roundRect - The round rect shape will be set.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  setRoundRectShape(roundRect: RoundRect): void;
+
+  /**
+   * Set the circle shape of the ShapeClip.
+   *
+   * @param { Circle } circle - The circle shape will be set.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  setCircleShape(circle: Circle): void;
+
+  /**
+   * Set the oval shape of the ShapeClip.
+   *
+   * @param { Rect } oval - The oval shape will be set.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  setOvalShape(oval: Rect): void;
+
+  /**
+   * Set the command path of the ShapeClip.
+   *
+   * @param { CommandPath } path - The command path will be set.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  setCommandPath(path: CommandPath): void;
 }
 
 /**
@@ -1234,6 +1379,7 @@ export declare class ShapeMask {
  * @returns { Edges<number> } - The object with all edges are set to the same color.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 export function edgeColors(all: number): Edges<number>;
@@ -1245,6 +1391,7 @@ export function edgeColors(all: number): Edges<number>;
  * @returns { Edges<number> } - The object with all edges are set to the same width.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 export function edgeWidths(all: number): Edges<number>;
@@ -1256,6 +1403,7 @@ export function edgeWidths(all: number): Edges<number>;
  * @returns { Edges<BorderStyle> } - The object with all edges are set to the same style.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 export function borderStyles(all: BorderStyle): Edges<BorderStyle>;
@@ -1267,6 +1415,7 @@ export function borderStyles(all: BorderStyle): Edges<BorderStyle>;
  * @returns { BorderRadiuses } - The BorderRadiuses object.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 export function borderRadiuses(all: number): BorderRadiuses;

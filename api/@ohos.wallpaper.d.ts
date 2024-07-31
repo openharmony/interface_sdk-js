@@ -41,6 +41,7 @@ declare namespace wallpaper {
     /**
      * The range is 0 to 255.
      *
+     * @type { number }
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @since 7
      * @deprecated since 9
@@ -49,6 +50,7 @@ declare namespace wallpaper {
     /**
      * The range is 0 to 255.
      *
+     * @type { number }
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @since 7
      * @deprecated since 9
@@ -57,6 +59,7 @@ declare namespace wallpaper {
     /**
      * The range is 0 to 255.
      *
+     * @type { number }
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @since 7
      * @deprecated since 9
@@ -65,6 +68,7 @@ declare namespace wallpaper {
     /**
      * The range is 0 to 255.
      *
+     * @type { number }
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @since 7
      * @deprecated since 9
