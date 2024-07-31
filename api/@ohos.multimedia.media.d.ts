@@ -6943,11 +6943,11 @@ declare namespace media {
 
     /**
      * Indicates the video bitrate.
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12
      */
-    videoBitrate: number;
+    videoBitrate?: number;
 
     /**
      * Indicates the video encoding foramt.
