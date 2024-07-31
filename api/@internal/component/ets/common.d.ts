@@ -12560,6 +12560,18 @@ declare interface PopupOptions {
    * @since 12
    */
   onWillDismiss?: boolean | Callback<DismissPopupAction>;
+    
+  /**
+   * Determine if it is compatible popup's half folded.
+   *
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  halfFoldedArea?: boolean;
 }
 
 /**
@@ -13071,6 +13083,18 @@ declare interface CustomPopupOptions {
    * @since 12
   */
   onWillDismiss?: boolean | Callback<DismissPopupAction>;
+
+ /**
+   * Determine if it is compatible popup's half folded.
+   *
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  halfFoldedArea?: boolean;
 }
 
 /**
@@ -13486,7 +13510,7 @@ declare interface ContextMenuOptions {
   transition?: TransitionEffect;
 
   /**
-    * Defines the menu's half folded area
+    * Determine if it is compatible menu's half folded.
     *
     * @type { ?boolean }
     * @default true
