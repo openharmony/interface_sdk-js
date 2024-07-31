@@ -589,6 +589,7 @@
     { "filePath": "@ohos.telephony.sim.d.ts", "kitName": "TelephonyKit", "subSystem": "电话服务" },
     { "filePath": "@ohos.telephony.sms.d.ts", "kitName": "TelephonyKit", "subSystem": "电话服务" },
     { "filePath": "@ohos.telephony.vcard.d.ts", "kitName": "TelephonyKit", "subSystem": "电话服务" },
+    { "filePath": "@ohos.telephony.esim.d.ts", "kitName": "TelephonyKit", "subSystem": "电话服务" },
     { "filePath": "@ohos.thermal.d.ts", "kitName": "BasicServicesKit", "subSystem": "电源服务" },
     { "filePath": "@ohos.uiAppearance.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "@ohos.uiExtensionHost.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },

@@ -25,5 +25,6 @@ import sim from '@ohos.telephony.sim';
 import sms from '@ohos.telephony.sms';
 import vcard from '@ohos.telephony.vcard';
 import call from '@ohos.telephony.call';
+import esim from '@ohos.telephony.esim';
 
-export { data, observer, radio, sim, sms, vcard, call };
+export { data, observer, radio, sim, sms, vcard, call, esim };
