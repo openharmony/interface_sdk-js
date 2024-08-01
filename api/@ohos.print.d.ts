@@ -23,7 +23,7 @@ import type Context from './application/Context';
 
 /**
  * System print
- * 
+ *
  * @namespace print
  * @syscap SystemCapability.Print.PrintFramework
  * @since 10
@@ -207,7 +207,7 @@ declare namespace print {
    * @since 11
    */
   function print(files: Array<string>, context: Context, callback: AsyncCallback<PrintTask>): void;
-    
+
   /**
    * Start new print task for App.
    * @permission ohos.permission.PRINT
@@ -245,51 +245,51 @@ declare namespace print {
    */
   interface PrintAttributes {
     /**
-    * Copies of document list.
-    * @type { ?number }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @since 11
-    */
+     * Copies of document list.
+     * @type { ?number }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 11
+     */
     copyNumber?: number;
 
     /**
-    * Range size to be printed.
-    * @type { ?PrintPageRange }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @since 11
-    */
+     * Range size to be printed.
+     * @type { ?PrintPageRange }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 11
+     */
     pageRange?: PrintPageRange;
 
     /**
-    * Page size.
-    * @type { ?(PrintPageSize | PrintPageType) }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @since 11
-    */
+     * Page size.
+     * @type { ?(PrintPageSize | PrintPageType) }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 11
+     */
     pageSize?: PrintPageSize | PrintPageType;
 
     /**
-    * Print direction.
-    * @type { ?PrintDirectionMode }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @since 11
-    */
+     * Print direction.
+     * @type { ?PrintDirectionMode }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 11
+     */
     directionMode?: PrintDirectionMode;
 
     /**
-    * Color mode.
-    * @type { ?PrintColorMode }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @since 11
-    */
+     * Color mode.
+     * @type { ?PrintColorMode }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 11
+     */
     colorMode?: PrintColorMode;
 
     /**
-    * Duplex mode.
-    * @type { ?PrintDuplexMode }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @since 11
-    */
+     * Duplex mode.
+     * @type { ?PrintDuplexMode }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 11
+     */
     duplexMode?: PrintDuplexMode;
   }
 
@@ -301,27 +301,27 @@ declare namespace print {
    */
   interface PrintPageRange {
     /**
-    * Start page of sequence.
-    * @type { ?number }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @since 11
-    */
+     * Start page of sequence.
+     * @type { ?number }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 11
+     */
     startPage?: number;
 
     /**
-    * End page of sequence.
-    * @type { ?number }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @since 11
-    */
+     * End page of sequence.
+     * @type { ?number }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 11
+     */
     endPage?: number;
 
     /**
-    * Discrete page of sequence.
-    * @type { ?Array<number> }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @since 11
-    */
+     * Discrete page of sequence.
+     * @type { ?Array<number> }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 11
+     */
     pages?: Array<number>;
   }
 
@@ -334,39 +334,39 @@ declare namespace print {
    */
   interface PrintMargin {
     /**
-    * Top margin.
-    * @type { ?number }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Top margin.
+     * @type { ?number }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     top?: number;
 
     /**
-    * Bottom margin.
-    * @type { ?number }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Bottom margin.
+     * @type { ?number }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     bottom?: number;
 
     /**
-    * Left margin.
-    * @type { ?number }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Left margin.
+     * @type { ?number }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     left?: number;
 
     /**
-    * Right margin.
-    * @type { ?number }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Right margin.
+     * @type { ?number }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     right?: number;
   }
 
@@ -379,30 +379,30 @@ declare namespace print {
    */
   interface PrinterRange {
     /**
-    * Start page of sequence.
-    * @type { ?number }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Start page of sequence.
+     * @type { ?number }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     startPage?: number;
 
     /**
-    * End page of sequence.
-    * @type { ?number }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * End page of sequence.
+     * @type { ?number }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     endPage?: number;
 
     /**
-    * Discrete page of sequence.
-    * @type { ?Array<number> }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Discrete page of sequence.
+     * @type { ?Array<number> }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     pages?: Array<number>;
   }
 
@@ -415,21 +415,21 @@ declare namespace print {
    */
   interface PreviewAttribute {
     /**
-    * Preview page range.
-    * @type { PrinterRange }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Preview page range.
+     * @type { PrinterRange }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     previewRange: PrinterRange;
 
     /**
-    * Preview file result.
-    * @type { ?number }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Preview file result.
+     * @type { ?number }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     result?: number;
   }
 
@@ -442,30 +442,30 @@ declare namespace print {
    */
   interface PrintResolution {
     /**
-    * Resolution id.
-    * @type { string }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Resolution id.
+     * @type { string }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     id: string;
 
     /**
-    * Horizontal DPI.
-    * @type { number }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Horizontal DPI.
+     * @type { number }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     horizontalDpi: number;
 
     /**
-    * Vertical DPI.
-    * @type { number }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Vertical DPI.
+     * @type { number }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     verticalDpi: number;
   }
 
@@ -477,35 +477,35 @@ declare namespace print {
    */
   interface PrintPageSize {
     /**
-    * Page size id.
-    * @type { string }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @since 11
-    */
+     * Page size id.
+     * @type { string }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 11
+     */
     id: string;
 
     /**
-    * Page size name.
-    * @type { string }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @since 11
-    */
+     * Page size name.
+     * @type { string }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 11
+     */
     name: string;
 
     /**
-    * Unit: millimeter width.
-    * @type { number }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @since 11
-    */
+     * Unit: millimeter width.
+     * @type { number }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 11
+     */
     width: number;
 
     /**
-    * Unit: millimeter height.
-    * @type { number }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @since 11
-    */
+     * Unit: millimeter height.
+     * @type { number }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 11
+     */
     height: number;
   }
 
@@ -518,57 +518,57 @@ declare namespace print {
    */
   interface PrinterCapability {
     /**
-    * Color mode.
-    * @type { number }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Color mode.
+     * @type { number }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     colorMode: number;
 
     /**
-    * Duplex mode.
-    * @type { number }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Duplex mode.
+     * @type { number }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     duplexMode: number;
 
     /**
-    * The page size list supported by the printer.
-    * @type { Array<PrintPageSize> }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * The page size list supported by the printer.
+     * @type { Array<PrintPageSize> }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     pageSize: Array<PrintPageSize>;
 
     /**
-    * The resolution list supported by the printer.
-    * @type { ?Array<PrintResolution> }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * The resolution list supported by the printer.
+     * @type { ?Array<PrintResolution> }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     resolution?: Array<PrintResolution>;
 
     /**
-    * Min margin of printer.
-    * @type { ?PrintMargin }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Min margin of printer.
+     * @type { ?PrintMargin }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     minMargin?: PrintMargin;
 
     /**
-    * JSON object string.
-    * @type { ?Object }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 11
-    */
+     * JSON object string.
+     * @type { ?Object }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 11
+     */
     options?: Object;
   }
 
@@ -581,66 +581,66 @@ declare namespace print {
    */
   interface PrinterInfo {
     /**
-    * Printer id.
-    * @type { string }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Printer id.
+     * @type { string }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     printerId: string;
 
     /**
-    * Printer name.
-    * @type { string }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Printer name.
+     * @type { string }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     printerName: string;
 
     /**
-    * Current printer state.
-    * @type { PrinterState }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Current printer state.
+     * @type { PrinterState }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     printerState: PrinterState;
 
     /**
-    * Resource id of printer icon.
-    * @type { ?number }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Resource id of printer icon.
+     * @type { ?number }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     printerIcon?: number;
 
     /**
-    * Printer description.
-    * @type { ?string }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Printer description.
+     * @type { ?string }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     description?: string;
 
     /**
-    * Printer capability.
-    * @type { ?PrinterCapability }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Printer capability.
+     * @type { ?PrinterCapability }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     capability?: PrinterCapability;
 
     /**
-    * JSON object string.
-    * @type { ?Object }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * JSON object string.
+     * @type { ?Object }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     options?: Object;
   }
 
@@ -653,138 +653,138 @@ declare namespace print {
    */
   interface PrintJob {
     /**
-    * Document fd list to be printed.
-    * @type { Array<number> }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Document fd list to be printed.
+     * @type { Array<number> }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     fdList: Array<number>;
 
     /**
-    * Job id.
-    * @type { string }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Job id.
+     * @type { string }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     jobId: string;
 
     /**
-    * Printer id to take charge of printing.
-    * @type { string }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Printer id to take charge of printing.
+     * @type { string }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     printerId: string;
 
     /**
-    * Current print job state.
-    * @type { PrintJobState }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Current print job state.
+     * @type { PrintJobState }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     jobState: PrintJobState;
 
     /**
-    * Current print job sub state.
-    * @type { PrintJobSubState }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 11
-    */
+     * Current print job sub state.
+     * @type { PrintJobSubState }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 11
+     */
     jobSubstate: PrintJobSubState;
 
     /**
-    * Copies of document list.
-    * @type { number }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Copies of document list.
+     * @type { number }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     copyNumber: number;
 
     /**
-    * Range size to be printed.
-    * @type { PrinterRange }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Range size to be printed.
+     * @type { PrinterRange }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     pageRange: PrinterRange;
 
     /**
-    * Sequential print.
-    * @type { boolean }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Sequential print.
+     * @type { boolean }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     isSequential: boolean;
 
     /**
-    * The selected page size.
-    * @type { PrintPageSize }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * The selected page size.
+     * @type { PrintPageSize }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     pageSize: PrintPageSize;
 
     /**
-    * Vertical printing.
-    * @type { boolean }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Vertical printing.
+     * @type { boolean }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     isLandscape: boolean;
 
     /**
-    * Color mode.
-    * @type { number }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Color mode.
+     * @type { number }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     colorMode: number;
 
     /**
-    * Duplex mode.
-    * @type { number }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Duplex mode.
+     * @type { number }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     duplexMode: number;
 
     /**
-    * Current margin setting.
-    * @type { ?PrintMargin }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Current margin setting.
+     * @type { ?PrintMargin }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     margin?: PrintMargin;
 
     /**
-    * Preview setting.
-    * @type { ?PreviewAttribute }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Preview setting.
+     * @type { ?PreviewAttribute }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     preview?: PreviewAttribute;
 
     /**
-    * JSON object string.
-    * @type { ?Object }
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * JSON object string.
+     * @type { ?Object }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     options?: Object;
   }
 
@@ -796,24 +796,24 @@ declare namespace print {
    */
   enum PrintDirectionMode {
     /**
-    * Automatically select direction.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @since 11
-    */
+     * Automatically select direction.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 11
+     */
     DIRECTION_MODE_AUTO = 0,
 
     /**
-    * Print portrait.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @since 11
-    */
+     * Print portrait.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 11
+     */
     DIRECTION_MODE_PORTRAIT = 1,
 
     /**
-    * Print landscape.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @since 11
-    */
+     * Print landscape.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 11
+     */
     DIRECTION_MODE_LANDSCAPE = 2,
   }
 
@@ -825,17 +825,17 @@ declare namespace print {
    */
   enum PrintColorMode {
     /**
-    * Print monochrome.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @since 11
-    */
+     * Print monochrome.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 11
+     */
     COLOR_MODE_MONOCHROME = 0,
 
     /**
-    * Color printing.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @since 11
-    */
+     * Color printing.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 11
+     */
     COLOR_MODE_COLOR = 1,
   }
 
@@ -847,24 +847,24 @@ declare namespace print {
    */
   enum PrintDuplexMode {
     /**
-    * Single side printing.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @since 11
-    */
+     * Single side printing.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 11
+     */
     DUPLEX_MODE_NONE = 0,
 
     /**
-    * Long-edge flip-up duplex printing.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @since 11
-    */
+     * Long-edge flip-up duplex printing.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 11
+     */
     DUPLEX_MODE_LONG_EDGE = 1,
 
     /**
-    * Short-edge flip-up duplex printing.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @since 11
-    */
+     * Short-edge flip-up duplex printing.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 11
+     */
     DUPLEX_MODE_SHORT_EDGE = 2,
   }
 
@@ -876,87 +876,87 @@ declare namespace print {
    */
   enum PrintPageType {
     /**
-    * A3 page.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @since 11
-    */
+     * A3 page.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 11
+     */
     PAGE_ISO_A3 = 0,
 
     /**
-    * A4 page.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @since 11
-    */
+     * A4 page.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 11
+     */
     PAGE_ISO_A4 = 1,
 
     /**
-    * A5 page.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @since 11
-    */
+     * A5 page.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 11
+     */
     PAGE_ISO_A5 = 2,
 
     /**
-    * B5 page.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @since 11
-    */
+     * B5 page.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 11
+     */
     PAGE_JIS_B5 = 3,
 
     /**
-    * C5 page.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @since 11
-    */
+     * C5 page.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 11
+     */
     PAGE_ISO_C5 = 4,
 
     /**
-    * DL Envelope.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @since 11
-    */
+     * DL Envelope.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 11
+     */
     PAGE_ISO_DL = 5,
 
     /**
-    * Letter.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @since 11
-    */
+     * Letter.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 11
+     */
     PAGE_LETTER = 6,
 
     /**
-    * Legal.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @since 11
-    */
+     * Legal.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 11
+     */
     PAGE_LEGAL = 7,
 
     /**
-    * Photo 4x6.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @since 11
-    */
+     * Photo 4x6.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 11
+     */
     PAGE_PHOTO_4X6 = 8,
 
     /**
-    * Photo 5x7.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @since 11
-    */
+     * Photo 5x7.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 11
+     */
     PAGE_PHOTO_5X7 = 9,
 
     /**
-    * Envelope INT DL.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @since 11
-    */
+     * Envelope INT DL.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 11
+     */
     PAGE_INT_DL_ENVELOPE = 10,
 
     /**
-    * Tabloid B.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @since 11
-    */
+     * Tabloid B.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 11
+     */
     PAGE_B_TABLOID = 11,
   }
 
@@ -968,38 +968,38 @@ declare namespace print {
    */
   enum PrintDocumentAdapterState {
     /**
-    * Preview failed.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @since 11
-    */
+     * Preview failed.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 11
+     */
     PREVIEW_DESTROY = 0,
 
     /**
-    * Print state is succeed.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @since 11
-    */
+     * Print state is succeed.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 11
+     */
     PRINT_TASK_SUCCEED = 1,
 
     /**
-    * Print state is fail.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @since 11
-    */
+     * Print state is fail.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 11
+     */
     PRINT_TASK_FAIL = 2,
 
     /**
-    * Print state is cancel.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @since 11
-    */
+     * Print state is cancel.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 11
+     */
     PRINT_TASK_CANCEL = 3,
 
     /**
-    * Print state is block.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @since 11
-    */
+     * Print state is block.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 11
+     */
     PRINT_TASK_BLOCK = 4,
   }
 
@@ -1011,24 +1011,24 @@ declare namespace print {
    */
   enum PrintFileCreationState {
     /**
-    * Print file created success.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @since 11
-    */
+     * Print file created success.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 11
+     */
     PRINT_FILE_CREATED = 0,
 
     /**
-    * Print file created fail.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @since 11
-    */
+     * Print file created fail.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 11
+     */
     PRINT_FILE_CREATION_FAILED = 1,
 
     /**
-    * Print file created success but unrendered.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @since 11
-    */
+     * Print file created success but unrendered.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 11
+     */
     PRINT_FILE_CREATED_UNRENDERED = 2,
   }
 
@@ -1041,51 +1041,51 @@ declare namespace print {
    */
   enum PrinterState {
     /**
-    * New printers arrival.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * New printers arrival.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     PRINTER_ADDED = 0,
 
     /**
-    * Printer lost.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Printer lost.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     PRINTER_REMOVED = 1,
 
     /**
-    * Printer update.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Printer update.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     PRINTER_CAPABILITY_UPDATED = 2,
 
     /**
-    * Printer has been connected.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Printer has been connected.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     PRINTER_CONNECTED = 3,
 
     /**
-    * Printer has been disconnected.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Printer has been disconnected.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     PRINTER_DISCONNECTED = 4,
 
     /**
-    * Printer is working.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Printer is working.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     PRINTER_RUNNING = 5,
   }
 
@@ -1098,43 +1098,43 @@ declare namespace print {
    */
   enum PrintJobState {
     /**
-    * Initial state of print job.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Initial state of print job.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     PRINT_JOB_PREPARE = 0,
 
     /**
-    * Deliver print job to the printer.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Deliver print job to the printer.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     PRINT_JOB_QUEUED = 1,
 
     /**
-    * Executing print job.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Executing print job.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     PRINT_JOB_RUNNING = 2,
 
     /**
-    * Print job has been blocked.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Print job has been blocked.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     PRINT_JOB_BLOCKED = 3,
 
     /**
-    * Print job completed.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Print job completed.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     PRINT_JOB_COMPLETED = 4,
   }
 
@@ -1147,227 +1147,227 @@ declare namespace print {
    */
   enum PrintJobSubState {
     /**
-    * Print job succeed.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Print job succeed.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     PRINT_JOB_COMPLETED_SUCCESS = 0,
 
     /**
-    * Print job fail.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Print job fail.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     PRINT_JOB_COMPLETED_FAILED = 1,
 
     /**
-    * Print job has been cancelled.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Print job has been cancelled.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     PRINT_JOB_COMPLETED_CANCELLED = 2,
 
     /**
-    * Print job has been corrupted.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Print job has been corrupted.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     PRINT_JOB_COMPLETED_FILE_CORRUPTED = 3,
 
     /**
-    * Print is offline.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Print is offline.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     PRINT_JOB_BLOCK_OFFLINE = 4,
 
     /**
-    * Print is occupied by other process.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Print is occupied by other process.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     PRINT_JOB_BLOCK_BUSY = 5,
 
     /**
-    * Print job has been cancelled.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Print job has been cancelled.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     PRINT_JOB_BLOCK_CANCELLED = 6,
 
     /**
-    * Print out of paper.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Print out of paper.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     PRINT_JOB_BLOCK_OUT_OF_PAPER = 7,
 
     /**
-    * Print out of ink.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Print out of ink.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     PRINT_JOB_BLOCK_OUT_OF_INK = 8,
 
     /**
-    * Print out of toner.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Print out of toner.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     PRINT_JOB_BLOCK_OUT_OF_TONER = 9,
 
     /**
-    * Print paper jam.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Print paper jam.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     PRINT_JOB_BLOCK_JAMMED = 10,
 
     /**
-    * Print cover open.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Print cover open.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     PRINT_JOB_BLOCK_DOOR_OPEN = 11,
 
     /**
-    * Print service request.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Print service request.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     PRINT_JOB_BLOCK_SERVICE_REQUEST = 12,
 
     /**
-    * Print low on ink.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Print low on ink.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     PRINT_JOB_BLOCK_LOW_ON_INK = 13,
 
     /**
-    * Print low on toner.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Print low on toner.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     PRINT_JOB_BLOCK_LOW_ON_TONER = 14,
 
     /**
-    * Print really low on ink.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Print really low on ink.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     PRINT_JOB_BLOCK_REALLY_LOW_ON_INK = 15,
 
     /**
-    * Print bad certification.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Print bad certification.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     PRINT_JOB_BLOCK_BAD_CERTIFICATE = 16,
 
     /**
-    * Print an error occurred when printing the account.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 11
-    */
+     * Print an error occurred when printing the account.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 11
+     */
     PRINT_JOB_BLOCK_ACCOUNT_ERROR = 18,
 
     /**
-    * Print the printing permission is abnormal.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 11
-    */
+     * Print the printing permission is abnormal.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 11
+     */
     PRINT_JOB_BLOCK_PRINT_PERMISSION_ERROR = 19,
 
     /**
-    * Print color printing permission exception.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 11
-    */
+     * Print color printing permission exception.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 11
+     */
     PRINT_JOB_BLOCK_PRINT_COLOR_PERMISSION_ERROR = 20,
 
     /**
-    * Print the device is not connected to the network.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 11
-    */
+     * Print the device is not connected to the network.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 11
+     */
     PRINT_JOB_BLOCK_NETWORK_ERROR = 21,
 
     /**
-    * Print unable to connect to the server.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 11
-    */
+     * Print unable to connect to the server.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 11
+     */
     PRINT_JOB_BLOCK_SERVER_CONNECTION_ERROR = 22,
 
     /**
-    * Print large file exception.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 11
-    */
+     * Print large file exception.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 11
+     */
     PRINT_JOB_BLOCK_LARGE_FILE_ERROR = 23,
 
     /**
-    * Print file parsing exception.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 11
-    */
+     * Print file parsing exception.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 11
+     */
     PRINT_JOB_BLOCK_FILE_PARSING_ERROR = 24,
 
     /**
-    * Print the file conversion is too slow.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 11
-    */
+     * Print the file conversion is too slow.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 11
+     */
     PRINT_JOB_BLOCK_SLOW_FILE_CONVERSION = 25,
 
     /**
-    * Print uploading file.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 11
-    */
+     * Print uploading file.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 11
+     */
     PRINT_JOB_RUNNING_UPLOADING_FILES = 26,
 
     /**
-    * Print converting files.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 11
-    */
+     * Print converting files.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 11
+     */
     PRINT_JOB_RUNNING_CONVERTING_FILES = 27,
 
     /**
-    * Print unknown issue.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Print unknown issue.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     PRINT_JOB_BLOCK_UNKNOWN = 99,
   }
 
@@ -1380,83 +1380,83 @@ declare namespace print {
    */
   enum PrintErrorCode {
     /**
-    * No error.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * No error.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     E_PRINT_NONE = 0,
 
     /**
-    * No permission.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * No permission.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     E_PRINT_NO_PERMISSION = 201,
 
     /**
-    * Invalid parameter.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Invalid parameter.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     E_PRINT_INVALID_PARAMETER = 401,
 
     /**
-    * Generic failure of print.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Generic failure of print.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     E_PRINT_GENERIC_FAILURE = 13100001,
 
     /**
-    * RPC failure.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * RPC failure.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     E_PRINT_RPC_FAILURE = 13100002,
 
     /**
-    * Failure of print service.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Failure of print service.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     E_PRINT_SERVER_FAILURE = 13100003,
 
     /**
-    * Invalid print extension.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Invalid print extension.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     E_PRINT_INVALID_EXTENSION = 13100004,
 
     /**
-    * Invalid printer.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Invalid printer.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     E_PRINT_INVALID_PRINTER = 13100005,
 
     /**
-    * Invalid print job.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Invalid print job.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     E_PRINT_INVALID_PRINT_JOB = 13100006,
 
     /**
-    * File i/o error.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * File i/o error.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     E_PRINT_FILE_IO = 13100007,
   }
 
@@ -1469,27 +1469,27 @@ declare namespace print {
    */
   enum ApplicationEvent {
     /**
-    * Application created.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 12
-    */
+     * Application created.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 12
+     */
     APPLICATION_CREATED = 0,
 
     /**
-    * Application closed for printing started.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 12
-    */
+     * Application closed for printing started.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 12
+     */
     APPLICATION_CLOSED_FOR_STARTED = 1,
 
     /**
-    * Application closed for printing canceled.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 12
-    */
+     * Application closed for printing canceled.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 12
+     */
     APPLICATION_CLOSED_FOR_CANCELED = 2,
   }
 
@@ -1502,43 +1502,48 @@ declare namespace print {
    */
   interface PrinterExtensionInfo {
     /**
-    * Extension id of printer extension.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Extension id of printer extension.
+     * @type { string }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     extensionId: string;
 
     /**
-    * Vendor id of extension.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Vendor id of extension.
+     * @type { string }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     vendorId: string;
 
     /**
-    * Vendor name.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Vendor name.
+     * @type { string }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     vendorName: string;
 
     /**
-    * Vendor icon.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Vendor icon.
+     * @type { number }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     vendorIcon: number;
 
     /**
-    * Version of current printer extension.
-    * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
-    * @since 10
-    */
+     * Version of current printer extension.
+     * @type { string }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi
+     * @since 10
+     */
     version: string;
   }
 
@@ -1621,59 +1626,59 @@ declare namespace print {
   function stopDiscoverPrinter(): Promise<void>;
 
   /**
-  * Connect the specific printer.
-  * @permission ohos.permission.MANAGE_PRINT_JOB
-  * @param { string } printerId - Indicates id of the printer.
-  * @param { AsyncCallback<void> } callback - The callback function for indcating the result of API execution.
-  * @throws { BusinessError } 201 - the application does not have permission to call this function.
-  * @throws { BusinessError } 202 - not system application
-  * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-  * @syscap SystemCapability.Print.PrintFramework
-  * @systemapi Hide this for inner system use.
-  * @since 10
-  */
+   * Connect the specific printer.
+   * @permission ohos.permission.MANAGE_PRINT_JOB
+   * @param { string } printerId - Indicates id of the printer.
+   * @param { AsyncCallback<void> } callback - The callback function for indcating the result of API execution.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
   function connectPrinter(printerId: string, callback: AsyncCallback<void>): void;
 
   /**
-  * Connect the specific printer.
-  * @permission ohos.permission.MANAGE_PRINT_JOB
-  * @param { string } printerId - Indicates id of the printer.
-  * @returns { Promise<void> } the promise returned by the function.
-  * @throws { BusinessError } 201 - the application does not have permission to call this function.
-  * @throws { BusinessError } 202 - not system application
-  * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-  * @syscap SystemCapability.Print.PrintFramework
-  * @systemapi Hide this for inner system use.
-  * @since 10
-  */
+   * Connect the specific printer.
+   * @permission ohos.permission.MANAGE_PRINT_JOB
+   * @param { string } printerId - Indicates id of the printer.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
   function connectPrinter(printerId: string): Promise<void>;
 
   /**
-  * Disconnect the specific printer.
-  * @permission ohos.permission.MANAGE_PRINT_JOB
-  * @param { string } printerId - Indicates id of the printer.
-  * @param { AsyncCallback<void> } callback - The callback function for indcating the result of API execution.
-  * @throws { BusinessError } 201 - the application does not have permission to call this function.
-  * @throws { BusinessError } 202 - not system application
-  * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-  * @syscap SystemCapability.Print.PrintFramework
-  * @systemapi Hide this for inner system use.
-  * @since 10
-  */
+   * Disconnect the specific printer.
+   * @permission ohos.permission.MANAGE_PRINT_JOB
+   * @param { string } printerId - Indicates id of the printer.
+   * @param { AsyncCallback<void> } callback - The callback function for indcating the result of API execution.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
   function disconnectPrinter(printerId: string, callback: AsyncCallback<void>): void;
 
   /**
-  * Disconnect the specific printer.
-  * @permission ohos.permission.MANAGE_PRINT_JOB
-  * @param { string } printerId - Indicates id of the printer.
-  * @returns { Promise<void> } the promise returned by the function.
-  * @throws { BusinessError } 201 - the application does not have permission to call this function.
-  * @throws { BusinessError } 202 - not system application
-  * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-  * @syscap SystemCapability.Print.PrintFramework
-  * @systemapi Hide this for inner system use.
-  * @since 10
-  */
+   * Disconnect the specific printer.
+   * @permission ohos.permission.MANAGE_PRINT_JOB
+   * @param { string } printerId - Indicates id of the printer.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
   function disconnectPrinter(printerId: string): Promise<void>;
 
   /**
@@ -2157,7 +2162,7 @@ declare namespace print {
    * @since 11
    */
   function notifyPrintService(jobId: string, type: 'spooler_closed_for_cancelled' | 'spooler_closed_for_started', callback: AsyncCallback<void>): void;
-    
+
   /**
    * Notify print service the information.
    * @permission ohos.permission.MANAGE_PRINT_JOB
@@ -2212,6 +2217,292 @@ declare namespace print {
    * @since 12
    */
   function notifyPrintServiceEvent(event: ApplicationEvent): Promise<void>;
+
+  /**
+   * New printers have been found and notify Print SA.
+   * @permission ohos.permission.PRINT
+   * @param { PrinterInformation } printerInformation - Indicates new arrived printer lists.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 12
+   */
+  function addPrinterToDiscovery(printerInformation: PrinterInformation): Promise<void>;
+
+  /**
+   * Update the information of the specific printer.
+   * @permission ohos.permission.PRINT
+   * @param { PrinterInformation } printerInformation - Indicates to be updated printer lists.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 12
+   */
+  function updatePrinterInDiscovery(printerInformation: PrinterInformation): Promise<void>;
+
+  /**
+   * Notify Print SA to remove printer.
+   * @permission ohos.permission.PRINT
+   * @param { string } printerId - Indicates the lost printer lists.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 12
+   */
+  function removePrinterFromDiscovery(printerId: string): Promise<void>;
+
+  /**
+   * Get printerInformation by printer id.
+   * @permission ohos.permission.PRINT
+   * @param { string } printerId - Indicates id of the printer.
+   * @returns { Promise<PrinterInformation> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 12
+   */
+  function getPrinterInformationById(printerId: string): Promise<PrinterInformation>;
+
+  /**
+   * defines printer information.
+   * @typedef PrinterInformation
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 12
+   */
+  interface PrinterInformation {
+    /**
+     * Printer id.
+     * @type { string }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 12
+     */
+    printerId: string;
+
+    /**
+     * Printer name.
+     * @type { string }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 12
+     */
+    printerName: string;
+
+    /**
+     * Current printer status.
+     * @type { PrinterStatus }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 12
+     */
+    printerStatus: PrinterStatus;
+
+    /**
+     * Printer description.
+     * @type { ?string }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 12
+     */
+    description?: string;
+
+    /**
+     * Printer capabilities.
+     * @type { ?PrinterCapabilities }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 12
+     */
+    capability?: PrinterCapabilities;
+
+    /**
+     * Printer uri.
+     * @type { ?string }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 12
+     */
+    uri?: string;
+
+    /**
+     * Printer make.
+     * @type { ?string }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 12
+     */
+    printerMake?: string;
+
+    /**
+     * Detail information in json format.
+     * @type { ?string }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 12
+     */
+    options?: string;
+  }
+
+  /**
+   * defines printer capabilities.
+   * @typedef PrinterCapabilities
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 12
+   */
+  interface PrinterCapabilities {
+    /**
+     * The page size list supported by the printer.
+     * @type { Array<PrintPageSize> }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 12
+     */
+    supportedPageSizes: Array<PrintPageSize>;
+
+    /**
+     * Array of supported color mode.
+     * @type { Array<PrintColorMode> }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 12
+     */
+    supportedColorModes: Array<PrintColorMode>;
+
+    /**
+     * Array of supported duplex mode.
+     * @type { Array<PrintDuplexMode> }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 12
+     */
+    supportedDuplexModes: Array<PrintDuplexMode>;
+
+    /**
+     * Array of supported print media types.
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 12
+     */
+    supportedMediaTypes?: Array<string>;
+
+    /**
+     * Array of supported print quality.
+     * @type { ?Array<PrintQuality> }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 12
+     */
+    supportedQualities?: Array<PrintQuality>;
+
+    /**
+     * Array of supported print orientation.
+     * @type { ?Array<PrintOrientationMode> }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 12
+     */
+    supportedOrientations?: Array<PrintOrientationMode>;
+
+    /**
+     * Advanced capability in json format.
+     * @type { ?string }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 12
+     */
+    options?: string;
+  }
+
+  /**
+   * Enumeration of Print Quality.
+   * @enum { number } PrintQuality
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 12
+   */
+  enum PrintQuality {
+    /**
+     * Draft quality mode.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 12
+     */
+    QUALITY_DRAFT = 3,
+
+    /**
+     * Normal quality mode.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 12
+     */
+    QUALITY_NORMAL = 4,
+
+    /**
+     * High quality mode.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 12
+     */
+    QUALITY_HIGH = 5,
+  }
+
+  /**
+   * Enumeration of Print OrientationMode.
+   * @enum { number } PrintOrientationMode
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 12
+   */
+  enum PrintOrientationMode {
+    /**
+     * Portrait mode.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 12
+     */
+    ORIENTATION_MODE_PORTRAIT = 0,
+
+    /**
+     * Landscape mode.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 12
+     */
+    ORIENTATION_MODE_LANDSCAPE= 1,
+
+    /**
+     * Reverse landscape mode.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 12
+     */
+    ORIENTATION_MODE_REVERSE_LANDSCAPE = 2,
+
+    /**
+     * Reverse portrait mode.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 12
+     */
+    ORIENTATION_MODE_REVERSE_PORTRAIT = 3,
+
+    /**
+     * Not specified.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 12
+     */
+    ORIENTATION_MODE_NONE = 4,
+  }
+
+  /**
+   * Enumeration of Printer Status.
+   * @enum { number } PrinterStatus
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 12
+   */
+  enum PrinterStatus {
+    /**
+     * Printer idle.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 12
+     */
+    PRINTER_IDLE = 0,
+
+    /**
+     * Printer busy.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 12
+     */
+    PRINTER_BUSY = 1,
+
+    /**
+     * Printer not available.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 12
+     */
+    PRINTER_UNAVAILABLE = 2,
+  }
+
 }
 
 export default print;

@@ -34,6 +34,15 @@
 export { NodeRenderType, RenderOptions, BuilderNode } from './arkui/BuilderNode';
 
 /**
+ * Export BuildOptions which is used to create a node trees by builder function and manage the update of the tree.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+export { BuildOptions } from './arkui/BuilderNode';
+
+/**
  * Export NodeController, which defines the controller of node container. Provides lifecycle callbacks for the associated NodeContainer
  * and methods to control the child node of the NodeContainer.
  * 

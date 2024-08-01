@@ -141,6 +141,19 @@ declare namespace collections {
      */
     readonly length: number;
     /**
+     * Returns the item at that index.
+     * 
+     * @param { number } index - The zero-based index of the desired code unit.
+     *     Throws error if index < 0 or index >= array.length.
+     * @returns { T } The element in the ConcatArray matching the given index.
+     * @readonly
+     * @throws { BusinessError } 401 - Parameter error. Illegal index.
+     * @throws { BusinessError } 10200001 - The value of index is out of range.
+     * @syscap SystemCapability.Utils.Lang
+     * @since 12
+     */
+    readonly [index: number]: T;
+    /**
      * Adds all the elements of an ArkTS ConcatArray into a string, separated by the specified separator string.
      * 
      * @param { string } [separator] - A string used to separate one element of the array from
@@ -219,6 +232,19 @@ declare namespace collections {
      */
     static from<T>(arrayLike: ArrayLike<T>): Array<T>;
     /**
+     * Creates an ArkTS Array from an iterable object.
+     * 
+     * @param { Iterable<T> } iterable - An iterable object to convert to an ArkTS Array.
+     * @returns { Array<T> } A new Array instance
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 10200011 - The from method cannot be bound.
+     * @static
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    static from<T>(iterable: Iterable<T>): Array<T>;
+    /**
      * A constructor used to create an ArkTS Array.
      *
      * @throws { BusinessError } 10200012 - The Array's constructor cannot be directly invoked.
@@ -239,6 +265,17 @@ declare namespace collections {
      * @since 12
      */
     constructor(first: T, ...left: T[]);
+    /**
+     * A constructor used to create an ArkTS Array.
+     *
+     * @param { T[] } items - Elements when initializing an ArkTS Array.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 10200012 - The Array's constructor cannot be directly invoked.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    constructor(...items: T[]);
     /**
      * Removes the last element from an ArkTS array and returns it.
      * If the array is empty, undefined is returned and the array is not modified.
@@ -457,6 +494,7 @@ declare namespace collections {
      * @returns { IterableIterator<T> } Iterator object.
      * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     [Symbol.iterator](): IterableIterator<T>;
@@ -677,7 +715,7 @@ declare namespace collections {
      * A constructor used to create a Map.
      *
      * @param { readonly (readonly [K, V])[] | null } [entries] - An Array or other iterable object
-     * whose elements are key-value pairs.
+     *    whose elements are key-value pairs.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200012 - The Map's constructor cannot be directly invoked.
      * @syscap SystemCapability.Utils.Lang
@@ -686,11 +724,24 @@ declare namespace collections {
      */
     constructor(entries?: readonly (readonly [K, V])[] | null)
     /**
+     * A constructor used to create a Map.
+     *
+     * @param { Iterable<readonly [K, V]>} [iterable] - An iterable object to convert to an ArkTS Map.
+     *    whose elements are key-value pairs.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 10200012 - The Map's constructor cannot be directly invoked.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    constructor(iterable: Iterable<readonly [K, V]>);
+    /**
      * Returns an iterator that iterates over key-value pairs.
      *
      * @returns { IterableIterator<[K, V]> } Iterator object that yields key-value pairs.
      * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     [Symbol.iterator](): IterableIterator<[K, V]>
@@ -847,11 +898,25 @@ declare namespace collections {
      */
     constructor(values?: readonly T[] | null);
     /**
+     * A constructor used to create a Set.
+     *
+     * @param { Iterable<T>} [iterable] - If an iterable object is passed,
+     *     all of its elements will be added to the new Set.
+     *     If you don't specify this parameter, or its value is null, the new Set is empty.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 10200012 - The Set's constructor cannot be directly invoked.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    constructor(iterable: Iterable<T>);
+    /**
      * Returns an iterator that can be used to iterate over elements of type T.
      *
      * @returns { IterableIterator<T> } Iterator object.
      * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     [Symbol.iterator](): IterableIterator<T>;
@@ -1086,6 +1151,17 @@ declare namespace collections {
      * @since 12
      */
     constructor(length: number);
+    /**
+     * A constructor used to create an Int8Array.
+     *
+     * @param { Iterable<number> } elements - An iterable object to convert to an Int8Array.
+     * @throws { BusinessError } 10200012 - The Int8Array's constructor cannot be directly invoked.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    constructor(elements: Iterable<number>);
     /**
      * A constructor used to create an Int8Array.
      *
@@ -1479,6 +1555,7 @@ declare namespace collections {
      * @returns { IterableIterator<number> } Iterator object that yields numbers.
      * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     [Symbol.iterator](): IterableIterator<number>;
@@ -1624,6 +1701,17 @@ declare namespace collections {
      * @since 12
      */
     constructor(length: number);
+    /**
+     * A constructor used to create an Uint8ClampedArray.
+     *
+     * @param { Iterable<number> } elements - An iterable object to convert to an Uint8ClampedArray.
+     * @throws { BusinessError } 10200012 - The Uint8ClampedArray's constructor cannot be directly invoked.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    constructor(elements: Iterable<number>);
     /**
      * A constructor used to create an Uint8ClampedArray.
      *
@@ -2000,6 +2088,7 @@ declare namespace collections {
      * @returns { IterableIterator<number> } Iterator object that yields numbers.
      * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     [Symbol.iterator](): IterableIterator<number>;
@@ -2144,6 +2233,17 @@ declare namespace collections {
      * @since 12
      */
     constructor(length: number);
+    /**
+     * A constructor used to create an Uint8Array.
+     *
+     * @param { Iterable<number> } elements - An iterable object to convert to an Uint8Array.
+     * @throws { BusinessError } 10200012 - The Uint8Array's constructor cannot be directly invoked.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    constructor(elements: Iterable<number>);
     /**
      * A constructor used to create an Uint8Array.
      *
@@ -2536,6 +2636,7 @@ declare namespace collections {
      * @returns { IterableIterator<number> } Iterator object that yields numbers.
      * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     [Symbol.iterator](): IterableIterator<number>;
@@ -2680,6 +2781,17 @@ declare namespace collections {
      * @since 12
      */
     constructor(length: number);
+    /**
+     * A constructor used to create an Int16Array.
+     *
+     * @param { Iterable<number> } elements - An iterable object to convert to an Int16Array.
+     * @throws { BusinessError } 10200012 - The Int16Array's constructor cannot be directly invoked.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    constructor(elements: Iterable<number>);
     /**
      * A constructor used to create an Int16Array.
      *
@@ -3072,6 +3184,7 @@ declare namespace collections {
      * @returns { IterableIterator<number> } Iterator object that yields numbers.
      * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     [Symbol.iterator](): IterableIterator<number>;
@@ -3216,6 +3329,17 @@ declare namespace collections {
      * @since 12
      */
     constructor(length: number);
+    /**
+     * A constructor used to create an Uint16Array.
+     *
+     * @param { Iterable<number> } elements - An iterable object to convert to an Uint16Array.
+     * @throws { BusinessError } 10200012 - The Uint16Array's constructor cannot be directly invoked.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    constructor(elements: Iterable<number>);
     /**
      * A constructor used to create an Uint16Array.
      *
@@ -3607,6 +3731,7 @@ declare namespace collections {
      * @returns { IterableIterator<number> } Iterator object that yields numbers.
      * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     [Symbol.iterator](): IterableIterator<number>;
@@ -3751,6 +3876,17 @@ declare namespace collections {
      * @since 12
      */
     constructor(length: number);
+    /**
+     * A constructor used to create an Int32Array.
+     *
+     * @param { Iterable<number> } elements - An iterable object to convert to an Int32Array.
+     * @throws { BusinessError } 10200012 - The Int32Array's constructor cannot be directly invoked.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    constructor(elements: Iterable<number>);
     /**
      * A constructor used to create an Int32Array.
      *
@@ -4143,6 +4279,7 @@ declare namespace collections {
      * @returns { IterableIterator<number> } Iterator object that yields numbers.
      * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     [Symbol.iterator](): IterableIterator<number>;
@@ -4287,6 +4424,17 @@ declare namespace collections {
      * @since 12
      */
     constructor(length: number);
+    /**
+     * A constructor used to create an Uint32Array.
+     *
+     * @param { Iterable<number> } elements - An iterable object to convert to an Uint32Array.
+     * @throws { BusinessError } 10200012 - The Uint32Array's constructor cannot be directly invoked.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    constructor(elements: Iterable<number>);
     /**
      * A constructor used to create an Uint32Array.
      *
@@ -4678,6 +4826,7 @@ declare namespace collections {
      * @returns { IterableIterator<number> } Iterator object that yields numbers.
      * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
      * @since 12
      */
     [Symbol.iterator](): IterableIterator<number>;
@@ -4822,6 +4971,17 @@ declare namespace collections {
      * @since 12
      */
     constructor(length: number);
+    /**
+     * A constructor used to create an Float32Array.
+     *
+     * @param { Iterable<number> } elements - An iterable object to convert to an Float32Array.
+     * @throws { BusinessError } 10200012 - The Float32Array's constructor cannot be directly invoked.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    constructor(elements: Iterable<number>);
     /**
      * A constructor used to create an Float32Array.
      *
@@ -5192,6 +5352,16 @@ declare namespace collections {
      */
     at(index: number): number | undefined;
     /**
+     * Returns an iterator that iterates over numbers.
+     *
+     * @returns { IterableIterator<number> } Iterator object that yields numbers.
+     * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    [Symbol.iterator](): IterableIterator<number>;
+    /**
      * Returns an iterable of key, value pairs for every entry in the array
      *
      * @returns { IterableIterator<[number, number]> } A new iterable iterator object.
@@ -5474,6 +5644,16 @@ declare namespace collections {
      * @since 12
      */
     flipBitsByRange(fromIndex: number, toIndex: number): void;
+    /**
+     * Returns an iterator that iterates over bit vector.
+     *
+     * @returns { IterableIterator<number> } A new iterable iterator object.
+     * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 12
+     */
+    [Symbol.iterator](): IterableIterator<number>;    
     /**
      * Returns an iterable of values in the bit vector
      *

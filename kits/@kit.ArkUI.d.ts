@@ -73,7 +73,7 @@ import dragController from '@ohos.arkui.dragController';
 import { DrawableDescriptor, LayeredDrawableDescriptor, PixelMapDrawableDescriptor, AnimationOptions, AnimatedDrawableDescriptor } from '@ohos.arkui.drawableDescriptor';
 import inspector from '@ohos.arkui.inspector';
 import {
-  NodeRenderType, RenderOptions, BuilderNode, NodeController, FrameNode, DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation,
+  NodeRenderType, RenderOptions, BuilderNode, BuildOptions, NodeController, FrameNode, DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation,
   Frame, RenderNode, XComponentNode, LengthMetrics, LengthMetricsUnit, LengthUnit, ColorMetrics, LayoutConstraint, ComponentContent, NodeContent, Content, typeNode, ShapeMask, ShapeClip,
   NodeAdapter, Rect, RoundRect, edgeColors, borderStyles, borderRadiuses
 } from '@ohos.arkui.node';
@@ -144,7 +144,7 @@ import {
   MarqueeModifier, ProgressModifier, QRCodeModifier, TextClockModifier, TextTimerModifier, LineModifier, PathModifier,
   PolygonModifier, PolylineModifier, RectModifier, ShapeModifier, AlphabetIndexerModifier, FormComponentModifier,
   HyperlinkModifier, MenuModifier, MenuItemModifier, PanelModifier, SymbolGlyphModifier, AttributeUpdater,
-  ContainerSpanModifier, SymbolSpanModifier
+  ContainerSpanModifier, SymbolSpanModifier, ParticleModifier
 } from "@ohos.arkui.modifier";
 import {
   DownloadFileButton,
@@ -171,7 +171,7 @@ export {
   LabelOptions, LayeredDrawableDescriptor, LoadingDialog, LocaleResponse, MarginType, Matrix4, MeasureOptions, MeasureText,
   MediaQuery, MediaQueryEvent, MediaQueryList, NodeController, NodeParam, NodeRenderType, Offset, OperateButton, OperateCheck, OperateIcon,
   OperateItem, OperationOption, OperationType, OverlayManager, PathShape, PiPWindow, Pivot, Popup, PopupButtonOptions, PopupIconOptions, PopupOptions,
-  PopupTextOptions, Position, PrefixIconOptions, ProgressButton, Prompt, PromptAction, PromptOptions, RectShape, RenderNode, RenderOptions,
+  PopupTextOptions, Position, PrefixIconOptions, ProgressButton, Prompt, PromptAction, PromptOptions, RectShape, RenderNode, RenderOptions, BuildOptions,
   RequestFullWindowOptions, Rotation, Router, RouterOptions, RouterState, Scale, ScreenOnVisibleOptions, SegmentButton, SegmentButtonItemOptionsArray,
   SegmentButtonOptions, SelectDialog, SelectOptions, SelectTitleBar, SelectTitleBarMenuItem, SelectionMenu,
   SelectionMenuOptions, ShapeMask, ShapeClip, ShowActionMenuOptions, ShowDialogOptions, ShowDialogSuccessResponse,
@@ -205,5 +205,6 @@ export {
   ContainerSpanModifier, SegmentButtonTextItem, SegmentButtonIconItem, SegmentButtonIconTextItem, DimensionNoPercentage,
   CommonSegmentButtonOptions, ItemRestriction, SegmentButtonItemTuple, SegmentButtonItemArray, SegmentButtonItemOptionsConstructorOptions, SegmentButtonItemOptions,
   PixelMapDrawableDescriptor, AnimationOptions, AnimatedDrawableDescriptor, NodeAdapter, DownloadFileButton,
-  DownloadLayoutDirection, DownloadIconStyle, DownloadDescription, DownloadContentOptions, DownloadStyleOptions, Rect, RoundRect, edgeColors, borderStyles, borderRadiuses
+  DownloadLayoutDirection, DownloadIconStyle, DownloadDescription, DownloadContentOptions, DownloadStyleOptions,
+  Rect, RoundRect, edgeColors, borderStyles, borderRadiuses, ParticleModifier
 };

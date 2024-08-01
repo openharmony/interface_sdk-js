@@ -141,6 +141,7 @@ channelup
 checkboxgroup
 checksum
 chload
+choosed
 chromaticities
 chromaticity
 chrominance
@@ -359,6 +360,8 @@ gbk
 geofence
 geofences
 getunfilteredlinkurl
+getxattr
+getxattrSync
 glasses
 glonass
 gnss
@@ -738,6 +741,8 @@ precisiontype
 precomposed
 precomposited
 precon
+preconfig
+preconfiged
 preconnect
 preconnectable
 preconnected
@@ -776,6 +781,7 @@ pss
 pssh
 puk
 pvr
+qualities
 quant
 querier
 queriers
@@ -885,6 +891,8 @@ sensing
 sequenceable
 setsockopt
 settingsdata
+setxattr
+setxattrSync
 seventh
 sfactor
 sgi
@@ -969,6 +977,7 @@ suscribes
 suspending
 suspends
 swanctl
+switchmode
 switchvideomode
 symantec
 symbolglyph
@@ -1172,6 +1181,7 @@ xcomponent
 xfer
 xflags
 xldpi
+xmage
 xoffset
 xxldpi
 xxxldpi
@@ -1186,3 +1196,9 @@ zoomout
 zoomreset
 zooms
 zpass
+Capitals
+monospaced
+depressed
+Tritanomaly
+Deuteranomaly
+Protanomaly

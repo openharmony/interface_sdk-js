@@ -748,7 +748,7 @@ declare namespace taskpool {
      * <br>2. Incorrect parameter types;
      * @throws { BusinessError } 10200003 - Worker initialization failed.
      * @throws { BusinessError } 10200006 - An exception occurred during serialization.
-     * @throws { BusinessError } 10200025 - A dependent task cannot be added to SequenceRunner.
+     * @throws { BusinessError } 10200025 - dependent task not allowed.
      * @throws { BusinessError } 10200051 - The periodic task cannot be executed again.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -1246,6 +1246,8 @@ declare namespace taskpool {
    * <br>1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types;
    * <br>3. Parameter verification failed.
+   * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+   * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
    * @throws { BusinessError } 10200028 - The delayTime is less than zero.
    * @throws { BusinessError } 10200051 - The periodic task cannot be executed again.
    * @syscap SystemCapability.Utils.Lang

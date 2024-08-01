@@ -495,7 +495,7 @@ declare namespace http {
     /**
      * Certificate pinning option. If server certificate's digest does not match
      * {@link CertificatePinning.publicKeyHash}, request will fail.
-     * @type {?CertificatePinning | CertificatePinning[]}
+     * @type {?(CertificatePinning | CertificatePinning[])}
      * @syscap SystemCapability.Communication.NetStack
      * @since 12
      */

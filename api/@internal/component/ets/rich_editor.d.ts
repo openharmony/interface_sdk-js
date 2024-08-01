@@ -3365,6 +3365,18 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   onIMEInputComplete(callback: Callback<RichEditorTextSpanResult>): RichEditorAttribute;
 
   /**
+   * Called when ime input complete.
+   *
+   * @param { Callback<TextRange> } callback - The triggered function when text content has been inserted.
+   * @returns { RichEditorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onDidIMEInput(callback: Callback<TextRange>): RichEditorAttribute;
+
+  /**
    * Get text value information when about to delete.
    *
    * @param { function } callback - The triggered function when text content is about to delete.

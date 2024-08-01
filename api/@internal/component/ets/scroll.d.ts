@@ -661,7 +661,7 @@ declare class Scroller {
    * @param { number } value - Index to jump to.
    * @param { boolean } [smooth] - If true, scroll to index item with animation. If false, scroll to index item without animation.
    * @param { ScrollAlign } [align] - Sets the alignment mode of a specified index.
-   * @param { options } [ScrollToIndexOptions] - Sets the options of a specified index, such as extra offset.
+   * @param { ScrollToIndexOptions } [options] - Sets the options of a specified index, such as extra offset.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice

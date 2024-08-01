@@ -8569,6 +8569,7 @@ declare interface SslErrorEvent {
   /**
    * Whether the request is main frame.
    *
+   * @type { boolean }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12

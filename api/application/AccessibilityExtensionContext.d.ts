@@ -42,6 +42,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
+   * @deprecated since 12
    */
   setTargetBundleName(targetNames: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -56,6 +57,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
+   * @deprecated since 12
    */
   setTargetBundleName(targetNames: Array<string>): Promise<void>;
 
@@ -71,6 +73,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
+   * @deprecated since 12
    */
   getFocusElement(isAccessibilityFocus: boolean, callback: AsyncCallback<AccessibilityElement>): void;
 
@@ -86,6 +89,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
+   * @deprecated since 12
    */
   getFocusElement(isAccessibilityFocus?: boolean): Promise<AccessibilityElement>;
 
@@ -99,6 +103,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
+   * @deprecated since 12
    */
   getFocusElement(callback: AsyncCallback<AccessibilityElement>): void;
 
@@ -114,6 +119,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
+   * @deprecated since 12
    */
   getWindowRootElement(windowId: number, callback: AsyncCallback<AccessibilityElement>): void;
 
@@ -129,6 +135,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
+   * @deprecated since 12
    */
   getWindowRootElement(windowId?: number): Promise<AccessibilityElement>;
 
@@ -142,6 +149,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
+   * @deprecated since 12
    */
   getWindowRootElement(callback: AsyncCallback<AccessibilityElement>): void;
 
@@ -157,6 +165,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
+   * @deprecated since 12
    */
   getWindows(displayId: number, callback: AsyncCallback<Array<AccessibilityElement>>): void;
 
@@ -172,6 +181,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
+   * @deprecated since 12
    */
   getWindows(displayId?: number): Promise<Array<AccessibilityElement>>;
 
@@ -185,6 +195,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
+   * @deprecated since 12
    */
   getWindows(callback: AsyncCallback<Array<AccessibilityElement>>): void;
 
@@ -233,6 +244,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 10
+   * @deprecated since 12
    */
   injectGestureSync(gesturePath: GesturePath): void;
 }
@@ -252,6 +264,7 @@ declare interface AccessibilityElement {
    * @param { AsyncCallback<Array<T>> } callback Indicates the listener.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
+   * @deprecated since 12
    */
   attributeNames<T extends keyof ElementAttributeValues>(callback: AsyncCallback<Array<T>>): void;
 
@@ -260,6 +273,7 @@ declare interface AccessibilityElement {
    * @returns { Promise<Array<T>> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
+   * @deprecated since 12
    */
   attributeNames<T extends keyof ElementAttributeValues>(): Promise<Array<T>>;
 
@@ -275,6 +289,7 @@ declare interface AccessibilityElement {
    * @throws { BusinessError } 9300004 - This property does not exist.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
+   * @deprecated since 12
    */
   attributeValue<T extends keyof ElementAttributeValues>(
     attributeName: T,
@@ -293,6 +308,7 @@ declare interface AccessibilityElement {
    * @throws { BusinessError } 9300004 - This property does not exist.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
+   * @deprecated since 12
    */
   attributeValue<T extends keyof ElementAttributeValues>(attributeName: T): Promise<ElementAttributeValues[T]>;
 
@@ -302,6 +318,7 @@ declare interface AccessibilityElement {
    * @param { AsyncCallback<Array<string>> } callback Indicates the listener.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
+   * @deprecated since 12
    */
   actionNames(callback: AsyncCallback<Array<string>>): void;
 
@@ -311,6 +328,7 @@ declare interface AccessibilityElement {
    * @returns { Promise<Array<string>> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
+   * @deprecated since 12
    */
   actionNames(): Promise<Array<string>>;
 
@@ -327,6 +345,7 @@ declare interface AccessibilityElement {
    * @throws { BusinessError } 9300005 - This action is not supported.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
+   * @deprecated since 12
    */
   performAction(actionName: string, parameters: object, callback: AsyncCallback<void>): void;
 
@@ -343,6 +362,7 @@ declare interface AccessibilityElement {
    * @throws { BusinessError } 9300005 - This action is not supported.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
+   * @deprecated since 12
    */
   performAction(actionName: string, parameters?: object): Promise<void>;
 
@@ -358,6 +378,7 @@ declare interface AccessibilityElement {
    * @throws { BusinessError } 9300005 - This action is not supported.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
+   * @deprecated since 12
    */
   performAction(actionName: string, callback: AsyncCallback<void>): void;
 
@@ -366,6 +387,7 @@ declare interface AccessibilityElement {
    *
    * @param { AsyncCallback<number> } callback Indicates the listener.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
    * @since 12
    */
   getCursorPosition(callback: AsyncCallback<number>): void;
@@ -375,6 +397,7 @@ declare interface AccessibilityElement {
    *
    * @returns { Promise<number> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
    * @since 12
    */
   getCursorPosition(): Promise<number>;
@@ -406,6 +429,7 @@ declare interface AccessibilityElement {
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
+   * @deprecated since 12
    */
   findElement(type: 'content', condition: string, callback: AsyncCallback<Array<AccessibilityElement>>): void;
 
@@ -421,6 +445,7 @@ declare interface AccessibilityElement {
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
+   * @deprecated since 12
    */
   findElement(type: 'content', condition: string): Promise<Array<AccessibilityElement>>;
 
@@ -436,6 +461,7 @@ declare interface AccessibilityElement {
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
+   * @deprecated since 12
    */
   findElement(type: 'focusType', condition: FocusType, callback: AsyncCallback<AccessibilityElement>): void;
 
@@ -451,6 +477,7 @@ declare interface AccessibilityElement {
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
+   * @deprecated since 12
    */
   findElement(type: 'focusType', condition: FocusType): Promise<AccessibilityElement>;
 
@@ -466,6 +493,7 @@ declare interface AccessibilityElement {
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
+   * @deprecated since 12
    */
   findElement(type: 'focusDirection', condition: FocusDirection, callback: AsyncCallback<AccessibilityElement>): void;
 
@@ -481,6 +509,7 @@ declare interface AccessibilityElement {
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
+   * @deprecated since 12
    */
   findElement(type: 'focusDirection', condition: FocusDirection): Promise<AccessibilityElement>;
 
@@ -495,6 +524,7 @@ declare interface AccessibilityElement {
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
    * @since 12
    */
   findElement(type: 'textType', condition: string): Promise<Array<AccessibilityElement>>;
@@ -510,6 +540,7 @@ declare interface AccessibilityElement {
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
    * @since 12
    */
   findElement(type: 'elementId', condition: number): Promise<AccessibilityElement>;
@@ -532,6 +563,7 @@ interface ElementAttributeValues {
   /**
    * Indicates accessibility focus state.
    *
+   * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -539,6 +571,7 @@ interface ElementAttributeValues {
   /**
    * Indicates the bundle name to which it belongs.
    *
+   * @type {string}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -546,6 +579,7 @@ interface ElementAttributeValues {
   /**
    * Indicates whether the element is checkable.
    *
+   * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -553,6 +587,7 @@ interface ElementAttributeValues {
   /**
    * Indicates whether the element is checked.
    *
+   * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -560,6 +595,7 @@ interface ElementAttributeValues {
   /**
    * Indicates all child elements.
    *
+   * @type {Array<AccessibilityElement>}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -567,6 +603,7 @@ interface ElementAttributeValues {
   /**
    * Indicates whether the element is clickable.
    *
+   * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -574,6 +611,7 @@ interface ElementAttributeValues {
   /**
    * Indicates the component ID to which the element belongs.
    *
+   * @type {number}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -581,6 +619,7 @@ interface ElementAttributeValues {
   /**
    * Indicates the component type to which the element belongs.
    *
+   * @type {string}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -588,6 +627,7 @@ interface ElementAttributeValues {
   /**
    * Indicates the content.
    *
+   * @type {Array<string>}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -595,6 +635,7 @@ interface ElementAttributeValues {
   /**
    * Indicates the index of the current item.
    *
+   * @type {number}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -602,6 +643,7 @@ interface ElementAttributeValues {
   /**
    * Indicates the description of the element.
    *
+   * @type {string}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -609,6 +651,7 @@ interface ElementAttributeValues {
   /**
    * Indicates whether the element is editable.
    *
+   * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -616,6 +659,7 @@ interface ElementAttributeValues {
   /**
    * Indicates the list index of the last item displayed on the screen.
    *
+   * @type {number}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -623,6 +667,7 @@ interface ElementAttributeValues {
   /**
    * Indicates the string of error state.
    *
+   * @type {string}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -630,6 +675,7 @@ interface ElementAttributeValues {
   /**
    * Indicates whether the element is focusable.
    *
+   * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -637,6 +683,7 @@ interface ElementAttributeValues {
   /**
    * Indicates the hint text.
    *
+   * @type {string}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -644,6 +691,7 @@ interface ElementAttributeValues {
   /**
    * Indicates the type of input text.
    *
+   * @type {number}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -651,6 +699,7 @@ interface ElementAttributeValues {
   /**
    * Indicates the inspector key.
    *
+   * @type {string}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -658,6 +707,7 @@ interface ElementAttributeValues {
   /**
    * Indicates whether the element is active or not.
    *
+   * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -665,6 +715,7 @@ interface ElementAttributeValues {
   /**
    * Indicates whether the element is enable or not.
    *
+   * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -672,13 +723,15 @@ interface ElementAttributeValues {
   /**
    * Indicates whether the element is hint state or not.
    *
+   * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
   isHint: boolean;
   /**
    * Indicates whether the element is focused or not.
-   *
+   * 
+   * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -686,6 +739,7 @@ interface ElementAttributeValues {
   /**
    * Indicates whether the element is password or not.
    *
+   * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -693,6 +747,7 @@ interface ElementAttributeValues {
   /**
    * Indicates whether the element is visible or not.
    *
+   * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -700,6 +755,7 @@ interface ElementAttributeValues {
   /**
    * Indicates the total count of the items.
    *
+   * @type {number}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -707,6 +763,7 @@ interface ElementAttributeValues {
   /**
    * Indicates the last content.
    *
+   * @type {string}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -714,6 +771,7 @@ interface ElementAttributeValues {
   /**
    * Indicates the display layer of the element.
    *
+   * @type {number}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -721,6 +779,7 @@ interface ElementAttributeValues {
   /**
    * Indicates whether the element is long clickable.
    *
+   * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -728,6 +787,7 @@ interface ElementAttributeValues {
   /**
    * Indicates the page id.
    *
+   * @type {number}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -735,6 +795,7 @@ interface ElementAttributeValues {
   /**
    * Indicates the parent of the element.
    *
+   * @type {AccessibilityElement}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -742,6 +803,7 @@ interface ElementAttributeValues {
   /**
    * Indicates whether the element supports multiple lines of text.
    *
+   * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -749,6 +811,7 @@ interface ElementAttributeValues {
   /**
    * Indicates the area of the element.
    *
+   * @type {Rect}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -756,6 +819,7 @@ interface ElementAttributeValues {
   /**
    * Indicates the resource name of the element.
    *
+   * @type {string}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -763,6 +827,7 @@ interface ElementAttributeValues {
   /**
    * Indicates the root element of the window element.
    *
+   * @type {AccessibilityElement}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -770,6 +835,7 @@ interface ElementAttributeValues {
   /**
    * Indicates the display area of the element.
    *
+   * @type {Rect}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -777,6 +843,7 @@ interface ElementAttributeValues {
   /**
    * Indicates whether the element is scrollable.
    *
+   * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -784,6 +851,7 @@ interface ElementAttributeValues {
   /**
    * Indicates whether the element is selected.
    *
+   * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -791,6 +859,7 @@ interface ElementAttributeValues {
   /**
    * Indicates the list index of the first item displayed on the screen.
    *
+   * @type {number}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -798,6 +867,7 @@ interface ElementAttributeValues {
   /**
    * Indicates the text of the element.
    *
+   * @type {string}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -805,6 +875,7 @@ interface ElementAttributeValues {
   /**
    * Indicates the maximum length limit of the element text.
    *
+   * @type {number}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -812,6 +883,7 @@ interface ElementAttributeValues {
   /**
    * Indicates the unit of movement of the element text as it is read.
    *
+   * @type {accessibility.TextMoveUnit}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -819,6 +891,7 @@ interface ElementAttributeValues {
   /**
    * Indicates the action that triggered the element event.
    *
+   * @type {accessibility.Action}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -826,6 +899,7 @@ interface ElementAttributeValues {
   /**
    * Indicates the window type of the element.
    *
+   * @type {WindowType}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -833,6 +907,7 @@ interface ElementAttributeValues {
   /**
    * Indicates the maximum value.
    *
+   * @type {number}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -840,13 +915,15 @@ interface ElementAttributeValues {
   /**
    * Indicates the minimum value.
    *
+   * @type {number}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
   valueMin: number;
   /**
    * Indicates the current value.
-   *
+   * 
+   * @type {number}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -854,6 +931,7 @@ interface ElementAttributeValues {
   /**
    * Indicates the window id.
    *
+   * @type {number}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -861,6 +939,7 @@ interface ElementAttributeValues {
   /**
    * Indicates the offset.
    *
+   * @type {number}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 12
    */
@@ -868,6 +947,7 @@ interface ElementAttributeValues {
   /**
    * Indicates the text type.
    *
+   * @type {string}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 12
    */
@@ -875,6 +955,7 @@ interface ElementAttributeValues {
   /**
    * Indicates the accessibility text of component.
    *
+   * @type {string}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 12
    */
@@ -882,6 +963,7 @@ interface ElementAttributeValues {
   /**
    * Indicates the hot area of the element.
    *
+   * @type {Rect}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 12
    */
@@ -891,6 +973,7 @@ interface ElementAttributeValues {
 /**
  * Indicates the direction of the search focus.
  *
+ * @typedef {'up' | 'down' | 'left' | 'right' | 'forward' | 'backward'}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9
  */
@@ -899,6 +982,7 @@ type FocusDirection = 'up' | 'down' | 'left' | 'right' | 'forward' | 'backward';
 /**
  * Indicates the type of the focus.
  *
+ * @typedef {'accessibility' | 'normal'}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9
  */
@@ -907,6 +991,7 @@ type FocusType = 'accessibility' | 'normal';
 /**
  * Indicates the type of the window.
  *
+ * @typedef {'application' | 'system'}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9
  */

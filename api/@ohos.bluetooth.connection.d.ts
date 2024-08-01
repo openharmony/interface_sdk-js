@@ -852,21 +852,6 @@ declare namespace connection {
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 12
-   */
-  /**
-   * Modify remote device name.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
-   * @param { string } name - New device name. Max length is 64 bytes.
-   * @returns { Promise<void> } Returns the promise object.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900003 - Bluetooth disabled.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
    * @atomicservice
    * @since 12
    */
@@ -1098,6 +1083,7 @@ declare namespace connection {
     /**
      * Address of a Bluetooth device.
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
@@ -1105,6 +1091,7 @@ declare namespace connection {
     /**
      * Profile connection state of the device.
      *
+     * @type { BondState }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
@@ -1112,6 +1099,7 @@ declare namespace connection {
     /**
      * Cause of unbond.
      *
+     * @type { UnbondCause }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 12
      */
@@ -1129,6 +1117,7 @@ declare namespace connection {
     /**
      * ID of the device to pair.
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
@@ -1136,6 +1125,7 @@ declare namespace connection {
     /**
      * Key for the device pairing.
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
@@ -1143,6 +1133,7 @@ declare namespace connection {
     /**
      * Indicates the pairing type to a peer device.
      *
+     * @type { PinType }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 10
@@ -1161,6 +1152,7 @@ declare namespace connection {
     /**
      * Major classes of Bluetooth devices.
      *
+     * @type { MajorClass }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
@@ -1168,6 +1160,7 @@ declare namespace connection {
     /**
      * Major and minor classes of Bluetooth devices.
      *
+     * @type { MajorMinorClass }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
@@ -1175,6 +1168,7 @@ declare namespace connection {
     /**
      * Class of the device.
      *
+     * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
@@ -1404,6 +1398,7 @@ declare namespace connection {
     /**
      * Identify of the discovery device
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 12
@@ -1412,6 +1407,7 @@ declare namespace connection {
     /**
      * RSSI of the remote device
      *
+     * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 12
@@ -1420,6 +1416,7 @@ declare namespace connection {
     /**
      * The local name of the device
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 12
@@ -1428,6 +1425,7 @@ declare namespace connection {
     /**
      * The class of the device
      *
+     * @type { DeviceClass }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 12
@@ -1446,6 +1444,7 @@ declare namespace connection {
     /**
      * Identify of the discovery device.
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 12

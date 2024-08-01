@@ -240,7 +240,6 @@ declare namespace promptAction {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @atomicservice
      * @since 12
      */
     SYSTEM_TOP_MOST = 2

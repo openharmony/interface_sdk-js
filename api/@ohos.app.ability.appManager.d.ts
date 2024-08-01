@@ -954,12 +954,29 @@ declare namespace appManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *    2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000073 - The app clone index does not exist.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 12
    */
   function clearUpAppData(bundleName: string, appCloneIndex?: number): Promise<void>;
+
+  /**
+   * Terminate the mission of a UIAbility and back to caller.
+   *
+   * @permission ohos.permission.KILL_APP_PROCESSES
+   * @param { number } missionId - The mission id of the UIAbility need to be terminated.
+   * @returns { Promise<void> } Returns the result of terminateMission.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 12
+   */
+  function terminateMission(missionId: number): Promise<void>;
 
   /**
    * The ability or extension state data.
@@ -1053,7 +1070,6 @@ declare namespace appManager {
    * @typedef { _RunningMultiAppInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @atomicservice
    * @since 12
    */
   export type RunningMultiAppInfo = _RunningMultiAppInfo;

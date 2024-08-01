@@ -1312,6 +1312,45 @@ declare namespace media {
   type AVPlayerState = 'idle' | 'initialized' | 'prepared' | 'playing' | 'paused' | 'completed' | 'stopped' | 'released' | 'error';
 
   /**
+   * Defines the OnStateChange callback.
+   * 
+   * @typedef { function } OnAVPlayerStateChangeHandle
+   * @param { AVPlayerState } state - state for AVPlayer.
+   * @param { StateChangeReason } reason - reason for state change.
+   * @syscap SystemCapability.Multimedia.Media.AVPlayer
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  type OnAVPlayerStateChangeHandle = (state: AVPlayerState, reason: StateChangeReason) => void;
+
+  /**
+   * Defines the OnBufferingUpdateHandler callback.
+   * 
+   * @typedef { function } OnBufferingUpdateHandler
+   * @param { BufferingInfoType } infoType - define the Buffering info Type.
+   * @param { number } value - define the value of buffering info type if exist.
+   * @syscap SystemCapability.Multimedia.Media.AVPlayer
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  type OnBufferingUpdateHandler = (infoType: BufferingInfoType, value: number) => void;
+
+  /**
+   * Defines the OnVideoSizeChangeHandler callback.
+   * 
+   * @typedef { function } OnVideoSizeChangeHandler
+   * @param { number } width - Value of video Width.
+   * @param { number } height - Value of video Height.
+   * @syscap SystemCapability.Multimedia.Media.AVPlayer
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  type OnVideoSizeChangeHandler = (width: number, height: number) => void;
+
+  /**
    * Manages and plays media. Before calling an AVPlayer method, you must use createAVPlayer()
    * to create an AVPlayer instance.
    *
@@ -1752,8 +1791,19 @@ declare namespace media {
     getTrackDescription(): Promise<Array<MediaDescription>>;
 
     /**
+     * Get selected tracks, should be called after prepared state.
+     * @returns { Promise<Array<number>> } A Promise instance used to return selected track index.
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 12
+     */
+    getSelectedTracks(): Promise<Array<number>>;
+
+    /**
      * Select specific track to play.
-     * @param { number } index : Track index returned by getTrackDescription#MD_KEY_TRACK_INDEX
+     * @param { number } index - Track index returned by getTrackDescription#MD_KEY_TRACK_INDEX
+     * @param { SwitchMode } mode - set switchmode for track select behavior.
      * @returns { Promise<void> } A Promise instance used to return when select track completed.
      * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
@@ -1761,7 +1811,7 @@ declare namespace media {
      * @atomicservice
      * @since 12
      */
-    selectTrack(index: number): Promise<void>;
+    selectTrack(index: number, mode?: SwitchMode): Promise<void>;
 
     /**
      * Deselect specific track to play.
@@ -1818,6 +1868,14 @@ declare namespace media {
      * @since 12
      */
     addSubtitleFromUrl(url: string): Promise<void>;
+
+    /**
+     * Get statistic infos of current player.
+     * @returns { Promise<PlaybackInfo> } Statistic infos of current player.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 12
+     */
+    getPlaybackInfo(): Promise<PlaybackInfo>;
 
     /**
      * Media URI. Mainstream media formats are supported.
@@ -2155,12 +2213,12 @@ declare namespace media {
     /**
      * Register listens for mediaKeySystemInfoUpdate events.
      * @param { 'mediaKeySystemInfoUpdate' } type - Type of the event to listen for.
-     * @param { function } callback - Callback used to listen for the mediaKeySystemInfoUpdate event.
+     * @param { Callback<Array<drm.MediaKeySystemInfo>> } callback - Callback used to listen for the mediaKeySystemInfoUpdate event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
      */
-    on(type: 'mediaKeySystemInfoUpdate', callback: (mediaKeySystemInfo: Array<drm.MediaKeySystemInfo>) => void): void;
+    on(type: 'mediaKeySystemInfoUpdate', callback: Callback<Array<drm.MediaKeySystemInfo>>): void;
 
     /**
      * Unregister listens for mediaKeySystemInfoUpdate events.
@@ -2172,12 +2230,12 @@ declare namespace media {
     /**
      * Unregister listens for mediaKeySystemInfoUpdate events.
      * @param { 'mediaKeySystemInfoUpdate' } type - Type of the event to listen for.
-     * @param { function } callback - Callback for event.
+     * @param { Callback<Array<drm.MediaKeySystemInfo>> } callback - Callback for event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
      */
-    off(type: 'mediaKeySystemInfoUpdate', callback?: (mediaKeySystemInfo: Array<drm.MediaKeySystemInfo>) => void): void;
+    off(type: 'mediaKeySystemInfoUpdate', callback?: Callback<Array<drm.MediaKeySystemInfo>>): void;
 
     /**
      * Register listens for media playback stateChange event.
@@ -2197,13 +2255,13 @@ declare namespace media {
     /**
      * Register listens for media playback stateChange event.
      * @param { 'stateChange' } type - Type of the playback event to listen for.
-     * @param { function } callback - Callback used to listen for the playback stateChange event.
+     * @param { OnAVPlayerStateChangeHandle } callback - Callback used to listen for the playback stateChange event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
      * @since 12
      */
-    on(type: 'stateChange', callback: (state: AVPlayerState, reason: StateChangeReason) => void): void;
+    on(type: 'stateChange', callback: OnAVPlayerStateChangeHandle): void;
     /**
      * Unregister listens for media playback stateChange event.
      * @param { 'stateChange' } type - Type of the playback event to listen for.
@@ -2220,12 +2278,13 @@ declare namespace media {
     /**
      * Unregister listens for media playback stateChange event.
      * @param { 'stateChange' } type - Type of the playback event to listen for.
+     * @param { OnAVPlayerStateChangeHandle } callback - Callback used to listen for stateChange event
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
      * @since 12
      */
-    off(type: 'stateChange'): void;
+    off(type: 'stateChange', callback?: OnAVPlayerStateChangeHandle): void;
     /**
      * Register listens for media playback volumeChange event.
      * @param { 'volumeChange' } type - Type of the playback event to listen for.
@@ -2252,11 +2311,12 @@ declare namespace media {
     /**
      * Unregister listens for media playback volumeChange event.
      * @param { 'volumeChange' } type - Type of the playback event to listen for.
+     * @param { Callback<number> } callback - Callback used to listen for the playback volume event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @since 12
      */
-    off(type: 'volumeChange'): void;
+    off(type: 'volumeChange', callback?: Callback<number>): void;
     /**
      * Register listens for media playback endOfStream event.
      * @param { 'endOfStream' } type - Type of the playback event to listen for.
@@ -2283,11 +2343,12 @@ declare namespace media {
     /**
      * Unregister listens for media playback endOfStream event.
      * @param { 'endOfStream' } type - Type of the playback event to listen for.
+     * @param { Callback<void> } callback - Callback used to listen for the playback end of stream.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @since 12
      */
-    off(type: 'endOfStream'): void;
+    off(type: 'endOfStream', callback?: Callback<void>): void;
     /**
      * Register listens for media playback seekDone event.
      * @param { 'seekDone' } type - Type of the playback event to listen for.
@@ -2329,12 +2390,13 @@ declare namespace media {
     /**
      * Unregister listens for media playback seekDone event.
      * @param { 'seekDone' } type - Type of the playback event to listen for.
+     * @param { Callback<number> } callback - Callback used to listen for the playback seekDone event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
      * @since 12
      */
-    off(type: 'seekDone'): void;
+    off(type: 'seekDone', callback?: Callback<number>): void;
     /**
      * Register listens for media playback speedDone event.
      * @param { 'speedDone' } type - Type of the playback event to listen for.
@@ -2361,11 +2423,12 @@ declare namespace media {
     /**
      * Unregister listens for media playback speedDone event.
      * @param { 'speedDone' } type - Type of the playback event to listen for.
+     * @param { Callback<number> } callback - Callback used to listen for the playback speedDone event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @since 12
      */
-    off(type: 'speedDone'): void;
+    off(type: 'speedDone', callback?: Callback<number>): void;
     /**
      * Register listens for media playback setBitrateDone event.
      * @param { 'bitrateDone' } type - Type of the playback event to listen for.
@@ -2385,10 +2448,11 @@ declare namespace media {
     /**
      * Unregister listens for media playback setBitrateDone event.
      * @param { 'bitrateDone' } type - Type of the playback event to listen for.
+     * @param { Callback<number> } callback - Callback used to listen for the playback setBitrateDone event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
-    off(type: 'bitrateDone'): void;
+    off(type: 'bitrateDone', callback?: Callback<number>): void;
     /**
      * Register listens for media playback timeUpdate event.
      * @param { 'timeUpdate' } type - Type of the playback event to listen for.
@@ -2430,12 +2494,13 @@ declare namespace media {
     /**
      * Unregister listens for media playback timeUpdate event.
      * @param { 'timeUpdate' } type - Type of the playback event to listen for.
+     * @param { Callback<number> } callback - Callback used to listen for the playback timeUpdate event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
      * @since 12
      */
-    off(type: 'timeUpdate'): void;
+    off(type: 'timeUpdate', callback?: Callback<number>): void;
     /**
      * Register listens for media playback durationUpdate event.
      * @param { 'durationUpdate' } type - Type of the playback event to listen for.
@@ -2462,11 +2527,13 @@ declare namespace media {
     /**
      * Unregister listens for media playback durationUpdate event.
      * @param { 'durationUpdate' } type - Type of the playback event to listen for.
+     * @param { Callback<number> } callback - Callback used to listen for the playback durationUpdate event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @since 12
      */
-    off(type: 'durationUpdate'): void;
+    off(type: 'durationUpdate', callback?: Callback<number>): void;
+
     /**
      * Register listens for video playback buffering events.
      * @param { 'bufferingUpdate' } type - Type of the playback buffering update event to listen for.
@@ -2478,14 +2545,15 @@ declare namespace media {
     /**
      * Register listens for video playback buffering events.
      * @param { 'bufferingUpdate' } type - Type of the playback buffering update event to listen for.
-     * @param { function } callback - Callback used to listen for the buffering update event,
+     * @param { OnBufferingUpdateHandler } callback - Callback used to listen for the buffering update event,
 	   * return BufferingInfoType and the value.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
      * @since 12
      */
-    on(type: 'bufferingUpdate', callback: (infoType: BufferingInfoType, value: number) => void): void;
+    on(type: 'bufferingUpdate', callback: OnBufferingUpdateHandler): void;
+
     /**
      * Unregister listens for video playback buffering events.
      * @param { 'bufferingUpdate' } type - Type of the playback buffering update event to listen for.
@@ -2496,12 +2564,14 @@ declare namespace media {
     /**
      * Unregister listens for video playback buffering events.
      * @param { 'bufferingUpdate' } type - Type of the playback buffering update event to listen for.
+     * @param { OnBufferingUpdateHandler } callback - Callback used to listen for the buffering update event,
 	   * return BufferingInfoType and the value.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
-    off(type: 'bufferingUpdate'): void;
+    off(type: 'bufferingUpdate', callback?: OnBufferingUpdateHandler): void;
     /**
      * Register listens for start render video frame events.
      * @param { 'startRenderFrame' } type - Type of the playback event to listen for.
@@ -2521,10 +2591,12 @@ declare namespace media {
     /**
      * Unregister listens for start render video frame events.
      * @param { 'startRenderFrame' } type - Type of the playback event to listen for.
+     * @param { Callback<void> } callback - Callback used to listen for the playback event return .
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
-    off(type: 'startRenderFrame'): void;
+    off(type: 'startRenderFrame', callback?: Callback<void>): void;
+
     /**
      * Register listens for video size change event.
      * @param { 'videoSizeChange' } type - Type of the playback event to listen for.
@@ -2535,13 +2607,13 @@ declare namespace media {
     /**
      * Register listens for video size change event.
      * @param { 'videoSizeChange' } type - Type of the playback event to listen for.
-     * @param { function } callback - Callback used to listen for the playback event return video size.
+     * @param { OnVideoSizeChangeHandler } callback - Callback used to listen for the playback event return video size.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
      * @since 12
      */
-    on(type: 'videoSizeChange', callback: (width: number, height: number) => void): void;
+    on(type: 'videoSizeChange', callback: OnVideoSizeChangeHandler): void;
     /**
      * Unregister listens for video size change event.
      * @param { 'videoSizeChange' } type - Type of the playback event to listen for.
@@ -2551,11 +2623,13 @@ declare namespace media {
     /**
      * Unregister listens for video size change event.
      * @param { 'videoSizeChange' } type - Type of the playback event to listen for.
+     * @param { OnVideoSizeChangeHandler } callback - Callback used to listen for the playback event return video size.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
-    off(type: 'videoSizeChange'): void;
+    off(type: 'videoSizeChange', callback?: OnVideoSizeChangeHandler): void;
     /**
      * Register listens for audio interrupt event, refer to {@link #audio.InterruptEvent}
      * @param { 'audioInterrupt' } type - Type of the playback event to listen for.
@@ -2566,19 +2640,23 @@ declare namespace media {
     /**
      * Register listens for audio interrupt event, refer to {@link #audio.InterruptEvent}
      * @param { 'audioInterrupt' } type - Type of the playback event to listen for.
-     * @param { function } callback - Callback used to listen for the playback event return audio interrupt info.
+     * @param { Callback<audio.InterruptEvent> } callback - Callback used to listen for the playback event return audio interrupt info.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @crossplatform
      * @atomicservice
      * @since 12
      */
-    on(type: 'audioInterrupt', callback: (info: audio.InterruptEvent) => void): void;
+    on(type: 'audioInterrupt', callback: Callback<audio.InterruptEvent>): void;
     /**
      * Unregister listens for audio interrupt event, refer to {@link #audio.InterruptEvent}
      * @param { 'audioInterrupt' } type - Type of the playback event to listen for.
+     * @param { Callback<audio.InterruptEvent> } callback - Callback used to listen for the playback event return audio interrupt info.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @crossplatform
+     * @atomicservice
      * @since 9
      */
-    off(type: 'audioInterrupt'): void;
+    off(type: 'audioInterrupt', callback?: Callback<audio.InterruptEvent>): void;
     /**
      * Register listens for available bitrate list collect completed events for HLS protocol stream playback.
      * This event will be reported after the {@link #prepare} called.
@@ -2591,12 +2669,13 @@ declare namespace media {
      * Register listens for available bitrate list collect completed events for HLS protocol stream playback.
      * This event will be reported after the {@link #prepare} called.
      * @param { 'availableBitrates' } type - Type of the playback event to listen for.
-     * @param { function } callback - Callback used to listen for the playback event return available bitrate list.
+     * @param { Callback<Array<number>> } callback - Callback used to listen for the playback event return available bitrate list.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @crossplatform
      * @atomicservice
      * @since 12
      */
-    on(type: 'availableBitrates', callback: (bitrates: Array<number>) => void): void;
+    on(type: 'availableBitrates', callback: Callback<Array<number>>): void;
     /**
      * Unregister listens for available bitrate list collect completed events for HLS protocol stream playback.
      * This event will be reported after the {@link #prepare} called.
@@ -2604,7 +2683,17 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
-    off(type: 'availableBitrates'): void;
+    /**
+     * Unregister listens for available bitrate list collect completed events for HLS protocol stream playback.
+     * This event will be reported after the {@link #prepare} called.
+     * @param { 'availableBitrates' } type - Type of the playback event to listen for.
+     * @param { Callback<Array<number>> } callback - Callback used to listen for the playback event return available bitrate list.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    off(type: 'availableBitrates', callback?: Callback<Array<number>>): void;
     /**
      * Register listens for playback error events.
      * @param { 'error' } type - Type of the playback error event to listen for.
@@ -2674,12 +2763,13 @@ declare namespace media {
     /**
      * Unregister listens for playback error events.
      * @param { 'error' } type - Type of the playback error event to listen for.
+     * @param { ErrorCallback } callback - Callback used to listen for the playback error event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
      * @since 12
      */
-    off(type: 'error'): void;
+    off(type: 'error', callback?: ErrorCallback): void;
 
     /**
      * Subscribes output device change event callback.
@@ -2744,6 +2834,66 @@ declare namespace media {
      * @since 12
      */
     off(type: 'subtitleUpdate', callback?: Callback<SubtitleInfo>): void
+  }
+
+  /**
+   * Provides player statistic info.
+   * 
+   * @typedef PlaybackInfo
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @since 12
+   */
+  interface PlaybackInfo {
+    /**
+     * key:value pair, key see @PlaybackInfoKey.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
+    [key:string]: Object;
+  }
+
+  /**
+   * Enumerates statistics info keys for player.
+   * 
+   * @enum { string }
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @since 12
+   */
+  enum PlaybackInfoKey {
+    /**
+     * IP address of current network stream.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
+    SERVER_IP_ADDRESS = "server_ip_address",
+
+    /**
+     * Average download rate during playing except for suspend downloading.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
+    AVG_DOWNLOAD_RATE = "average_download_rate",
+
+    /**
+     * Current download rate of the last second except for suspend downloading.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
+    DOWNLOAD_RATE = "download_rate",
+
+    /**
+     * Boolean value, true for current is downloading, false for suspend downloading.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
+    IS_DOWNLOADING = "is_downloading",
+
+    /**
+     * Cached duration in milliseconds.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
+    BUFFER_DURATION = "buffer_duration",
   }
 
   /**
@@ -3192,7 +3342,7 @@ declare namespace media {
 
   /**
    * Provides subtitle information.
-   * Can be synchroized to the time reported by AVPlayer#timeUpdate event
+   * Can be synchronized to the time reported by AVPlayer#timeUpdate event
    *
    * @typedef SubtitleInfo
    * @syscap SystemCapability.Multimedia.Media.Core
@@ -3480,6 +3630,19 @@ declare namespace media {
   type AVRecorderState = 'idle' | 'prepared' | 'started' | 'paused' | 'stopped' | 'released' | 'error';
 
   /**
+   * Defines the onMove callback.
+   * 
+   * @typedef { function } OnAVRecorderStateChangeHandler
+   * @param { AVRecorderState } state - state value for AVRecorder.
+   * @param { StateChangeReason } reason - reason for state change.
+   * @syscap SystemCapability.Multimedia.Media.AVPlayer
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  type OnAVRecorderStateChangeHandler = (state: AVRecorderState, reason: StateChangeReason) => void;
+
+  /**
    * Manages and record audio/video. Before calling an AVRecorder method, you must use createAVRecorder()
    * to create an AVRecorder instance.
    *
@@ -3600,6 +3763,42 @@ declare namespace media {
      */
     getInputSurface(): Promise<string>;
 
+    /**
+     * Get input meta surface for specified meta source type. it must be called between prepare completed and start.
+     * @param { MetaSourceType } type - Meta source type.
+     * @returns { Promise<string> } A Promise instance used to return the input surface id in string.
+     * @throws { BusinessError } 202 - Called from Non-System applications. Return by promise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @systemapi
+     * @since 12
+     */
+    getInputMetaSurface(type: MetaSourceType): Promise<string>;
+
+    /**
+     * Check if the avrecorder has watermark capability.
+     * @returns { Promise<boolean> } A Promise instance used to return true or false when the function is finished.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @systemapi
+     * @since 12
+     */
+    isWatermarkSupported(): Promise<boolean>;
+    /**
+     * Set watermark image to recorder.
+     * @param { image.PixelMap } watermark : Watermark image.
+     * @param { WatermarkConfig } config : Configures of the watermark.
+     * @returns { Promise<void> } A Promise instance used to return when the function is finished.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @systemapi
+     * @since 12
+     */
+    setWatermark(watermark: image.PixelMap, config: WatermarkConfig): Promise<void>
     /**
      * Update the video orientation before recorder start.
      * @param { number } rotation - Rotation angle, should be [0, 90, 180, 270].
@@ -3959,7 +4158,7 @@ declare namespace media {
     /**
      * Listens for recording stateChange events.
      * @param { 'stateChange' } type - Type of the recording event to listen for.
-     * @param { function } callback - Callback used to listen for the recorder stateChange event.
+     * @param { OnAVRecorderStateChangeHandler } callback - Callback used to listen for the recorder stateChange event.
      * @throws { BusinessError } 5400103 - IO error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
@@ -3967,7 +4166,7 @@ declare namespace media {
      * @atomicservice
      * @since 12
      */
-    on(type: 'stateChange', callback: (state: AVRecorderState, reason: StateChangeReason) => void): void;
+    on(type: 'stateChange', callback: OnAVRecorderStateChangeHandler): void;
 
     /**
      * Listens for recording error events.
@@ -4033,12 +4232,13 @@ declare namespace media {
     /**
      * Cancel Listens for recording stateChange events.
      * @param { 'stateChange' } type - Type of the recording stateChange event to listen for.
+     * @param { OnAVRecorderStateChangeHandler } callback - Callback used to listen for the recorder stateChange event.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @atomicservice
      * @since 12
      */
-    off(type: 'stateChange'): void;
+    off(type: 'stateChange', callback?: OnAVRecorderStateChangeHandler): void;
 
     /**
      * Cancel Listens for recording error events.
@@ -4049,12 +4249,13 @@ declare namespace media {
     /**
      * Cancel Listens for recording error events.
      * @param { 'error' } type - Type of the recording error event to listen for.
+     * @param { ErrorCallback } callback - Callback used to listen for the recorder error event.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @atomicservice
      * @since 12
      */
-    off(type: 'error'): void;
+    off(type: 'error', callback?: ErrorCallback): void;
 
     /**
      * Cancel Listens for recording audioCapturerChange events.
@@ -4062,7 +4263,14 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11
      */
-    off(type: 'audioCapturerChange'): void;
+    /**
+     * Cancel Listens for recording audioCapturerChange events.
+     * @param { 'audioCapturerChange' } type - Type of the audioCapturerChange event to listen for.
+     * @param { Callback<audio.AudioCapturerChangeInfo> } callback - Callback used to listen device change event.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 12
+     */
+    off(type: 'audioCapturerChange', callback?: Callback<audio.AudioCapturerChangeInfo>): void;
   }
 
   /**
@@ -4210,6 +4418,32 @@ declare namespace media {
      * @since 12
      */
     longitude: number;
+  }
+  /**
+   * Set configures of a watermark to AVRecorder. The position starts at top left corner.
+   *
+   * @typedef WatermarkConfig
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @systemapi
+   * @since 12
+   */
+  interface WatermarkConfig {
+    /**
+     * Offset of the watermark to the top line of pixel.
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @systemapi
+     * @since 12
+     */
+    top: number;
+    /**
+     * Offset of the watermark to the left line of pixel.
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @systemapi
+     * @since 12
+     */
+    left: number;
   }
 
   /**
@@ -5678,6 +5912,24 @@ declare namespace media {
   }
 
   /**
+   * Enumerates meta source type for recorder.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Media.AVRecorder
+   * @systemapi
+   * @since 12
+   */
+  enum MetaSourceType {
+    /**
+     * Maker info for video.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @systemapi
+     * @since 12
+     */
+    VIDEO_MAKER_INFO = 0,
+  }
+
+  /**
    * Provides the video recorder configuration definitions.
    *
    * @typedef VideoRecorderConfig
@@ -6069,6 +6321,14 @@ declare namespace media {
      */
     videoSourceType?: VideoSourceType;
     /**
+     * Meta source types, details see @MetaSourceType .
+     * @type { ?Array<MetaSourceType> }
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @systemapi
+     * @since 12
+     */
+    metaSourceTypes?: Array<MetaSourceType>;
+    /**
      * Video recorder profile, details see @AVRecorderProfile .
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9
@@ -6242,6 +6502,48 @@ declare namespace media {
      * @since 12
      */
     SEEK_CLOSEST = 2,
+    /**
+     * Seek in continuous mode.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @systemapi
+     * @since 12
+     */
+    SEEK_CONTINUOUS = 3,
+  }
+
+  /**
+   * Enumerates switch mode.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  enum SwitchMode {
+    /**
+     * switch to the next sync frame of the given timestamp
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    SMOOTH = 0,
+    /**
+     * switch to the previous sync frame of the given timestamp
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    SEGMENT = 1,
+    /**
+     * switch to the closest frame of the given timestamp.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 12
+     */
+    CLOSEST = 2,
   }
 
   /**
@@ -6683,11 +6985,11 @@ declare namespace media {
 
     /**
      * Indicates the video bitrate.
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12
      */
-    videoBitrate: number;
+    videoBitrate?: number;
 
     /**
      * Indicates the video encoding foramt.
