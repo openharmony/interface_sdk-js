@@ -4003,7 +4003,7 @@ declare namespace call {
     EVENT_SHOW_FLOAT_WINDOW,
 
     /**
-     * Indicates that call is muted.
+     * Indicates voip call muted.
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4012,7 +4012,7 @@ declare namespace call {
     EVENT_CALL_MUTED,
 
     /**
-     * Indicates that the call is unmuted.
+     * Indicates voip call unmuted.
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4021,7 +4021,7 @@ declare namespace call {
     EVENT_CALL_UNMUTED,
 
     /**
-     * Indicates that call is speaker on.
+     * Indicates voip call speaker on.
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4030,13 +4030,13 @@ declare namespace call {
     EVENT_CALL_SPEAKER_ON,
 
     /**
-     * Indicates that call is speaker on.
+     * Indicates voip call speaker off.
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    EVENT_CALL_SPEAKER_OFF ,
+    EVENT_CALL_SPEAKER_OFF,
   }
 
   /**
