@@ -64,13 +64,14 @@ declare namespace uiEffect {
      * @param { number } waveCount - The number of waves when the water ripples. The maximum count of waves is 3, the minimum value is 1,  default is 2.
      * @param { number } x - Represents the X-axis position of center point  where the water ripple first appears on the screen.
      * @param { number } y - Represents the Y-axis position of center point  where the water ripple first appears on the screen.
+     * @param { WaterRippleMode } rippleMode - Set the mode of water ripple, 0 for mobile to desktop(Receive), 1 for mobile to desktop(Send), 2 for mobile to mobile.
      * @returns { Filter } - Returns  water ripple Filter.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 12
      */
-    waterRipple(progress: number, waveCount: number, x: number, y: number): Filter;
+    waterRipple(progress: number, waveCount: number, x: number, y: number, rippleMode: WaterRippleMode): Filter;
 
     /**
      * Set the fly in or fly out effect of the component.
@@ -131,6 +132,43 @@ declare namespace uiEffect {
      * @since 12
      */
     DECAL = 3,
+  }
+
+  /**
+   * WaterRippleMode enumeration description
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @since 12
+   */
+  enum WaterRippleMode {
+    /**
+     * SMALL2MEDIUM_RECV mode.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 12
+     */
+    SMALL2MEDIUM_RECV = 0,
+
+    /**
+     * SMALL2MEDIUM_SEND mode.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 12
+     */
+    SMALL2MEDIUM_SEND = 1,
+
+    /**
+     * SMALL2SMALL mode.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 12
+     */
+    SMALL2SMALL = 2,
   }
 
   /**
