@@ -33,24 +33,9 @@ declare namespace cloudSync {
    *
    * @enum { number }
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-   * @systemapi
-   * @since 10
-   */
-  /**
-   * Describes the Sync state type.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @since 12
    */
   enum SyncState {
-    /**
-     * Indicates that the sync state is uploading.
-     *
-     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @systemapi
-     * @since 10
-     */
     /**
      * Indicates that the sync state is uploading.
      *
@@ -62,13 +47,6 @@ declare namespace cloudSync {
      * Indicates that the sync failed in upload processing.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @systemapi
-     * @since 10
-     */
-    /**
-     * Indicates that the sync failed in upload processing.
-     *
-     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12
      */
     UPLOAD_FAILED,
@@ -76,23 +54,9 @@ declare namespace cloudSync {
      * Indicates that the sync state is downloading.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @systemapi
-     * @since 10
-     */
-        /**
-     * Indicates that the sync state is downloading.
-     *
-     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12
      */
     DOWNLOADING,
-    /**
-     * Indicates that the sync failed in download processing.
-     *
-     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @systemapi
-     * @since 10
-     */
     /**
      * Indicates that the sync failed in download processing.
      *
@@ -104,24 +68,10 @@ declare namespace cloudSync {
      * Indicates that the sync finish.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @systemapi
-     * @since 10
-     */
-    /**
-     * Indicates that the sync finish.
-     *
-     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12
      */
     COMPLETED,
     /**
-     * Indicates that the sync has been stopped.
-     *
-     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @systemapi
-     * @since 10
-     */
-     /**
      * Indicates that the sync has been stopped.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
@@ -135,24 +85,9 @@ declare namespace cloudSync {
    *
    * @enum { number }
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-   * @systemapi
-   * @since 10
-   */
-    /**
-   * Describes the Sync Error type.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @since 12
    */
   enum ErrorType {
-    /**
-     * No error occurred.
-     *
-     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @systemapi
-     * @since 10
-     */
     /**
      * No error occurred.
      *
@@ -164,13 +99,6 @@ declare namespace cloudSync {
      * Synchronization aborted due to network unavailable.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @systemapi
-     * @since 10
-     */
-    /**
-     * Synchronization aborted due to network unavailable.
-     *
-     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12
      */
     NETWORK_UNAVAILABLE,
@@ -178,23 +106,9 @@ declare namespace cloudSync {
      * Synchronization aborted due to wifi unavailable.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @systemapi
-     * @since 10
-     */
-        /**
-     * Synchronization aborted due to wifi unavailable.
-     *
-     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12
      */
     WIFI_UNAVAILABLE,
-    /**
-     * Synchronization aborted due to low capacity level.
-     *
-     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @systemapi
-     * @since 10
-     */
     /**
      * Synchronization aborted due to low capacity level.
      *
@@ -206,23 +120,9 @@ declare namespace cloudSync {
      * Synchronization aborted due to warning low capacity level.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @systemapi
-     * @since 10
-     */
-    /**
-     * Synchronization aborted due to warning low capacity level.
-     *
-     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12
      */
     BATTERY_LEVEL_WARNING,
-    /**
-     * Synchronization aborted due to cloud storage is full.
-     *
-     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @systemapi
-     * @since 10
-     */
     /**
      * Synchronization aborted due to cloud storage is full.
      *
@@ -231,13 +131,6 @@ declare namespace cloudSync {
      */
     CLOUD_STORAGE_FULL,
     /**
-     * Synchronization aborted due to local storage is full.
-     *
-     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @systemapi
-     * @since 10
-     */
-        /**
      * Synchronization aborted due to local storage is full.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
@@ -259,14 +152,6 @@ declare namespace cloudSync {
    *
    * @interface SyncProgress
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-   * @systemapi
-   * @since 10
-   */
-  /**
-   * The SyncProgress data structure.
-   *
-   * @interface SyncProgress
-   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @since 12
    */
   interface SyncProgress {
@@ -275,25 +160,9 @@ declare namespace cloudSync {
      *
      * @type { SyncState }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @systemapi
-     * @since 10
-     */
-    /**
-     * The current sync state.
-     *
-     * @type { SyncState }
-     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12
      */
     state: SyncState;
-    /**
-     * The error type of sync.
-     *
-     * @type { ErrorType }
-     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @systemapi
-     * @since 10
-     */
     /**
      * The error type of sync.
      *
@@ -702,25 +571,9 @@ declare namespace cloudSync {
    * FileSync object.
    *
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-   * @systemapi
-   * @since 11
-   */
-  /**
-   * FileSync object.
-   *
-   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @since 12
    */
   class FileSync {
-    /**
-     * A constructor used to create a FileSync object.
-     *
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Incorrect parameter types.
-     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @systemapi
-     * @since 11
-     */
     /**
      * A constructor used to create a FileSync object.
      *
@@ -744,21 +597,6 @@ declare namespace cloudSync {
     /**
      * Subscribes to sync progress change event. This method uses a callback to get sync progress changes.
      *
-     * @permission ohos.permission.CLOUDFILE_SYNC
-     * @param { 'progress' } event - event type.
-     * @param { Callback<SyncProgress> } callback - callback function with a `SyncProgress` argument.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameter types.
-     * @throws { BusinessError } 13600001 - IPC error
-     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @systemapi
-     * @since 11
-     */
-    /**
-     * Subscribes to sync progress change event. This method uses a callback to get sync progress changes.
-     *
      * @param { 'progress' } event - event type.
      * @param { Callback<SyncProgress> } callback - callback function with a `SyncProgress` argument.
      * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
@@ -771,20 +609,6 @@ declare namespace cloudSync {
     /**
      * Unsubscribes from sync progress event.
      *
-     * @permission ohos.permission.CLOUDFILE_SYNC
-     * @param { 'progress' } event - event type.
-     * @param { Callback<SyncProgress> } [callback] - callback function with a `SyncProgress` argument.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types.
-     * @throws { BusinessError } 13600001 - IPC error
-     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @systemapi
-     * @since 11
-     */
-    /**
-     * Unsubscribes from sync progress event.
-     *
      * @param { 'progress' } event - event type.
      * @param { Callback<SyncProgress> } [callback] - callback function with a `SyncProgress` argument.
      * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types.
@@ -793,22 +617,6 @@ declare namespace cloudSync {
      * @since 12
      */
     off(event: 'progress', callback?: Callback<SyncProgress>): void;
-    /**
-     * Start the file sync task.
-     *
-     * @permission ohos.permission.CLOUDFILE_SYNC
-     * @returns { Promise<void> } - Return Promise.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Incorrect parameter types.
-     * @throws { BusinessError } 13600001 - IPC error.
-     * @throws { BusinessError } 22400001 - Cloud status not ready.
-     * @throws { BusinessError } 22400002 - Network unavailable.
-     * @throws { BusinessError } 22400003 - Battery level warning.
-     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @systemapi
-     * @since 11
-     */
     /**
      * Start the file sync task.
      *
@@ -825,22 +633,6 @@ declare namespace cloudSync {
     /**
      * Start the file sync task with callback.
      *
-     * @permission ohos.permission.CLOUDFILE_SYNC
-     * @param { AsyncCallback<void> } callback - Callback function.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types.
-     * @throws { BusinessError } 13600001 - IPC error.
-     * @throws { BusinessError } 22400001 - Cloud status not ready.
-     * @throws { BusinessError } 22400002 - Network unavailable.
-     * @throws { BusinessError } 22400003 - Battery level warning.
-     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @systemapi
-     * @since 11
-     */
-    /**
-     * Start the file sync task with callback.
-     *
      * @param { AsyncCallback<void> } callback - Callback function.
      * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types.
      * @throws { BusinessError } 13600001 - IPC error.
@@ -854,19 +646,6 @@ declare namespace cloudSync {
     /**
      * Stop the file sync task.
      *
-     * @permission ohos.permission.CLOUDFILE_SYNC
-     * @returns { Promise<void> } - Return Promise.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Incorrect parameter types.
-     * @throws { BusinessError } 13600001 - IPC error.
-     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @systemapi
-     * @since 11
-     */
-    /**
-     * Stop the file sync task.
-     *
      * @returns { Promise<void> } - Return Promise.
      * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Incorrect parameter types.
      * @throws { BusinessError } 13600001 - IPC error.
@@ -874,20 +653,6 @@ declare namespace cloudSync {
      * @since 12
      */
     stop(): Promise<void>;
-    /**
-     * Stop the file sync task with callback.
-     *
-     * @permission ohos.permission.CLOUDFILE_SYNC
-     * @param { AsyncCallback<void> } callback - Callback function.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameter types.
-     * @throws { BusinessError } 13600001 - IPC error.
-     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @systemapi
-     * @since 11
-     */
     /**
      * Stop the file sync task with callback.
      *
@@ -902,19 +667,6 @@ declare namespace cloudSync {
     /**
      * Get the last synchronization time.
      *
-     * @permission ohos.permission.CLOUDFILE_SYNC
-     * @returns { Promise<number> } - Return the date of last synchronization.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Incorrect parameter types.
-     * @throws { BusinessError } 13600001 - IPC error.
-     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @systemapi
-     * @since 11
-     */
-    /**
-     * Get the last synchronization time.
-     *
      * @returns { Promise<number> } - Return the date of last synchronization.
      * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Incorrect parameter types.
      * @throws { BusinessError } 13600001 - IPC error.
@@ -922,20 +674,6 @@ declare namespace cloudSync {
      * @since 12
      */
     getLastSyncTime(): Promise<number>;
-    /**
-     * Get the last synchronization time.
-     *
-     * @permission ohos.permission.CLOUDFILE_SYNC
-     * @param { AsyncCallback<number> } callback - Callback function.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameter types.
-     * @throws { BusinessError } 13600001 - IPC error.
-     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @systemapi
-     * @since 11
-     */
     /**
      * Get the last synchronization time.
      *
