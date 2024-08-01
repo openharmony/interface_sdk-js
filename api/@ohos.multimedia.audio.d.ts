@@ -3437,12 +3437,12 @@ declare namespace audio {
      * Select the input device with desired AudioCapturer. This method uses a promise to return the result.
      * @param { AudioCapturerFilter } filter - Filter for AudioCapturer.
      * @param { AudioDeviceDescriptors } inputAudioDevices - Audio device descriptions
+     * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters unspecified.
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
-     * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
      * @since 12
