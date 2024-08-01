@@ -1618,6 +1618,7 @@ declare namespace tag {
  /**
   * Exports type NfcATag.
   *
+  * @typedef { _NfcATag }
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
   * @since 12
@@ -1633,6 +1634,7 @@ declare namespace tag {
  /**
   * Exports type NfcBTag.
   *
+  * @typedef { _NfcBTag }
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
   * @since 12
@@ -1648,6 +1650,7 @@ declare namespace tag {
  /**
   * Exports type NfcFTag.
   *
+  * @typedef { _NfcFTag }
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
   * @since 12
@@ -1663,6 +1666,7 @@ declare namespace tag {
  /**
   * Exports type NfcVTag.
   *
+  * @typedef { _NfcVTag }
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
   * @since 12
@@ -1678,6 +1682,7 @@ declare namespace tag {
  /**
   * Exports type IsoDepTag.
   *
+  * @typedef { _IsoDepTag }
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
   * @since 12
@@ -1693,6 +1698,7 @@ declare namespace tag {
  /**
   * Exports type NdefTag.
   *
+  * @typedef { _NdefTag }
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
   * @since 12
@@ -1708,6 +1714,7 @@ declare namespace tag {
  /**
   * Exports type MifareClassicTag.
   *
+  * @typedef { _MifareClassicTag }
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
   * @since 12
@@ -1723,6 +1730,7 @@ declare namespace tag {
  /**
   * Exports type MifareUltralightTag.
   *
+  * @typedef { _MifareUltralightTag }
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
   * @since 12
@@ -1738,6 +1746,7 @@ declare namespace tag {
  /**
   * Exports type NdefFormatableTag.
   *
+  * @typedef { _NdefFormatableTag }
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
   * @since 12
@@ -1753,6 +1762,7 @@ declare namespace tag {
  /**
   * Exports type NdefMessage.
   *
+  * @typedef { _NdefMessage }
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
   * @since 12
@@ -1768,6 +1778,7 @@ declare namespace tag {
  /**
   * Exports type TagSession.
   *
+  * @typedef { _TagSession }
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
   * @since 12
