@@ -25,7 +25,7 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since 12
+ * @since 13
  */
 export default interface UIServiceProxy {
   /**
@@ -38,7 +38,7 @@ export default interface UIServiceProxy {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   sendData(data: Record<string, Object>): void;
 }
