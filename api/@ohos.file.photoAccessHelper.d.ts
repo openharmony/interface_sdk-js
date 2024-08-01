@@ -3682,16 +3682,6 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     isPreviewForSingleSelectionSupported?: boolean;
-
-    /**
-     * Complete button text
-     *
-     * @type { ?CompleteButtonText }
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @atomicservice
-     * @since 12
-     */
-    completeButtonText?: CompleteButtonText;
   }
 
   /**
@@ -3755,6 +3745,16 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     themeColor?: CustomColors;
+
+    /**
+     * Complete button text
+     *
+     * @type { ?CompleteButtonText }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    completeButtonText?: CompleteButtonText;
   }
 
   /**
