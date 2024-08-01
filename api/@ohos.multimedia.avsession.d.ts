@@ -260,7 +260,6 @@ declare namespace avSession {
   /**
    * Session token. Used to judge the legitimacy of the session.
    * @typedef SessionToken
-   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
    * @since 9
