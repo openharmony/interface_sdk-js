@@ -1172,6 +1172,7 @@ xcomponent
 xfer
 xflags
 xldpi
+xmage
 xoffset
 xxldpi
 xxxldpi
