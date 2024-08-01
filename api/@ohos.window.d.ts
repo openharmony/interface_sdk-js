@@ -7528,7 +7528,7 @@ declare namespace window {
     enableLandscapeMultiWindow(): Promise<void>;
 
     /**
-     * Start move window.
+     * Start moving window.
      *
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -7541,7 +7541,7 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @since 13
      */
-    startMove(): Promise<void>;
+    startMoving(): Promise<void>;
 
     /**
      * Enable drag window.
