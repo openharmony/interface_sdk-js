@@ -2187,7 +2187,7 @@ declare namespace image {
     SCENE_VERSION = 'HwMnoteSceneVersion',
 
     /**
-     * Is Support Xmage
+     * Is Xmage Supported
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2241,7 +2241,7 @@ declare namespace image {
     XMAGE_BOTTOM = 'HwMnoteXmageBottom',
 
     /**
-     * Cloud Enhance Mode
+     * Cloud Enhancement Mode
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
