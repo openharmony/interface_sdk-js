@@ -4247,7 +4247,8 @@ declare class TransitionEffect<
    * -x: Horizontal component of the rotational vector.
    * -y: Vertical component of the rotational vector.
    * -z: Vertical component of the rotational vector.
-   * -centerX, centerY specify the rotation center point, with default values of "50%", meaning that the default rotation center point is the center point of the component.
+   * -centerX, centerY specify the rotation center point, with default values of "50%", 
+   * meaning that the default rotation center point is the center point of the component.
    * -The center point of (0, 0) represents the upper-left corner of the component.
    * -centerZ refers to the Z-axis anchor point. The default value of centerZ is 0.
    * -perspective indicates the visual distance. The perspective property does not support transition animation.
@@ -4266,7 +4267,8 @@ declare class TransitionEffect<
    * -x: Horizontal component of the rotational vector.
    * -y: Vertical component of the rotational vector.
    * -z: Vertical component of the rotational vector.
-   * -centerX, centerY specify the rotation center point, with default values of "50%", meaning that the default rotation center point is the center point of the component.
+   * -centerX, centerY specify the rotation center point, with default values of "50%", 
+   * meaning that the default rotation center point is the center point of the component.
    * -The center point of (0, 0) represents the upper-left corner of the component.
    * -centerZ refers to the Z-axis anchor point. The default value of centerZ is 0.
    * -perspective indicates the visual distance. The perspective property does not support transition animation.
@@ -4331,9 +4333,9 @@ declare class TransitionEffect<
    * @returns { TransitionEffect<"opacity"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   static opacity(alpha: number): TransitionEffect<"opacity">;
 
