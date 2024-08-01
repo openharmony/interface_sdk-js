@@ -4001,6 +4001,42 @@ declare namespace call {
      * @since 12
      */
     EVENT_SHOW_FLOAT_WINDOW,
+
+    /**
+     * Indicates that call is muted.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    EVENT_CALL_MUTED,
+
+    /**
+     * Indicates that the call is unmuted.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    EVENT_CALL_UNMUTED,
+
+    /**
+     * Indicates that call is speaker on.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    EVENT_CALL_SPEAKER_ON,
+
+    /**
+     * Indicates that call is speaker on.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    EVENT_CALL_SPEAKER_OFF ,
   }
 
   /**
