@@ -743,19 +743,6 @@ declare namespace camera {
     createSession<T extends Session>(mode: SceneMode): T;
 
     /**
-     * Gets a Session instance by specific scene mode.
-     *
-     * @param { SceneMode } mode - Scene mode.
-     * @returns { T } The specific Session instance by specific scene mode.
-     * @throws { BusinessError } 202 - Not System Application.
-     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
-     * @throws { BusinessError } 7400201 - Camera service fatal error.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 12
-     */
-     createSession<T extends Session>(mode: SceneMode): T;
-
-    /**
      * Subscribes camera status change event callback.
      *
      * @param { 'cameraStatus' } type - Event type.
