@@ -3292,6 +3292,7 @@ declare namespace avSession {
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
+   * @atomicservice
    * @since 12
    */
   enum CastDisplayState {
@@ -3299,6 +3300,7 @@ declare namespace avSession {
      * Screen off.
      *
      * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
+     * @atomicservice
      * @since 12
      */
     STATE_OFF = 1,
@@ -3307,6 +3309,7 @@ declare namespace avSession {
      * Screen on.
      *
      * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
+     * @atomicservice
      * @since 12
      */
     STATE_ON = 2,

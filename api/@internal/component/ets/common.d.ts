@@ -687,7 +687,7 @@ declare interface ProvideOptions {
 declare const Provide: PropertyDecorator & ((value: string | ProvideOptions) => PropertyDecorator);
 
 /**
- * Defining Provider PropertyDecorator.
+ * Defining Provider PropertyDecorator, aliasName is the only matching key and if aliasName is the default, the default attribute name is regarded as aliasName.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -728,7 +728,7 @@ declare const Provider: (aliasName?: string) => PropertyDecorator;
 declare const Consume: PropertyDecorator & ((value: string) => PropertyDecorator);
 
 /**
-* Defining Consumer PropertyDecorator.
+* Defining Consumer PropertyDecorator, aliasName is the only matching key and if aliasName is the default, the default attribute name is regarded as aliasName. And @Consumer will find the nearest @Provider.
 * @syscap SystemCapability.ArkUI.ArkUI.Full
 * @crossplatform
 * @atomicservice
@@ -4247,7 +4247,8 @@ declare class TransitionEffect<
    * -x: Horizontal component of the rotational vector.
    * -y: Vertical component of the rotational vector.
    * -z: Vertical component of the rotational vector.
-   * -centerX, centerY specify the rotation center point, with default values of "50%", meaning that the default rotation center point is the center point of the component.
+   * -centerX, centerY specify the rotation center point, with default values of "50%", 
+   * meaning that the default rotation center point is the center point of the component.
    * -The center point of (0, 0) represents the upper-left corner of the component.
    * -centerZ refers to the Z-axis anchor point. The default value of centerZ is 0.
    * -perspective indicates the visual distance. The perspective property does not support transition animation.
@@ -4266,7 +4267,8 @@ declare class TransitionEffect<
    * -x: Horizontal component of the rotational vector.
    * -y: Vertical component of the rotational vector.
    * -z: Vertical component of the rotational vector.
-   * -centerX, centerY specify the rotation center point, with default values of "50%", meaning that the default rotation center point is the center point of the component.
+   * -centerX, centerY specify the rotation center point, with default values of "50%", 
+   * meaning that the default rotation center point is the center point of the component.
    * -The center point of (0, 0) represents the upper-left corner of the component.
    * -centerZ refers to the Z-axis anchor point. The default value of centerZ is 0.
    * -perspective indicates the visual distance. The perspective property does not support transition animation.
@@ -4331,9 +4333,9 @@ declare class TransitionEffect<
    * @returns { TransitionEffect<"opacity"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   static opacity(alpha: number): TransitionEffect<"opacity">;
 

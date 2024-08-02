@@ -810,6 +810,7 @@ reenter
 refill
 refresher
 refusing
+regarded
 rehandshake
 rejects
 relocation
@@ -1181,6 +1182,7 @@ xcomponent
 xfer
 xflags
 xldpi
+xmage
 xoffset
 xxldpi
 xxxldpi

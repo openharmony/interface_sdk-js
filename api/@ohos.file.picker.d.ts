@@ -874,6 +874,7 @@ declare namespace picker {
      * The constructor used to create a AudioViewPicker object.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
      * @since 12
      */
     constructor();

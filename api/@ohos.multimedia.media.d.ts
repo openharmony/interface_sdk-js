@@ -3764,6 +3764,22 @@ declare namespace media {
     getInputSurface(): Promise<string>;
 
     /**
+     * Get input meta surface for specified meta source type. it must be called between prepare completed and start.
+     * @param { MetaSourceType } type - Meta source type.
+     * @returns { Promise<string> } A Promise instance used to return the input surface id in string.
+     * @throws { BusinessError } 202 - Called from Non-System applications. Return by promise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @systemapi
+     * @since 12
+     */
+    getInputMetaSurface(type: MetaSourceType): Promise<string>;
+
+    /**
      * Check if the avrecorder has watermark capability.
      * @returns { Promise<boolean> } A Promise instance used to return true or false when the function is finished.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
@@ -5896,6 +5912,24 @@ declare namespace media {
   }
 
   /**
+   * Enumerates meta source type for recorder.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Media.AVRecorder
+   * @systemapi
+   * @since 12
+   */
+  enum MetaSourceType {
+    /**
+     * Maker info for video.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @systemapi
+     * @since 12
+     */
+    VIDEO_MAKER_INFO = 0,
+  }
+
+  /**
    * Provides the video recorder configuration definitions.
    *
    * @typedef VideoRecorderConfig
@@ -6286,6 +6320,14 @@ declare namespace media {
      * @since 12
      */
     videoSourceType?: VideoSourceType;
+    /**
+     * Meta source types, details see @MetaSourceType .
+     * @type { ?Array<MetaSourceType> }
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @systemapi
+     * @since 12
+     */
+    metaSourceTypes?: Array<MetaSourceType>;
     /**
      * Video recorder profile, details see @AVRecorderProfile .
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
