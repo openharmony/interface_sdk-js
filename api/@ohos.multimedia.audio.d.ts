@@ -3002,6 +3002,15 @@ declare namespace audio {
     getRoutingManager(): AudioRoutingManager;
 
     /**
+     * Obtains an {@link AudioSessionManager} instance.
+     * @returns { AudioSessionManager } AudioSessionManager instance.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12
+     */
+    getSessionManager(): AudioSessionManager;
+
+    /**
      * Obtains an {@link AudioSpatializationManager} instance.
      * @returns { AudioSpatializationManager } AudioSpatializationManager instance.
      * @throws { BusinessError } 202 - Not system App.
