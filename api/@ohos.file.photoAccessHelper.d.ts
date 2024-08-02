@@ -747,6 +747,7 @@ declare namespace photoAccessHelper {
      * uri of the asset.
      *
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12
