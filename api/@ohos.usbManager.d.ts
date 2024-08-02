@@ -240,7 +240,9 @@ declare namespace usbManager {
    * @permission ohos.permission.MANAGE_USB_CONFIG
    * @param { string } funcs - descriptor of the supported function list. It cannot be empty.
    * @returns { number } the numeric mask combination of the function list.
-   * @throws { BusinessError } 401 - Parameter error. No parameters are required.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1.Mandatory parameters are left unspecified.
+   * <br>2.Incorrect parameter types. 
    * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
