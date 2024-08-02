@@ -224,14 +224,8 @@ declare namespace promptAction {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11
-     */
-    /**
-     * Toast shows at the top.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 12
+     * @deprecated since 12
+     * @useinstead promptAction.ToastShowMode#DEFAULT
      */
     TOP_MOST = 1,
 
