@@ -35,7 +35,7 @@ export default class WindowExtensionAbility {
   /**
    * Indicates window extension ability context.
    *
-   * @type {WindowExtensionContext}
+   * @type { WindowExtensionContext }
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi hide for inner use.
    * @StageModelOnly
@@ -81,7 +81,7 @@ export default class WindowExtensionAbility {
  * The context of window extension. It allows access to
  * windowExtension-specific resources.
  *
- * @typedef {_WindowExtensionContext}
+ * @typedef { _WindowExtensionContext }
  * @syscap SystemCapability.WindowManager.WindowManager.Core
  * @systemapi
  * @stagemodelonly
