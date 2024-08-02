@@ -1046,58 +1046,58 @@ declare namespace calendarManager {
     excludedDates?: number[];
 
     /**
-     * Repeat by day of week.
-     * @type { ?Week[] }
-     * @syscap SystemCapability.Applications.CalendarData
-     * @atomicservice
-     * @since 12
-     */
-    byWeekDay?: Week[];
-
-    /**
-     * Repeat by month week.
+     * The days of the week associated with the recurrence event.
      * @type { ?number[] }
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
      * @since 12
      */
-    byWeekNum?: number[];
+    daysOfWeek?: number[];
 
     /**
-     * Repeat week of year.
+     * The days of the month associated with the recurrence event.
      * @type { ?number[] }
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
      * @since 12
      */
-    byWeek?: number[];
+    daysOfMonth?: number[];
 
     /**
-     * Repeat by day of the month.
+     * The days of the year associated with the recurrence event.
      * @type { ?number[] }
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
      * @since 12
      */
-    byMonthDay?: number[];
+    daysOfYear?: number[];
 
     /**
-     * Repeat by month of year.
+     * The weeks of the month associated with the recurrence event.
      * @type { ?number[] }
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
      * @since 12
      */
-    byMonth?: number[];
+    weeksOfMonth?: number[];
 
     /**
-     * Repeat by day of year.
+     * The weeks of the year associated with the recurrence event.
      * @type { ?number[] }
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
      * @since 12
      */
-    byYearDay?: number[];
+    weeksOfYear?: number[];
+
+    /**
+     * The months of the year associated with the recurrence event.
+     * @type { ?number[] }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 12
+     */
+    monthsOfYear?: number[];
   }
 
   /**
