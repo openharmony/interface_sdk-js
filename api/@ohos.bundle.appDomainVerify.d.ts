@@ -15,17 +15,18 @@
  * @stagemodelonly
  * @since 12
  */
-declare namespace appDomainVerify {
+ declare namespace appDomainVerify {
 
 
   /**
    * query domains verify associated with bundleName.
-   * @permission ohos.permission.GET_DOMAIN_VERIFY_INFO
+   * @permission ohos.permission.GET_APP_DOMAIN_BUNDLE_INFO
    * @param { string } bundleName - app bundleName.
-   * @return { string[] } Result domains.
+   * @returns { string[] } Result domains.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - System API accessed by non-system app.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 29900001 - Internal error.
    * @syscap SystemCapability.BundleManager.AppDomainVerify
    * @systemapi
    * @stagemodelonly
@@ -35,12 +36,13 @@ declare namespace appDomainVerify {
 
   /**
    * query bundleNames associated with domain.
-   * @permission ohos.permission.GET_DOMAIN_VERIFY_INFO
+   * @permission ohos.permission.GET_APP_DOMAIN_BUNDLE_INFO
    * @param { string } domain - Parameters related to the function.
-   * @return { string[] } Result bundleNames.
+   * @returns { string[] } Result bundleNames.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - System API accessed by non-system app.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 29900001 - Internal error.
    * @syscap SystemCapability.BundleManager.AppDomainVerify
    * @systemapi
    * @stagemodelonly
