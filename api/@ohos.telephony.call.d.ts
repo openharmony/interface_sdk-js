@@ -3985,24 +3985,6 @@ declare namespace call {
     EVENT_SPLIT_CALL_FAILED,
 
     /**
-     * Indicates show full screen.
-     *
-     * @syscap SystemCapability.Telephony.CallManager
-     * @systemapi Hide this for inner system use.
-     * @since 12
-     */
-    EVENT_SHOW_FULL_SCREEN,
-
-    /**
-     * Indicates show float window.
-     *
-     * @syscap SystemCapability.Telephony.CallManager
-     * @systemapi Hide this for inner system use.
-     * @since 12
-     */
-    EVENT_SHOW_FLOAT_WINDOW,
-
-    /**
      * Indicates voip call muted.
      *
      * @syscap SystemCapability.Telephony.CallManager
@@ -4037,6 +4019,24 @@ declare namespace call {
      * @since 12
      */
     EVENT_CALL_SPEAKER_OFF,
+
+    /**
+     * Indicates show full screen.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    EVENT_SHOW_FULL_SCREEN,
+
+    /**
+     * Indicates show float window.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    EVENT_SHOW_FLOAT_WINDOW,
   }
 
   /**
