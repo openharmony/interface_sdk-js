@@ -1044,6 +1044,60 @@ declare namespace calendarManager {
      * @since 12
      */
     excludedDates?: number[];
+
+    /**
+     * Repeat by day of week.
+     * @type { ?Week[] }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 12
+     */
+    byWeekDay?: Week[];
+
+    /**
+     * Repeat by month week.
+     * @type { ?number[] }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 12
+     */
+    byWeekNum?: number[];
+
+    /**
+     * Repeat week of year.
+     * @type { ?number[] }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 12
+     */
+    byWeek?: number[];
+
+    /**
+     * Repeat by day of the month.
+     * @type { ?number[] }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 12
+     */
+    byMonthDay?: number[];
+
+    /**
+     * Repeat by month of year.
+     * @type { ?number[] }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 12
+     */
+    byMonth?: number[];
+
+    /**
+     * Repeat by day of year.
+     * @type { ?number[] }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 12
+     */
+    byYearDay?: number[];
   }
 
   /**
