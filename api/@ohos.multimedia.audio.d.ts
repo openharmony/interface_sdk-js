@@ -4129,7 +4129,7 @@ declare namespace audio {
     isAudioSessinActivated(): boolean;
 
     /**
-     * Listens for audio session deactivated event. When there is audio session deactivated,
+     * Listens for audio session deactivated event. When the audio session is deactivated,
      * registered clients will receive the callback.
      * @param { 'audioSessionDeactivated' } type - Type of the event to listen for. Only the audioSessionDeactivated event is supported.
      * @param { Callback<AudioSessionDeactivatedEvent> } callback - Callback invoked for the audio session deactivated event.
