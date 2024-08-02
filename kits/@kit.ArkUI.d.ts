@@ -62,7 +62,7 @@ import { SplitLayout } from '@ohos.arkui.advanced.SplitLayout';
 import { OperationOption, OperationType, SelectOptions, SubHeader, SymbolOptions } from '@ohos.arkui.advanced.SubHeader';
 import { SwipeRefresher } from '@ohos.arkui.advanced.SwipeRefresher';
 import { TabTitleBar, TabTitleBarMenuItem, TabTitleBarTabItem } from '@ohos.arkui.advanced.TabTitleBar';
-import { ItemState, ToolBar, ToolBarOption, ToolBarOptions, ToolBarModifier, ToolBarSymbolGlyphOptions } from '@ohos.arkui.advanced.ToolBar';
+import { ItemState, ToolBar, ToolBarOption, ToolBarOptions, ToolBarModifier } from '@ohos.arkui.advanced.ToolBar';
 import {
   CallbackParam, NodeParam, TreeController, TreeListenType, TreeListener, TreeListenerManager, TreeView
 } from '@ohos.arkui.advanced.TreeView';
@@ -177,7 +177,7 @@ export {
   SelectionMenuOptions, ShapeMask, ShapeClip, ShowActionMenuOptions, ShowDialogOptions, ShowDialogSuccessResponse,
   ShowToastOptions, Size, SplitLayout, SubHeader, SuffixIconOptions, SwipeRefresher, SymbolOptions, SystemMediaQuery, SystemRouter,
   TabSegmentButtonConstructionOptions, TabSegmentButtonOptions, TabTitleBar, TabTitleBarMenuItem, TabTitleBarTabItem,
-  TipsDialog, ToolBar, ToolBarOption, ToolBarOptions, ToolBarModifier, ToolBarSymbolGlyphOptions, Translation, TreeController, TreeListenType, TreeListener,
+  TipsDialog, ToolBar, ToolBarOption, ToolBarOptions, ToolBarModifier, Translation, TreeController, TreeListenType, TreeListener,
   TreeListenerManager, TreeView, UIContext, UIInspector, UIObserver, PageInfo, WindowExtensionAbility, WindowExtensionContext, XComponentNode,
   LengthMetrics, LengthMetricsUnit, LengthUnit, ColorMetrics, LayoutConstraint, ComponentContent, NodeContent, Content, componentSnapshot, componentUtils, curves, display, dragController, dragInteraction,
   font, inspector, matrix4, mediaquery, performanceMonitor, pluginComponentManager, PluginComponentTemplate, prompt, promptAction, router,
