@@ -3736,7 +3736,7 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @atomicservice
    * @since 13
    */
-  enableKeyboardOnFocus(isEnable: boolean): RichEditorAttribute;
+  enableKeyboardOnFocus(isEnabled: boolean): RichEditorAttribute;
 }
 
 /**
