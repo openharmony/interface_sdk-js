@@ -3882,6 +3882,25 @@ declare namespace window {
     moveWindowTo(x: number, y: number, callback: AsyncCallback<void>): void;
 
     /**
+     * Move window to the position.
+     *
+     * @param { number } x - Indicate the X-coordinate of the window.
+     * @param { number } y - Indicate the Y-coordinate of the window.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
+     *                                                                  2. Incorrect parameter types.
+     *                                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300010 - The operation is not supported in full-screen mode.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 12
+     */
+    moveWindowToAsync(x: number, y: number): Promise<void>;
+
+    /**
      * Set the size of a window .
      *
      * @param { number } width - Indicates the width of the window.
@@ -4000,6 +4019,25 @@ declare namespace window {
      * @since 11
      */
     resize(width: number, height: number, callback: AsyncCallback<void>): void;
+
+    /**
+     * Set the size of a window.
+     *
+     * @param { number } width - Indicates the width of the window. The width should be greater than 0.
+     * @param { number } height - Indicates the height of the window. The height should be greater than 0.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
+     *                                                                  2. Incorrect parameter types;
+     *                                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300010 - The operation is not supported in full-screen mode.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 12
+     */
+    resizeAsync(width: number, height: number): Promise<void>;
 
     /**
      * Set the type of a window.
