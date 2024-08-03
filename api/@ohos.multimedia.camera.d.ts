@@ -506,6 +506,15 @@ declare namespace camera {
      * @systemapi
      * @since 10
      */
+    /**
+     * Determine whether camera mute is supported.
+     *
+     * @returns { boolean } Is camera mute supported.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
     isCameraMuteSupported(): boolean;
 
     /**
@@ -771,6 +780,16 @@ declare namespace camera {
      * @systemapi
      * @since 10
      */
+    /**
+     * Subscribes camera mute change event callback.
+     *
+     * @param { 'cameraMute' } type - Event type.
+     * @param { AsyncCallback<boolean> } callback - Callback used to get the camera mute change.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
     on(type: 'cameraMute', callback: AsyncCallback<boolean>): void;
 
     /**
@@ -781,6 +800,16 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 10
+     */
+    /**
+     * Unsubscribes from camera mute change event callback.
+     *
+     * @param { 'cameraMute' } type - Event type.
+     * @param { AsyncCallback<boolean> } callback - Callback used to get the camera mute change.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
      */
     off(type: 'cameraMute', callback?: AsyncCallback<boolean>): void;
 
@@ -801,7 +830,7 @@ declare namespace camera {
      *
      * @param { CameraDevice } camera - Camera device.
      * @returns { boolean } Whether prelaunch is supported.
-     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -844,6 +873,15 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 10
+     */
+    /**
+     * Enable the camera to prelaunch and start.
+     * This function is called when the user clicks the system camera icon to start the camera application.
+     *
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
      */
     prelaunch(): void;
 
@@ -6321,6 +6359,16 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 10
+     */
+    /**
+     * Adds a deferred surface.
+     *
+     * @param { string } surfaceId - Surface object id used in camera photo output.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
      */
     addDeferredSurface(surfaceId: string): void;
 
