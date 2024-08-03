@@ -4113,7 +4113,7 @@ declare namespace audio {
     /**
      * Deactivate the audio session for the current pid application.
      * @throws { BusinessError } 6800301 - System error. Returned by promise.
-     * @syscap SystemCapability.Multimedia.Audio.Core.
+     * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @since 12
      */
@@ -4122,11 +4122,11 @@ declare namespace audio {
     /**
      * Check whether the audio session is activated for the current pid application.
      * @returns { boolean } The active audio session status for the current pid application.
-     * @syscap SystemCapability.Multimedia.Audio.Core.
+     * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @since 12
      */
-    isAudioSessinActivated(): boolean;
+    isAudioSessionActivated(): boolean;
 
     /**
      * Listens for audio session deactivated event. When the audio session is deactivated,
