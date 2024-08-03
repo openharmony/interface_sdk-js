@@ -410,12 +410,14 @@ export interface MessageEvents extends Event {
   /**
    * Data transferred when an exception occurs.
    *
+   * @type { any }
    * @syscap SystemCapability.Utils.Lang
    * @since 9
    */
   /**
    * Data transferred when an exception occurs.
    *
+   * @type { any }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -423,13 +425,14 @@ export interface MessageEvents extends Event {
   /**
    * Data transferred when an exception occurs.
    *
+   * @type { any }
    * @readonly
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  readonly data;
+  readonly data: any;
 }
 
 /**
