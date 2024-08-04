@@ -21,7 +21,8 @@
 
 
 
-
+import { SymbolGlyphModifier, DividerModifier } from './@ohos.arkui.modifier';
+import { LengthMetrics } from './@ohos.arkui.node';
 /**
  * Declare enum ItemState
  * @enum { ItemState }
@@ -72,6 +73,37 @@ export declare enum ItemState {
    * @since 11
    */
   ACTIVATE = 3
+}
+
+/**
+ * Defines toolBar symbolGlyph options.
+ *
+ * @interface ToolBarSymbolGlyphOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 13
+ */
+export interface ToolBarSymbolGlyphOptions {
+
+  /**
+   * Modifier of toolbar's normal symbol.
+   *
+   * @type { ?SymbolGlyphModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  normal?: SymbolGlyphModifier;
+
+  /**
+   * Modifier of toolbar's activated symbol.
+   *
+   * @type { ?SymbolGlyphModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  activated?: SymbolGlyphModifier;
 }
 
 /**
@@ -143,6 +175,47 @@ export declare class ToolBarOption {
    * @since 11
    */
   state?: ItemState;
+  /**
+   * Define text fontColor.
+   * @type { ?ResourceColor }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  textColor?: ResourceColor;
+  /**
+   * Text fontColor when the item is activated.
+   * @type { ?ResourceColor }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  activatedTextColor?: ResourceColor;
+  /**
+   * Define icon fillColor.
+   * @type { ?ResourceColor }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  iconColor?: ResourceColor;
+  /**
+   * Icon fillColor when the item is activated.
+   * @type { ?ResourceColor }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  activatedIconColor?: ResourceColor;
+  /**
+   * Item symbol icon.
+   *
+   * @type { ?ToolBarSymbolGlyphOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  toolBarSymbolOptions?: ToolBarSymbolGlyphOptions;
 }
 
 /**
@@ -158,6 +231,55 @@ export declare class ToolBarOption {
  */
 @Observed
 export declare class ToolBarOptions extends Array<ToolBarOption> {
+}
+
+/**
+ * Declare ToolBarModifier use in ToolBar
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 13
+ */
+export declare class ToolBarModifier {
+  /**
+   * Sets the height of the toolBar.
+   *
+   * @param { LengthMetrics } height - toolBar's height.
+   * @returns { ToolBarModifier } returns the instance of the ToolBarModifier.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  height(height: LengthMetrics): ToolBarModifier;
+  /**
+   * Sets the backgroundColor of the toolBar.
+   *
+   * @param { ResourceColor } backgroundColor - toolBar's backgroundColor.
+   * @returns { ToolBarModifier } returns the instance of the ToolBarModifier.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  backgroundColor(backgroundColor: ResourceColor): ToolBarModifier;
+  /**
+   * Sets the left and right padding of the toolbar.
+   *
+   * @param { LengthMetrics } padding - left and right padding.
+   * @returns { ToolBarModifier } returns the instance of the ToolBarModifier.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  padding(padding: LengthMetrics): ToolBarModifier;
+  /**
+   * Sets whether or not to display the press status effect.
+   *
+   * @param { boolean } stateEffect - press status effect.
+   * @returns { ToolBarModifier } returns the instance of the ToolBarModifier.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  stateEffect(stateEffect: boolean): ToolBarModifier;
 }
 
 /**
@@ -215,4 +337,20 @@ export declare struct ToolBar {
    * @since 11
    */
   controller: TabsController;
+  /**
+   * Define divider Modifier.
+   * @type { ?DividerModifier }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  @Prop dividerModifier?: DividerModifier;
+  /**
+   * Define toolbar modifier.
+   * @type { ?ToolBarModifier }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  @Prop toolBarModifier?: ToolBarModifier;
 }
