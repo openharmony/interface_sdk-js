@@ -68,12 +68,14 @@ declare class LightWeightMap<K, V> {
   /**
    * Gets the element number of the LightWeightMap.
    *
+   * @type { number }
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    */
   /**
    * Gets the element number of the LightWeightMap.
    *
+   * @type { number }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -81,6 +83,7 @@ declare class LightWeightMap<K, V> {
   /**
    * Gets the element number of the LightWeightMap.
    *
+   * @type { number }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice

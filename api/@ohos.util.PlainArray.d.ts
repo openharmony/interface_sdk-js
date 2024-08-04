@@ -71,12 +71,14 @@ declare class PlainArray<T> {
   /**
    * Gets the element number of the PlainArray.
    *
+   * @type { number }
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    */
   /**
    * Gets the element number of the PlainArray.
    *
+   * @type { number }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -84,6 +86,7 @@ declare class PlainArray<T> {
   /**
    * Gets the element number of the PlainArray.
    *
+   * @type { number }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
