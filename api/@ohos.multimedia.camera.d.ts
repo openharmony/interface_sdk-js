@@ -7260,7 +7260,7 @@ declare namespace camera {
      * @systemapi
      * @since 12
      */
-     enableAutoCloudImageEnhancement(): boolean;
+     enableAutoCloudImageEnhancement(enabled: boolean): boolean;
     
     /**
      * Confirm if moving photo supported.
