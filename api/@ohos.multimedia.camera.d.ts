@@ -7238,6 +7238,31 @@ declare namespace camera {
     enableAutoHighQualityPhoto(enabled: boolean): void;
 
     /**
+     * Confirm if the auto cloud image enhancement is supported.
+     *
+     * @returns { boolean } TRUE if the auto cloud image enhancement is supported.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+     isAutoCloudImageEnhanceSupported(): boolean;
+    
+    /**
+     * Enable auto cloud image enhancement
+     *
+     * @param { boolean } enabled - Target state for auto cloud image enhancement.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+     isAutoCloudImageEnhanceSupported(): boolean;
+    
+    /**
      * Confirm if moving photo supported.
      *
      * @returns { boolean } TRUE if the moving photo is supported.
