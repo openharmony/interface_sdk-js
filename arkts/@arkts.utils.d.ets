@@ -485,5 +485,17 @@ declare namespace utils {
       parseReturnType: ParseReturnType;
     }
   }
+
+  /**
+  * Checks whether an ArkTS value is sendable.
+  * 
+  * @param { Object | null | undefined } value - The value to check.
+  * @returns { boolean } True if the value is sendable, false otherwise.
+  * @syscap SystemCapability.Utils.Lang
+  * @stagemodelonly
+  * @atomicservice
+  * @since 12
+  */
+  function isSendable(value: Object | null | undefined): boolean;
 }
 export default utils;
