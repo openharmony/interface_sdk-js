@@ -101,7 +101,6 @@ import screenLockFileManager from '@ohos.ability.screenLockFileManager';
 import AtomicServiceOptions from '@ohos.app.ability.AtomicServiceOptions';
 import EmbeddableUIAbility from '@ohos.app.ability.EmbeddableUIAbility';
 import PhotoEditorExtensionAbility from '@ohos.app.ability.PhotoEditorExtensionAbility';
-import UIServiceExtensionAbility from '@ohos.app.ability.UIServiceExtensionAbility';
 import shortcutManager from '@ohos.bundle.shortcutManager';
 
 export {
@@ -120,5 +119,5 @@ export {
   overlay, particleAbility, quickFixManager, uriPermissionManager, wantAgent, wantConstant, privacyManager,
   EmbeddedUIExtensionAbility, StartupConfig, StartupConfigEntry, StartupListener, StartupTask, startupManager,
   screenLockFileManager, AtomicServiceOptions, EmbeddableUIAbility, ChildProcessArgs, ChildProcessOptions,
-  sendableContextManager, PhotoEditorExtensionAbility, UIServiceExtensionAbility, shortcutManager
+  sendableContextManager, PhotoEditorExtensionAbility, shortcutManager
 };

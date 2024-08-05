@@ -38,10 +38,6 @@ import type { AutoStartupCallback as _AutoStartupCallback } from './application/
 import type { AutoStartupInfo as _AutoStartupInfo } from './application/AutoStartupInfo';
 import type * as _EmbeddableUIAbilityContext from './application/EmbeddableUIAbilityContext';
 import type * as _PhotoEditorExtensionContext from './application/PhotoEditorExtensionContext';
-import * as _UIServiceExtensionContext from './application/UIServiceExtensionContext';
-import * as _UIServiceProxy from './application/UIServiceProxy';
-import * as _UIServiceHostProxy from './application/UIServiceHostProxy';
-import * as _UIServiceExtensionConnectCallback from './application/UIServiceExtensionConnectCallback';
 
 /**
  * This module provides application context classes and common data structures.
@@ -418,50 +414,6 @@ declare namespace common {
    * @since 12
    */
     export type PhotoEditorExtensionContext = _PhotoEditorExtensionContext.default;
-
-  /**
-   * The context of a UI service ability.
-   *
-   * @typedef { _UIServiceExtensionContext.default }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 12
-   */
-  export type UIServiceExtensionContext = _UIServiceExtensionContext.default;
-
-  /**
-   * The UI service proxy.
-   *
-   * @typedef { _UIServiceProxy.default }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @atomicservice
-   * @since 12
-   */
-  export type UIServiceProxy = _UIServiceProxy.default;
-
-  /**
-   * The UI service host proxy.
-   *
-   * @typedef { _UIServiceHostProxy.default }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 12
-   */
-  export type UIServiceHostProxy = _UIServiceHostProxy.default;
-
-  /**
-   * The UI service extension connect callback.
-   *
-   * @typedef { _UIServiceExtensionConnectCallback.default }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @atomicservice
-   * @since 12
-   */
-  export type UIServiceExtensionConnectCallback = _UIServiceExtensionConnectCallback.default;
 }
 
 export default common;
