@@ -81,10 +81,12 @@ export class DiffHelper {
     for (const key of newSDKApiLocations.keys()) {
       const locations: string[] = newSDKApiLocations.get(key) as string[];
       const newApiInfos: ApiInfo[] = Parser.getApiInfo(locations, clonedNewSDKApiMap, isAllSheet) as ApiInfo[];
+      const clonedLocations: string[] = locations;
+      const parentLocations = clonedLocations.slice(0,-1);
       newApiInfos.forEach((newApiInfo: ApiInfo) => {
-        let isNewFile: boolean = true;
-        if (oldFilePathSet.has(newApiInfo.getFilePath())) {
-          isNewFile = false;
+        let isNewFile: boolean = false;
+        if (!oldFilePathSet.has(newApiInfo.getFilePath()) || !oldSDKApiLocations.get(parentLocations.join())) {
+          isNewFile = true;
         }
         diffInfos.push(
           DiffProcessorHelper.wrapDiffInfo(
