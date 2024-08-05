@@ -2880,6 +2880,18 @@ export class UIContext {
   getFrameNodeById(id: string): FrameNode | null;
 
   /**
+   * Get the FrameNode attached to current window by id.
+   *
+   * @param { string } id - The id of FrameNode.
+   * @returns { FrameNode | null } The instance of FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  getAttachedFrameNodeById(id: string): FrameNode | null;
+
+  /**
    * Get FrameNode by uniqueId.
    *
    * @param { number } id - The uniqueId of the FrameNode.
