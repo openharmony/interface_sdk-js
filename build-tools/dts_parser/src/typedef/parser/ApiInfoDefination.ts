@@ -1014,6 +1014,7 @@ export interface NodeProcessorInterface {
 }
 
 export type PropertyNode = ts.PropertyDeclaration | ts.PropertySignature;
+export type PropertyTypeNode = ts.TypeNode | ts.Expression | undefined;
 
 export interface ModifierProcessorInterface {
   (propertyInfo: BasicApiInfo): void;
