@@ -3788,16 +3788,16 @@ declare namespace audio {
      * Sets current audio effect properties.
      * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @param { Array<AudioEffectProperty> } propertyArray - array of audio effect property to be set. 
-     * Notice that only one effectProperty in each effectCategory should be set.
+     * Notice that only one effect property name in each effect property category should be set.
      * @throws { BusinessError } 201 - Permission denied. 
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed. Possible causes:
-     *                                 1. More than one effectProperties of the same effectCategory in input Array
-     *                                 2. input audioEffectProperties are not supported by current device.
-     *                                 3. names of effectProperty or effectCategory are incorrect.
+     *                                 1. More than one effect property name of the same effect property category are in the input array.
+     *                                 2. The input audioEffectProperties are not supported by the current device.
+     *                                 3. The name or catergory of the input audioEffectProperties is incorrect.
      * @throws { BusinessError } 6800301 - System error.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @systemapi
@@ -3835,16 +3835,16 @@ declare namespace audio {
      * Sets current audio enhancement properties.
      * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @param { Array<AudioEnhancementProperty> } propertyArray - array of audio enhancement property to be set. 
-     * Notice that only one enhancementProperty in each enhancementCategory should be set.
+     * Notice that only one enhancement property name in each enhancement category should be set.
      * @throws { BusinessError } 201 - Permission denied. 
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed. Possible causes:
-     *                                 1. More than one enhancementProperties of the same enhancementCategory in input Array
-     *                                 2. input audioEnhancementProperties are not supported by current device.
-     *                                 3. names of enhancementProperty or enhancementCategory are incorrect.
+     *                                 1. More than one enhancement property names of the same enhancement property category are in the input array.
+     *                                 2. The input audioEnhancementProperties are not supported by the current device.
+     *                                 3. The name or category of the input audioEnhancementProperties is incorrect.
      * @throws { BusinessError } 6800301 - System error.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
@@ -9327,16 +9327,16 @@ declare namespace audio {
      * @systemapi
      * @since 13
      */
-    effectProperty: string;
+    name: string;
 
     /**
-     * Name of effect category the effectProperty belongs to.
+     * Effect category this effect property belongs to.
      * @type { string }
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @systemapi
      * @since 13
      */
-    effectCategory: string;
+    category: string;
   }
 
   /**
@@ -9354,16 +9354,16 @@ declare namespace audio {
      * @systemapi
      * @since 13
      */
-    enhancementProperty: string;
+    name: string;
 
     /**
-     * Name of enhancement category the enhancementProperty belongs to.
+     * Enhancement category the enhancement property belongs to.
      * @type { string }
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
      * @since 13
      */
-    enhancementCategory: string;
+    category: string;
   }
 }
 
