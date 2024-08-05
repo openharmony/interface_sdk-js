@@ -165,7 +165,7 @@ export default class ApplicationContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12  
+   * @since 12
    */
   off(type: 'abilityLifecycle', callbackId: number): Promise<void>;
 
@@ -388,20 +388,6 @@ export default class ApplicationContext extends Context {
    * @since 11
    */
   killAllProcesses(): Promise<void>;
-
-  /**
-   * Kill all processes of the application
-   *
-   * @param { boolean } clearPageStack - The flag that indicates whether the page stack need to be cleared.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @atomicservice
-   * @since 12
-   */
-  killAllProcesses(clearPageStack: boolean): Promise<void>;
 
   /**
    * Kill all processes of the application
