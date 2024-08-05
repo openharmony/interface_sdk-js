@@ -4049,7 +4049,7 @@ declare namespace audio {
      * @crossplatform
      * @since 12
      */
-    DEACTIVATED_TIME_OUT = 1,
+    DEACTIVATED_TIMEOUT = 1,
   }
 
   /**
