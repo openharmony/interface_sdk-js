@@ -399,14 +399,22 @@ export const apiLegalityCheckTypeMap: Map<ts.SyntaxKind, string[]> = new Map([
 /**
  * An array of online error messages
  */
-export const compositiveResult: ApiResultSimpleInfo[] = [];
+export let compositiveResult: ApiResultSimpleInfo[] = [];
+
+export function cleanCompositiveResult() {
+  compositiveResult = [];
+}
 
 /**
  * An array of local error messages
  */
 export const compositiveLocalResult: ApiResultInfo[] = [];
 
-export const apiCheckResult: ApiResultMessage[] = [];
+export let apiCheckResult: ApiResultMessage[] = [];
+
+export function cleanApiCheckResult() {
+  apiCheckResult = [];
+}
 
 export const punctuationMarkSet: Set<string> = new Set(['\\{', '\\}', '\\(', '\\)', '\\[', '\\]', '\\@', '\\.', '\\:',
   '\\,', '\\;', '\\(', '\\)', '\\"', '\\/', '\\_', '\\-', '\\=', '\\?', '\\<', '\\>', '\\,', '\\!', '\\#', '\：', '\，',

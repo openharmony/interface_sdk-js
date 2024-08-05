@@ -28,13 +28,13 @@ export class LocalEntry {
   static checkEntryLocal(filePathArr: string[], fileRuleArr: string[], output: string, prId: string, excel: string): ApiResultMessage[] {
     let allResult: ApiResultMessage[] = apiCheckResult;
     try {
-      Check.scanEntry(filePathArr, prId);
+      Check.scanEntry(filePathArr, prId, false);
       LocalEntry.maskAlarm(compositiveResult, fileRuleArr);
     } catch (error) {
       LogUtil.e('API_CHECK_ERROR', error);
     } finally {
       GenerateFile.writeFile(apiCheckResult, output, {});
-      
+
       if (excel === 'true') {
         GenerateFile.writeExcelFile(apiCheckResult);
       }
