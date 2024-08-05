@@ -2517,6 +2517,47 @@ declare namespace image {
   }
 
   /**
+   * Enumerates the anti-aliasing level.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 12
+   */
+  enum AntiAliasingLevel {
+    /**
+     * Nearest-neighbor interpolation algorithm.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    NONE = 0,
+
+    /**
+     * Bilinear interpolation algorithm.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    LOW = 1,
+
+    /**
+     * Bilinear interpolation algorithm with mipmap linear filtering.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    MEDIUM = 2,
+
+    /**
+     * Cubic interpolation algorithm.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    HIGH = 3,
+  }
+
+  /**
    * Enum for image scale mode.
    *
    * @enum { number }
@@ -5953,6 +5994,40 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 12
      */
     scaleSync(x: number, y: number): void;
+
+    /**
+     * Image zoom in width and height width with anti-aliasing. This method uses a promise to return the result.
+     *
+     * @param { number } x The zoom value of width.
+     * @param { number } y The zoom value of height.
+     * @param { AntiAliasingLevel } level The anti-aliasing algorithm to be used.
+     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
+     */
+    scale(x: number, y: number, level: AntiAliasingLevel): Promise<void>;
+
+    /**
+     * Image zoom in width and height with anti-aliasing.
+     *
+     * @param { number } x The zoom value of width.
+     * @param { number } y The zoom value of height.
+     * @param { AntiAliasingLevel } level The anti-aliasing algorithm to be used.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    scaleSync(x: number, y: number, level: AntiAliasingLevel): void;
 
     /**
      * Image position transformation. This method uses a callback to return the operation result.
