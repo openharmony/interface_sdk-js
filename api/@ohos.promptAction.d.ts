@@ -184,7 +184,6 @@ declare namespace promptAction {
      * @since 12
      */
     offset?: Offset;
-
     /**
      * Background color of toast.
      *
