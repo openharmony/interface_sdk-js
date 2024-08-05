@@ -3729,7 +3729,7 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   /**
    * Sets whether request keyboard or not when on focus.
    *
-   * @param { boolean } whether enable request keyboard when on focus.
+   * @param { boolean } isEnabled - Whether enable request keyboard when on focus.
    * @returns { RichEditorAttribute } Returns the instance of the RichEditorAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
