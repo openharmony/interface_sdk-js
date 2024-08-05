@@ -1913,6 +1913,32 @@ declare namespace audio {
   }
 
   /**
+   * Describe audio capturer filter.
+   * @typedef AudioCapturerFilter
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @systemapi
+   * @since 12
+   */
+  interface AudioCapturerFilter {
+    /**
+     * Application uid.
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 12
+     */
+    uid?: number;
+    /**
+     * Capturer information.
+     * @type { ?AudioCapturerInfo }
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 12
+     */
+    capturerInfo?: AudioCapturerInfo;
+  }
+
+  /**
    * Describes audio renderer configuration options.
    * @typedef AudioRendererOptions
    * @syscap SystemCapability.Multimedia.Audio.Renderer
@@ -3442,6 +3468,22 @@ declare namespace audio {
     selectInputDevice(inputAudioDevices: AudioDeviceDescriptors): Promise<void>;
 
     /**
+     * Select the input device with desired AudioCapturer. This method uses a promise to return the result.
+     * @param { AudioCapturerFilter } filter - Filter for AudioCapturer.
+     * @param { AudioDeviceDescriptors } inputAudioDevices - Audio device descriptions
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters unspecified.
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 12
+     */
+    selectInputDeviceByFilter(filter: AudioCapturerFilter, inputAudioDevices: AudioDeviceDescriptors): Promise<void>;
+
+    /**
      * Get output device for target audio renderer info.
      * @param { AudioRendererInfo } rendererInfo - Audio renderer information
      * @param { AsyncCallback<AudioDeviceDescriptors> } callback - Callback used to return the result.
@@ -3518,6 +3560,21 @@ declare namespace audio {
      * @since 12
      */
     getPreferredOutputDeviceForRendererInfoSync(rendererInfo: AudioRendererInfo): AudioDeviceDescriptors;
+
+    /**
+     * Get the preferred output devices by the target audio renderer filter.
+     * @param { AudioRendererFilter } filter - Audio renderer filter.
+     * @returns { AudioDeviceDescriptors } The preferred devices.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters unspecified.
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 12
+     */
+    getPreferredOutputDeviceByFilter(filter: AudioRendererFilter): AudioDeviceDescriptors;
 
     /**
      * Subscribes to prefer output device change events. When prefer device for target audio renderer info changes,
@@ -3628,6 +3685,21 @@ declare namespace audio {
      * @since 12
      */
     getPreferredInputDeviceForCapturerInfo(capturerInfo: AudioCapturerInfo): Promise<AudioDeviceDescriptors>;
+
+    /**
+     * Get the preferred input device for the target audio capturer filter.
+     * @param { AudioCapturerFilter } filter - Audio capturer filter.
+     * @returns { AudioDeviceDescriptors } The preferred devices.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 12
+     */
+    getPreferredInputDeviceByFilter(filter: AudioCapturerFilter): AudioDeviceDescriptors;
 
     /**
      * Subscribes to preferred input device change events. When preferred device for target audio capturer info changes,
