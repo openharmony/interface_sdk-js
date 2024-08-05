@@ -400,7 +400,7 @@ declare namespace distributedMissionManager {
    * @since 10
    */
   export type ContinueMissionInfo = _ContinueMissionInfo;
-  
+
   /**
    * ContinueCallback registered for notify continue result.
    * @typedef { _ContinueCallback }
@@ -422,7 +422,6 @@ declare namespace distributedMissionManager {
   /**
    * MissionCallback registered by app.
    * @typedef { _MissionCallback }
-   * @permission ohos.permission.MANAGE_MISSIONS
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 10
@@ -432,7 +431,6 @@ declare namespace distributedMissionManager {
   /**
    * Parameters corresponding to mission.
    * @typedef { _MissionDeviceInfo }
-   * @permission ohos.permission.MANAGE_MISSIONS
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 10
@@ -442,7 +440,6 @@ declare namespace distributedMissionManager {
   /**
    * Parameters corresponding to mission.
    * @typedef { _MissionParameter }
-   * @permission ohos.permission.MANAGE_MISSIONS
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 10
