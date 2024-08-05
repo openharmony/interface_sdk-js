@@ -153,6 +153,26 @@ declare interface TextDataDetectorConfig {
    * @since 12
    */
   onDetectResultUpdate?: (result: string) => void
+
+  /**
+   * The color of AI entity.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  color?: ResourceColor,
+
+  /**
+   * The decoration of AI entity.
+   *
+   * @type { ?DecorationStyleInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  decoration?: DecorationStyleInterface
 }
 
 /**
