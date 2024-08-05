@@ -1013,6 +1013,20 @@ declare namespace pasteboard {
      * @since 11
      */
     replaceRecord(index: number, record: PasteDataRecord): void;
+
+    /**
+     * Utilized to notify pasteboard service while reading PasteData, in this case, the service will help to preserve the context and resources
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 12
+     */
+    pasteStart(): void;
+
+    /**
+     * Invoked to notify pasteboard service the utilization of PasteData has completed and occupied resources can be released for further usage
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 12
+     */
+    pasteComplete(): void;
   }
 
   /**
@@ -1476,7 +1490,7 @@ declare namespace pasteboard {
 
     /**
      * Removes the unified ShareOptions of your application.
-     * 
+     *
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @systemapi
