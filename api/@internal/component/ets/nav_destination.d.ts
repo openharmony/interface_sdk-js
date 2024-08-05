@@ -366,7 +366,6 @@ declare interface NavDestinationContext {
    */
   navDestinationId?: string;
 
-
   /**
    * Get configuration of current Destination in module.json
    * 
