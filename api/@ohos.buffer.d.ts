@@ -46,12 +46,14 @@ declare namespace buffer {
   /**
    * This parameter specifies the type of a common encoding format.
    *
+   * @typedef { 'ascii' | 'utf8' | 'utf-8' | 'utf16le' | 'ucs2' | 'ucs-2' | 'base64' | 'base64url' | 'latin1' | 'binary' | 'hex' }
    * @syscap SystemCapability.Utils.Lang
    * @since 9
    */
   /**
    * This parameter specifies the type of a common encoding format.
    *
+   * @typedef { 'ascii' | 'utf8' | 'utf-8' | 'utf16le' | 'ucs2' | 'ucs-2' | 'base64' | 'base64url' | 'latin1' | 'binary' | 'hex' }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -59,6 +61,7 @@ declare namespace buffer {
   /**
    * This parameter specifies the type of a common encoding format.
    *
+   * @typedef { 'ascii' | 'utf8' | 'utf-8' | 'utf16le' | 'ucs2' | 'ucs-2' | 'base64' | 'base64url' | 'latin1' | 'binary' | 'hex' }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -91,7 +94,9 @@ declare namespace buffer {
    */
   /**
    * TypedArray inherits the features and methods of Int8Array
+   * 
    * @interface TypedArray
+   * @extends Int8Array
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -734,6 +739,7 @@ declare namespace buffer {
     /**
      * Returns the number of bytes in buf
      *
+     * @type { number }
      * @throws { BusinessError } 10200013 - Length  cannot be set for the buffer that has only a getter.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -760,6 +766,7 @@ declare namespace buffer {
     /**
      * The underlying ArrayBuffer object based on which this Buffer object is created.
      *
+     * @type { ArrayBuffer }
      * @throws { BusinessError } 10200013 - Buffer cannot be set for the buffer that has only a getter.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -786,6 +793,7 @@ declare namespace buffer {
     /**
      * The byteOffset of the Buffers underlying ArrayBuffer object
      *
+     * @type { number }
      * @throws { BusinessError } 10200013 - ByteOffset  cannot be set for the buffer that has only a getter.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -3382,6 +3390,7 @@ declare namespace buffer {
     /**
      * The total size of the Blob in bytes
      *
+     * @type { number }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -3405,6 +3414,7 @@ declare namespace buffer {
     /**
      * The content-type of the Blob
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
