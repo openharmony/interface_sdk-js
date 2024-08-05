@@ -1878,6 +1878,31 @@ declare namespace media {
     getPlaybackInfo(): Promise<PlaybackInfo>;
 
     /**
+     * Set playback strategy to AVPlayer.
+     * @param { PlaybackStrategy } strategy : specified strategy of the AVPlayer.
+     * @returns { Promise<void> }  A Promise instance used to return when setPlaybackStrategy completed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter verification failed.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 12
+     */
+    setPlaybackStrategy(strategy: PlaybackStrategy): Promise<void>;
+
+    /**
+     * Mute specified media stream.
+     * @param { MediaType } mediaType - specified media Type, see @MediaType..
+     * @param { boolean } muted - true for mute, false for unmute.
+     * @returns { Promise<void> } A Promise instance used to return when setMediaMuted completed.
+     * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 12
+     */
+    setMediaMuted(mediaType: MediaType,  muted: boolean ): Promise<void>;
+
+    /**
      * Media URI. Mainstream media formats are supported.
      * Network:http://xxx
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -3149,6 +3174,13 @@ declare namespace media {
      */
     preferredHdr?: boolean;
 
+    /**
+     * mute the specified media stream when playing.
+     * @type { ?MediaType }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
+    mutedMediaType?: MediaType;
   }
 
   /**
@@ -3762,6 +3794,22 @@ declare namespace media {
      * @since 9
      */
     getInputSurface(): Promise<string>;
+
+    /**
+     * Get input meta surface for specified meta source type. it must be called between prepare completed and start.
+     * @param { MetaSourceType } type - Meta source type.
+     * @returns { Promise<string> } A Promise instance used to return the input surface id in string.
+     * @throws { BusinessError } 202 - Called from Non-System applications. Return by promise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @systemapi
+     * @since 12
+     */
+    getInputMetaSurface(type: MetaSourceType): Promise<string>;
 
     /**
      * Check if the avrecorder has watermark capability.
@@ -5896,6 +5944,24 @@ declare namespace media {
   }
 
   /**
+   * Enumerates meta source type for recorder.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Media.AVRecorder
+   * @systemapi
+   * @since 12
+   */
+  enum MetaSourceType {
+    /**
+     * Maker info for video.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @systemapi
+     * @since 12
+     */
+    VIDEO_MAKER_INFO = 0,
+  }
+
+  /**
    * Provides the video recorder configuration definitions.
    *
    * @typedef VideoRecorderConfig
@@ -6286,6 +6352,14 @@ declare namespace media {
      * @since 12
      */
     videoSourceType?: VideoSourceType;
+    /**
+     * Meta source types, details see @MetaSourceType .
+     * @type { ?Array<MetaSourceType> }
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @systemapi
+     * @since 12
+     */
+    metaSourceTypes?: Array<MetaSourceType>;
     /**
      * Video recorder profile, details see @AVRecorderProfile .
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
@@ -6943,11 +7017,11 @@ declare namespace media {
 
     /**
      * Indicates the video bitrate.
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12
      */
-    videoBitrate: number;
+    videoBitrate?: number;
 
     /**
      * Indicates the video encoding foramt.

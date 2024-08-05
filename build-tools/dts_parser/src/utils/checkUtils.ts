@@ -231,15 +231,17 @@ export class CommonFunctions {
   }
   static getExtendsApiValue(singleApi: ApiInfo): string {
     let extendsApiValue: string = '';
+    const extendsApiValueArr: string[] = [];
     const extendsApiArr: ParentClass[] = (singleApi as ClassInfo).getParentClasses();
     if (extendsApiArr.length === 0) {
       return extendsApiValue;
     }
     extendsApiArr.forEach(extendsApi => {
       if (extendsApi.getExtendClass().length !== 0) {
-        extendsApiValue = extendsApi.getExtendClass();
+        extendsApiValueArr.push(extendsApi.getExtendClass());
       }
     });
+    extendsApiValue = extendsApiValueArr.join(',');
     return extendsApiValue;
   }
 

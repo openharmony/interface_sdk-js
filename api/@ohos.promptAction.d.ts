@@ -186,16 +186,45 @@ declare namespace promptAction {
     offset?: Offset;
 
     /**
-     * Defines the toast's half folded area
+     * Background color of toast.
      *
-     * @type { ?HalfFoldedAreaType }
-     * @default HalfFoldedAreaType.DOWN_HALF_SCREEN
+     * @type { ?ResourceColor }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 12
      */
-    halfFoldedArea?: HalfFoldedAreaType;
+    backgroundColor?: ResourceColor;
+    /**
+     * Text color of toast.
+     *
+     * @type { ?ResourceColor }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    textColor?: ResourceColor;
+    /**
+     * Background blur Style of toast.
+     *
+     * @type { ?BlurStyle }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    backgroundBlurStyle?: BlurStyle;
+    /**
+     * Shadow of toast.
+     *
+     * @type { ?(ShadowOptions | ShadowStyle) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    shadow?: ShadowOptions | ShadowStyle;
   }
 
   /**

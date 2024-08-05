@@ -260,7 +260,6 @@ declare namespace avSession {
   /**
    * Session token. Used to judge the legitimacy of the session.
    * @typedef SessionToken
-   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
    * @since 9
@@ -3292,6 +3291,7 @@ declare namespace avSession {
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
+   * @atomicservice
    * @since 12
    */
   enum CastDisplayState {
@@ -3299,6 +3299,7 @@ declare namespace avSession {
      * Screen off.
      *
      * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
+     * @atomicservice
      * @since 12
      */
     STATE_OFF = 1,
@@ -3307,6 +3308,7 @@ declare namespace avSession {
      * Screen on.
      *
      * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
+     * @atomicservice
      * @since 12
      */
     STATE_ON = 2,

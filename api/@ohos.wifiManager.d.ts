@@ -2074,7 +2074,7 @@ declare namespace wifiManager {
    * Wi-Fi device address( mac / bssid ) type.
    * @enum { number }
    * @syscap SystemCapability.Communication.WiFi.Core
-   * atomicservice
+   * @atomicservice
    * @since 12
    */
   enum DeviceAddressType {
@@ -2087,7 +2087,7 @@ declare namespace wifiManager {
     /**
      * random device address
      * @syscap SystemCapability.Communication.WiFi.Core
-     * atomicservice
+     * @atomicservice
      * @since 12
      */
     RANDOM_DEVICE_ADDRESS,
@@ -2101,7 +2101,7 @@ declare namespace wifiManager {
     /**
      * real device address
      * @syscap SystemCapability.Communication.WiFi.Core
-     * atomicservice
+     * @atomicservice
      * @since 12
      */
     REAL_DEVICE_ADDRESS,

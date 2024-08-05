@@ -2187,6 +2187,78 @@ declare namespace image {
     SCENE_VERSION = 'HwMnoteSceneVersion',
 
     /**
+     * Is Xmage Supported
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    IS_XMAGE_SUPPORTED = 'HwMnoteIsXmageSupported',
+
+    /**
+     * Xmage Mode
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    XMAGE_MODE = 'HwMnoteXmageMode',
+
+    /**
+     * Xmage X1 Coordinate
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    XMAGE_LEFT = 'HwMnoteXmageLeft',
+
+    /**
+     * Xmage Y1 Coordinate
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    XMAGE_TOP = 'HwMnoteXmageTop',
+
+    /**
+     * Xmage X2 Coordinate
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    XMAGE_RIGHT = 'HwMnoteXmageRight',
+
+    /**
+     * Xmage Y2 Coordinate
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    XMAGE_BOTTOM = 'HwMnoteXmageBottom',
+
+    /**
+     * Cloud Enhancement Mode
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    CLOUD_ENHANCEMENT_MODE = 'HwMnoteCloudEnhancementMode',
+
+    /**
+     * Wind Snapshot Mode
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    WIND_SNAPSHOT_MODE = 'HwMnoteWindSnapshotMode',
+
+    /**
      * GIF LOOP COUNT
      * If infinite loop returns 0, other values represent the number of loops
      *
@@ -6188,6 +6260,18 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 12
      */
     release(): Promise<void>;
+
+   /**
+     * Enables the PixelMap object to be transferred across threads and detaches the reference from the current
+     * thread upon transfer.
+     *
+     * @param { boolean } detached A boolean value indicating whether to enable or disable the transfer and
+     * detachment feature.
+     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    setTransferDetached(detached: boolean): void;
   }
 
   /**
