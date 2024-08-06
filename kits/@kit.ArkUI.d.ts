@@ -154,7 +154,10 @@ import {
   DownloadContentOptions,
   DownloadStyleOptions
 } from '@ohos.arkui.advanced.DownloadFileButton';
-
+import {
+  InnerFullScreenLaunchComponent,
+  LaunchController
+} from '@ohos.arkui.advanced.InnerFullScreenLaunchComponent';
 export {
   AddFormMenuItem, AddFormOptions, AlertDialog, Animator, AnimatorOptions, AnimatorResult, App, AppResponse, AtomicServiceBar,
   AtomicServiceNavigation, NavDestinationBuilder,
@@ -206,5 +209,6 @@ export {
   CommonSegmentButtonOptions, ItemRestriction, SegmentButtonItemTuple, SegmentButtonItemArray, SegmentButtonItemOptionsConstructorOptions, SegmentButtonItemOptions,
   PixelMapDrawableDescriptor, AnimationOptions, AnimatedDrawableDescriptor, NodeAdapter, DownloadFileButton,
   DownloadLayoutDirection, DownloadIconStyle, DownloadDescription, DownloadContentOptions, DownloadStyleOptions,
-  Rect, RoundRect, edgeColors, borderStyles, borderRadiuses, ParticleModifier
+  Rect, RoundRect, edgeColors, borderStyles, borderRadiuses, ParticleModifier,
+  InnerFullScreenLaunchComponent, LaunchController,
 };

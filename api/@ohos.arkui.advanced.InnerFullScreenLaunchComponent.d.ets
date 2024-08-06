@@ -24,6 +24,7 @@ import Callback from '@ohos.base';
 /**
  * Declare component InnerFullScreenLaunchComponent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
  * @since 12
  */
 @Component
@@ -32,36 +33,49 @@ export declare struct InnerFullScreenLaunchComponent {
    * Sets the component content.
    * @type { Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @since 12
    */
   @BuilderParam content: Callback<void>;
 
   /**
    * Sets the component Controller.
-   * @type { LaunchController }
+   * @type { LaunchController }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi  
    * @since 12
    */
-  controller?: InnerLaunchController;
+  controller: LaunchController;
 }
 
 /**
- * Declare type InnerLaunchController
+ * Declare type LaunchController
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 12
  */
-export declare class InnerLaunchController {
+export declare class LaunchController {
 
   /**
-   * function to launch atomicservice.
+   * Function to launch atomicservice.
    *
-   * @param { string } - appId - appId of atomicservice
-   * @param { AtomicServiceOptions } options - cannot be empty options of atomicservice
+   * @type { LaunchAtomicServiceCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 12
    **/
-  launchAtomicService: (appId: string, options?: AtomicServiceOptions) => void;
+  public launchAtomicService: LaunchAtomicServiceCallback;
 }
+
+
+/**
+ * Callback for launch atomicservice.
+ *
+ * @typedef { function } LaunchAtomicServiceCallback
+ * @param { string } appId - appId of atomicservice.
+ * @param { ?AtomicServiceOptions } [options] - options that could be empty.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 12
+ **/
+export declare type LaunchAtomicServiceCallback = (appId: string, options?: AtomicServiceOptions) => void;
