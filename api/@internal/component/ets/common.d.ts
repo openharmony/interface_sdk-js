@@ -19096,7 +19096,7 @@ declare class CommonMethod<T> {
   blendMode(value: BlendMode, type?: BlendApplyType): T;
 
   /**
-   * The parameter specifies whether to crop based on the edge contour.
+   * Whether to crop the sub components of the current component.
    *
    * @param { boolean } value
    * @returns { T }
