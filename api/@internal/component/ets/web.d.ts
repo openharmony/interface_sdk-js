@@ -8460,6 +8460,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 12
    */
   keyboardAvoidMode(mode: WebKeyboardAvoidMode): WebAttribute;
+
+  /**
+   * Set the custom text menu.
+   *
+   * @param { EditMenuOptions } editMenu - Customize text menu options.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  editMenuOptions(editMenu: EditMenuOptions): WebAttribute;
 }
 
 /**
