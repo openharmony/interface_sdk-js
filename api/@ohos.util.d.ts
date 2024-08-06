@@ -1768,12 +1768,14 @@ declare namespace util {
     /**
      * Obtains a list of all values in the current buffer.
      *
+     * @type { number }
      * @syscap SystemCapability.Utils.Lang
      * @since 9
      */
     /**
      * Obtains a list of all values in the current buffer.
      *
+     * @type { number }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -1781,6 +1783,7 @@ declare namespace util {
     /**
      * Obtains a list of all values in the current buffer.
      *
+     * @type { number }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
