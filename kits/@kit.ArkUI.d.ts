@@ -86,7 +86,8 @@ import {
 } from '@ohos.arkui.UIContext';
 import curves from '@ohos.curves';
 import {
-  AtomicServiceWeb, OnMessageEvent, OnErrorReceiveEvent, OnHttpErrorReceiveEvent, OnPageBeginEvent, OnPageEndEvent
+  AtomicServiceWeb, OnMessageEvent, OnErrorReceiveEvent, OnHttpErrorReceiveEvent, OnPageBeginEvent, OnPageEndEvent,
+  AtomicServiceWebController, OnLoadInterceptEvent, OnProgressChangeEvent, OnLoadInterceptCallback
 } from '@ohos.atomicservice.AtomicServiceWeb';
 import dragInteraction from '@ohos.deviceStatus.dragInteraction';
 import display from '@ohos.display';
