@@ -384,7 +384,17 @@ declare namespace wantAgent {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
      */
-    SEND_COMMON_EVENT
+    SEND_COMMON_EVENT,
+
+    /**
+     * Starts a service extension.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    START_SERVICE_EXTENSION = 6
   }
 
   /**
