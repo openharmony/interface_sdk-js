@@ -18,8 +18,6 @@
  * @kit AbilityKit
  */
 
-import type UIServiceProxy from "./UIServiceProxy";
-
 /**
  * UI service extension connect callback.
  *
@@ -27,7 +25,7 @@ import type UIServiceProxy from "./UIServiceProxy";
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since 12
+ * @since 13
  */
 export default interface UIServiceExtensionConnectCallback {
   /**
@@ -37,7 +35,7 @@ export default interface UIServiceExtensionConnectCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   onData(data: Record<string, Object>): void;
 
@@ -47,7 +45,7 @@ export default interface UIServiceExtensionConnectCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   onDisconnect(): void;
 }

@@ -31,7 +31,7 @@ import window from './@ohos.window';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @stagemodelonly
- * @since 12
+ * @since 13
  */
 export default class UIServiceExtensionAbility extends ExtensionAbility {
   /**
@@ -41,7 +41,7 @@ export default class UIServiceExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 13
    */
   context: UIServiceExtensionContext;
 
@@ -52,7 +52,7 @@ export default class UIServiceExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 13
    */
   onCreate(want: Want): void;
 
@@ -66,7 +66,7 @@ export default class UIServiceExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 13
    */
   onRequest(want: Want, startId: number): void;
 
@@ -78,7 +78,7 @@ export default class UIServiceExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 13
    */
   onConnect(want: Want, proxy: UIServiceHostProxy): void;
 
@@ -90,7 +90,7 @@ export default class UIServiceExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 13
    */
   onDisconnect(want: Want, proxy: UIServiceHostProxy): void;
 
@@ -101,7 +101,7 @@ export default class UIServiceExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 13
    */
   onWindowWillCreate(config: window.ExtensionWindowConfig): void;
 
@@ -112,9 +112,9 @@ export default class UIServiceExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 13
    */
-  onWindowDidCreate(window: window.Window): void
+  onWindowDidCreate(window: window.Window): void;
 
   /**
    * Called back when data is sent.
@@ -124,7 +124,7 @@ export default class UIServiceExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 13
    */
   onData(proxy: UIServiceHostProxy, data: Record<string, Object>): void;
 
@@ -134,7 +134,7 @@ export default class UIServiceExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 13
    */
   onDestroy(): void;
 }

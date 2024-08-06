@@ -27,7 +27,7 @@ import type StartOptions from '../@ohos.app.ability.StartOptions';
 import type AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions';
 import OpenLinkOptions from '../@ohos.app.ability.OpenLinkOptions';
 import type UIServiceProxy from './UIServiceProxy';
-import type UIServiceExtensionConnectCallback from './UIServiceExtensionConnectCallback'
+import type UIServiceExtensionConnectCallback from './UIServiceExtensionConnectCallback';
 
 /**
  * The context of UI extension. It allows access to UIExtension-specific resources.
@@ -669,11 +669,12 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
+   * @throws { BusinessError } 16000019 - Can not match any component.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 12
+   * @since 13
    */
   startUIServiceExtensionAbility(want: Want): Promise<void>;
 
@@ -700,7 +701,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 12
+   * @since 13
    */
   connectUIServiceExtensionAbility(want: Want, callback: UIServiceExtensionConnectCallback) : Promise<UIServiceProxy>;
 
@@ -715,7 +716,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 12
+   * @since 13
    */
   disconnectUIServiceExtensionAbility(proxy: UIServiceProxy): Promise<void>;
 }

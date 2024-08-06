@@ -1980,12 +1980,13 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
+   * @throws { BusinessError } 16000019 - Can not match any component.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 13
    */
   startUIServiceExtensionAbility(want: Want): Promise<void>;
 }

@@ -22,6 +22,7 @@ import ExtensionContext from './ExtensionContext';
 import type Want from '../@ohos.app.ability.Want';
 import type StartOptions from '../@ohos.app.ability.StartOptions';
 import type AbilityStartCallback from './AbilityStartCallback';
+import { ConnectOptions } from '../ability/connectOptions';
 
 /**
  * The context of UI service extension. It allows access to UIServiceExtension-specific resources.
@@ -30,7 +31,7 @@ import type AbilityStartCallback from './AbilityStartCallback';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @stagemodelonly
- * @since 12
+ * @since 13
  */
 export default class UIServiceExtensionContext extends ExtensionContext {
   /**
@@ -66,7 +67,7 @@ export default class UIServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 13
    */
   startAbility(want: Want, options?: StartOptions): Promise<void>;
 
@@ -78,7 +79,7 @@ export default class UIServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 13
    */
   terminateSelf(): Promise<void>;
 
@@ -98,8 +99,57 @@ export default class UIServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 13
    */
   startAbilityByType(type: string, wantParam: Record<string, Object>,
     abilityStartCallback: AbilityStartCallback): Promise<void>;
+
+  /**
+   * Connects to a service extension ability.
+   * If the target service extension ability is visible, you can connect the target service extension ability;
+   * If the target service extension ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to connect target invisible service extension ability.
+   * If the target service extension ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
+   * <p>This method can be called by an ability or service extension, but the destination of the connection must be a
+   * service extension. You must implement the {@link ConnectOptions} interface to obtain the proxy of the target
+   * service extension when the Service extension is connected.</p>
+   *
+   * @param { Want } want - Indicates the service extension to connect.
+   * @param { ConnectOptions } options - Indicates the callback of connection.
+   * @returns { number } Returns the connection id.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
+   * @throws { BusinessError } 16000055 - Installation-free timed out.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 13
+   */
+  connectServiceExtensionAbility(want: Want, options: ConnectOptions): number;
+
+  /**
+   * Disconnect an ability from a service extension, in contrast to {@link connectServiceExtensionAbility}.
+   *
+   * @param { number } connectionId - the connection id returned from connectServiceExtensionAbility api.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 13
+   */
+  disconnectServiceExtensionAbility(connectionId: number): Promise<void>;
 }
