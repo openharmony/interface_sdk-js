@@ -50,7 +50,7 @@ export declare struct AtomicServiceWeb {
   /**
    * Sets how to load HTTP and HTTPS content.
    *
-   * @type { MixedMode }
+   * @type { ?MixedMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
@@ -59,7 +59,7 @@ export declare struct AtomicServiceWeb {
   /**
    * Sets the dark mode of Web.
    *
-   * @type { WebDarkMode }
+   * @type { ?WebDarkMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
@@ -68,7 +68,7 @@ export declare struct AtomicServiceWeb {
   /**
    * Sets whether to enable forced dark algorithm when the web is in dark mode.
    *
-   * @type { boolean }
+   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
@@ -142,7 +142,6 @@ export declare struct AtomicServiceWeb {
    * Triggered when the resources loading is intercepted.
    *
    * @type { ?OnLoadInterceptCallback }
-   * @returns { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
