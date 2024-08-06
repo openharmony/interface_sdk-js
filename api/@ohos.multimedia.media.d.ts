@@ -1312,6 +1312,17 @@ declare namespace media {
   type AVPlayerState = 'idle' | 'initialized' | 'prepared' | 'playing' | 'paused' | 'completed' | 'stopped' | 'released' | 'error';
 
   /**
+   * Define the TrackChange Event callback.
+   * @typedef { function } OnTrackChangeHandler
+   * @param { number } index - index number for change Track.
+   * @param { boolean } isSelected - Target index number for moving elements.
+   * @syscap SystemCapability.Multimedia.Media.AVPlayer
+   * @atomicservice
+   * @since 12
+   */  
+  type OnTrackChangeHandler = (index: number, isSelected: boolean) => void;
+
+  /**
    * Defines the OnStateChange callback.
    * 
    * @typedef { function } OnAVPlayerStateChangeHandle
@@ -2859,6 +2870,46 @@ declare namespace media {
      * @since 12
      */
     off(type: 'subtitleUpdate', callback?: Callback<SubtitleInfo>): void
+  
+    /**
+     * Subscribes listener for track change event.
+     * @param { 'trackChange' } type - Type of the event to listen for.
+     * @param { OnTrackChangeHandler } callback - Callback used to listen track change event.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 12
+     */
+    on(type: 'trackChange', callback: OnTrackChangeHandler): void
+
+    /**
+     * Unsubscribes listener for track change event.
+     * @param { 'trackChange' } type - Type of the event to listen for.
+     * @param { OnTrackChangeHandler } callback - Callback used to listen track change event.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 12
+     */
+    off(type: 'trackChange', callback?: OnTrackChangeHandler): void
+
+    /**
+     * Subscribes listener for trackinfo update event.
+     * @param { 'trackInfoUpdate' } type - Type of the event to listen for.
+     * @param { Callback<Array<MediaDescription>> } callback - Callback used to listen trackinfo update event.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 12
+     */
+    on(type: 'trackInfoUpdate', callback: Callback<Array<MediaDescription>>): void
+
+    /**
+     * Unsubscribes listener for trackinfo update event.
+     * @param { 'trackInfoUpdate' } type - Type of the event to listen for.
+     * @param { Callback<Array<MediaDescription>> } callback - Callback used to listen trackinfo update event.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 12
+     */
+    off(type: 'trackInfoUpdate', callback?: Callback<Array<MediaDescription>>): void
   }
 
   /**
@@ -5755,6 +5806,22 @@ declare namespace media {
      * @since 12
      */
     MD_KEY_LANGUAGE = 'language',
+
+    /**
+     * Key for track name, value is string.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 12
+     */
+    MD_KEY_TRACK_NAME = 'track_name',
+
+    /**
+     * Key for video hdr type, value type is number.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 12
+     */
+    MD_KEY_HDR_TYPE = 'hdr_type',
   }
 
   /**
