@@ -4093,7 +4093,7 @@ declare class TransitionEffect<
   Effect extends TransitionEffects[Type] = TransitionEffects[Type]
 > {
   /**
-   * Defines an identity transition effect
+   * Disables the transition effect
    *
    * @type { TransitionEffect<"identity"> }
    * @readonly
@@ -4104,7 +4104,7 @@ declare class TransitionEffect<
    * @since 10
    */
   /**
-   * Defines an identity transition effect
+   * Disables the transition effect
    *
    * @type { TransitionEffect<"identity"> }
    * @readonly
