@@ -74,12 +74,14 @@ declare class LinkedList<T> {
   /**
    * Gets the element number of the LinkedList. This is a number one higher than the highest index in the linkedlist.
    *
+   * @type { number }
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    */
   /**
    * Gets the element number of the LinkedList. This is a number one higher than the highest index in the linkedlist.
    *
+   * @type { number }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -87,6 +89,7 @@ declare class LinkedList<T> {
   /**
    * Gets the element number of the LinkedList. This is a number one higher than the highest index in the linkedlist.
    *
+   * @type { number }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice

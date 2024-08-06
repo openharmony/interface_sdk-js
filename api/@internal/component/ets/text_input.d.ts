@@ -171,7 +171,7 @@ declare enum InputType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 12
    */
   NUMBER_PASSWORD = 8,
 

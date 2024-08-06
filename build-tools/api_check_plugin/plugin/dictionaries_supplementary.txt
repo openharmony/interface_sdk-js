@@ -354,6 +354,7 @@ fts
 fulfills
 fuma
 furse
+gainmap
 gamepad
 gba
 gbk
@@ -810,6 +811,7 @@ reenter
 refill
 refresher
 refusing
+regarded
 rehandshake
 rejects
 relocation
@@ -1181,6 +1183,7 @@ xcomponent
 xfer
 xflags
 xldpi
+xmage
 xoffset
 xxldpi
 xxxldpi

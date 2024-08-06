@@ -39,6 +39,7 @@ import {
   ParamInfo,
   PropertyInfo,
   PropertyNode,
+  PropertyTypeNode,
   ReferenceInfo,
   StructInfo,
   TypeAliasType,
@@ -582,11 +583,12 @@ export class NodeProcessorHelper {
   static processPropertySigAndDec(node: ts.Node, parentApi: BasicApiInfo): PropertyInfo {
     const propertyNode: PropertyNode = node as PropertyNode;
     const propertyInfo: PropertyInfo = new PropertyInfo(ApiType.PROPERTY, node, parentApi);
+    const typeNode: PropertyTypeNode = propertyNode.type ? propertyNode.type : propertyNode.initializer;
     propertyInfo.setApiName(propertyNode.name.getText());
     propertyInfo.setDefinedText(propertyNode.getText());
     ModifierHelper.processModifiers(propertyNode.modifiers, propertyInfo);
     propertyInfo.setIsRequired(!propertyNode.questionToken ? true : false);
-    propertyInfo.addType(NodeProcessorHelper.processDataType(propertyNode.type));
+    propertyInfo.addType(NodeProcessorHelper.processDataType(typeNode));
     if (Boolean(process.env.NEED_DETECTION) && propertyNode.type) {
       NodeProcessorHelper.processFunctionTypeNode(
         propertyNode.type,
@@ -595,7 +597,7 @@ export class NodeProcessorHelper {
         false
       );
     }
-    propertyInfo.setTypeKind(propertyNode.type?.kind);
+    propertyInfo.setTypeKind(typeNode?.kind);
     return propertyInfo;
   }
 
@@ -898,7 +900,7 @@ export class NodeProcessorHelper {
    * @param { string } dataType 类型信息的字符串
    * @returns { string[] } 返回处理后的数组
    */
-  static processDataType(dataType: ts.TypeNode | undefined): string[] {
+  static processDataType(dataType: ts.TypeNode | undefined | ts.Expression): string[] {
     const typeArr: string[] = [];
     if (!dataType) {
       return typeArr;

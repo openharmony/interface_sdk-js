@@ -2187,6 +2187,78 @@ declare namespace image {
     SCENE_VERSION = 'HwMnoteSceneVersion',
 
     /**
+     * Is Xmage Supported
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    IS_XMAGE_SUPPORTED = 'HwMnoteIsXmageSupported',
+
+    /**
+     * Xmage Mode
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    XMAGE_MODE = 'HwMnoteXmageMode',
+
+    /**
+     * Xmage X1 Coordinate
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    XMAGE_LEFT = 'HwMnoteXmageLeft',
+
+    /**
+     * Xmage Y1 Coordinate
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    XMAGE_TOP = 'HwMnoteXmageTop',
+
+    /**
+     * Xmage X2 Coordinate
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    XMAGE_RIGHT = 'HwMnoteXmageRight',
+
+    /**
+     * Xmage Y2 Coordinate
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    XMAGE_BOTTOM = 'HwMnoteXmageBottom',
+
+    /**
+     * Cloud Enhancement Mode
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    CLOUD_ENHANCEMENT_MODE = 'HwMnoteCloudEnhancementMode',
+
+    /**
+     * Wind Snapshot Mode
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    WIND_SNAPSHOT_MODE = 'HwMnoteWindSnapshotMode',
+
+    /**
      * GIF LOOP COUNT
      * If infinite loop returns 0, other values represent the number of loops
      *
@@ -2445,6 +2517,47 @@ declare namespace image {
   }
 
   /**
+   * Enumerates the anti-aliasing level.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 12
+   */
+  enum AntiAliasingLevel {
+    /**
+     * Nearest-neighbor interpolation algorithm.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    NONE = 0,
+
+    /**
+     * Bilinear interpolation algorithm.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    LOW = 1,
+
+    /**
+     * Bilinear interpolation algorithm with mipmap linear filtering.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    MEDIUM = 2,
+
+    /**
+     * Cubic interpolation algorithm.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    HIGH = 3,
+  }
+
+  /**
    * Enum for image scale mode.
    *
    * @enum { number }
@@ -2583,6 +2696,88 @@ declare namespace image {
      * @since 9
      */
     JPEG = 4
+  }
+
+  /**
+   * Enumerates the HDR metadata types that need to be stored in Pixelmap.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 12
+   */
+  enum HdrMetadataKey {
+    /**
+     * Indicate the types of metadata that image needs to use.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    HDR_METADATA_TYPE = 0,
+
+    /**
+     * Static metadata key.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    HDR_STATIC_METADATA = 1,
+
+    /**
+     * Dynamic metadata key.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    HDR_DYNAMIC_METADATA = 2,
+
+    /**
+     * Gainmap metadata key.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    HDR_GAINMAP_METADATA = 3,
+  }
+
+  /**
+   * Value for HDR_METADATA_TYPE.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 12
+   */
+  enum HdrMetadataType {
+    /**
+     * No metadata.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    NONE = 0,
+
+    /**
+     * Indicates that metadata will be used for the base image.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    BASE = 1,
+
+    /**
+     * Indicates that metadata will be used for the gainmap image.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    GAINMAP = 2,
+
+    /**
+     * Indicates that metadata will be used for the alternate image.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    ALTERNATE = 3,
   }
 
   /**
@@ -4067,6 +4262,222 @@ declare namespace image {
      */
     sourceSize?: Size;
   }
+
+  /**
+   * Value for HDR_STATIC_METADATA.
+   *
+   * @typedef HdrStaticMetadata
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 12
+   */
+  interface HdrStaticMetadata {
+    /**
+     * The X-coordinate of the primary colors. The length of the array is three. Store in the order of r, g, b.
+     *
+     * @type { Array<number> }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    displayPrimariesX: Array<number>;
+
+    /**
+     * The Y-coordinate of the primary colors. The length of the array is three. Store in the order of r, g, b.
+     *
+     * @type { Array<number> }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    displayPrimariesY: Array<number>;
+
+    /**
+     * The X-coordinate of the white point value.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    whitePointX: number;
+
+    /**
+     * The Y-coordinate of the white point value.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    whitePointY: number;
+
+    /**
+     * Max luminance.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    maxLuminance: number;
+
+    /**
+     * Min luminance.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    minLuminance: number;
+
+    /**
+     * Maximum brightness of displayed content.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    maxContentLightLevel: number;
+
+    /**
+     * Maximum average brightness of displayed content.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    maxFrameAverageLightLevel: number;
+  }
+
+  /**
+   * The per-component metadata.
+   *
+   * @typedef GainmapChannel
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 12
+   */
+  interface GainmapChannel {
+    /**
+     * The per-component max gain map values.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    gainmapMax: number;
+
+    /**
+     * The per-component min gain map values.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    gainmapMin: number;
+
+    /**
+     * The per-component gamma values.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    gamma: number;
+
+    /**
+     * The per-component baseline offset.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    baseOffset: number;
+
+    /**
+     * The per-component alternate offset.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    alternateOffset: number;
+  }
+
+  /**
+   * Values for HDR_GAINMAP_METADATA.
+   *
+   * @typedef HdrGainmapMetadata
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 12
+   */
+  interface HdrGainmapMetadata {
+    /**
+     * The version used by the writer.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    writerVersion: number;
+
+    /**
+     * The minimum version a parser needs to understand.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    miniVersion: number;
+
+    /**
+     * The number of gain map channels, with a value of 1 or 3.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    gainmapChannelCount: number;
+
+    /**
+     * Indicate whether to use the color space of the base image.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    useBaseColorFlag: boolean;
+
+    /**
+     * The baseline hdr headroom.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */    
+    baseHeadroom: number;
+
+    /**
+     * The alternate hdr headroom.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    alternateHeadroom: number;
+
+    /**
+     * The per-channel metadata.
+     *
+     * @type { Array<GainmapChannel> }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    channels: Array<GainmapChannel>;
+  }
+
+  /**
+   * Defines the hdr metadata value.
+   *
+   * @typedef {HdrMetadataType | HdrStaticMetadata | ArrayBuffer | HdrGainmapMetadata} HdrMetadataValue
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 12
+   */
+  type HdrMetadataValue = HdrMetadataType | HdrStaticMetadata | ArrayBuffer | HdrGainmapMetadata;
 
   /**
    * Create pixelmap by data buffer.
@@ -5585,6 +5996,40 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     scaleSync(x: number, y: number): void;
 
     /**
+     * Image zoom in width and height width with anti-aliasing. This method uses a promise to return the result.
+     *
+     * @param { number } x The zoom value of width.
+     * @param { number } y The zoom value of height.
+     * @param { AntiAliasingLevel } level The anti-aliasing algorithm to be used.
+     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
+     */
+    scale(x: number, y: number, level: AntiAliasingLevel): Promise<void>;
+
+    /**
+     * Image zoom in width and height with anti-aliasing.
+     *
+     * @param { number } x The zoom value of width.
+     * @param { number } y The zoom value of height.
+     * @param { AntiAliasingLevel } level The anti-aliasing algorithm to be used.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    scaleSync(x: number, y: number, level: AntiAliasingLevel): void;
+
+    /**
      * Image position transformation. This method uses a callback to return the operation result.
      *
      * @param { number } x The position value of width.
@@ -6188,6 +6633,18 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 12
      */
     release(): Promise<void>;
+
+   /**
+     * Enables the PixelMap object to be transferred across threads and detaches the reference from the current
+     * thread upon transfer.
+     *
+     * @param { boolean } detached A boolean value indicating whether to enable or disable the transfer and
+     * detachment feature.
+     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    setTransferDetached(detached: boolean): void;
   }
 
   /**

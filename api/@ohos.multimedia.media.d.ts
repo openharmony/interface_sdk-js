@@ -1312,6 +1312,17 @@ declare namespace media {
   type AVPlayerState = 'idle' | 'initialized' | 'prepared' | 'playing' | 'paused' | 'completed' | 'stopped' | 'released' | 'error';
 
   /**
+   * Define the TrackChange Event callback.
+   * @typedef { function } OnTrackChangeHandler
+   * @param { number } index - index number for change Track.
+   * @param { boolean } isSelected - Target index number for moving elements.
+   * @syscap SystemCapability.Multimedia.Media.AVPlayer
+   * @atomicservice
+   * @since 12
+   */  
+  type OnTrackChangeHandler = (index: number, isSelected: boolean) => void;
+
+  /**
    * Defines the OnStateChange callback.
    * 
    * @typedef { function } OnAVPlayerStateChangeHandle
@@ -1876,6 +1887,31 @@ declare namespace media {
      * @since 12
      */
     getPlaybackInfo(): Promise<PlaybackInfo>;
+
+    /**
+     * Set playback strategy to AVPlayer.
+     * @param { PlaybackStrategy } strategy : specified strategy of the AVPlayer.
+     * @returns { Promise<void> }  A Promise instance used to return when setPlaybackStrategy completed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter verification failed.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 12
+     */
+    setPlaybackStrategy(strategy: PlaybackStrategy): Promise<void>;
+
+    /**
+     * Mute specified media stream.
+     * @param { MediaType } mediaType - specified media Type, see @MediaType..
+     * @param { boolean } muted - true for mute, false for unmute.
+     * @returns { Promise<void> } A Promise instance used to return when setMediaMuted completed.
+     * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 12
+     */
+    setMediaMuted(mediaType: MediaType,  muted: boolean ): Promise<void>;
 
     /**
      * Media URI. Mainstream media formats are supported.
@@ -2834,6 +2870,46 @@ declare namespace media {
      * @since 12
      */
     off(type: 'subtitleUpdate', callback?: Callback<SubtitleInfo>): void
+  
+    /**
+     * Subscribes listener for track change event.
+     * @param { 'trackChange' } type - Type of the event to listen for.
+     * @param { OnTrackChangeHandler } callback - Callback used to listen track change event.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 12
+     */
+    on(type: 'trackChange', callback: OnTrackChangeHandler): void
+
+    /**
+     * Unsubscribes listener for track change event.
+     * @param { 'trackChange' } type - Type of the event to listen for.
+     * @param { OnTrackChangeHandler } callback - Callback used to listen track change event.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 12
+     */
+    off(type: 'trackChange', callback?: OnTrackChangeHandler): void
+
+    /**
+     * Subscribes listener for trackinfo update event.
+     * @param { 'trackInfoUpdate' } type - Type of the event to listen for.
+     * @param { Callback<Array<MediaDescription>> } callback - Callback used to listen trackinfo update event.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 12
+     */
+    on(type: 'trackInfoUpdate', callback: Callback<Array<MediaDescription>>): void
+
+    /**
+     * Unsubscribes listener for trackinfo update event.
+     * @param { 'trackInfoUpdate' } type - Type of the event to listen for.
+     * @param { Callback<Array<MediaDescription>> } callback - Callback used to listen trackinfo update event.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 12
+     */
+    off(type: 'trackInfoUpdate', callback?: Callback<Array<MediaDescription>>): void
   }
 
   /**
@@ -3149,6 +3225,13 @@ declare namespace media {
      */
     preferredHdr?: boolean;
 
+    /**
+     * mute the specified media stream when playing.
+     * @type { ?MediaType }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
+    mutedMediaType?: MediaType;
   }
 
   /**
@@ -3762,6 +3845,22 @@ declare namespace media {
      * @since 9
      */
     getInputSurface(): Promise<string>;
+
+    /**
+     * Get input meta surface for specified meta source type. it must be called between prepare completed and start.
+     * @param { MetaSourceType } type - Meta source type.
+     * @returns { Promise<string> } A Promise instance used to return the input surface id in string.
+     * @throws { BusinessError } 202 - Called from Non-System applications. Return by promise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @systemapi
+     * @since 12
+     */
+    getInputMetaSurface(type: MetaSourceType): Promise<string>;
 
     /**
      * Check if the avrecorder has watermark capability.
@@ -5707,6 +5806,22 @@ declare namespace media {
      * @since 12
      */
     MD_KEY_LANGUAGE = 'language',
+
+    /**
+     * Key for track name, value is string.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 12
+     */
+    MD_KEY_TRACK_NAME = 'track_name',
+
+    /**
+     * Key for video hdr type, value type is number.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 12
+     */
+    MD_KEY_HDR_TYPE = 'hdr_type',
   }
 
   /**
@@ -5893,6 +6008,24 @@ declare namespace media {
      * @since 12
      */
     VIDEO_SOURCE_TYPE_SURFACE_ES = 1,
+  }
+
+  /**
+   * Enumerates meta source type for recorder.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Media.AVRecorder
+   * @systemapi
+   * @since 12
+   */
+  enum MetaSourceType {
+    /**
+     * Maker info for video.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @systemapi
+     * @since 12
+     */
+    VIDEO_MAKER_INFO = 0,
   }
 
   /**
@@ -6286,6 +6419,14 @@ declare namespace media {
      * @since 12
      */
     videoSourceType?: VideoSourceType;
+    /**
+     * Meta source types, details see @MetaSourceType .
+     * @type { ?Array<MetaSourceType> }
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @systemapi
+     * @since 12
+     */
+    metaSourceTypes?: Array<MetaSourceType>;
     /**
      * Video recorder profile, details see @AVRecorderProfile .
      * @syscap SystemCapability.Multimedia.Media.AVRecorder

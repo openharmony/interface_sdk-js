@@ -13,14 +13,7 @@
  * limitations under the License.
  */
 
-export default fileIo;
-
-declare namespace fileIo {
-  export { copyDir };
-}
 
 declare function copyDir(src: number, dest: string, mode?: number): Promise<void>;
 
-declare function copyDir(src: string, dest: string, callback: AsyncCallback<void>): ConflictFiles;
 
-declare function copyDir(src: string, dest: string, callback: AsyncCallback<void, Array<ConflictFiles>>): void;

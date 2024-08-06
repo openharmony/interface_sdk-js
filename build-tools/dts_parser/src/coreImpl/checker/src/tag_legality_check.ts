@@ -33,6 +33,10 @@ export class LegalityCheck {
    */
   static apiLegalityCheck(singleApi: ApiInfo, apiJsdoc: Comment.JsDocInfo): ErrorTagFormat[] {
     const apiLegalityCheckResult: ErrorTagFormat[] = [];
+
+    //check systemapi and atomicservice
+    LegalityCheck.checkSystemapiAtomicservice(apiJsdoc, apiLegalityCheckResult);
+
     const nodeInfo: ts.Node = singleApi.getNode() as ts.Node;
     const apiLegalityTagsArray: string[] = apiLegalityCheckTypeMap.get(nodeInfo.kind) as string[];
     const apiLegalityTagsSet: Set<string> = new Set(apiLegalityTagsArray);
@@ -246,5 +250,26 @@ export class LegalityCheck {
       }
     });
     return illegalTagsArray;
+  }
+  /**
+   * systemapi and atomicservice cannot exist at the same time
+   * @param apiJsdoc 
+   */
+  static checkSystemapiAtomicservice(apiJsdoc: Comment.JsDocInfo, apiLegalityCheckResult: ErrorTagFormat[]) {
+    const apiSystemapiAtomicservice: ErrorTagFormat = {
+      state: true,
+      errorInfo: '',
+    };
+    const tagsName: string[] = [];
+    apiJsdoc.tags?.forEach((tag: Comment.CommentTag) => {
+      tagsName.push(tag.tag);
+    })
+    const hasSystemapi: boolean = tagsName.includes('systemapi');
+    const hasAtomicservice: boolean = tagsName.includes('atomicservice');
+    if (hasSystemapi && hasAtomicservice) {
+      apiSystemapiAtomicservice.state=false;
+      apiSystemapiAtomicservice.errorInfo=ErrorMessage.ERROR_ERROR_SYSTEMAPI_ATOMICSERVICE;
+    }
+    apiLegalityCheckResult.push(apiSystemapiAtomicservice);
   }
 }

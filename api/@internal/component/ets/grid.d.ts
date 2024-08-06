@@ -295,6 +295,39 @@ declare enum GridDirection {
 }
 
 /**
+ * Declare grid item alignment status
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare enum GridItemAlignment {
+
+  /**
+   * Use the default alignment of the Grid.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  DEFAULT = 0,
+
+  /**
+   * The height of the tallest grid item in the current line 
+   * will be used as the height for the other items in the same line
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  STRETCH = 1,
+}
+
+/**
  * The attribute of scrollbar to compute scrollbar position and height.
  *
  * @interface ComputedBarAttribute
@@ -1106,6 +1139,18 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @since 11
    */
   friction(value: number | Resource): GridAttribute;
+
+  /**
+   * Set the alignment of grid items.
+   *
+   * @param { Optional<GridItemAlignment> } alignment - Items alignment
+   * @returns { GridAttribute } The attribute of the grid.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+    alignItems(alignment: Optional<GridItemAlignment>): GridAttribute;
 
   /**
    * Called When sliding the grid.
