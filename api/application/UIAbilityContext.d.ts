@@ -2592,7 +2592,7 @@ export default class UIAbilityContext extends Context {
    * If the current application is in the background, you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
    *
    * @param { AbilityResult } abilityResult - Indicates the result to return.
-   * @param { number } requestCode - Indicates the request code of caller ability.
+   * @param { string } requestCode - Indicates the request code of caller ability.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
@@ -2606,7 +2606,7 @@ export default class UIAbilityContext extends Context {
    * @atomicservice
    * @since 12
    */
-  backToCallerAbilityWithResult(abilityResult: AbilityResult, requestCode: number): Promise<void>;
+  backToCallerAbilityWithResult(abilityResult: AbilityResult, requestCode: string): Promise<void>;
 
   /**
    * Connects the current ability to an service extension ability.
