@@ -23874,7 +23874,6 @@ declare interface SelectionOptions {
    */
   menuPolicy?: MenuPolicy;
 }
-
 /**
  * enum keyboard avoid mode
  *
@@ -23904,4 +23903,36 @@ declare enum KeyboardAvoidMode {
    * @since 12
    */
   NONE = 1,
+}
+
+/**
+ * Enumerates the type of area in hover mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare enum HoverModeAreaType {
+
+  /**
+   * Layout top half screen when the phone in hover mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  TOP_SCREEN = 0,
+
+  /**
+   * Layout bottom half screen when the phone in hover mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  BOTTOM_SCREEN = 1,
 }
