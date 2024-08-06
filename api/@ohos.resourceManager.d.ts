@@ -2793,14 +2793,6 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11
-     */
-    /**
-     * Obtains release resourceManager.
-     *
-     * @syscap SystemCapability.Global.ResourceManager
-     * @crossplatform
-     * @atomicservice
-     * @since 12
      * @deprecated since 12
      */
     release();
