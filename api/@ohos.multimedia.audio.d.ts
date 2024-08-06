@@ -26,7 +26,7 @@ import { ErrorCallback, AsyncCallback, Callback } from './@ohos.base';
  */
 /**
  * @namespace audio
- * @syscap SystemCapability.Multimedia.Audio
+ * @syscap SystemCapability.Multimedia.Audio.Core
  * @crossplatform
  * @atomicservice
  * @since 12
