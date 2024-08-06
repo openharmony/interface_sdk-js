@@ -459,12 +459,14 @@ declare namespace taskpool {
     /**
      * Concurrent function to execute in taskpool.
      *
+     * @type { Function }
      * @syscap SystemCapability.Utils.Lang
      * @since 9
      */
     /**
      * Concurrent function to execute in taskpool.
      *
+     * @type { Function }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10

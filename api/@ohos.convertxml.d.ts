@@ -71,12 +71,14 @@ declare namespace xml {
     /**
      * Whether to trim whitespace characters that may exist before and after the text, default false.
      *
+     * @type { boolean }
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * Whether to trim whitespace characters that may exist before and after the text, default false.
      *
+     * @type { boolean }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -94,12 +96,14 @@ declare namespace xml {
     /**
      * Whether to ignore writing declaration directives of xml.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * Whether to ignore writing declaration directives of xml.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -117,12 +121,14 @@ declare namespace xml {
     /**
      * Whether to ignore writing processing instruction of xml.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * Whether to ignore writing processing instruction of xml.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -140,12 +146,14 @@ declare namespace xml {
     /**
      * Whether to print attributes across multiple lines and indent them.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * Whether to print attributes across multiple lines and indent them.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -163,12 +171,14 @@ declare namespace xml {
     /**
      * Whether to ignore writing comments of the elements.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * Whether to ignore writing comments of the elements.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -186,12 +196,14 @@ declare namespace xml {
     /**
      * Whether to ignore writing CDATA of the elements.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * Whether to ignore writing CDATA of the elements.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -209,12 +221,14 @@ declare namespace xml {
     /**
      * Whether to ignore writing Doctype of the elements.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * Whether to ignore writing Doctype of the elements.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -232,12 +246,14 @@ declare namespace xml {
     /**
      * Whether to ignore writing texts of the elements.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * Whether to ignore writing texts of the elements.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -255,12 +271,14 @@ declare namespace xml {
     /**
      * Name of the property key which will be used for the declaration.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * Name of the property key which will be used for the declaration.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -278,12 +296,14 @@ declare namespace xml {
     /**
      * Name of the property key which will be used for the processing instruction.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * Name of the property key which will be used for the processing instruction.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -301,12 +321,14 @@ declare namespace xml {
     /**
      * Name of the property key which will be used for the attributes.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * Name of the property key which will be used for the attributes.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -324,12 +346,14 @@ declare namespace xml {
     /**
      * Name of the property key which will be used for the text.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * Name of the property key which will be used for the text.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -347,12 +371,14 @@ declare namespace xml {
     /**
      * Name of the property key which will be used for the cdata.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * Name of the property key which will be used for the cdata.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -370,12 +396,14 @@ declare namespace xml {
     /**
      * Name of the property key which will be used for the doctype.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * Name of the property key which will be used for the doctype.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -393,12 +421,14 @@ declare namespace xml {
     /**
      * Name of the property key which will be used for the comment.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * Name of the property key which will be used for the comment.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -416,12 +446,14 @@ declare namespace xml {
     /**
      * Name of the property key which will be used for the parent.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * Name of the property key which will be used for the parent.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -439,12 +471,14 @@ declare namespace xml {
     /**
      * Name of the property key which will be used for the type.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * Name of the property key which will be used for the type.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -462,12 +496,14 @@ declare namespace xml {
     /**
      * Name of the property key which will be used for the name.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * Name of the property key which will be used for the name.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -485,12 +521,14 @@ declare namespace xml {
     /**
      * Name of the property key which will be used for the elements.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * Name of the property key which will be used for the elements.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
