@@ -23785,7 +23785,7 @@ declare interface SelectionOptions {
 }
 
 /**
- * Enumerates the type of half folded area.
+ * Enumerates the type of area in hover mode.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -23793,34 +23793,25 @@ declare interface SelectionOptions {
  * @atomicservice
  * @since 13
  */
-declare enum HalfFoldedAreaType {
-  /**
-   * Layout full screen when the phone in hover mode.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 13
-   */
-  FULL_SCREEN = 0,
+declare enum HoverModeAreaType {
 
   /**
-   * Layout up half screen when the phone in hover mode.
+   * Layout top half screen when the phone in hover mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 13
    */
-  UP_HALF_SCREEN = 1,
+  TOP_SCREEN = 0,
 
   /**
-   * Layout down half screen when the phone in hover mode.
+   * Layout bottom half screen when the phone in hover mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 13
    */
-  DOWN_HALF_SCREEN = 2,
+  BOTTOM_SCREEN = 1,
 }
