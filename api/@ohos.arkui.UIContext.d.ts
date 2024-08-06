@@ -3191,6 +3191,28 @@ export class UIContext {
    * @since 12
    */
   clearResourceCache(): void;
+
+  /**
+   * Checks whether current font scale follows the system.
+   *
+   * @returns { boolean } Returns true if current font scale follows the system; returns false otherwise.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  isFollowingSystemFontScale(): boolean;
+
+  /**
+   * Get the max font scale.
+   *
+   * @returns { number } The max font scale.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  getMaxFontScale(): number;
 }
 
 /**
