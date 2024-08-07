@@ -7646,6 +7646,48 @@ declare namespace camera {
      * @since 12
      */
     getActiveProfile(): VideoProfile;
+
+    /**
+     * Get supported video meta types.
+     * @returns { Array<VideoMetaType> } The array of supported video meta type.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    getSupportedVideoMetaTypes(): Array<VideoMetaType>;
+
+    /**
+     * Attach a meta surface to VideoOutput.
+     * @param { string } surfaceId - Surface object id used for receiving meta infos.
+     * @param { VideoMetaType } type - Video meta type.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    attachMetaSurface(surfaceId: string, type: VideoMetaType): void;
+  }
+
+  /**
+   * Video meta type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 12
+   */
+  enum VideoMetaType {
+    /**
+     * Video meta type for storing maker info.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    VIDEO_META_MAKER_INFO = 0,
   }
 
   /**
