@@ -1993,6 +1993,28 @@ declare interface NavigationTitleOptions {
    * @since 12
    */
   paddingEnd?: LengthMetrics;
+
+  /**
+   * Text modifier for main title.
+   *
+   * @type { ?TextModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  mainTitleModifier?: TextModifier;
+
+  /**
+   * Text modifier for sub title.
+   *
+   * @type { ?TextModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  subTitleModifier?: TextModifier;
 }
 
 /**
