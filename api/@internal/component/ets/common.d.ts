@@ -6006,47 +6006,6 @@ declare enum BlurStyle {
 }
 
 /**
- * Enumerates the type of half folded area.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 13
- */
-declare enum HalfFoldedAreaType {
-  /**
-   * Layout full screen when the phone in hover mode.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 13
-   */
-  FULL_SCREEN = 0,
-
-  /**
-   * Layout up half screen when the phone in hover mode.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 13
-   */
-  UP_HALF_SCREEN = 1,
-
-  /**
-   * Layout down half screen when the phone in hover mode.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 13
-   */
-  DOWN_HALF_SCREEN = 2,
-}
-
-/**
  * Enumerates the policies for activating the blur style.
  *
  * @enum { number }

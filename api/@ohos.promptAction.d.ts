@@ -653,16 +653,28 @@ declare namespace promptAction {
     shadow?: ShadowOptions | ShadowStyle;
 
     /**
-     * Defines the dialog's half folded area
+     * Defines whether to respond to the hover mode.
      *
-     * @type { ?HalfFoldedAreaType }
-     * @default HalfFoldedAreaType.DOWN_HALF_SCREEN
+     * @type { ?boolean }
+     * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 13
      */
-    halfFoldedArea?: HalfFoldedAreaType;
+    enableHoverMode?: boolean;
+
+    /**
+     * Defines the dialog's display area in hover mode.
+     *
+     * @type { ?HoverModeAreaType }
+     * @default HoverModeAreaType.BOTTOM_SCREEN
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
+    hoverModeArea?: HoverModeAreaType;
   }
 
   /**
@@ -868,6 +880,30 @@ declare namespace promptAction {
      * @since 12
      */
     onWillDisappear?: () => void;
+
+    /**
+     * Defines whether to respond to the hover mode.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
+    enableHoverMode?: boolean;
+
+    /**
+     * Defines the customDialog's display area in hover mode.
+     *
+     * @type { ?HoverModeAreaType }
+     * @default HoverModeAreaType.BOTTOM_SCREEN
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
+    hoverModeArea?: HoverModeAreaType;
   }
 
   /**
@@ -1006,18 +1042,6 @@ declare namespace promptAction {
      * @since 12
      */
     backgroundBlurStyle?: BlurStyle;
-
-    /**
-     * Defines the customDialog's half folded area
-     *
-     * @type { ?HalfFoldedAreaType }
-     * @default HalfFoldedAreaType.DOWN_HALF_SCREEN
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 13
-     */
-    halfFoldedArea?: HalfFoldedAreaType;
   }
 
   /**

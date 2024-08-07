@@ -428,16 +428,28 @@ declare interface CalendarDialogOptions extends CalendarOptions {
   shadow?: ShadowOptions | ShadowStyle;
 
   /**
-   * Defines the dialog's half folded area
+   * Defines whether to respond to the hover mode.
    *
-   * @type { ?HalfFoldedAreaType }
-   * @default HalfFoldedAreaType.DOWN_HALF_SCREEN
+   * @type { ?boolean }
+   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 13
    */
-  halfFoldedArea?: HalfFoldedAreaType;
+  enableHoverMode?: boolean;
+
+  /**
+   * Defines the dialog's display area in hover mode.
+   *
+   * @type { ?HoverModeAreaType }
+   * @default HoverModeAreaType.BOTTOM_SCREEN
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  hoverModeArea?: HoverModeAreaType;
 }
 
 /**

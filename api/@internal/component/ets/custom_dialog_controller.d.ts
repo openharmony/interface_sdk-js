@@ -468,16 +468,28 @@ declare interface CustomDialogControllerOptions {
   backgroundBlurStyle?: BlurStyle;
 
   /**
-   * Defines the customDialog's half folded area
+   * Defines whether to respond to the hover mode.
    *
-   * @type { ?HalfFoldedAreaType }
-   * @default HalfFoldedAreaType.DOWN_HALF_SCREEN
+   * @type { ?boolean }
+   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 13
    */
-  halfFoldedArea?: HalfFoldedAreaType;
+  enableHoverMode?: boolean;
+
+  /**
+   * Defines the customDialog's display area in hover mode.
+   *
+   * @type { ?HoverModeAreaType }
+   * @default HoverModeAreaType.BOTTOM_SCREEN
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  hoverModeArea?: HoverModeAreaType;
 }
 
 /**
