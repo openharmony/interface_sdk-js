@@ -1809,6 +1809,7 @@ declare namespace camera {
      * Sets flash mode.
      *
      * @param { FlashMode } flashMode - Target flash mode.
+     * @throws { BusinessError } 7400102 - Operation not allowed.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
@@ -3787,6 +3788,7 @@ declare namespace camera {
      * Sets Exposure mode.
      *
      * @param { ExposureMode } aeMode - Exposure mode
+     * @throws { BusinessError } 7400102 - Operation not allowed.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
@@ -3884,6 +3886,7 @@ declare namespace camera {
      * Sets focus mode.
      *
      * @param { FocusMode } afMode - Target focus mode.
+     * @throws { BusinessError } 7400102 - Operation not allowed.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
