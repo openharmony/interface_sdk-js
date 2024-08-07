@@ -4979,7 +4979,7 @@ declare namespace audio {
      * @systemapi
      * @since 12
      */
-    on(type: 'spatializationEnabledChange', deviceDescriptor: AudioDeviceDescriptor, callback: Callback<boolean>): void;
+    on(type: 'spatializationEnabledChangeForAllDevice', deviceDescriptor: AudioDeviceDescriptor, callback: Callback<boolean>): void;
 
     /**
      * Unsubscribes to the spatialization enable state change events.
@@ -5009,7 +5009,7 @@ declare namespace audio {
      * @systemapi
      * @since 12
      */
-    off(type: 'spatializationEnabledChange', deviceDescriptor: AudioDeviceDescriptor, callback?: Callback<boolean>): void;
+    off(type: 'spatializationEnabledChangeForAllDevice', deviceDescriptor: AudioDeviceDescriptor, callback?: Callback<boolean>): void;
 
     /**
      * Sets the head tracking enabled or disabled. This method uses an asynchronous callback to return the result.
@@ -5114,7 +5114,7 @@ declare namespace audio {
      * @systemapi
      * @since 12
      */
-    on(type: 'headTrackingEnabledChange', deviceDescriptor: AudioDeviceDescriptor, callback: Callback<boolean>): void;
+    on(type: 'headTrackingEnabledChangeForAllDevice', deviceDescriptor: AudioDeviceDescriptor, callback: Callback<boolean>): void;
 
     /**
      * Unsubscribes to the head tracking enable state change events.
@@ -5144,7 +5144,7 @@ declare namespace audio {
      * @systemapi
      * @since 12
      */
-    off(type: 'headTrackingEnabledChange', deviceDescriptor: AudioDeviceDescriptor, callback?: Callback<boolean>): void;
+    off(type: 'headTrackingEnabledChangeForAllDevice', deviceDescriptor: AudioDeviceDescriptor, callback?: Callback<boolean>): void;
 
     /**
      * Updates the spatial device state.
