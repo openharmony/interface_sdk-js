@@ -326,7 +326,7 @@ export declare interface OnProgressChangeEvent {
  * @atomicservice
  * @since 12
  */
-export declare interface AtomicServiceWebController {
+export declare class AtomicServiceWebController {
   /**
    * Gets the default user agent.
    *
