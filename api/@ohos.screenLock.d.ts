@@ -260,7 +260,7 @@ declare namespace screenLock {
    */
   enum AuthState {
     /**
-     * Indicates the screen lock is unauthenticated.
+     * Indicates the screen lock is unauthorized.
      */
     UNAUTH = 0,
  
@@ -270,9 +270,9 @@ declare namespace screenLock {
     PRE_AUTHED_BY_CREDENTIAL = 1,
  
     /**
-     * Indicates the screen lock is pre authenticated by biomietric.
+     * Indicates the screen lock is pre authenticated by biometric.
      */
-    PRE_AUTHED_BY_BIOMIETRIC = 2,
+    PRE_AUTHED_BY_BIOMETRIC = 2,
  
     /**
      * Indicates the screen lock is authenticated by credential.
@@ -280,9 +280,9 @@ declare namespace screenLock {
     AUTHED_BY_CREDENTIAL = 3,
  
     /**
-     * Indicates the screen lock is authenticated by biomietric.
+     * Indicates the screen lock is authenticated by biometric.
      */
-    AUTHED_BY_BIOMIETRIC = 4
+    AUTHED_BY_BIOMETRIC = 4
   }
 
   /**
@@ -440,7 +440,7 @@ declare namespace screenLock {
    * @param { AuthState } state - the screen lock authentication state.
    * @param { number } userId - Os account local userId.
    * @param { Uint8Array } authToken - the authentication token for this state
-   * @returns { boolean } the result returned by the function.
+   * @returns { Promise<boolean> } the promise returned by the function.
    * @throws { BusinessError } 401 - parameter error.
    * @throws { BusinessError } 201 - permission denied.
    * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
