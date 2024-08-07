@@ -325,7 +325,6 @@ export declare interface OnProgressChangeEvent {
 /**
  * Provides methods for controlling the AtomicServiceWeb controller.
  *
- * @typedef AtomicServiceWebController
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
