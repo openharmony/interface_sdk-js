@@ -265,6 +265,15 @@ declare namespace bundleManager {
      * @since 12
      */
     GET_BUNDLE_INFO_ONLY_WITH_LAUNCHER_ABILITY = 0x00001000,
+    /**
+     * Used to return all applications that exclude app clone information.
+     * Only effective on {@link getAllBundleInfo}
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    GET_BUNDLE_INFO_EXCLUDE_CLONE = 0x00004000,
   }
 
   /**
