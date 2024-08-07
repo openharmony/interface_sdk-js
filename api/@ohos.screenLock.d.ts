@@ -190,6 +190,9 @@ declare namespace screenLock {
   /**
    * Indicates the system event type related to the screenlock management service. Adding strongAuthChanged and screenlockDisableChanged.
    *
+   * @typedef {('beginWakeUp' | 'endWakeUp' | 'beginScreenOn' | 'endScreenOn' | 'beginScreenOff' | 'endScreenOff' | 'unlockScreen' 
+   * | 'lockScreen' | 'beginExitAnimation' | 'beginSleep' | 'endSleep' | 'changeUser' | 'screenlockEnabled' | 'serviceRestart'
+   * | 'strongAuthChanged' | 'screenlockDisableChanged')}
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
    * @since 12
@@ -223,51 +226,26 @@ declare namespace screenLock {
   enum StrongAuthReasonFlags {
     /**
      * Indicates that there are no strong authentication reason flags.
-     *
-     * @enum { number }
-     * @syscap SystemCapability.MiscServices.ScreenLock
-     * @systemapi Hide this for inner system use.
-     * @since 12
      */
     NONE = 0x00000000,
  
     /**
      * Indicates the strong authentication reason requested after boot.
-     *
-     * @enum { number }
-     * @syscap SystemCapability.MiscServices.ScreenLock
-     * @systemapi Hide this for inner system use.
-     * @since 12
      */
     AFTER_BOOT = 0x00000001,
  
     /**
      * Indicates the strong authentication reason requested after timeout.
-     *
-     * @enum { number }
-     * @syscap SystemCapability.MiscServices.ScreenLock
-     * @systemapi Hide this for inner system use.
-     * @since 12
      */
     AFTER_TIMEOUT = 0x00000002,
  
     /**
      * Indicates the strong authentication reason requested by active request.
-     *
-     * @enum { number }
-     * @syscap SystemCapability.MiscServices.ScreenLock
-     * @systemapi Hide this for inner system use.
-     * @since 12
      */
     ACTIVE_REQUEST = 0x00000004,
  
     /**
      * Indicates the strong authentication reason requested by policy restrict.
-     *
-     * @enum { number }
-     * @syscap SystemCapability.MiscServices.ScreenLock
-     * @systemapi Hide this for inner system use.
-     * @since 12
      */
     POLICY_RESTRICT = 0x00000008
   }
@@ -283,51 +261,26 @@ declare namespace screenLock {
   enum AuthState {
     /**
      * Indicates the screen lock is unauthenticated.
-     *
-     * @enum { number }
-     * @syscap SystemCapability.MiscServices.ScreenLock
-     * @systemapi Hide this for inner system use.
-     * @since 12
      */
     UNAUTH = 0,
  
     /**
      * Indicates the screen lock is pre authenticated by credential.
-     *
-     * @enum { number }
-     * @syscap SystemCapability.MiscServices.ScreenLock
-     * @systemapi Hide this for inner system use.
-     * @since 12
      */
     PRE_AUTHED_BY_CREDENTIAL = 1,
  
     /**
      * Indicates the screen lock is pre authenticated by biomietric.
-     *
-     * @enum { number }
-     * @syscap SystemCapability.MiscServices.ScreenLock
-     * @systemapi Hide this for inner system use.
-     * @since 12
      */
     PRE_AUTHED_BY_BIOMIETRIC = 2,
  
     /**
      * Indicates the screen lock is authenticated by credential.
-     *
-     * @enum { number }
-     * @syscap SystemCapability.MiscServices.ScreenLock
-     * @systemapi Hide this for inner system use.
-     * @since 12
      */
     AUTHED_BY_CREDENTIAL = 3,
  
     /**
      * Indicates the screen lock is authenticated by biomietric.
-     *
-     * @enum { number }
-     * @syscap SystemCapability.MiscServices.ScreenLock
-     * @systemapi Hide this for inner system use.
-     * @since 12
      */
     AUTHED_BY_BIOMIETRIC = 4
   }
