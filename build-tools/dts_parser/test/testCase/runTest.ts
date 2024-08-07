@@ -173,17 +173,20 @@ describe('testApiCheck', function () {
         'API_DEFINE_HUMP_01' : ruleName;
       ruleName = testFileName.indexOf('API_DEFINE_HUMP_02_LARGE') !== -1 ?
         'API_DEFINE_HUMP_02' : ruleName;
-        ruleName = testFileName.indexOf('API_DEFINE_NAME_02_ability') !== -1 ?
+      ruleName = testFileName.indexOf('API_DEFINE_NAME_02_ability') !== -1 ?
         'API_DEFINE_NAME_02' : ruleName;
 
       LocalEntry.maskAlarm(compositiveResult, [ruleName]);
+      apiCheckResult.forEach((result: ApiResultMessage) => {
+        result.buggyFilePath = result.buggyFilePath.substring(result.buggyFilePath.indexOf('build-tools'), result.buggyFilePath.length);
+      });
       const outputContent: string = JSON.stringify(apiCheckResult, null, 2);
       fs.writeFileSync(outputFilePath, outputContent, StringConstant.UTF8);
       const expectFileContent: string = fs.readFileSync(expectFilePath, 'utf-8').replace(/\r\n/g, '\n');
       expect(outputContent).eql(expectFileContent);
     });
   });
-})
+});
 
 describe('testApiChangeCheck', function () {
   const testFileDir: string = path.join(FileUtils.getBaseDirName(), '/test/ut/apiChange');
@@ -201,6 +204,9 @@ describe('testApiChangeCheck', function () {
     const outputFilePath: string = path.join(outputFileDir, `${baseName}.json`);
     const expectFilePath: string = path.join(expectFileDir, `${baseName}.json`);
     it('\ntestFile#' + testOldFilePath + '\noutput:' + outputFilePath + '\nexpect:' + expectFilePath, function () {
+      if (!fs.existsSync(outputFileDir)) {
+        fs.mkdirSync(outputFileDir);
+      }
       cleanApiCheckResult();
       ApiChangeCheck.checkApiChange(testFileDir);
       LocalEntry.maskAlarm(compositiveResult, [baseName]);
@@ -219,6 +225,5 @@ describe('testApiChangeCheck', function () {
       expect(outputContent).eql(expectFileContent);
     });
   });
-
-})
+});
 
