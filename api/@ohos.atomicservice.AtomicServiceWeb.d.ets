@@ -46,6 +46,7 @@ export declare struct AtomicServiceWeb {
    * @atomicservice
    * @since 12
    */
+  @ObjectLink
   controller: AtomicServiceWebController;
   /**
    * Sets how to load HTTP and HTTPS content.
@@ -55,6 +56,7 @@ export declare struct AtomicServiceWeb {
    * @atomicservice
    * @since 12
    */
+  @Prop
   mixedMode?: MixedMode;
   /**
    * Sets the dark mode of Web.
@@ -64,6 +66,7 @@ export declare struct AtomicServiceWeb {
    * @atomicservice
    * @since 12
    */
+  @Prop
   darkMode?: WebDarkMode;
   /**
    * Sets whether to enable forced dark algorithm when the web is in dark mode.
@@ -73,6 +76,7 @@ export declare struct AtomicServiceWeb {
    * @atomicservice
    * @since 12
    */
+  @Prop
   forceDarkAccess?: boolean;
   /**
    * The navPathStack to control page route in Navigation and NavDestination.
@@ -326,6 +330,7 @@ export declare interface OnProgressChangeEvent {
  * @atomicservice
  * @since 12
  */
+@Observed
 export declare class AtomicServiceWebController {
   /**
    * Gets the default user agent.
