@@ -20,7 +20,6 @@
 
 import type image from './@ohos.multimedia.image';
 import type common2D from './@ohos.graphics.common2D';
-import type uiEffect from './@ohos.graphics.uiEffect';
 
 /**
  * Provides functions such as 2D graphics rendering, text drawing, and image display.
@@ -765,14 +764,14 @@ declare namespace drawing {
      * 
      * @param { boolean } forceClosed - Whether to close the path.
      * @param { number } distance - The distance from the start of the path.
-     * @param { drawing.Matrix } matrix - Indicates the pointer to an Matrix object.
+     * @param { Matrix } matrix - Indicates the pointer to an Matrix object.
      * @param { PathMeasureMatrixFlags } flags - Indicates what should be returned in the matrix.
      * @returns { boolean } - Returns false if there is no path, or a zero-length path was specified, in which case matrix is unchanged.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
     */
-    getMatrix(forceClosed: boolean, distance: number, matrix: drawing.Matrix, flags: PathMeasureMatrixFlags): boolean;
+    getMatrix(forceClosed: boolean, distance: number, matrix: Matrix, flags: PathMeasureMatrixFlags): boolean;
 
     /**
      * Parses the SVG format string that describes the drawing path, and sets the path.
@@ -1422,7 +1421,7 @@ declare namespace drawing {
     /**
      * Replaces the clipping area with the intersection or difference between the
      * current clipping area and RoundRect, and use a clipping edge that is aliased or anti-aliased.
-     * @param { drawing.RoundRect } roundRect - To combine with clipping area.
+     * @param { RoundRect } roundRect - To combine with clipping area.
      * @param { ClipOp } clipOp - Indicates the operation to apply to clip. The default value is intersect.
      * @param { boolean } doAntiAlias - True if clip is to be anti-aliased. The default value is false.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1430,7 +1429,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    clipRoundRect(roundRect: drawing.RoundRect, clipOp?: ClipOp, doAntiAlias?: boolean): void;
+    clipRoundRect(roundRect: RoundRect, clipOp?: ClipOp, doAntiAlias?: boolean): void;
 
     /**
      * Checks whether the drawable area is empty.
@@ -2542,7 +2541,7 @@ declare namespace drawing {
      * Makes an ImageFilter object that blurs its input by the separate X and Y sigmas.
      * @param { number } sigmaX - Indicates the Gaussian sigma value for blurring along the X axis. Must be > 0.
      * @param { number } sigmaY - Indicates the Gaussian sigma value for blurring along the Y axis. Must be > 0.
-     * @param { uiEffect.TileMode } tileMode - Indicates the tile mode applied at edges.
+     * @param { TileMode } tileMode - Indicates the tile mode applied at edges.
      * @param { ImageFilter } imageFilter - Indicates the input filter that is blurred,
      * uses source bitmap if this is null.
      * @returns { ImageFilter } ImageFilter object.
@@ -2553,7 +2552,7 @@ declare namespace drawing {
      * @since 12
      */
     static createBlurImageFilter(sigmaX: number, sigmaY: number,
-                                 tileMode: uiEffect.TileMode, imageFilter?: ImageFilter): ImageFilter;
+      tileMode: TileMode, imageFilter?: ImageFilter): ImageFilter;
     /**
      * Makes an ImageFilter object that applies the color filter to the input.
      * @param { ColorFilter } colorFilter - Indicates the color filter that transforms the input image.
