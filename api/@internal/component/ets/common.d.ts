@@ -22789,6 +22789,8 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 12
+   * @useinstead ScrollableCommonMethod#onDidScroll
    */
   onScroll(event: (scrollOffset: number, scrollState: ScrollState) => void): T;
 
