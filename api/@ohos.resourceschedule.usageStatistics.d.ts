@@ -471,6 +471,7 @@ declare namespace usageStatistics {
    * <p> boolean value is true mean the application is idle in a particular period; false mean otherwise.
    * The time range of the particular period is defined by the system, which may be hours or days.</p>
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
