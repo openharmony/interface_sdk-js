@@ -1,7 +1,7 @@
 [
   {
     "analyzerName": "apiengine",
-    "buggyFilePath": "D:\\interface\\2024.07\\interface_sdk-js_2\\build-tools\\dts_parser\\test\\ut\\apiCheck\\API_DOC_JSDOC_02.d.ts",
+    "buggyFilePath": "build-tools\\dts_parser\\test\\ut\\apiCheck\\API_DOC_JSDOC_02.d.ts",
     "codeContextStaerLine": "24",
     "defectLevel": 2,
     "defectType": "API_DOC_JSDOC_02",
