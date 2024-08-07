@@ -127,7 +127,7 @@ export class Check {
           errorBaseInfo);
         AddErrorLogs.addAPICheckErrorLogs(apiInfoNojsdoc, compositiveResult, compositiveLocalResult);
       } else {
-        if (apiJsdoc.getKit().length === 0) {
+        if (apiJsdoc.getKit() === 'NA') {
           const errorBaseInfo: ErrorBaseInfo = new ErrorBaseInfo();
           errorBaseInfo
             .setErrorID(ErrorID.WRONG_SCENE_ID)
