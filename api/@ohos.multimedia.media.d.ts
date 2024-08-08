@@ -3234,6 +3234,7 @@ declare namespace media {
 
     /**
      * Audio language.
+     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 12
@@ -3242,6 +3243,7 @@ declare namespace media {
 
     /**
      * Subtitle language.
+     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 12
