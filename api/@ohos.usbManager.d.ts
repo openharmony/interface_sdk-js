@@ -1148,7 +1148,7 @@ declare namespace usbManager {
    */
   interface USBDeviceRequestParams {
     /**
-     * Byte map request type
+     * Bit map request type
      *
      * @type { number }
      * @syscap SystemCapability.USB.USBManager
