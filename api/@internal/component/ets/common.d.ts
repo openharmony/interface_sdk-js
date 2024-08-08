@@ -16186,6 +16186,20 @@ declare class CommonMethod<T> {
   onClick(event: (event: ClickEvent) => void): T;
 
   /**
+   * Trigger a click event when a click is clicked, move distance should smaller than distanceThreshold. 
+   *
+   * @param { function } event - this function callback executed when the click action is recognized
+   * @param { number } distanceThreshold - the distance threshold of finger's movement when detecting a click action
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  onClick(event: Callback<ClickEvent>, distanceThreshold: number): T;
+
+  /**
    * Trigger a hover event.
    *
    * @param { function } event
