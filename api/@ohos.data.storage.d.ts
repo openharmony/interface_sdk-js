@@ -32,7 +32,6 @@ import { AsyncCallback, Callback } from './@ohos.base';
  *
  */
 
-
 declare namespace storage {
   /**
    * Obtains a {@link Storage} instance matching a specified storage file name.
@@ -223,6 +222,9 @@ declare namespace storage {
 
   /**
    * Indicates possible value types
+   * 
+   * @since 6
+   * @deprecated since 9
    */
   type ValueType = number | string | boolean;
 
@@ -237,17 +239,26 @@ declare namespace storage {
   interface StorageObserver {
     /**
      * Indicates which key changes
+     * 
+     * @since 6
+     * @deprecated since 9
      */
     key: string;
   }
 
   /**
    * Indicates the maximum length of a key (80 characters).
+   * 
+   * @since 6
+   * @deprecated since 9
    */
   const MAX_KEY_LENGTH: 80;
 
   /**
    * Indicates the maximum length of a string (8192 characters).
+   * 
+   * @since 6
+   * @deprecated since 9
    */
   const MAX_VALUE_LENGTH: 8192;
 }
