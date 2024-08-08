@@ -1325,8 +1325,8 @@ declare namespace unifiedDataChannel {
   /**
    * Set app sharing options.
    *
-   * @param { intention } Describe the sharing channel that UDMF support.
-   * @param { shareOptions } Types of scope that UnifiedData can be used.
+   * @param { Intention } intention - Describe the sharing channel that UDMF support.
+   * @param { ShareOptions } shareOptions - Types of scope that UnifiedData can be used.
    * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                                                   2. Incorrect parameter types.
@@ -1341,7 +1341,7 @@ declare namespace unifiedDataChannel {
    /**
     * Remove app sharing options.
     *
-    * @param { intention } Describe the sharing channel that UDMF support.
+    * @param { Intention } intention - Describe the sharing channel that UDMF support.
     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
     *                                                                   2. Incorrect parameter types.
