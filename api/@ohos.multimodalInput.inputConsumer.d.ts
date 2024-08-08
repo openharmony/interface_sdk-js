@@ -77,6 +77,16 @@ declare namespace inputConsumer {
      * @since 8
      */
     finalKeyDownDuration: number;
+
+    /**
+     * 是否上报重复的Key事件.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+     * @systemapi hide for inner use
+     * @since 13
+     */
+    isRepeat?: boolean;
   }
 
   /**
