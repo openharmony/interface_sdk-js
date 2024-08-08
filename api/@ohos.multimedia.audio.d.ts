@@ -4975,7 +4975,7 @@ declare namespace audio {
     /**
      * Subscribes to the spatialization enable state change events by the specified device.
      * When the spatialization enable state changes, registered clients will receive the callback.
-     * @param { 'spatializationEnabledChange' } type - Type of the event to listen for.
+     * @param { 'spatializationEnabledChangeForAnyDevice' } type - Type of the event to listen for.
      * @param { Callback<{deviceDescriptor: AudioDeviceDescriptor, enabled: boolean}> } callback - Callback used to get the spatialization enable state by the specified device.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -4986,7 +4986,7 @@ declare namespace audio {
      * @systemapi
      * @since 12
      */
-    on(type: 'spatializationEnabledChangeForAllDevice', callback: Callback<{deviceDescriptor: AudioDeviceDescriptor, enabled: boolean}>): void;
+    on(type: 'spatializationEnabledChangeForAnyDevice', callback: Callback<{deviceDescriptor: AudioDeviceDescriptor, enabled: boolean}>): void;
 
     /**
      * Unsubscribes to the spatialization enable state change events.
@@ -5006,7 +5006,7 @@ declare namespace audio {
     off(type: 'spatializationEnabledChange', callback?: Callback<boolean>): void;
     /**
      * Unsubscribes to the spatialization enable state change events by the specified device.
-     * @param { 'spatializationEnabledChange' } type - Type of the event to listen for.
+     * @param { 'spatializationEnabledChangeForAnyDevice' } type - Type of the event to listen for.
      * @param { Callback<{deviceDescriptor: AudioDeviceDescriptor, enabled: boolean}> } callback - Callback used to get the spatialization enable state by the specified device.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -5017,7 +5017,7 @@ declare namespace audio {
      * @systemapi
      * @since 12
      */
-    off(type: 'spatializationEnabledChangeForAllDevice', callback?: Callback<{deviceDescriptor: AudioDeviceDescriptor, enabled: boolean}>): void;
+    off(type: 'spatializationEnabledChangeForAnyDevice', callback?: Callback<{deviceDescriptor: AudioDeviceDescriptor, enabled: boolean}>): void;
 
     /**
      * Sets the head tracking enabled or disabled. This method uses an asynchronous callback to return the result.
@@ -5118,7 +5118,7 @@ declare namespace audio {
     /**
      * Subscribes to the head tracking enable state change events by the specified device.
      * When the head tracking enable state changes, registered clients will receive the callback.
-     * @param { 'headTrackingEnabledChange' } type - Type of the event to listen for.
+     * @param { 'headTrackingEnabledChangeForAnyDevice' } type - Type of the event to listen for.
      * @param { Callback<{deviceDescriptor: AudioDeviceDescriptor, enabled: boolean}> } callback - Callback used to get the head tracking enable state by the specified device.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -5129,7 +5129,7 @@ declare namespace audio {
      * @systemapi
      * @since 12
      */
-    on(type: 'headTrackingEnabledChangeForAllDevice', callback: Callback<{deviceDescriptor: AudioDeviceDescriptor, enabled: boolean}>): void;
+    on(type: 'headTrackingEnabledChangeForAnyDevice', callback: Callback<{deviceDescriptor: AudioDeviceDescriptor, enabled: boolean}>): void;
 
     /**
      * Unsubscribes to the head tracking enable state change events.
@@ -5149,7 +5149,7 @@ declare namespace audio {
     off(type: 'headTrackingEnabledChange', callback?: Callback<boolean>): void;
     /**
      * Unsubscribes to the head tracking enable state change events by the specified device.
-     * @param { 'headTrackingEnabledChange' } type - Type of the event to listen for.
+     * @param { 'headTrackingEnabledChangeForAnyDevice' } type - Type of the event to listen for.
      * @param { Callback<{deviceDescriptor: AudioDeviceDescriptor, enabled: boolean}> } callback - Callback used to get the head tracking enable state by the specified device.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -5160,7 +5160,7 @@ declare namespace audio {
      * @systemapi
      * @since 12
      */
-    off(type: 'headTrackingEnabledChangeForAllDevice', callback?: Callback<{deviceDescriptor: AudioDeviceDescriptor, enabled: boolean}>): void;
+    off(type: 'headTrackingEnabledChangeForAnyDevice', callback?: Callback<{deviceDescriptor: AudioDeviceDescriptor, enabled: boolean}>): void;
 
     /**
      * Updates the spatial device state.
