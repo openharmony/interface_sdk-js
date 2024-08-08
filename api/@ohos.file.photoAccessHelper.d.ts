@@ -3968,7 +3968,25 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 12
      */
-    MULTI_EXPOSURE = 4
+    MULTI_EXPOSURE = 4,
+
+    /**
+     * Cinema graph
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    CINEMA_GRAPH = 5,
+
+    /**
+     * Image only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    IMAGE_ONLY = 10
   }
 
   /**
