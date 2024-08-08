@@ -218,6 +218,24 @@ declare namespace call {
   function makeCall(phoneNumber: string): Promise<void>;
 
   /**
+   * Go to the dial screen and the called number is displayed.
+   *
+   * @param { Context } context - Indicates the context.
+   * @param { string } phoneNumber - Indicates the called number.
+   * @returns { Promise<void> } The promise returned by the makeCall.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * 2. Incorrect parameters types;
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Applications.Contacts
+   * @atomicservice
+   * @since 12
+   */
+  function makeCall(context: Context, phoneNumber: string): Promise<void>;
+
+  /**
    * Checks whether a call is ongoing.
    *
    * @param { AsyncCallback<boolean> } callback - The callback of hasCall. Returns {@code true} if at least one call is
