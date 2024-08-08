@@ -31,6 +31,8 @@ export namespace Comment {
     ATOMIC_SERVICE = 'atomicservice',
     KIT = 'kit',
     FILE = 'file',
+    PARAM = 'param',
+    RETURNS = 'returns'
   }
 
   export interface JsDocProcessorInterface {

@@ -21,9 +21,17 @@ import {
   ApiType,
   BasicApiInfo,
   ContainerApiInfo,
+  MethodInfo,
+  ParamInfo,
   containerApiTypes,
 } from '../../typedef/parser/ApiInfoDefination';
-import { ApiDiffType, ApiStatusCode, BasicDiffInfo, DiffTypeInfo } from '../../typedef/diff/ApiInfoDiff';
+import {
+  ApiDiffType,
+  ApiStatusCode,
+  BasicDiffInfo,
+  DiffTypeInfo,
+  TagInfoDiffProcessor,
+} from '../../typedef/diff/ApiInfoDiff';
 import { ApiInfosMap, FileInfoMap, FilesMap, Parser } from '../parser/parser';
 import { apiStatisticsType } from '../../typedef/statistics/ApiStatistics';
 import { DiffProcessorHelper } from './DiffProcessor';
@@ -82,7 +90,7 @@ export class DiffHelper {
       const locations: string[] = newSDKApiLocations.get(key) as string[];
       const newApiInfos: ApiInfo[] = Parser.getApiInfo(locations, clonedNewSDKApiMap, isAllSheet) as ApiInfo[];
       const clonedLocations: string[] = locations;
-      const parentLocations = clonedLocations.slice(0,-1);
+      const parentLocations = clonedLocations.slice(0, -1);
       newApiInfos.forEach((newApiInfo: ApiInfo) => {
         let isNewFile: boolean = false;
         if (!oldFilePathSet.has(newApiInfo.getFilePath()) || !oldSDKApiLocations.get(parentLocations.join())) {
@@ -123,7 +131,12 @@ export class DiffHelper {
             DiffProcessorHelper.wrapDiffInfo(
               oldSourceFileInfo,
               newSourceFileInfo,
-              new DiffTypeInfo(ApiStatusCode.KIT_CHANGE, DiffHelper.getKitDiffType(oldKitInfo, newKitInfo), oldKitInfo, newKitInfo)
+              new DiffTypeInfo(
+                ApiStatusCode.KIT_CHANGE,
+                DiffHelper.getKitDiffType(oldKitInfo, newKitInfo),
+                oldKitInfo,
+                newKitInfo
+              )
             )
           );
         }
@@ -226,7 +239,7 @@ export class DiffHelper {
       return;
     }
 
-    DiffHelper.diffSameNumberFunction(oldApiInfos, newApiInfos, diffInfos, isCheck);
+    DiffHelper.diffChangeApi(oldApiInfos, newApiInfos, diffInfos, isCheck);
   }
 
   /**
@@ -236,7 +249,7 @@ export class DiffHelper {
    * @param diffInfos
    * @param { boolean } isCheck 是否是api_check工具进行调用
    */
-  static diffSameNumberFunction(
+  static diffChangeApi(
     oldApiInfos: ApiInfo[],
     newApiInfos: ApiInfo[],
     diffInfos: BasicDiffInfo[],
@@ -251,14 +264,33 @@ export class DiffHelper {
       const newMethodInfoMap: Map<string, ApiInfo> = DiffHelper.setmethodInfoMap(newApiInfos);
       const oldMethodInfoMap: Map<string, ApiInfo> = DiffHelper.setmethodInfoMap(oldApiInfos);
       oldApiInfos.forEach((oldApiInfo: ApiInfo) => {
-        const newApiInfo: ApiInfo | undefined = newMethodInfoMap.get(oldApiInfo.getDefinedText());
+        const newApiInfo: ApiInfo | undefined = newMethodInfoMap.get(oldApiInfo.getDefinedText().replace(/\r|\n|\s+|,|;/g, ''));
         if (newApiInfo) {
           DiffProcessorHelper.JsDocDiffHelper.diffJsDocInfo(oldApiInfo, newApiInfo, diffInfos);
           DiffProcessorHelper.ApiDecoratorsDiffHelper.diffDecorator(oldApiInfo, newApiInfo, diffInfos);
-          newMethodInfoMap.delete(oldApiInfo.getDefinedText());
-          oldMethodInfoMap.delete(oldApiInfo.getDefinedText());
+          newMethodInfoMap.delete(oldApiInfo.getDefinedText().replace(/\r|\n|\s+|,|;/g, ''));
+          oldMethodInfoMap.delete(oldApiInfo.getDefinedText().replace(/\r|\n|\s+|,|;/g, ''));
         }
       });
+
+      for (const apiInfo of newMethodInfoMap.values()) {
+        const jsDocLength: number = apiInfo.getJsDocInfos().length;
+        if (jsDocLength === 1) {
+          diffInfos.push(
+            DiffProcessorHelper.wrapDiffInfo(
+              undefined,
+              apiInfo,
+              new DiffTypeInfo(
+                ApiStatusCode.NEW_API,
+                ApiDiffType.NEW_SAME_NAME_FUNCTION,
+                undefined,
+                apiInfo.getDefinedText()
+              )
+            )
+          );
+          newMethodInfoMap.delete(apiInfo.getDefinedText().replace(/\r|\n|\s+|,|;/g, ''));
+        }
+      }
 
       if (oldMethodInfoMap.size === 1 && newMethodInfoMap.size === 1) {
         const oldMethodInfo: ApiInfo = oldMethodInfoMap.entries().next().value[1];
@@ -267,26 +299,80 @@ export class DiffHelper {
         DiffProcessorHelper.ApiDecoratorsDiffHelper.diffDecorator(oldMethodInfo, newMethodInfo, diffInfos);
         DiffProcessorHelper.ApiNodeDiffHelper.diffNodeInfo(oldMethodInfo, newMethodInfo, diffInfos, isCheck);
       } else {
-        newMethodInfoMap.forEach((apiInfo: ApiInfo, _) => {
-          diffInfos.push(
-            DiffProcessorHelper.wrapDiffInfo(
-              undefined,
-              apiInfo,
-              new DiffTypeInfo(ApiStatusCode.NEW_API, ApiDiffType.ADD, undefined, apiInfo.getDefinedText()),
-            )
-          );
-        });
-        oldMethodInfoMap.forEach((apiInfo: ApiInfo, _) => {
-          diffInfos.push(
-            DiffProcessorHelper.wrapDiffInfo(
-              apiInfo,
-              undefined,
-              new DiffTypeInfo(ApiStatusCode.DELETE, ApiDiffType.REDUCE, apiInfo.getDefinedText(), undefined),
-            )
-          );
-        });
+        DiffHelper.diffSameNameFunction(oldMethodInfoMap, newMethodInfoMap, diffInfos, isCheck);
       }
     }
+  }
+
+  static diffSameNameFunction(
+    oldMethodInfoMap: Map<string, ApiInfo>,
+    newMethodInfoMap: Map<string, ApiInfo>,
+    diffInfos: BasicDiffInfo[],
+    isCheck?: boolean
+  ) {
+    for (const newApiInfo of newMethodInfoMap.values()) {
+      const newJsDocInfo: Comment.JsDocInfo | undefined = newApiInfo.getPenultimateJsDocInfo();
+      for (const oldApiInfo of oldMethodInfoMap.values()) {
+        const oldJsDocInfo: Comment.JsDocInfo | undefined = oldApiInfo.getLastJsDocInfo();
+        if (!DiffHelper.diffJsDoc(newJsDocInfo, oldJsDocInfo)) {
+          continue;
+        }
+        DiffProcessorHelper.ApiNodeDiffHelper.diffNodeInfo(oldApiInfo, newApiInfo, diffInfos, isCheck);
+        oldMethodInfoMap.delete(oldApiInfo.getDefinedText().replace(/\r|\n|\s+|,|;/g, ''));
+        newMethodInfoMap.delete(newApiInfo.getDefinedText().replace(/\r|\n|\s+|,|;/g, ''));
+      }
+    }
+
+    for (const apiInfo of newMethodInfoMap.values()) {
+      diffInfos.push(
+        DiffProcessorHelper.wrapDiffInfo(
+          undefined,
+          apiInfo,
+          new DiffTypeInfo(
+            ApiStatusCode.NEW_API,
+            ApiDiffType.NEW_SAME_NAME_FUNCTION,
+            undefined,
+            apiInfo.getDefinedText()
+          )
+        )
+      );
+    }
+
+    for (const apiInfo of oldMethodInfoMap.values()) {
+      diffInfos.push(
+        DiffProcessorHelper.wrapDiffInfo(
+          apiInfo,
+          undefined,
+          new DiffTypeInfo(
+            ApiStatusCode.DELETE,
+            ApiDiffType.REDUCE_SAME_NAME_FUNCTION,
+            apiInfo.getDefinedText(),
+            undefined
+          )
+        )
+      );
+    }
+  }
+
+  static diffJsDoc(newJsDocInfo: Comment.JsDocInfo | undefined, oldJsDocInfo: Comment.JsDocInfo | undefined): boolean {
+    const tagInfoIsSame: Set<boolean> = new Set();
+    const paramAndReturnsIsSame: boolean =
+      DiffTagInfoHelper.diffParamTagInfo(oldJsDocInfo, newJsDocInfo) &&
+      DiffTagInfoHelper.diffReturnsTagInfo(oldJsDocInfo, newJsDocInfo);
+    newJsDocInfo?.getTags()?.forEach((tagInfo: Comment.CommentTag) => {
+      const method: TagInfoDiffProcessor | undefined = diffJsdocMethod.get(tagInfo.tag);
+      if (!method) {
+        return;
+      }
+      tagInfoIsSame.add(method(oldJsDocInfo, newJsDocInfo));
+    });
+
+    if (tagInfoIsSame.size === 1 && tagInfoIsSame.has(true)) {
+      return true;
+    } else if (tagInfoIsSame.size > 1 && paramAndReturnsIsSame) {
+      return true;
+    }
+    return false;
   }
 
   static judgeIsAllDeprecated(apiInfos: ApiInfo[]): boolean {
@@ -339,7 +425,7 @@ export class DiffHelper {
   static setmethodInfoMap(apiInfos: ApiInfo[]): Map<string, ApiInfo> {
     const methodInfoMap: Map<string, ApiInfo> = new Map();
     apiInfos.forEach((apiInfo: ApiInfo) => {
-      methodInfoMap.set(apiInfo.getDefinedText(), apiInfo);
+      methodInfoMap.set(apiInfo.getDefinedText().replace(/\r|\n|\s+|,|;/g, ''), apiInfo);
     });
     return methodInfoMap;
   }
@@ -519,3 +605,182 @@ export class DiffHelper {
     return syscap;
   }
 }
+
+/**
+ * 比较每个标签的值
+ */
+export class DiffTagInfoHelper {
+  static diffSyscapTagInfo(
+    oldJsDocInfo: Comment.JsDocInfo | undefined,
+    newJsDocInfo: Comment.JsDocInfo | undefined
+  ): boolean {
+    if (oldJsDocInfo?.getSyscap() === newJsDocInfo?.getSyscap()) {
+      return true;
+    }
+    return false;
+  }
+
+  static diffSinceTagInfo(
+    oldJsDocInfo: Comment.JsDocInfo | undefined,
+    newJsDocInfo: Comment.JsDocInfo | undefined
+  ): boolean {
+    if (oldJsDocInfo?.getSince() === newJsDocInfo?.getSince()) {
+      return true;
+    }
+    return false;
+  }
+
+  static diffFormTagInfo(
+    oldJsDocInfo: Comment.JsDocInfo | undefined,
+    newJsDocInfo: Comment.JsDocInfo | undefined
+  ): boolean {
+    if (oldJsDocInfo?.getIsForm() === newJsDocInfo?.getIsForm()) {
+      return true;
+    }
+    return false;
+  }
+
+  static diffCrossPlatFromTagInfo(
+    oldJsDocInfo: Comment.JsDocInfo | undefined,
+    newJsDocInfo: Comment.JsDocInfo | undefined
+  ): boolean {
+    if (oldJsDocInfo?.getIsCrossPlatForm() === newJsDocInfo?.getIsCrossPlatForm()) {
+      return true;
+    }
+    return false;
+  }
+
+  static diffSystemApiTagInfo(
+    oldJsDocInfo: Comment.JsDocInfo | undefined,
+    newJsDocInfo: Comment.JsDocInfo | undefined
+  ): boolean {
+    if (oldJsDocInfo?.getIsSystemApi() === newJsDocInfo?.getIsSystemApi()) {
+      return true;
+    }
+    return false;
+  }
+
+  static diffModelTagInfo(
+    oldJsDocInfo: Comment.JsDocInfo | undefined,
+    newJsDocInfo: Comment.JsDocInfo | undefined
+  ): boolean {
+    if (oldJsDocInfo?.getModelLimitation() === newJsDocInfo?.getModelLimitation()) {
+      return true;
+    }
+    return false;
+  }
+
+  static diffDeprecatedTagInfo(
+    oldJsDocInfo: Comment.JsDocInfo | undefined,
+    newJsDocInfo: Comment.JsDocInfo | undefined
+  ): boolean {
+    if (oldJsDocInfo?.getDeprecatedVersion() === newJsDocInfo?.getDeprecatedVersion()) {
+      return true;
+    }
+    return false;
+  }
+
+  static diffUseinsteadTagInfo(
+    oldJsDocInfo: Comment.JsDocInfo | undefined,
+    newJsDocInfo: Comment.JsDocInfo | undefined
+  ): boolean {
+    if (oldJsDocInfo?.getUseinstead() === newJsDocInfo?.getUseinstead()) {
+      return true;
+    }
+    return false;
+  }
+
+  static diffPermissionTagInfo(
+    oldJsDocInfo: Comment.JsDocInfo | undefined,
+    newJsDocInfo: Comment.JsDocInfo | undefined
+  ): boolean {
+    if (oldJsDocInfo?.getPermission() === newJsDocInfo?.getPermission()) {
+      return true;
+    }
+    return false;
+  }
+
+  static diffThrowsTagInfo(
+    oldJsDocInfo: Comment.JsDocInfo | undefined,
+    newJsDocInfo: Comment.JsDocInfo | undefined
+  ): boolean {
+    if (oldJsDocInfo?.getErrorCode().sort().join() === newJsDocInfo?.getErrorCode().sort().join()) {
+      return true;
+    }
+    return false;
+  }
+
+  static diffAtomicServiceTagInfo(
+    oldJsDocInfo: Comment.JsDocInfo | undefined,
+    newJsDocInfo: Comment.JsDocInfo | undefined
+  ): boolean {
+    if (oldJsDocInfo?.getIsAtomicService() === newJsDocInfo?.getIsAtomicService()) {
+      return true;
+    }
+    return false;
+  }
+
+  static diffParamTagInfo(
+    oldJsDocInfo: Comment.JsDocInfo | undefined,
+    newJsDocInfo: Comment.JsDocInfo | undefined
+  ): boolean {
+    const oldParamArr: string[] = [];
+    const newParamArr: string[] = [];
+    oldJsDocInfo?.getTags()?.forEach((tagInfo: Comment.CommentTag) => {
+      if (tagInfo.tag === Comment.JsDocTag.PARAM) {
+        oldParamArr.push(`${tagInfo.name}#${tagInfo.type}`);
+      }
+    });
+
+    newJsDocInfo?.getTags()?.forEach((tagInfo: Comment.CommentTag) => {
+      if (tagInfo.tag === Comment.JsDocTag.PARAM) {
+        newParamArr.push(`${tagInfo.name}#${tagInfo.type}`);
+      }
+    });
+    if (oldParamArr.join() === newParamArr.join()) {
+      return true;
+    }
+    return false;
+  }
+
+  static diffReturnsTagInfo(
+    oldJsDocInfo: Comment.JsDocInfo | undefined,
+    newJsDocInfo: Comment.JsDocInfo | undefined
+  ): boolean {
+    let oldReturnValue: string = '';
+    let newReturnValue: string = '';
+
+    oldJsDocInfo?.getTags()?.forEach((tagInfo: Comment.CommentTag) => {
+      if (tagInfo.tag === Comment.JsDocTag.RETURNS) {
+        oldReturnValue = tagInfo.type;
+      }
+    });
+
+    newJsDocInfo?.getTags()?.forEach((tagInfo: Comment.CommentTag) => {
+      if (tagInfo.tag === Comment.JsDocTag.PARAM) {
+        oldReturnValue = tagInfo.type;
+      }
+    });
+    if (oldReturnValue === oldReturnValue) {
+      return true;
+    }
+    return false;
+  }
+}
+
+export const diffJsdocMethod: Map<string, TagInfoDiffProcessor> = new Map([
+  [Comment.JsDocTag.SYSCAP, DiffTagInfoHelper.diffSyscapTagInfo],
+  [Comment.JsDocTag.SINCE, DiffTagInfoHelper.diffSinceTagInfo],
+  [Comment.JsDocTag.FORM, DiffTagInfoHelper.diffFormTagInfo],
+  [Comment.JsDocTag.CROSS_PLAT_FORM, DiffTagInfoHelper.diffCrossPlatFromTagInfo],
+  [Comment.JsDocTag.SYSTEM_API, DiffTagInfoHelper.diffSystemApiTagInfo],
+  [Comment.JsDocTag.STAGE_MODEL_ONLY, DiffTagInfoHelper.diffModelTagInfo],
+  [Comment.JsDocTag.FA_MODEL_ONLY, DiffTagInfoHelper.diffModelTagInfo],
+  [Comment.JsDocTag.DEPRECATED, DiffTagInfoHelper.diffDeprecatedTagInfo],
+  [Comment.JsDocTag.USEINSTEAD, DiffTagInfoHelper.diffUseinsteadTagInfo],
+  [Comment.JsDocTag.PERMISSION, DiffTagInfoHelper.diffPermissionTagInfo],
+  [Comment.JsDocTag.THROWS, DiffTagInfoHelper.diffThrowsTagInfo],
+  [Comment.JsDocTag.ATOMIC_SERVICE, DiffTagInfoHelper.diffAtomicServiceTagInfo],
+  [Comment.JsDocTag.PARAM, DiffTagInfoHelper.diffParamTagInfo],
+  [Comment.JsDocTag.RETURNS, DiffTagInfoHelper.diffReturnsTagInfo],
+]);
