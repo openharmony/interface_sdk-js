@@ -19,6 +19,7 @@
  */
 
 import type { AsyncCallback, Callback } from './@ohos.base';
+import type Context from './application/BaseContext';
 import type image from './@ohos.multimedia.image';
 
 /**
