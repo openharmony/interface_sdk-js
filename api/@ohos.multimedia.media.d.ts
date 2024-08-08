@@ -909,7 +909,7 @@ declare namespace media {
      * @crossplatform
      * @since 12
      */
-    hdrType?: HdrType;
+    readonly hdrType?: HdrType;
 
     /**
      * The geographical location info of the video.
