@@ -128,7 +128,7 @@ export declare class NavPushPathHelper {
    * @param { string } moduleName - Module name
    * @param { string } name - Indicates the name of the route page to be pushed.
    * @param { Object } param - Indicates the detailed parameter of the route page to be pushed.
-   * @param { import('../api/@ohos.base').Callback<PopInfo> } onPop - The callback when next page returns.
+   * @param { Callback<PopInfo> } onPop - The callback when next page returns.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 300001 - hsp silent install fail.
@@ -166,7 +166,7 @@ export declare class NavPushPathHelper {
    * @param { string } moduleName - Module name
    * @param { string } name - Indicates the name of the route page to be pushed.
    * @param { Object } param - Indicates the detailed parameter of the route page to be pushed.
-   * @param { import('../api/@ohos.base').Callback<PopInfo> } onPop - The callback when next page returns.
+   * @param { Callback<PopInfo> } onPop - The callback when next page returns.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -181,7 +181,8 @@ export declare class NavPushPathHelper {
    * @atomicservice
    * @since 12
    */
-  pushDestinationByName(moduleName: string, name: string, param: Object, onPop: Callback<PopInfo>, animated?: boolean): Promise<void>;
+  pushDestinationByName(moduleName: string, name: string, param: Object,
+    onPop: Callback<PopInfo>, animated?: boolean): Promise<void>;
 
   /**
    * replace the current page with the specific one.The current page will be destroyed.
