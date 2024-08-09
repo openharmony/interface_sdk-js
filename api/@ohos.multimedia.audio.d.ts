@@ -4819,6 +4819,32 @@ declare namespace audio {
   }
 
   /**
+   * This interface is used to notify the listener of any device Spatialization or Head Tracking enable state change.
+   * @interface AudioSpatialEnableStateForDevice
+   * @syscap SystemCapability.Multimedia.Audio.Spatialization
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  export interface AudioSpatialEnableStateForDevice {
+    /**
+     * Audio device description.
+     * @type { AudioDeviceDescriptor }
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    deviceDescriptor: AudioDeviceDescriptor;
+    /**
+     * Spatialization or Head Tracking enable state.
+     * @type { boolean }
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    enabled: boolean;
+  }
+
+  /**
    * Implements audio spatialization management.
    * @typedef AudioSpatializationManager
    * @syscap SystemCapability.Multimedia.Audio.Spatialization
@@ -4977,7 +5003,7 @@ declare namespace audio {
      * Subscribes to the spatialization enable state change events by the specified device.
      * When the spatialization enable state changes, registered clients will receive the callback.
      * @param { 'spatializationEnabledChangeForAnyDevice' } type - Type of the event to listen for.
-     * @param { Callback<{deviceDescriptor: AudioDeviceDescriptor, enabled: boolean}> } callback - Callback used to get the spatialization enable state by the specified device.
+     * @param { Callback<AudioSpatialEnableStateForDevice> } callback - Callback used to get the spatialization enable state by the specified device.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
@@ -4987,7 +5013,7 @@ declare namespace audio {
      * @systemapi
      * @since 12
      */
-    on(type: 'spatializationEnabledChangeForAnyDevice', callback: Callback<{deviceDescriptor: AudioDeviceDescriptor, enabled: boolean}>): void;
+    on(type: 'spatializationEnabledChangeForAnyDevice', callback: Callback<AudioSpatialEnableStateForDevice>): void;
 
     /**
      * Unsubscribes to the spatialization enable state change events.
@@ -5008,7 +5034,7 @@ declare namespace audio {
     /**
      * Unsubscribes to the spatialization enable state change events by the specified device.
      * @param { 'spatializationEnabledChangeForAnyDevice' } type - Type of the event to listen for.
-     * @param { Callback<{deviceDescriptor: AudioDeviceDescriptor, enabled: boolean}> } callback - Callback used to get the spatialization enable state by the specified device.
+     * @param { Callback<AudioSpatialEnableStateForDevice> } callback - Callback used to get the spatialization enable state by the specified device.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
@@ -5018,7 +5044,7 @@ declare namespace audio {
      * @systemapi
      * @since 12
      */
-    off(type: 'spatializationEnabledChangeForAnyDevice', callback?: Callback<{deviceDescriptor: AudioDeviceDescriptor, enabled: boolean}>): void;
+    off(type: 'spatializationEnabledChangeForAnyDevice', callback?: Callback<AudioSpatialEnableStateForDevice>): void;
 
     /**
      * Sets the head tracking enabled or disabled. This method uses an asynchronous callback to return the result.
@@ -5121,7 +5147,7 @@ declare namespace audio {
      * Subscribes to the head tracking enable state change events by the specified device.
      * When the head tracking enable state changes, registered clients will receive the callback.
      * @param { 'headTrackingEnabledChangeForAnyDevice' } type - Type of the event to listen for.
-     * @param { Callback<{deviceDescriptor: AudioDeviceDescriptor, enabled: boolean}> } callback - Callback used to get the head tracking enable state by the specified device.
+     * @param { Callback<AudioSpatialEnableStateForDevice> } callback - Callback used to get the head tracking enable state by the specified device.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
@@ -5131,7 +5157,7 @@ declare namespace audio {
      * @systemapi
      * @since 12
      */
-    on(type: 'headTrackingEnabledChangeForAnyDevice', callback: Callback<{deviceDescriptor: AudioDeviceDescriptor, enabled: boolean}>): void;
+    on(type: 'headTrackingEnabledChangeForAnyDevice', callback: Callback<AudioSpatialEnableStateForDevice>): void;
 
     /**
      * Unsubscribes to the head tracking enable state change events.
@@ -5152,7 +5178,7 @@ declare namespace audio {
     /**
      * Unsubscribes to the head tracking enable state change events by the specified device.
      * @param { 'headTrackingEnabledChangeForAnyDevice' } type - Type of the event to listen for.
-     * @param { Callback<{deviceDescriptor: AudioDeviceDescriptor, enabled: boolean}> } callback - Callback used to get the head tracking enable state by the specified device.
+     * @param { Callback<AudioSpatialEnableStateForDevice> } callback - Callback used to get the head tracking enable state by the specified device.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
@@ -5162,7 +5188,7 @@ declare namespace audio {
      * @systemapi
      * @since 12
      */
-    off(type: 'headTrackingEnabledChangeForAnyDevice', callback?: Callback<{deviceDescriptor: AudioDeviceDescriptor, enabled: boolean}>): void;
+    off(type: 'headTrackingEnabledChangeForAnyDevice', callback?: Callback<AudioSpatialEnableStateForDevice>): void;
 
     /**
      * Updates the spatial device state.
