@@ -159,6 +159,14 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     MOVING_PHOTO = 3,
+    /**
+     * Burst Photo Type
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    BURST = 4,
   }
 
   /**
@@ -1664,7 +1672,14 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12
      */
-    COVER_POSITION = 'cover_position'
+    COVER_POSITION = 'cover_position',
+    /**
+     * Unique uuid of the burst photos, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    BURST_KEY = 'burst_key'
   }
 
   /**
@@ -2662,6 +2677,21 @@ declare namespace photoAccessHelper {
      * @since 10
      */
     getAssets(options: FetchOptions): Promise<FetchResult<PhotoAsset>>;
+    /**
+     * Fetch a group of burst assets
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { string } burstKey - Burst asset uuid
+     * @param { FetchOptions } options - Retrieval options.
+     * @returns { Promise<FetchResult<PhotoAsset>> } Returns the fetch result.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    getBurstAssets(burstKey: string, options: FetchOptions): Promise<FetchResult<PhotoAsset>>;
     /**
      * Create a photo asset
      *
