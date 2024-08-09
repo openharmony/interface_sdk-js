@@ -81,7 +81,7 @@ declare namespace inputConsumer {
     /**
      * Whether to report repeated key events. By default, the value is true if it is left unspecified.
      *
-     * @type { boolean }
+     * @type { ?boolean }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
      * @since 13
