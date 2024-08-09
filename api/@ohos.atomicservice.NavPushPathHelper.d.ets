@@ -101,7 +101,6 @@ export declare class NavPushPathHelper {
    * @throws { BusinessError } 100006 - NavDestination not found.
    * @throws { BusinessError } 300001 - hsp silent install fail.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -208,7 +207,6 @@ export declare class NavPushPathHelper {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 300001 - hsp silent install fail.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
