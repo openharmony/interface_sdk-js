@@ -22,6 +22,7 @@ import type { AsyncCallback } from '../@ohos.base';
 import ExtensionContext from './ExtensionContext';
 import type accessibility from '../@ohos.accessibility';
 import type { GesturePath } from '../@ohos.accessibility.GesturePath';
+import type Want from '../@ohos.app.ability.Want';
 
 /**
  * The accessibility extension context. Used to configure, query information, and inject gestures.
@@ -247,6 +248,22 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    * @deprecated since 12
    */
   injectGestureSync(gesturePath: GesturePath): void;
+
+  /**
+   * Starts a new ability.
+   *
+   * @param { Want } want - Indicates the start options.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 201 - The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types;
+   *     3. Parameter verification failed.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 12
+   */
+  startAbility(want: Want): Promise<void>;
 }
 
 /**
