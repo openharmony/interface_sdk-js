@@ -26,6 +26,7 @@ import {
   Chip, ChipOptions, ChipSize, IconCommonOptions, LabelMarginOptions, LabelOptions, PrefixIconOptions,
   SuffixIconOptions, ChipSymbolGlyphOptions
 } from '@ohos.arkui.advanced.Chip';
+import { NavPushPathHelper } from '@ohos.atomicservice.NavPushPathHelper';
 import {
   IconOptions, LabelOptions as ChipItemLabelOptions, ChipGroupItemOptions, ChipItemStyle, ChipGroupSpaceOptions, IconItemOptions, IconGroupSuffix, ChipGroup
 } from '@ohos.arkui.advanced.ChipGroup';
@@ -158,6 +159,7 @@ import {
 export {
   AddFormMenuItem, AddFormOptions, AlertDialog, Animator, AnimatorOptions, AnimatorResult, App, AppResponse, AtomicServiceBar,
   AtomicServiceNavigation, NavDestinationBuilder,
+  NavPushPathHelper,
   BackRouterOptions, BuilderNode, Button, ButtonOptions, CallbackParam,
   CapsuleSegmentButtonConstructionOptions, CapsuleSegmentButtonOptions, Chip, ChipOptions, ChipSize, CircleShape, ComponentUtils,
   ComposeListItem, ComposeTitleBar, ComposeTitleBarMenuItem, Configuration, ConfirmDialog, ContentItem, ContextMenuController,
