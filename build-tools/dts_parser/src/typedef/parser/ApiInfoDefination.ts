@@ -320,16 +320,16 @@ export class ApiInfo extends BasicApiInfo {
   constructor(apiType: string = '', node: ts.Node, parentApi: BasicApiInfo | undefined) {
     super(apiType, node, parentApi);
     let parentKitInfo: string = 'NA';
-    let parentIsFile: boolean = false;
+    let parentFileTagContent: string = 'NA';
     if (parentApi) {
       parentKitInfo = this.getKitInfoFromParent(parentApi).kitInfo;
-      parentIsFile = this.getKitInfoFromParent(parentApi).isFile;
+      parentFileTagContent = this.getKitInfoFromParent(parentApi).fileTagContent;
     }
     const jsDocInfos: Comment.JsDocInfo[] = JsDocProcessorHelper.processJsDocInfos(
       node,
       apiType,
       parentKitInfo,
-      parentIsFile
+      parentFileTagContent
     );
     const jsDocText: string = node
       .getFullText()
@@ -343,12 +343,12 @@ export class ApiInfo extends BasicApiInfo {
     const parentApiInfo = parentApi as ApiInfo;
     const jsDocInfos: Comment.JsDocInfo[] = parentApiInfo.getJsDocInfos();
     let kitInfo: string | undefined = '';
-    let isFile: boolean = false;
+    let fileTagContent: string = 'NA';
     jsDocInfos.forEach((jsDocInfo: Comment.JsDocInfo) => {
       kitInfo = jsDocInfo.getKit();
-      isFile = jsDocInfo.getIsFile();
+      fileTagContent = jsDocInfo.getFileTagContent();
     });
-    return { kitInfo, isFile };
+    return { kitInfo, fileTagContent };
   }
 
   getJsDocInfos(): Comment.JsDocInfo[] {
@@ -1022,7 +1022,7 @@ export interface ModifierProcessorInterface {
 
 export interface FileTag {
   kitInfo: string;
-  isFile: boolean;
+  fileTagContent: string;
 }
 
 /**
