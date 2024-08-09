@@ -136,7 +136,8 @@ export declare class NavPushPathHelper {
    * @atomicservice
    * @since 12
    */
-  pushPathByName(moduleName: string, name: string, param: Object, onPop: Callback<PopInfo>, animated?: boolean): Promise<void>;
+  pushPathByName(moduleName: string, name: string, param: Object,
+    onPop: Callback<PopInfo>, animated?: boolean): Promise<void>;
 
   /**
    * Pushes the specified route page into the stack.
