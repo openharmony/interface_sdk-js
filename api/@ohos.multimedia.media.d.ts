@@ -6884,7 +6884,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
-    SCREENCAPTURE_STATE_STOPPED_BY_USER_SWITCHED = 10,
+    SCREENCAPTURE_STATE_STOPPED_BY_USER_SWITCHES = 10,
   }
 
   /**
