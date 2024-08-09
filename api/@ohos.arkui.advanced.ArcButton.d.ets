@@ -95,7 +95,7 @@ export declare enum ArcButtonStyleMode {
      * @atomicservice
      * @since 12
      */
-    NORMAL_DEEP = 3
+    NORMAL_DEEP = 3,
     
     /**
      * Custom status, custom style.
