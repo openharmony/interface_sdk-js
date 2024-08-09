@@ -79,7 +79,7 @@ declare namespace inputConsumer {
     finalKeyDownDuration: number;
 
     /**
-     * 是否上报重复的Key事件.
+     * Whether to report repeated key events. By default, the value is true if it is left unspecified.
      *
      * @type { boolean }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
