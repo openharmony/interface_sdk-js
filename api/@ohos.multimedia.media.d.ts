@@ -3317,6 +3317,24 @@ declare namespace media {
      * @since 12
      */
     mutedMediaType?: MediaType;
+
+    /**
+     * Audio language.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 12
+     */
+    preferredAudioLanguage?: string;
+
+    /**
+     * Subtitle language.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 12
+     */
+    preferredSubtitleLanguage?: string;
   }
 
   /**
