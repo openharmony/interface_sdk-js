@@ -3444,6 +3444,26 @@ declare namespace call {
      * @since 12
      */
     showBannerForIncomingCall?: boolean;
+  
+    /**
+     * Indicates whether the VoIP call is a conference call. Default value is false.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    isConferenceCall?: boolean;
+  
+    /**
+     * Indicates whether the VoIP incoming video call is support voice answer. Default value is true.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    isSupportVoiceAnswer?: boolean;
   }
 
   /**
