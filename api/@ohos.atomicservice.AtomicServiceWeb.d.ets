@@ -292,7 +292,7 @@ export declare interface OnPageEndEvent {
  */
 export declare interface OnLoadInterceptEvent {
   /**
-   * The url of the event.
+   * Web resource request of event.
    *
    * @type { WebResourceRequest }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -494,7 +494,7 @@ export declare interface WebHeader {
  *
  * @typedef { function } OnLoadIntercept Function.
  * @param { OnLoadInterceptEvent } event - the load intercept event when the resources loading is intercepted.
- * @returns { boolean }
+ * @returns { boolean } True if the load is intercepted else false.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
