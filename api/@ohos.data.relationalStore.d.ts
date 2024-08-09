@@ -4612,19 +4612,6 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12
-     */
-    /**
-     * Queries data in the database based on specified conditions with sync function.
-     *
-     * @param { RdbPredicates } predicates - The specified query condition by the instance object of {@link RdbPredicates}.
-     * @param { Array<string> } columns - The columns to query. If the value is empty array, the query applies to all columns.
-     * @returns { ResultSet } The {@link ResultSet} object if the operation is successful.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - Already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
