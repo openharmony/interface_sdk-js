@@ -25,7 +25,7 @@
  * @atomicservice
  * @since 12
  */
-export class NavPushPathHelper {
+export declare class NavPushPathHelper {
   /**
    * The constructor used to create a NavPushPathHelper object.
    *
