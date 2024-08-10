@@ -4825,7 +4825,7 @@ declare namespace audio {
    * @systemapi
    * @since 12
    */
-  export interface AudioSpatialEnabledStateForDevice {
+  interface AudioSpatialEnabledStateForDevice {
     /**
      * Audio device description.
      * @type { AudioDeviceDescriptor }
