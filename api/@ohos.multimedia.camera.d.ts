@@ -7187,7 +7187,7 @@ declare namespace camera {
     burstCapture(setting: PhotoCaptureSetting): Promise<void>;
 
     /**
-     * Confirm capture in Night mode.
+     * Confirm capture in Night mode or end burst capture.
      *
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400104 - Session not running.
