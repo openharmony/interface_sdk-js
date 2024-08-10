@@ -2629,6 +2629,23 @@ declare namespace photoAccessHelper {
      * @useinstead photoAccessHelper.MediaAlbumChangeRequest#setCoverUri
      */
     setCoverUri(uri: string): Promise<void>;
+    /**
+     * Get the faceId of the portrait album or group photo album.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @returns { Promise<string> } Returns tag_id if portrait album, Returns group_tag if group photo album,
+     * <br>Returns empty if not found.
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    getFaceId(): Promise<string>;
   }
 
   /**
