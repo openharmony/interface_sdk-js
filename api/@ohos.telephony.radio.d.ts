@@ -1940,6 +1940,7 @@ declare namespace radio {
     /**
      * Indicates radio access technology (RAT) of packet service (PS) domain.
      *
+     * @type { RadioTechnology }
      * @syscap SystemCapability.Telephony.CoreService
      * @since 11
      */
@@ -1948,6 +1949,7 @@ declare namespace radio {
     /**
      * Indicates radio access technology (RAT) of circuit service (CS) domain.
      *
+     * @type { RadioTechnology }
      * @syscap SystemCapability.Telephony.CoreService
      * @since 11
      */

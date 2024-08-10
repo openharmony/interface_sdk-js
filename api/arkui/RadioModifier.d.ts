@@ -27,6 +27,7 @@
  * @extends RadioAttribute
  * @implements AttributeModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class RadioModifier extends RadioAttribute implements AttributeModifier<RadioAttribute> {
@@ -37,6 +38,7 @@ export declare class RadioModifier extends RadioAttribute implements AttributeMo
    * @param { RadioAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: RadioAttribute): void;

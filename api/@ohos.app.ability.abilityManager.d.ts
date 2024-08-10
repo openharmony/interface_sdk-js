@@ -477,6 +477,7 @@ declare namespace abilityManager {
   /**
    * The class of an ability running information.
    *
+   * @typedef { _AbilityRunningInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9
@@ -486,6 +487,7 @@ declare namespace abilityManager {
   /**
    * The ability state data.
    *
+   * @typedef { _AbilityStateData.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 11
@@ -495,6 +497,7 @@ declare namespace abilityManager {
   /**
    * The class of an extension running information.
    *
+   * @typedef { _ExtensionRunningInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9
@@ -504,6 +507,7 @@ declare namespace abilityManager {
   /**
    * The ability foreground state observer.
    *
+   * @typedef { _AbilityForegroundStateObserver.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 11

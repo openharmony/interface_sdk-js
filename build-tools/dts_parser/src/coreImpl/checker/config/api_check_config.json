@@ -9,7 +9,7 @@
     "API_DOC_CONSTANT_04": "The validity verification of the JSDoc tag failed. The [constant] tag is not allowed to be reused, please delete the extra tags.",
     "API_DOC_CROSSPLATFORM_01": "JSDoc label order error, please adjust the order of [crossplatform] labels.",
     "API_DOC_CROSSPLATFORM_02": "The validity verification of the JSDoc tag failed. The [crossplatform] tag is not allowed to be reused, please delete the extra tags.",
-    "API_DOC_CROSSPLATFORM_03": "It was detected that there is an inheritable label [form] in the current file, but there are child nodes without this label.",
+    "API_DOC_CROSSPLATFORM_03": "It was detected that there is an inheritable label [crossplatform] in the current file, but there are child nodes without this label.",
     "API_DOC_DEFAULT_01": "The [default] tag value is incorrect. Please supplement the default value.",
     "API_DOC_DEFAULT_02": "JSDoc label order error, please adjust the order of [default] labels.",
     "API_DOC_DEFAULT_03": "JSDoc label validity verification failed. The [default] label is not allowed. Please check the label usage method.",
@@ -121,8 +121,9 @@
     "API_DOC_GLOBAL_02": "JSDoc tag validity verification failed. Please confirm if the [kit] tag is missing.",
     "API_DOC_JSDOC_01": "Jsdoc needs to be added to the current API.",
     "API_DOC_JSDOC_02": "JSDoc tag validity verification failed. Please confirm if the [since] tag is missing.JSDoc tag validity verification failed. Please confirm if the [syscap] tag is missing.",
-    "API_DOC_JSDOC_03": "JSDoc has chinese.",
-    "API_DOC_UNKNOW_DECORATOR_01": "The [XXXX] tag does not exist. Please use a valid JSDoc tag."
+    "API_DOC_JSDOC_03": "Jsdoc has chinese.",
+    "API_DOC_UNKNOW_DECORATOR_01": "The [XXXX] tag does not exist. Please use a valid JSDoc tag.",
+    "API_DOC_JSDOC_04": "The [systemapi] and [atomicservice] cannot exist in the same doc."
   },
   "DEFINE": {
     "API_DEFINE_UNALLOWABLE_01": "Illegal [any] keyword used in the API.",
@@ -138,7 +139,7 @@
     "API_DEFINE_EVENT_05": "The on and off event subscription methods do not appear in pair.",
     "API_DEFINE_EVENT_06": "The event subscription methods should has at least one parameter.",
     "API_DEFINE_EVENT_07": "Please check if the changed API version number is 10.",
-    "API_DEFINE_EVENT_08": "The event name should be named by small hump. (Received ['XXXX']).",
+    "API_DEFINE_EVENT_08": "The event name should be named by small hump. (Received [XXXX]).",
     "API_DEFINE_HUMP_01": "This API file should be named by large hump.",
     "API_DEFINE_HUMP_02": "This API file should be named by small hump.",
     "API_DEFINE_HUMP_03": "This name [XXXX] should be named by large hump.",
@@ -182,6 +183,10 @@
     "API_CHANGE_INCOMPATIBLE_33": "Forbid changes: Cannot reduce the range of custom type.",
     "API_CHANGE_INCOMPATIBLE_34": "Forbid changes: Cannot change Enumeration assignment.",
     "API_CHANGE_INCOMPATIBLE_35": "Forbid changes: Historical JSDoc cannot be changed.",
-    "API_CHANGE_INCOMPATIBLE_36": "Forbid changes: API changes must add a new section of JSDoc."
+    "API_CHANGE_INCOMPATIBLE_36": "Forbid changes: API changes must add a new section of JSDoc.",
+    "API_CHANGE_INCOMPATIBLE_37": "Forbid changes: Cannot change from atomicservice to NA.",
+    "API_CHANGE_INCOMPATIBLE_38": "Forbid changes: Cannot change from NA to syscap.",
+    "API_CHANGE_INCOMPATIBLE_39": "Forbid changes: Cannot change from syscap to NA.",
+    "API_CHANGE_INCOMPATIBLE_40": "Forbid changes: Cannot change syscap value."
   }
 }

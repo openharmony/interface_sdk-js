@@ -32,6 +32,9 @@
     "oldDescription": "",
     "newDescription": "SystemCapability.Ability.AbilityRuntime.AbilityCore",
     "oldSyscapField": "",
-    "newSyscapField": "Ability"
+    "newSyscapField": "Ability",
+    "oldKitInfo": "",
+    "newKitInfo": "",
+    "isSystemapi": false
   }
 ]

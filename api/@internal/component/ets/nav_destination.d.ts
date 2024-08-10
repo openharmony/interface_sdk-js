@@ -285,6 +285,7 @@ declare interface NavDestinationInterface {
  * @interface RouteMapConfig
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface RouteMapConfig {
@@ -294,6 +295,7 @@ declare interface RouteMapConfig {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   name: string;
@@ -304,6 +306,7 @@ declare interface RouteMapConfig {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   pageSourceFile: string;
@@ -314,6 +317,7 @@ declare interface RouteMapConfig {
    * @type { Object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   data: Object
@@ -357,10 +361,10 @@ declare interface NavDestinationContext {
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   navDestinationId?: string;
-
 
   /**
    * Get configuration of current Destination in module.json
@@ -369,6 +373,7 @@ declare interface NavDestinationContext {
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   getConfigInRouteMap(): RouteMapConfig | undefined;
@@ -580,6 +585,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   menus(value: Array<NavigationMenuItem> | CustomBuilder): NavDestinationAttribute;
@@ -604,6 +610,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onWillAppear(callback: Callback<void>): NavDestinationAttribute;
@@ -615,6 +622,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onWillDisappear(callback: Callback<void>): NavDestinationAttribute;
@@ -626,6 +634,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onWillShow(callback: Callback<void>): NavDestinationAttribute;
@@ -637,6 +646,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onWillHide(callback: Callback<void>): NavDestinationAttribute;
@@ -649,6 +659,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   ignoreLayoutSafeArea(types?: Array<LayoutSafeAreaType>, edges?: Array<LayoutSafeAreaEdge>): NavDestinationAttribute;
@@ -659,6 +670,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @param { Optional<SystemBarStyle> } style - The properties of system bar
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   systemBarStyle(style: Optional<SystemBarStyle>): NavDestinationAttribute;

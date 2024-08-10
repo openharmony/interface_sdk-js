@@ -518,6 +518,22 @@ declare namespace commonEventManager {
     COMMON_EVENT_THERMAL_LEVEL_CHANGED = 'usual.event.THERMAL_LEVEL_CHANGED',
 
     /**
+     * This commonEvent means when the device is about to enter the force sleep mode
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @since 12
+     */
+    COMMON_EVENT_ENTER_FORCE_SLEEP = 'usual.event.ENTER_FORCE_SLEEP',
+
+    /**
+     * This commonEvent means when the device exits the force sleep mode
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @since 12
+     */
+    COMMON_EVENT_EXIT_FORCE_SLEEP = 'usual.event.EXIT_FORCE_SLEEP',
+
+    /**
      * This commonEvent means when the user is present after the device is awakened.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -2186,6 +2202,7 @@ declare namespace commonEventManager {
   /**
    * Describes the data of the common event
    *
+   * @typedef { _CommonEventData } CommonEventData
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11
@@ -2201,6 +2218,7 @@ declare namespace commonEventManager {
   /**
    * Describes the subscriber of common event
    *
+   * @typedef { _CommonEventSubscriber } CommonEventSubscriber
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11
@@ -2216,6 +2234,7 @@ declare namespace commonEventManager {
   /**
    * Describes the information of the subscriber
    *
+   * @typedef { _CommonEventSubscribeInfo } CommonEventSubscribeInfo
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11
@@ -2238,6 +2257,7 @@ declare namespace commonEventManager {
   /**
    * Describes the information of the subscriber
    *
+   * @typedef { _CommonEventPublishData } CommonEventPublishData
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
    * @atomicservice

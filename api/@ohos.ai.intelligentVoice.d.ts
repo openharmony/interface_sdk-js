@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit MindSporeLiteKit
+ * @kit BasicServicesKit
  */
 
 import type { AsyncCallback, Callback } from './@ohos.base';
@@ -98,7 +98,7 @@ declare namespace intelligentVoice {
      * @returns { Promise<void> } the promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-     * @throws { BusinessError } 22700102 - Input parameter value error.
+     * @throws { BusinessError } 22700102 - Invalid parameter.
      * @throws { BusinessError } 22700107 - System error.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @systemapi
@@ -112,7 +112,7 @@ declare namespace intelligentVoice {
      * @returns { Promise<string> } the promise used to return the value of the intelligent voice parameter.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-     * @throws { BusinessError } 22700102 - Input parameter value error.
+     * @throws { BusinessError } 22700102 - Invalid parameter.
      * @throws { BusinessError } 22700107 - System error.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @systemapi
@@ -127,7 +127,7 @@ declare namespace intelligentVoice {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 22700101 - No memory.
-     * @throws { BusinessError } 22700102 - Input parameter value error.
+     * @throws { BusinessError } 22700102 - Invalid parameter.
      * @throws { BusinessError } 22700107 - System error.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @systemapi
@@ -155,7 +155,7 @@ declare namespace intelligentVoice {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
      * @throws { BusinessError } 22700101 - No memory.
-     * @throws { BusinessError } 22700102 - Input parameter value error.
+     * @throws { BusinessError } 22700102 - Invalid parameter.
      * @throws { BusinessError } 22700107 - System error.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @systemapi
@@ -506,7 +506,7 @@ declare namespace intelligentVoice {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
    * @throws { BusinessError } 22700101 - No memory.
-   * @throws { BusinessError } 22700102 - Input parameter value error.
+   * @throws { BusinessError } 22700102 - Invalid parameter.
    * @syscap SystemCapability.AI.IntelligentVoice.Core
    * @systemapi
    * @since 10
@@ -521,7 +521,7 @@ declare namespace intelligentVoice {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
    * @throws { BusinessError } 22700101 - No memory.
-   * @throws { BusinessError } 22700102 - Input parameter value error.
+   * @throws { BusinessError } 22700102 - Invalid parameter.
    * @syscap SystemCapability.AI.IntelligentVoice.Core
    * @systemapi
    * @since 10
@@ -536,7 +536,7 @@ declare namespace intelligentVoice {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
    * @throws { BusinessError } 22700101 - No memory.
-   * @throws { BusinessError } 22700102 - Input parameter value error.
+   * @throws { BusinessError } 22700102 - Invalid parameter.
    * @syscap SystemCapability.AI.IntelligentVoice.Core
    * @systemapi
    * @since 10
@@ -551,7 +551,7 @@ declare namespace intelligentVoice {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
    * @throws { BusinessError } 22700101 - No memory.
-   * @throws { BusinessError } 22700102 - Input parameter value error.
+   * @throws { BusinessError } 22700102 - Invalid parameter.
    * @syscap SystemCapability.AI.IntelligentVoice.Core
    * @systemapi
    * @since 10
@@ -663,6 +663,13 @@ declare namespace intelligentVoice {
      * @since 10
      */
     INTELLIGENT_VOICE_EVENT_RECOGNIZE_COMPLETE = 1,
+    /**
+     * Headset Recognize complete.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @systemapi
+     * @since 12
+     */
+    INTELLIGENT_VOICE_EVENT_HEADSET_RECOGNIZE_COMPLETE = 2,
   }
 
   /**
@@ -681,7 +688,7 @@ declare namespace intelligentVoice {
      */
     INTELLIGENT_VOICE_NO_MEMORY = 22700101,
     /**
-     * Input parameter value error.
+     * Invalid parameter.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @systemapi
      * @since 10
@@ -695,7 +702,7 @@ declare namespace intelligentVoice {
      */
     INTELLIGENT_VOICE_INIT_FAILED = 22700103,
     /**
-     * Commit enroll failed.
+     * Failed to commit the enrollment.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @systemapi
      * @since 10
@@ -923,7 +930,7 @@ declare namespace intelligentVoice {
      * @param { AsyncCallback<void> } callback - the callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-     * @throws { BusinessError } 22700102 - Input parameter value error.
+     * @throws { BusinessError } 22700102 - Invalid parameter.
      * @throws { BusinessError } 22700103 - Init failed.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @systemapi
@@ -937,7 +944,7 @@ declare namespace intelligentVoice {
      * @returns { Promise<void> } the promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-     * @throws { BusinessError } 22700102 - Input parameter value error.
+     * @throws { BusinessError } 22700102 - Invalid parameter.
      * @throws { BusinessError } 22700103 - Init failed.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @systemapi
@@ -993,7 +1000,7 @@ declare namespace intelligentVoice {
      * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @param { AsyncCallback<void> } callback - the callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 22700104 - Commit enroll failed.
+     * @throws { BusinessError } 22700104 - Failed to commit the enrollment.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @systemapi
      * @since 10
@@ -1004,7 +1011,7 @@ declare namespace intelligentVoice {
      * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @returns { Promise<void> } the promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 22700104 - Commit enroll failed.
+     * @throws { BusinessError } 22700104 - Failed to commit the enrollment.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @systemapi
      * @since 10
@@ -1017,7 +1024,7 @@ declare namespace intelligentVoice {
      * @param { AsyncCallback<void> } callback - the callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-     * @throws { BusinessError } 22700102 - Input parameter value error.
+     * @throws { BusinessError } 22700102 - Invalid parameter.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @systemapi
      * @since 10
@@ -1030,7 +1037,7 @@ declare namespace intelligentVoice {
      * @returns { Promise<void> } the promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-     * @throws { BusinessError } 22700102 - Input parameter value error.
+     * @throws { BusinessError } 22700102 - Invalid parameter.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @systemapi
      * @since 10
@@ -1043,7 +1050,7 @@ declare namespace intelligentVoice {
      * @param { AsyncCallback<void> } callback - the callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-     * @throws { BusinessError } 22700102 - Input parameter value error.
+     * @throws { BusinessError } 22700102 - Invalid parameter.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @systemapi
      * @since 10
@@ -1056,7 +1063,7 @@ declare namespace intelligentVoice {
      * @returns { Promise<void> } the promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-     * @throws { BusinessError } 22700102 - Input parameter value error.
+     * @throws { BusinessError } 22700102 - Invalid parameter.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @systemapi
      * @since 10
@@ -1070,7 +1077,7 @@ declare namespace intelligentVoice {
      * @param { AsyncCallback<void> } callback - the callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-     * @throws { BusinessError } 22700102 - Input parameter value error.
+     * @throws { BusinessError } 22700102 - Invalid parameter.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @systemapi
      * @since 10
@@ -1084,7 +1091,7 @@ declare namespace intelligentVoice {
      * @returns { Promise<void> } the promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-     * @throws { BusinessError } 22700102 - Input parameter value error.
+     * @throws { BusinessError } 22700102 - Invalid parameter.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @systemapi
      * @since 10
@@ -1097,7 +1104,7 @@ declare namespace intelligentVoice {
      * @param { AsyncCallback<string> } callback - the callback used to return the value of the intelligent voice parameter.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-     * @throws { BusinessError } 22700102 - Input parameter value error.
+     * @throws { BusinessError } 22700102 - Invalid parameter.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @systemapi
      * @since 10
@@ -1110,7 +1117,7 @@ declare namespace intelligentVoice {
      * @returns { Promise<string> } the promise used to return the value of the intelligent voice parameter.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-     * @throws { BusinessError } 22700102 - Input parameter value error.
+     * @throws { BusinessError } 22700102 - Invalid parameter.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @systemapi
      * @since 10
@@ -1186,7 +1193,7 @@ declare namespace intelligentVoice {
      * @param { AsyncCallback<void> } callback - the callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-     * @throws { BusinessError } 22700102 - Input parameter value error.
+     * @throws { BusinessError } 22700102 - Invalid parameter.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @systemapi
      * @since 10
@@ -1199,7 +1206,7 @@ declare namespace intelligentVoice {
      * @returns { Promise<void> } the promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-     * @throws { BusinessError } 22700102 - Input parameter value error.
+     * @throws { BusinessError } 22700102 - Invalid parameter.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @systemapi
      * @since 10
@@ -1212,7 +1219,7 @@ declare namespace intelligentVoice {
      * @param { AsyncCallback<void> } callback - the callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-     * @throws { BusinessError } 22700102 - Input parameter value error.
+     * @throws { BusinessError } 22700102 - Invalid parameter.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @systemapi
      * @since 10
@@ -1225,7 +1232,7 @@ declare namespace intelligentVoice {
      * @returns { Promise<void> } the promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-     * @throws { BusinessError } 22700102 - Input parameter value error.
+     * @throws { BusinessError } 22700102 - Invalid parameter.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @systemapi
      * @since 10
@@ -1239,7 +1246,7 @@ declare namespace intelligentVoice {
      * @param { AsyncCallback<void> } callback - the callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-     * @throws { BusinessError } 22700102 - Input parameter value error.
+     * @throws { BusinessError } 22700102 - Invalid parameter.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @systemapi
      * @since 10
@@ -1253,7 +1260,7 @@ declare namespace intelligentVoice {
      * @returns { Promise<void> } the promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-     * @throws { BusinessError } 22700102 - Input parameter value error.
+     * @throws { BusinessError } 22700102 - Invalid parameter.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @systemapi
      * @since 10
@@ -1266,7 +1273,7 @@ declare namespace intelligentVoice {
      * @param { AsyncCallback<string> } callback - the callback used to return the value of the intelligent voice parameter.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-     * @throws { BusinessError } 22700102 - Input parameter value error.
+     * @throws { BusinessError } 22700102 - Invalid parameter.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @systemapi
      * @since 10
@@ -1279,7 +1286,7 @@ declare namespace intelligentVoice {
      * @returns { Promise<string> } the promise used to return the value of the intelligent voice parameter.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-     * @throws { BusinessError } 22700102 - Input parameter value error.
+     * @throws { BusinessError } 22700102 - Invalid parameter.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @systemapi
      * @since 10
@@ -1304,7 +1311,7 @@ declare namespace intelligentVoice {
      * @returns { Promise<void> } the promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 22700102 - Input parameter value error.
+     * @throws { BusinessError } 22700102 - Invalid parameter.
      * @throws { BusinessError } 22700105 - Start capturer failed.
      * @throws { BusinessError } 22700107 - System error.
      * @syscap SystemCapability.AI.IntelligentVoice.Core

@@ -320,6 +320,7 @@ declare namespace backup {
      * The File argument indicates a file to send to the client.
      *     The returned file is owned by the backup service and will be cleaned by the service once the file is closed.
      *
+     * @type { AsyncCallback<File> }
      * @throws { BusinessError } 13600001 - IPC error
      * @throws { BusinessError } 13900005 - I/O error
      * @throws { BusinessError } 13900011 - Out of memory
@@ -352,6 +353,7 @@ declare namespace backup {
      * The second return string parameter indicates that when BusinessError errors occur,
      * the callback data is the name of the bundle.
      *
+     * @type { AsyncCallback<string, void | string> }
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 13500001 - The application is not added to the backup or restore
@@ -387,6 +389,7 @@ declare namespace backup {
      * The second return string parameter indicates that when BusinessError errors occur,
      * the callback data is the name of the bundle.
      *
+     * @type { AsyncCallback<string, void | string> }
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 13500003 - Backup or restore timed out
@@ -405,6 +408,7 @@ declare namespace backup {
     /**
      * Callback called when the all the bundles to backup/restore are done or aborted unexpectedly.
      *
+     * @type { AsyncCallback<undefined> }
      * @throws { BusinessError } 13600001 - IPC error
      * @throws { BusinessError } 13900005 - I/O error
      * @throws { BusinessError } 13900011 - Out of memory
@@ -420,6 +424,7 @@ declare namespace backup {
     /**
      * Callback called when the backup service dies unexpectedly.
      *
+     * @type { Callback<undefined> }
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 10

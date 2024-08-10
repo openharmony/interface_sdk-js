@@ -39,6 +39,7 @@ import {
   ParamInfo,
   PropertyInfo,
   PropertyNode,
+  PropertyTypeNode,
   ReferenceInfo,
   StructInfo,
   TypeAliasType,
@@ -283,10 +284,10 @@ export class NodeProcessorHelper {
     if (ts.isStructDeclaration(node)) {
       return ts.visitNodes(node.members, (node) => {
         if (ts.isConstructorDeclaration(node)) {
-          return
+          return undefined;
         }
-        return node
-      })
+        return node;
+      });
     }
     if (ts.isTypeAliasDeclaration(node) && ts.isTypeLiteralNode(node.type)) {
       return node.type.members;
@@ -582,11 +583,12 @@ export class NodeProcessorHelper {
   static processPropertySigAndDec(node: ts.Node, parentApi: BasicApiInfo): PropertyInfo {
     const propertyNode: PropertyNode = node as PropertyNode;
     const propertyInfo: PropertyInfo = new PropertyInfo(ApiType.PROPERTY, node, parentApi);
+    const typeNode: PropertyTypeNode = propertyNode.type ? propertyNode.type : propertyNode.initializer;
     propertyInfo.setApiName(propertyNode.name.getText());
     propertyInfo.setDefinedText(propertyNode.getText());
     ModifierHelper.processModifiers(propertyNode.modifiers, propertyInfo);
     propertyInfo.setIsRequired(!propertyNode.questionToken ? true : false);
-    propertyInfo.addType(NodeProcessorHelper.processDataType(propertyNode.type));
+    propertyInfo.addType(NodeProcessorHelper.processDataType(typeNode));
     if (Boolean(process.env.NEED_DETECTION) && propertyNode.type) {
       NodeProcessorHelper.processFunctionTypeNode(
         propertyNode.type,
@@ -595,7 +597,7 @@ export class NodeProcessorHelper {
         false
       );
     }
-    propertyInfo.setTypeKind(propertyNode.type?.kind);
+    propertyInfo.setTypeKind(typeNode?.kind);
     return propertyInfo;
   }
 
@@ -636,6 +638,7 @@ export class NodeProcessorHelper {
       methodName = StringConstant.CONSTRUCTOR_API_NAME;
     }
     methodInfo.setApiName(methodName);
+    methodInfo.setIsRequired(!methodNode.questionToken ? true : false);
     methodNode.typeParameters?.forEach((typeParameter: ts.TypeParameterDeclaration) => {
       methodInfo.setGenericInfo(NodeProcessorHelper.processGenericity(typeParameter));
     });
@@ -738,11 +741,11 @@ export class NodeProcessorHelper {
     const fileSymbolMap: Map<string, ts.Symbol> | undefined =
       NodeProcessorHelper.symbolOfTypeReferenceMap.get(filePath);
     if (!fileSymbolMap) {
-      return;
+      return undefined;
     }
-    const typeSymbol: ts.Symbol | undefined = fileSymbolMap.get(tsNode.getFullText().trim())
+    const typeSymbol: ts.Symbol | undefined = fileSymbolMap.get(tsNode.getFullText().trim());
     if (!typeSymbol) {
-      return;
+      return undefined;
     }
     return typeSymbol;
   }
@@ -776,7 +779,7 @@ export class NodeProcessorHelper {
         if (parameter.type) {
           NodeProcessorHelper.processFunctionTypeNode(parameter.type, methodInfo, paramInfo, isParam);
         }
-      })
+      });
       NodeProcessorHelper.processFunctionTypeNode(typeNode.type, methodInfo, paramInfo, isParam);
     }
     if (!ts.isTypeReferenceNode(typeNode)) {
@@ -804,7 +807,7 @@ export class NodeProcessorHelper {
     const typeArguments: ts.NodeArray<ts.TypeNode> | undefined = typeNode.typeArguments;
     typeArguments?.forEach((typeArgument: ts.TypeNode) => {
       NodeProcessorHelper.processFunctionTypeNode(typeArgument, methodInfo, paramInfo, isParam);
-    })
+    });
     try {
       const tsProgram: ts.Program = parserParam.getTsProgram();
       const filePath: string = parserParam.getFilePath();
@@ -816,7 +819,7 @@ export class NodeProcessorHelper {
           }
           NodeProcessorHelper.setSymbolOfTypeReferenceMap(filePath, tsNode, symbol);
         }
-      })
+      });
       tsProgram.emit();
       const currentTypeSymbol: ts.Symbol | undefined =
         NodeProcessorHelper.getSymbolOfTypeReferenceMap(filePath, typeNode);
@@ -897,9 +900,9 @@ export class NodeProcessorHelper {
    * @param { string } dataType 类型信息的字符串
    * @returns { string[] } 返回处理后的数组
    */
-  static processDataType(dataType: ts.TypeNode | undefined): string[] {
+  static processDataType(dataType: ts.TypeNode | undefined | ts.Expression): string[] {
     const typeArr: string[] = [];
-    if (!dataType || dataType.kind === ts.SyntaxKind.VoidKeyword) {
+    if (!dataType) {
       return typeArr;
     }
     if (ts.isUnionTypeNode(dataType)) {
@@ -1131,7 +1134,7 @@ export class ModifierHelper {
     }
     if (containerApiTypes.has(apiInfo.apiType)) {
       definedText += ` ${apiInfo.getApiType().toLowerCase()} ${apiInfo.getApiName()}`;
-      apiInfo.setDefinedText(definedText);
+      apiInfo.setDefinedText(definedText.trim());
     }
   }
 }

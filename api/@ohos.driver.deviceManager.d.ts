@@ -206,6 +206,7 @@ declare namespace deviceManager {
     /**
      * Bus type of the device.
      *
+     * @type { BusType }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @since 10
      */
@@ -214,6 +215,7 @@ declare namespace deviceManager {
     /**
      * Device ID.
      *
+     * @type { number }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @since 10
      */
@@ -222,6 +224,7 @@ declare namespace deviceManager {
     /**
      * Description of the device.
      *
+     * @type { string }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @since 10
      */
@@ -240,6 +243,7 @@ declare namespace deviceManager {
     /**
      * Vendor ID.
      *
+     * @type { number }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @since 10
      */
@@ -248,6 +252,7 @@ declare namespace deviceManager {
     /**
      * Product ID.
      *
+     * @type { number }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @since 10
      */
@@ -265,6 +270,7 @@ declare namespace deviceManager {
     /**
      * Device ID.
      *
+     * @type { number }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @since 11
      */
@@ -273,6 +279,7 @@ declare namespace deviceManager {
     /**
      * Remote driver object.
      *
+     * @type { rpc.IRemoteObject }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @since 11
      */
@@ -291,6 +298,7 @@ declare namespace deviceManager {
     /**
      * Interface number.
      *
+     * @type { number }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12
@@ -300,6 +308,7 @@ declare namespace deviceManager {
     /**
      * Interface class code.
      *
+     * @type { number }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12
@@ -309,6 +318,7 @@ declare namespace deviceManager {
     /**
      * Interface subclass code.
      *
+     * @type { number }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12
@@ -318,6 +328,7 @@ declare namespace deviceManager {
     /**
      * Interface protocol.
      *
+     * @type { number }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12
@@ -338,6 +349,7 @@ declare namespace deviceManager {
     /**
      * Device ID.
      *
+     * @type { number }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12
@@ -347,6 +359,7 @@ declare namespace deviceManager {
     /**
      * Whether the device has a matched driver.
      *
+     * @type { boolean }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12
@@ -356,6 +369,7 @@ declare namespace deviceManager {
     /**
      * Unique identifier of the driver.
      *
+     * @type { ?string }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12
@@ -376,6 +390,7 @@ declare namespace deviceManager {
     /**
      * Vendor ID.
      *
+     * @type { number }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12
@@ -385,6 +400,7 @@ declare namespace deviceManager {
     /**
      * Product ID.
      *
+     * @type { number }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12
@@ -394,6 +410,7 @@ declare namespace deviceManager {
     /**
      * List of USB interface descriptors.
      *
+     * @type { Array<Readonly<USBInterfaceDesc>> }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12
@@ -413,6 +430,7 @@ declare namespace deviceManager {
     /**
      * Bus type of the device.
      *
+     * @type { BusType }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12
@@ -422,6 +440,7 @@ declare namespace deviceManager {
     /**
      * Unique identifier of the driver.
      *
+     * @type { string }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12
@@ -431,6 +450,7 @@ declare namespace deviceManager {
     /**
      * Driver name.
      *
+     * @type { string }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12
@@ -440,6 +460,7 @@ declare namespace deviceManager {
     /**
      * Driver version.
      *
+     * @type { string }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12
@@ -449,6 +470,7 @@ declare namespace deviceManager {
     /**
      * Driver size.
      *
+     * @type { string }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12
@@ -458,6 +480,7 @@ declare namespace deviceManager {
     /**
      * Driver description.
      *
+     * @type { string }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12
@@ -478,6 +501,7 @@ declare namespace deviceManager {
     /**
      * IDs of supported products.
      *
+     * @type { Array<number> }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12
@@ -487,6 +511,7 @@ declare namespace deviceManager {
     /**
      * IDs of supported vendors.
      *
+     * @type { Array<number> }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12

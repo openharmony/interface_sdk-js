@@ -41,17 +41,23 @@ export class DiffHelper {
    * @param { FilesMap } newSDKApiMap 新版本SDK解析后的结果
    * @returns { BasicDiffInfo[] } 差异结果集
    */
-  static diffSDK(oldSDKApiMap: FilesMap, newSDKApiMap: FilesMap, isAllSheet: boolean, isCheck?: boolean): BasicDiffInfo[] {
+  static diffSDK(
+    oldSDKApiMap: FilesMap,
+    newSDKApiMap: FilesMap,
+    isAllSheet: boolean,
+    isCheck?: boolean
+  ): BasicDiffInfo[] {
     const clonedOldSDKApiMap: FilesMap = _.cloneDeep(oldSDKApiMap);
     const clonedNewSDKApiMap: FilesMap = _.cloneDeep(newSDKApiMap);
     const diffInfos: BasicDiffInfo[] = [];
     const oldSDKApiLocations: Map<string, string[]> = DiffHelper.getApiLocations(clonedOldSDKApiMap, isCheck);
     const newSDKApiLocations: Map<string, string[]> = DiffHelper.getApiLocations(clonedNewSDKApiMap, isCheck);
     DiffHelper.diffKit(clonedOldSDKApiMap, clonedNewSDKApiMap, diffInfos);
+    const oldFilePathSet: Set<string> = new Set(Array.from(clonedOldSDKApiMap.keys()));
     // 先以旧版本为基础进行对比
     for (const key of oldSDKApiLocations.keys()) {
       const apiLocation: string[] = oldSDKApiLocations.get(key) as string[];
-      const oldApiInfos: ApiInfo[] = Parser.getApiInfo(apiLocation, clonedOldSDKApiMap) as ApiInfo[];
+      const oldApiInfos: ApiInfo[] = Parser.getApiInfo(apiLocation, clonedOldSDKApiMap, isAllSheet) as ApiInfo[];
       // 如果旧版本中的API在新版本中不存在，则为删除
       if (!newSDKApiLocations.has(key)) {
         oldApiInfos.forEach((oldApiInfo: ApiInfo) => {
@@ -66,7 +72,7 @@ export class DiffHelper {
         continue;
       }
       // 新旧版本均存在，则进行对比
-      const newApiInfos: ApiInfo[] = Parser.getApiInfo(apiLocation, clonedNewSDKApiMap) as ApiInfo[];
+      const newApiInfos: ApiInfo[] = Parser.getApiInfo(apiLocation, clonedNewSDKApiMap, isAllSheet) as ApiInfo[];
       DiffHelper.diffApis(oldApiInfos, newApiInfos, diffInfos, isAllSheet, isCheck);
       // 对比完则将新版本中的对应API进行删除
       newSDKApiLocations.delete(key);
@@ -74,13 +80,20 @@ export class DiffHelper {
     // 对比完还剩下的新版本中的API即为新增API
     for (const key of newSDKApiLocations.keys()) {
       const locations: string[] = newSDKApiLocations.get(key) as string[];
-      const newApiInfos: ApiInfo[] = Parser.getApiInfo(locations, clonedNewSDKApiMap) as ApiInfo[];
+      const newApiInfos: ApiInfo[] = Parser.getApiInfo(locations, clonedNewSDKApiMap, isAllSheet) as ApiInfo[];
+      const clonedLocations: string[] = locations;
+      const parentLocations = clonedLocations.slice(0,-1);
       newApiInfos.forEach((newApiInfo: ApiInfo) => {
+        let isNewFile: boolean = false;
+        if (!oldFilePathSet.has(newApiInfo.getFilePath()) || !oldSDKApiLocations.get(parentLocations.join())) {
+          isNewFile = true;
+        }
         diffInfos.push(
           DiffProcessorHelper.wrapDiffInfo(
             undefined,
             newApiInfo,
-            new DiffTypeInfo(ApiStatusCode.NEW_API, ApiDiffType.ADD, undefined, newApiInfo.getDefinedText())
+            new DiffTypeInfo(ApiStatusCode.NEW_API, ApiDiffType.ADD, undefined, newApiInfo.getDefinedText()),
+            isNewFile
           )
         );
       });
@@ -94,12 +107,12 @@ export class DiffHelper {
       oldSourceFileInfo?.setSyscap(DiffHelper.getSyscapField(oldSourceFileInfo));
       const oldKitInfo: string | undefined = oldSourceFileInfo?.getLastJsDocInfo()?.getKit();
       //文件在新版本中被删除
-      if (!clonedNewSDKApiMap.get(key) && oldKitInfo) {
+      if (!clonedNewSDKApiMap.get(key) && oldKitInfo !== 'NA') {
         diffInfos.push(
           DiffProcessorHelper.wrapDiffInfo(
             oldSourceFileInfo,
             undefined,
-            new DiffTypeInfo(ApiStatusCode.KIT_CHANGE, ApiDiffType.KIT_CHANGE, oldKitInfo, 'NA')
+            new DiffTypeInfo(ApiStatusCode.KIT_CHANGE, ApiDiffType.KIT_HAVE_TO_NA, oldKitInfo, 'NA')
           )
         );
       } else if (clonedNewSDKApiMap.get(key)) {
@@ -110,7 +123,7 @@ export class DiffHelper {
             DiffProcessorHelper.wrapDiffInfo(
               oldSourceFileInfo,
               newSourceFileInfo,
-              new DiffTypeInfo(ApiStatusCode.KIT_CHANGE, ApiDiffType.KIT_CHANGE, oldKitInfo, newKitInfo)
+              new DiffTypeInfo(ApiStatusCode.KIT_CHANGE, DiffHelper.getKitDiffType(oldKitInfo, newKitInfo), oldKitInfo, newKitInfo)
             )
           );
         }
@@ -120,16 +133,29 @@ export class DiffHelper {
     for (const key of clonedNewSDKApiMap.keys()) {
       const newSourceFileInfo: ApiInfo | undefined = DiffHelper.getSourceFileInfo(clonedNewSDKApiMap.get(key));
       const newKitInfo: string | undefined = newSourceFileInfo?.getLastJsDocInfo()?.getKit();
-      if (!clonedOldSDKApiMap.get(key) && newKitInfo) {
+      if (!clonedOldSDKApiMap.get(key) && newKitInfo !== 'NA') {
         diffInfos.push(
           DiffProcessorHelper.wrapDiffInfo(
             undefined,
             newSourceFileInfo,
-            new DiffTypeInfo(ApiStatusCode.KIT_CHANGE, ApiDiffType.KIT_CHANGE, 'NA', newKitInfo)
+            new DiffTypeInfo(ApiStatusCode.KIT_CHANGE, ApiDiffType.KIT_NA_TO_HAVE, 'NA', newKitInfo)
           )
         );
       }
     }
+  }
+
+  static getKitDiffType(oldKitInfo: string | undefined, newKitInfo: string | undefined): ApiDiffType {
+    if (oldKitInfo === 'NA' && newKitInfo === '') {
+      return ApiDiffType.KIT_NA_TO_HAVE;
+    } else if (oldKitInfo === '' && newKitInfo === 'NA') {
+      return ApiDiffType.KIT_HAVE_TO_NA;
+    } else if (oldKitInfo === 'NA' || oldKitInfo === '') {
+      return ApiDiffType.KIT_NA_TO_HAVE;
+    } else if (newKitInfo === 'NA' || newKitInfo === '') {
+      return ApiDiffType.KIT_HAVE_TO_NA;
+    }
+    return ApiDiffType.KIT_CHANGE;
   }
 
   static getSourceFileInfo(fileMap: FileInfoMap | undefined): ApiInfo | undefined {
@@ -146,13 +172,32 @@ export class DiffHelper {
   }
 
   /**
+   * 通过数组长度判断是否为同名函数
+   *
+   * @param apiInfos
+   */
+  static judgeIsSameNameFunction(apiInfos: BasicApiInfo[]): boolean {
+    let isSameNameFunction: boolean = false;
+    if (apiInfos.length > 1 && apiInfos[0].getApiType() === ApiType.METHOD) {
+      isSameNameFunction = true;
+    }
+    return isSameNameFunction;
+  }
+
+  /**
    * 对比新旧版本API差异，类型为数组是由于同名函数的存在，因此统一为数组方便处理
    *
    * @param { ApiInfo[] } oldApiInfos 老版本API信息
    * @param { ApiInfo[] } newApiInfos 新版本API信息
    * @param { BasicDiffInfo[] } diffInfos api差异结果集
    */
-  static diffApis(oldApiInfos: ApiInfo[], newApiInfos: ApiInfo[], diffInfos: BasicDiffInfo[], isAllSheet: boolean, isCheck?: boolean): void {
+  static diffApis(
+    oldApiInfos: ApiInfo[],
+    newApiInfos: ApiInfo[],
+    diffInfos: BasicDiffInfo[],
+    isAllSheet: boolean,
+    isCheck?: boolean
+  ): void {
     const diffSets: Map<string, ApiInfo>[] = DiffHelper.getDiffSet(oldApiInfos, newApiInfos);
     const oldReduceNewMap: Map<string, ApiInfo> = diffSets[0];
     const newReduceOldMap: Map<string, ApiInfo> = diffSets[1];
@@ -181,106 +226,72 @@ export class DiffHelper {
       return;
     }
 
-    if (isAllSheet) {
-      DiffHelper.diffSameFunction(oldApiInfos, newApiInfos, diffInfos, isAllSheet, isCheck);
-    } else {
-      DiffHelper.diffSameNumberFunction(oldApiInfos, newApiInfos, diffInfos, isCheck);
-    }
-    
+    DiffHelper.diffSameNumberFunction(oldApiInfos, newApiInfos, diffInfos, isCheck);
   }
 
   /**
-   * 比较同名函数，定制比较
-   * @param oldApiInfos 
-   * @param newApiInfos 
-   * @param diffInfos 
-   * @param isCheck 
+   * 删除完全一样的API后，进行对比
+   * @param { ApiInfo[] } oldApiInfos
+   * @param { ApiInfo[] } newApiInfos
+   * @param diffInfos
+   * @param { boolean } isCheck 是否是api_check工具进行调用
    */
-  static diffSameFunction(
-    oldApiInfos: ApiInfo[],
-    newApiInfos: ApiInfo[],
-    diffInfos: BasicDiffInfo[],
-    isAllSheet: boolean,
-    isCheck?: boolean
-  ): void {
-    const isAllDeprecated: boolean =  DiffHelper.judgeIsAllDeprecated(newApiInfos);
-    if (oldApiInfos.length === newApiInfos.length) {  
-      const apiNumber: number = oldApiInfos.length;
-      for (let i = 0; i < apiNumber; i++) {
-        DiffProcessorHelper.JsDocDiffHelper.diffJsDocInfo(oldApiInfos[i], newApiInfos[i], diffInfos, isAllDeprecated, isAllSheet);
-        DiffProcessorHelper.ApiDecoratorsDiffHelper.diffDecorator(oldApiInfos[i], newApiInfos[i], diffInfos);
-        DiffProcessorHelper.ApiNodeDiffHelper.diffNodeInfo(oldApiInfos[i], newApiInfos[i], diffInfos, isCheck);
-      }
-    } else {
-      const newMethodInfoMap: Map<string, ApiInfo> = DiffHelper.setmethodInfoMap(newApiInfos);
-      const oldMethodInfoMap: Map<string, ApiInfo> = DiffHelper.setmethodInfoMap(oldApiInfos);
-      oldApiInfos.forEach((oldApiInfo: ApiInfo) => {
-        const newApiInfo: ApiInfo | undefined = newMethodInfoMap.get(oldApiInfo.getDefinedText());
-        if (newApiInfo) {
-          DiffProcessorHelper.JsDocDiffHelper.diffJsDocInfo(oldApiInfo, newApiInfo, diffInfos, isAllDeprecated);
-          DiffProcessorHelper.ApiDecoratorsDiffHelper.diffDecorator(oldApiInfo, newApiInfo, diffInfos);
-          newMethodInfoMap.delete(oldApiInfo.getDefinedText());
-          oldMethodInfoMap.delete(oldApiInfo.getDefinedText());
-        }
-      });
-      const oldApiDefinedText = this.joinApiText(oldMethodInfoMap);
-      const newApiDefinedText = this.joinApiText(newMethodInfoMap);
-      const diffTypeInfo: DiffTypeInfo = new DiffTypeInfo();
-      diffTypeInfo
-        .setOldMessage(oldApiDefinedText)
-        .setNewMessage(newApiDefinedText)
-        .setDiffType(ApiDiffType.FUNCTION_CHANGES);
-      diffInfos.push(DiffProcessorHelper.wrapDiffInfo(oldApiInfos[0], newApiInfos[0], diffTypeInfo));
-    }
-  }
-
   static diffSameNumberFunction(
     oldApiInfos: ApiInfo[],
     newApiInfos: ApiInfo[],
     diffInfos: BasicDiffInfo[],
     isCheck?: boolean
   ): void {
-    if (oldApiInfos.length === newApiInfos.length) {
-      const apiNumber: number = oldApiInfos.length;
-      for (let i = 0; i < apiNumber; i++) {
-        DiffProcessorHelper.JsDocDiffHelper.diffJsDocInfo(oldApiInfos[i], newApiInfos[i], diffInfos);
-        DiffProcessorHelper.ApiDecoratorsDiffHelper.diffDecorator(oldApiInfos[i], newApiInfos[i], diffInfos);
-        DiffProcessorHelper.ApiNodeDiffHelper.diffNodeInfo(oldApiInfos[i], newApiInfos[i], diffInfos, isCheck);
-      }
+    //长度为1说明新旧版本有变更的只有1个，可直接进行对比
+    if (oldApiInfos.length === 1 && oldApiInfos.length === newApiInfos.length) {
+      DiffProcessorHelper.JsDocDiffHelper.diffJsDocInfo(oldApiInfos[0], newApiInfos[0], diffInfos);
+      DiffProcessorHelper.ApiDecoratorsDiffHelper.diffDecorator(oldApiInfos[0], newApiInfos[0], diffInfos);
+      DiffProcessorHelper.ApiNodeDiffHelper.diffNodeInfo(oldApiInfos[0], newApiInfos[0], diffInfos, isCheck);
     } else {
-      const methodInfoMap: Map<string, ApiInfo> = DiffHelper.setmethodInfoMap(newApiInfos);
+      const newMethodInfoMap: Map<string, ApiInfo> = DiffHelper.setmethodInfoMap(newApiInfos);
+      const oldMethodInfoMap: Map<string, ApiInfo> = DiffHelper.setmethodInfoMap(oldApiInfos);
       oldApiInfos.forEach((oldApiInfo: ApiInfo) => {
-        const newApiInfo: ApiInfo | undefined = methodInfoMap.get(oldApiInfo.getDefinedText());
+        const newApiInfo: ApiInfo | undefined = newMethodInfoMap.get(oldApiInfo.getDefinedText());
         if (newApiInfo) {
           DiffProcessorHelper.JsDocDiffHelper.diffJsDocInfo(oldApiInfo, newApiInfo, diffInfos);
           DiffProcessorHelper.ApiDecoratorsDiffHelper.diffDecorator(oldApiInfo, newApiInfo, diffInfos);
-          methodInfoMap.delete(oldApiInfo.getDefinedText());
-        } else {
-          diffInfos.push(
-            DiffProcessorHelper.wrapDiffInfo(
-              oldApiInfo,
-              undefined,
-              new DiffTypeInfo(ApiStatusCode.DELETE, ApiDiffType.REDUCE, oldApiInfo.getDefinedText(), undefined)
-            )
-          );
+          newMethodInfoMap.delete(oldApiInfo.getDefinedText());
+          oldMethodInfoMap.delete(oldApiInfo.getDefinedText());
         }
       });
 
-      methodInfoMap.forEach((apiInfo: ApiInfo, _) => {
-        diffInfos.push(
-          DiffProcessorHelper.wrapDiffInfo(
-            undefined,
-            apiInfo,
-            new DiffTypeInfo(ApiStatusCode.NEW_API, ApiDiffType.ADD, undefined, apiInfo.getDefinedText())
-          )
-        );
-      });
+      if (oldMethodInfoMap.size === 1 && newMethodInfoMap.size === 1) {
+        const oldMethodInfo: ApiInfo = oldMethodInfoMap.entries().next().value[1];
+        const newMethodInfo: ApiInfo = newMethodInfoMap.entries().next().value[1];
+        DiffProcessorHelper.JsDocDiffHelper.diffJsDocInfo(oldMethodInfo, newMethodInfo, diffInfos);
+        DiffProcessorHelper.ApiDecoratorsDiffHelper.diffDecorator(oldMethodInfo, newMethodInfo, diffInfos);
+        DiffProcessorHelper.ApiNodeDiffHelper.diffNodeInfo(oldMethodInfo, newMethodInfo, diffInfos, isCheck);
+      } else {
+        newMethodInfoMap.forEach((apiInfo: ApiInfo, _) => {
+          diffInfos.push(
+            DiffProcessorHelper.wrapDiffInfo(
+              undefined,
+              apiInfo,
+              new DiffTypeInfo(ApiStatusCode.NEW_API, ApiDiffType.ADD, undefined, apiInfo.getDefinedText()),
+            )
+          );
+        });
+        oldMethodInfoMap.forEach((apiInfo: ApiInfo, _) => {
+          diffInfos.push(
+            DiffProcessorHelper.wrapDiffInfo(
+              apiInfo,
+              undefined,
+              new DiffTypeInfo(ApiStatusCode.DELETE, ApiDiffType.REDUCE, apiInfo.getDefinedText(), undefined),
+            )
+          );
+        });
+      }
     }
   }
 
   static judgeIsAllDeprecated(apiInfos: ApiInfo[]): boolean {
     let isAllDeprecated: boolean = true;
-    apiInfos.forEach((apiInfo: ApiInfo)=>{
+    apiInfos.forEach((apiInfo: ApiInfo) => {
       const deprecatedVersion = apiInfo.getLastJsDocInfo()?.getDeprecatedVersion();
       if (deprecatedVersion === '-1' || !deprecatedVersion) {
         isAllDeprecated = false;
@@ -289,9 +300,9 @@ export class DiffHelper {
     return isAllDeprecated;
   }
 
-  static handleDeprecatedVersion(apiInfos: ApiInfo[]) {
+  static handleDeprecatedVersion(apiInfos: ApiInfo[]): void {
     let isAllDeprecated: boolean = true;
-    apiInfos.forEach((apiInfo: ApiInfo)=>{
+    apiInfos.forEach((apiInfo: ApiInfo) => {
       const deprecatedVersion = apiInfo.getLastJsDocInfo()?.getDeprecatedVersion();
       if (deprecatedVersion === '-1' || !deprecatedVersion) {
         isAllDeprecated = false;
@@ -300,20 +311,18 @@ export class DiffHelper {
     if (isAllDeprecated) {
       return;
     }
-    apiInfos.forEach((apiInfo: ApiInfo)=>{
+    apiInfos.forEach((apiInfo: ApiInfo) => {
       apiInfo.getLastJsDocInfo()?.setDeprecatedVersion('-1');
-    })
+    });
   }
-
 
   /**
    * 拼接同名函数的API声明
-   * 
-   * @param methodInfoMap 
-   * @returns 
+   *
+   * @param methodInfoMap
+   * @returns
    */
   static joinApiText(methodInfoMap: Map<string, ApiInfo>): string {
-    let allApiText: string = '';
     const apiTextArr: string[] = [];
     for (const apiText of methodInfoMap.keys()) {
       apiTextArr.push(apiText);
@@ -379,7 +388,12 @@ export class DiffHelper {
     return apiLocations;
   }
 
-  static processFileApiMap(fileMap: FileInfoMap, apiLocations: Map<string, string[]>, index: number, isCheck?: boolean): void {
+  static processFileApiMap(
+    fileMap: FileInfoMap,
+    apiLocations: Map<string, string[]>,
+    index: number,
+    isCheck?: boolean
+  ): void {
     for (const apiKey of fileMap.keys()) {
       if (apiKey === StringConstant.SELF) {
         continue;
@@ -395,29 +409,34 @@ export class DiffHelper {
 
   /**
    * 删除最外层第一个API的jsdocText中，版权头和kit相关jsdoc
-   * 
-   * @param apiInfo 
-   * @returns 
+   *
+   * @param apiInfo
+   * @returns
    */
   static deleteUselessJsdoc(apiInfo: BasicApiInfo): string {
     const jsdocTextArr: string[] = apiInfo.getJsDocText().split('*/');
     const clonedJsdocTextArr: string[] = jsdocTextArr;
-    if (clonedJsdocTextArr[1] && StringUtils.hasSubstring(clonedJsdocTextArr[1], CommentHelper.fileJsDoc)) {
-      jsdocTextArr.splice(1,1);
+    if (clonedJsdocTextArr[1] && StringUtils.hasSubstring(clonedJsdocTextArr[1], CommentHelper.fileTag)) {
+      jsdocTextArr.splice(1, 1);
     }
 
-    if (clonedJsdocTextArr[0] && StringUtils.hasSubstring(clonedJsdocTextArr[0], CommentHelper.fileJsDoc)) {
-      jsdocTextArr.splice(0,1);
+    if (clonedJsdocTextArr[0] && StringUtils.hasSubstring(clonedJsdocTextArr[0], CommentHelper.fileTag)) {
+      jsdocTextArr.splice(0, 1);
     }
 
     if (clonedJsdocTextArr[0] && StringUtils.hasSubstring(clonedJsdocTextArr[0], CommentHelper.licenseKeyword)) {
-      jsdocTextArr.splice(0,1);
+      jsdocTextArr.splice(0, 1);
     }
 
     return jsdocTextArr.join('*/');
   }
 
-  static processApiInfo(basicApiInfo: BasicApiInfo, apiLocations: Map<string, string[]>, index: number, isCheck?: boolean): void {
+  static processApiInfo(
+    basicApiInfo: BasicApiInfo,
+    apiLocations: Map<string, string[]>,
+    index: number,
+    isCheck?: boolean
+  ): void {
     const apiNode: ts.Node | undefined = basicApiInfo.getNode();
     if (isCheck) {
       const jsDocText: string | undefined = apiNode?.getFullText().replace(apiNode.getText(), '');

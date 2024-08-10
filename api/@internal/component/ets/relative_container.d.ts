@@ -23,8 +23,8 @@
  *
  * @interface RelativeContainerInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Provides ports for relative containers.
@@ -32,8 +32,8 @@
  * @interface RelativeContainerInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Provides ports for relative containers.
@@ -41,9 +41,9 @@
  * @interface RelativeContainerInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 interface RelativeContainerInterface {
   /**
@@ -51,8 +51,8 @@ interface RelativeContainerInterface {
    *
    * @returns { RelativeContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Constructor.
@@ -60,8 +60,8 @@ interface RelativeContainerInterface {
    * @returns { RelativeContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Constructor.
@@ -69,9 +69,9 @@ interface RelativeContainerInterface {
    * @returns { RelativeContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   (): RelativeContainerAttribute;
 }
@@ -346,23 +346,23 @@ declare interface LocalizedBarrierStyle {
 /**
  * @extends CommonMethod<RelativeContainerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * @extends CommonMethod<RelativeContainerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * @extends CommonMethod<RelativeContainerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare class RelativeContainerAttribute extends CommonMethod<RelativeContainerAttribute> {
   /**
@@ -406,25 +406,25 @@ declare class RelativeContainerAttribute extends CommonMethod<RelativeContainerA
  * RelativeContainer
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * RelativeContainer
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * RelativeContainer
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const RelativeContainer: RelativeContainerInterface;
 
@@ -432,24 +432,24 @@ declare const RelativeContainer: RelativeContainerInterface;
  * RelativeContainerInstance
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * RelativeContainerInstance
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * RelativeContainerInstance
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const RelativeContainerInstance: RelativeContainerAttribute;

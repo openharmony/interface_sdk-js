@@ -23,6 +23,7 @@
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare class StyledString {
@@ -33,6 +34,7 @@ declare class StyledString {
      * @param { Array<StyleOptions> } [styles] - indicates the SpanStyle objects.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     constructor(value: string | ImageAttachment | CustomSpan, styles?: Array<StyleOptions>);
@@ -44,6 +46,7 @@ declare class StyledString {
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     readonly length: number;
@@ -54,6 +57,7 @@ declare class StyledString {
     * @returns { string } - the literal content of the StyledString
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
+    * @atomicservice
     * @since 12
     */
     getString(): string;
@@ -71,6 +75,7 @@ declare class StyledString {
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     getStyles(start: number, length: number, styledKey?: StyledStringKey): Array<SpanStyle>;
@@ -82,6 +87,7 @@ declare class StyledString {
      * @returns { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     equals(other: StyledString): boolean;
@@ -98,9 +104,25 @@ declare class StyledString {
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     subStyledString(start: number, length?: number): StyledString;
+
+    /**
+     * Returns StyledString from the provided HTML string.
+     *
+     * @param { string } html - the html text will be converted to a StyledString.
+     * @returns { Promise<StyledString> }
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
+     */
+    static fromHtml(html: string): Promise<StyledString>;
 }
 
 /**
@@ -109,6 +131,7 @@ declare class StyledString {
  * @interface StyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface StyleOptions {
@@ -118,6 +141,7 @@ declare interface StyleOptions {
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     start?: number;
@@ -128,6 +152,7 @@ declare interface StyleOptions {
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     length?: number;
@@ -138,6 +163,7 @@ declare interface StyleOptions {
      * @type { StyledStringKey }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     styledKey: StyledStringKey;
@@ -148,6 +174,7 @@ declare interface StyleOptions {
      * @type { StyledStringValue }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     styledValue: StyledStringValue;
@@ -159,6 +186,7 @@ declare interface StyleOptions {
  * @interface SpanStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface SpanStyle {
@@ -168,6 +196,7 @@ declare interface SpanStyle {
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     start: number;
@@ -178,6 +207,7 @@ declare interface SpanStyle {
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     length: number;
@@ -188,6 +218,7 @@ declare interface SpanStyle {
      * @type { StyledStringKey }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     styledKey: StyledStringKey;
@@ -198,6 +229,7 @@ declare interface SpanStyle {
      * @type { StyledStringValue }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     styledValue: StyledStringValue;
@@ -208,6 +240,7 @@ declare interface SpanStyle {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare class TextStyle {
@@ -218,6 +251,7 @@ declare class TextStyle {
      * @param { TextStyleInterface } [value] - font property object.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     constructor(value?: TextStyleInterface);
@@ -229,6 +263,7 @@ declare class TextStyle {
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     readonly fontColor?: ResourceColor;
@@ -240,6 +275,7 @@ declare class TextStyle {
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     readonly fontFamily?: string;
@@ -252,6 +288,7 @@ declare class TextStyle {
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     readonly fontSize?: number;
@@ -263,6 +300,7 @@ declare class TextStyle {
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     readonly fontWeight?: number;
@@ -274,6 +312,7 @@ declare class TextStyle {
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     readonly fontStyle?: FontStyle;
@@ -285,6 +324,7 @@ declare class TextStyle {
  * @interface TextStyleInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface TextStyleInterface {
@@ -294,6 +334,7 @@ declare interface TextStyleInterface {
      * @type { ?ResourceColor }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     fontColor?: ResourceColor;
@@ -304,6 +345,7 @@ declare interface TextStyleInterface {
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     fontFamily?: ResourceStr;
@@ -314,6 +356,7 @@ declare interface TextStyleInterface {
      * @type { ?LengthMetrics }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     fontSize?: LengthMetrics;
@@ -324,6 +367,7 @@ declare interface TextStyleInterface {
      * @type { ?(number | FontWeight | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     fontWeight?: number | FontWeight | string;
@@ -334,6 +378,7 @@ declare interface TextStyleInterface {
      * @type { ?FontStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     fontStyle?: FontStyle;
@@ -344,6 +389,7 @@ declare interface TextStyleInterface {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare class DecorationStyle {
@@ -354,6 +400,7 @@ declare class DecorationStyle {
      * @param { DecorationStyleInterface } value - text decoration value.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     constructor(value: DecorationStyleInterface);
@@ -365,6 +412,7 @@ declare class DecorationStyle {
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     readonly type: TextDecorationType;
@@ -376,6 +424,7 @@ declare class DecorationStyle {
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     readonly color?: ResourceColor;
@@ -387,6 +436,7 @@ declare class DecorationStyle {
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     readonly style?: TextDecorationStyle;
@@ -441,6 +491,7 @@ declare interface DecorationStyleInterface {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare class BaselineOffsetStyle {
@@ -451,6 +502,7 @@ declare class BaselineOffsetStyle {
      * @param { LengthMetrics } value - baseline offset value.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     constructor(value: LengthMetrics);
@@ -463,6 +515,7 @@ declare class BaselineOffsetStyle {
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     readonly baselineOffset: number;
@@ -473,6 +526,7 @@ declare class BaselineOffsetStyle {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare class LetterSpacingStyle {
@@ -483,6 +537,7 @@ declare class LetterSpacingStyle {
      * @param { LengthMetrics } value - letter space value.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     constructor(value: LengthMetrics);
@@ -495,6 +550,7 @@ declare class LetterSpacingStyle {
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     readonly letterSpacing: number;
@@ -505,6 +561,7 @@ declare class LetterSpacingStyle {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare class TextShadowStyle {
@@ -515,6 +572,7 @@ declare class TextShadowStyle {
      * @param { ShadowOptions | Array<ShadowOptions> } value - text shadow value.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     constructor(value: ShadowOptions | Array<ShadowOptions>);
@@ -526,6 +584,7 @@ declare class TextShadowStyle {
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     readonly textShadow: Array<ShadowOptions>;
@@ -536,6 +595,7 @@ declare class TextShadowStyle {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare class GestureStyle {
@@ -546,6 +606,7 @@ declare class GestureStyle {
      * @param { GestureStyleInterface } [value] - gesture event object.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     constructor(value?: GestureStyleInterface);
@@ -557,6 +618,7 @@ declare class GestureStyle {
  * @interface GestureStyleInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface GestureStyleInterface {
@@ -566,6 +628,7 @@ declare interface GestureStyleInterface {
      * @type { ?Callback<ClickEvent> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     onClick?: Callback<ClickEvent>;
@@ -576,6 +639,7 @@ declare interface GestureStyleInterface {
      * @type { ?Callback<GestureEvent> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     onLongPress?: Callback<GestureEvent>;
@@ -586,6 +650,7 @@ declare interface GestureStyleInterface {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare class ParagraphStyle {
@@ -596,6 +661,7 @@ declare class ParagraphStyle {
      * @param { ParagraphStyleInterface } [value] - paragraph property object.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     constructor(value?: ParagraphStyleInterface);
@@ -607,6 +673,7 @@ declare class ParagraphStyle {
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     readonly textAlign?: TextAlign;
@@ -619,6 +686,7 @@ declare class ParagraphStyle {
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     readonly textIndent?: number;
@@ -630,6 +698,7 @@ declare class ParagraphStyle {
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     readonly maxLines?: number;
@@ -641,6 +710,7 @@ declare class ParagraphStyle {
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     readonly overflow?: TextOverflow;
@@ -652,6 +722,7 @@ declare class ParagraphStyle {
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     readonly wordBreak?: WordBreak;
@@ -663,6 +734,7 @@ declare class ParagraphStyle {
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     readonly leadingMargin?: number | LeadingMarginPlaceholder;
@@ -674,6 +746,7 @@ declare class ParagraphStyle {
  * @interface ParagraphStyleInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface ParagraphStyleInterface {
@@ -683,6 +756,7 @@ declare interface ParagraphStyleInterface {
      * @type { ?TextAlign }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     textAlign?: TextAlign;
@@ -693,6 +767,7 @@ declare interface ParagraphStyleInterface {
      * @type { ?LengthMetrics }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     textIndent?: LengthMetrics;
@@ -703,6 +778,7 @@ declare interface ParagraphStyleInterface {
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     maxLines?: number;
@@ -713,6 +789,7 @@ declare interface ParagraphStyleInterface {
      * @type { ?TextOverflow }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     overflow?: TextOverflow;
@@ -723,6 +800,7 @@ declare interface ParagraphStyleInterface {
      * @type { ?WordBreak }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     wordBreak?: WordBreak;
@@ -733,6 +811,7 @@ declare interface ParagraphStyleInterface {
      * @type { ?(LengthMetrics | LeadingMarginPlaceholder) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     leadingMargin?: LengthMetrics | LeadingMarginPlaceholder;
@@ -743,6 +822,7 @@ declare interface ParagraphStyleInterface {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare class LineHeightStyle {
@@ -753,6 +833,7 @@ declare class LineHeightStyle {
      * @param { LengthMetrics } lineHeight - line height value.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     constructor(lineHeight: LengthMetrics);
@@ -765,22 +846,73 @@ declare class LineHeightStyle {
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     readonly lineHeight: number;
 }
 
 /**
- * Defines the Span Type.
+ * Defines the URLStyle hyperlink that allows setting a URL string. When clicking on the text to
+ * which the span is attached, the URLStyle will try to open the URL.
  *
- * @typedef { TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle | TextShadowStyle | 
- * GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | CustomSpan | UserDataSpan} StyledStringValue
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
+ * @since 13
+ */
+declare class UrlStyle {
+
+    /**
+     * Constructor.
+     *
+     * @param { string } url - URL value.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
+    constructor(url: string);
+
+    /**
+     * Get the URL value of the StyledString.
+     *
+     * @type { string } - the URL value of the StyledString
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
+    readonly url: string;
+}
+
+/**
+ * Defines the Span Type.
+ *
+ * @typedef { TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle | TextShadowStyle |
+ * GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | CustomSpan |
+ * UserDataSpan } StyledStringValue
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
  * @since 12
  */
-declare type StyledStringValue = TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle | TextShadowStyle | 
-GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | CustomSpan | UserDataSpan;
+
+/**
+ * Defines the Span Type.
+ *
+ * @typedef { TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle | TextShadowStyle |
+ * GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | UrlStyle | CustomSpan |
+ * UserDataSpan } StyledStringValue
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 13
+*/
+declare type StyledStringValue = TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle |
+TextShadowStyle | GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | UrlStyle | CustomSpan |
+UserDataSpan;
 
 /**
  * MutableStyledString
@@ -788,6 +920,7 @@ GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | CustomSpan |
  * @extends StyledString
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare class MutableStyledString extends StyledString {
@@ -803,6 +936,7 @@ declare class MutableStyledString extends StyledString {
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     replaceString(start: number, length: number, other: string): void;
@@ -818,6 +952,7 @@ declare class MutableStyledString extends StyledString {
     * <br> 3. Parameter verification failed.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
+    * @atomicservice
     * @since 12
     */
     insertString(start: number, other: string): void;
@@ -833,6 +968,7 @@ declare class MutableStyledString extends StyledString {
     * <br> 3. Parameter verification failed.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
+    * @atomicservice
     * @since 12
     */
     removeString(start: number, length: number): void;
@@ -847,6 +983,7 @@ declare class MutableStyledString extends StyledString {
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     replaceStyle(spanStyle: SpanStyle): void;
@@ -858,6 +995,7 @@ declare class MutableStyledString extends StyledString {
      * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     setStyle(spanStyle: SpanStyle): void;
@@ -874,6 +1012,7 @@ declare class MutableStyledString extends StyledString {
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     removeStyle(start: number, length: number, styledKey: StyledStringKey): void;
@@ -889,6 +1028,7 @@ declare class MutableStyledString extends StyledString {
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     removeStyles(start: number, length: number): void;
@@ -898,6 +1038,7 @@ declare class MutableStyledString extends StyledString {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     clearStyles(): void;
@@ -914,6 +1055,7 @@ declare class MutableStyledString extends StyledString {
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     replaceStyledString(start: number, length: number, other: StyledString): void;
@@ -929,6 +1071,7 @@ declare class MutableStyledString extends StyledString {
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     insertStyledString(start: number, other: StyledString): void;
@@ -939,6 +1082,7 @@ declare class MutableStyledString extends StyledString {
      * @param { StyledString } other - new StyledString.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     appendStyledString(other: StyledString): void;
@@ -951,6 +1095,7 @@ declare class MutableStyledString extends StyledString {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare enum StyledStringKey {
@@ -959,6 +1104,7 @@ declare enum StyledStringKey {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     FONT = 0,
@@ -968,6 +1114,7 @@ declare enum StyledStringKey {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
      DECORATION = 1,
@@ -977,6 +1124,7 @@ declare enum StyledStringKey {
       *
       * @syscap SystemCapability.ArkUI.ArkUI.Full
       * @crossplatform
+      * @atomicservice
       * @since 12
       */
      BASELINE_OFFSET = 2,
@@ -986,6 +1134,7 @@ declare enum StyledStringKey {
       *
       * @syscap SystemCapability.ArkUI.ArkUI.Full
       * @crossplatform
+      * @atomicservice
       * @since 12
       */
      LETTER_SPACING = 3,
@@ -995,6 +1144,7 @@ declare enum StyledStringKey {
       *
       * @syscap SystemCapability.ArkUI.ArkUI.Full
       * @crossplatform
+      * @atomicservice
       * @since 12
       */
      TEXT_SHADOW = 4,
@@ -1004,15 +1154,27 @@ declare enum StyledStringKey {
       *
       * @syscap SystemCapability.ArkUI.ArkUI.Full
       * @crossplatform
+      * @atomicservice
       * @since 12
       */
      LINE_HEIGHT = 5,
+
+     /**
+      * The key of UrlStyle.
+      *
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @crossplatform
+      * @atomicservice
+      * @since 13
+      */
+     URL = 7,
 
     /**
      * The key of GestureStyle.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     GESTURE = 100,
@@ -1022,6 +1184,7 @@ declare enum StyledStringKey {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     PARAGRAPH_STYLE = 200,
@@ -1031,6 +1194,7 @@ declare enum StyledStringKey {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     IMAGE = 300,
@@ -1040,6 +1204,7 @@ declare enum StyledStringKey {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     CUSTOM_SPAN = 400,
@@ -1060,6 +1225,7 @@ declare enum StyledStringKey {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare class ImageAttachment {
@@ -1070,6 +1236,7 @@ declare class ImageAttachment {
      * @param { ImageAttachmentInterface } value - image attachment object.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     constructor(value: ImageAttachmentInterface);
@@ -1081,6 +1248,7 @@ declare class ImageAttachment {
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     readonly value: PixelMap;
@@ -1092,6 +1260,7 @@ declare class ImageAttachment {
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     readonly size?: SizeOptions;
@@ -1103,6 +1272,7 @@ declare class ImageAttachment {
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     readonly verticalAlign?: ImageSpanAlignment;
@@ -1114,6 +1284,7 @@ declare class ImageAttachment {
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     readonly objectFit?: ImageFit;
@@ -1125,6 +1296,7 @@ declare class ImageAttachment {
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     readonly layoutStyle?: ImageAttachmentLayoutStyle;
@@ -1136,6 +1308,7 @@ declare class ImageAttachment {
  * @interface ImageAttachmentInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface ImageAttachmentInterface {
@@ -1145,6 +1318,7 @@ declare interface ImageAttachmentInterface {
      * @type { PixelMap }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     value: PixelMap;
@@ -1155,6 +1329,7 @@ declare interface ImageAttachmentInterface {
      * @type { ?SizeOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     size?: SizeOptions;
@@ -1165,6 +1340,7 @@ declare interface ImageAttachmentInterface {
      * @type { ?ImageSpanAlignment }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     verticalAlign?: ImageSpanAlignment;
@@ -1175,6 +1351,7 @@ declare interface ImageAttachmentInterface {
      * @type { ?ImageFit }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     objectFit?: ImageFit;
@@ -1185,6 +1362,7 @@ declare interface ImageAttachmentInterface {
      * @type { ?ImageAttachmentLayoutStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     layoutStyle?: ImageAttachmentLayoutStyle;
@@ -1196,6 +1374,7 @@ declare interface ImageAttachmentInterface {
  * @interface ImageAttachmentLayoutStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface ImageAttachmentLayoutStyle {
@@ -1205,6 +1384,7 @@ declare interface ImageAttachmentLayoutStyle {
      * @type { ?(LengthMetrics | Margin) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     margin?: LengthMetrics | Margin;
@@ -1215,6 +1395,7 @@ declare interface ImageAttachmentLayoutStyle {
      * @type { ?(LengthMetrics | Padding) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     padding?: LengthMetrics | Padding;
@@ -1225,6 +1406,7 @@ declare interface ImageAttachmentLayoutStyle {
      * @type { ?(LengthMetrics | BorderRadiuses) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     borderRadius?: LengthMetrics | BorderRadiuses;
@@ -1236,6 +1418,7 @@ declare interface ImageAttachmentLayoutStyle {
  * @interface CustomSpanMetrics
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface CustomSpanMetrics {
@@ -1247,6 +1430,7 @@ declare interface CustomSpanMetrics {
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     width: number;
@@ -1258,6 +1442,7 @@ declare interface CustomSpanMetrics {
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     height?: number;
@@ -1269,6 +1454,7 @@ declare interface CustomSpanMetrics {
  * @interface CustomSpanDrawInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface CustomSpanDrawInfo {
@@ -1279,6 +1465,7 @@ declare interface CustomSpanDrawInfo {
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     x: number;
@@ -1290,6 +1477,7 @@ declare interface CustomSpanDrawInfo {
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     lineTop: number;
@@ -1301,6 +1489,7 @@ declare interface CustomSpanDrawInfo {
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     lineBottom: number;
@@ -1312,6 +1501,7 @@ declare interface CustomSpanDrawInfo {
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     baseline: number;
@@ -1323,6 +1513,7 @@ declare interface CustomSpanDrawInfo {
  * @interface CustomSpanMeasureInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface CustomSpanMeasureInfo {
@@ -1333,6 +1524,7 @@ declare interface CustomSpanMeasureInfo {
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     fontSize: number;
@@ -1343,6 +1535,7 @@ declare interface CustomSpanMeasureInfo {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare abstract class CustomSpan {
@@ -1353,6 +1546,7 @@ declare abstract class CustomSpan {
      * @returns { CustomSpanMetrics } - CustomSpan Size
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     abstract onMeasure(measureInfo: CustomSpanMeasureInfo) : CustomSpanMetrics;
@@ -1364,6 +1558,7 @@ declare abstract class CustomSpan {
      * @param { CustomSpanDrawInfo } drawInfo
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     abstract onDraw(context: DrawContext, drawInfo: CustomSpanDrawInfo): void;

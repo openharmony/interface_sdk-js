@@ -8,7 +8,7 @@
     "newApiName": "func2",
     "oldDtsName": "",
     "newDtsName": "ut_api_add.d.ts",
-    "diffType": 59,
+    "diffType": 75,
     "diffMessage": "新增API",
     "changeLogUrl": "",
     "changeLogs": [],
@@ -30,6 +30,9 @@
     "oldDescription": "",
     "newDescription": "function func2(str: string): void {}",
     "oldSyscapField": "",
-    "newSyscapField": ""
+    "newSyscapField": "",
+    "oldKitInfo": "",
+    "newKitInfo": "",
+    "isSystemapi": false
   }
 ]

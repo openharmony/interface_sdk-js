@@ -23,6 +23,7 @@
  *
  * @typedef { import('../api/@ohos.window').default.SystemBarStyle } SystemBarStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
  */
 declare type SystemBarStyle = import('../api/@ohos.window').default.SystemBarStyle;
@@ -734,6 +735,7 @@ declare class NavPathInfo {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare enum LaunchMode {
@@ -742,6 +744,7 @@ declare enum LaunchMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   STANDARD = 0,
@@ -752,6 +755,7 @@ declare enum LaunchMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   MOVE_TO_TOP_SINGLETON = 1,
@@ -762,6 +766,7 @@ declare enum LaunchMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   POP_TO_SINGLETON = 2,
@@ -771,6 +776,7 @@ declare enum LaunchMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   NEW_INSTANCE = 3,
@@ -782,6 +788,7 @@ declare enum LaunchMode {
  * @interface NavigationOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface NavigationOptions {
@@ -791,6 +798,7 @@ declare interface NavigationOptions {
    * @type { ?LaunchMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   launchMode?: LaunchMode;
@@ -801,6 +809,7 @@ declare interface NavigationOptions {
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   animated?: boolean;
@@ -866,6 +875,7 @@ declare class NavPathStack {
    * @param { NavigationOptions } [options] - Indicates options of stack operation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   pushPath(info: NavPathInfo, options?: NavigationOptions): void;
@@ -922,6 +932,7 @@ declare class NavPathStack {
    * @throws { BusinessError } 100006 - NavDestination not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   pushDestination(info: NavPathInfo, options?: NavigationOptions): Promise<void>;
@@ -1081,6 +1092,7 @@ declare class NavPathStack {
    * @param { NavigationOptions } [options] - Indicates options of stack operation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   replacePath(info: NavPathInfo, options?: NavigationOptions): void;
@@ -1149,6 +1161,18 @@ declare class NavPathStack {
    * @since 12
    */
   removeByName(name: string): number;
+
+  /**
+   * Remove the specified NavDestination by its navDestinationId.
+   *
+   * @param { string } navDestinationId - Indicates the navDestinationId of the NavDestination to be removed.
+   * @returns { boolean } Returns true if remove successfully, otherwise returns false.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  removeByNavDestinationId(navDestinationId: string): boolean;
 
   /**
    * Pops the top NavDestination out of the stack.
@@ -1969,6 +1993,28 @@ declare interface NavigationTitleOptions {
    * @since 12
    */
   paddingEnd?: LengthMetrics;
+
+  /**
+   * Text modifier for main title.
+   *
+   * @type { ?TextModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  mainTitleModifier?: TextModifier;
+
+  /**
+   * Text modifier for sub title.
+   *
+   * @type { ?TextModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  subTitleModifier?: TextModifier;
 }
 
 /**
@@ -2443,8 +2489,8 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
     * @returns { NavigationAttribute }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
-    * @since 10
     * @form
+    * @since 10
     */
   /**
     * Configure toolbar with default style parameter or custom parameter.
@@ -2454,9 +2500,9 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
     * @returns { NavigationAttribute }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
+    * @form
     * @atomicservice
     * @since 11
-    * @form
     */
   toolbarConfiguration(value: Array<ToolbarItem> | CustomBuilder, options?: NavigationToolbarOptions): NavigationAttribute;
 
@@ -2620,6 +2666,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @param { Optional<SystemBarStyle> } style - The properties of system bar
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   systemBarStyle(style: Optional<SystemBarStyle>): NavigationAttribute;
@@ -2688,6 +2735,7 @@ declare interface NavigationAnimatedTransition {
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   isInteractive?: boolean;
@@ -2775,6 +2823,7 @@ declare interface NavigationTransitionProxy {
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   isInteractive?: boolean;
@@ -2801,6 +2850,7 @@ declare interface NavigationTransitionProxy {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   cancelTransition?(): void;
@@ -2811,6 +2861,7 @@ declare interface NavigationTransitionProxy {
    * @param { number } progress - The progress of transition animation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   updateTransition?(progress: number): void;
@@ -2897,6 +2948,7 @@ declare interface NavContentInfo {
    * @type { ?Object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   param?: Object;
@@ -2907,6 +2959,7 @@ declare interface NavContentInfo {
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   navDestinationId?: string;

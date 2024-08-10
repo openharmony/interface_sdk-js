@@ -32,6 +32,7 @@ export default class InputMethodExtensionAbility {
   /**
    * Indicates input method extension ability context.
    *
+   * @type { InputMethodExtensionContext }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @StageModelOnly
    * @since 9

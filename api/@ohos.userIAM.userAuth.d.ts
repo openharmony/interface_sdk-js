@@ -27,12 +27,21 @@ import type { AsyncCallback } from './@ohos.base';
  * @syscap SystemCapability.UserIAM.UserAuth.Core
  * @since 6
  */
+/**
+ * User authentication
+ *
+ * @namespace userAuth
+ * @syscap SystemCapability.UserIAM.UserAuth.Core
+ * @atomicservice
+ * @since 12
+ */
 declare namespace userAuth {
   /**
    * The maximum allowable reuse duration is 300000 milliseconds.
    *
    * @constant
    * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @atomicservice
    * @since 12
    */
   const MAX_ALLOWABLE_REUSE_DURATION: 300000;
@@ -150,6 +159,7 @@ declare namespace userAuth {
   /**
    * Auth types
    *
+   * @typedef { 'ALL' | 'FACE_ONLY' }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @since 6
    * @deprecated since 8
@@ -159,6 +169,7 @@ declare namespace userAuth {
   /**
    * Secure levels
    *
+   * @typedef { 'S1' | 'S2' | 'S3' | 'S4' }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @since 6
    * @deprecated since 8
@@ -310,6 +321,7 @@ declare namespace userAuth {
      * If the authentication fails, the remaining authentication times are returned in extraInfo,
      * If the authentication executor is locked, the freezing time is returned in extraInfo.
      *
+     * @type { function } 
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
      * @deprecated since 9
@@ -320,6 +332,7 @@ declare namespace userAuth {
     /**
      * During an authentication, the TipsCode is returned through the callback.
      *
+     * @type { ?function }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
      * @deprecated since 9
@@ -659,12 +672,27 @@ declare namespace userAuth {
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @since 8
    */
+  /**
+   * Credential type for authentication.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @atomicservice
+   * @since 12
+   */
   enum UserAuthType {
     /**
      * Authentication type pin.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 10
+     */
+    /**
+     * Authentication type pin.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 12
      */
     PIN = 1,
 
@@ -674,6 +702,13 @@ declare namespace userAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
      */
+    /**
+     * Authentication type face.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 12
+     */
     FACE = 2,
 
     /**
@@ -681,6 +716,13 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
+     */
+    /**
+     * Authentication type fingerprint.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 12
      */
     FINGERPRINT = 4
   }
@@ -692,12 +734,27 @@ declare namespace userAuth {
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @since 8
    */
+  /**
+   * Trust level of authentication results.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @atomicservice
+   * @since 12
+   */
   enum AuthTrustLevel {
     /**
      * Authentication result trusted level 1.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
+     */
+    /**
+     * Authentication result trusted level 1.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 12
      */
     ATL1 = 10000,
 
@@ -707,6 +764,13 @@ declare namespace userAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
      */
+    /**
+     * Authentication result trusted level 2.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 12
+     */
     ATL2 = 20000,
 
     /**
@@ -714,6 +778,13 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
+     */
+    /**
+     * Authentication result trusted level 3.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 12
      */
     ATL3 = 30000,
 
@@ -723,12 +794,20 @@ declare namespace userAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
      */
+    /**
+     * Authentication result trusted level 4.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 12
+     */
     ATL4 = 40000
   }
 
   /**
    * Authentication events.
    *
+   * @typedef { 'result' | 'tip' }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @since 9
    * @deprecated since 11
@@ -738,6 +817,7 @@ declare namespace userAuth {
   /**
    * Return information of Authentication events.
    *
+   * @typedef { AuthResultInfo | TipInfo }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @since 9
    * @deprecated since 11
@@ -883,6 +963,7 @@ declare namespace userAuth {
      * Start this authentication, an instance can only perform authentication once.
      *
      * @permission ohos.permission.ACCESS_BIOMETRIC
+     * @type { function }
      * @throws { BusinessError } 201 - Permission verification failed.
      * @throws { BusinessError } 401 - Incorrect parameters.
      * @throws { BusinessError } 12500001 - Authentication failed.
@@ -904,6 +985,7 @@ declare namespace userAuth {
      * Cancel this authentication.
      *
      * @permission ohos.permission.ACCESS_BIOMETRIC
+     * @type { function }
      * @throws { BusinessError } 201 - Permission verification failed.
      * @throws { BusinessError } 401 - Incorrect parameters.
      * @throws { BusinessError } 12500002 - General operation error.
@@ -945,6 +1027,7 @@ declare namespace userAuth {
    * @throws { BusinessError } 12500010 - The type of credential has not been enrolled.
    * @throws { BusinessError } 12500013 - Operation failed because of PIN expired.
    * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @atomicservice
    * @since 12
    */
   function getAvailableStatus(authType: UserAuthType, authTrustLevel: AuthTrustLevel): void;
@@ -954,6 +1037,7 @@ declare namespace userAuth {
    *
    * @typedef EnrolledState
    * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @atomicservice
    * @since 12
    */
   interface EnrolledState {
@@ -962,6 +1046,7 @@ declare namespace userAuth {
      *
      * @type { number }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
      * @since 12
      */
     credentialDigest: number;
@@ -971,6 +1056,7 @@ declare namespace userAuth {
      *
      * @type { number }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
      * @since 12
      */
     credentialCount: number;
@@ -989,6 +1075,7 @@ declare namespace userAuth {
    * @throws { BusinessError } 12500005 - The authentication type is not supported.
    * @throws { BusinessError } 12500010 - The type of credential has not been enrolled.
    * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @atomicservice
    * @since 12
    */
   function getEnrolledState(authType: UserAuthType): EnrolledState;
@@ -1044,6 +1131,7 @@ declare namespace userAuth {
    *
    * @enum { number }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @atomicservice
    * @since 12
    */
   enum ReuseMode {
@@ -1052,6 +1140,7 @@ declare namespace userAuth {
      * valid duration as well as it comes from one of specified UserAuthTypes of the AuthParam.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
      * @since 12
      */
     AUTH_TYPE_RELEVANT = 1,
@@ -1061,6 +1150,7 @@ declare namespace userAuth {
      * valid duration.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
      * @since 12
      */
     AUTH_TYPE_IRRELEVANT = 2
@@ -1071,6 +1161,7 @@ declare namespace userAuth {
    *
    * @typedef ReuseUnlockResult
    * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @atomicservice
    * @since 12
    */
   interface ReuseUnlockResult {
@@ -1079,6 +1170,7 @@ declare namespace userAuth {
      *
      * @type { ReuseMode }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
      * @since 12
      */
     reuseMode: ReuseMode;
@@ -1088,6 +1180,7 @@ declare namespace userAuth {
      *
      * @type { number }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
      * @since 12
      */
     reuseDuration: number;
@@ -1100,6 +1193,14 @@ declare namespace userAuth {
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @since 10
    */
+  /**
+   * Auth parameter.
+   *
+   * @typedef AuthParam
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @atomicservice
+   * @since 12
+   */
   interface AuthParam {
     /**
      * Pass in challenge value.
@@ -1107,6 +1208,14 @@ declare namespace userAuth {
      * @type { Uint8Array }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 10
+     */
+    /**
+     * Pass in challenge value.
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 12
      */
     challenge: Uint8Array;
 
@@ -1117,6 +1226,14 @@ declare namespace userAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 10
      */
+    /**
+     * Credential type for authentication.
+     *
+     * @type { UserAuthType[] }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 12
+     */
     authType: UserAuthType[];
 
     /**
@@ -1126,6 +1243,14 @@ declare namespace userAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 10
      */
+    /**
+     * Trust level of authentication result.
+     *
+     * @type { AuthTrustLevel }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 12
+     */
     authTrustLevel: AuthTrustLevel;
 
     /**
@@ -1133,6 +1258,7 @@ declare namespace userAuth {
      *
      * @type { ?ReuseUnlockResult }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
      * @since 12
      */
     reuseUnlockResult?: ReuseUnlockResult;
@@ -1145,6 +1271,14 @@ declare namespace userAuth {
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @since 10
    */
+  /**
+   * Auth widget parameter.
+   *
+   * @typedef WidgetParam
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @atomicservice
+   * @since 12
+   */
   interface WidgetParam {
     /**
      * Title of widget.
@@ -1152,6 +1286,14 @@ declare namespace userAuth {
      * @type { string }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 10
+     */
+    /**
+     * Title of widget.
+     *
+     * @type { string }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 12
      */
     title: string;
 
@@ -1161,6 +1303,14 @@ declare namespace userAuth {
      * @type { ?string }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 10
+     */
+    /**
+     * The description text of navigation button.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 12
      */
     navigationButtonText?: string;
 
@@ -1183,6 +1333,14 @@ declare namespace userAuth {
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @since 10
    */
+  /**
+   * Authentication result: authentication token, credential type for authentication succeed.
+   *
+   * @typedef UserAuthResult
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @atomicservice
+   * @since 12
+   */
   interface UserAuthResult {
     /**
      * The authentication result.
@@ -1190,6 +1348,14 @@ declare namespace userAuth {
      * @type { number }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 10
+     */
+    /**
+     * The authentication result.
+     *
+     * @type { number }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 12
      */
     result: number;
 
@@ -1200,6 +1366,14 @@ declare namespace userAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 10
      */
+    /**
+     * The authentication result if the authentication is passed.
+     *
+     * @type { ?Uint8Array }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 12
+     */
     token?: Uint8Array;
 
     /**
@@ -1209,6 +1383,14 @@ declare namespace userAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 10
      */
+    /**
+     * Credential type for authentication succeed.
+     *
+     * @type { ?UserAuthType }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 12
+     */
     authType?: UserAuthType;
 
     /**
@@ -1217,6 +1399,7 @@ declare namespace userAuth {
      *
      * @type { ?EnrolledState }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
      * @since 12
      */
     enrolledState?: EnrolledState;
@@ -1229,6 +1412,14 @@ declare namespace userAuth {
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @since 10
    */
+  /**
+   * Asynchronous callback of authentication operation.
+   *
+   * @interface IAuthCallback
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @atomicservice
+   * @since 12
+   */
   interface IAuthCallback {
     /**
      * The authentication result code is returned through the callback.
@@ -1237,6 +1428,15 @@ declare namespace userAuth {
      * @param { UserAuthResult } result - Authentication result information.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 10
+     */
+    /**
+     * The authentication result code is returned through the callback.
+     * If the authentication is passed, the authentication token is returned in extraInfo.
+     *
+     * @param { UserAuthResult } result - Authentication result information.
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 12
      */
     onResult(result: UserAuthResult): void;
   }
@@ -1247,6 +1447,14 @@ declare namespace userAuth {
    * @interface UserAuthInstance
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @since 10
+   */
+  /**
+   * User authentication instance, used to initiate a complete authentication.
+   *
+   * @interface UserAuthInstance
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @atomicservice
+   * @since 12
    */
   interface UserAuthInstance {
     /**
@@ -1262,6 +1470,20 @@ declare namespace userAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 10
      */
+    /**
+     * Turn on widget authentication result event listening.
+     *
+     * @param { 'result' } type - Indicates the type of event.
+     * @param { IAuthCallback } callback - Indicates the listener.
+     * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * <br>3. Parameter verification failed.
+     * @throws { BusinessError } 12500002 - General operation error.
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 12
+     */
     on(type: 'result', callback: IAuthCallback): void;
 
     /**
@@ -1276,6 +1498,20 @@ declare namespace userAuth {
      * @throws { BusinessError } 12500002 - General operation error.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 10
+     */
+    /**
+     * Turn off widget authentication result event listening.
+     *
+     * @param { 'result' } type - Indicates the type of event.
+     * @param { IAuthCallback } callback - Indicates the listener.
+     * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * <br>3. Parameter verification failed.
+     * @throws { BusinessError } 12500002 - General operation error.
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 12
      */
     off(type: 'result', callback?: IAuthCallback): void;
 
@@ -1318,6 +1554,7 @@ declare namespace userAuth {
      * @throws { BusinessError } 12500011 - Switched to the custom authentication process.
      * @throws { BusinessError } 12500013 - Operation failed because of PIN expired.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
      * @since 12
      */
     start(): void;
@@ -1332,6 +1569,18 @@ declare namespace userAuth {
      * @throws { BusinessError } 12500002 - General operation error.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 10
+     */
+    /**
+     * Cancel this authentication.
+     *
+     * @permission ohos.permission.ACCESS_BIOMETRIC
+     * @throws { BusinessError } 201 - Permission verification failed.
+     * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
+     * <br>1. Incorrect parameter types.
+     * @throws { BusinessError } 12500002 - General operation error.
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 12
      */
     cancel(): void;
   }
@@ -1351,6 +1600,23 @@ declare namespace userAuth {
    * @throws { BusinessError } 12500006 - The authentication trust level is not supported.
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @since 10
+   */
+  /**
+   * Get user authentication instance with widget.
+   *
+   * @param { AuthParam } authParam - Auth parameter.
+   * @param { WidgetParam } widgetParam - Widget parameter.
+   * @returns { UserAuthInstance } Returns an authentication instance with widget.
+   * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * <br>3. Parameter verification failed.
+   * @throws { BusinessError } 12500002 - General operation error.
+   * @throws { BusinessError } 12500005 - The authentication type is not supported.
+   * @throws { BusinessError } 12500006 - The authentication trust level is not supported.
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @atomicservice
+   * @since 12
    */
   function getUserAuthInstance(authParam: AuthParam, widgetParam: WidgetParam): UserAuthInstance;
 
@@ -1399,12 +1665,27 @@ declare namespace userAuth {
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @since 9
    */
+  /**
+   * Enum for operation result.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @atomicservice
+   * @since 12
+   */
   enum UserAuthResultCode {
     /**
      * Indicates that the result is success or ability is supported.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
+     */
+    /**
+     * Indicates that the result is success or ability is supported.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 12
      */
     SUCCESS = 12500000,
 
@@ -1414,6 +1695,13 @@ declare namespace userAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
      */
+    /**
+     * Indicates that the authentication result is failed.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 12
+     */
     FAIL = 12500001,
 
     /**
@@ -1421,6 +1709,13 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
+     */
+    /**
+     * Indicates other errors.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 12
      */
     GENERAL_ERROR = 12500002,
 
@@ -1430,6 +1725,13 @@ declare namespace userAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
      */
+    /**
+     * Indicates that this operation is canceled.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 12
+     */
     CANCELED = 12500003,
 
     /**
@@ -1437,6 +1739,13 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
+     */
+    /**
+     * Indicates that this operation is time-out.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 12
      */
     TIMEOUT = 12500004,
 
@@ -1446,6 +1755,13 @@ declare namespace userAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
      */
+    /**
+     * Indicates that this authentication type is not supported.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 12
+     */
     TYPE_NOT_SUPPORT = 12500005,
 
     /**
@@ -1453,6 +1769,13 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
+     */
+    /**
+     * Indicates that the authentication trust level is not supported.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 12
      */
     TRUST_LEVEL_NOT_SUPPORT = 12500006,
 
@@ -1462,6 +1785,13 @@ declare namespace userAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
      */
+    /**
+     * Indicates that the authentication task is busy. Wait for a few seconds and try again.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 12
+     */
     BUSY = 12500007,
 
     /**
@@ -1469,6 +1799,13 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
+     */
+    /**
+     * Indicates that the authenticator is locked.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 12
      */
     LOCKED = 12500009,
 
@@ -1478,6 +1815,13 @@ declare namespace userAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
      */
+    /**
+     * Indicates that the user has not enrolled the authenticator.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 12
+     */
     NOT_ENROLLED = 12500010,
 
     /**
@@ -1486,12 +1830,20 @@ declare namespace userAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 10
      */
+    /**
+     * Indicates that this operation is canceled from widget's navigation button.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 12
+     */
     CANCELED_FROM_WIDGET = 12500011,
 
     /**
      * Indicates that current operation failed because of PIN expired.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
      * @since 12
      */
     PIN_EXPIRED = 12500013

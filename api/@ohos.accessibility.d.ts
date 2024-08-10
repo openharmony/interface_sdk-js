@@ -48,6 +48,7 @@ declare namespace accessibility {
    * The type of the Ability app.
    *
    * { 'audible' | 'generic' | 'haptic' | 'spoken' | 'visual' | 'all' }
+   * @typedef {'audible' | 'generic' | 'haptic' | 'spoken' | 'visual' | 'all'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -69,6 +70,7 @@ declare namespace accessibility {
    * 'scrollForward' | 'scrollBackward' | 'setSelection' | 'setCursorPosition' | 'home' |
    * 'back' | 'recentTask' | 'notificationCenter' | 'controlCenter' | 'common' }
    *
+   * @typedef {'accessibilityFocus' | 'clearAccessibilityFocus' | 'focus' | 'clearFocus' | 'clearSelection' | 'click' | 'longClick' | 'cut' | 'copy' | 'paste' | 'select' | 'setText' | 'delete' | 'scrollForward' | 'scrollBackward' | 'setSelection' | 'setCursorPosition' | 'home' | 'back' | 'recentTask' | 'notificationCenter' | 'controlCenter' | 'common'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 12
    */
@@ -95,6 +97,7 @@ declare namespace accessibility {
    * 'textUpdate' | 'textSelectionUpdate' | 'scroll' | 'requestFocusForAccessibility' |
    * 'announceForAccessibility' }
    *
+   * @typedef {'accessibilityFocus' | 'accessibilityFocusClear' | 'click' | 'longClick' | 'focus' | 'select' | 'hoverEnter' | 'hoverExit' | 'textUpdate' | 'textSelectionUpdate' | 'scroll' | 'requestFocusForAccessibility' | 'announceForAccessibility'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 12
    */
@@ -107,6 +110,7 @@ declare namespace accessibility {
    * The change type of the windowsChange event.
    * It's used when received the {@code windowsChange} event.
    *
+   * @typedef {'add' | 'remove' | 'bounds' | 'active' | 'focus'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7
    */
@@ -115,6 +119,7 @@ declare namespace accessibility {
   /**
    * The type of the ability state.
    *
+   * @typedef {'enable' | 'disable' | 'install'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7
    */
@@ -129,6 +134,7 @@ declare namespace accessibility {
    * filterKeyEvents: Describes the capability to request to filter key events.
    * fingerprintGesture: Describes the capability to request to fingerprint gesture.
    *
+   * @typedef {'retrieve' | 'touchGuide' | 'keyEventObserver' | 'zoom' | 'gesture'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7
    */
@@ -137,6 +143,7 @@ declare namespace accessibility {
   /**
    * The granularity of text move.
    *
+   * @typedef {'char' | 'word' | 'line' | 'page' | 'paragraph'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7
    */
@@ -415,6 +422,7 @@ declare namespace accessibility {
    * @returns { CaptionsManager } Returns the captions manager.
    * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
    * @since 8
+   * @deprecated since 12
    */
   function getCaptionsManager(): CaptionsManager;
 
@@ -429,6 +437,7 @@ declare namespace accessibility {
     /**
      * Indicates whether captions are enabled.
      *
+     * @type {boolean}
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
      * @since 8
      */
@@ -436,6 +445,7 @@ declare namespace accessibility {
     /**
      * Indicates the style of captions.
      *
+     * @type {CaptionsStyle}
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
      * @since 8
      */
@@ -452,6 +462,7 @@ declare namespace accessibility {
      *     3. Parameter verification failed.
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
      * @since 8
+     * @deprecated since 12
      */
     on(type: 'enableChange', callback: Callback<boolean>): void;
 
@@ -466,6 +477,7 @@ declare namespace accessibility {
      *     3. Parameter verification failed.
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
      * @since 8
+     * @deprecated since 12
      */
     on(type: 'styleChange', callback: Callback<CaptionsStyle>): void;
 
@@ -480,6 +492,7 @@ declare namespace accessibility {
      *     3. Parameter verification failed.
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
      * @since 8
+     * @deprecated since 12
      */
     off(type: 'enableChange', callback?: Callback<boolean>): void;
 
@@ -494,6 +507,7 @@ declare namespace accessibility {
      *     3. Parameter verification failed.
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
      * @since 8
+     * @deprecated since 12
      */
     off(type: 'styleChange', callback?: Callback<CaptionsStyle>): void;
   }
@@ -501,6 +515,7 @@ declare namespace accessibility {
   /**
    * Indicates the edge type of the captions font.
    *
+   * @typedef {'none' | 'raised' | 'depressed' | 'uniform' | 'dropShadow'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
    * @since 8
    */
@@ -508,10 +523,11 @@ declare namespace accessibility {
   /**
    * Indicates the font family of captions.
    *
+   * @typedef {'default' | 'monospacedSerif' | 'serif' | 'monospacedSansSerif' | 'sansSerif' | 'casual' | 'cursive' | 'smallCapitals'}     
    * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
    * @since 8
    */
-  type CaptionsFontFamily = 'default' | 'monospacedSerif' | 'serif' |
+  type CaptionsFontFamily = 'default' | 'monospacedSerif' | 'serif' |      
   'monospacedSansSerif' | 'sansSerif' | 'casual' | 'cursive' | 'smallCapitals';
   /**
    * Indicates the style of captions.
@@ -524,6 +540,7 @@ declare namespace accessibility {
     /**
      * Indicates the font family of captions.
      *
+     * @type {CaptionsFontFamily}
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
      * @since 8
      */

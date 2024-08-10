@@ -8,7 +8,7 @@
     "newApiName": "func",
     "oldDtsName": "ut_jsdoc_permission_na_to_have.d.ts",
     "newDtsName": "ut_jsdoc_permission_na_to_have.d.ts",
-    "diffType": 23,
+    "diffType": 24,
     "diffMessage": "权限从无到有",
     "changeLogUrl": "",
     "changeLogs": [],
@@ -34,6 +34,9 @@
     "oldDescription": "",
     "newDescription": "ohos.permission.GET_SENSITIVE_PERMISSIONS",
     "oldSyscapField": "",
-    "newSyscapField": ""
+    "newSyscapField": "",
+    "oldKitInfo": "",
+    "newKitInfo": "",
+    "isSystemapi": false
   }
 ]

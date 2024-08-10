@@ -55,7 +55,7 @@ export class TagInheritCheck {
     const trueCheckResult: ErrorTagFormat = {
       state: true,
       errorInfo: '',
-    }
+    };
     if (parentApisJsdoc === undefined) {
       return true;
     }

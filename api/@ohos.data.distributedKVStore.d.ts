@@ -43,6 +43,7 @@ declare namespace distributedKVStore {
     /**
      * Indicates the bundleName
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -58,6 +59,7 @@ declare namespace distributedKVStore {
     /**
      * Indicates the ability or hap context
      *
+     * @type { BaseContext }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * if swap the area, you should close all the KV store and use the new BaseContext to create the KVManager
      * @since 10
@@ -76,6 +78,7 @@ declare namespace distributedKVStore {
     /**
      * Max key length is 1024.
      *
+     * @type { number }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -84,6 +87,7 @@ declare namespace distributedKVStore {
     /**
      * Max value length is 4194303.
      *
+     * @type { number }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -92,6 +96,7 @@ declare namespace distributedKVStore {
     /**
      * Max device coordinate key length is 896.
      *
+     * @type { number }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -100,6 +105,7 @@ declare namespace distributedKVStore {
     /**
      * Max store id length is 128.
      *
+     * @type { number }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -108,6 +114,7 @@ declare namespace distributedKVStore {
     /**
      * Max query length is 512000.
      *
+     * @type { number }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -116,6 +123,7 @@ declare namespace distributedKVStore {
     /**
      * Max batch operation size is 128.
      *
+     * @type { number }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -191,6 +199,7 @@ declare namespace distributedKVStore {
     /**
      * Indicates the value type
      *
+     * @type { ValueType }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      * @see ValueType
@@ -200,6 +209,7 @@ declare namespace distributedKVStore {
     /**
      * Indicates the value
      *
+     * @type { Uint8Array | string | number | boolean }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -217,6 +227,7 @@ declare namespace distributedKVStore {
     /**
      * Indicates the key
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -225,6 +236,7 @@ declare namespace distributedKVStore {
     /**
      * Indicates the value
      *
+     * @type { Value }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -245,6 +257,7 @@ declare namespace distributedKVStore {
     /**
      * Indicates data insertion records.
      *
+     * @type { Entry[] }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -253,6 +266,7 @@ declare namespace distributedKVStore {
     /**
      * Indicates data update records.
      *
+     * @type { Entry[] }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -261,6 +275,7 @@ declare namespace distributedKVStore {
     /**
      * Indicates data deletion records.
      *
+     * @type { Entry[] }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -269,6 +284,7 @@ declare namespace distributedKVStore {
     /**
      * Indicates the device id which brings the data change.
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -422,6 +438,7 @@ declare namespace distributedKVStore {
     /**
      * Indicates whether to create a database when the database file does not exist
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -430,6 +447,7 @@ declare namespace distributedKVStore {
     /**
      * Indicates whether database files to be encrypted
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -438,6 +456,7 @@ declare namespace distributedKVStore {
     /**
      * Indicates whether to back up database files
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -447,6 +466,7 @@ declare namespace distributedKVStore {
      * Indicates whether database files are automatically synchronized
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -455,6 +475,7 @@ declare namespace distributedKVStore {
     /**
      * Indicates the database type
      *
+     * @type { ?KVStoreType }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -463,6 +484,7 @@ declare namespace distributedKVStore {
     /**
      * Indicates the database security level
      *
+     * @type { SecurityLevel }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -471,6 +493,7 @@ declare namespace distributedKVStore {
     /**
      * Indicates the database schema
      *
+     * @type { ?Schema }
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 9
      */
@@ -496,6 +519,7 @@ declare namespace distributedKVStore {
     /**
      * Indicates the root json object.
      *
+     * @type { FieldNode }
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 9
      */
@@ -504,6 +528,7 @@ declare namespace distributedKVStore {
     /**
      * Indicates the string array of json.
      *
+     * @type { Array<string> }
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 9
      */
@@ -512,6 +537,7 @@ declare namespace distributedKVStore {
     /**
      * Indicates the mode of schema.
      *
+     * @type { number }
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 9
      */
@@ -520,6 +546,7 @@ declare namespace distributedKVStore {
     /**
      * Indicates the skip size of schema.
      *
+     * @type { number }
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 9
      */
@@ -564,6 +591,7 @@ declare namespace distributedKVStore {
     /**
      * Indicates the default value of field node.
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 9
      */
@@ -572,6 +600,7 @@ declare namespace distributedKVStore {
     /**
      * Indicates the nullable of database field.
      *
+     * @type { boolean }
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 9
      */
@@ -580,6 +609,7 @@ declare namespace distributedKVStore {
     /**
      * Indicates the type of value.
      *
+     * @type { number }
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 9
      */

@@ -113,6 +113,7 @@
     "SystemCapability.HiviewDFX.HiAppEvent",
     "SystemCapability.HiviewDFX.HiSysEvent",
     "SystemCapability.HiviewDFX.HiProfiler.HiDebug",
+    "SystemCapability.HiviewDFX.HiCollie",
     "SystemCapability.Update.UpdateService",
     "SystemCapability.DistributedHardware.DeviceManager",
     "SystemCapability.Security.DeviceAuth",

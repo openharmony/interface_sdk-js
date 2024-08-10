@@ -35,6 +35,8 @@ import AbilityConstant from '../@ohos.app.ability.AbilityConstant';
 import type AbilityStartCallback from './AbilityStartCallback';
 import window from '../@ohos.window';
 import type AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions';
+import type UIServiceProxy from './UIServiceProxy';
+import type UIServiceExtensionConnectCallback from './UIServiceExtensionConnectCallback';
 
 /**
  * The context of an ability. It allows access to ability-specific resources.
@@ -563,7 +565,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
    * @throws { BusinessError } 16000019 - Can not match any component.
    * @throws { BusinessError } 16200001 - The caller has been released.
-   * @throws { BusinessError } 16000054 - The installation-free service is busy.Try again later.
+   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
@@ -2586,6 +2588,27 @@ export default class UIAbilityContext extends Context {
   terminateSelfWithResult(parameter: AbilityResult): Promise<void>;
 
   /**
+   * Return to caller application with specified result code and data while not destroying current ability.
+   * If the current application is in the background, you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   *
+   * @param { AbilityResult } abilityResult - Indicates the result to return.
+   * @param { string } requestCode - Indicates the request code of caller ability.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000074 - The caller does not exist.
+   * @throws { BusinessError } 16000075 - Not support back to caller.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+  backToCallerAbilityWithResult(abilityResult: AbilityResult, requestCode: string): Promise<void>;
+
+  /**
    * Connects the current ability to an service extension ability.
    *
    * @param { Want } want - The element name of the service ability
@@ -3595,7 +3618,81 @@ export default class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   setRestoreEnabled(enabled: boolean): void;
+
+  /**
+   * Starts a UI service extension ability.
+   * If the target UI service extension ability is visible, you can start the target UI service extension ability;
+   * If the target UI service extension ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible UI service extension ability.
+   *
+   * @param { Want } want - Indicates the want info to start.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000012 - The application is controlled.
+   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
+   * @throws { BusinessError } 16000019 - Can not match any component.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16200001 - The caller has been released.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 13
+   */
+  startUIServiceExtensionAbility(want: Want): Promise<void>;
+
+  /**
+   * Connects to a UI service extension ability.
+   * If the target UI service extension ability is visible, you can connect the target UI service extension ability;
+   * If the target UI service extension ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to connect target invisible UI service extension ability.
+   *
+   * @param { Want } want - Indicates the want info to connect.
+   * @param { UIServiceExtensionConnectCallback } callback - The callback of connection.
+   * @returns { Promise<UIServiceProxy> } The promise to get UIServiceProxy.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
+   * @throws { BusinessError } 16000055 - Installation-free timed out.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 13
+   */
+  connectUIServiceExtensionAbility(want: Want, callback: UIServiceExtensionConnectCallback) : Promise<UIServiceProxy>;
+
+  /**
+   * Disconnects from a UI service extension, in contrast to {@link connectUIServiceExtensionAbility}.
+   *
+   * @param { UIServiceProxy } proxy - The UI service proxy return by connectUIServiceExtensionAbility.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 13
+   */
+  disconnectUIServiceExtensionAbility(proxy: UIServiceProxy): Promise<void>;
 }

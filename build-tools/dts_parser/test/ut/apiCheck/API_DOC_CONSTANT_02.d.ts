@@ -22,8 +22,16 @@
  * A test case for constant tag's legal -more
  *
  * @namespace batteryInfo
- * @constant
  * @syscap SystemCapability.PowerManager.BatteryManager.Core
  * @since 6
  */
-declare namespace batteryInfo {}
+declare namespace batteryInfo {
+    /**
+   * @constant
+   * Indicates the configuration of daltonization state.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 11
+   */
+    const daltonizationState: Config<boolean>;
+}

@@ -8,7 +8,7 @@
     "newApiName": "func",
     "oldDtsName": "ut_jsdoc_permission_range_change.d.ts",
     "newDtsName": "ut_jsdoc_permission_range_change.d.ts",
-    "diffType": 27,
+    "diffType": 28,
     "diffMessage": "权限发送改变无法判断范围变化",
     "changeLogUrl": "",
     "changeLogs": [],
@@ -34,6 +34,9 @@
     "oldDescription": "ohos.permission.GET_SENSITIVE_PERMISSIONS",
     "newDescription": "ohos.permission.GET_SENSITIVE_PERMISSIONS and ohos.permission.GRANT_SENSITIVE_PERMISSIONS or ohos.permission.REVOKE_SENSITIVE_PERMISSIONS",
     "oldSyscapField": "",
-    "newSyscapField": ""
+    "newSyscapField": "",
+    "oldKitInfo": "",
+    "newKitInfo": "",
+    "isSystemapi": false
   }
 ]

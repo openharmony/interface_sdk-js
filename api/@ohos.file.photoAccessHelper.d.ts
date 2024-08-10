@@ -159,6 +159,38 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     MOVING_PHOTO = 3,
+    /**
+     * Burst Photo Type
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    BURST = 4,
+  }
+
+  /**
+   * Enumeration of dynamic range type
+   *
+   * @enum { number } DynamicRangeType
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 12
+   */
+  enum DynamicRangeType {
+    /**
+     * SDR(Standard-Dynamic Range) format
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    SDR = 0,
+    /**
+     * HDR(High-Dynamic Range) format
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    HDR = 1
   }
 
   /**
@@ -308,7 +340,15 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 12
      */
-    ANALYSIS_VIDEO_LABEL
+    ANALYSIS_VIDEO_LABEL,
+    /**
+     * Analysis of highlight
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    ANALYSIS_HIGHLIGHT
   }
 
   /**
@@ -470,6 +510,42 @@ declare namespace photoAccessHelper {
      * @since 11
      */
     EDITED_MODE = 1
+  }
+
+  /**
+   * Enum: complete button text
+   *
+   * @enum { number } CompleteButtonText
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 12
+   */
+  enum CompleteButtonText {
+    /**
+     * Complete button text: done
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    TEXT_DONE = 0,
+    /**
+     * Complete button text: send
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    TEXT_SEND = 1,
+
+    /**
+     * Complete button text: add
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    TEXT_ADD = 2,
   }
 
   /**
@@ -710,6 +786,15 @@ declare namespace photoAccessHelper {
      * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
+     */
+    /**
+     * uri of the asset.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
      */
     readonly uri: string;
     /**
@@ -1573,7 +1658,28 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 12
      */
-    MOVING_PHOTO_EFFECT_MODE = 'moving_photo_effect_mode'
+    MOVING_PHOTO_EFFECT_MODE = 'moving_photo_effect_mode',
+    /**
+     * Dynamic range type of the asset, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    DYNAMIC_RANGE_TYPE = 'dynamic_range_type',
+    /**
+     * Cover position of the asset, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    COVER_POSITION = 'cover_position',
+    /**
+     * Unique uuid of the burst photos, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    BURST_KEY = 'burst_key'
   }
 
   /**
@@ -2076,7 +2182,13 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 11
      */
-    IMAGE,
+    /**
+     * Image album
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    IMAGE = 1031,
     /**
      * Source album
      *
@@ -2566,6 +2678,21 @@ declare namespace photoAccessHelper {
      */
     getAssets(options: FetchOptions): Promise<FetchResult<PhotoAsset>>;
     /**
+     * Fetch a group of burst assets
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { string } burstKey - Burst asset uuid
+     * @param { FetchOptions } options - Retrieval options.
+     * @returns { Promise<FetchResult<PhotoAsset>> } Returns the fetch result.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    getBurstAssets(burstKey: string, options: FetchOptions): Promise<FetchResult<PhotoAsset>>;
+    /**
      * Create a photo asset
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
@@ -2989,6 +3116,22 @@ declare namespace photoAccessHelper {
      */
     registerChange(uri: string, forChildUris: boolean, callback: Callback<ChangeData>): void;
     /**
+     * Get analysis progress of the asset.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { AnalysisType } analysisType - Analysis type
+     * @returns { Promise<string> } Returns analysis progress info into a json string
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+     getDataAnalysisProgress(analysisType: AnalysisType): Promise<string>;
+    /**
      * Unregister change notify for the specified uri.
      *
      * @param { string } uri - PhotoAsset's uri, album's uri or DefaultChangeUri
@@ -3209,6 +3352,19 @@ declare namespace photoAccessHelper {
      * @since 11
      */
     applyChanges(mediaChangeRequest: MediaChangeRequest): Promise<void>;
+    /**
+     * Get index construction progress.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @returns { Promise<string> } Returns progress of the photo and video
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    getIndexConstructProgress(): Promise<string>;
   }
 
   /**
@@ -3628,6 +3784,16 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     themeColor?: CustomColors;
+
+    /**
+     * Complete button text
+     *
+     * @type { ?CompleteButtonText }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    completeButtonText?: CompleteButtonText;
   }
 
   /**
@@ -3991,6 +4157,17 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 11
      */
+    /**
+     * The constructor to create a MediaAssetChangeRequest instance.
+     *
+     * @param { PhotoAsset } asset - Specify which asset to change
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
     constructor(asset: PhotoAsset);
 
     /**
@@ -4006,6 +4183,21 @@ declare namespace photoAccessHelper {
      * @static
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 11
+     */
+    /**
+     * Create image asset change request.
+     *
+     * @param { Context } context - Hap context information
+     * @param { string } fileUri - File uri
+     * @returns { MediaAssetChangeRequest } - Returns a MediaAssetChangeRequest instance
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 13900002 - No such file
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
      */
     static createImageAssetRequest(context: Context, fileUri: string): MediaAssetChangeRequest;
 
@@ -4107,6 +4299,17 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 11
      */
+    /**
+     * Get the asset.
+     *
+     * @returns { PhotoAsset } - Returns the asset
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
     getAsset(): PhotoAsset;
 
     /**
@@ -4175,6 +4378,17 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 11
+     */
+    /**
+     * Set title of the asset.
+     *
+     * @param { string } title - the new title of the asset
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
      */
     setTitle(title: string): void;
 
@@ -4626,6 +4840,7 @@ declare namespace photoAccessHelper {
    *
    * @interface MovingPhoto
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
    * @since 12
    */
   interface MovingPhoto {
@@ -4641,6 +4856,7 @@ declare namespace photoAccessHelper {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
      * @since 12
      */
     requestContent(imageFileUri: string, videoFileUri: string): Promise<void>;
@@ -4657,6 +4873,7 @@ declare namespace photoAccessHelper {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
      * @since 12
      */
     requestContent(resourceType: ResourceType, fileUri: string): Promise<void>;
@@ -4672,6 +4889,7 @@ declare namespace photoAccessHelper {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
      * @since 12
      */
     requestContent(resourceType: ResourceType): Promise<ArrayBuffer>;
@@ -4684,6 +4902,7 @@ declare namespace photoAccessHelper {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
      * @since 12
      */
     getUri(): string;

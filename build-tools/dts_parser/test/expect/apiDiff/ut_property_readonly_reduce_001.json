@@ -8,7 +8,7 @@
     "newApiName": "",
     "oldDtsName": "ut_property_readonly_reduce_001.d.ts",
     "newDtsName": "",
-    "diffType": 60,
+    "diffType": 76,
     "diffMessage": "删除API",
     "changeLogUrl": "",
     "changeLogs": [],
@@ -30,6 +30,9 @@
     "oldDescription": "readonly constant2: 2;",
     "newDescription": "",
     "oldSyscapField": "",
-    "newSyscapField": ""
+    "newSyscapField": "",
+    "oldKitInfo": "",
+    "newKitInfo": "",
+    "isSystemapi": false
   }
 ]

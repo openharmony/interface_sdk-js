@@ -102,7 +102,6 @@ export class GenerateFile {
     );
   }
 
-  
   /**
    * 将错误信息输出为excel文件
    * @param { ApiResultInfo[] } apiCheckArr
@@ -120,10 +119,10 @@ export class GenerateFile {
       'description',
       'language',
       'mainBuggyCode',
-      "apiName",
-      "apiType",
-      "hierarchicalRelations",
-      "parentModuleName"
+      'apiName',
+      'apiType',
+      'hierarchicalRelations',
+      'parentModuleName'
     ];
     for (let i = 1; i <= apiCheckArr.length; i++) {
       const apiData: ApiResultMessage = apiCheckArr[i - 1];
@@ -232,15 +231,17 @@ export class CommonFunctions {
   }
   static getExtendsApiValue(singleApi: ApiInfo): string {
     let extendsApiValue: string = '';
+    const extendsApiValueArr: string[] = [];
     const extendsApiArr: ParentClass[] = (singleApi as ClassInfo).getParentClasses();
     if (extendsApiArr.length === 0) {
       return extendsApiValue;
     }
     extendsApiArr.forEach(extendsApi => {
       if (extendsApi.getExtendClass().length !== 0) {
-        extendsApiValue = extendsApi.getExtendClass();
+        extendsApiValueArr.push(extendsApi.getExtendClass());
       }
     });
+    extendsApiValue = extendsApiValueArr.join(',');
     return extendsApiValue;
   }
 
@@ -259,10 +260,11 @@ export class CommonFunctions {
   }
 
 
-  static getErrorInfo(singleApi: BasicApiInfo | undefined, apiJsdoc: Comment.JsDocInfo | undefined, filePath: string, errorBaseInfo: ErrorBaseInfo): ApiCheckInfo {
+  static getErrorInfo(singleApi: BasicApiInfo | undefined, apiJsdoc: Comment.JsDocInfo | undefined, filePath: string,
+    errorBaseInfo: ErrorBaseInfo): ApiCheckInfo {
     let apiInfo: ApiCheckInfo = new ApiCheckInfo();
     if (singleApi === undefined) {
-      return apiInfo
+      return apiInfo;
     }
     const sinceVersion: number = apiJsdoc === undefined ? -1 : toNumber(apiJsdoc.since);
     apiInfo
@@ -283,7 +285,7 @@ export class CommonFunctions {
     return apiInfo;
   }
 
-  static getMdFiles(url: string) {
+  static getMdFiles(url: string): string[] {
     const mdFiles: string[] = [];
     const content: string = fs.readFileSync(url, 'utf-8');
     const filePathArr: string[] = content.split(/[(\r\n)\r\n]+/);
@@ -297,7 +299,7 @@ export class CommonFunctions {
     return mdFiles;
   }
 
-  static splitPath(filePath: string, pathElements: Set<string>) {
+  static splitPath(filePath: string, pathElements: Set<string>): void {
     let spliteResult: ParsedPath = path.parse(filePath);
     if (spliteResult.base !== '') {
       pathElements.add(spliteResult.base);
@@ -397,14 +399,22 @@ export const apiLegalityCheckTypeMap: Map<ts.SyntaxKind, string[]> = new Map([
 /**
  * An array of online error messages
  */
-export const compositiveResult: ApiResultSimpleInfo[] = [];
+export let compositiveResult: ApiResultSimpleInfo[] = [];
+
+export function cleanCompositiveResult() {
+  compositiveResult = [];
+}
 
 /**
  * An array of local error messages
  */
 export const compositiveLocalResult: ApiResultInfo[] = [];
 
-export const apiCheckResult: ApiResultMessage[] = [];
+export let apiCheckResult: ApiResultMessage[] = [];
+
+export function cleanApiCheckResult() {
+  apiCheckResult = [];
+}
 
 export const punctuationMarkSet: Set<string> = new Set(['\\{', '\\}', '\\(', '\\)', '\\[', '\\]', '\\@', '\\.', '\\:',
   '\\,', '\\;', '\\(', '\\)', '\\"', '\\/', '\\_', '\\-', '\\=', '\\?', '\\<', '\\>', '\\,', '\\!', '\\#', '\：', '\，',

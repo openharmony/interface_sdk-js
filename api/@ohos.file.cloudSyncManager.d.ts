@@ -168,7 +168,6 @@ declare namespace cloudSyncManager {
   /**
    * Describes the clear action type.
    *
-   * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
    * @enum { number }
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
@@ -178,7 +177,6 @@ declare namespace cloudSyncManager {
     /**
      * Indicates clearing cloud identification only, retaining local cached data.
      *
-     * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
      * @since 10
@@ -188,7 +186,6 @@ declare namespace cloudSyncManager {
     /**
      * Indicates clearing all cloud-related file data, which synchronized with the cloud.
      *
-     * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
      * @since 10

@@ -265,6 +265,7 @@ interface RefreshOptions {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   promptText?: ResourceStr;
@@ -287,6 +288,17 @@ interface RefreshOptions {
    * @since 11
    */
   builder?: CustomBuilder;
+
+  /**
+   * Custom component to display during dragging.
+   *
+   * @type { ?ComponentContent }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  refreshingContent?: ComponentContent;
 }
 
 /**
@@ -459,6 +471,7 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
    * @returns { RefreshAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onOffsetChange(callback: Callback<number>): RefreshAttribute;
@@ -470,6 +483,7 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
    * @returns { RefreshAttribute } The attribute of the Refresh.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   pullDownRatio(ratio: Optional<number>): RefreshAttribute;

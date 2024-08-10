@@ -105,6 +105,7 @@ declare namespace prompt {
   interface ShowDialogSuccessResponse {
 
     /**
+     * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 8
      * @deprecated since 9

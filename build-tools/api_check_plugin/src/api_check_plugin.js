@@ -141,7 +141,7 @@ function reqGitApi(scanResult, prId, ApiCheckResult) {
   rules.administrators.forEach((administrator) => {
     administrators.add(administrator.user);
   });
-  if (ApiCheckResult|| !prId || prId === 'NA') {
+  if (ApiCheckResult || !prId || prId === 'NA') {
     return scanResult;
   }
   const commentRequestPath = `https://gitee.com/api/v5/repos/openharmony/interface_sdk-js/pulls/${prId}/comments?page=1&per_page=100&direction=desc`;

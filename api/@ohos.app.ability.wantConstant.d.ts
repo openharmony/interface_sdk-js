@@ -246,6 +246,15 @@ declare namespace wantConstant {
      * @since 12
      */
     APP_CLONE_INDEX_KEY = 'ohos.extra.param.key.appCloneIndex',
+  
+    /**
+     * Indicates the param of caller's request code.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @atomicservice
+     * @since 12
+     */
+    CALLER_REQUEST_CODE = 'ohos.extra.param.key.callerRequestCode',
 
     /**
      * Indicates the param of page path.

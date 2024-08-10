@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Implement this interface to provide data prefetching for the LazyForEach component.
  *
  * @interface IDataSourcePrefetching
