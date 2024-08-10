@@ -372,7 +372,8 @@ declare namespace screenLock {
    * @param { StrongAuthReasonFlags } reasonFlag - The strong authentication reason flag.
    * @param { number } userId - Os account local userId.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 201 - permission denied.
    * @throws { BusinessError } 202 - permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
@@ -388,7 +389,8 @@ declare namespace screenLock {
    * @permission ohos.permission.ACCESS_SCREEN_LOCK
    * @param { number } userId - Os account local userId.
    * @returns { number } the strong authentication reason flags.
-   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 201 - permission denied.
    * @throws { BusinessError } 202 - permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
@@ -441,7 +443,8 @@ declare namespace screenLock {
    * @param { number } userId - Os account local userId.
    * @param { Uint8Array } authToken - the authentication token for this state
    * @returns { Promise<boolean> } the promise returned by the function.
-   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 201 - permission denied.
    * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
@@ -457,7 +460,8 @@ declare namespace screenLock {
    * @permission ohos.permission.ACCESS_SCREEN_LOCK
    * @param { number } userId - Os account local userId.
    * @returns { AuthState } the screen lock authentication state.
-   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 201 - permission denied.
    * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
