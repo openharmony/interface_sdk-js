@@ -6781,6 +6781,12 @@ declare namespace media {
      * @since 12
      */
     SCREENCAPTURE_STATE_EXIT_PRIVATE_SCENE = 9,
+    /**
+     * Screen capture stopped by user switched
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    SCREENCAPTURE_STATE_STOPPED_BY_USER_SWITCHED = 10,
   }
 
   /**
