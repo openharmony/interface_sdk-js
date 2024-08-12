@@ -107,7 +107,6 @@ declare namespace display {
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
