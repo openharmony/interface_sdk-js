@@ -192,7 +192,7 @@ declare namespace screenLock {
    *
    * @typedef {('beginWakeUp' | 'endWakeUp' | 'beginScreenOn' | 'endScreenOn' | 'beginScreenOff' | 'endScreenOff' | 'unlockScreen'
    * | 'lockScreen' | 'beginExitAnimation' | 'beginSleep' | 'endSleep' | 'changeUser' | 'screenlockEnabled' | 'serviceRestart'
-   * | 'strongAuthChanged' | 'screenlockDisableChanged')}
+   * | 'strongAuthChanged' | 'screenLockDisableChanged')}
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
    * @since 12
@@ -213,7 +213,7 @@ declare namespace screenLock {
     | 'screenlockEnabled'
     | 'serviceRestart'
     | 'strongAuthChanged'
-    | 'screenlockDisableChanged';
+    | 'screenLockDisableChanged';
 
   /**
    * Indicates the strong authentication reason flags used to request.
@@ -228,12 +228,12 @@ declare namespace screenLock {
      * Indicates that there are no strong authentication reason flags.
      */
     NONE = 0x00000000,
- 
+
     /**
      * Indicates the strong authentication reason requested after boot.
      */
     AFTER_BOOT = 0x00000001,
- 
+
     /**
      * Indicates the strong authentication reason requested after timeout.
      */
@@ -243,11 +243,11 @@ declare namespace screenLock {
      * Indicates the strong authentication reason requested by active request.
      */
     ACTIVE_REQUEST = 0x00000004,
- 
+
     /**
-     * Indicates the strong authentication reason requested by policy restrict.
+     * Indicates the strong authentication reason requested by policy restriction.
      */
-    POLICY_RESTRICT = 0x00000008
+    POLICY_RESTRICTION = 0x00000008
   }
 
   /**
@@ -260,29 +260,39 @@ declare namespace screenLock {
    */
   enum AuthState {
     /**
-     * Indicates the screen lock is unauthorized.
+     * Indicates the screen lock is not authenticated.
      */
-    UNAUTH = 0,
- 
+    NOT_AUTHED = 0,
+
     /**
      * Indicates the screen lock is pre authenticated by credential.
      */
     PRE_AUTHED_BY_CREDENTIAL = 1,
- 
+
     /**
-     * Indicates the screen lock is pre authenticated by biometric.
+     * Indicates the screen lock is pre authenticated by fingerprint.
      */
-    PRE_AUTHED_BY_BIOMETRIC = 2,
- 
+    PRE_AUTHED_BY_FINGERPRINT = 2,
+
+    /**
+     * Indicates the screen lock is pre authenticated by face.
+     */
+    PRE_AUTHED_BY_FACE = 3,
+
     /**
      * Indicates the screen lock is authenticated by credential.
      */
-    AUTHED_BY_CREDENTIAL = 3,
- 
+    AUTHED_BY_CREDENTIAL = 4,
+
     /**
-     * Indicates the screen lock is authenticated by biometric.
+     * Indicates the screen lock is authenticated by fingerprint.
      */
-    AUTHED_BY_BIOMETRIC = 4
+    AUTHED_BY_FINGERPRINT = 5,
+
+    /**
+     * Indicates the screen lock is authenticated by face.
+     */
+    AUTHED_BY_FACE = 6,
   }
 
   /**
@@ -382,7 +392,7 @@ declare namespace screenLock {
    * @since 12
    */
   function requestStrongAuth(reasonFlag: StrongAuthReasonFlags, userId: number): Promise<void>;
- 
+
   /**
    * Obtain strong authentication reason flags for os account local userId.
    *
