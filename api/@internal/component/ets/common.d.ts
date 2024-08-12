@@ -19105,6 +19105,7 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
    */
@@ -19163,6 +19164,7 @@ declare class CommonMethod<T> {
   * @returns { T }
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
+  * @form
   * @atomicservice
   * @since 12
   */
@@ -19229,6 +19231,7 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
    */
