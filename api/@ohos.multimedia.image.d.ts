@@ -8732,6 +8732,16 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     on(type: 'imageArrival', callback: AsyncCallback<void>): void;
 
     /**
+     * Remove callback subscriptions when releasing buffer
+     *
+     * @param { 'imageArrival' } type - Event type.
+     * @param { AsyncCallback<void> } callback Callback to be removed.
+     * @syscap SystemCapability.Multimedia.Image.ImageReceiver
+     * @since 12
+     */
+    off(type: 'imageArrival', callback?: AsyncCallback<void>): void;
+
+    /**
      * Release image receiver instance and uses a callback to return the result.
      *
      * @param { AsyncCallback<void> } callback Callback to return the operation result.
@@ -8823,6 +8833,16 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 9
      */
     on(type: 'imageRelease', callback: AsyncCallback<void>): void;
+
+    /**
+     * Remove callback subscriptions when releasing buffer
+     *
+     * @param { 'imageRelease' } type - Event type.
+     * @param { AsyncCallback<void> } callback Callback to be removed.
+     * @syscap SystemCapability.Multimedia.Image.ImageCreator
+     * @since 12
+     */
+    off(type: 'imageRelease', callback?: AsyncCallback<void>): void;
 
     /**
      * Releases buffer in bufferqueue instance and uses a callback to return the result.
