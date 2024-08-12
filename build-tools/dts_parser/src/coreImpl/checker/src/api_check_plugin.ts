@@ -139,7 +139,7 @@ export class Check {
             errorBaseInfo);
           AddErrorLogs.addAPICheckErrorLogs(apiInfoNoKit, compositiveResult, compositiveLocalResult);
         }
-        if (!apiJsdoc.getIsFile()) {
+        if (!apiJsdoc.getFileTagContent()) {
           const apiInfo: ApiCheckInfo = new ApiCheckInfo();
           const errorBaseInfo: ErrorBaseInfo = new ErrorBaseInfo();
           errorBaseInfo

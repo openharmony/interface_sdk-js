@@ -836,7 +836,7 @@ export class NodeProcessorHelper {
         declaration,
         ApiType.TYPE_ALIAS,
         fileTags.kitInfo,
-        fileTags.isFile
+        fileTags.fileTagContent
       );
       if (jsDocInfos.length === 0) {
         return;
@@ -877,7 +877,7 @@ export class NodeProcessorHelper {
         member,
         ApiType.TYPE_ALIAS,
         fileTags.kitInfo,
-        fileTags.isFile
+        fileTags.fileTagContent
       );
       if (jsDocInfos.length === 0) {
         return;
