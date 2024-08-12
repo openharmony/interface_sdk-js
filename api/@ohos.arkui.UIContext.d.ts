@@ -2320,7 +2320,18 @@ export abstract class FrameCallback {
    * @atomicservice
    * @since 12
    */
-  abstract onFrame(frameTimeInNano: number): void;
+  onFrame(frameTimeInNano: number): void;
+
+  /**
+   * Called at the end of the next idle frame. If there is no next frame, will request one automatically.
+   *
+   * @param { number } timeLeftInNano - The remaining time from the deadline for this frame.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onIdle(timeLeftInNano: number): void;
 }
 
 /**
