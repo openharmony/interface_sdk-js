@@ -1735,7 +1735,16 @@ declare namespace camera {
      * @systemapi
      * @since 12
      */
-    APERTURE_VIDEO = 14
+    APERTURE_VIDEO = 14,
+
+    /**
+     * Fluorescence photo mode.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    FLUORESCENCE_PHOTO = 17
   }
 
   /**
@@ -6463,6 +6472,64 @@ declare namespace camera {
      * @since 12
      */
     off(type: 'smoothZoomInfoAvailable', callback?: AsyncCallback<SmoothZoomInfo>): void;
+  }
+
+  /**
+   * Fluorescence photo session object.
+   *
+   * @interface FluorescencePhotoSession
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 12
+   */
+  interface FluorescencePhotoSession extends Session, AutoExposure, Focus, Zoom {
+    /**
+     * Subscribes to error events.
+     *
+     * @param { 'error' } type - Event type.
+     * @param { ErrorCallback } callback - Callback used to get the capture session errors.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Unsubscribes from error events.
+     *
+     * @param { 'error' } type - Event type.
+     * @param { ErrorCallback } callback - Callback used to get the capture session errors.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Subscribes focus state change event callback.
+     *
+     * @param { 'focusStateChange' } type - Event type.
+     * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
+
+    /**
+     * Unsubscribes from focus state change event callback.
+     *
+     * @param { 'focusStateChange' } type - Event type.
+     * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
   }
 
   /**
