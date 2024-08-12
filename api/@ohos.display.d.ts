@@ -104,7 +104,8 @@ declare namespace display {
    * @param { number } displayId Display id to query. This parameter should be greater than or equal to 0.
    * @returns { Display } the result of display
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *                                                                   2. Incorrect parameter types.
+   *                                                                   3. Parameter verification failed.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
