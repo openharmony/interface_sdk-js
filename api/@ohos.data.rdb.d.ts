@@ -940,4 +940,10 @@ declare namespace rdb {
   export type ResultSet = _ResultSet;
 }
 
+/**
+ * Provides methods for rdbStore create and delete.
+ * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+ * @since 7
+ * @deprecated since 9
+ */
 export default rdb;

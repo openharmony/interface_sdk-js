@@ -252,4 +252,10 @@ declare namespace storage {
   const MAX_VALUE_LENGTH: 8192;
 }
 
+/**
+ * Provides interfaces to obtain and modify storage data.
+ * @since 6
+ * @deprecated since 9
+ * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+ */
 export default storage;

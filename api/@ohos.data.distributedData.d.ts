@@ -1297,6 +1297,22 @@ declare namespace distributedData {
      * @useinstead ohos.data.distributedKVStore.SingleKVStore#put
      */
     put(key: string, value: Uint8Array | string | number | boolean, callback: AsyncCallback<void>): void;
+
+    /**
+     * Writes a key-value pair of the string type into the {@code KvStore} database.
+     *
+     * <p>If you do not want to synchronize this key-value pair to other devices, set the write option in the local database.
+     *
+     * @param key Indicates the key. The length must be less than {@code MAX_KEY_LENGTH}.
+     * Spaces before and after the key will be cleared.
+     * @param value Indicates the string value, which must be less than 4 MB as a UTF-8 byte array.
+     * @throws Throws this exception if any of the following errors
+     * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and {@code DB_ERROR}.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.distributedKVStore.SingleKVStore#put
+     */
     put(key: string, value: Uint8Array | string | number | boolean): Promise<void>;
 
     /**
@@ -1313,6 +1329,20 @@ declare namespace distributedData {
      * @useinstead ohos.data.distributedKVStore.SingleKVStore#delete
      */
     delete(key: string, callback: AsyncCallback<void>): void;
+
+    /**
+     * Deletes the key-value pair based on a specified key.
+     *
+     * @param key Indicates the key. The length must be less than {@code MAX_KEY_LENGTH}.
+     * Spaces before and after the key will be cleared.
+     * @throws Throws this exception if any of the following errors
+     * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and
+     * {@code DB_ERROR}, and {@code KEY_NOT_FOUND}.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.distributedKVStore.SingleKVStore#delete
+     */
     delete(key: string): Promise<void>;
 
     /**
@@ -1383,6 +1413,17 @@ declare namespace distributedData {
      * @useinstead ohos.data.distributedKVStore.SingleKVStore#putBatch
      */
     putBatch(entries: Entry[], callback: AsyncCallback<void>): void;
+
+    /**
+     * Inserts key-value pairs into the {@code KvStore} database in batches.
+     *
+     * @param entries Indicates the key-value pairs to be inserted in batches.
+     * @throws Throws this exception if a database error occurs.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.distributedKVStore.SingleKVStore#putBatch
+     */
     putBatch(entries: Entry[]): Promise<void>;
 
     /**
@@ -1396,6 +1437,17 @@ declare namespace distributedData {
      * @useinstead ohos.data.distributedKVStore.SingleKVStore#deleteBatch
      */
     deleteBatch(keys: string[], callback: AsyncCallback<void>): void;
+
+    /**
+     * Deletes key-value pairs in batches from the {@code KvStore} database.
+     *
+     * @param keys Indicates the key-value pairs to be deleted in batches.
+     * @throws Throws this exception if a database error occurs.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.distributedKVStore.SingleKVStore#deleteBatch
+     */
     deleteBatch(keys: string[]): Promise<void>;
 
     /**
@@ -1410,6 +1462,18 @@ declare namespace distributedData {
      * @useinstead ohos.data.distributedKVStore.SingleKVStore#startTransaction
      */
     startTransaction(callback: AsyncCallback<void>): void;
+
+    /**
+     * Starts a transaction operation in the {@code KvStore} database.
+     *
+     * <p>After the database transaction is started, you can submit or roll back the operation.
+     *
+     * @throws Throws this exception if a database error occurs.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.distributedKVStore.SingleKVStore#startTransaction
+     */
     startTransaction(): Promise<void>;
 
     /**
@@ -1423,6 +1487,17 @@ declare namespace distributedData {
      * @useinstead ohos.data.distributedKVStore.SingleKVStore#commit
      */
     commit(callback: AsyncCallback<void>): void;
+
+    /**
+     * Submits a transaction operation in the {@code KvStore} database.
+     *
+     * @param callback
+     * @throws Throws this exception if a database error occurs.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.distributedKVStore.SingleKVStore#commit
+     */
     commit(): Promise<void>;
 
     /**
@@ -1435,6 +1510,16 @@ declare namespace distributedData {
      * @useinstead ohos.data.distributedKVStore.SingleKVStore#rollback
      */
     rollback(callback: AsyncCallback<void>): void;
+
+    /**
+     * Rolls back a transaction operation in the {@code KvStore} database.
+     *
+     * @throws Throws this exception if a database error occurs.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.distributedKVStore.SingleKVStore#rollback
+     */
     rollback(): Promise<void>;
 
     /**
@@ -1449,6 +1534,18 @@ declare namespace distributedData {
      * @useinstead ohos.data.distributedKVStore.SingleKVStore#enableSync
      */
     enableSync(enabled: boolean, callback: AsyncCallback<void>): void;
+
+    /**
+     * Sets whether to enable synchronization.
+     *
+     * @param enabled Specifies whether to enable synchronization. The value true means to enable
+     * synchronization, and false means the opposite.
+     * @throws Throws this exception if an internal service error occurs.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.distributedKVStore.SingleKVStore#enableSync
+     */
     enableSync(enabled: boolean): Promise<void>;
 
     /**
@@ -1465,6 +1562,20 @@ declare namespace distributedData {
      * @useinstead ohos.data.distributedKVStore.SingleKVStore#setSyncRange
      */
     setSyncRange(localLabels: string[], remoteSupportLabels: string[], callback: AsyncCallback<void>): void;
+
+    /**
+     * Sets synchronization range labels.
+     *
+     * <p>The labels determine the devices with which data will be synchronized.
+     *
+     * @param localLabels Indicates the synchronization labels of the local device.
+     * @param remoteSupportLabels Indicates the labels of the devices with which data will be synchronized.
+     * @throws Throws this exception if an internal service error occurs.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.distributedKVStore.SingleKVStore#setSyncRange
+     */
     setSyncRange(localLabels: string[], remoteSupportLabels: string[]): Promise<void>;
   }
 
@@ -1497,6 +1608,18 @@ declare namespace distributedData {
      * @useinstead ohos.data.distributedKVStore.SingleKVStore#get
      */
     get(key: string, callback: AsyncCallback<Uint8Array | string | boolean | number>): void;
+
+    /**
+     * Obtains the {@code String} value of a specified key.
+     *
+     * @param key Indicates the key of the boolean value to be queried.
+     * @throws Throws this exception if any of the following errors occurs:{@code INVALID_ARGUMENT},
+     * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, {@code DB_ERROR}, and {@code KEY_NOT_FOUND}.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.distributedKVStore.SingleKVStore#get
+     */
     get(key: string): Promise<Uint8Array | string | boolean | number>;
 
     /**
@@ -1512,6 +1635,19 @@ declare namespace distributedData {
      * @useinstead ohos.data.distributedKVStore.SingleKVStore#getEntries
      */
     getEntries(keyPrefix: string, callback: AsyncCallback<Entry[]>): void;
+
+    /**
+     * Obtains all key-value pairs that match a specified key prefix.
+     *
+     * @param keyPrefix Indicates the key prefix to match.
+     * @returns Returns the list of all key-value pairs that match the specified key prefix.
+     * @throws Throws this exception if any of the following errors occurs:{@code INVALID_ARGUMENT},
+     * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and {@code DB_ERROR}.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.distributedKVStore.SingleKVStore#getEntries
+     */
     getEntries(keyPrefix: string): Promise<Entry[]>;
 
     /**
@@ -1527,6 +1663,19 @@ declare namespace distributedData {
      * @useinstead ohos.data.distributedKVStore.SingleKVStore#getEntries
      */
     getEntries(query: Query, callback: AsyncCallback<Entry[]>): void;
+
+    /**
+     * Obtains the list of key-value pairs matching the specified {@code Query} object.
+     *
+     * @param query Indicates the {@code Query} object.
+     * @returns Returns the list of key-value pairs matching the specified {@code Query} object.
+     * @throws Throws this exception if any of the following errors occurs: {@code INVALID_ARGUMENT},
+     * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and {@code DB_ERROR}.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.distributedKVStore.SingleKVStore#getEntries
+     */
     getEntries(query: Query): Promise<Entry[]>;
 
     /**
@@ -1545,6 +1694,22 @@ declare namespace distributedData {
      * @useinstead ohos.data.distributedKVStore.SingleKVStore#getResultSet
      */
     getResultSet(keyPrefix: string, callback: AsyncCallback<KvStoreResultSet>): void;
+
+    /**
+     * Obtains the result sets with a specified prefix from a {@code KvStore} database. The {@code KvStoreResultSet} object can be used to
+     * query all key-value pairs that meet the search criteria. Each {@code KvStore} instance can have a maximum of four
+     * {@code KvStoreResultSet} objects at the same time. If you have created four objects, calling this method will return a
+     * failure. Therefore, you are advised to call the closeResultSet method to close unnecessary {@code KvStoreResultSet} objects
+     * in a timely manner.
+     *
+     * @param keyPrefix Indicates the key prefix to match.
+     * @throws Throws this exception if any of the following errors occurs:{@code INVALID_ARGUMENT},
+     * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and {@code DB_ERROR}.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.distributedKVStore.SingleKVStore#getResultSet
+     */
     getResultSet(keyPrefix: string): Promise<KvStoreResultSet>;
 
     /**
@@ -1559,6 +1724,18 @@ declare namespace distributedData {
      * @useinstead ohos.data.distributedKVStore.SingleKVStore#getResultSet
      */
     getResultSet(query: Query, callback: AsyncCallback<KvStoreResultSet>): void;
+
+    /**
+     * Obtains the {@code KvStoreResultSet} object matching the specified {@code Query} object.
+     *
+     * @param query Indicates the {@code Query} object.
+     * @throws Throws this exception if any of the following errors occurs:{@code INVALID_ARGUMENT},
+     * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and {@code DB_ERROR}.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.distributedKVStore.SingleKVStore#getResultSet
+     */
     getResultSet(query: Query): Promise<KvStoreResultSet>;
 
     /**
@@ -1573,6 +1750,18 @@ declare namespace distributedData {
      * @useinstead ohos.data.distributedKVStore.SingleKVStore#closeResultSet
      */
     closeResultSet(resultSet: KvStoreResultSet, callback: AsyncCallback<void>): void;
+
+    /**
+     * Closes a {@code KvStoreResultSet} object returned by getResultSet.
+     *
+     * @param resultSet Indicates the {@code KvStoreResultSet} object to close.
+     * @throws Throws this exception if any of the following errors occurs:{@code INVALID_ARGUMENT},
+     * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and {@code DB_ERROR}.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.distributedKVStore.SingleKVStore#closeResultSet
+     */
     closeResultSet(resultSet: KvStoreResultSet): Promise<void>;
 
     /**
@@ -1588,6 +1777,19 @@ declare namespace distributedData {
      * @useinstead ohos.data.distributedKVStore.SingleKVStore#getResultSize
      */
     getResultSize(query: Query, callback: AsyncCallback<number>): void;
+
+    /**
+     * Obtains the number of results matching the specified {@code Query} object.
+     *
+     * @param query Indicates the {@code Query} object.
+     * @returns Returns the number of results matching the specified {@code Query} object.
+     * @throws Throws this exception if any of the following errors occurs:{@code INVALID_ARGUMENT},
+     * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and {@code DB_ERROR}.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.distributedKVStore.SingleKVStore#getResultSize
+     */
     getResultSize(query: Query): Promise<number>;
 
     /**
@@ -1599,6 +1801,15 @@ declare namespace distributedData {
      * @useinstead ohos.data.distributedKVStore.SingleKVStore#removeDeviceData
      */
     removeDeviceData(deviceId: string, callback: AsyncCallback<void>): void;
+
+    /**
+     * void removeDeviceData​({@link String} deviceId) throws {@link KvStoreException}
+     *
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.distributedKVStore.SingleKVStore#removeDeviceData
+     */
     removeDeviceData(deviceId: string): Promise<void>;
 
     /**
@@ -1696,6 +1907,18 @@ declare namespace distributedData {
      * @useinstead ohos.data.distributedKVStore.SingleKVStore#getSecurityLevel
      */
     getSecurityLevel(callback: AsyncCallback<SecurityLevel>): void;
+
+    /**
+     * Get the security level of the database.
+     *
+     * @returns SecurityLevel {@code SecurityLevel} the security level of the database.
+     * @throws Throws this exception if any of the following errors occurs:{@code SERVER_UNAVAILABLE},
+     * {@code IPC_ERROR}, and {@code DB_ERROR}.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.distributedKVStore.SingleKVStore#getSecurityLevel
+     */
     getSecurityLevel(): Promise<SecurityLevel>;
   }
 
@@ -1727,6 +1950,20 @@ declare namespace distributedData {
      * @useinstead ohos.data.distributedKVStore.DeviceKVStore#get
      */
     get(deviceId: string, key: string, callback: AsyncCallback<boolean | string | number | Uint8Array>): void;
+
+    /**
+     * Obtains the {@code String} value matching a specified device ID and key.
+     *
+     * @param deviceId Indicates the device to be queried.
+     * @param key Indicates the key of the value to be queried.
+     * @returns Returns the value matching the given criteria.
+     * @throws Throws this exception if any of the following errors occurs: {@code INVALID_ARGUMENT},
+     * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, {@code DB_ERROR}, and {@code KEY_NOT_FOUND}.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.distributedKVStore.DeviceKVStore#get
+     */
     get(deviceId: string, key: string): Promise<boolean | string | number | Uint8Array>;
 
     /**
@@ -1743,6 +1980,20 @@ declare namespace distributedData {
      * @useinstead ohos.data.distributedKVStore.DeviceKVStore#getEntries
      */
     getEntries(deviceId: string, keyPrefix: string, callback: AsyncCallback<Entry[]>): void;
+
+    /**
+     * Obtains all key-value pairs matching a specified device ID and key prefix.
+     *
+     * @param deviceId Identifies the device whose data is to be queried.
+     * @param keyPrefix Indicates the key prefix to match.
+     * @returns Returns the list of all key-value pairs meeting the given criteria.
+     * @throws Throws this exception if any of the following errors occurs: {@code INVALID_ARGUMENT},
+     * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, {@code DB_ERROR}.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.distributedKVStore.DeviceKVStore#getEntries
+     */
     getEntries(deviceId: string, keyPrefix: string): Promise<Entry[]>;
 
     /**
@@ -1758,6 +2009,19 @@ declare namespace distributedData {
      * @useinstead ohos.data.distributedKVStore.DeviceKVStore#getEntries
      */
     getEntries(query: Query, callback: AsyncCallback<Entry[]>): void;
+
+    /**
+     * Obtains the list of key-value pairs matching the specified {@code Query} object.
+     *
+     * @param query Indicates the {@code Query} object.
+     * @returns Returns the list of key-value pairs matching the specified {@code Query} object.
+     * @throws Throws this exception if any of the following errors occurs: {@code INVALID_ARGUMENT},
+     * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, {@code DB_ERROR}.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.distributedKVStore.DeviceKVStore#getEntries
+     */
     getEntries(query: Query): Promise<Entry[]>;
 
     /**
@@ -1772,6 +2036,18 @@ declare namespace distributedData {
      * @useinstead ohos.data.distributedKVStore.DeviceKVStore#getEntries
      */
     getEntries(deviceId: string, query: Query, callback: AsyncCallback<Entry[]>): void;
+
+    /**
+     * Obtains the list of key-value pairs matching a specified device ID and {@code Query} object.
+     *
+     * @param deviceId Indicates the ID of the device to which the key-value pairs belong.
+     * @param query Indicates the {@code Query} object.
+     * @returns Returns the list of key-value pairs matching the specified {@code Query} object.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.distributedKVStore.DeviceKVStore#getEntries
+     */
     getEntries(deviceId: string, query: Query): Promise<Entry[]>;
 
     /**
@@ -1793,6 +2069,25 @@ declare namespace distributedData {
      * @useinstead ohos.data.distributedKVStore.DeviceKVStore#getResultSet
      */
     getResultSet(deviceId: string, keyPrefix: string, callback: AsyncCallback<KvStoreResultSet>): void;
+
+    /**
+     * Obtains the {@code KvStoreResultSet} object matching the specified device ID and key prefix.
+     *
+     * <p>The {@code KvStoreResultSet} object can be used to query all key-value pairs that meet the search criteria. Each {@code KvStore}
+     * instance can have a maximum of four {@code KvStoreResultSet} objects at the same time. If you have created four objects,
+     * calling this method will return a failure. Therefore, you are advised to call the closeResultSet method to close unnecessary
+     * {@code KvStoreResultSet} objects in a timely manner.
+     *
+     * @param deviceId Identifies the device whose data is to be queried.
+     * @param keyPrefix Indicates the key prefix to match.
+     * @returns Returns the {@code KvStoreResultSet} objects.
+     * @throws Throws this exception if any of the following errors occurs: {@code INVALID_ARGUMENT},
+     * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, {@code DB_ERROR}.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.distributedKVStore.DeviceKVStore#getResultSet
+     */
     getResultSet(deviceId: string, keyPrefix: string): Promise<KvStoreResultSet>;
 
     /**
@@ -1808,6 +2103,19 @@ declare namespace distributedData {
      * @useinstead ohos.data.distributedKVStore.DeviceKVStore#getResultSet
      */
     getResultSet(query: Query, callback: AsyncCallback<KvStoreResultSet>): void;
+
+    /**
+     * Obtains the {@code KvStoreResultSet} object matching the specified {@code Query} object.
+     *
+     * @param query Indicates the {@code Query} object.
+     * @returns Returns the {@code KvStoreResultSet} object matching the specified {@code Query} object.
+     * @throws Throws this exception if any of the following errors occurs: {@code INVALID_ARGUMENT},
+     * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, {@code DB_ERROR}.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.distributedKVStore.DeviceKVStore#getResultSet
+     */
     getResultSet(query: Query): Promise<KvStoreResultSet>;
 
     /**
@@ -1822,6 +2130,18 @@ declare namespace distributedData {
      * @useinstead ohos.data.distributedKVStore.DeviceKVStore#getResultSet
      */
     getResultSet(deviceId: string, query: Query, callback: AsyncCallback<KvStoreResultSet>): void;
+
+    /**
+     * Obtains the {@code KvStoreResultSet} object matching a specified device ID and {@code Query} object.
+     *
+     * @param deviceId Indicates the ID of the device to which the {@code KvStoreResultSet} object belongs.
+     * @param query Indicates the {@code Query} object.
+     * @returns Returns the {@code KvStoreResultSet} object matching the specified {@code Query} object.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.distributedKVStore.DeviceKVStore#getResultSet
+     */
     getResultSet(deviceId: string, query: Query): Promise<KvStoreResultSet>;
 
     /**
@@ -1836,6 +2156,18 @@ declare namespace distributedData {
      * @useinstead ohos.data.distributedKVStore.DeviceKVStore#closeResultSet
      */
     closeResultSet(resultSet: KvStoreResultSet, callback: AsyncCallback<void>): void;
+
+    /**
+     * Closes a {@code KvStoreResultSet} object returned by getResultSet.
+     *
+     * @param resultSet Indicates the {@code KvStoreResultSet} object to close.
+     * @throws Throws this exception if any of the following errors occurs: {@code INVALID_ARGUMENT},
+     * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, {@code DB_ERROR}.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.distributedKVStore.DeviceKVStore#closeResultSet
+     */
     closeResultSet(resultSet: KvStoreResultSet): Promise<void>;
 
     /**
@@ -1851,6 +2183,19 @@ declare namespace distributedData {
      * @useinstead ohos.data.distributedKVStore.DeviceKVStore#getResultSize
      */
     getResultSize(query: Query, callback: AsyncCallback<number>): void;
+
+    /**
+     * Obtains the number of results matching the specified {@code Query} object.
+     *
+     * @param query Indicates the {@code Query} object.
+     * @returns Returns the number of results matching the specified {@code Query} object.
+     * @throws Throws this exception if any of the following errors occurs: {@code INVALID_ARGUMENT},
+     * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, {@code DB_ERROR}.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.distributedKVStore.DeviceKVStore#getResultSize
+     */
     getResultSize(query: Query): Promise<number>;
 
     /**
@@ -1865,6 +2210,18 @@ declare namespace distributedData {
      * @useinstead ohos.data.distributedKVStore.DeviceKVStore#getResultSize
      */
     getResultSize(deviceId: string, query: Query, callback: AsyncCallback<number>): void;
+
+    /**
+     * Obtains the number of results matching a specified device ID and {@code Query} object.
+     *
+     * @param deviceId Indicates the ID of the device to which the results belong.
+     * @param query Indicates the {@code Query} object.
+     * @returns Returns the number of results matching the specified {@code Query} object.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.distributedKVStore.DeviceKVStore#getResultSize
+     */
     getResultSize(deviceId: string, query: Query): Promise<number>;
 
     /**
@@ -1881,6 +2238,20 @@ declare namespace distributedData {
      * @useinstead ohos.data.distributedKVStore.DeviceKVStore#removeDeviceData
      */
     removeDeviceData(deviceId: string, callback: AsyncCallback<void>): void;
+
+    /**
+     * Removes data of a specified device from the current database. This method is used to remove only the data
+     * synchronized from remote devices. This operation does not synchronize data to other databases or affect
+     * subsequent data synchronization.
+     *
+     * @param deviceId Identifies the device whose data is to be removed. The value cannot be the current device ID.
+     * @throws Throws this exception if any of the following errors occurs: {@code INVALID_ARGUMENT},
+     * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, {@code DB_ERROR}.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.distributedKVStore.DeviceKVStore#removeDeviceData
+     */
     removeDeviceData(deviceId: string): Promise<void>;
 
     /**
@@ -1975,6 +2346,22 @@ declare namespace distributedData {
    * @useinstead ohos.data.distributedKVStore#createKVManager
    */
   function createKVManager(config: KVManagerConfig, callback: AsyncCallback<KVManager>): void;
+
+  /**
+   * Creates a {@link KVManager} instance based on the configuration information.
+   *
+   * <p>You must pass {@link KVManagerConfig} to provide configuration information
+   * for creating the {@link KVManager} instance.
+   *
+   * @param config Indicates the {@link KVStore} configuration information,
+   * including the user information and package name.
+   * @returns Returns the {@code KVManager} instance.
+   * @throws Throws exception if input is invalid.
+   * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.data.distributedKVStore#createKVManager
+   */
   function createKVManager(config: KVManagerConfig): Promise<KVManager>;
 
   /**
@@ -2002,6 +2389,21 @@ declare namespace distributedData {
      * @useinstead ohos.data.distributedKVStore.KVManager#getKVStore
      */
     getKVStore<T extends KVStore>(storeId: string, options: Options): Promise<T>;
+
+    /**
+     * Creates and obtains a {@code KVStore} database by specifying {@code Options} and {@code storeId}.
+     *
+     * @param options Indicates the options used for creating and obtaining the {@code KVStore} database,
+     * including {@code isCreateIfMissing}, {@code isEncrypt}, and {@code KVStoreType}.
+     * @param storeId Identifies the {@code KVStore} database.
+     * The value of this parameter must be unique for the same application,
+     * and different applications can share the same value.
+     * @returns Returns a {@code KVStore}, or {@code SingleKVStore}.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.distributedKVStore.KVManager#getKVStore
+     */
     getKVStore<T extends KVStore>(storeId: string, options: Options, callback: AsyncCallback<T>): void;
 
     /**
@@ -2026,6 +2428,28 @@ declare namespace distributedData {
      * @useinstead ohos.data.distributedKVStore.KVManager#closeKVStore
      */
     closeKVStore(appId: string, storeId: string, kvStore: KVStore, callback: AsyncCallback<void>): void;
+
+    /**
+     * Closes the {@code KvStore} database.
+     *
+     * <p>Warning: This method is not thread-safe. If you call this method to stop a KvStore database that is running, your
+     * thread may crash.
+     *
+     * <p>The {@code KvStore} database to close must be an object created by using the {@code getKvStore} method. Before using this
+     * method, release the resources created for the database, for example, {@code KvStoreResultSet} for {@code SingleKvStore},
+     * otherwise closing the database will fail. If you are attempting to close a database that is already closed, an error
+     * will be returned.
+     *
+     * @param kvStore Indicates the {@code KvStore} database to close.
+     * @throws Throws this exception if any of the following errors
+     * occurs:{@code INVALID_ARGUMENT}, {@code SERVER_UNAVAILABLE},
+     * {@code STORE_NOT_OPEN}, {@code STORE_NOT_FOUND}, {@code DB_ERROR},
+     * {@code PERMISSION_DENIED}, and {@code IPC_ERROR}.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.distributedKVStore.KVManager#closeKVStore
+     */
     closeKVStore(appId: string, storeId: string, kvStore: KVStore): Promise<void>;
 
     /**
@@ -2047,6 +2471,25 @@ declare namespace distributedData {
      * @useinstead ohos.data.distributedKVStore.KVManager#deleteKVStore
      */
     deleteKVStore(appId: string, storeId: string, callback: AsyncCallback<void>): void;
+
+    /**
+     * Deletes the {@code KvStore} database identified by storeId.
+     *
+     * <p>Before using this method, close all {@code KvStore} instances in use that are identified by the same storeId.
+     *
+     * <p>You can use this method to delete a {@code KvStore} database not in use. After the database is deleted, all its data will be
+     * lost.
+     *
+     * @param storeId Identifies the {@code KvStore} database to delete.
+     * @throws Throws this exception if any of the following errors
+     * occurs: {@code INVALID_ARGUMENT},
+     * {@code SERVER_UNAVAILABLE}, {@code STORE_NOT_FOUND},
+     * {@code DB_ERROR}, {@code PERMISSION_DENIED}, and {@code IPC_ERROR}.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.distributedKVStore.KVManager#deleteKVStore
+     */
     deleteKVStore(appId: string, storeId: string): Promise<void>;
 
     /**
@@ -2063,6 +2506,20 @@ declare namespace distributedData {
      * @useinstead ohos.data.distributedKVStore.KVManager#getAllKVStoreId
      */
     getAllKVStoreId(appId: string, callback: AsyncCallback<string[]>): void;
+
+    /**
+     * Obtains the storeId of all {@code KvStore} databases that are created by using the {@code getKvStore} method and not deleted by
+     * calling the {@code deleteKvStore} method.
+     *
+     * @returns Returns the storeId of all created {@code KvStore} databases.
+     * @throws Throws this exception if any of the following errors
+     * occurs: {@code SERVER_UNAVAILABLE}, {@code DB_ERROR},
+     * {@code PERMISSION_DENIED}, and {@code IPC_ERROR}.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.distributedKVStore.KVManager#getAllKVStoreId
+     */
     getAllKVStoreId(appId: string): Promise<string[]>;
 
     /**
@@ -2091,4 +2548,10 @@ declare namespace distributedData {
   }
 }
 
+/**
+ * Providers interfaces to creat a {@link KVManager} instance.
+ * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+ * @since 7
+ * @deprecated since 9
+ */
 export default distributedData;
