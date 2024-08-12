@@ -1057,8 +1057,7 @@ declare namespace media {
      * This option is used to fetch a frame (maybe not keyframe) from
      * the given media resource that is located closest to or at the given time.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     AV_IMAGE_QUERY_CLOSEST,
   }
@@ -1146,6 +1145,15 @@ declare namespace media {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Enumerates ErrorCode types, return in BusinessError::code.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   enum AVErrorCode {
     /**
      * Operation success.
@@ -1157,6 +1165,13 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Operation success.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     AVERR_OK = 0,
 
@@ -1171,6 +1186,13 @@ declare namespace media {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Permission denied.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     AVERR_NO_PERMISSION = 201,
 
     /**
@@ -1183,6 +1205,13 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Invalid parameter.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     AVERR_INVALID_PARAMETER = 401,
 
@@ -1197,6 +1226,13 @@ declare namespace media {
      * @atomicservice
      * @since 11
      */
+    /**
+     * The api is not supported in the current version.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     AVERR_UNSUPPORT_CAPABILITY = 801,
 
     /**
@@ -1209,6 +1245,13 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * The system memory is insufficient or the number of services reaches the upper limit.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     AVERR_NO_MEMORY = 5400101,
 
@@ -1223,6 +1266,13 @@ declare namespace media {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Current status does not allow or do not have permission to perform this operation.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     AVERR_OPERATE_NOT_PERMIT = 5400102,
 
     /**
@@ -1235,6 +1285,13 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Data flow exception information.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     AVERR_IO = 5400103,
 
@@ -1249,6 +1306,13 @@ declare namespace media {
      * @atomicservice
      * @since 11
      */
+    /**
+     * System or network response timeout.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     AVERR_TIMEOUT = 5400104,
 
     /**
@@ -1261,6 +1325,13 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Service process died.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     AVERR_SERVICE_DIED = 5400105,
 
@@ -1275,6 +1346,13 @@ declare namespace media {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Unsupported media format.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     AVERR_UNSUPPORT_FORMAT = 5400106,
 
     /**
@@ -1282,6 +1360,13 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Audio interrupted.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     AVERR_AUDIO_INTERRUPTED = 5400107,
   }
@@ -1310,6 +1395,17 @@ declare namespace media {
    * @since 12
    */
   type AVPlayerState = 'idle' | 'initialized' | 'prepared' | 'playing' | 'paused' | 'completed' | 'stopped' | 'released' | 'error';
+
+  /**
+   * Define the TrackChange Event callback.
+   * @typedef { function } OnTrackChangeHandler
+   * @param { number } index - index number for change Track.
+   * @param { boolean } isSelected - Target index number for moving elements.
+   * @syscap SystemCapability.Multimedia.Media.AVPlayer
+   * @atomicservice
+   * @since 12
+   */  
+  type OnTrackChangeHandler = (index: number, isSelected: boolean) => void;
 
   /**
    * Defines the OnStateChange callback.
@@ -1868,6 +1964,39 @@ declare namespace media {
      * @since 12
      */
     addSubtitleFromUrl(url: string): Promise<void>;
+
+    /**
+     * Get statistic infos of current player.
+     * @returns { Promise<PlaybackInfo> } Statistic infos of current player.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 12
+     */
+    getPlaybackInfo(): Promise<PlaybackInfo>;
+
+    /**
+     * Set playback strategy to AVPlayer.
+     * @param { PlaybackStrategy } strategy : specified strategy of the AVPlayer.
+     * @returns { Promise<void> }  A Promise instance used to return when setPlaybackStrategy completed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter verification failed.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 12
+     */
+    setPlaybackStrategy(strategy: PlaybackStrategy): Promise<void>;
+
+    /**
+     * Mute specified media stream.
+     * @param { MediaType } mediaType - specified media Type, see @MediaType..
+     * @param { boolean } muted - true for mute, false for unmute.
+     * @returns { Promise<void> } A Promise instance used to return when setMediaMuted completed.
+     * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 12
+     */
+    setMediaMuted(mediaType: MediaType,  muted: boolean ): Promise<void>;
 
     /**
      * Media URI. Mainstream media formats are supported.
@@ -2826,6 +2955,106 @@ declare namespace media {
      * @since 12
      */
     off(type: 'subtitleUpdate', callback?: Callback<SubtitleInfo>): void
+  
+    /**
+     * Subscribes listener for track change event.
+     * @param { 'trackChange' } type - Type of the event to listen for.
+     * @param { OnTrackChangeHandler } callback - Callback used to listen track change event.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 12
+     */
+    on(type: 'trackChange', callback: OnTrackChangeHandler): void
+
+    /**
+     * Unsubscribes listener for track change event.
+     * @param { 'trackChange' } type - Type of the event to listen for.
+     * @param { OnTrackChangeHandler } callback - Callback used to listen track change event.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 12
+     */
+    off(type: 'trackChange', callback?: OnTrackChangeHandler): void
+
+    /**
+     * Subscribes listener for trackinfo update event.
+     * @param { 'trackInfoUpdate' } type - Type of the event to listen for.
+     * @param { Callback<Array<MediaDescription>> } callback - Callback used to listen trackinfo update event.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 12
+     */
+    on(type: 'trackInfoUpdate', callback: Callback<Array<MediaDescription>>): void
+
+    /**
+     * Unsubscribes listener for trackinfo update event.
+     * @param { 'trackInfoUpdate' } type - Type of the event to listen for.
+     * @param { Callback<Array<MediaDescription>> } callback - Callback used to listen trackinfo update event.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 12
+     */
+    off(type: 'trackInfoUpdate', callback?: Callback<Array<MediaDescription>>): void
+  }
+
+  /**
+   * Provides player statistic info.
+   * 
+   * @typedef PlaybackInfo
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @since 12
+   */
+  interface PlaybackInfo {
+    /**
+     * key:value pair, key see @PlaybackInfoKey.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
+    [key:string]: Object;
+  }
+
+  /**
+   * Enumerates statistics info keys for player.
+   * 
+   * @enum { string }
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @since 12
+   */
+  enum PlaybackInfoKey {
+    /**
+     * IP address of current network stream.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
+    SERVER_IP_ADDRESS = 'server_ip_address',
+
+    /**
+     * Average download rate during playing except for suspend downloading.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
+    AVG_DOWNLOAD_RATE = 'average_download_rate',
+
+    /**
+     * Current download rate of the last second except for suspend downloading.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
+    DOWNLOAD_RATE = 'download_rate',
+
+    /**
+     * Boolean value, true for current is downloading, false for suspend downloading.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
+    IS_DOWNLOADING = 'is_downloading',
+
+    /**
+     * Cached duration in milliseconds.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
+    BUFFER_DURATION = 'buffer_duration',
   }
 
   /**
@@ -3081,6 +3310,31 @@ declare namespace media {
      */
     preferredHdr?: boolean;
 
+    /**
+     * mute the specified media stream when playing.
+     * @type { ?MediaType }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
+    mutedMediaType?: MediaType;
+
+    /**
+     * Audio language.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 12
+     */
+    preferredAudioLanguage?: string;
+
+    /**
+     * Subtitle language.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 12
+     */
+    preferredSubtitleLanguage?: string;
   }
 
   /**
@@ -3694,6 +3948,22 @@ declare namespace media {
      * @since 9
      */
     getInputSurface(): Promise<string>;
+
+    /**
+     * Get input meta surface for specified meta source type. it must be called between prepare completed and start.
+     * @param { MetaSourceType } type - Meta source type.
+     * @returns { Promise<string> } A Promise instance used to return the input surface id in string.
+     * @throws { BusinessError } 202 - Called from Non-System applications. Return by promise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @systemapi
+     * @since 12
+     */
+    getInputMetaSurface(type: MetaSourceType): Promise<string>;
 
     /**
      * Check if the avrecorder has watermark capability.
@@ -5444,6 +5714,15 @@ declare namespace media {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Enumerates media data type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   enum MediaType {
     /**
      * track is audio.
@@ -5456,6 +5735,13 @@ declare namespace media {
      * @atomicservice
      * @since 11
      */
+    /**
+     * track is audio.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     MEDIA_TYPE_AUD = 0,
     /**
      * track is video.
@@ -5467,6 +5753,13 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * track is video.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     MEDIA_TYPE_VID = 1,
     /**
@@ -5493,6 +5786,15 @@ declare namespace media {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Enumerates media description key.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   enum MediaDescriptionKey {
     /**
      * key for track index, value type is number.
@@ -5504,6 +5806,13 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * key for track index, value type is number.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     MD_KEY_TRACK_INDEX = 'track_index',
 
@@ -5518,6 +5827,13 @@ declare namespace media {
      * @atomicservice
      * @since 11
      */
+    /**
+     * key for track type, value type is number, see @MediaType.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     MD_KEY_TRACK_TYPE = 'track_type',
 
     /**
@@ -5530,6 +5846,13 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * key for codec mime type, value type is string.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     MD_KEY_CODEC_MIME = 'codec_mime',
 
@@ -5544,6 +5867,13 @@ declare namespace media {
      * @atomicservice
      * @since 11
      */
+    /**
+     * key for duration, value type is number.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     MD_KEY_DURATION = 'duration',
 
     /**
@@ -5556,6 +5886,13 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * key for bitrate, value type is number.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     MD_KEY_BITRATE = 'bitrate',
 
@@ -5570,6 +5907,13 @@ declare namespace media {
      * @atomicservice
      * @since 11
      */
+    /**
+     * key for video width, value type is number.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     MD_KEY_WIDTH = 'width',
 
     /**
@@ -5582,6 +5926,13 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * key for video height, value type is number.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     MD_KEY_HEIGHT = 'height',
 
@@ -5596,6 +5947,13 @@ declare namespace media {
      * @atomicservice
      * @since 11
      */
+    /**
+     * key for video frame rate, value type is number.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     MD_KEY_FRAME_RATE = 'frame_rate',
 
     /**
@@ -5609,6 +5967,13 @@ declare namespace media {
      * @atomicservice
      * @since 11
      */
+    /**
+     * key for audio channel count, value type is number
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     MD_KEY_AUD_CHANNEL_COUNT = 'channel_count',
 
     /**
@@ -5621,6 +5986,13 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * key for audio sample rate, value type is number
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     MD_KEY_AUD_SAMPLE_RATE = 'sample_rate',
 
@@ -5639,6 +6011,22 @@ declare namespace media {
      * @since 12
      */
     MD_KEY_LANGUAGE = 'language',
+
+    /**
+     * Key for track name, value is string.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 12
+     */
+    MD_KEY_TRACK_NAME = 'track_name',
+
+    /**
+     * Key for video hdr type, value type is number.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 12
+     */
+    MD_KEY_HDR_TYPE = 'hdr_type',
   }
 
   /**
@@ -5825,6 +6213,24 @@ declare namespace media {
      * @since 12
      */
     VIDEO_SOURCE_TYPE_SURFACE_ES = 1,
+  }
+
+  /**
+   * Enumerates meta source type for recorder.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Media.AVRecorder
+   * @systemapi
+   * @since 12
+   */
+  enum MetaSourceType {
+    /**
+     * Maker info for video.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @systemapi
+     * @since 12
+     */
+    VIDEO_MAKER_INFO = 0,
   }
 
   /**
@@ -6218,6 +6624,14 @@ declare namespace media {
      * @since 12
      */
     videoSourceType?: VideoSourceType;
+    /**
+     * Meta source types, details see @MetaSourceType .
+     * @type { ?Array<MetaSourceType> }
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @systemapi
+     * @since 12
+     */
+    metaSourceTypes?: Array<MetaSourceType>;
     /**
      * Video recorder profile, details see @AVRecorderProfile .
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
@@ -6875,11 +7289,11 @@ declare namespace media {
 
     /**
      * Indicates the video bitrate.
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12
      */
-    videoBitrate: number;
+    videoBitrate?: number;
 
     /**
      * Indicates the video encoding foramt.

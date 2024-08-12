@@ -104,6 +104,8 @@ import PhotoEditorExtensionAbility from '@ohos.app.ability.PhotoEditorExtensionA
 import UIServiceExtensionAbility from '@ohos.app.ability.UIServiceExtensionAbility';
 import shortcutManager from '@ohos.bundle.shortcutManager';
 import application from '@ohos.app.ability.application';
+import appDomainVerify from '@ohos.bundle.appDomainVerify';
+
 export {
   Ability, AbilityConstant, AbilityLifecycleCallback, AbilityStage, ActionExtensionAbility,
   ApplicationStateChangeCallback, AutoFillExtensionAbility, BundleStatusCallback, Callee,
@@ -120,5 +122,5 @@ export {
   overlay, particleAbility, quickFixManager, uriPermissionManager, wantAgent, wantConstant, privacyManager,
   EmbeddedUIExtensionAbility, StartupConfig, StartupConfigEntry, StartupListener, StartupTask, startupManager,
   screenLockFileManager, AtomicServiceOptions, EmbeddableUIAbility, ChildProcessArgs, ChildProcessOptions,
-  sendableContextManager, PhotoEditorExtensionAbility, UIServiceExtensionAbility, shortcutManager, application
+  sendableContextManager, PhotoEditorExtensionAbility, UIServiceExtensionAbility, shortcutManager, application, appDomainVerify
 };

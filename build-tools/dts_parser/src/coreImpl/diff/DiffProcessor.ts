@@ -39,13 +39,14 @@ import {
   diffMap,
   incompatibleApiDiffTypes,
   JsDocDiffProcessor,
-  parentApiTypeSet
+  parentApiTypeSet,
 } from '../../typedef/diff/ApiInfoDiff';
 import { StringUtils } from '../../utils/StringUtils';
 import { CharMapType, CompareReturnObjType, PermissionsProcessorHelper, RangeChange } from './PermissionsProcessor';
 import { DecoratorInfo } from '../../typedef/parser/Decorator';
 import { CommonFunctions } from '../../utils/checkUtils';
 import { NumberConstant } from '../../utils/Constant';
+import ts from 'typescript';
 
 export namespace DiffProcessorHelper {
   /**
@@ -1080,7 +1081,10 @@ export namespace DiffProcessorHelper {
         )!;
         const newParamTypes: string[] = curNewParam.getType();
         // 处理参数类型不一样的,生成返回信息
-        if (oldParamTypes.toString().replace(/\r|\n|\s+|'|"/g, '') !== newParamTypes.toString().replace(/\r|\n|\s+|'|"/g, '')) {
+        if (
+          oldParamTypes.toString().replace(/\r|\n|\s+|'|"|,|;/g, '') !==
+          newParamTypes.toString().replace(/\r|\n|\s+|'|"|,|;/g, '')
+        ) {
           // 根据参数的差异来获取对应的statusCode
           const diffType: number = diffChangeType(oldParamTypes, newParamTypes, diffMethodType);
           const oldMessage: string = curSame.getDefinedText();
@@ -1258,25 +1262,38 @@ export namespace DiffProcessorHelper {
      */
     static diffPropertyType(oldApiInfo: PropertyInfo, newApiInfo: PropertyInfo): DiffTypeInfo | undefined {
       const diffTypeInfo: DiffTypeInfo = new DiffTypeInfo();
-      const olaPropertyType: string[] = oldApiInfo.getType();
+      const oldPropertyType: string[] = oldApiInfo.getType();
       const newPropertyType: string[] = newApiInfo.getType();
       const oldPropertyIsReadOnly: boolean = oldApiInfo.getIsReadOnly();
       const newPropertyIsReadOnly: boolean = newApiInfo.getIsReadOnly();
-      const olaPropertyTypeStr = olaPropertyType.toString().replace(/\r|\n|\s+/g, '');
-      const newPropertyTypeStr = newPropertyType.toString().replace(/\r|\n|\s+/g, '');
-      if (olaPropertyTypeStr === newPropertyTypeStr) {
+      const oldPropertyTypeStr = oldPropertyType.toString().replace(/\r|\n|\s+|\>|\}/g, '');
+      const newPropertyTypeStr = newPropertyType.toString().replace(/\r|\n|\s+|\>|\}/g, '');
+      const isUnionType: boolean = newApiInfo.getTypeKind() === ts.SyntaxKind.UnionType ? true : false;
+      if (oldPropertyTypeStr === newPropertyTypeStr) {
         return undefined;
       }
-      diffTypeInfo.setOldMessage(olaPropertyType.toString()).setNewMessage(newPropertyType.toString());
-      if (olaPropertyTypeStr.replace(/\,|\;/g, '') === newPropertyTypeStr.replace(/\,|\;/g, '')) {
+      diffTypeInfo.setOldMessage(oldPropertyType.toString()).setNewMessage(newPropertyType.toString());
+      if (oldPropertyTypeStr.replace(/\,|\;/g, '') === newPropertyTypeStr.replace(/\,|\;/g, '')) {
         return diffTypeInfo.setDiffType(ApiDiffType.PROPERTY_TYPE_SIGN_CHANGE);
       }
-      if (StringUtils.hasSubstring(newPropertyTypeStr, olaPropertyTypeStr)) {
+
+      if (isUnionType && checkParentContainChild(oldPropertyType, newPropertyType)) {
+        return diffTypeInfo.setDiffType(
+          oldPropertyIsReadOnly ? ApiDiffType.PROPERTY_READONLY_REDUCE : ApiDiffType.PROPERTY_WRITABLE_REDUCE
+        );
+      }
+
+      if (isUnionType && checkParentContainChild(newPropertyType, oldPropertyType)) {
         return diffTypeInfo.setDiffType(
           newPropertyIsReadOnly ? ApiDiffType.PROPERTY_READONLY_ADD : ApiDiffType.PROPERTY_WRITABLE_ADD
         );
       }
-      if (StringUtils.hasSubstring(olaPropertyTypeStr, newPropertyTypeStr)) {
+      if (!isUnionType && StringUtils.hasSubstring(newPropertyTypeStr, oldPropertyTypeStr)) {
+        return diffTypeInfo.setDiffType(
+          newPropertyIsReadOnly ? ApiDiffType.PROPERTY_READONLY_ADD : ApiDiffType.PROPERTY_WRITABLE_ADD
+        );
+      }
+      if (!isUnionType && StringUtils.hasSubstring(oldPropertyTypeStr, newPropertyTypeStr)) {
         return diffTypeInfo.setDiffType(
           oldPropertyIsReadOnly ? ApiDiffType.PROPERTY_READONLY_REDUCE : ApiDiffType.PROPERTY_WRITABLE_REDUCE
         );
@@ -1652,10 +1669,11 @@ export namespace DiffProcessorHelper {
   ): BasicDiffInfo {
     const newPropertyInfo = newApiInfo as PropertyInfo;
     const newMethodInfo = newApiInfo as MethodInfo;
-    const parentApiType: string = (newApiInfo && newApiInfo.getParentApiType()) ? newApiInfo.getParentApiType() : '';
+    const parentApiType: string = newApiInfo && newApiInfo.getParentApiType() ? newApiInfo.getParentApiType() : '';
     let isCompatible = true;
     if (
-      !isNewFile && parentApiTypeSet.has(parentApiType) &&
+      !isNewFile &&
+      parentApiTypeSet.has(parentApiType) &&
       diffTypeInfo.getDiffType() === ApiDiffType.ADD &&
       ((newApiInfo?.getApiType() === ApiType.METHOD && newMethodInfo.getIsRequired()) ||
         (newApiInfo?.getApiType() === ApiType.PROPERTY && newPropertyInfo.getIsRequired()))

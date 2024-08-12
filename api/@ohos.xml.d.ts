@@ -1051,12 +1051,14 @@ declare namespace xml {
     /**
      * Whether to parsing Doctype of the elements.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * Whether to parsing Doctype of the elements.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -1064,6 +1066,7 @@ declare namespace xml {
     /**
      * Whether to parsing Doctype of the elements.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -1074,12 +1077,14 @@ declare namespace xml {
     /**
      * Whether to ignore parsing texts of the elements.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * Whether to ignore parsing texts of the elements.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -1087,6 +1092,7 @@ declare namespace xml {
     /**
      * Whether to ignore parsing texts of the elements.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -1097,12 +1103,14 @@ declare namespace xml {
     /**
      * Tag value callback function.
      *
+     * @type { ?function }
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * Tag value callback function.
      *
+     * @type { ?function }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -1110,6 +1118,7 @@ declare namespace xml {
     /**
      * Tag value callback function.
      *
+     * @type { ?function }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -1120,12 +1129,14 @@ declare namespace xml {
     /**
      * Attribute value callback function.
      *
+     * @type { ?function }
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * Attribute value callback function.
      *
+     * @type { ?function }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -1133,6 +1144,7 @@ declare namespace xml {
     /**
      * Attribute value callback function.
      *
+     * @type { ?function }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -1143,12 +1155,14 @@ declare namespace xml {
     /**
      * Token value callback function.
      *
+     * @type { ?function }
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * Token value callback function.
      *
+     * @type { ?function }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -1156,6 +1170,7 @@ declare namespace xml {
     /**
      * Token value callback function.
      *
+     * @type { ?function }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice

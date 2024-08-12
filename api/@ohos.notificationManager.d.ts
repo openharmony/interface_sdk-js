@@ -2754,6 +2754,20 @@ declare namespace notificationManager {
   function setAdditionalConfig(key: string, value: string): Promise<number>;
 
   /**
+   * Request open the notification settings pop-up window.
+   *
+   * @param { UIAbilityContext } context - The context indicates the ability context you want to bind;
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600018 - the notification settings window is already displayed.
+   * @syscap SystemCapability.Notification.NotificationSettings
+   * @stagemodelonly
+   * @since 12
+   */
+  function openNotificationSettings(context: UIAbilityContext): Promise<void>;
+
+  /**
    * Describes a button option for a triggering.
    *
    * @typedef ButtonOptions

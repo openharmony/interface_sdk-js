@@ -266,7 +266,7 @@ declare namespace pasteboard {
    * @param { string } mimeType - indicates MIME type of value, its size cannot be greater than 1024 bytes.
    * @param { ValueType } value - content to be saved.
    * @returns { PasteDataRecord } a new PasteDataRecord object which contains mimeType and value.
-   * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
    *    2. Incorrect parameters types;
    *    3. Parameter verification failed.
    * @syscap SystemCapability.MiscServices.Pasteboard
@@ -677,7 +677,7 @@ declare namespace pasteboard {
      * @param { string } mimeType - indicates the MIME type of value, its size cannot be greater than 1024 bytes.
      * @param { ValueType } value - content to be saved.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types; 
+     *    2. Incorrect parameters types;
      *    3. Parameter verification failed.
      * @throws { BusinessError } 12900002 - The number of records exceeds the upper limit.
      * @syscap SystemCapability.MiscServices.Pasteboard
@@ -1013,6 +1013,20 @@ declare namespace pasteboard {
      * @since 11
      */
     replaceRecord(index: number, record: PasteDataRecord): void;
+
+    /**
+     * Utilized to notify pasteboard service while reading PasteData, in this case, the service will help to preserve the context and resources
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 12
+     */
+    pasteStart(): void;
+
+    /**
+     * Invoked to notify pasteboard service the utilization of PasteData has completed and occupied resources can be released for further usage
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 12
+     */
+    pasteComplete(): void;
   }
 
   /**
@@ -1476,7 +1490,7 @@ declare namespace pasteboard {
 
     /**
      * Removes the unified ShareOptions of your application.
-     * 
+     *
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @systemapi

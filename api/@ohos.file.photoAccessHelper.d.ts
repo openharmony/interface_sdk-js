@@ -159,6 +159,14 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     MOVING_PHOTO = 3,
+    /**
+     * Burst Photo Type
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    BURST = 4,
   }
 
   /**
@@ -505,6 +513,42 @@ declare namespace photoAccessHelper {
   }
 
   /**
+   * Enum: complete button text
+   *
+   * @enum { number } CompleteButtonText
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 12
+   */
+  enum CompleteButtonText {
+    /**
+     * Complete button text: done
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    TEXT_DONE = 0,
+    /**
+     * Complete button text: send
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    TEXT_SEND = 1,
+
+    /**
+     * Complete button text: add
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    TEXT_ADD = 2,
+  }
+
+  /**
    * Options to request media asset
    *
    * @interface RequestOptions
@@ -742,6 +786,15 @@ declare namespace photoAccessHelper {
      * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
+     */
+    /**
+     * uri of the asset.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
      */
     readonly uri: string;
     /**
@@ -1619,7 +1672,14 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12
      */
-    COVER_POSITION = 'cover_position'
+    COVER_POSITION = 'cover_position',
+    /**
+     * Unique uuid of the burst photos, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    BURST_KEY = 'burst_key'
   }
 
   /**
@@ -2617,6 +2677,21 @@ declare namespace photoAccessHelper {
      * @since 10
      */
     getAssets(options: FetchOptions): Promise<FetchResult<PhotoAsset>>;
+    /**
+     * Fetch a group of burst assets
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { string } burstKey - Burst asset uuid
+     * @param { FetchOptions } options - Retrieval options.
+     * @returns { Promise<FetchResult<PhotoAsset>> } Returns the fetch result.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    getBurstAssets(burstKey: string, options: FetchOptions): Promise<FetchResult<PhotoAsset>>;
     /**
      * Create a photo asset
      *
@@ -3709,6 +3784,16 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     themeColor?: CustomColors;
+
+    /**
+     * Complete button text
+     *
+     * @type { ?CompleteButtonText }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    completeButtonText?: CompleteButtonText;
   }
 
   /**
@@ -4072,6 +4157,17 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 11
      */
+    /**
+     * The constructor to create a MediaAssetChangeRequest instance.
+     *
+     * @param { PhotoAsset } asset - Specify which asset to change
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
     constructor(asset: PhotoAsset);
 
     /**
@@ -4087,6 +4183,21 @@ declare namespace photoAccessHelper {
      * @static
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 11
+     */
+    /**
+     * Create image asset change request.
+     *
+     * @param { Context } context - Hap context information
+     * @param { string } fileUri - File uri
+     * @returns { MediaAssetChangeRequest } - Returns a MediaAssetChangeRequest instance
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 13900002 - No such file
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
      */
     static createImageAssetRequest(context: Context, fileUri: string): MediaAssetChangeRequest;
 
@@ -4188,6 +4299,17 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 11
      */
+    /**
+     * Get the asset.
+     *
+     * @returns { PhotoAsset } - Returns the asset
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
     getAsset(): PhotoAsset;
 
     /**
@@ -4256,6 +4378,17 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 11
+     */
+    /**
+     * Set title of the asset.
+     *
+     * @param { string } title - the new title of the asset
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
      */
     setTitle(title: string): void;
 

@@ -260,7 +260,6 @@ declare namespace avSession {
   /**
    * Session token. Used to judge the legitimacy of the session.
    * @typedef SessionToken
-   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
    * @since 9
@@ -1200,8 +1199,8 @@ declare namespace avSession {
      * Get the cast controller when the session is casted to remote device.
      * If the avsession is not under casting state, the controller will return null.
      * @param { AsyncCallback<AVCastController> } callback - async callback for the AVCastController.
-     * @throws {BusinessError} 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @throws {BusinessError} 6600110 - 6600109 - remote connection does not exist
+     * @throws {BusinessError} 6600102 - The session does not exist
+     * @throws {BusinessError} 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
@@ -1211,8 +1210,8 @@ declare namespace avSession {
      * Get the cast controller when the session is casted to remote device.
      * If the avsession is not under casting state, the controller will return null.
      * @returns { Promise<AVCastController> } Promise for the AVCastController
-     * @throws {BusinessError} 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} session does not exist
-     * @throws {BusinessError} 6600110 - 6600109 - remote connection does not exist
+     * @throws {BusinessError} 6600102 - The session does not exist
+     * @throws {BusinessError} 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
@@ -1220,8 +1219,8 @@ declare namespace avSession {
      * Get the cast controller when the session is casted to remote device.
      * If the avsession is not under casting state, the controller will return null.
      * @returns { Promise<AVCastController> } Promise for the AVCastController
-     * @throws {BusinessError} 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} session does not exist
-     * @throws {BusinessError} 6600110 - 6600109 - remote connection does not exist
+     * @throws {BusinessError} 6600102 - The session does not exist
+     * @throws {BusinessError} 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 12
@@ -3292,6 +3291,7 @@ declare namespace avSession {
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
+   * @atomicservice
    * @since 12
    */
   enum CastDisplayState {
@@ -3299,6 +3299,7 @@ declare namespace avSession {
      * Screen off.
      *
      * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
+     * @atomicservice
      * @since 12
      */
     STATE_OFF = 1,
@@ -3307,6 +3308,7 @@ declare namespace avSession {
      * Screen on.
      *
      * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
+     * @atomicservice
      * @since 12
      */
     STATE_ON = 2,

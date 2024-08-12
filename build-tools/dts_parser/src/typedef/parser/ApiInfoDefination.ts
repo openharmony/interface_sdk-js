@@ -319,7 +319,7 @@ export class ApiInfo extends BasicApiInfo {
 
   constructor(apiType: string = '', node: ts.Node, parentApi: BasicApiInfo | undefined) {
     super(apiType, node, parentApi);
-    let parentKitInfo: string = '';
+    let parentKitInfo: string = 'NA';
     let parentIsFile: boolean = false;
     if (parentApi) {
       parentKitInfo = this.getKitInfoFromParent(parentApi).kitInfo;
@@ -342,7 +342,7 @@ export class ApiInfo extends BasicApiInfo {
   getKitInfoFromParent(parentApi: BasicApiInfo): FileTag {
     const parentApiInfo = parentApi as ApiInfo;
     const jsDocInfos: Comment.JsDocInfo[] = parentApiInfo.getJsDocInfos();
-    let kitInfo: string = '';
+    let kitInfo: string | undefined = '';
     let isFile: boolean = false;
     jsDocInfos.forEach((jsDocInfo: Comment.JsDocInfo) => {
       kitInfo = jsDocInfo.getKit();
@@ -1014,6 +1014,7 @@ export interface NodeProcessorInterface {
 }
 
 export type PropertyNode = ts.PropertyDeclaration | ts.PropertySignature;
+export type PropertyTypeNode = ts.TypeNode | ts.Expression | undefined;
 
 export interface ModifierProcessorInterface {
   (propertyInfo: BasicApiInfo): void;

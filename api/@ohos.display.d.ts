@@ -164,6 +164,7 @@ declare namespace display {
    * @returns { Promise<Array<DisplayPhysicalResolution>> } the result of all display physical resolution
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @atomicservice
    * @since 12
    */
   function getAllDisplayPhysicalResolution(): Promise<Array<DisplayPhysicalResolution>>;
@@ -197,8 +198,8 @@ declare namespace display {
    *
    * @param { 'add' | 'remove' | 'change' } type the event of display change
    * @param { Callback<number> } callback the display id of changed
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
    * @since 12
@@ -220,8 +221,8 @@ declare namespace display {
    *
    * @param { 'add' | 'remove' | 'change' } type the event of display change event
    * @param { Callback<number> } callback the display id of changed
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
    * @since 12
@@ -333,8 +334,8 @@ declare namespace display {
    *
    * @param { 'foldStatusChange' } type the event of fold status changes
    * @param { Callback<FoldStatus> } callback Callback used to return the current fold status of device
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
@@ -459,8 +460,8 @@ declare namespace display {
    *
    * @param { 'foldDisplayModeChange' } type the event of fold display mode changes
    * @param { Callback<FoldDisplayMode> } callback Callback used to return the current fold display mode
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
@@ -484,8 +485,8 @@ declare namespace display {
    *
    * @param { 'foldDisplayModeChange' } type the event of fold display mode changes
    * @param { Callback<FoldDisplayMode> } callback Callback used to return the current fold display mode
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
@@ -1652,6 +1653,7 @@ declare namespace display {
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1400001 - Invalid display or screen.
      * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
      * @since 12
      */
     getAvailableArea(): Promise<Rect>;
@@ -1666,6 +1668,7 @@ declare namespace display {
     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
     * @throws { BusinessError } 1400003 - This display manager service works abnormally.
     * @syscap SystemCapability.Window.SessionManager
+    * @atomicservice
     * @since 12
     */
     on(type: 'availableAreaChange', callback: Callback<Rect>): void;
@@ -1680,6 +1683,7 @@ declare namespace display {
     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
     * @throws { BusinessError } 1400003 - This display manager service works abnormally.
     * @syscap SystemCapability.Window.SessionManager
+    * @atomicservice
     * @since 12
     */
     off(type: 'availableAreaChange', callback?: Callback<Rect>): void;

@@ -92,12 +92,14 @@ declare class TreeSet<T> {
   /**
    * Gets the element number of the TreeSet.
    *
+   * @type { number }
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    */
   /**
    * Gets the element number of the TreeSet.
    *
+   * @type { number }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -105,6 +107,7 @@ declare class TreeSet<T> {
   /**
    * Gets the element number of the TreeSet.
    *
+   * @type { number }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice

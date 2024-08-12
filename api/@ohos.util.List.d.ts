@@ -71,12 +71,14 @@ declare class List<T> {
   /**
    * Gets the element number of the List. This is a number one higher than the highest index in the list.
    *
+   * @type { number }
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    */
   /**
    * Gets the element number of the List. This is a number one higher than the highest index in the list.
    *
+   * @type { number }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -84,6 +86,7 @@ declare class List<T> {
   /**
    * Gets the element number of the List. This is a number one higher than the highest index in the list.
    *
+   * @type { number }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice

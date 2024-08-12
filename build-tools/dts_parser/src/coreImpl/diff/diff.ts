@@ -81,10 +81,12 @@ export class DiffHelper {
     for (const key of newSDKApiLocations.keys()) {
       const locations: string[] = newSDKApiLocations.get(key) as string[];
       const newApiInfos: ApiInfo[] = Parser.getApiInfo(locations, clonedNewSDKApiMap, isAllSheet) as ApiInfo[];
+      const clonedLocations: string[] = locations;
+      const parentLocations = clonedLocations.slice(0,-1);
       newApiInfos.forEach((newApiInfo: ApiInfo) => {
-        let isNewFile: boolean = true;
-        if (oldFilePathSet.has(newApiInfo.getFilePath())) {
-          isNewFile = false;
+        let isNewFile: boolean = false;
+        if (!oldFilePathSet.has(newApiInfo.getFilePath()) || !oldSDKApiLocations.get(parentLocations.join())) {
+          isNewFile = true;
         }
         diffInfos.push(
           DiffProcessorHelper.wrapDiffInfo(
@@ -105,12 +107,12 @@ export class DiffHelper {
       oldSourceFileInfo?.setSyscap(DiffHelper.getSyscapField(oldSourceFileInfo));
       const oldKitInfo: string | undefined = oldSourceFileInfo?.getLastJsDocInfo()?.getKit();
       //文件在新版本中被删除
-      if (!clonedNewSDKApiMap.get(key) && oldKitInfo) {
+      if (!clonedNewSDKApiMap.get(key) && oldKitInfo !== 'NA') {
         diffInfos.push(
           DiffProcessorHelper.wrapDiffInfo(
             oldSourceFileInfo,
             undefined,
-            new DiffTypeInfo(ApiStatusCode.KIT_CHANGE, ApiDiffType.KIT_CHANGE, oldKitInfo, 'NA')
+            new DiffTypeInfo(ApiStatusCode.KIT_CHANGE, ApiDiffType.KIT_HAVE_TO_NA, oldKitInfo, 'NA')
           )
         );
       } else if (clonedNewSDKApiMap.get(key)) {
@@ -121,7 +123,7 @@ export class DiffHelper {
             DiffProcessorHelper.wrapDiffInfo(
               oldSourceFileInfo,
               newSourceFileInfo,
-              new DiffTypeInfo(ApiStatusCode.KIT_CHANGE, ApiDiffType.KIT_CHANGE, oldKitInfo, newKitInfo)
+              new DiffTypeInfo(ApiStatusCode.KIT_CHANGE, DiffHelper.getKitDiffType(oldKitInfo, newKitInfo), oldKitInfo, newKitInfo)
             )
           );
         }
@@ -131,16 +133,29 @@ export class DiffHelper {
     for (const key of clonedNewSDKApiMap.keys()) {
       const newSourceFileInfo: ApiInfo | undefined = DiffHelper.getSourceFileInfo(clonedNewSDKApiMap.get(key));
       const newKitInfo: string | undefined = newSourceFileInfo?.getLastJsDocInfo()?.getKit();
-      if (!clonedOldSDKApiMap.get(key) && newKitInfo) {
+      if (!clonedOldSDKApiMap.get(key) && newKitInfo !== 'NA') {
         diffInfos.push(
           DiffProcessorHelper.wrapDiffInfo(
             undefined,
             newSourceFileInfo,
-            new DiffTypeInfo(ApiStatusCode.KIT_CHANGE, ApiDiffType.KIT_CHANGE, 'NA', newKitInfo)
+            new DiffTypeInfo(ApiStatusCode.KIT_CHANGE, ApiDiffType.KIT_NA_TO_HAVE, 'NA', newKitInfo)
           )
         );
       }
     }
+  }
+
+  static getKitDiffType(oldKitInfo: string | undefined, newKitInfo: string | undefined): ApiDiffType {
+    if (oldKitInfo === 'NA' && newKitInfo === '') {
+      return ApiDiffType.KIT_NA_TO_HAVE;
+    } else if (oldKitInfo === '' && newKitInfo === 'NA') {
+      return ApiDiffType.KIT_HAVE_TO_NA;
+    } else if (oldKitInfo === 'NA' || oldKitInfo === '') {
+      return ApiDiffType.KIT_NA_TO_HAVE;
+    } else if (newKitInfo === 'NA' || newKitInfo === '') {
+      return ApiDiffType.KIT_HAVE_TO_NA;
+    }
+    return ApiDiffType.KIT_CHANGE;
   }
 
   static getSourceFileInfo(fileMap: FileInfoMap | undefined): ApiInfo | undefined {

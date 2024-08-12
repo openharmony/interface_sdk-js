@@ -354,12 +354,15 @@ fts
 fulfills
 fuma
 furse
+gainmap
 gamepad
 gba
 gbk
 geofence
 geofences
 getunfilteredlinkurl
+getxattr
+getxattrSync
 glasses
 glonass
 gnss
@@ -779,6 +782,7 @@ pss
 pssh
 puk
 pvr
+qualities
 quant
 querier
 queriers
@@ -807,6 +811,7 @@ reenter
 refill
 refresher
 refusing
+regarded
 rehandshake
 rejects
 relocation
@@ -888,6 +893,8 @@ sensing
 sequenceable
 setsockopt
 settingsdata
+setxattr
+setxattrSync
 seventh
 sfactor
 sgi
@@ -1095,6 +1102,7 @@ unpipe
 unpremultiplied
 unprepare
 unpressed
+unrefocus
 unregistered
 unregistering
 unregisters
@@ -1176,6 +1184,7 @@ xcomponent
 xfer
 xflags
 xldpi
+xmage
 xoffset
 xxldpi
 xxxldpi
@@ -1190,3 +1199,9 @@ zoomout
 zoomreset
 zooms
 zpass
+Capitals
+monospaced
+depressed
+Tritanomaly
+Deuteranomaly
+Protanomaly

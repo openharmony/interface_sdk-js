@@ -775,7 +775,6 @@ declare namespace relationalStore {
   /**
    * Describes the subscription type.
    *
-   * @permission ohos.permission.DISTRIBUTED_DATASYNC
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 9
@@ -784,7 +783,6 @@ declare namespace relationalStore {
     /**
      * Subscription to remote data changes
      *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -928,7 +926,6 @@ declare namespace relationalStore {
   /**
    * Describes the distribution type of the tables.
    *
-   * @permission ohos.permission.DISTRIBUTED_DATASYNC
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10
@@ -937,7 +934,6 @@ declare namespace relationalStore {
     /**
      * Indicates the table is distributed among the devices
      *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
@@ -4607,19 +4603,6 @@ declare namespace relationalStore {
       columns?: Array<string>
     ): Promise<ResultSet>;
 
-    /**
-     * Queries data in the database based on specified conditions with sync function.
-     *
-     * @param { RdbPredicates } predicates - The specified query condition by the instance object of {@link RdbPredicates}.
-     * @param { Array<string> } columns - The columns to query. If the value is empty array, the query applies to all columns.
-     * @returns { ResultSet } The {@link ResultSet} object if the operation is successful.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12
-     */
     /**
      * Queries data in the database based on specified conditions with sync function.
      *

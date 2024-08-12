@@ -223,7 +223,6 @@ declare namespace installer {
      * @throws { BusinessError } 17700054 - Failed to install the HAP because the HAP requests wrong permissions.
      * @throws { BusinessError } 17700058 - Failed to install the HAP because the device has been controlled.
      * @throws { BusinessError } 17700066 - Failed to install the HAP because installing the native package failed.
-     * @throws { BusinessError } 17700068 - Failed to install the HAP because the maximum count of clone app cannot be reduced.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12
@@ -369,7 +368,6 @@ declare namespace installer {
      * @throws { BusinessError } 17700054 - Failed to install the HAP because the HAP requests wrong permissions.
      * @throws { BusinessError } 17700058 - Failed to install the HAP because the device has been controlled.
      * @throws { BusinessError } 17700066 - Failed to install the HAP because installing the native package failed.
-     * @throws { BusinessError } 17700068 - Failed to install the HAP because the maximum count of clone app cannot be reduced.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12
@@ -527,7 +525,6 @@ declare namespace installer {
      * @throws { BusinessError } 17700054 - Failed to install the HAP because the HAP requests wrong permissions.
      * @throws { BusinessError } 17700058 - Failed to install the HAP because the device has been controlled.
      * @throws { BusinessError } 17700066 - Failed to install the HAP because installing the native package failed.
-     * @throws { BusinessError } 17700068 - Failed to install the HAP because the maximum count of clone app cannot be reduced.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12
@@ -568,6 +565,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700020 - The specified bundle is a pre-installed bundle and cannot be uninstalled.
      * @throws { BusinessError } 17700040 - The specified bundle is a shared bundle and cannot be uninstalled.
      * @throws { BusinessError } 17700045 - Failed to uninstall the HAP because uninstall is not allowed by the enterprise device management.
+     * @throws { BusinessError } 17700060 - The specified application cannot be uninstalled.
      * @throws { BusinessError } 17700067 - Failed to uninstall the HAP because uninstalling the native package failed.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -605,6 +603,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700020 - The specified bundle is a pre-installed bundle and cannot be uninstalled.
      * @throws { BusinessError } 17700040 - The specified bundle is a shared bundle and cannot be uninstalled.
      * @throws { BusinessError } 17700045 - Failed to uninstall the HAP because uninstall is not allowed by the enterprise device management.
+     * @throws { BusinessError } 17700060 - The specified application cannot be uninstalled.
      * @throws { BusinessError } 17700067 - Failed to uninstall the HAP because uninstalling the native package failed.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -646,6 +645,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700020 - The specified bundle is a pre-installed bundle and cannot be uninstalled.
      * @throws { BusinessError } 17700040 - The specified bundle is a shared bundle and cannot be uninstalled.
      * @throws { BusinessError } 17700045 - Failed to uninstall the HAP because uninstall is not allowed by the enterprise device management.
+     * @throws { BusinessError } 17700060 - The specified application cannot be uninstalled.
      * @throws { BusinessError } 17700067 - Failed to uninstall the HAP because uninstalling the native package failed.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -807,7 +807,6 @@ declare namespace installer {
      * @throws { BusinessError } 17700049 - Failed to install the HAP because the bundleName is different from the bundleName of the caller application.
      * @throws { BusinessError } 17700050 - Failed to install the HAP because enterprise normal/MDM bundle cannot be installed on non-enterprise device.
      * @throws { BusinessError } 17700051 - Failed to install the HAP because the distribution type of caller application is not enterprise_mdm.
-     * @throws { BusinessError } 17700068 - Failed to install the HAP because the maximum count of clone app cannot be reduced.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12
@@ -872,7 +871,6 @@ declare namespace installer {
      * @throws { BusinessError } 17700049 - Failed to install the HAP because the bundleName is different from the bundleName of the caller application.
      * @throws { BusinessError } 17700050 - Failed to install the HAP because enterprise normal/MDM bundle cannot be installed on non-enterprise device.
      * @throws { BusinessError } 17700051 - Failed to install the HAP because the distribution type of caller application is not enterprise_mdm.
-     * @throws { BusinessError } 17700068 - Failed to install the HAP because the maximum count of clone app cannot be reduced.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12
@@ -945,7 +943,6 @@ declare namespace installer {
      * @throws { BusinessError } 17700049 - Failed to install the HAP because the bundleName is different from the bundleName of the caller application.
      * @throws { BusinessError } 17700050 - Failed to install the HAP because enterprise normal/MDM bundle cannot be installed on non-enterprise device.
      * @throws { BusinessError } 17700051 - Failed to install the HAP because the distribution type of caller application is not enterprise_mdm.
-     * @throws { BusinessError } 17700068 - Failed to install the HAP because the maximum count of clone app cannot be reduced.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12
