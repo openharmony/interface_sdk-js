@@ -3000,22 +3000,20 @@ declare namespace media {
      * Subscrips listener for audio playback amplitude update event. This event is triggered 3 times pre second.
      * In each event, an array of amplitude is reported, large index indicates closer to current time.
      * @param { 'amplitudeUpdate' } type - Type of the event to listen for.
-     * @param { Callback<Array<number>> } callback - Callback used to listen amplitude update event.
+     * @param { Callback<Array<Number>> } callback - Callback used to listen amplitude update event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 13
      */
-    on(type: 'amplitudeUpdate', callback: Callback<Array<number>>): void
+    on(type: 'amplitudeUpdate', callback?: Callback<Array<Number>>): void
 
     /**
      * UnSubscrips listener for audio playback amplitude update event
      * @param { 'amplitudeUpdate' } type - Type of the event to listen for.
-     * @param { Callback<Array<number>> } callback - Callback used to listen amplitude update event.
+     * @param { Callback<Array<Number>> } callback - Callback used to listen amplitude update event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @crossplatform
-     * @atomicservice
      * @since 13
      */
-    off(type: 'amplitudeUpdate', callback?: Callback<Array<number>>): void
+    off(type: 'amplitudeUpdate', callback?: Callback<Array<Number>>): void
   }
 
   /**
