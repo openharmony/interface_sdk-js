@@ -4023,7 +4023,7 @@ declare namespace audio {
      * Pause others mode.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * since 12
+     * @since 12
      */
     CONCURRENCY_PAUSE_OTHERS = 3,
   }
@@ -4099,6 +4099,7 @@ declare namespace audio {
     /**
      * Activate the audio session for the current pid application.
      * @param { AudioSessionStrategy } strategy - Audio session strategy.
+     * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters unspecified.
      *                                 2.Incorrect parameter types.
@@ -4112,6 +4113,7 @@ declare namespace audio {
 
     /**
      * Deactivate the audio session for the current pid application.
+     * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 6800301 - System error. Returned by promise.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
@@ -4144,8 +4146,9 @@ declare namespace audio {
     on(type: 'audioSessionDeactivated', callback: Callback<AudioSessionDeactivatedEvent>): void;
 
     /** 
-    * UnSubscribes to audio session deactivated event.
+    * Unsubscribes to audio session deactivated event.
     * @param { 'audioSessionDeactivated' } type - Type of the event to listen for. Only the audioSessionDeactivated event is supported.
+    * @param { Callback<AudioSessionDeactivatedEvent> } callback - Callback invoked for the audio session deactivated event.
     * @throws { BusinessError } 401 - Parameter error. Possible causes:
     *                                 1.Mandatory parameters are left unspecified;
     *                                 2.Incorrect parameter types.
