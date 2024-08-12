@@ -4054,7 +4054,7 @@ declare namespace audio {
 
   /**
    * Audio session strategy.
-   * @typedf AudioSessionStrategy
+   * @typedef AudioSessionStrategy
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
    * @since 12
@@ -4072,7 +4072,7 @@ declare namespace audio {
 
   /**
    * Audio session deactivated event.
-   * @typedf AudioSessionDeactivatedEvent
+   * @typedef AudioSessionDeactivatedEvent
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
    * @since 12
