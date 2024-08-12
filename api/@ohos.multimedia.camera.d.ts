@@ -3425,6 +3425,25 @@ declare namespace camera {
   }
 
   /**
+   * Enum for usage type used in capture session.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 12
+   */
+  enum UsageType {
+    /**
+     * Bokeh usage type.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    BOKEH = 0
+  }
+
+  /**
    * Session object.
    *
    * @interface Session
@@ -3674,6 +3693,22 @@ declare namespace camera {
      * @since 11
      */
     release(): Promise<void>;
+
+    /**
+     * Set usage for the capture session.
+     *
+     * @param { UsageType } usage - The capture session usage.
+     * @param { boolean } enabled - Enable usage for session if TRUE.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400102 - Operation not allowed.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    setUsage(usage: UsageType, enabled: boolean): void;
   }
 
   /**
