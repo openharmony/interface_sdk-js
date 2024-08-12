@@ -150,5 +150,5 @@ export default interface PageNodeInfo {
    * @stagemodeonly
    * @since 12
    */
-  metaData: string;
+  metadata: string;
 }
