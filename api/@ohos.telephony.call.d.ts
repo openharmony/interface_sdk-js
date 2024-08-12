@@ -3463,7 +3463,7 @@ declare namespace call {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    isSupportVoiceAnswer?: boolean;
+    isVoiceAnswerSupported?: boolean;
   }
 
   /**
