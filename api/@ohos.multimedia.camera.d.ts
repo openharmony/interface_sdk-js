@@ -6648,14 +6648,14 @@ declare namespace camera {
      /**
       * Sets the preview rotation angle.
       *
-      * @param { ImageRotation } displayRotation - Preview display rotation angle.
+      * @param { ImageRotation } previewRotation - Preview display rotation angle.
       * @param { boolean } isDisplayLocked - TRUE means the display is locked, if not set, the default is FALSE.
       * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
       * @throws { BusinessError } 7400201 - Camera service fatal error.
       * @syscap SystemCapability.Multimedia.Camera.Core
       * @since 12
       */
-    setPreviewRotation(displayRotation: ImageRotation, isDisplayLocked?: boolean): void;
+    setPreviewRotation(previewRotation: ImageRotation, isDisplayLocked?: boolean): void;
 
     /**
      * Gets the current preconfig type if you had already call preconfig interface.
