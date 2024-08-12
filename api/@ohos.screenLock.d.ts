@@ -188,11 +188,11 @@ declare namespace screenLock {
    * @since 9
    */
   /**
-   * Indicates the system event type related to the screenlock management service. Adding strongAuthChanged and screenlockDisableChanged.
+   * Indicates the system event type related to the screenlock management service. Adding strongAuthChanged and screenLockDisabledChanged.
    *
    * @typedef {('beginWakeUp' | 'endWakeUp' | 'beginScreenOn' | 'endScreenOn' | 'beginScreenOff' | 'endScreenOff' | 'unlockScreen'
    * | 'lockScreen' | 'beginExitAnimation' | 'beginSleep' | 'endSleep' | 'changeUser' | 'screenlockEnabled' | 'serviceRestart'
-   * | 'strongAuthChanged' | 'screenLockDisableChanged')}
+   * | 'strongAuthChanged' | 'screenLockDisabledChanged')}
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
    * @since 12
@@ -213,7 +213,7 @@ declare namespace screenLock {
     | 'screenlockEnabled'
     | 'serviceRestart'
     | 'strongAuthChanged'
-    | 'screenLockDisableChanged';
+    | 'screenLockDisabledChanged';
 
   /**
    * Indicates the strong authentication reason flags used to request.
