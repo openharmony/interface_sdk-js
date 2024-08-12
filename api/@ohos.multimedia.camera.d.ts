@@ -1732,6 +1732,7 @@ declare namespace camera {
      * Aperture video mode.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
      * @since 12
      */
     APERTURE_VIDEO = 14
