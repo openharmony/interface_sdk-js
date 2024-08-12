@@ -419,3 +419,10 @@ export function cleanApiCheckResult() {
 export const punctuationMarkSet: Set<string> = new Set(['\\{', '\\}', '\\(', '\\)', '\\[', '\\]', '\\@', '\\.', '\\:',
   '\\,', '\\;', '\\(', '\\)', '\\"', '\\/', '\\_', '\\-', '\\=', '\\?', '\\<', '\\>', '\\,', '\\!', '\\#', '\：', '\，',
   '\\:', '\\|', '\\%', '\\&', '\\¡', '\\¢', '\\+', '\\`', '\\\\', '\\\'']);
+
+export const throwsTagDescriptionArr: string[] = [
+  'Parameter error. Possible causes:',
+  'Mandatory parameters are left unspecified',
+  'Incorrect parameter types',
+  'Parameter verification failed'
+];
