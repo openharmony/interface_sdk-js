@@ -510,6 +510,14 @@ declare namespace rdb {
    * @useinstead ohos.data.relationalStore.StoreConfig
    */
   interface StoreConfig {
+    /**
+     * Manages relational database configurations.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.StoreConfig
+     */
     name: string;
   }
 
