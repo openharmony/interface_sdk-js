@@ -2793,6 +2793,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11
+     * @deprecated since 12
      */
     release();
 
