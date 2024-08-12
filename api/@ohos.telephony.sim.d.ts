@@ -2197,7 +2197,7 @@ declare namespace sim {
    * @param { number } slotId - Sim slot id.
    * @param { AuthType } authType - The authentication type.
    * @param { string } authData - Ser password or other authentication information.
-   * @returns { Promise } A string the response of authentication.This value will be null in
+   * @returns { Promise<SimAuthenticationResponse> } A string the response of authentication.This value will be null in
    * the following cases: Authentication error, incorrect MAC Authentication error, security context not supported Key
    * freshness failure Authentication error, no memory space available Authentication error, no memory space available
    * in EFMUK.
