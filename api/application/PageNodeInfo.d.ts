@@ -142,7 +142,7 @@ export default interface PageNodeInfo {
   isFocus: boolean;
 
   /**
-   * The metaData of a node.
+   * The metadata of a node.
    *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
