@@ -18,7 +18,7 @@
  * @kit ImageKit
  */
 
-import { AsyncCallback } from './@ohos.base';
+import { AsyncCallback, BusinessError } from './@ohos.base';
 import type colorSpaceManager from './@ohos.graphics.colorSpaceManager';
 import type resourceManager from './@ohos.resourceManager';
 import type rpc from './@ohos.rpc';
@@ -6712,6 +6712,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * 
      * @returns { HdrMetadataValue } Returns the value of metadata.
      * @param { HdrMetadataKey } key Type of metadata.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @throws { BusinessError } 62980173 - The DMA memory does not exist.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -6726,8 +6728,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * an error message is returned.
      * @param { HdrMetadataKey } key Type of metadata.
      * @param { HdrMetadataValue } value Value of metadata.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
-     * @throws { BusinessError } 62980115 - Invalid input parameter.
      * @throws { BusinessError } 62980173 - The DMA memory does not exist.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12
@@ -6739,8 +6742,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * 
      * @param { HdrMetadataKey } key Type of metadata.
      * @param { HdrMetadataValue } value Value of metadata.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
-     * @throws { BusinessError } 62980115 - Invalid input parameter.
      * @throws { BusinessError } 62980173 - The DMA memory does not exist.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12
