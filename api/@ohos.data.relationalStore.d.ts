@@ -1154,6 +1154,15 @@ declare namespace relationalStore {
     DELETED_FLAG_FIELD = '#_deleted_flag',
 
     /**
+     * Data status field.
+     * Indicates data status.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 12
+     */
+    DATA_STATUS_FIELD = '#_data_status',
+
+    /**
      * Owner field.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
@@ -6924,6 +6933,27 @@ declare namespace relationalStore {
      * @since 12
      */
     queryLockedRow(predicates: RdbPredicates, columns?: Array<string>): Promise<ResultSet>;
+
+    /**
+     * Lock cloud container before non-auto cloud sync.
+     *
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @returns { Promise<number> } The expired time of the lock.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @since 12
+     */
+    lockCloudContainer():Promise<number>;
+
+    /**
+     * Unlock cloud container.
+     *
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @since 12
+     */
+    unlockCloudContainer():Promise<void>;
   }
 
   /**
