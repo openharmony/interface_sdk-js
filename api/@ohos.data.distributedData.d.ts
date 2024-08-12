@@ -1893,6 +1893,18 @@ declare namespace distributedData {
      * @useinstead ohos.data.distributedKVStore.SingleKVStore#setSyncParam
      */
     setSyncParam(defaultAllowedDelayMs: number, callback: AsyncCallback<void>): void;
+
+    /**
+     * Sets the default delay allowed for database synchronization
+     *
+     * @param defaultAllowedDelayMs Indicates the default delay allowed for the database synchronization, in milliseconds.
+     * @throws Throws this exception if any of the following errors occurs:{@code INVALID_ARGUMENT},
+     * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and {@code DB_ERROR}.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.distributedKVStore.SingleKVStore#setSyncParam
+     */
     setSyncParam(defaultAllowedDelayMs: number): Promise<void>;
 
     /**

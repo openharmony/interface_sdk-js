@@ -47,9 +47,36 @@ declare namespace storage {
    * @deprecated since 9
    * @useinstead ohos.preferences.preferences.getPreferences
    */
-
   function getStorageSync(path: string): Storage;
+
+  /**
+   * Obtains a {@link Storage} instance matching a specified storage file name.
+   *
+   * <p>The {@link references} instance loads all data of the storage file and
+   * resides in the memory. You can use removeStorageFromCache to remove the instance from the memory.
+   *
+   * @param path Indicates the path of storage file stored.
+   * @returns Returns the {@link Storage} instance matching the specified storage file name.
+   * @throws BusinessError if invoked failed
+   * @since 6
+   * @deprecated since 9
+   * @useinstead ohos.preferences.preferences.getPreferences
+   */
   function getStorage(path: string, callback: AsyncCallback<Storage>): void;
+
+  /**
+   * Obtains a {@link Storage} instance matching a specified storage file name.
+   *
+   * <p>The {@link references} instance loads all data of the storage file and
+   * resides in the memory. You can use removeStorageFromCache to remove the instance from the memory.
+   *
+   * @param path Indicates the path of storage file stored.
+   * @returns Returns the {@link Storage} instance matching the specified storage file name.
+   * @throws BusinessError if invoked failed
+   * @since 6
+   * @deprecated since 9
+   * @useinstead ohos.preferences.preferences.getPreferences
+   */
   function getStorage(path: string): Promise<Storage>;
 
   /**
@@ -68,7 +95,39 @@ declare namespace storage {
    * @useinstead ohos.preferences.preferences.deletePreferences
    */
   function deleteStorageSync(path: string): void;
+
+  /**
+   * Deletes a {@link Storage} instance matching a specified storage file name
+   * from the cache which is performed by removeStorageFromCache and deletes the
+   * storage file.
+   *
+   * <p>When deleting the {@link Storage} instance, you must release all references
+   * of the instance. In addition, do not use the instance to perform data operations. Otherwise, inconsistent data
+   * will occur.
+   *
+   * @param path Indicates the path of storage file
+   * @throws BusinessError if invoked failed
+   * @since 6
+   * @deprecated since 9
+   * @useinstead ohos.preferences.preferences.deletePreferences
+   */
   function deleteStorage(path: string, callback: AsyncCallback<void>): void;
+
+  /**
+   * Deletes a {@link Storage} instance matching a specified storage file name
+   * from the cache which is performed by removeStorageFromCache and deletes the
+   * storage file.
+   *
+   * <p>When deleting the {@link Storage} instance, you must release all references
+   * of the instance. In addition, do not use the instance to perform data operations. Otherwise, inconsistent data
+   * will occur.
+   *
+   * @param path Indicates the path of storage file
+   * @throws BusinessError if invoked failed
+   * @since 6
+   * @deprecated since 9
+   * @useinstead ohos.preferences.preferences.deletePreferences
+   */
   function deleteStorage(path: string): Promise<void>;
 
   /**
@@ -86,7 +145,37 @@ declare namespace storage {
    * @useinstead ohos.preferences.preferences.removePreferencesFromCache
    */
   function removeStorageFromCacheSync(path: string): void;
+
+  /**
+   * Deletes a {@link Storage} instance matching a specified storage file name
+   * from the cache.
+   *
+   * <p>When deleting the {@link Storage} instance, you must release all references
+   * of the instance. In addition, do not use the instance to perform data operations. Otherwise, inconsistent data
+   * will occur.
+   *
+   * @param path Indicates the path of storage file.
+   * @throws BusinessError if invoked failed
+   * @since 6
+   * @deprecated since 9
+   * @useinstead ohos.preferences.preferences.removePreferencesFromCache
+   */
   function removeStorageFromCache(path: string, callback: AsyncCallback<void>): void;
+
+  /**
+   * Deletes a {@link Storage} instance matching a specified storage file name
+   * from the cache.
+   *
+   * <p>When deleting the {@link Storage} instance, you must release all references
+   * of the instance. In addition, do not use the instance to perform data operations. Otherwise, inconsistent data
+   * will occur.
+   *
+   * @param path Indicates the path of storage file.
+   * @throws BusinessError if invoked failed
+   * @since 6
+   * @deprecated since 9
+   * @useinstead ohos.preferences.preferences.removePreferencesFromCache
+   */
   function removeStorageFromCache(path: string): Promise<void>;
 
   /**
@@ -118,7 +207,35 @@ declare namespace storage {
     * @useinstead ohos.preferences.preferences.get
     */
     getSync(key: string, defValue: ValueType): ValueType;
+
+    /**
+    * Obtains the value of a storage in the int format.
+    *
+    * <p>If the value is {@code null} or not in the int format, the default value is returned.
+    *
+    * @param key Indicates the key of the storage. It cannot be {@code null} or empty.
+    * @param defValue Indicates the default value to return.
+    * @returns Returns the value matching the specified key if it is found; returns the default value otherwise.
+    * @throws BusinessError if invoked failed
+    * @since 6
+    * @deprecated since 9
+    * @useinstead ohos.preferences.preferences.get
+    */
     get(key: string, defValue: ValueType, callback: AsyncCallback<ValueType>): void;
+
+    /**
+    * Obtains the value of a storage in the int format.
+    *
+    * <p>If the value is {@code null} or not in the int format, the default value is returned.
+    *
+    * @param key Indicates the key of the storage. It cannot be {@code null} or empty.
+    * @param defValue Indicates the default value to return.
+    * @returns Returns the value matching the specified key if it is found; returns the default value otherwise.
+    * @throws BusinessError if invoked failed
+    * @since 6
+    * @deprecated since 9
+    * @useinstead ohos.preferences.preferences.get
+    */
     get(key: string, defValue: ValueType): Promise<ValueType>;
 
     /**
@@ -133,7 +250,31 @@ declare namespace storage {
      * @useinstead ohos.preferences.preferences.has
      */
     hasSync(key: string): boolean;
+
+    /**
+     * Checks whether the {@link Storage} object contains a storage matching a specified key.
+     *
+     * @param key Indicates the key of the storage to check for.
+     * @returns Returns {@code true} if the {@link Storage} object contains a storage with the specified key;
+     * returns {@code false} otherwise.
+     * @throws BusinessError if invoked failed
+     * @since 6
+     * @deprecated since 9
+     * @useinstead ohos.preferences.preferences.has
+     */
     has(key: string, callback: AsyncCallback<boolean>): boolean;
+
+    /**
+     * Checks whether the {@link Storage} object contains a storage matching a specified key.
+     *
+     * @param key Indicates the key of the storage to check for.
+     * @returns Returns {@code true} if the {@link Storage} object contains a storage with the specified key;
+     * returns {@code false} otherwise.
+     * @throws BusinessError if invoked failed
+     * @since 6
+     * @deprecated since 9
+     * @useinstead ohos.preferences.preferences.has
+     */
     has(key: string): Promise<boolean>;
 
     /**
@@ -151,7 +292,37 @@ declare namespace storage {
      * @useinstead ohos.preferences.preferences.put
      */
     putSync(key: string, value: ValueType): void;
+
+    /**
+     * Sets an int value for the key in the {@link Storage} object.
+     *
+     * <p>You can call the {@link #flush} or {@link #flushSync} method to save the {@link Storage} object to the
+     * file.
+     *
+     * @param key Indicates the key of the storage to modify. It cannot be {@code null} or empty.
+     * @param value Indicates the value of the storage.
+     * <tt>MAX_KEY_LENGTH</tt>.
+     * @throws BusinessError if invoked failed
+     * @since 6
+     * @deprecated since 9
+     * @useinstead ohos.preferences.preferences.put
+     */
     put(key: string, value: ValueType, callback: AsyncCallback<void>): void;
+
+    /**
+     * Sets an int value for the key in the {@link Storage} object.
+     *
+     * <p>You can call the {@link #flush} or {@link #flushSync} method to save the {@link Storage} object to the
+     * file.
+     *
+     * @param key Indicates the key of the storage to modify. It cannot be {@code null} or empty.
+     * @param value Indicates the value of the storage.
+     * <tt>MAX_KEY_LENGTH</tt>.
+     * @throws BusinessError if invoked failed
+     * @since 6
+     * @deprecated since 9
+     * @useinstead ohos.preferences.preferences.put
+     */
     put(key: string, value: ValueType): Promise<void>;
 
     /**
@@ -168,7 +339,35 @@ declare namespace storage {
      * @useinstead ohos.preferences.preferences.delete
      */
     deleteSync(key: string): void;
+
+    /**
+     * Deletes the storage with a specified key from the {@link Storage} object.
+     *
+     * <p>You can call the {@link #flush} method to save the {@link Storage} object to the
+     * file.
+     *
+     * @param key Indicates the key of the storage to delete. It cannot be {@code null} or empty.
+     * <tt>MAX_KEY_LENGTH</tt>.
+     * @throws BusinessError if invoked failed
+     * @since 6
+     * @deprecated since 9
+     * @useinstead ohos.preferences.preferences.delete
+     */
     delete(key: string, callback: AsyncCallback<void>): void;
+
+    /**
+     * Deletes the storage with a specified key from the {@link Storage} object.
+     *
+     * <p>You can call the {@link #flush} method to save the {@link Storage} object to the
+     * file.
+     *
+     * @param key Indicates the key of the storage to delete. It cannot be {@code null} or empty.
+     * <tt>MAX_KEY_LENGTH</tt>.
+     * @throws BusinessError if invoked failed
+     * @since 6
+     * @deprecated since 9
+     * @useinstead ohos.preferences.preferences.delete
+     */
     delete(key: string): Promise<void>;
 
     /**
@@ -183,7 +382,31 @@ declare namespace storage {
      * @useinstead ohos.preferences.preferences.clear
      */
     clearSync(): void;
+
+    /**
+     * Clears all storage from the {@link Storage} object.
+     *
+     * <p>You can call the {@link #flush} method to save the {@link Storage} object to the
+     * file.
+     *
+     * @throws BusinessError if invoked failed
+     * @since 6
+     * @deprecated since 9
+     * @useinstead ohos.preferences.preferences.clear
+     */
     clear(callback: AsyncCallback<void>): void;
+
+    /**
+     * Clears all storage from the {@link Storage} object.
+     *
+     * <p>You can call the {@link #flush} method to save the {@link Storage} object to the
+     * file.
+     *
+     * @throws BusinessError if invoked failed
+     * @since 6
+     * @deprecated since 9
+     * @useinstead ohos.preferences.preferences.clear
+     */
     clear(): Promise<void>;
 
     /**
@@ -195,7 +418,25 @@ declare namespace storage {
      * @useinstead ohos.preferences.preferences.flush
      */
     flushSync(): void;
+
+    /**
+     * Asynchronously saves the {@link Storage} object to the file.
+     *
+     * @throws BusinessError if invoked failed
+     * @since 6
+     * @deprecated since 9
+     * @useinstead ohos.preferences.preferences.flush
+     */
     flush(callback: AsyncCallback<void>): void;
+
+    /**
+     * Asynchronously saves the {@link Storage} object to the file.
+     *
+     * @throws BusinessError if invoked failed
+     * @since 6
+     * @deprecated since 9
+     * @useinstead ohos.preferences.preferences.flush
+     */
     flush(): Promise<void>;
 
     /**

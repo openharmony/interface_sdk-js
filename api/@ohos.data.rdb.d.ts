@@ -937,6 +937,13 @@ declare namespace rdb {
     notIn(field: string, value: Array<ValueType>): RdbPredicates;
   }
 
+  /**
+   * Configure RdbPredicates to match the specified field whose data type is ValueType array and values
+   * are out of a given range.
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 7
+   * @deprecated since 9
+   */
   export type ResultSet = _ResultSet;
 }
 
