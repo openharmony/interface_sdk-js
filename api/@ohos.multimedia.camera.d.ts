@@ -7649,7 +7649,18 @@ declare namespace camera {
      */
     enableMovingPhoto(enabled: boolean): void;
 
-    }
+    /**
+     * Gets the photo rotation angle.
+     *
+     * @param { number } deviceDegree - The current device rotation degree.
+     * @returns { ImageRotation } The photo rotation angle.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
+    getPhotoRotation(deviceDegree: number): ImageRotation;
+  }
 
   /**
    * Frame shutter callback info.
@@ -7859,7 +7870,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 12
      */
-     getVideoRotation(deviceDegree: number): ImageRotation;
+    getVideoRotation(deviceDegree: number): ImageRotation;
 
     /**
      * Subscribes frame start event callback.
