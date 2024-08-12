@@ -627,6 +627,28 @@ declare namespace inputDevice {
    * @since 10
    */
   function getKeyboardRepeatRate(): Promise<number>;
+
+  /**
+   * Obtains the interval since the last input.
+   *
+   * @param { AsyncCallback<number> } callback - Callback used to return the interval since the last input.
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @since 13
+   */
+  function getIntervalSinceLastInput(callback: AsyncCallback<number>): void;
+
+  /**
+   * Obtains the interval since the last input.
+   *
+   * @returns { Promise<number> } Promise used to return the interval since the last input.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @since 13
+   */
+  function getIntervalSinceLastInput(): Promise<number>;
 }
 
 export default inputDevice;
