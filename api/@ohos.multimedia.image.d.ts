@@ -18,7 +18,7 @@
  * @kit ImageKit
  */
 
-import { AsyncCallback } from './@ohos.base';
+import { AsyncCallback, BusinessError } from './@ohos.base';
 import type colorSpaceManager from './@ohos.graphics.colorSpaceManager';
 import type resourceManager from './@ohos.resourceManager';
 import type rpc from './@ohos.rpc';
@@ -6272,6 +6272,46 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 12
      */
     setTransferDetached(detached: boolean): void;
+
+    /**
+     * Get metadata.
+     * 
+     * @returns { HdrMetadataValue } Returns the value of metadata.
+     * @param { HdrMetadataKey } key Type of metadata.
+     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @throws { BusinessError } 62980173 - The DMA memory does not exist.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    getMetadata(key: HdrMetadataKey): HdrMetadataValue;
+
+    /**
+     * Set metadata.
+     * 
+     * @returns { Promise<void> } A Promise instance used to return the instance release result. If the operation fails,
+     * an error message is returned.
+     * @param { HdrMetadataKey } key Type of metadata.
+     * @param { HdrMetadataValue } value Value of metadata.
+     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @throws { BusinessError } 62980115 - Invalid input parameter.
+     * @throws { BusinessError } 62980173 - The DMA memory does not exist.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    setMetadata(key: HdrMetadataKey, value: HdrMetadataValue): Promise<void>;
+
+    /**
+     * Set metadata.
+     * 
+     * @param { HdrMetadataKey } key Type of metadata.
+     * @param { HdrMetadataValue } value Value of metadata.
+     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @throws { BusinessError } 62980115 - Invalid input parameter.
+     * @throws { BusinessError } 62980173 - The DMA memory does not exist.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    setMetadataSync(key: HdrMetadataKey, value: HdrMetadataValue): void;
   }
 
   /**
