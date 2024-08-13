@@ -397,6 +397,44 @@ declare namespace relationalStore {
      * @since 12
      */
     pluginLibs?: Array<string>;
+
+    /**
+     * Enumerates the high availability modes of the RDB store.
+     *
+     * @type { ?HAMode }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @since 12
+     */
+    haMode?: HAMode;
+  }
+
+  /**
+   * Enumerates the high availability modes of the RDB store.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @systemapi
+   * @since 12
+   */
+  enum HAMode {
+    /**
+     * SINGLE: Data is written to a single RDB store.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @since 12
+     */
+    SINGLE = 0,
+
+    /**
+     * MAIN_REPLICA: Data is written to the main and replica RDB stores.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @since 12
+     */
+    MAIN_REPLICA
   }
 
   /**
@@ -5843,6 +5881,36 @@ declare namespace relationalStore {
      * @since 12
      */
     restore(srcName: string): Promise<void>;
+
+    /**
+     * Restores a database from a specified database file.
+     *
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800010 - Invalid database path.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database does not respond.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @since 12
+     */
+    restore(): Promise<void>;
 
     /**
      * Set table to be distributed table.
