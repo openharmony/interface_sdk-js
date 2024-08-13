@@ -93,7 +93,7 @@ export class ApiChangeCheck {
       } else {
         const dtsName = path.basename(diffInfo.getNewDtsName());
         let apiInfoDiff: ApiCheckInfo = new ApiCheckInfo();
-        const hierarchicalRelations: string[] = diffInfo.getOldHierarchicalRelations();
+        const hierarchicalRelations: string[] = diffInfo.getNewHierarchicalRelations();
         const parentModuleName: string = hierarchicalRelations[hierarchicalRelations.length - 1];
         apiInfoDiff
           .setErrorID(ErrorID.API_CHANGE_ERRORS_ID)
@@ -107,7 +107,7 @@ export class ApiChangeCheck {
           .setApiType(diffInfo.getApiType())
           .setApiText(diffInfo.getNewApiDefinedText())
           .setErrorInfo(errorInfo as string)
-          .setHierarchicalRelations(diffInfo.getOldHierarchicalRelations().join('|'))
+          .setHierarchicalRelations(diffInfo.getNewHierarchicalRelations().join('|'))
           .setParentModuleName(parentModuleName);
         AddErrorLogs.addAPICheckErrorLogs(apiInfoDiff, compositiveResult, compositiveLocalResult);
       }

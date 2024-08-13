@@ -192,6 +192,7 @@ export enum ErrorMessage {
   ERROR_CHANGES_SYSCAP_NA_TO_HAVE = 'Forbid changes: Cannot change from NA to syscap.',
   ERROR_CHANGES_SYSCAP_HAVE_TO_NA = 'Forbid changes: Cannot change from syscap to NA.',
   ERROR_CHANGES_SYSCAP_A_TO_B = 'Forbid changes: Cannot change syscap value.',
+  ERROR_CHANGES_ADD_PROPERTY = 'Forbid changes: Cannot add new property to interface API.',
 }
 
 export const incompatibleApiDiffTypes: Map<ApiDiffType, ErrorMessage> = new Map(
@@ -251,6 +252,8 @@ export const incompatibleApiDiffTypes: Map<ApiDiffType, ErrorMessage> = new Map(
     [ApiDiffType.SYSCAP_NA_TO_HAVE, ErrorMessage.ERROR_CHANGES_SYSCAP_NA_TO_HAVE],
     [ApiDiffType.SYSCAP_HAVE_TO_NA, ErrorMessage.ERROR_CHANGES_SYSCAP_HAVE_TO_NA],
     [ApiDiffType.SYSCAP_A_TO_B, ErrorMessage.ERROR_CHANGES_SYSCAP_A_TO_B],
+    // 18.interface不允许新增属性
+    [ApiDiffType.ADD, ErrorMessage.ERROR_CHANGES_ADD_PROPERTY]
   ]
 );
 
