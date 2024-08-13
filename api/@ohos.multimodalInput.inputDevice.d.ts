@@ -643,8 +643,6 @@ declare namespace inputDevice {
    * Obtains the interval since the last input.
    *
    * @returns { Promise<number> } Promise used to return the interval since the last input.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 13
    */
