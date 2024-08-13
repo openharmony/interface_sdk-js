@@ -11529,6 +11529,17 @@ declare interface SheetOptions extends BindOptions {
   onTypeDidChange?: Callback<SheetType>;
 
   /**
+   * Set whether sheet is allowed to expand safe area in embedded mode
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  expandSafeAreaInEmbeddedMode?: boolean;
+
+  /**
    * The UIContext that the sheet belongs to
    *
    * @type { ?UIContext }
