@@ -3004,7 +3004,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 13
      */
-    on(type: 'amplitudeUpdate', callback?: Callback<Array<Number>>): void
+    on(type: 'amplitudeUpdate', callback: Callback<Array<Number>>): void
 
     /**
      * UnSubscrips listener for audio playback amplitude update event
