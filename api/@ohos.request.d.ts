@@ -3712,6 +3712,15 @@ declare namespace request {
        */
       PROTOCOL = 0x20,
       /**
+       * Indicates parameter error, such as url format error.
+       *
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
+       * @atomicservice
+       * @since 12
+       */
+      PARAM = 0x30,
+      /**
        * Indicates filesystem io error, such as open/seek/read/write/close.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
@@ -3725,7 +3734,43 @@ declare namespace request {
        * @atomicservice
        * @since 11
        */
-      FSIO = 0x40
+      FSIO = 0x40,
+      /**
+       * Indicates DNS resolution error.
+       *
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
+       * @atomicservice
+       * @since 12
+       */
+      DNS = 0x50,
+      /**
+       * Indicates TCP connection error.
+       *
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
+       * @atomicservice
+       * @since 12
+       */
+      TCP = 0x60,
+      /**
+       * Indicates SSL connection error, such as a certificate error or certificate verification failure.
+       *
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
+       * @atomicservice
+       * @since 12
+       */
+      SSL = 0x70,
+      /**
+       * Indicates redirect error.
+       *
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
+       * @atomicservice
+       * @since 12
+       */
+      REDIRECT = 0x80
     }
 
     /**
