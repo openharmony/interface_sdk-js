@@ -363,6 +363,14 @@ export class ApiInfo extends BasicApiInfo {
     return this.jsDocInfos[length - 1];
   }
 
+  getPenultimateJsDocInfo(): Comment.JsDocInfo | undefined {
+    const length: number = this.jsDocInfos.length;
+    if (length === 0) {
+      return undefined;
+    }
+    return this.jsDocInfos[length - 2];
+  }
+
   addJsDocInfos(jsDocInfos: Comment.JsDocInfo[]): void {
     if (jsDocInfos.length > 0) {
       this.setCurrentVersion(jsDocInfos[jsDocInfos.length - 1]?.getSince());
