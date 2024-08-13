@@ -20,6 +20,7 @@ import { EnumUtils } from '../utils/EnumUtils';
 import { FileUtils } from '../utils/FileUtils';
 import { LogUtil } from '../utils/logUtil';
 import { FilesMap, Parser } from '../coreImpl/parser/parser';
+import { parserParam } from '../coreImpl/parser/NodeProcessor';
 import { DiffHelper } from '../coreImpl/diff/diff';
 import {
   BasicDiffInfo,
@@ -260,10 +261,12 @@ function outputInfos(infos: ToolReturnData, options: OptionObjType, callback: To
  * @return { ToolNameValueType }
  */
 function collectApi(options: OptionObjType): ToolNameValueType {
+  // process.env.NEED_DETECTION = 'true';
   const fileDir: string = path.resolve(FileUtils.getBaseDirName(), options.collectPath);
   let collectFile: string = '';
   if (options.collectFile !== '') {
     collectFile = path.resolve(FileUtils.getBaseDirName(), options.collectFile);
+    parserParam.setSdkPath(collectFile);
   }
   let allApis: FilesMap;
   try {
@@ -531,6 +534,7 @@ function diffApi(options: OptionObjType): ToolNameValueType {
       data = DiffHelper.diffSDK(oldSDKApiMap, newSDKApiMap, options.all);
     } else {
       const oldSDKApiMap: FilesMap = Parser.parseFile(path.resolve(oldFileDir, '..'), oldFileDir);
+      Parser.cleanParserParamSDK();
       const newSDKApiMap: FilesMap = Parser.parseFile(path.resolve(newFileDir, '..'), newFileDir);
       data = DiffHelper.diffSDK(oldSDKApiMap, newSDKApiMap, options.all);
     }

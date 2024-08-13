@@ -43,6 +43,7 @@ import {
   PropertyNode,
   TypeAliasInfo,
   TypeAliasType,
+  LocationsAPIType,
 } from '../../typedef/parser/ApiInfoDefination';
 import * as ResultsInfo from '../../typedef/parser/ResultsInfo';
 import { ApiInfosMap, BasicApiInfoMap, FileInfoMap, FilesMap } from './parser';
@@ -85,22 +86,51 @@ export class ResultsProcessHelper {
     }
     return apis;
   }
-
   /**
    * 将每一个节点解析后的对象的parentApi属性置为undefined，防止循环引用
    *
    * @param { BasicApiInfo } basicApiInfo 解析后的api对象
    */
   static processApiInfo(basicApiInfo: BasicApiInfo): void {
-    basicApiInfo.setParentApi(undefined);
-    basicApiInfo.removeNode();
-    ResultsProcessHelper.processJsDocInfos(basicApiInfo as ApiInfo);
+    ResultsProcessHelper.cleanApiInfo(basicApiInfo);
     if (!containerApiTypes.has(basicApiInfo.getApiType())) {
       return;
     }
     const containerApiInfo: ContainerApiInfo = basicApiInfo as ContainerApiInfo;
     containerApiInfo.getChildApis().forEach((childApiInfo: BasicApiInfo) => {
       ResultsProcessHelper.processApiInfo(childApiInfo);
+    });
+  }
+
+  static cleanApiInfo(basicApiInfo: BasicApiInfo | undefined): void {
+    if (!basicApiInfo) {
+      return;
+    }
+    basicApiInfo.setParentApi(undefined);
+    basicApiInfo.removeNode();
+    if (basicApiInfo instanceof MethodInfo || basicApiInfo instanceof PropertyInfo) {
+      ResultsProcessHelper.cleanChildrenApiInfo(basicApiInfo.getObjLocations());
+      ResultsProcessHelper.cleanChildrenApiInfo(basicApiInfo.getTypeLocations());
+      if (basicApiInfo instanceof MethodInfo) {
+        basicApiInfo.getParams().forEach((param: ParamInfo) => {
+          ResultsProcessHelper.cleanChildrenApiInfo(param.getObjLocations());
+          ResultsProcessHelper.cleanChildrenApiInfo(param.getTypeLocations());
+          ResultsProcessHelper.cleanApiInfo(param.getMethodApiInfo());
+        });
+      }
+    }
+    if (basicApiInfo instanceof TypeAliasInfo) {
+      ResultsProcessHelper.cleanChildrenApiInfo(basicApiInfo.getTypeLiteralApiInfos());
+    }
+    ResultsProcessHelper.processJsDocInfos(basicApiInfo as ApiInfo);
+  }
+
+  static cleanChildrenApiInfo(basicApiInfos: BasicApiInfo[] | undefined): void {
+    if (!basicApiInfos) {
+      return;
+    }
+    basicApiInfos.forEach((basicApiInfos: BasicApiInfo) => {
+      ResultsProcessHelper.cleanApiInfo(basicApiInfos);
     });
   }
 
@@ -266,10 +296,9 @@ export class ResultsProcessHelper {
     jsDocInfos.forEach((jsDocInfo: Comment.JsDocInfo) => {
       const newInfo: ResultsInfo.PropertyInfo = new ResultsInfo.PropertyInfo(apiInfo.getApiType(), jsDocInfo);
       const typeInfo: string = jsDocInfo.getTypeInfo();
-      const isRequired: boolean = !/\?/.test(typeInfo);
       newInfo.setType(typeInfo ? typeInfo.replace(/^[\?]*[\(](.*)[\)]$/, '$1') : propertyInfo.getType().join(' | '));
       newInfo.setName(apiInfo.getApiName());
-      newInfo.setIsRequired(isRequired ? true : propertyInfo.getIsRequired());
+      newInfo.setIsRequired(propertyInfo.getIsRequired());
       newInfo.setIsReadOnly(propertyInfo.getIsReadOnly());
       newInfo.setIsStatic(propertyInfo.getIsStatic());
       infos.push(newInfo);

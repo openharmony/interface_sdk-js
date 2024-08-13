@@ -28,7 +28,7 @@ import {
 } from '../../../typedef/checker/result_type';
 import { ClassInfo } from '../../../typedef/parser/ApiInfoDefination';
 import { Comment } from '../../../typedef/parser/Comment';
-import { compositiveResult, compositiveLocalResult, CommonFunctions,  cleanCompositiveResult } from '../../../utils/checkUtils';
+import { compositiveResult, compositiveLocalResult, CommonFunctions, cleanCompositiveResult } from '../../../utils/checkUtils';
 import { OrderCheck } from './tag_order_check';
 import { TagNameCheck } from './tag_name_check';
 import { LegalityCheck } from './tag_legality_check';
