@@ -1515,6 +1515,16 @@ declare namespace window {
      * @since 12
      */
     id: number;
+
+    /**
+     * display id.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 12
+     */
+    displayId?: number;
   }
 
   /**
