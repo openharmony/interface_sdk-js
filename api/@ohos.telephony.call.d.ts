@@ -226,10 +226,8 @@ declare namespace call {
    * @returns { Promise<void> } The promise returned by the makeCall.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    * 2. Incorrect parameters types;
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Applications.Contacts
    * @atomicservice
    * @since 12
