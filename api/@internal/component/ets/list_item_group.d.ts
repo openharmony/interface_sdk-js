@@ -312,13 +312,18 @@ declare class ListItemGroupAttribute extends CommonMethod<ListItemGroupAttribute
    * @atomicservice
    * @since 11
    */
+  /**
+   * Called when the ListItemGroup split line style is set.
+   *
+   * @param { ListDividerOptions | null } value
+   * @returns { ListItemGroupAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
   divider(
-    value: {
-      strokeWidth: Length;
-      color?: ResourceColor;
-      startMargin?: Length;
-      endMargin?: Length;
-    } | null,
+    value: ListDividerOptions | null,
   ): ListItemGroupAttribute;
 
   /**
