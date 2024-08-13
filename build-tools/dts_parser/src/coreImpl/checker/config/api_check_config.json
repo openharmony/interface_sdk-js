@@ -193,6 +193,7 @@
     "API_CHANGE_INCOMPATIBLE_37": "Forbid changes: Cannot change from atomicservice to NA.",
     "API_CHANGE_INCOMPATIBLE_38": "Forbid changes: Cannot change from NA to syscap.",
     "API_CHANGE_INCOMPATIBLE_39": "Forbid changes: Cannot change from syscap to NA.",
-    "API_CHANGE_INCOMPATIBLE_40": "Forbid changes: Cannot change syscap value."
+    "API_CHANGE_INCOMPATIBLE_40": "Forbid changes: Cannot change syscap value.",
+    "API_CHANGE_INCOMPATIBLE_41":"Forbid changes: Cannot add new property to interface API."
   }
 }
