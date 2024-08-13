@@ -73,7 +73,7 @@ export declare class LaunchController {
  *
  * @typedef { function } LaunchAtomicServiceCallback
  * @param { string } appId - appId of atomicservice.
- * @param { ?AtomicServiceOptions } [options] - options that could be empty.
+ * @param { AtomicServiceOptions } [options] - options that could be empty.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 12
