@@ -2747,6 +2747,31 @@ declare namespace webview {
   }
 
   /**
+   * Enum type supplied to {@link setScrollable} for indicating the type of scroll.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  enum ScrollType {
+    /**
+     * Indicates scrolling the web page through touch screen, touch pad, and mouse wheel.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    EVENT,
+
+    /**
+     * Indicates scrolling the web page through the keyboard up and down arrows, PageUp/PageDown, and scroll bars.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    POSITION
+  }
+
+  /**
    * Provides methods for controlling the web controller.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
@@ -4507,6 +4532,7 @@ declare namespace webview {
      * Set whether scroll is allowed
      *
      * @param { boolean } enable - Set whether scrolling is allowed
+     * @param { ScrollType } type - Enable scrolling type
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
@@ -4515,7 +4541,7 @@ declare namespace webview {
      * @atomicservice
      * @since 12
      */
-    setScrollable(enable: boolean): void;
+    setScrollable(enable: boolean, type?: ScrollType): void;
 
     /**
      * Get whether scrolling is allowed.
