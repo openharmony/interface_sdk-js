@@ -1208,7 +1208,7 @@ declare namespace promptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   function openToast(options: ShowToastOptions): Promise<number>;
 
@@ -1224,7 +1224,7 @@ declare namespace promptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   function closeToast(toastId: number): void;
 
