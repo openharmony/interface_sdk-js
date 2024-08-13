@@ -95,7 +95,17 @@ export declare enum ArcButtonStyleMode {
      * @atomicservice
      * @since 12
      */
-    NORMAL_DEEP = 3
+    NORMAL_DEEP = 3,
+    
+    /**
+     * Custom status, custom style.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Circle
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    CUSTOM_MODE = 4
 }
 /**
  * Defines an arc button status.
@@ -352,6 +362,28 @@ interface CommonArcButtonOptions {
      * @since 12
      */
     textMargin?: LocalizedMargin;
+    
+    /**
+     * Describes the arc button touch event.
+     *
+     * @type { ?Callback<TouchEvent> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Circle
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    touchCallback?: Callback<TouchEvent>;
+    
+    /**
+     * Describes the arc button click event.
+     *
+     * @type { ?Callback<ClickEvent> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Circle
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    onClickEvent?: Callback<ClickEvent>;
 }
 /**
  * The class for ArcButtonOptions.
@@ -533,6 +565,7 @@ export declare class ArcButtonOptions {
      * @since 12
      */
     touchCallback?: Callback<TouchEvent>;
+    
     /**
      * Describes the arc button click event.
      *
@@ -543,6 +576,7 @@ export declare class ArcButtonOptions {
      * @since 12
      */
     onClickEvent?: Callback<ClickEvent>;
+    
     /**
      * Constructor of the CommonArcButtonOptions.
      *
