@@ -40,6 +40,7 @@ import { Comment } from '../../typedef/parser/Comment';
 import { notJsDocApiTypes } from '../../typedef/parser/ApiInfoDefination';
 import { StringUtils } from '../../utils/StringUtils';
 import { CommentHelper } from '../parser/JsDocProcessor';
+import { ResultsProcessHelper } from '../parser/ResultsProcess'
 
 export class DiffHelper {
   /**
@@ -537,9 +538,7 @@ export class DiffHelper {
     }
 
     basicApiInfo.setSyscap(DiffHelper.getSyscapField(basicApiInfo));
-    basicApiInfo.setParentApi(undefined);
-
-    basicApiInfo.removeNode();
+    ResultsProcessHelper.processApiInfo(basicApiInfo);
     if (!apiStatisticsType.has(basicApiInfo.getApiType())) {
       return;
     }
