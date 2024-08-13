@@ -747,6 +747,24 @@ declare class Scroller {
    * @since 12
    */
   getItemRect(index: number): RectResult;
+
+  /**
+   * Get item index by position.
+   *
+   * @param { number } x - X coordinate relative to the upper left corner of the current component's original area, in vp.
+   * @param { number } y - Y coordinate relative to the upper left corner of the current component's original area, in vp.
+   * @returns { number } Index of the item.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100004 - The controller not bound to component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  getItemIndex(x: number, y: number): number;
 }
 
 /**
