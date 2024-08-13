@@ -4826,7 +4826,7 @@ declare enum PreDragStatus {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 13
  */
 declare interface DragItemInfo {
   /**
@@ -4851,7 +4851,7 @@ declare interface DragItemInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   pixelMap?: PixelMap;
 
@@ -4877,7 +4877,7 @@ declare interface DragItemInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   builder?: CustomBuilder;
 
@@ -4903,7 +4903,7 @@ declare interface DragItemInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   extraInfo?: string;
 }
@@ -9417,7 +9417,7 @@ declare type UniformDataType = import('../api/@ohos.data.uniformTypeDescriptor')
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 13
  */
 declare enum DragResult {
   /**
@@ -9439,7 +9439,7 @@ declare enum DragResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   DRAG_SUCCESSFUL = 0,
   /**
@@ -9461,7 +9461,7 @@ declare enum DragResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   DRAG_FAILED = 1,
   /**
@@ -10163,7 +10163,7 @@ declare enum BlendApplyType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 13
  */
 declare interface DragEvent {
   /**
@@ -10188,7 +10188,7 @@ declare interface DragEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   getDisplayX(): number;
 
@@ -10214,7 +10214,7 @@ declare interface DragEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   getDisplayY(): number;
 
@@ -10240,7 +10240,7 @@ declare interface DragEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   getWindowX(): number;
 
@@ -10266,7 +10266,7 @@ declare interface DragEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   getWindowY(): number;
 
@@ -10409,7 +10409,7 @@ declare interface DragEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   setResult(dragResult: DragResult): void;
 
@@ -10435,7 +10435,7 @@ declare interface DragEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   getResult(): DragResult;
 
@@ -10461,7 +10461,7 @@ declare interface DragEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   getPreviewRect(): Rectangle;
 
@@ -18631,7 +18631,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   onDragStart(event: (event: DragEvent, extraParams?: string) => CustomBuilder | DragItemInfo): T;
 
@@ -18660,7 +18660,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   onDragEnter(event: (event: DragEvent, extraParams?: string) => void): T;
 
@@ -18689,7 +18689,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   onDragMove(event: (event: DragEvent, extraParams?: string) => void): T;
 
@@ -18718,7 +18718,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   onDragLeave(event: (event: DragEvent, extraParams?: string) => void): T;
 
@@ -18750,7 +18750,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   onDrop(event: (event: DragEvent, extraParams?: string) => void): T;
 
@@ -18779,7 +18779,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   onDragEnd(event: (event: DragEvent, extraParams?: string) => void): T;
 
