@@ -6190,6 +6190,31 @@ declare namespace media {
      * @since 12
      */
     AUDIO_SOURCE_TYPE_MIC = 1,
+    /**
+    * Source type Voice recognition.
+    * @syscap SystemCapability.Multimedia.Media.AVRecorder
+    * @since 12
+    */
+    AUDIO_SOURCE_TYPE_VOICE_RECOGNITION = 2,
+
+    /**
+    * Source type Voice communication.
+    * @syscap SystemCapability.Multimedia.Media.AVRecorder
+    * @since 12
+    */
+    AUDIO_SOURCE_TYPE_VOICE_COMMUNICATION = 7,
+    /**
+    * Source type Voice message.
+    * @syscap SystemCapability.Multimedia.Media.AVRecorder
+    * @since 12
+    */
+    AUDIO_SOURCE_TYPE_VOICE_MESSAGE = 10,
+    /**
+    * Source type Camcorder.
+    * @syscap SystemCapability.Multimedia.Media.AVRecorder
+    * @since 12
+    */
+    AUDIO_SOURCE_TYPE_CAMCORDER = 13,
   }
 
   /**
