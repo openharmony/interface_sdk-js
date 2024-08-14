@@ -1714,7 +1714,7 @@ declare namespace uniformTypeDescriptor {
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
    * <br>2.Incorrect Parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @since 13
+   * @since 12
    */
   function getUniformDataTypesByFilenameExtension(filenameExtension: string, belongsTo?: string): Array<string>;
 
@@ -1728,7 +1728,7 @@ declare namespace uniformTypeDescriptor {
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
    * <br>2.Incorrect Parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @since 13
+   * @since 12
    */
   function getUniformDataTypesByMIMEType(mimeType: string, belongsTo?: string): Array<string>;
 }
