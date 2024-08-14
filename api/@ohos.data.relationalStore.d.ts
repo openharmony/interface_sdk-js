@@ -6943,7 +6943,7 @@ declare namespace relationalStore {
      * @systemapi
      * @since 12
      */
-    lockCloudContainer():Promise<number>;
+    lockCloudContainer(): Promise<number>;
 
     /**
      * Unlock cloud container.
@@ -6953,7 +6953,7 @@ declare namespace relationalStore {
      * @systemapi
      * @since 12
      */
-    unlockCloudContainer():Promise<void>;
+    unlockCloudContainer(): Promise<void>;
   }
 
   /**
