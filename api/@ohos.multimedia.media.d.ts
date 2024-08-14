@@ -20,6 +20,7 @@
 
 import { ErrorCallback, AsyncCallback, Callback } from './@ohos.base';
 import audio from "./@ohos.multimedia.audio";
+import photoAccessHelper from "./@ohos.file.photoAccessHelper";
 import type image from './@ohos.multimedia.image';
 import type { SoundPool as _SoundPool } from './multimedia/soundPool';
 import type { PlayParameters as _PlayParameters } from './multimedia/soundPool';
@@ -4352,6 +4353,16 @@ declare namespace media {
     on(type: 'audioCapturerChange', callback: Callback<audio.AudioCapturerChangeInfo>): void;
 
     /**
+     * Listens for photo asset events.
+     * @param { 'photoAssetAvailable' } type - Type of the recording event to listen for.
+     * @param { Callback<photoAccessHelper.PhotoAsset> } callback - Callback used to listen for the photo asset event.
+     * @throws { BusinessError } 5400103 - IO error. Return by callback.
+     * @throws { BusinessError } 5400105 - Service died. Return by callback.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 12
+     */
+    on(type: 'photoAssetAvailable', callback: Callback<photoAccessHelper.PhotoAsset>): void;
+    /**
      * Listens for recording stateChange events.
      * @param { 'stateChange' } type - Type of the recording event to listen for.
      * @param { function } callback - Callback used to listen for the recorder stateChange event.
@@ -4476,6 +4487,15 @@ declare namespace media {
      * @since 12
      */
     off(type: 'audioCapturerChange', callback?: Callback<audio.AudioCapturerChangeInfo>): void;
+
+    /**
+     * Cancel Listens for photo asset events.
+     * @param { 'photoAssetAvailable' } type - Type of the recording event to listen for.
+     * @param { Callback<photoAccessHelper.PhotoAsset> } callback - Callback used to listen for the photo asset event.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 12
+     */
+    off(type: 'photoAssetAvailable', callback?: Callback<photoAccessHelper.PhotoAsset>): void;
   }
 
   /**
@@ -6278,6 +6298,27 @@ declare namespace media {
   }
 
   /**
+   * Enumerates mode of creating recorder file
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Media.AVRecorder
+   * @since 12
+   */
+  enum FileGenerationMode {
+    /**
+     * file created by app
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 12
+     */
+    APP_CREATE = 0,
+    /**
+     * file created by system, valid only in camera scene.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 12
+     */
+    AUTO_CREATE_CAMERA_SCENE = 1,
+  }
+  /**
    * Provides the video recorder configuration definitions.
    *
    * @typedef VideoRecorderConfig
@@ -6698,14 +6739,22 @@ declare namespace media {
      */
     /**
      * File output uri, support a kind of uri now.
-     * format like: "fd://" + "context".
+     * format like: "fd://" + "context". If fileGenerationMode is APP_CREATE, uri can not be null.
      * @type { string }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @atomicservice
      * @since 12
      */
-    url: string;
+    url?: string;
+
+    /**
+     * Mode of creating recorder file, details see @FileGenerationMode.
+     * @type { ?FileGenerationMode }
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 12
+     */
+    fileGenerationMode?: FileGenerationMode;
     /**
      * Sets the video rotation angle in output file, and for the file to playback, mp4 support
      * the range of rotation angle should be {0, 90, 180, 270}, default is 0.
