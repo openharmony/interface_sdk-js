@@ -14,7 +14,7 @@
     "deprecatedVersion": "",
     "useInstead": "",
     "apiType": "Interface",
-    "definedText": " export interface Test",
+    "definedText": "export interface Test",
     "pos": {
       "line": 20,
       "character": 1
@@ -23,7 +23,10 @@
     "modelLimitation": "",
     "decorators": [],
     "errorCodes": [],
-    "kitInfo": ""
+    "kitInfo": "NA",
+    "absolutePath": "",
+    "parentApiType": "SourceFile",
+    "isOptional": false
   },
   {
     "filePath": "ut_method_on_off_004.d.ts",
@@ -31,7 +34,7 @@
     "parentModuleName": "Test",
     "syscap": "",
     "permissions": "",
-    "since": "",
+    "since": "-1",
     "isForm": false,
     "isCrossPlatForm": false,
     "isAutomicService": false,
@@ -49,7 +52,10 @@
     "modelLimitation": "",
     "decorators": [],
     "errorCodes": [],
-    "kitInfo": ""
+    "kitInfo": "NA",
+    "absolutePath": "",
+    "parentApiType": "Interface",
+    "isOptional": false
   },
   {
     "filePath": "ut_method_on_off_004.d.ts",
@@ -57,7 +63,7 @@
     "parentModuleName": "global",
     "syscap": "",
     "permissions": "",
-    "since": "",
+    "since": "-1",
     "isForm": false,
     "isCrossPlatForm": false,
     "isAutomicService": false,
@@ -75,6 +81,9 @@
     "modelLimitation": "",
     "decorators": [],
     "errorCodes": [],
-    "kitInfo": ""
+    "kitInfo": "NA",
+    "absolutePath": "",
+    "parentApiType": "SourceFile",
+    "isOptional": false
   }
 ]
