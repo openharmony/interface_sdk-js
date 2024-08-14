@@ -144,7 +144,7 @@ export default interface PageNodeInfo {
   /**
    * The metadata of a node.
    *
-   * @type { string }
+   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
