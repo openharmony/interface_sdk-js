@@ -361,7 +361,17 @@
       "SystemCapability.Graphics.Drawing",
       "SystemCapability.ResourceSchedule.SystemLoad",
       "SystemCapability.Ability.AppStartup",
-      "SystemCapability.MultimodalInput.Input.InfraredEmitter"
+      "SystemCapability.MultimodalInput.Input.InfraredEmitter",
+      "SystemCapability.Security.CryptoFramework.Key",
+      "SystemCapability.Security.CryptoFramework.Key.SymKey",
+      "SystemCapability.Security.CryptoFramework.Key.AsymKey",
+      "SystemCapability.Security.CryptoFramework.Signature",
+      "SystemCapability.Security.CryptoFramework.Cipher",
+      "SystemCapability.Security.CryptoFramework.KeyAgreement",
+      "SystemCapability.Security.CryptoFramework.MessageDigest",
+      "SystemCapability.Security.CryptoFramework.Mac",
+      "SystemCapability.Security.CryptoFramework.Kdf",
+      "SystemCapability.Security.CryptoFramework.Rand"
     ]
   },
   "administrators": [
