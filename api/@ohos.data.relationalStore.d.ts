@@ -6937,8 +6937,8 @@ declare namespace relationalStore {
     /**
      * Lock cloud container before non-auto cloud sync.
      *
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @returns { Promise<number> } The expired time of the lock.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @since 12
@@ -6948,6 +6948,7 @@ declare namespace relationalStore {
     /**
      * Unlock cloud container.
      *
+     * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
