@@ -90,7 +90,7 @@ declare namespace PiPWindow {
    * Create picture-in-picture controller
    *
    * @param { PiPConfiguration } config - Params for picture-in-picture controller creation. The config must be valid,
-   * the context and componentController in config should not be null. If templateType is specified, make sure
+   * the context in config should not be null. If templateType is specified, make sure
    * it's type of PiPTemplateType. If controlGroups is specified, make sure it correspond to the templateType.
    * @param { typeNode.XComponent } contentNode - Params for picture-in-picture controller creation. 
    * Indicates the node which display the content of pip window.
