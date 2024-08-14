@@ -97,7 +97,7 @@ declare namespace PiPWindow {
    * @returns { Promise<PiPController> } - The promise returned by the function
    * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
    *                                                                2. Incorrect parameter types.
-   *                                                                3. Parameter verification failed
+   *                                                                3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
