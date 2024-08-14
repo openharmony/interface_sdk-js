@@ -20,7 +20,7 @@
 
 import type BaseContext from './application/BaseContext';
 import type { Callback } from './@ohos.base';
-import { NodeController } from '@kit.ArkUI';
+import { NodeController, typeNode } from '@kit.ArkUI';
 
 /**
  * Picture In Picture Window Manager
@@ -85,6 +85,25 @@ declare namespace PiPWindow {
    * @since 12
    */
   function create(config: PiPConfiguration): Promise<PiPController>;
+
+  /**
+   * Create picture-in-picture controller
+   *
+   * @param { PiPConfiguration } config - Params for picture-in-picture controller creation. The config must be valid,
+   * the context and componentController in config should not be null. If templateType is specified, make sure
+   * it's type of PiPTemplateType. If controlGroups is specified, make sure it correspond to the templateType.
+   * @param { typeNode.XComponent } contentNode - Params for picture-in-picture controller creation. 
+   * Indicates the node which display the content of pip window.
+   * @returns { Promise<PiPController> } - The promise returned by the function
+   * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *                                                                2. Incorrect parameter types.
+   *                                                                3. Parameter verification failed
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 12
+   */
+  function create(config: PiPConfiguration, contentNode: typeNode.XComponent): Promise<PiPController>;
 
   /**
    * PiPConfiguration
