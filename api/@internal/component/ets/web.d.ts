@@ -2506,6 +2506,22 @@ declare enum NativeEmbedStatus {
    * @since 12
    */
   LEAVE_BFCACHE = 4,
+
+  /**
+   * The embed tag visible.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  VISIBLE = 5,
+
+  /**
+   * The embed tag hidden.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  HIDDEN = 6,
 }
 
 /**
