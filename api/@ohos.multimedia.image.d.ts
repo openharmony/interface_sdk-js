@@ -6314,7 +6314,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource unavailable.
      * @throws { BusinessError } 62980173 - The DMA memory does not exist.
-     * * @throws { BusinessError } 62980302 - Memory copy failed.
+     * @throws { BusinessError } 62980302 - Memory copy failed.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12
      */
