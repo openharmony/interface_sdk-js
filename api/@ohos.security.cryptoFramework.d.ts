@@ -7979,7 +7979,7 @@ declare namespace cryptoFramework {
      * Generate a private key instance.
      *
      * @returns { Promise<PriKey> } the promise used to return PriKey.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -7990,7 +7990,7 @@ declare namespace cryptoFramework {
      * Generate a private key instance.
      *
      * @returns { Promise<PriKey> } the promise used to return PriKey.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -8002,7 +8002,7 @@ declare namespace cryptoFramework {
      * Generate a private key instance.
      *
      * @returns { Promise<PriKey> } the promise used to return PriKey.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
