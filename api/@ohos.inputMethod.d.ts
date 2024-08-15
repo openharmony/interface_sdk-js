@@ -1621,7 +1621,15 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    PREVIOUS
+    PREVIOUS,
+
+      /**
+     * The enter key type is NEWLINE.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    NEWLINE
   }
 
   /**
