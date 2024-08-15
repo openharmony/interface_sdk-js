@@ -1760,6 +1760,7 @@ declare namespace util {
      * Default constructor used to create a new LruBuffer instance with the default capacity of 64.
      *
      * @param { number } [capacity] - Indicates the capacity to customize for the buffer.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
