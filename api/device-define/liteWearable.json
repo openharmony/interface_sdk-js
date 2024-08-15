@@ -12,6 +12,9 @@
     "SystemCapability.DistributedDataManager.Preferences.Core.Lite",
     "SystemCapability.Sensors.Sensor.Lite",
     "SystemCapability.Sensors.MiscDevice.Lite",
-    "SystemCapability.Communication.NetStack"
+    "SystemCapability.Communication.NetStack",
+    "SystemCapability.Security.CryptoFramework",
+    "SystemCapability.Security.CryptoFramework.MessageDigest",
+    "SystemCapability.Security.CryptoFramework.Rand"
   ]
 }
