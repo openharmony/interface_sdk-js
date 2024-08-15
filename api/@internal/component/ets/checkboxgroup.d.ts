@@ -404,6 +404,19 @@ interface CheckboxGroupInterface {
 }
 
 /**
+ * Defines a CheckboxGroup callback when onChange.
+ *
+ * @typedef { function } OnCheckboxGroupChangeCallback
+ * @param { CheckboxGroupResult } value - checkbox group result
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 13
+ */
+declare type OnCheckboxGroupChangeCallback  = (value: CheckboxGroupResult) => void;
+
+/**
  * Defines the attribute functions of CheckboxGroup.
  *
  * @extends CommonMethod<CheckboxGroupAttribute>
@@ -598,7 +611,18 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @atomicservice
    * @since 11
    */
-  onChange(callback: (event: CheckboxGroupResult) => void): CheckboxGroupAttribute;
+  /**
+   * Called when the selection status changes.
+   *
+   * @param { OnCheckboxGroupChangeCallback } callback
+   * @returns { CheckboxGroupAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 13
+   */
+  onChange(callback: OnCheckboxGroupChangeCallback): CheckboxGroupAttribute;
 
   /**
    * Setting the shape of checkbox group.
