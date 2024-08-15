@@ -307,7 +307,7 @@ declare namespace screenLock {
     /**
      * Indicates the system event type related to the screenlock management service.
      *
-     * @type {number}
+     * @type { EventType }
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -316,7 +316,7 @@ declare namespace screenLock {
     /**
      * Identifies the customized extended parameter of an event.
      *
-     * @typedef string
+     * @typedef { string }
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
      * @since 9
