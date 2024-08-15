@@ -26,6 +26,8 @@ import {
   TypeAliasInfo,
   ClassInfo,
   TypeParamInfo,
+  ExportDeclareInfo,
+  ExportImportValue,
 } from '../../typedef/parser/ApiInfoDefination';
 import { Comment } from '../../typedef/parser/Comment';
 import {
@@ -71,12 +73,15 @@ export namespace DiffProcessorHelper {
    */
   export class JsDocDiffHelper {
     static diffJsDocInfo(
-      oldApiInfo: ApiInfo,
-      newApiInfo: ApiInfo,
+      oldApiInfo: BasicApiInfo,
+      newApiInfo: BasicApiInfo,
       diffInfos: BasicDiffInfo[],
       isAllDeprecated?: boolean,
       isAllSheet?: boolean
     ): void {
+      if (!(oldApiInfo instanceof ApiInfo) || !(newApiInfo instanceof ApiInfo)) {
+        return;
+      }
       const oldJsDocInfo: Comment.JsDocInfo | undefined = oldApiInfo.getLastJsDocInfo();
       const newJsDocInfo: Comment.JsDocInfo | undefined = newApiInfo.getLastJsDocInfo();
       JsDocDiffHelper.diffSinceVersion(oldApiInfo, newApiInfo, diffInfos);
@@ -408,12 +413,15 @@ export namespace DiffProcessorHelper {
     /**
      * 新旧版本API一致的情况下，比较装饰器
      *
-     * @param {ApiInfo} oldApiInfo
-     * @param {ApiInfo} newApiInfo
+     * @param {BasicApiInfo} oldApiInfo
+     * @param {BasicApiInfo} newApiInfo
      * @param {BasicDiffInfo[]} diffInfos
      * @returns
      */
-    static diffDecorator(oldApiInfo: ApiInfo, newApiInfo: ApiInfo, diffInfos: BasicDiffInfo[]): void {
+    static diffDecorator(oldApiInfo: BasicApiInfo, newApiInfo: BasicApiInfo, diffInfos: BasicDiffInfo[]): void {
+      if (!(oldApiInfo instanceof ApiInfo) || !(newApiInfo instanceof ApiInfo)) {
+        return;
+      }
       const oldDecoratorsMap: Map<string, string[] | undefined> = ApiDecoratorsDiffHelper.setDecoratorsMap(
         oldApiInfo.getDecorators()
       );
@@ -525,11 +533,14 @@ export namespace DiffProcessorHelper {
     /**
      * 比较两个API的历史版本jsdoc
      *
-     * @param {ApiInfo} oldApiInfo
-     * @param {ApiInfo} newApiInfo
+     * @param {BasicApiInfo} oldApiInfo
+     * @param {BasicApiInfo} newApiInfo
      * @param {BasicDiffInfo[]} diffInfos
      */
-    static diffHistoricalJsDoc(oldApiInfo: ApiInfo, newApiInfo: ApiInfo, diffInfos: BasicDiffInfo[]): void {
+    static diffHistoricalJsDoc(oldApiInfo: BasicApiInfo, newApiInfo: BasicApiInfo, diffInfos: BasicDiffInfo[]): void {
+      if (!(oldApiInfo instanceof ApiInfo) || !(newApiInfo instanceof ApiInfo)) {
+        return;
+      }
       const currentVersion: string = CommonFunctions.getCheckApiVersion().toString();
       const oldJsDocTextArr: Array<string> = oldApiInfo.getJsDocText().split('*/');
       const newJsDocTextArr: Array<string> = newApiInfo.getJsDocText().split('*/');
@@ -562,7 +573,7 @@ export namespace DiffProcessorHelper {
       }
     }
 
-    static diffHistoricalAPI(oldApiInfo: ApiInfo, newApiInfo: ApiInfo, diffInfos: BasicDiffInfo[]): void {
+    static diffHistoricalAPI(oldApiInfo: BasicApiInfo, newApiInfo: BasicApiInfo, diffInfos: BasicDiffInfo[]): void {
       const currentVersion: string = CommonFunctions.getCheckApiVersion().toString();
       const oldApiDefinedText: string = oldApiInfo.getDefinedText();
       const newApiDefinedText: string = newApiInfo.getDefinedText();
@@ -583,12 +594,12 @@ export namespace DiffProcessorHelper {
     /**
      * 根据节点类型处理节点的diff信息，处理的主流程
      *
-     * @param {ApiInfo} oldApiInfo 旧版本的节点信息
-     * @param {ApiInfo} newApiInfo 新版本的节点信息
+     * @param {BasicApiInfo} oldApiInfo 旧版本的节点信息
+     * @param {BasicApiInfo} newApiInfo 新版本的节点信息
      * @param {BasicDiffInfo[]} diffInfos 各个节点diff信息集合
      * @return {void}
      */
-    static diffNodeInfo(oldApiInfo: ApiInfo, newApiInfo: ApiInfo, diffInfos: BasicDiffInfo[], isCheck?: boolean): void {
+    static diffNodeInfo(oldApiInfo: BasicApiInfo, newApiInfo: BasicApiInfo, diffInfos: BasicDiffInfo[], isCheck?: boolean): void {
       if (isCheck) {
         ApiCheckHelper.diffHistoricalJsDoc(oldApiInfo, newApiInfo, diffInfos);
         ApiCheckHelper.diffHistoricalAPI(oldApiInfo, newApiInfo, diffInfos);
@@ -601,7 +612,7 @@ export namespace DiffProcessorHelper {
       if (!apiNodeDiff) {
         return;
       }
-      apiNodeDiff(oldApiInfo, newApiInfo, diffInfos);
+      apiNodeDiff(oldApiInfo as ApiInfo, newApiInfo as ApiInfo, diffInfos);
     }
 
     /**
@@ -673,8 +684,8 @@ export namespace DiffProcessorHelper {
     }
     static diffTypeAliasReturnType(oldApiInfo: TypeAliasInfo, newApiInfo: TypeAliasInfo): DiffTypeInfo | undefined {
       const diffTypeInfo: DiffTypeInfo = new DiffTypeInfo();
-      const oldReturnType: string[] = oldApiInfo.getReturnType()?.split('|');
-      const newReturnType: string[] = newApiInfo.getReturnType()?.split('|');
+      const oldReturnType: string[] = oldApiInfo.getReturnType().split('|');
+      const newReturnType: string[] = newApiInfo.getReturnType().split('|');
       const olaMethodTypeStr = oldReturnType.toString().replace(/\r|\n|\s+|'|"/g, '');
       const newMethodTypeStr = newReturnType.toString().replace(/\r|\n|\s+|'|"/g, '');
       if (olaMethodTypeStr === newMethodTypeStr) {
@@ -1552,6 +1563,79 @@ export namespace DiffProcessorHelper {
       }
       return diffTypes.PARAM_TYPE_CHANGE;
     }
+
+    static diffExport(oldApiInfo: ApiInfo, newApiInfo: ApiInfo, diffInfos: BasicDiffInfo[]) {
+      const diffTypeInfo: DiffTypeInfo = new DiffTypeInfo(ApiStatusCode.DEFAULT, ApiDiffType.DEFAULT, oldApiInfo.getDefinedText(), newApiInfo.getDefinedText());
+
+      if (oldApiInfo.getApiType() === ApiType.EXPORT_DEFAULT && newApiInfo.getApiType() === ApiType.EXPORT_DEFAULT) {
+        if (oldApiInfo.getDefinedText() === newApiInfo.getDefinedText()) {
+          return
+        } else {
+          diffTypeInfo.setStatusCode(ApiStatusCode.EXPORT_NAME_CHANGE)
+            .setDiffType(ApiDiffType.EXPORT_NAME_CHANGE);
+          const diffInfo: BasicDiffInfo = DiffProcessorHelper.wrapDiffInfo(oldApiInfo, newApiInfo, diffTypeInfo);
+          diffInfos.push(diffInfo);
+        }
+      }
+
+      if (!(oldApiInfo instanceof ExportDeclareInfo && newApiInfo instanceof ExportDeclareInfo)) {
+        return
+      }
+
+      const oldExportValues: Array<ExportImportValue> = oldApiInfo.getExportValues()
+      const newExportValues: Array<ExportImportValue> = newApiInfo.getExportValues()
+
+      // 旧版本包含export名称的length比新版本的length大是删除export名称
+      if (oldExportValues.length > newExportValues.length) {
+        diffTypeInfo.setStatusCode(ApiStatusCode.EXPORT_NAME_NUMBER_REDUCE)
+          .setDiffType(ApiDiffType.EXPORT_NAME_NUMBER_REDUCE);
+        const diffInfo: BasicDiffInfo = DiffProcessorHelper.wrapDiffInfo(oldApiInfo, newApiInfo, diffTypeInfo);
+        diffInfos.push(diffInfo);
+
+      } else if (oldExportValues.length < newExportValues.length) {
+        // 旧版本export的length比新版本的length小可能是新增export名称也可能是export名称变更
+        let newSameValues: Array<ExportImportValue> = []
+        // 找与旧版本相同export名称
+        newSameValues = oldExportValues.filter(
+          (oldValue: ExportImportValue) => newExportValues.some(({
+            key
+          }) => (oldValue.key === key))
+        )
+
+        // 若相同export名称的length等于旧版本export名称的length是  新增export名称
+        if (newSameValues.length === oldExportValues.length) {
+          diffTypeInfo.setStatusCode(ApiStatusCode.EXPORT_NAME_NUMBER_ADD)
+            .setDiffType(ApiDiffType.EXPORT_NAME_NUMBER_ADD);
+          const diffInfo: BasicDiffInfo = DiffProcessorHelper.wrapDiffInfo(oldApiInfo, newApiInfo, diffTypeInfo);
+          diffInfos.push(diffInfo);
+        } else {
+
+          // export名称变更
+          diffTypeInfo.setStatusCode(ApiStatusCode.EXPORT_NAME_CHANGE)
+            .setDiffType(ApiDiffType.EXPORT_NAME_CHANGE);
+          const diffInfo: BasicDiffInfo = DiffProcessorHelper.wrapDiffInfo(oldApiInfo, newApiInfo, diffTypeInfo);
+          diffInfos.push(diffInfo);
+
+        }
+      } else {
+        let diffValues: Array<ExportImportValue> = []
+        // 找与旧版本不同export名称
+        diffValues = oldExportValues.filter(
+          (oldValue: ExportImportValue) => !newExportValues.some(({
+            key
+          }) => (oldValue.key === key))
+        )
+        // export名称变更
+        if (diffValues.length > 0) {
+          diffTypeInfo.setStatusCode(ApiStatusCode.EXPORT_NAME_CHANGE)
+            .setDiffType(ApiDiffType.EXPORT_NAME_CHANGE);
+          const diffInfo: BasicDiffInfo = DiffProcessorHelper.wrapDiffInfo(oldApiInfo, newApiInfo, diffTypeInfo);
+          diffInfos.push(diffInfo);
+
+        }
+      }
+
+    }
   }
 
   /**
@@ -1684,9 +1768,9 @@ export namespace DiffProcessorHelper {
     const diffType: ApiDiffType = diffTypeInfo.getDiffType();
     const clonedOldApiInfo = oldApiInfo as ApiInfo;
     const clonedNewApiInfo = newApiInfo as ApiInfo;
-    const oldApiLevel: boolean | undefined = clonedOldApiInfo?.getLastJsDocInfo()?.getIsSystemApi();
-    const newApiLevel: boolean | undefined = clonedNewApiInfo?.getLastJsDocInfo()?.getIsSystemApi();
-    let apiIsSameName: boolean | undefined = clonedNewApiInfo?.getIsSameNameFunction();
+    const oldApiLevel: boolean | undefined = clonedOldApiInfo?.getLastJsDocInfo?.()?.getIsSystemApi?.();
+    const newApiLevel: boolean | undefined = clonedNewApiInfo?.getLastJsDocInfo?.()?.getIsSystemApi?.();
+    let apiIsSameName: boolean | undefined = clonedNewApiInfo?.getIsSameNameFunction?.();
     if (!newApiInfo) {
       apiIsSameName = clonedOldApiInfo?.getIsSameNameFunction();
     }
@@ -1717,7 +1801,7 @@ export namespace DiffProcessorHelper {
    */
   function processOldApiDiff(oldApiInfo: BasicApiInfo, diffInfo: BasicDiffInfo): void {
     const clonedOldApiInfo: ApiInfo = oldApiInfo as ApiInfo;
-    const kitInfo: string | undefined = clonedOldApiInfo.getLastJsDocInfo()?.getKit();
+    const kitInfo: string | undefined = clonedOldApiInfo.getLastJsDocInfo?.()?.getKit?.();
     if (kitInfo) {
       diffInfo.setOldKitInfo(kitInfo);
     }
@@ -1740,7 +1824,7 @@ export namespace DiffProcessorHelper {
    */
   function processNewApiDiff(newApiInfo: BasicApiInfo, diffInfo: BasicDiffInfo): void {
     const clonedOldApiInfo: ApiInfo = newApiInfo as ApiInfo;
-    const kitInfo: string | undefined = clonedOldApiInfo.getLastJsDocInfo()?.getKit();
+    const kitInfo: string | undefined = clonedOldApiInfo.getLastJsDocInfo?.()?.getKit?.();
     if (kitInfo) {
       diffInfo.setNewKitInfo(kitInfo);
     }
@@ -1757,6 +1841,8 @@ export namespace DiffProcessorHelper {
    * api节点类型对应的处理方法，获取diff信息
    */
   export const apiNodeDiffMethod: Map<string, ApiNodeDiffProcessor> = new Map([
+    [ApiType.EXPORT, ApiNodeDiffHelper.diffExport],
+    [ApiType.EXPORT_DEFAULT, ApiNodeDiffHelper.diffExport],
     [ApiType.PROPERTY, ApiNodeDiffHelper.diffProperty],
     [ApiType.CLASS, ApiNodeDiffHelper.diffClass],
     [ApiType.INTERFACE, ApiNodeDiffHelper.diffInterface],
@@ -1766,6 +1852,7 @@ export namespace DiffProcessorHelper {
     [ApiType.ENUM, ApiNodeDiffHelper.diffEnum],
     [ApiType.ENUM_VALUE, ApiNodeDiffHelper.diffEnumMember],
     [ApiType.TYPE_ALIAS, DiffProcessorHelper.ApiNodeDiffHelper.diffTypeAlias],
+
   ]);
 
   /**

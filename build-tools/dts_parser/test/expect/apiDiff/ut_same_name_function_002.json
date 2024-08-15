@@ -1,47 +1,45 @@
 [
   {
     "apiType": "Method",
-    "statusCode": 16,
-    "oldApiDefinedText": "declare function copyDir(src: string, dest: string, mode?: number): Promise<void>;",
-    "newApiDefinedText": "declare function copyDir(src: number, dest: string, mode?: number): Promise<void>;",
-    "oldApiName": "copyDir",
+    "statusCode": 3,
+    "oldApiDefinedText": "",
+    "newApiDefinedText": "declare function copyDir(src: string, dest: string, callback: AsyncCallback<void>): void;",
+    "oldApiName": "",
     "newApiName": "copyDir",
-    "oldDtsName": "ut_same_name_function_002.d.ts",
+    "oldDtsName": "",
     "newDtsName": "ut_same_name_function_002.d.ts",
-    "diffType": 43,
-    "diffMessage": "函数的参数类型变更",
+    "diffType": 90,
+    "diffMessage": "新增同名函数",
     "changeLogUrl": "",
     "changeLogs": [],
-    "isCompatible": false,
-    "oldHierarchicalRelations": [
-      "ut_same_name_function_002.d.ts",
-      "copyDir"
-    ],
+    "isCompatible": true,
+    "oldHierarchicalRelations": [],
     "newHierarchicalRelations": [
       "ut_same_name_function_002.d.ts",
       "copyDir"
     ],
     "oldPos": {
-      "line": 22,
-      "character": 1
+      "line": -1,
+      "character": -1
     },
     "newPos": {
-      "line": 22,
+      "line": 101,
       "character": 1
     },
-    "oldDescription": "src: string",
-    "newDescription": "src: number",
+    "oldDescription": "",
+    "newDescription": "declare function copyDir(src: string, dest: string, callback: AsyncCallback<void>): void;",
     "oldSyscapField": "",
-    "newSyscapField": "",
+    "newSyscapField": "FileManagement",
     "oldKitInfo": "",
-    "newKitInfo": "",
-    "isSystemapi": false
+    "newKitInfo": "NA",
+    "isSystemapi": false,
+    "isSameNameFunction": true
   },
   {
     "apiType": "Method",
     "statusCode": 16,
-    "oldApiDefinedText": "declare function copyDir(src: string, dest: string, callback: AsyncCallback<void>): void;",
-    "newApiDefinedText": "declare function copyDir(src: string, dest: string, callback: AsyncCallback<void>): ConflictFiles;",
+    "oldApiDefinedText": "declare function copyDir(src: string, dest: string, mode?: number): Promise<void>;",
+    "newApiDefinedText": "declare function copyDir(src: string, dest: string, mode?: number): Promise<void | string>;",
     "oldApiName": "copyDir",
     "newApiName": "copyDir",
     "oldDtsName": "ut_same_name_function_002.d.ts",
@@ -60,19 +58,95 @@
       "copyDir"
     ],
     "oldPos": {
-      "line": 24,
+      "line": 44,
       "character": 1
     },
     "newPos": {
-      "line": 24,
+      "line": 73,
       "character": 1
     },
-    "oldDescription": "",
-    "newDescription": "ConflictFiles",
-    "oldSyscapField": "",
+    "oldDescription": "Promise<void>",
+    "newDescription": "Promise<void | string>",
+    "oldSyscapField": "FileManagement",
+    "newSyscapField": "FileManagement",
+    "oldKitInfo": "NA",
+    "newKitInfo": "NA",
+    "isSystemapi": false,
+    "isSameNameFunction": true
+  },
+  {
+    "apiType": "Method",
+    "statusCode": 16,
+    "oldApiDefinedText": "declare function copyDir(src: string, dest: string, callback: AsyncCallback<void, Array<ConflictFiles>>): void;",
+    "newApiDefinedText": "declare function copyDir(src: string, dest: string, callback: AsyncCallback<void, Array<Conflict>>): void;",
+    "oldApiName": "copyDir",
+    "newApiName": "copyDir",
+    "oldDtsName": "ut_same_name_function_002.d.ts",
+    "newDtsName": "ut_same_name_function_002.d.ts",
+    "diffType": 45,
+    "diffMessage": "函数的参数类型范围缩小",
+    "changeLogUrl": "",
+    "changeLogs": [],
+    "isCompatible": false,
+    "oldHierarchicalRelations": [
+      "ut_same_name_function_002.d.ts",
+      "copyDir"
+    ],
+    "newHierarchicalRelations": [
+      "ut_same_name_function_002.d.ts",
+      "copyDir"
+    ],
+    "oldPos": {
+      "line": 84,
+      "character": 1
+    },
+    "newPos": {
+      "line": 123,
+      "character": 1
+    },
+    "oldDescription": "callback: AsyncCallback<void, Array<ConflictFiles>>",
+    "newDescription": "callback: AsyncCallback<void, Array<Conflict>>",
+    "oldSyscapField": "FileManagement",
+    "newSyscapField": "FileManagement",
+    "oldKitInfo": "NA",
+    "newKitInfo": "NA",
+    "isSystemapi": false,
+    "isSameNameFunction": true
+  },
+  {
+    "apiType": "Method",
+    "statusCode": 0,
+    "oldApiDefinedText": "declare function copyDir(src: string, dest: string, callback: AsyncCallback<void>): void;",
+    "newApiDefinedText": "",
+    "oldApiName": "copyDir",
+    "newApiName": "",
+    "oldDtsName": "ut_same_name_function_002.d.ts",
+    "newDtsName": "",
+    "diffType": 91,
+    "diffMessage": "删除同名函数",
+    "changeLogUrl": "",
+    "changeLogs": [],
+    "isCompatible": true,
+    "oldHierarchicalRelations": [
+      "ut_same_name_function_002.d.ts",
+      "copyDir"
+    ],
+    "newHierarchicalRelations": [],
+    "oldPos": {
+      "line": 72,
+      "character": 1
+    },
+    "newPos": {
+      "line": -1,
+      "character": -1
+    },
+    "oldDescription": "declare function copyDir(src: string, dest: string, callback: AsyncCallback<void>): void;",
+    "newDescription": "",
+    "oldSyscapField": "FileManagement",
     "newSyscapField": "",
-    "oldKitInfo": "",
+    "oldKitInfo": "NA",
     "newKitInfo": "",
-    "isSystemapi": false
+    "isSystemapi": false,
+    "isSameNameFunction": true
   }
 ]

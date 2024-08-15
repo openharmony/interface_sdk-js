@@ -16,6 +16,7 @@
 import _ from 'lodash';
 import ts from 'typescript';
 import { StringConstant } from '../../utils/Constant';
+import { EnumUtils } from '../../utils/EnumUtils';
 import {
   ApiInfo,
   ApiType,
@@ -66,10 +67,10 @@ export class DiffHelper {
     // 先以旧版本为基础进行对比
     for (const key of oldSDKApiLocations.keys()) {
       const apiLocation: string[] = oldSDKApiLocations.get(key) as string[];
-      const oldApiInfos: ApiInfo[] = Parser.getApiInfo(apiLocation, clonedOldSDKApiMap, isAllSheet) as ApiInfo[];
+      const oldApiInfos: BasicApiInfo[] = Parser.getApiInfo(apiLocation, clonedOldSDKApiMap, isAllSheet);
       // 如果旧版本中的API在新版本中不存在，则为删除
       if (!newSDKApiLocations.has(key)) {
-        oldApiInfos.forEach((oldApiInfo: ApiInfo) => {
+        oldApiInfos.forEach((oldApiInfo: BasicApiInfo) => {
           diffInfos.push(
             DiffProcessorHelper.wrapDiffInfo(
               oldApiInfo,
@@ -81,7 +82,7 @@ export class DiffHelper {
         continue;
       }
       // 新旧版本均存在，则进行对比
-      const newApiInfos: ApiInfo[] = Parser.getApiInfo(apiLocation, clonedNewSDKApiMap, isAllSheet) as ApiInfo[];
+      const newApiInfos: BasicApiInfo[] = Parser.getApiInfo(apiLocation, clonedNewSDKApiMap, isAllSheet);
       DiffHelper.diffApis(oldApiInfos, newApiInfos, diffInfos, isAllSheet, isCheck);
       // 对比完则将新版本中的对应API进行删除
       newSDKApiLocations.delete(key);
@@ -206,17 +207,17 @@ export class DiffHelper {
    * @param { BasicDiffInfo[] } diffInfos api差异结果集
    */
   static diffApis(
-    oldApiInfos: ApiInfo[],
-    newApiInfos: ApiInfo[],
+    oldApiInfos: BasicApiInfo[],
+    newApiInfos: BasicApiInfo[],
     diffInfos: BasicDiffInfo[],
     isAllSheet: boolean,
     isCheck?: boolean
   ): void {
-    const diffSets: Map<string, ApiInfo>[] = DiffHelper.getDiffSet(oldApiInfos, newApiInfos);
-    const oldReduceNewMap: Map<string, ApiInfo> = diffSets[0];
-    const newReduceOldMap: Map<string, ApiInfo> = diffSets[1];
+    const diffSets: Map<string, BasicApiInfo>[] = DiffHelper.getDiffSet(oldApiInfos, newApiInfos);
+    const oldReduceNewMap: Map<string, BasicApiInfo> = diffSets[0];
+    const newReduceOldMap: Map<string, BasicApiInfo> = diffSets[1];
     if (oldReduceNewMap.size === 0) {
-      newReduceOldMap.forEach((newApiInfo: ApiInfo) => {
+      newReduceOldMap.forEach((newApiInfo: BasicApiInfo) => {
         diffInfos.push(
           DiffProcessorHelper.wrapDiffInfo(
             undefined,
@@ -228,7 +229,7 @@ export class DiffHelper {
       return;
     }
     if (newReduceOldMap.size === 0) {
-      oldReduceNewMap.forEach((oldApiInfo: ApiInfo) => {
+      oldReduceNewMap.forEach((oldApiInfo: BasicApiInfo) => {
         diffInfos.push(
           DiffProcessorHelper.wrapDiffInfo(
             oldApiInfo,
@@ -239,20 +240,19 @@ export class DiffHelper {
       });
       return;
     }
-
     DiffHelper.diffChangeApi(oldApiInfos, newApiInfos, diffInfos, isCheck);
   }
 
   /**
    * 删除完全一样的API后，进行对比
-   * @param { ApiInfo[] } oldApiInfos
-   * @param { ApiInfo[] } newApiInfos
+   * @param { BasicApiInfo[] } oldApiInfos
+   * @param { BasicApiInfo[] } newApiInfos
    * @param diffInfos
    * @param { boolean } isCheck 是否是api_check工具进行调用
    */
   static diffChangeApi(
-    oldApiInfos: ApiInfo[],
-    newApiInfos: ApiInfo[],
+    oldApiInfos: BasicApiInfo[],
+    newApiInfos: BasicApiInfo[],
     diffInfos: BasicDiffInfo[],
     isCheck?: boolean
   ): void {
@@ -262,19 +262,24 @@ export class DiffHelper {
       DiffProcessorHelper.ApiDecoratorsDiffHelper.diffDecorator(oldApiInfos[0], newApiInfos[0], diffInfos);
       DiffProcessorHelper.ApiNodeDiffHelper.diffNodeInfo(oldApiInfos[0], newApiInfos[0], diffInfos, isCheck);
     } else {
-      const newMethodInfoMap: Map<string, ApiInfo> = DiffHelper.setmethodInfoMap(newApiInfos);
-      const oldMethodInfoMap: Map<string, ApiInfo> = DiffHelper.setmethodInfoMap(oldApiInfos);
-      oldApiInfos.forEach((oldApiInfo: ApiInfo) => {
-        const newApiInfo: ApiInfo | undefined = newMethodInfoMap.get(oldApiInfo.getDefinedText().replace(/\r|\n|\s+|,|;/g, ''));
-        if (newApiInfo) {
-          DiffProcessorHelper.JsDocDiffHelper.diffJsDocInfo(oldApiInfo, newApiInfo, diffInfos);
-          DiffProcessorHelper.ApiDecoratorsDiffHelper.diffDecorator(oldApiInfo, newApiInfo, diffInfos);
-          newMethodInfoMap.delete(oldApiInfo.getDefinedText().replace(/\r|\n|\s+|,|;/g, ''));
-          oldMethodInfoMap.delete(oldApiInfo.getDefinedText().replace(/\r|\n|\s+|,|;/g, ''));
+      const newMethodInfoMap: Map<string, BasicApiInfo> = DiffHelper.setmethodInfoMap(newApiInfos);
+      const oldMethodInfoMap: Map<string, BasicApiInfo> = DiffHelper.setmethodInfoMap(oldApiInfos);
+      oldApiInfos.forEach((oldApiInfo: BasicApiInfo) => {
+        const newApiInfo: BasicApiInfo | undefined = newMethodInfoMap.get(oldApiInfo.getDefinedText().replace(/\r|\n|\s+|,|;/g, ''));
+        if (!newApiInfo) {
+          return;
         }
+        DiffProcessorHelper.ApiNodeDiffHelper.diffNodeInfo(oldApiInfo, newApiInfo, diffInfos, isCheck);
+        DiffProcessorHelper.JsDocDiffHelper.diffJsDocInfo(oldApiInfo, newApiInfo, diffInfos);
+        DiffProcessorHelper.ApiDecoratorsDiffHelper.diffDecorator(oldApiInfo, newApiInfo, diffInfos);
+        newMethodInfoMap.delete(oldApiInfo.getDefinedText());
+        oldMethodInfoMap.delete(oldApiInfo.getDefinedText());
       });
 
       for (const apiInfo of newMethodInfoMap.values()) {
+        if (!(apiInfo instanceof ApiInfo)) {
+          continue;
+        }
         const jsDocLength: number = apiInfo.getJsDocInfos().length;
         if (jsDocLength === 1) {
           diffInfos.push(
@@ -306,14 +311,20 @@ export class DiffHelper {
   }
 
   static diffSameNameFunction(
-    oldMethodInfoMap: Map<string, ApiInfo>,
-    newMethodInfoMap: Map<string, ApiInfo>,
+    oldMethodInfoMap: Map<string, BasicApiInfo>,
+    newMethodInfoMap: Map<string, BasicApiInfo>,
     diffInfos: BasicDiffInfo[],
     isCheck?: boolean
   ) {
     for (const newApiInfo of newMethodInfoMap.values()) {
+      if (!(newApiInfo instanceof ApiInfo)) {
+        continue;
+      }
       const newJsDocInfo: Comment.JsDocInfo | undefined = newApiInfo.getPenultimateJsDocInfo();
       for (const oldApiInfo of oldMethodInfoMap.values()) {
+        if (!(oldApiInfo instanceof ApiInfo)) {
+          continue;
+        }
         const oldJsDocInfo: Comment.JsDocInfo | undefined = oldApiInfo.getLastJsDocInfo();
         if (!DiffHelper.diffJsDoc(newJsDocInfo, oldJsDocInfo)) {
           continue;
@@ -423,9 +434,9 @@ export class DiffHelper {
    * @param apiInfos
    * @returns
    */
-  static setmethodInfoMap(apiInfos: ApiInfo[]): Map<string, ApiInfo> {
-    const methodInfoMap: Map<string, ApiInfo> = new Map();
-    apiInfos.forEach((apiInfo: ApiInfo) => {
+  static setmethodInfoMap(apiInfos: BasicApiInfo[]): Map<string, BasicApiInfo> {
+    const methodInfoMap: Map<string, BasicApiInfo> = new Map();
+    apiInfos.forEach((apiInfo: BasicApiInfo) => {
       methodInfoMap.set(apiInfo.getDefinedText().replace(/\r|\n|\s+|,|;/g, ''), apiInfo);
     });
     return methodInfoMap;
@@ -438,19 +449,19 @@ export class DiffHelper {
    * @param newApiInfos
    * @returns
    */
-  static getDiffSet(oldApiInfos: ApiInfo[], newApiInfos: ApiInfo[]): Map<string, ApiInfo>[] {
-    const oldApiInfoMap: Map<string, ApiInfo> = new Map();
-    const newApiInfoMap: Map<string, ApiInfo> = new Map();
+  static getDiffSet(oldApiInfos: BasicApiInfo[], newApiInfos: BasicApiInfo[]): Map<string, BasicApiInfo>[] {
+    const oldApiInfoMap: Map<string, BasicApiInfo> = new Map();
+    const newApiInfoMap: Map<string, BasicApiInfo> = new Map();
     DiffHelper.setApiInfoMap(oldApiInfoMap, oldApiInfos);
     DiffHelper.setApiInfoMap(newApiInfoMap, newApiInfos);
-    const oldReduceNewMap: Map<string, ApiInfo> = new Map();
-    oldApiInfoMap.forEach((apiInfo: ApiInfo, key: string) => {
+    const oldReduceNewMap: Map<string, BasicApiInfo> = new Map();
+    oldApiInfoMap.forEach((apiInfo: BasicApiInfo, key: string) => {
       if (!newApiInfoMap.has(key)) {
         oldReduceNewMap.set(key, apiInfo);
       }
     });
-    const newReduceOldMap: Map<string, ApiInfo> = new Map();
-    newApiInfoMap.forEach((apiInfo: ApiInfo, key: string) => {
+    const newReduceOldMap: Map<string, BasicApiInfo> = new Map();
+    newApiInfoMap.forEach((apiInfo: BasicApiInfo, key: string) => {
       if (!oldApiInfoMap.has(key)) {
         newReduceOldMap.set(key, apiInfo);
       }
@@ -458,9 +469,9 @@ export class DiffHelper {
     return [oldReduceNewMap, newReduceOldMap];
   }
 
-  static setApiInfoMap(apiInfoMap: Map<string, ApiInfo>, apiInfos: ApiInfo[]): void {
-    apiInfos.forEach((apiInfo: ApiInfo) => {
-      const key = JSON.stringify(apiInfo);
+  static setApiInfoMap(apiInfoMap: Map<string, BasicApiInfo>, apiInfos: BasicApiInfo[]): void {
+    apiInfos.forEach((apiInfo: BasicApiInfo) => {
+      const key: string = `${apiInfo.getDefinedText()}#${apiInfo.getJsDocText()}#${JSON.stringify(apiInfo.getDecorators())}`
       apiInfoMap.set(key, apiInfo);
     });
   }
@@ -538,8 +549,12 @@ export class DiffHelper {
     }
 
     basicApiInfo.setSyscap(DiffHelper.getSyscapField(basicApiInfo));
-    ResultsProcessHelper.processApiInfo(basicApiInfo);
-    if (!apiStatisticsType.has(basicApiInfo.getApiType())) {
+    basicApiInfo.setParentApi(undefined);
+
+    basicApiInfo.removeNode();
+    let isExportApiNode: boolean = EnumUtils.enum2arr([ApiType.EXPORT, ApiType.EXPORT_DEFAULT])
+      .includes(basicApiInfo.getApiType());
+    if (!apiStatisticsType.has(basicApiInfo.getApiType()) && !isExportApiNode) {
       return;
     }
     if (basicApiInfo.getApiName() === 'constructor') {
