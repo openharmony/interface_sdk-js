@@ -1090,6 +1090,42 @@ declare namespace print {
   }
 
   /**
+   * Enumeration of Printer Event.
+   * @enum { number } PrinterEvent
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 12
+   */
+  enum PrinterEvent {
+    /**
+     * Printer added.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 12
+     */
+    PRINTER_EVENT_ADDED = 0,
+
+    /**
+     * Printer deleted.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 12
+     */
+    PRINTER_EVENT_DELETED = 1,
+
+    /**
+     * Printer state changed.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 12
+     */
+    PRINTER_EVENT_STATE_CHANGED = 2,
+
+    /**
+     * Printer info changed.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 12
+     */
+    PRINTER_EVENT_INFO_CHANGED = 3,
+  }
+
+  /**
    * Enumeration of  Print Job State.
    * @enum { number } PrintJobState
    * @syscap SystemCapability.Print.PrintFramework
@@ -1808,6 +1844,19 @@ declare namespace print {
   function on(type: 'printerStateChange', callback: (state: PrinterState, info: PrinterInfo) => void): void;
 
   /**
+   * Register event callback for the change of printer.
+   * @permission ohos.permission.PRINT
+   * @param { 'printerChange' } type - Indicates change of printer.
+   * @param { function } callback - The callback function for change of printer.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 12
+   */
+  function on(type: 'printerChange', callback: (event: PrinterEvent, info: PrinterInformation) => void): void;
+
+  /**
    * Unregister event callback for the state change of printer.
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { 'printerStateChange' } type - Indicates state change of printer.
@@ -2180,12 +2229,11 @@ declare namespace print {
 
   /**
    * Get all added printers.
-   * @permission ohos.permission.MANAGE_PRINT_JOB
+   * @permission ohos.permission.PRINT
    * @returns { Promise<Array<string>> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
-   * @systemapi Hide this for inner system use.
    * @since 12
    */
   function getAddedPrinters(): Promise<Array<string>>;
