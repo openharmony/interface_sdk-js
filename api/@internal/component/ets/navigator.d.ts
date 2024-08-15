@@ -41,6 +41,7 @@
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @deprecated since 13
  */
 declare enum NavigationType {
   /**
@@ -63,6 +64,7 @@ declare enum NavigationType {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 13
    */
   Push,
 
@@ -86,6 +88,7 @@ declare enum NavigationType {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 13
    */
   Back,
 
@@ -109,6 +112,7 @@ declare enum NavigationType {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 13
    */
   Replace,
 }
@@ -136,6 +140,7 @@ declare enum NavigationType {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @deprecated since 13
  */
 interface NavigatorInterface {
   /**
@@ -164,6 +169,7 @@ interface NavigatorInterface {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 13
    */
   (value?: { target: string; type?: NavigationType }): NavigatorAttribute;
 
@@ -190,6 +196,7 @@ interface NavigatorInterface {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 13
    */
   (): NavigatorAttribute;
 }
@@ -217,6 +224,7 @@ interface NavigatorInterface {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @deprecated since 13
  */
 declare class NavigatorAttribute extends CommonMethod<NavigatorAttribute> {
   /**
@@ -245,6 +253,7 @@ declare class NavigatorAttribute extends CommonMethod<NavigatorAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 13
    */
   active(value: boolean): NavigatorAttribute;
 
@@ -274,6 +283,7 @@ declare class NavigatorAttribute extends CommonMethod<NavigatorAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 13
    */
   type(value: NavigationType): NavigatorAttribute;
 
@@ -303,6 +313,7 @@ declare class NavigatorAttribute extends CommonMethod<NavigatorAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 13
    */
   target(value: string): NavigatorAttribute;
 
@@ -332,6 +343,7 @@ declare class NavigatorAttribute extends CommonMethod<NavigatorAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 13
    */
   params(value: object): NavigatorAttribute;
 }
@@ -356,6 +368,7 @@ declare class NavigatorAttribute extends CommonMethod<NavigatorAttribute> {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @deprecated since 13
  */
 declare const Navigator: NavigatorInterface;
 
@@ -379,5 +392,6 @@ declare const Navigator: NavigatorInterface;
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @deprecated since 13
  */
 declare const NavigatorInstance: NavigatorAttribute;
