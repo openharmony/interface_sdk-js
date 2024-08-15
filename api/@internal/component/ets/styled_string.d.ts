@@ -591,6 +591,40 @@ declare class TextShadowStyle {
 }
 
 /**
+ * Defines Sets the property string background color.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 13
+ */
+declare class BackgroundColorStyle {
+
+    /**
+     * constructor.
+     *
+     * @param { TextBackgroundStyle } textBackgroundStyle - textBackgroundStyle value.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
+    constructor(textBackgroundStyle: TextBackgroundStyle);
+
+    /**
+     * Get the textBackgroundStyle value of the StyledString.
+     *
+     * @type { TextBackgroundStyle } - the textBackgroundStyle value of the StyledString
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
+    readonly textBackgroundStyle: TextBackgroundStyle;
+}
+
+/**
  * Defines GestureStyle.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -904,15 +938,15 @@ declare class UrlStyle {
  *
  * @typedef { TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle | TextShadowStyle |
  * GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | UrlStyle | CustomSpan |
- * UserDataSpan } StyledStringValue
+ * UserDataSpan | BackgroundColorStyle } StyledStringValue
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 13
-*/
+ */
 declare type StyledStringValue = TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle |
 TextShadowStyle | GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | UrlStyle | CustomSpan |
-UserDataSpan;
+UserDataSpan | BackgroundColorStyle;
 
 /**
  * MutableStyledString
@@ -1158,6 +1192,16 @@ declare enum StyledStringKey {
       * @since 12
       */
      LINE_HEIGHT = 5,
+
+     /**
+      * The key of BackgroundColorStyle.
+      *
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @crossplatform
+      * @atomicservice
+      * @since 13
+      */
+     BACKGROUND_COLOR = 6,
 
      /**
       * The key of UrlStyle.
