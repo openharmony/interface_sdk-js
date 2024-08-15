@@ -499,6 +499,7 @@ ipaddr
 ipsec
 irnss
 irradiance
+isCameraOccluded
 isdn
 isim
 issuers
@@ -650,6 +651,7 @@ oaep
 obscured
 occluding
 occluder
+occluded
 ocsp
 ofb
 offhook
@@ -995,6 +997,7 @@ systembar
 systemsize
 systemui
 suspending
+tabletype
 tailoring
 talkback
 taskmanager
