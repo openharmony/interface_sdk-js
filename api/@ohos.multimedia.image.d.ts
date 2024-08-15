@@ -6276,8 +6276,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Get metadata.
      * 
-     * @returns { HdrMetadataValue } Returns the value of metadata.
      * @param { HdrMetadataKey } key Type of metadata.
+     * @returns { HdrMetadataValue } Returns the value of metadata.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource unavailable.
@@ -6291,10 +6291,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Set metadata.
      * 
-     * @returns { Promise<void> } A Promise instance used to return the instance release result. If the operation fails,
-     * an error message is returned.
      * @param { HdrMetadataKey } key Type of metadata.
      * @param { HdrMetadataValue } value Value of metadata.
+     * @returns { Promise<void> } A Promise instance used to return the instance release result. If the operation fails,
+     * an error message is returned.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource unavailable.
