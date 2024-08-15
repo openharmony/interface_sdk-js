@@ -20,7 +20,6 @@
 
 import type image from './@ohos.multimedia.image';
 import type common2D from './@ohos.graphics.common2D';
-import type uiEffect from './@ohos.graphics.uiEffect';
 
 /**
  * Provides functions such as 2D graphics rendering, text drawing, and image display.
@@ -754,7 +753,6 @@ declare namespace drawing {
      * Determines whether the current contour is closed.
      * 
      * @returns { boolean } - Returns true if the current contour is closed, otherwise false.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -765,21 +763,21 @@ declare namespace drawing {
      * 
      * @param { boolean } forceClosed - Whether to close the path.
      * @param { number } distance - The distance from the start of the path.
-     * @param { drawing.Matrix } matrix - Indicates the pointer to an Matrix object.
+     * @param { Matrix } matrix - Indicates the pointer to an Matrix object.
      * @param { PathMeasureMatrixFlags } flags - Indicates what should be returned in the matrix.
      * @returns { boolean } - Returns false if there is no path, or a zero-length path was specified, in which case matrix is unchanged.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
     */
-    getMatrix(forceClosed: boolean, distance: number, matrix: drawing.Matrix, flags: PathMeasureMatrixFlags): boolean;
+    getMatrix(forceClosed: boolean, distance: number, matrix: Matrix, flags: PathMeasureMatrixFlags): boolean;
 
     /**
      * Parses the SVG format string that describes the drawing path, and sets the path.
      *
      * @param { string } str - A string in SVG format that describes the drawing path.
      * @returns { boolean } true if build succeeded, otherwise false.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -1253,7 +1251,7 @@ declare namespace drawing {
      * @param { common2D.Rect | null} rect - Optional layer size. The default value is null.
      * @param { Brush | null} brush - Optional brush effect used to draw the layer. The default value is null.
      * @returns { number } Return the number of saved states before this call.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -1422,7 +1420,7 @@ declare namespace drawing {
     /**
      * Replaces the clipping area with the intersection or difference between the
      * current clipping area and RoundRect, and use a clipping edge that is aliased or anti-aliased.
-     * @param { drawing.RoundRect } roundRect - To combine with clipping area.
+     * @param { RoundRect } roundRect - To combine with clipping area.
      * @param { ClipOp } clipOp - Indicates the operation to apply to clip. The default value is intersect.
      * @param { boolean } doAntiAlias - True if clip is to be anti-aliased. The default value is false.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1430,7 +1428,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    clipRoundRect(roundRect: drawing.RoundRect, clipOp?: ClipOp, doAntiAlias?: boolean): void;
+    clipRoundRect(roundRect: RoundRect, clipOp?: ClipOp, doAntiAlias?: boolean): void;
 
     /**
      * Checks whether the drawable area is empty.
@@ -2520,7 +2518,7 @@ declare namespace drawing {
     static createLumaColorFilter(): ColorFilter;
     /**
      * Makes a color filter with a 5x4 color matrix
-     * @param { Array<Number> } matrix - Indicates the matrix, which is represented as a number array of length 20.
+     * @param { Array<number> } matrix - Indicates the matrix, which is represented as a number array of length 20.
      * @returns { ColorFilter } Colorfilter object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -2528,7 +2526,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    static createMatrixColorFilter(matrix: Array<Number>): ColorFilter;
+    static createMatrixColorFilter(matrix: Array<number>): ColorFilter;
   }
 
   /**
@@ -2542,8 +2540,8 @@ declare namespace drawing {
      * Makes an ImageFilter object that blurs its input by the separate X and Y sigmas.
      * @param { number } sigmaX - Indicates the Gaussian sigma value for blurring along the X axis. Must be > 0.
      * @param { number } sigmaY - Indicates the Gaussian sigma value for blurring along the Y axis. Must be > 0.
-     * @param { uiEffect.TileMode } tileMode - Indicates the tile mode applied at edges.
-     * @param { ImageFilter } imageFilter - Indicates the input filter that is blurred,
+     * @param { TileMode } tileMode - Indicates the tile mode applied at edges.
+     * @param { ImageFilter | null } imageFilter - Indicates the input filter that is blurred,
      * uses source bitmap if this is null.
      * @returns { ImageFilter } ImageFilter object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -2553,11 +2551,11 @@ declare namespace drawing {
      * @since 12
      */
     static createBlurImageFilter(sigmaX: number, sigmaY: number,
-                                 tileMode: uiEffect.TileMode, imageFilter?: ImageFilter): ImageFilter;
+      tileMode: TileMode, imageFilter?: ImageFilter | null): ImageFilter;
     /**
      * Makes an ImageFilter object that applies the color filter to the input.
      * @param { ColorFilter } colorFilter - Indicates the color filter that transforms the input image.
-     * @param { ImageFilter } imageFilter - Indicates the input filter, or uses the source bitmap if this is null.
+     * @param { ImageFilter | null } imageFilter - Indicates the input filter, or uses the source bitmap if this is null.
      * @returns { ImageFilter } ImageFilter object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -2565,7 +2563,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    static createFromColorFilter(colorFilter: ColorFilter, imageFilter?: ImageFilter): ImageFilter;
+    static createFromColorFilter(colorFilter: ColorFilter, imageFilter?: ImageFilter | null): ImageFilter;
   }
   /**
    * Enumerate join styles. The join style defines the shape of the joins of a
