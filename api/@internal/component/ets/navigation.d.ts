@@ -2074,6 +2074,18 @@ declare interface NavigationTitleOptions {
    * @since 13
    */
   subTitleModifier?: TextModifier;
+  
+  /**
+   * Defines whether to respond to the hover mode.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  enableHoverMode?: boolean;
 }
 
 /**
