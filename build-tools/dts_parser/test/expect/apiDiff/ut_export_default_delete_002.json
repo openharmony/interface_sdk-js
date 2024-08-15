@@ -1,0 +1,38 @@
+[
+  {
+    "apiType": "ExportDefault",
+    "statusCode": 0,
+    "oldApiDefinedText": "export default test",
+    "newApiDefinedText": "",
+    "oldApiName": "export_default",
+    "newApiName": "",
+    "oldDtsName": "ut_export_default_delete_002.d.ts",
+    "newDtsName": "",
+    "diffType": 76,
+    "diffMessage": "删除API",
+    "changeLogUrl": "",
+    "changeLogs": [],
+    "isCompatible": false,
+    "oldHierarchicalRelations": [
+      "ut_export_default_delete_002.d.ts",
+      "export_default"
+    ],
+    "newHierarchicalRelations": [],
+    "oldPos": {
+      "line": 20,
+      "character": 1
+    },
+    "newPos": {
+      "line": -1,
+      "character": -1
+    },
+    "oldDescription": "export default test",
+    "newDescription": "",
+    "oldSyscapField": "",
+    "newSyscapField": "",
+    "oldKitInfo": "",
+    "newKitInfo": "",
+    "isSystemapi": false,
+    "isSameNameFunction": false
+  }
+]

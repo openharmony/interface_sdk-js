@@ -2,8 +2,8 @@
   {
     "apiType": "Class",
     "statusCode": 9,
-    "oldApiDefinedText": " export class Test",
-    "newApiDefinedText": " export class Test",
+    "oldApiDefinedText": "export class Test",
+    "newApiDefinedText": "export class Test",
     "oldApiName": "Test",
     "newApiName": "Test",
     "oldDtsName": "ut_jsdoc_public_to_system.d.ts",
@@ -33,8 +33,9 @@
     "newDescription": "systemapi",
     "oldSyscapField": "",
     "newSyscapField": "",
-    "oldKitInfo": "",
-    "newKitInfo": "",
-    "isSystemapi": true
+    "oldKitInfo": "NA",
+    "newKitInfo": "NA",
+    "isSystemapi": true,
+    "isSameNameFunction": false
   }
 ]

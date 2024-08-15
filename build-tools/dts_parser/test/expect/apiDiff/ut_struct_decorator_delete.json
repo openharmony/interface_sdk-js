@@ -2,8 +2,8 @@
   {
     "apiType": "Struct",
     "statusCode": 24,
-    "oldApiDefinedText": " struct MyComponent",
-    "newApiDefinedText": " struct MyComponent",
+    "oldApiDefinedText": "struct MyComponent",
+    "newApiDefinedText": "struct MyComponent",
     "oldApiName": "MyComponent",
     "newApiName": "MyComponent",
     "oldDtsName": "ut_struct_decorator_delete.d.ets",
@@ -33,8 +33,9 @@
     "newDescription": "",
     "oldSyscapField": "",
     "newSyscapField": "",
-    "oldKitInfo": "",
-    "newKitInfo": "",
-    "isSystemapi": false
+    "oldKitInfo": "NA",
+    "newKitInfo": "NA",
+    "isSystemapi": false,
+    "isSameNameFunction": false
   }
 ]

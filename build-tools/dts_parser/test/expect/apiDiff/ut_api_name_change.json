@@ -31,9 +31,10 @@
     "newDescription": "",
     "oldSyscapField": "",
     "newSyscapField": "",
-    "oldKitInfo": "",
+    "oldKitInfo": "NA",
     "newKitInfo": "",
-    "isSystemapi": false
+    "isSystemapi": false,
+    "isSameNameFunction": false
   },
   {
     "apiType": "Method",
@@ -68,7 +69,8 @@
     "oldSyscapField": "",
     "newSyscapField": "",
     "oldKitInfo": "",
-    "newKitInfo": "",
-    "isSystemapi": false
+    "newKitInfo": "NA",
+    "isSystemapi": false,
+    "isSameNameFunction": false
   }
 ]

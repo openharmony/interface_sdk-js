@@ -37,8 +37,9 @@
     "newDescription": "context: Context, permissions: Array<Permissions>",
     "oldSyscapField": "Security",
     "newSyscapField": "Security",
-    "oldKitInfo": "",
-    "newKitInfo": "",
-    "isSystemapi": false
+    "oldKitInfo": "NA",
+    "newKitInfo": "NA",
+    "isSystemapi": false,
+    "isSameNameFunction": false
   }
 ]
