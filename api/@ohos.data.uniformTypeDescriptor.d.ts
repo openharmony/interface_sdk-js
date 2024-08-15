@@ -1703,6 +1703,34 @@ declare namespace uniformTypeDescriptor {
    * @since 11
    */
   function getUniformDataTypeByMIMEType(mimeType: string, belongsTo?: string): string;
+
+  /**
+   * Queries and returns the uniform type descriptor list by the given filename extension and the uniform data type it belongs to.
+   *
+   * @param { string } filenameExtension - Filename extension.
+   * @param { string } [belongsTo] - A uniform data type ID it belongs to.
+   * @returns { Array<string> } Returns the uniform data type ID list corresponding to the given filename extension and the
+   * <br>uniform data type it belongs to(If the 'belongsTo' parameter is set) or flexible type if the uniform data type does not exist.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect Parameters types.
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @since 12
+   */
+  function getUniformDataTypesByFilenameExtension(filenameExtension: string, belongsTo?: string): Array<string>;
+
+  /**
+   * Queries and returns the uniform type descriptor list by the given MIME type and the uniform data type it belongs to.
+   *
+   * @param { string } mimeType - MIME type.
+   * @param { string } [belongsTo] - A uniform data type ID it belongs to.
+   * @returns { Array<string> } Returns the uniform data type ID list corresponding to the given MIME type and the uniform data type
+   * <br>it belongs to(If the 'belongsTo' parameter is set) or flexible type if the uniform data type does not exist.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect Parameters types.
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @since 12
+   */
+  function getUniformDataTypesByMIMEType(mimeType: string, belongsTo?: string): Array<string>;
 }
 
 export default uniformTypeDescriptor;
