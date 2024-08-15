@@ -26,7 +26,7 @@
  * @atomicservice 
  * @since 12 
  */
-declare type Scene = import('../api/@ohos.graphics.scene').Scene
+declare type Scene = import('../api/@ohos.graphics.scene').Scene;
 
 /**
  * The enum of model type
@@ -65,14 +65,14 @@ declare enum ModelType {
  */
 declare interface SceneOptions {
   /**
-   * Resource type for 3D rendering, Scene type for 3d scene controlling
+   * ResourceStr type for 3D rendering, Scene type for 3d scene controlling
    *
-   * @type { ?(Resource | Scene) }
+   * @type { ?(ResourceStr | Scene) }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
    * @since 12
    */
-  scene?: Resource | Scene;
+  scene?: ResourceStr | Scene;
 
   /**
    * Scene type when 3D rendering
@@ -117,47 +117,47 @@ declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
   /**
    * Load 3D model environment resource.
    *
-   * @param { Resource } uri - The path of 3D environment resource
+   * @param { ResourceStr } uri - The path of 3D environment resource
    * @returns { Component3DAttribute } The attribute of the component3D
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
    * @since 12
    */
-  environment(uri: Resource): Component3DAttribute;
+  environment(uri: ResourceStr): Component3DAttribute;
 
   /**
    * Set render pipeline of 3D scene render.
    *
-   * @param { Resource } uri - The path of Render pipeline config file
+   * @param { ResourceStr } uri - The path of Render pipeline config file
    * @param { boolean } selfRenderUpdate - Trigger rendering every frame
    * @returns { Component3DAttribute } The attribute of the component3D
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
    * @since 12
    */
-  customRender(uri: Resource, selfRenderUpdate: boolean): Component3DAttribute;
+  customRender(uri: ResourceStr, selfRenderUpdate: boolean): Component3DAttribute;
 
   /**
    * Load shader uri. 
    *
-   * @param { Resource } uri - The path of custom shader
+   * @param { ResourceStr } uri - The path of custom shader
    * @returns { Component3DAttribute } The attribute of the component3D
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
    * @since 12
    */
-  shader(uri: Resource): Component3DAttribute;
+  shader(uri: ResourceStr): Component3DAttribute;
 
   /**
    * Load shader texture uri. 
    *
-   * @param { Resource } uri - The path of texture used by shader
+   * @param { ResourceStr } uri - The path of texture used by shader
    * @returns { Component3DAttribute } The attribute of the component3D
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
    * @since 12
    */
-  shaderImageTexture(uri: Resource): Component3DAttribute;
+  shaderImageTexture(uri: ResourceStr): Component3DAttribute;
   
   /**
    * Buffer input for shader animation 
