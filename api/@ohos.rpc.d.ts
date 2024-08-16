@@ -37,7 +37,7 @@ declare namespace rpc {
    */
   enum ErrorCode {
     /**
-     * Check param failed
+     * Parameter error.
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
@@ -45,7 +45,7 @@ declare namespace rpc {
     CHECK_PARAM_ERROR = 401,
 
     /**
-     * Os mmap function failed
+     * Failed to call mmap.
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
@@ -53,7 +53,7 @@ declare namespace rpc {
     OS_MMAP_ERROR = 1900001,
 
     /**
-     * Os ioctl function failed
+     * Failed to call ioctl.
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
@@ -61,7 +61,7 @@ declare namespace rpc {
     OS_IOCTL_ERROR = 1900002,
 
     /**
-     * Write to ashmem failed
+     * Failed to write data to the shared memory.
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
@@ -69,7 +69,7 @@ declare namespace rpc {
     WRITE_TO_ASHMEM_ERROR = 1900003,
 
     /**
-     * Read from ashmem failed
+     * Failed to read data from the shared memory.
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
@@ -77,7 +77,7 @@ declare namespace rpc {
     READ_FROM_ASHMEM_ERROR = 1900004,
 
     /**
-     * Only proxy object permitted
+     * Operation allowed only for the proxy object.
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
@@ -85,7 +85,7 @@ declare namespace rpc {
     ONLY_PROXY_OBJECT_PERMITTED_ERROR = 1900005,
 
     /**
-     * Only remote object permitted
+     * Operation allowed only for the remote object.
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
@@ -93,7 +93,7 @@ declare namespace rpc {
     ONLY_REMOTE_OBJECT_PERMITTED_ERROR = 1900006,
 
     /**
-     * Communication failed
+     * Communication failed.
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
@@ -101,7 +101,7 @@ declare namespace rpc {
     COMMUNICATION_ERROR = 1900007,
 
     /**
-     * Proxy or remote object is invalid
+     * The proxy or remote object is invalid.
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
@@ -109,7 +109,7 @@ declare namespace rpc {
     PROXY_OR_REMOTE_OBJECT_INVALID_ERROR = 1900008,
 
     /**
-     * Write data to message sequence failed
+     * Failed to write data to the message sequence. 
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
@@ -117,7 +117,7 @@ declare namespace rpc {
     WRITE_DATA_TO_MESSAGE_SEQUENCE_ERROR = 1900009,
 
     /**
-     * Read data from message sequence failed
+     * Failed to read data from the message sequence.
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
@@ -125,7 +125,7 @@ declare namespace rpc {
     READ_DATA_FROM_MESSAGE_SEQUENCE_ERROR = 1900010,
 
     /**
-     * Parcel memory alloc failed
+     * Memory allocation failed.
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
@@ -1193,9 +1193,11 @@ declare namespace rpc {
      * Serialize a remote object and writes it to the {@link MessageSequence} object.
      *
      * @param { IRemoteObject } object - Remote object to serialize.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900008 - proxy or remote object is invalid
-     * @throws { BusinessError } 1900009 - write data to message sequence failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter type does not match.
+     * @throws { BusinessError } 1900008 - The proxy or remote object is invalid.
+     * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1205,8 +1207,8 @@ declare namespace rpc {
      * Reads a remote object from {@link MessageSequence} object.
      *
      * @returns { IRemoteObject } Return the remote object.
-     * @throws { BusinessError } 1900008 - proxy or remote object is invalid
-     * @throws { BusinessError } 1900010 - read data from message sequence failed
+     * @throws { BusinessError } 1900008 - The proxy or remote object is invalid.
+     * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1216,8 +1218,12 @@ declare namespace rpc {
      * Writes an interface token into the {@link MessageSequence} object.
      *
      * @param { string } token - Interface descriptor to write.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900009 - write data to message sequence failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter type does not match;
+     *     3.The string length exceeds 40960 bytes;
+     *     4.The number of bytes copied to the buffer is different from the length of the obtained string.
+     * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1227,7 +1233,7 @@ declare namespace rpc {
      * Reads an interface token from the {@link MessageSequence} object.
      *
      * @returns { string } Return a string value.
-     * @throws { BusinessError } 1900010 - read data from message sequence failed
+     * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1257,7 +1263,9 @@ declare namespace rpc {
      * than the storage capacity of the {@link MessageSequence}.
      *
      * @param { number } size - Indicates the data size of the {@link MessageSequence} object.
-     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter type does not match.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1269,8 +1277,10 @@ declare namespace rpc {
      * the size of data contained in the {@link MessageSequence}.
      *
      * @param { number } size - Indicates the storage capacity of the {@link MessageSequence} object.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900011 - parcel memory alloc failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter type does not match.
+     * @throws { BusinessError } 1900011 - Memory allocation failed.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1321,7 +1331,9 @@ declare namespace rpc {
      * change it, change it to an accurate position. Otherwise, the read data may be incorrect.
      *
      * @param { number } pos - Indicates the target position to start data reading.
-     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter type does not match.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1333,7 +1345,9 @@ declare namespace rpc {
      * change it, change it to an accurate position. Otherwise, the data to be read may be incorrect.
      *
      * @param { number } pos - Indicates the target position to start data writing.
-     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter type does not match.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1344,7 +1358,7 @@ declare namespace rpc {
      * <p>After handling requests, you should call this method before writing any data to reply
      * {@link MessageSequence}.
      *
-     * @throws { BusinessError } 1900009 - write data to message sequence failed
+     * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1356,7 +1370,7 @@ declare namespace rpc {
      * This method should be called before reading any data from reply {@link MessageSequence}
      * if {@link writeNoException} was invoked in server side.
      *
-     * @throws { BusinessError } 1900010 - read data from message sequence failed
+     * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1366,8 +1380,10 @@ declare namespace rpc {
      * Writes a byte value into the {@link MessageSequence} object.
      *
      * @param { number } val - Indicates the byte value to write.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900009 - write data to message sequence failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter type does not match.
+     * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1377,8 +1393,10 @@ declare namespace rpc {
      * Writes a short integer value into the {@link MessageSequence} object.
      *
      * @param { number } val - Indicates the short integer value to write.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900009 - write data to message sequence failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter type does not match.
+     * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1388,8 +1406,10 @@ declare namespace rpc {
      * Writes an integer value into the {@link MessageSequence} object.
      *
      * @param { number } val - Indicates the integer value to write.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900009 - write data to message sequence failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter type does not match.
+     * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1399,8 +1419,10 @@ declare namespace rpc {
      * Writes a long integer value into the {@link MessageSequence} object.
      *
      * @param { number } val - Indicates the long integer value to write.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900009 - write data to message sequence failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter type does not match.
+     * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1410,8 +1432,10 @@ declare namespace rpc {
      * Writes a floating point value into the {@link MessageSequence} object.
      *
      * @param { number } val - Indicates the floating point value to write.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900009 - write data to message sequence failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter type does not match.
+     * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1421,8 +1445,10 @@ declare namespace rpc {
      * Writes a double-precision floating point value into the {@link MessageSequence} object.
      *
      * @param { number } val - Indicates the double-precision floating point value to write.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900009 - write data to message sequence failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter type does not match.
+     * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1432,8 +1458,10 @@ declare namespace rpc {
      * Writes a boolean value into the {@link MessageSequence} object.
      *
      * @param { boolean } val - Indicates the boolean value to write.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900009 - write data to message sequence failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter type does not match.
+     * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1443,8 +1471,10 @@ declare namespace rpc {
      * Writes a single character value into the {@link MessageSequence} object.
      *
      * @param { number } val - Indicates the single character value to write.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900009 - write data to message sequence failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter type does not match.
+     * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1454,8 +1484,12 @@ declare namespace rpc {
      * Writes a string value into the {@link MessageSequence} object.
      *
      * @param { string } val - Indicates the string value to write.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900009 - write data to message sequence failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter type does not match;
+     *     3.The string length exceeds 40960 bytes;
+     *     4.The number of bytes copied to the buffer is different from the length of the obtained string.
+     * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1465,8 +1499,10 @@ declare namespace rpc {
      * Writes a {@link Parcelable} object into the {@link MessageSequence} object.
      *
      * @param { Parcelable } val - Indicates the {@link Parcelable} object to write.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900009 - write data to message sequence failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter type does not match.
+     * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1476,8 +1512,13 @@ declare namespace rpc {
      * Writes a byte array into the {@link MessageSequence} object.
      *
      * @param { number[] } byteArray - Indicates the byte array to write.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900009 - write data to message sequence failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The parameter is an empty array;
+     *     2.The number of parameters is incorrect;
+     *     3.The parameter type does not match;
+     *     4.The element does not exist in the array.
+     *     5.The type of the element in the array is incorrect.
+     * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1489,8 +1530,13 @@ declare namespace rpc {
      * Otherwise,data may be truncated.
      *
      * @param { number[] } shortArray - Indicates the short integer array to write.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900009 - write data to message sequence failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The parameter is an empty array;
+     *     2.The number of parameters is incorrect;
+     *     3.The parameter type does not match;
+     *     4.The element does not exist in the array;
+     *     5.The type of the element in the array is incorrect.
+     * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1502,8 +1548,13 @@ declare namespace rpc {
      * Otherwise,data may be truncated.
      *
      * @param { number[] } intArray - Indicates the integer array to write.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900009 - write data to message sequence failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The parameter is an empty array;
+     *     2.The number of parameters is incorrect;
+     *     3.The parameter type does not match;
+     *     4.The element does not exist in the array;
+     *     5.The type of the element in the array is incorrect.
+     * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1515,8 +1566,13 @@ declare namespace rpc {
      * Otherwise,data may be truncated.
      *
      * @param { number[] } longArray - Indicates the long integer array to write.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900009 - write data to message sequence failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The parameter is an empty array;
+     *     2.The number of parameters is incorrect;
+     *     3.The parameter type does not match;
+     *     4.The element does not exist in the array;
+     *     5.The type of the element in the array is incorrect.
+     * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1528,8 +1584,13 @@ declare namespace rpc {
      * Otherwise,data may be truncated.
      *
      * @param { number[] } floatArray - Indicates the floating point array to write.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900009 - write data to message sequence failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The parameter is an empty array;
+     *     2.The number of parameters is incorrect;
+     *     3.The parameter type does not match;
+     *     4.The element does not exist in the array;
+     *     5.The type of the element in the array is incorrect.
+     * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1541,8 +1602,13 @@ declare namespace rpc {
      * Otherwise,data may be truncated.
      *
      * @param { number[] } doubleArray - Indicates the double-precision floating point array to write.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900009 - write data to message sequence failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The parameter is an empty array;
+     *     2.The number of parameters is incorrect;
+     *     3.The parameter type does not match;
+     *     4.The element does not exist in the array;
+     *     5.The type of the element in the array is incorrect.
+     * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1554,8 +1620,12 @@ declare namespace rpc {
      * Otherwise,data may be truncated.
      *
      * @param { boolean[] } booleanArray - Indicates the boolean array to write.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900009 - write data to message sequence failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The parameter is an empty array;
+     *     2.The number of parameters is incorrect;
+     *     3.The parameter type does not match;
+     *     4.The element does not exist in the array.
+     * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1567,8 +1637,12 @@ declare namespace rpc {
      * Otherwise,data may be truncated.
      *
      * @param { number[] } charArray - Indicates the single character array to write.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900009 - write data to message sequence failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The parameter is an empty array;
+     *     2.The number of parameters is incorrect;
+     *     3.The parameter type does not match;
+     *     4.The element does not exist in the array.
+     * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1580,8 +1654,13 @@ declare namespace rpc {
      * Otherwise,data may be truncated.
      *
      * @param { string[] } stringArray - Indicates the string array to write.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900009 - write data to message sequence failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The parameter is an empty array;
+     *     2.The number of parameters is incorrect;
+     *     3.The parameter type does not match;
+     *     4.The string length exceeds 40960 bytes;
+     *     5.The number of bytes copied to the buffer is different from the length of the obtained string.
+     * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1591,8 +1670,12 @@ declare namespace rpc {
      * Writes a {@link Parcelable} object array into the {@link MessageSequence} object.
      *
      * @param { Parcelable[] } parcelableArray - Indicates the {@link Parcelable} object array to write.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900009 - write data to message sequence failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The parameter is an empty array;
+     *     2.The number of parameters is incorrect;
+     *     3.The parameter type does not match;
+     *     4.The element does not exist in the array.
+     * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1602,8 +1685,13 @@ declare namespace rpc {
      * Writes an array of {@link IRemoteObject} objects to this {@link MessageSequence} object.
      *
      * @param { IRemoteObject[] } objectArray - Array of {@link IRemoteObject} objects to write.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900009 - write data to message sequence failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The parameter is an empty array;
+     *     2.The number of parameters is incorrect;
+     *     3.The parameter type does not match;
+     *     4.The element does not exist in the array;
+     *     5.The obtained remoteObject is null.
+     * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1613,7 +1701,7 @@ declare namespace rpc {
      * Reads a byte value from the {@link MessageParcel} object.
      *
      * @returns { number } Return a byte value.
-     * @throws { BusinessError } 1900010 - read data from message sequence failed
+     * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1623,7 +1711,7 @@ declare namespace rpc {
      * Reads a short integer value from the {@link MessageSequence} object.
      *
      * @returns { number } Return a short integer value.
-     * @throws { BusinessError } 1900010 - read data from message sequence failed
+     * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1633,7 +1721,7 @@ declare namespace rpc {
      * Reads an integer value from the {@link MessageSequence} object.
      *
      * @returns { number } Return an integer value.
-     * @throws { BusinessError } 1900010 - read data from message sequence failed
+     * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1643,7 +1731,7 @@ declare namespace rpc {
      * Reads a long integer value from the {@link MessageSequence} object.
      *
      * @returns { number } Return a long integer value.
-     * @throws { BusinessError } 1900010 - read data from message sequence failed
+     * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1653,7 +1741,7 @@ declare namespace rpc {
      * Reads a floating point value from the {@link MessageSequence} object.
      *
      * @returns { number } Return a floating point value.
-     * @throws { BusinessError } 1900010 - read data from message sequence failed
+     * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1663,7 +1751,7 @@ declare namespace rpc {
      * Reads a double-precision floating point value from the {@link MessageSequence} object.
      *
      * @returns { number } Return a double-precision floating point value.
-     * @throws { BusinessError } 1900010 - read data from message sequence failed
+     * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1673,7 +1761,7 @@ declare namespace rpc {
      * Reads a boolean value from the {@link MessageSequence} object.
      *
      * @returns { boolean } Return a boolean value.
-     * @throws { BusinessError } 1900010 - read data from message sequence failed
+     * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1683,7 +1771,7 @@ declare namespace rpc {
      * Reads a single character value from the {@link MessageSequence} object.
      *
      * @returns { number } Return a single character value.
-     * @throws { BusinessError } 1900010 - read data from message sequence failed
+     * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1693,7 +1781,7 @@ declare namespace rpc {
      * Reads a string value from the {@link MessageSequence} object.
      *
      * @returns { string } Return a string value.
-     * @throws { BusinessError } 1900010 - read data from message sequence failed
+     * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1704,9 +1792,10 @@ declare namespace rpc {
      *
      * @param { Parcelable } dataIn - Indicates the {@link Parcelable} object that needs to perform
      *                       the {@code unmarshalling} operation using the {@link MessageSequence}.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900010 - read data from message sequence failed
-     * @throws { BusinessError } 1900012 - call js callback function failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect.
+     * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
+     * @throws { BusinessError } 1900012 - Failed to call the JS callback function.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1716,8 +1805,11 @@ declare namespace rpc {
      * Writes a byte array into the {@link MessageSequence} object.
      *
      * @param { number[] } dataIn - Indicates the byte array read from MessageSequence.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900010 - read data from message sequence failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The parameter is an empty array;
+     *     2.The number of parameters is incorrect;
+     *     3.The parameter type does not match.
+     * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1728,7 +1820,7 @@ declare namespace rpc {
      *
      * @returns { number[] } Return a byte array.
      * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900010 - read data from message sequence failed
+     * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1738,8 +1830,11 @@ declare namespace rpc {
      * Reads a short integer array from the {@link MessageSequence} object.
      *
      * @param { number[] } dataIn - Indicates the short integer array read from MessageSequence.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900010 - read data from message sequence failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The parameter is an empty array;
+     *     2.The number of parameters is incorrect;
+     *     3.The parameter type does not match.
+     * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1749,7 +1844,7 @@ declare namespace rpc {
      * Reads a short integer array from the {@link MessageSequence} object.
      *
      * @returns { number[] } Return a short integer array.
-     * @throws { BusinessError } 1900010 - read data from message sequence failed
+     * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1759,8 +1854,11 @@ declare namespace rpc {
      * Reads an integer array from the {@link MessageSequence} object.
      *
      * @param { number[] } dataIn - Indicates the integer array to read.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900010 - read data from message sequence failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The parameter is an empty array;
+     *     2.The number of parameters is incorrect;
+     *     3.The parameter type does not match.
+     * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1770,7 +1868,7 @@ declare namespace rpc {
      * Reads an integer array from the {@link MessageSequence} object.
      *
      * @returns { number[] } Return an integer array.
-     * @throws { BusinessError } 1900010 - read data from message sequence failed
+     * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1780,8 +1878,11 @@ declare namespace rpc {
      * Reads a long integer array from the {@link MessageSequence} object.
      *
      * @param { number[] } dataIn - Indicates the long integer array to read.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900010 - read data from message sequence failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The parameter is an empty array;
+     *     2.The number of parameters is incorrect;
+     *     3.The parameter type does not match.
+     * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1791,7 +1892,7 @@ declare namespace rpc {
      * Reads a long integer array from the {@link MessageSequence} object.
      *
      * @returns { number[] } Return a long integer array.
-     * @throws { BusinessError } 1900010 - read data from message sequence failed
+     * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1801,8 +1902,11 @@ declare namespace rpc {
      * Reads a floating point array from the {@link MessageSequence} object.
      *
      * @param { number[] } dataIn - Indicates the floating point array to read.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900010 - read data from message sequence failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The parameter is an empty array;
+     *     2.The number of parameters is incorrect;
+     *     3.The parameter type does not match.
+     * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1812,7 +1916,7 @@ declare namespace rpc {
      * Reads a floating point array from the {@link MessageSequence} object.
      *
      * @returns { number[] } Return a floating point array.
-     * @throws { BusinessError } 1900010 - read data from message sequence failed
+     * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1822,8 +1926,11 @@ declare namespace rpc {
      * Reads a double-precision floating point array from the {@link MessageSequence} object.
      *
      * @param { number[] } dataIn - Indicates the double-precision floating point array to read.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900010 - read data from message sequence failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The parameter is an empty array;
+     *     2.The number of parameters is incorrect;
+     *     3.The parameter type does not match.
+     * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1833,7 +1940,7 @@ declare namespace rpc {
      * Reads a double-precision floating point array from the {@link MessageSequence} object.
      *
      * @returns { number[] } Return a double-precision floating point array.
-     * @throws { BusinessError } 1900010 - read data from message sequence failed
+     * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1843,8 +1950,11 @@ declare namespace rpc {
      * Reads a boolean array from the {@link MessageSequence} object.
      *
      * @param { boolean[] } dataIn - Indicates the boolean array to read.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900010 - read data from message sequence failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The parameter is an empty array;
+     *     2.The number of parameters is incorrect;
+     *     3.The parameter type does not match.
+     * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1854,7 +1964,7 @@ declare namespace rpc {
      * Reads a boolean array from the {@link MessageSequence} object.
      *
      * @returns { boolean[] } Return a boolean array.
-     * @throws { BusinessError } 1900010 - read data from message sequence failed
+     * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1864,8 +1974,11 @@ declare namespace rpc {
      * Reads a single character array from the {@link MessageSequence} object.
      *
      * @param { number[] } dataIn - Indicates the single character array to read.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900010 - read data from message sequence failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The parameter is an empty array;
+     *     2.The number of parameters is incorrect;
+     *     3.The parameter type does not match.
+     * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1875,7 +1988,7 @@ declare namespace rpc {
      * Reads a single character array from the {@link MessageSequence} object.
      *
      * @returns { number[] } Return a single character array.
-     * @throws { BusinessError } 1900010 - read data from message sequence failed
+     * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1885,8 +1998,11 @@ declare namespace rpc {
      * Reads a string array from the {@link MessageSequence} object.
      *
      * @param { string[] } dataIn - Indicates the string array to read.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900010 - read data from message sequence failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The parameter is an empty array;
+     *     2.The number of parameters is incorrect;
+     *     3.The parameter type does not match.
+     * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1896,7 +2012,7 @@ declare namespace rpc {
      * Reads a string array from the {@link MessageSequence} object.
      *
      * @returns { string[] } Return a string array.
-     * @throws { BusinessError } 1900010 - read data from message sequence failed
+     * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1906,9 +2022,14 @@ declare namespace rpc {
      * Reads the specified {@link Parcelable} array from this {@link MessageSequence} object.
      *
      * @param { Parcelable[] } parcelableArray - Parcelable array to read.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900010 - read data from message sequence failed
-     * @throws { BusinessError } 1900012 - call js callback function failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The parameter is an empty array;
+     *     2.The number of parameters is incorrect;
+     *     3.The parameter type does not match;
+     *     4.The length of the array passed when reading is not equal to the length passed when writing to the array;
+     *     5.The element does not exist in the array.
+     * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
+     * @throws { BusinessError } 1900012 - Failed to call the JS callback function.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1919,8 +2040,12 @@ declare namespace rpc {
      *
      * @param { IRemoteObject[] } objects - Reads data from this {@link MessageSequence} object to
      *                            the specified {@link IRemoteObject} array.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900010 - read data from message sequence failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The parameter is an empty array;
+     *     2.The number of parameters is incorrect;
+     *     3.The parameter type does not match;
+     *     4.The length of the array passed when reading is not equal to the length passed when writing to the array.
+     * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1930,7 +2055,7 @@ declare namespace rpc {
      * Reads {@link IRemoteObject} objects from this {@link MessageSequence} object.
      *
      * @returns { IRemoteObject[] } Return an array of {@link IRemoteObject} objects obtained.
-     * @throws { BusinessError } 1900010 - read data from message sequence failed
+     * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1940,7 +2065,9 @@ declare namespace rpc {
      * Closes the specified file descriptor.
      *
      * @param { number } fd - File descriptor to be closed.
-     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter type does not match.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1951,8 +2078,10 @@ declare namespace rpc {
      *
      * @param { number } fd - File descriptor to be duplicated.
      * @returns { number } Return a duplicated file descriptor.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900013 - call os dup function failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter type does not match.
+     * @throws { BusinessError } 1900013 - Failed to call dup.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1972,8 +2101,10 @@ declare namespace rpc {
      * Writes a file descriptor to this {@link MessageSequence} object.
      *
      * @param { number } fd - File descriptor to wrote.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900009 - write data to message sequence failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter type does not match.
+     * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1983,7 +2114,7 @@ declare namespace rpc {
      * Reads a file descriptor from this {@link MessageSequence} object.
      *
      * @returns { number } Return a file descriptor obtained.
-     * @throws { BusinessError } 1900010 - read data from message sequence failed
+     * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1993,8 +2124,10 @@ declare namespace rpc {
      * Writes an anonymous shared memory object to this {@link MessageSequence} object.
      *
      * @param { Ashmem } ashmem - Anonymous shared memory object to wrote.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900003 - write to ashmem failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter is not an instance of the Ashmem object.
+     * @throws { BusinessError } 1900003 - Failed to write data to the shared memory.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -2005,7 +2138,7 @@ declare namespace rpc {
      *
      * @returns { Ashmem } Return the anonymous share object obtained.
      * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900004 - read from ashmem failed
+     * @throws { BusinessError } 1900004 - Failed to read data from the shared memory.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -2025,8 +2158,17 @@ declare namespace rpc {
      *
      * @param { number[] } rawData - Raw data to wrote.
      * @param { number } size - Size of the raw data, in bytes.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900009 - write data to message sequence failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The parameter is an empty array;
+     *     2.The number of parameters is incorrect;
+     *     3.The parameter type does not match;
+     *     4.The transferred size cannot be obtained;
+     *     5.The transferred size is less than or equal to 0;
+     *     6.The element does not exist in the array;
+     *     7.Failed to obtain typedArray information;
+     *     8.The array is not of type int32;
+     *     9.The length of typedarray is smaller than the size of the original data sent.
+     * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      * @deprecated since 11
@@ -2039,8 +2181,14 @@ declare namespace rpc {
      *
      * @param { ArrayBuffer } rawData - Raw data to wrote.
      * @param { number } size - Size of the raw data, in bytes.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900009 - write data to message sequence failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter type does not match;
+     *     3.Failed to obtain arrayBuffer information;
+     *     4.The transferred size cannot be obtained;
+     *     5.The transferred size is less than or equal to 0;
+     *     6.The transferred size is greater than the byte length of ArrayBuffer.
+     * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 11
      */
@@ -2051,8 +2199,10 @@ declare namespace rpc {
      *
      * @param { number } size - Size of the raw data to read.
      * @returns { number[] } Return the raw data obtained, in bytes.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900010 - read data from message sequence failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter type does not match.
+     * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      * @deprecated since 11
@@ -2065,8 +2215,10 @@ declare namespace rpc {
      *
      * @param { number } size - Size of the raw data to read.
      * @returns { ArrayBuffer } Return the raw data obtained, in bytes.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900010 - read data from message sequence failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter type does not match.
+     * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 11
      */
@@ -2077,8 +2229,13 @@ declare namespace rpc {
      *
      * @param { ArrayBuffer } buf - Data to write.
      * @param { TypeCode } typeCode - Type of the ArrayBuffer data to write.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900009 - write data to message sequence failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The parameter is an empty array;
+     *     2.The number of parameters is incorrect;
+     *     3.The parameter type does not match;
+     *     4.The obtained value of typeCode is incorrect;
+     *     5.Failed to obtain arrayBuffer information.
+     * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 12
      */
@@ -2089,8 +2246,11 @@ declare namespace rpc {
      *
      * @param { TypeCode } typeCode - Type of the ArrayBuffer read.
      * @returns { ArrayBuffer } Returns the Arraybuffer obtained.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900010 - read data from message sequence failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter type does not match;
+     *     3.The obtained value of typeCode is incorrect;
+     * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core 
      * @since 12
      */
@@ -2306,7 +2466,11 @@ declare namespace rpc {
      *
      * @param { string } descriptor - Indicates the interface descriptor.
      * @returns { IRemoteBroker } Return the {@link IRemoteBroker} object bound to the specified interface descriptor.
-     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter type does not match;
+     *     3.The string length exceeds 40960 bytes;
+     *     4.The number of bytes copied to the buffer is different from the length of the obtained string.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -2369,7 +2533,10 @@ declare namespace rpc {
      * @param {MessageSequence } reply - {@link MessageSequence} object that receives the response.
      * @param { MessageOption } options - Indicates the synchronous or asynchronous mode to send messages.
      * @returns { Promise<RequestResult> } Promise used to return the {@link RequestResult} instance.
-     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter type does not match;
+     *     3.Failed to obtain the passed object instance.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -2419,7 +2586,10 @@ declare namespace rpc {
      * @param { MessageSequence } reply - {@link MessageSequence} object that receives the response.
      * @param { MessageOption } options - Indicates the synchronous or asynchronous mode to send messages.
      * @param { AsyncCallback<RequestResult> } callback - Callback for receiving the sending result.
-     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter type does not match;
+     *     3.Failed to obtain the passed object instance.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -2450,8 +2620,11 @@ declare namespace rpc {
      *
      * @param { DeathRecipient } recipient - Indicates the callback to be registered.
      * @param { number } flags - Indicates the flag of the death notification.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900008 - proxy or remote object is invalid
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter type does not match;
+     *     3.The callback used to receive remote object death notifications is empty.
+     * @throws { BusinessError } 1900008 - The proxy or remote object is invalid.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -2476,8 +2649,11 @@ declare namespace rpc {
      *
      * @param { DeathRecipient } recipient - Indicates the callback to be unregister.
      * @param { number } flags - Indicates the flag of the death notification.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900008 - proxy or remote object is invalid
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter type does not match;
+     *     3.The callback used to receive remote object death notifications is empty.
+     * @throws { BusinessError } 1900008 - The proxy or remote object is invalid.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -2500,7 +2676,7 @@ declare namespace rpc {
      * <p>The interface descriptor is a character string.
      *
      * @returns { string } Return the interface descriptor.
-     * @throws { BusinessError } 1900008 - proxy or remote object is invalid
+     * @throws { BusinessError } 1900008 - The proxy or remote object is invalid.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -2743,7 +2919,11 @@ declare namespace rpc {
      * @param { string } descriptor - Indicates the interface descriptor used to query the remote object.
      * @returns { IRemoteBroker } Return the remote object matching the interface descriptor;
      *                            return null if no such remote object is found.
-     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter type does not match;
+     *     3.The string length exceeds 40960 bytes;
+     *     4.The number of bytes copied to the buffer is different from the length of the obtained string.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -2764,7 +2944,7 @@ declare namespace rpc {
      * Queries an interface descriptor.
      *
      * @returns { string } Return the interface descriptor.
-     * @throws { BusinessError } 1900008 - proxy or remote object is invalid
+     * @throws { BusinessError } 1900008 - The proxy or remote object is invalid.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -2866,7 +3046,10 @@ declare namespace rpc {
      * @param { MessageSequence } reply - {@link MessageSequence} object that receives the response.
      * @param { MessageOption } options - Indicates the synchronous or asynchronous mode to send messages.
      * @returns { Promise<RequestResult> } Promise used to return the {@link RequestResult} instance.
-     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter type does not match;
+     *     3.Failed to obtain the passed object instance.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -2916,7 +3099,10 @@ declare namespace rpc {
      * @param { MessageSequence } reply - {@link MessageSequence} object that receives the response.
      * @param { MessageOption } options - Indicates the synchronous or asynchronous mode to send messages.
      * @param { AsyncCallback<RequestResult> } callback - Callback for receiving the sending result.
-     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter type does not match;
+     *     3.Failed to obtain the passed object instance.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -2965,7 +3151,11 @@ declare namespace rpc {
      *
      * @param { IRemoteBroker } localInterface - Indicates the {@code RemoteObject} whose descriptor is to be changed.
      * @param { string } descriptor - Indicates the new descriptor of the {@code RemoteObject}.
-     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter type does not match;
+     *     3.The string length exceeds 40960 bytes;
+     *     4.The number of bytes copied to the buffer is different from the length of the obtained string.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -3054,7 +3244,7 @@ declare namespace rpc {
      * @param { string } interface - Indicates the descriptor of the interface to query.
      * @returns { IRemoteBroker } Return null by default, indicating a proxy interface.
      * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900006 - only remote object permitted
+     * @throws { BusinessError } 1900006 - Operation allowed only for the remote object.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -3081,8 +3271,11 @@ declare namespace rpc {
      * @param { DeathRecipient } recipient - Indicates the callback to be registered.
      * @param { number } flags - Indicates the flag of the death notification. This is a reserved parameter.
      *                   Set it to {@code 0}.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900008 - proxy or remote object is invalid
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter type does not match;
+     *     3.The callback used to receive remote object death notifications is empty.
+     * @throws { BusinessError } 1900008 - The proxy or remote object is invalid.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -3109,8 +3302,11 @@ declare namespace rpc {
      * @param { DeathRecipient } recipient - Indicates the callback to be unregister.
      * @param { number } flags - Indicates the flag of the death notification. This is a reserved parameter.
      *                   Set it to {@code 0}.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900008 - proxy or remote object is invalid
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter type does not match;
+     *     3.The callback used to receive remote object death notifications is empty.
+     * @throws { BusinessError } 1900008 - The proxy or remote object is invalid.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -3131,8 +3327,8 @@ declare namespace rpc {
      * Queries the interface descriptor of remote object.
      *
      * @returns { string } Return the interface descriptor.
-     * @throws { BusinessError } 1900007 - communication failed
-     * @throws { BusinessError } 1900008 - proxy or remote object is invalid
+     * @throws { BusinessError } 1900007 - communication failed.
+     * @throws { BusinessError } 1900008 - The proxy or remote object is invalid.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -3192,7 +3388,10 @@ declare namespace rpc {
      * @param { MessageSequence } reply - {@link MessageSequence} object that receives the response.
      * @param { MessageOption } options - Indicates the synchronous or asynchronous mode to send messages.
      * @returns { Promise<RequestResult> } Promise used to return the {@link RequestResult} instance.
-     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter type does not match;
+     *     3.Failed to obtain the passed object instance.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -3242,7 +3441,10 @@ declare namespace rpc {
      * @param { MessageSequence } reply - {@link MessageSequence} object that receives the response.
      * @param { MessageOption } options - Indicates the synchronous or asynchronous mode to send messages.
      * @param { AsyncCallback<RequestResult> } callback - Callback for receiving the sending result.
-     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter type does not match;
+     *     3.Failed to obtain the passed object instance.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -3373,7 +3575,9 @@ declare namespace rpc {
      * <p>This method is static. You are advised to call this method before performing any time-sensitive operations.
      *
      * @param { IRemoteObject } object - Indicates the specified {@link RemoteProxy}.
-     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter type does not match.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -3411,7 +3615,11 @@ declare namespace rpc {
      *
      * @param { string } identity - Indicates the string containing the UID and PID of the remote user,
      *                   which is returned by {@code resetCallingIdentity}.
-     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter type does not match;
+     *     3.The string length exceeds 40960 bytes;
+     *     4.The number of bytes copied to the buffer is different from the length of the obtained string.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -3487,7 +3695,11 @@ declare namespace rpc {
      * @param { string } name - Name of the Ashmem object to create.
      * @param { number } size - Size (in bytes) of the Ashmem object to create.
      * @returns { Ashmem } Return the Ashmem object if it is created successfully; return null otherwise.
-     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter type does not match;
+     *     3.The Ashmem name passed is empty;
+     *     4.The Ashmem size passed is less than or equal to 0.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -3512,7 +3724,10 @@ declare namespace rpc {
      *
      * @param { Ashmem } ashmem - Existing Ashmem object.
      * @returns { Ashmem } Ashmem object created.
-     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The passed parameter is not an Ahmem object;
+     *     3.The ashmem instance for obtaining packaging is empty.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -3561,8 +3776,11 @@ declare namespace rpc {
      * The size of the mapping region is specified by this Ashmem object.
      *
      * @param { number } mapType - Protection level of the memory region to which the shared file is mapped.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900001 - call mmap function failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter type does not match;
+     *     3.The passed mapType exceeds the maximum protection level.
+     * @throws { BusinessError } 1900001 - Failed to call mmap.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -3582,7 +3800,7 @@ declare namespace rpc {
     /**
      * Maps the shared file to the readable and writable virtual address space of the process.
      *
-     * @throws { BusinessError } 1900001 - call mmap function failed
+     * @throws { BusinessError } 1900001 - Failed to call mmap.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -3602,7 +3820,7 @@ declare namespace rpc {
     /**
      * Maps the shared file to the read-only virtual address space of the process.
      *
-     * @throws { BusinessError } 1900001 - call mmap function failed
+     * @throws { BusinessError } 1900001 - Failed to call mmap.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -3624,8 +3842,10 @@ declare namespace rpc {
      * Sets the protection level of the memory region to which the shared file is mapped.
      *
      * @param { number } protectionType - Protection type to set.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900002 - os ioctl function failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter type does not match.
+     * @throws { BusinessError } 1900002 - Failed to call ioctl.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -3653,8 +3873,11 @@ declare namespace rpc {
      * @param { number } size - Size of the data to write
      * @param { number } offset - Start position of the data to write in the memory region associated
      *                   with this Ashmem object.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900003 - write to ashmem failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter type does not match;
+     *     3.The element does not exist in the array.
+     * @throws { BusinessError } 1900003 - Failed to write data to the shared memory.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      * @deprecated since 11
@@ -3669,8 +3892,11 @@ declare namespace rpc {
      * @param { number } size - Size of the data to write
      * @param { number } offset - Start position of the data to write in the memory region associated
      *                   with this Ashmem object.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900003 - write to ashmem failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter type does not match;
+     *     3.Failed to obtain arrayBuffer information.
+     * @throws { BusinessError } 1900003 - Failed to write data to the shared memory.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 11
      */
@@ -3697,8 +3923,10 @@ declare namespace rpc {
      * @param { number } offset - Start position of the data to read in the memory region associated
      *                   with this Ashmem object.
      * @returns { number[] } Data read.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900004 - read from ashmem failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter type does not match.
+     * @throws { BusinessError } 1900004 - Failed to read data from the shared memory.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      * @deprecated since 11
@@ -3713,8 +3941,10 @@ declare namespace rpc {
      * @param { number } offset - Start position of the data to read in the memory region associated
      *                   with this Ashmem object.
      * @returns { ArrayBuffer } Data read.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900004 - read from ashmem failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.The number of parameters is incorrect;
+     *     2.The parameter type does not match.
+     * @throws { BusinessError } 1900004 - Failed to read data from the shared memory.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 11
      */
