@@ -1766,6 +1766,7 @@ declare namespace photoAccessHelper {
      * Cloud enhancement status of the asset, read only
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
      * @since 12
      */
     CE_AVAILABLE = 'ce_available'
