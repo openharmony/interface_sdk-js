@@ -348,7 +348,15 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 12
      */
-    ANALYSIS_HIGHLIGHT
+    ANALYSIS_HIGHLIGHT,
+    /**
+     * Analysis of multi crop
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    ANALYSIS_MULTI_CROP
   }
 
   /**
