@@ -14,7 +14,7 @@
     "deprecatedVersion": "",
     "useInstead": "",
     "apiType": "Class",
-    "definedText": " export class Test",
+    "definedText": "export class Test",
     "pos": {
       "line": 21,
       "character": 1
@@ -23,7 +23,10 @@
     "modelLimitation": "",
     "decorators": [],
     "errorCodes": [],
-    "kitInfo": ""
+    "kitInfo": "NA",
+    "absolutePath": "",
+    "parentApiType": "SourceFile",
+    "isOptional": false
   },
   {
     "filePath": "ut_jsdoc_systemapi_028.d.ts",
@@ -49,6 +52,9 @@
     "modelLimitation": "",
     "decorators": [],
     "errorCodes": [],
-    "kitInfo": ""
+    "kitInfo": "NA",
+    "absolutePath": "",
+    "parentApiType": "Class",
+    "isOptional": false
   }
 ]

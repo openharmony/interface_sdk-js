@@ -1,0 +1,187 @@
+[
+  {
+    "apiType": "ExportDefault",
+    "statusCode": 29,
+    "oldApiDefinedText": "export default fileIo;",
+    "newApiDefinedText": "export default file;",
+    "oldApiName": "export_default",
+    "newApiName": "export_default",
+    "oldDtsName": "ut_export_default_name_change.d.ts",
+    "newDtsName": "ut_export_default_name_change.d.ts",
+    "diffType": 92,
+    "diffMessage": "export名称变更",
+    "changeLogUrl": "",
+    "changeLogs": [],
+    "isCompatible": false,
+    "oldHierarchicalRelations": [
+      "ut_export_default_name_change.d.ts",
+      "export_default"
+    ],
+    "newHierarchicalRelations": [
+      "ut_export_default_name_change.d.ts",
+      "export_default"
+    ],
+    "oldPos": {
+      "line": 19,
+      "character": 1
+    },
+    "newPos": {
+      "line": 19,
+      "character": 1
+    },
+    "oldDescription": "export default fileIo;",
+    "newDescription": "export default file;",
+    "oldSyscapField": "",
+    "newSyscapField": "",
+    "oldKitInfo": "",
+    "newKitInfo": "",
+    "isSystemapi": false,
+    "isSameNameFunction": false
+  },
+  {
+    "apiType": "Namespace",
+    "statusCode": 0,
+    "oldApiDefinedText": "declare namespace fileIo",
+    "newApiDefinedText": "",
+    "oldApiName": "fileIo",
+    "newApiName": "",
+    "oldDtsName": "ut_export_default_name_change.d.ts",
+    "newDtsName": "",
+    "diffType": 76,
+    "diffMessage": "删除API",
+    "changeLogUrl": "",
+    "changeLogs": [],
+    "isCompatible": false,
+    "oldHierarchicalRelations": [
+      "ut_export_default_name_change.d.ts",
+      "fileIo"
+    ],
+    "newHierarchicalRelations": [],
+    "oldPos": {
+      "line": 21,
+      "character": 1
+    },
+    "newPos": {
+      "line": -1,
+      "character": -1
+    },
+    "oldDescription": "declare namespace fileIo",
+    "newDescription": "",
+    "oldSyscapField": "",
+    "newSyscapField": "",
+    "oldKitInfo": "NA",
+    "newKitInfo": "",
+    "isSystemapi": false,
+    "isSameNameFunction": false
+  },
+  {
+    "apiType": "Method",
+    "statusCode": 0,
+    "oldApiDefinedText": "function copyDir(src: string, dest: string, mode?: number): Promise<void>;",
+    "newApiDefinedText": "",
+    "oldApiName": "copyDir",
+    "newApiName": "",
+    "oldDtsName": "ut_export_default_name_change.d.ts",
+    "newDtsName": "",
+    "diffType": 76,
+    "diffMessage": "删除API",
+    "changeLogUrl": "",
+    "changeLogs": [],
+    "isCompatible": false,
+    "oldHierarchicalRelations": [
+      "ut_export_default_name_change.d.ts",
+      "fileIo",
+      "copyDir"
+    ],
+    "newHierarchicalRelations": [],
+    "oldPos": {
+      "line": 22,
+      "character": 3
+    },
+    "newPos": {
+      "line": -1,
+      "character": -1
+    },
+    "oldDescription": "function copyDir(src: string, dest: string, mode?: number): Promise<void>;",
+    "newDescription": "",
+    "oldSyscapField": "",
+    "newSyscapField": "",
+    "oldKitInfo": "NA",
+    "newKitInfo": "",
+    "isSystemapi": false,
+    "isSameNameFunction": false
+  },
+  {
+    "apiType": "Namespace",
+    "statusCode": 3,
+    "oldApiDefinedText": "",
+    "newApiDefinedText": "declare namespace file",
+    "oldApiName": "",
+    "newApiName": "file",
+    "oldDtsName": "",
+    "newDtsName": "ut_export_default_name_change.d.ts",
+    "diffType": 75,
+    "diffMessage": "新增API",
+    "changeLogUrl": "",
+    "changeLogs": [],
+    "isCompatible": true,
+    "oldHierarchicalRelations": [],
+    "newHierarchicalRelations": [
+      "ut_export_default_name_change.d.ts",
+      "file"
+    ],
+    "oldPos": {
+      "line": -1,
+      "character": -1
+    },
+    "newPos": {
+      "line": 21,
+      "character": 1
+    },
+    "oldDescription": "",
+    "newDescription": "declare namespace file",
+    "oldSyscapField": "",
+    "newSyscapField": "",
+    "oldKitInfo": "",
+    "newKitInfo": "NA",
+    "isSystemapi": false,
+    "isSameNameFunction": false
+  },
+  {
+    "apiType": "Method",
+    "statusCode": 3,
+    "oldApiDefinedText": "",
+    "newApiDefinedText": "function copyDir(src: string, dest: string, mode?: number): Promise<void>;",
+    "oldApiName": "",
+    "newApiName": "copyDir",
+    "oldDtsName": "",
+    "newDtsName": "ut_export_default_name_change.d.ts",
+    "diffType": 75,
+    "diffMessage": "新增API",
+    "changeLogUrl": "",
+    "changeLogs": [],
+    "isCompatible": true,
+    "oldHierarchicalRelations": [],
+    "newHierarchicalRelations": [
+      "ut_export_default_name_change.d.ts",
+      "file",
+      "copyDir"
+    ],
+    "oldPos": {
+      "line": -1,
+      "character": -1
+    },
+    "newPos": {
+      "line": 22,
+      "character": 3
+    },
+    "oldDescription": "",
+    "newDescription": "function copyDir(src: string, dest: string, mode?: number): Promise<void>;",
+    "oldSyscapField": "",
+    "newSyscapField": "",
+    "oldKitInfo": "",
+    "newKitInfo": "NA",
+    "isSystemapi": false,
+    "isSameNameFunction": false
+  }
+]

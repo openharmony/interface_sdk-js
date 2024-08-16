@@ -972,7 +972,7 @@ export class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   openToast(options: promptAction.ShowToastOptions): Promise<number>;
 
@@ -988,7 +988,7 @@ export class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   closeToast(toastId: number): void;
 
@@ -2320,7 +2320,18 @@ export abstract class FrameCallback {
    * @atomicservice
    * @since 12
    */
-  abstract onFrame(frameTimeInNano: number): void;
+  onFrame(frameTimeInNano: number): void;
+
+  /**
+   * Called at the end of the next idle frame. If there is no next frame, will request one automatically.
+   *
+   * @param { number } timeLeftInNano - The remaining time from the deadline for this frame.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onIdle(timeLeftInNano: number): void;
 }
 
 /**
@@ -2424,6 +2435,27 @@ export class ComponentSnapshot {
    */
   createFromBuilder(builder: CustomBuilder, delay?: number,
     checkImageStatus?: boolean, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>;
+
+  /**
+   * Take a screenshot of the specified component in synchronous mode,
+   * this mode will block the main thread, please use it with caution, the maximum
+   * waiting time of the interface is 3s, if it does not return after 3s, an exception will be thrown.
+   *
+   * @param { string } id - Target component ID, set by developer through .id attribute.
+   * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
+   * @returns { image.PixelMap } The snapshot result in PixelMap format.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Invalid ID.
+   * @throws { BusinessError } 160002 - Timeout.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  getSync(id: string, options?: componentSnapshot.SnapshotOptions): image.PixelMap;
 }
 
 /**
@@ -2880,6 +2912,18 @@ export class UIContext {
   getFrameNodeById(id: string): FrameNode | null;
 
   /**
+   * Get the FrameNode attached to current window by id.
+   *
+   * @param { string } id - The id of FrameNode.
+   * @returns { FrameNode | null } The instance of FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  getAttachedFrameNodeById(id: string): FrameNode | null;
+
+  /**
    * Get FrameNode by uniqueId.
    *
    * @param { number } id - The uniqueId of the FrameNode.
@@ -3167,10 +3211,31 @@ export class UIContext {
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @atomicservice
    * @since 12
    */
   clearResourceCache(): void;
+
+  /**
+   * Checks whether current font scale follows the system.
+   *
+   * @returns { boolean } Returns true if current font scale follows the system; returns false otherwise.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  isFollowingSystemFontScale(): boolean;
+
+  /**
+   * Get the max font scale.
+   *
+   * @returns { number } The max font scale.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  getMaxFontScale(): number;
 }
 
 /**

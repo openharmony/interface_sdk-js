@@ -95,6 +95,15 @@ declare namespace inputMethodEngine {
   const ENTER_KEY_TYPE_PREVIOUS: number;
 
   /**
+   * When "enter" key is pressed, it means NEWLINE
+   *
+   * @constant
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 12
+   */
+  const ENTER_KEY_TYPE_NEWLINE: 8;
+
+  /**
    * Editor with no special function
    *
    * @constant

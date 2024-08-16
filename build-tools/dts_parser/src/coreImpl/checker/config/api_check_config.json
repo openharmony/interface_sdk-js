@@ -75,6 +75,10 @@
     "API_DOC_SINCE_02": "JSDoc label order error, please adjust the order of [since] labels.",
     "API_DOC_SINCE_03": "JSDoc tag validity verification failed. Please confirm if the [since] tag is missing.",
     "API_DOC_SINCE_04": "The validity verification of the JSDoc tag failed. The [since] tag is not allowed to be reused, please delete the extra tags.",
+    "API_DOC_SINCE_05": "The [since] value is greater than the latest version number.",
+    "API_DOC_SINCE_06": "The [since] value for different jsdoc should not be the same.",
+    "API_DOC_SINCE_07": "The [since] value is greater than the latest version number.The [since] value for different jsdoc should not be the same.",
+    "API_DOC_SINCE_08": "The [since] tag value is incorrect. Please check if the tag value is a numerical value.The [since] value for different jsdoc should not be the same.",
     "API_DOC_STAGEMODELONLY_01": "It was detected that there is an inheritable label [stagemodelonly] in the current file, but there are child nodes without this label.",
     "API_DOC_STAGEMODELONLY_02": "JSDoc label order error, please adjust the order of [stagemodelonly] labels.",
     "API_DOC_STAGEMODELONLY_03": "The validity verification of the JSDoc tag failed. The [stagemodelonly] tag is not allowed to be reused, please delete the extra tags.",
@@ -103,6 +107,8 @@
     "API_DOC_THROWS_07": "JSDoc label validity verification failed. The [throws 1] label is not allowed. Please check the label usage method.",
     "API_DOC_THROWS_08": "The validity verification of the JSDoc tag failed. The [throws] tag is not allowed to be reused, please delete the extra tags.",
     "API_DOC_THROWS_09": "The generic error code does not contain the current error code.",
+    "API_DOC_THROWS_10": "The description of the [1 throws] is incorrect. please fix it according to the specification.",
+    "API_DOC_THROWS_11": "The type of the [1] [throws] tag is incorrect. Please fill in [BusinessError].The description of the [1 throws] is incorrect. please fix it according to the specification.",
     "API_DOC_TYPE_01": "The [type] tag type is incorrect. Please check if the type matches the attribute type.",
     "API_DOC_TYPE_02": "JSDoc label order error, please adjust the order of [type] labels.",
     "API_DOC_TYPE_03": "JSDoc label validity verification failed. The [type] label is not allowed. Please check the label usage method.",
@@ -122,7 +128,8 @@
     "API_DOC_JSDOC_01": "Jsdoc needs to be added to the current API.",
     "API_DOC_JSDOC_02": "JSDoc tag validity verification failed. Please confirm if the [since] tag is missing.JSDoc tag validity verification failed. Please confirm if the [syscap] tag is missing.",
     "API_DOC_JSDOC_03": "Jsdoc has chinese.",
-    "API_DOC_UNKNOW_DECORATOR_01": "The [XXXX] tag does not exist. Please use a valid JSDoc tag."
+    "API_DOC_UNKNOW_DECORATOR_01": "The [XXXX] tag does not exist. Please use a valid JSDoc tag.",
+    "API_DOC_JSDOC_04": "The [systemapi] and [atomicservice] cannot exist in the same doc."
   },
   "DEFINE": {
     "API_DEFINE_UNALLOWABLE_01": "Illegal [any] keyword used in the API.",
@@ -186,6 +193,7 @@
     "API_CHANGE_INCOMPATIBLE_37": "Forbid changes: Cannot change from atomicservice to NA.",
     "API_CHANGE_INCOMPATIBLE_38": "Forbid changes: Cannot change from NA to syscap.",
     "API_CHANGE_INCOMPATIBLE_39": "Forbid changes: Cannot change from syscap to NA.",
-    "API_CHANGE_INCOMPATIBLE_40": "Forbid changes: Cannot change syscap value."
+    "API_CHANGE_INCOMPATIBLE_40": "Forbid changes: Cannot change syscap value.",
+    "API_CHANGE_INCOMPATIBLE_41":"Forbid changes: Cannot add new property to interface API."
   }
 }

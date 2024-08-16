@@ -28,7 +28,7 @@ import {
 } from '../../../typedef/checker/result_type';
 import { ClassInfo } from '../../../typedef/parser/ApiInfoDefination';
 import { Comment } from '../../../typedef/parser/Comment';
-import { compositiveResult, compositiveLocalResult, CommonFunctions } from '../../../utils/checkUtils';
+import { compositiveResult, compositiveLocalResult, CommonFunctions, cleanCompositiveResult } from '../../../utils/checkUtils';
 import { OrderCheck } from './tag_order_check';
 import { TagNameCheck } from './tag_name_check';
 import { LegalityCheck } from './tag_legality_check';
@@ -54,11 +54,12 @@ export class Check {
    * checker tool main entrance
    * @param { string[] } files -File path for storing file information.
    */
-  static scanEntry(files: string[], prId: string): void {
+  static scanEntry(files: string[], prId: string, isRunAutoTest: boolean): void {
+    cleanCompositiveResult();
     ApiChangeCheck.checkApiChange(prId);
     files.forEach((filePath: string, index: number) => {
       currentFilePath = filePath;
-      if (filePath.indexOf('build-tools') !== -1) {
+      if (filePath.indexOf('build-tools') !== -1 && !isRunAutoTest) {
         return;
       }
       console.log(`scaning file in no ${++index}!`);
@@ -126,7 +127,7 @@ export class Check {
           errorBaseInfo);
         AddErrorLogs.addAPICheckErrorLogs(apiInfoNojsdoc, compositiveResult, compositiveLocalResult);
       } else {
-        if (apiJsdoc.getKit().length === 0) {
+        if (apiJsdoc.getKit() === 'NA') {
           const errorBaseInfo: ErrorBaseInfo = new ErrorBaseInfo();
           errorBaseInfo
             .setErrorID(ErrorID.WRONG_SCENE_ID)
@@ -138,7 +139,7 @@ export class Check {
             errorBaseInfo);
           AddErrorLogs.addAPICheckErrorLogs(apiInfoNoKit, compositiveResult, compositiveLocalResult);
         }
-        if (!apiJsdoc.getIsFile()) {
+        if (!apiJsdoc.getFileTagContent()) {
           const apiInfo: ApiCheckInfo = new ApiCheckInfo();
           const errorBaseInfo: ErrorBaseInfo = new ErrorBaseInfo();
           errorBaseInfo

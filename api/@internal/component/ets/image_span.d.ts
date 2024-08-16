@@ -105,7 +105,7 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   colorFilter(filter: ColorFilter | DrawingColorFilter): ImageSpanAttribute;
 

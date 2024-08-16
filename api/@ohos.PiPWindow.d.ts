@@ -62,8 +62,8 @@ declare namespace PiPWindow {
    * the context and componentController in config should not be null. If templateType is specified, make sure
    * it's type of PiPTemplateType. If controlGroups is specified, make sure it correspond to the templateType.
    * @returns { Promise<PiPController> } - The promise returned by the function
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified. 
-   *                                                                2. Incorrect parameter types. 
+   * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *                                                                2. Incorrect parameter types.
    *                                                                3. Parameter verification failed
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @syscap SystemCapability.Window.SessionManager
@@ -76,8 +76,8 @@ declare namespace PiPWindow {
    * the context and componentController in config should not be null. If templateType is specified, make sure
    * it's type of PiPTemplateType. If controlGroups is specified, make sure it correspond to the templateType.
    * @returns { Promise<PiPController> } - The promise returned by the function
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified. 
-   *                                                                2. Incorrect parameter types. 
+   * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *                                                                2. Incorrect parameter types.
    *                                                                3. Parameter verification failed
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @syscap SystemCapability.Window.SessionManager
@@ -403,7 +403,7 @@ declare namespace PiPWindow {
 
   /**
    * Describe PiP window custom controls.
-   * 
+   *
    * @typedef { VideoPlayControlGroup | VideoCallControlGroup | VideoMeetingControlGroup | VideoLiveControlGroup }
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
@@ -528,7 +528,7 @@ declare namespace PiPWindow {
      * @atomicservice
      * @since 12
      */
-    MICROPHONE_SWITCH = 304,    
+    MICROPHONE_SWITCH = 304,
   }
 
   /**
@@ -784,7 +784,7 @@ declare namespace PiPWindow {
 
   /**
    * Describe picture-in-picture control panel action event callback.
-   * 
+   *
    * @typedef { function } ControlPanelActionEventCallback
    * @param { PiPActionEventType } event - the event from controlPanel
    * @param { number } [status] - the status of control button
@@ -904,7 +904,7 @@ declare namespace PiPWindow {
      * Update source content size to adjust PiP window aspect ratio.
      * @param { number } width - Indicate the width of the content. The width can consist of only digits and above 0.
      * @param { number } height - Indicate the height of the content. The height can consist of only digits and above 0.
-     * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified. 
+     * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
      *                                                                2. Incorrect parameter types.
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
@@ -913,7 +913,7 @@ declare namespace PiPWindow {
      * Update source content size to adjust PiP window aspect ratio.
      * @param { number } width - Indicate the width of the content. The width can consist of only digits and above 0.
      * @param { number } height - Indicate the height of the content. The height can consist of only digits and above 0.
-     * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified. 
+     * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
      *                                                                2. Incorrect parameter types.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice

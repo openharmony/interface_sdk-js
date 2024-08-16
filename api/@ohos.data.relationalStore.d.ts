@@ -397,6 +397,44 @@ declare namespace relationalStore {
      * @since 12
      */
     pluginLibs?: Array<string>;
+
+    /**
+     * Enumerates the high availability modes of the RDB store.
+     *
+     * @type { ?HAMode }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @since 12
+     */
+    haMode?: HAMode;
+  }
+
+  /**
+   * Enumerates the high availability modes of the RDB store.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @systemapi
+   * @since 12
+   */
+  enum HAMode {
+    /**
+     * SINGLE: Data is written to a single RDB store.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @since 12
+     */
+    SINGLE = 0,
+
+    /**
+     * MAIN_REPLICA: Data is written to the main and replica RDB stores.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @since 12
+     */
+    MAIN_REPLICA
   }
 
   /**
@@ -775,7 +813,6 @@ declare namespace relationalStore {
   /**
    * Describes the subscription type.
    *
-   * @permission ohos.permission.DISTRIBUTED_DATASYNC
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 9
@@ -784,7 +821,6 @@ declare namespace relationalStore {
     /**
      * Subscription to remote data changes
      *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -928,7 +964,6 @@ declare namespace relationalStore {
   /**
    * Describes the distribution type of the tables.
    *
-   * @permission ohos.permission.DISTRIBUTED_DATASYNC
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10
@@ -937,7 +972,6 @@ declare namespace relationalStore {
     /**
      * Indicates the table is distributed among the devices
      *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
@@ -1156,6 +1190,15 @@ declare namespace relationalStore {
      * @since 11
      */
     DELETED_FLAG_FIELD = '#_deleted_flag',
+
+    /**
+     * Data status field.
+     * Indicates data status.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 12
+     */
+    DATA_STATUS_FIELD = '#_data_status',
 
     /**
      * Owner field.
@@ -4616,19 +4659,6 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12
-     */
-    /**
-     * Queries data in the database based on specified conditions with sync function.
-     *
-     * @param { RdbPredicates } predicates - The specified query condition by the instance object of {@link RdbPredicates}.
-     * @param { Array<string> } columns - The columns to query. If the value is empty array, the query applies to all columns.
-     * @returns { ResultSet } The {@link ResultSet} object if the operation is successful.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - Already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -5862,6 +5892,36 @@ declare namespace relationalStore {
     restore(srcName: string): Promise<void>;
 
     /**
+     * Restores a database from a specified database file.
+     *
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800010 - Invalid database path.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database does not respond.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @since 12
+     */
+    restore(): Promise<void>;
+
+    /**
      * Set table to be distributed table.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
@@ -6941,6 +7001,28 @@ declare namespace relationalStore {
      * @since 12
      */
     queryLockedRow(predicates: RdbPredicates, columns?: Array<string>): Promise<ResultSet>;
+
+    /**
+     * Lock cloud container before non-auto cloud sync.
+     *
+     * @returns { Promise<number> } The expired time of the lock.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @since 12
+     */
+    lockCloudContainer(): Promise<number>;
+
+    /**
+     * Unlock cloud container.
+     *
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @since 12
+     */
+    unlockCloudContainer(): Promise<void>;
   }
 
   /**

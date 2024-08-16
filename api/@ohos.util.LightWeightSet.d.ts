@@ -68,12 +68,14 @@ declare class LightWeightSet<T> {
   /**
    * Gets the element number of the LightWeightSet.
    *
+   * @type { number }
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    */
   /**
    * Gets the element number of the LightWeightSet.
    *
+   * @type { number }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -81,6 +83,7 @@ declare class LightWeightSet<T> {
   /**
    * Gets the element number of the LightWeightSet.
    *
+   * @type { number }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -247,17 +250,7 @@ declare class LightWeightSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
-   */
-  /**
-   * Checks whether an the objects of an LightWeighSet container are of the same type as a specified Object LightWeightSet
-   *
-   * @param { Object } obj - obj obj need to determine whether to include the obj
-   * @returns { boolean } the boolean type
-   * @throws { BusinessError } 10200011 - The equal method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12
+   * @deprecated since 12
    */
   equal(obj: Object): boolean;
   /**

@@ -27,6 +27,7 @@ import window from './@ohos.window';
  *
  * @namespace uiExtension
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
  */
 declare namespace uiExtension {
@@ -35,6 +36,7 @@ declare namespace uiExtension {
    *
    * @interface WindowProxy
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   interface WindowProxy {
@@ -48,6 +50,7 @@ declare namespace uiExtension {
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
      * @since 12
      */
     getWindowAvoidArea(type: window.AvoidAreaType): window.AvoidArea;
@@ -62,6 +65,7 @@ declare namespace uiExtension {
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
      * @since 12
      */
     on(type: 'avoidAreaChange', callback: Callback<AvoidAreaInfo>): void;
@@ -76,6 +80,7 @@ declare namespace uiExtension {
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
      * @since 12
      */
     off(type: 'avoidAreaChange', callback?: Callback<AvoidAreaInfo>): void;
@@ -90,6 +95,7 @@ declare namespace uiExtension {
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
      * @since 12
      */
     on(type: 'windowSizeChange', callback: Callback<window.Size>): void;
@@ -104,6 +110,7 @@ declare namespace uiExtension {
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
      * @since 12
      */
     off(type: 'windowSizeChange', callback?: Callback<window.Size>): void;
@@ -138,6 +145,7 @@ declare namespace uiExtension {
      * @throws { BusinessError } 1300005 - This window proxy is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @StageModelOnly
+     * @atomicservice
      * @since 12
      */
     createSubWindowWithOptions(name: string, subWindowOptions: window.SubWindowOptions): Promise<window.Window>;
@@ -162,6 +170,7 @@ declare namespace uiExtension {
    *
    * @interface AvoidAreaInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   interface AvoidAreaInfo {
@@ -170,6 +179,7 @@ declare namespace uiExtension {
      *
      * @type { window.AvoidAreaType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
      * @since 12
      */
     type: window.AvoidAreaType;
@@ -179,6 +189,7 @@ declare namespace uiExtension {
      *
      * @type { window.AvoidArea }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
      * @since 12
      */
     area: window.AvoidArea;

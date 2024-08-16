@@ -59,6 +59,8 @@ declare namespace process {
     /**
      * Return pid is the pid of the current process
      *
+     * @type { number }
+     * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @systemapi Hide this for inner system use
      * @since 7
@@ -69,6 +71,8 @@ declare namespace process {
     /**
      * Return ppid is the pid of the current child process
      *
+     * @type { number }
+     * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @systemapi Hide this for inner system use
      * @since 7
@@ -79,6 +83,8 @@ declare namespace process {
     /**
      * Return exitCode is the exit code of the current child process
      *
+     * @type { number }
+     * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @systemapi Hide this for inner system use
      * @since 7
@@ -89,6 +95,8 @@ declare namespace process {
     /**
      * Return boolean is whether the current process signal is sent successfully
      *
+     * @type { boolean }
+     * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @systemapi Hide this for inner system use
      * @since 7
@@ -449,7 +457,6 @@ declare namespace process {
   /**
    * Returns the numeric valid group ID of the process
    *
-   * @constant
    * @syscap SystemCapability.Utils.Lang
    * @systemapi Hide this for inner system use
    * @since 7
@@ -460,7 +467,6 @@ declare namespace process {
   /**
    * Return the numeric valid user identity of the process
    *
-   * @constant
    * @syscap SystemCapability.Utils.Lang
    * @systemapi Hide this for inner system use
    * @since 7
@@ -471,7 +477,6 @@ declare namespace process {
   /**
    * Returns the numeric group id of the process
    *
-   * @constant
    * @syscap SystemCapability.Utils.Lang
    * @systemapi Hide this for inner system use
    * @since 7
@@ -482,14 +487,12 @@ declare namespace process {
   /**
    * Returns the digital user id of the process
    *
-   * @constant
    * @syscap SystemCapability.Utils.Lang
    * @since 7
    */
   /**
    * Returns the digital user id of the process
    *
-   * @constant
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -497,7 +500,6 @@ declare namespace process {
   /**
    * Returns the digital user id of the process
    *
-   * @constant
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -508,7 +510,6 @@ declare namespace process {
   /**
    * Return an array with supplementary group id
    *
-   * @constant
    * @syscap SystemCapability.Utils.Lang
    * @systemapi Hide this for inner system use
    * @since 7
@@ -519,14 +520,12 @@ declare namespace process {
   /**
    * Return pid is The pid of the current process
    *
-   * @constant
    * @syscap SystemCapability.Utils.Lang
    * @since 7
    */
   /**
    * Return pid is The pid of the current process
    *
-   * @constant
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -534,7 +533,6 @@ declare namespace process {
   /**
    * Return pid is The pid of the current process
    *
-   * @constant
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -545,7 +543,6 @@ declare namespace process {
   /**
    * Return ppid is The pid of the current child process
    *
-   * @constant
    * @syscap SystemCapability.Utils.Lang
    * @systemapi Hide this for inner system use
    * @since 7
@@ -556,14 +553,12 @@ declare namespace process {
   /**
    * Returns the tid of the current thread.
    *
-   * @constant
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    */
   /**
    * Returns the tid of the current thread.
    *
-   * @constant
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -571,7 +566,6 @@ declare namespace process {
   /**
    * Returns the tid of the current thread.
    *
-   * @constant
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice

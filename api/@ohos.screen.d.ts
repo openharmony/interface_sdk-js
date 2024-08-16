@@ -353,6 +353,7 @@ declare namespace screen {
     /**
      * Screen id
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -362,6 +363,7 @@ declare namespace screen {
     /**
      * The start coordinate X of the screen origin
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -371,6 +373,7 @@ declare namespace screen {
     /**
      * The start coordinate Y of the screen origin
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -390,6 +393,7 @@ declare namespace screen {
     /**
      * Indicates the name of the virtual screen.
      *
+     * @type { string }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -399,6 +403,7 @@ declare namespace screen {
     /**
      * Indicates the width of the virtual screen.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -408,6 +413,7 @@ declare namespace screen {
     /**
      * Indicates the height of the virtual screen.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -417,6 +423,7 @@ declare namespace screen {
     /**
      * Indicates the density of the virtual screen.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -426,6 +433,7 @@ declare namespace screen {
     /**
      * Indicates the surface id of the virtual screen.
      *
+     * @type { string }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -491,6 +499,7 @@ declare namespace screen {
     /**
      * Screen id
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -500,6 +509,7 @@ declare namespace screen {
     /**
      * Group id
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -509,6 +519,7 @@ declare namespace screen {
     /**
      * Mode supported by the screen
      *
+     * @type { Array<ScreenModeInfo> }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -518,6 +529,7 @@ declare namespace screen {
     /**
      * Currently active mode
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -527,6 +539,7 @@ declare namespace screen {
     /**
      * Orientation of the screen
      *
+     * @type { Orientation }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -536,6 +549,7 @@ declare namespace screen {
     /**
      * Source mode of the screen
      *
+     * @type { ScreenSourceMode }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10

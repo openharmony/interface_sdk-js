@@ -141,6 +141,7 @@ channelup
 checkboxgroup
 checksum
 chload
+choosed
 chromaticities
 chromaticity
 chrominance
@@ -353,12 +354,15 @@ fts
 fulfills
 fuma
 furse
+gainmap
 gamepad
 gba
 gbk
 geofence
 geofences
 getunfilteredlinkurl
+getxattr
+getxattrSync
 glasses
 glonass
 gnss
@@ -496,6 +500,7 @@ ipaddr
 ipsec
 irnss
 irradiance
+isCameraOccluded
 isdn
 isim
 issuers
@@ -647,6 +652,7 @@ oaep
 obscured
 occluding
 occluder
+occluded
 ocsp
 ofb
 offhook
@@ -738,6 +744,8 @@ precisiontype
 precomposed
 precomposited
 precon
+preconfig
+preconfiged
 preconnect
 preconnectable
 preconnected
@@ -776,6 +784,7 @@ pss
 pssh
 puk
 pvr
+qualities
 quant
 querier
 queriers
@@ -804,6 +813,7 @@ reenter
 refill
 refresher
 refusing
+regarded
 rehandshake
 rejects
 relocation
@@ -885,6 +895,8 @@ sensing
 sequenceable
 setsockopt
 settingsdata
+setxattr
+setxattrSync
 seventh
 sfactor
 sgi
@@ -969,6 +981,7 @@ suscribes
 suspending
 suspends
 swanctl
+switchmode
 switchvideomode
 symantec
 symbolglyph
@@ -985,6 +998,7 @@ systembar
 systemsize
 systemui
 suspending
+tabletype
 tailoring
 talkback
 taskmanager
@@ -1091,6 +1105,7 @@ unpipe
 unpremultiplied
 unprepare
 unpressed
+unrefocus
 unregistered
 unregistering
 unregisters
@@ -1172,6 +1187,7 @@ xcomponent
 xfer
 xflags
 xldpi
+xmage
 xoffset
 xxldpi
 xxxldpi
@@ -1186,3 +1202,9 @@ zoomout
 zoomreset
 zooms
 zpass
+Capitals
+monospaced
+depressed
+Tritanomaly
+Deuteranomaly
+Protanomaly

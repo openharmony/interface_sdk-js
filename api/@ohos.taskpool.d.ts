@@ -459,12 +459,14 @@ declare namespace taskpool {
     /**
      * Concurrent function to execute in taskpool.
      *
+     * @type { Function }
      * @syscap SystemCapability.Utils.Lang
      * @since 9
      */
     /**
      * Concurrent function to execute in taskpool.
      *
+     * @type { Function }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -472,6 +474,7 @@ declare namespace taskpool {
     /**
      * Concurrent function to execute in taskpool.
      *
+     * @type { Function }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -507,6 +510,7 @@ declare namespace taskpool {
     /**
      * Task name.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -677,6 +681,7 @@ declare namespace taskpool {
     /**
      * TaskGroup name.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -746,9 +751,8 @@ declare namespace taskpool {
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br>1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types;
-     * @throws { BusinessError } 10200003 - Worker initialization failed.
      * @throws { BusinessError } 10200006 - An exception occurred during serialization.
-     * @throws { BusinessError } 10200025 - A dependent task cannot be added to SequenceRunner.
+     * @throws { BusinessError } 10200025 - dependent task not allowed.
      * @throws { BusinessError } 10200051 - The periodic task cannot be executed again.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -1111,6 +1115,23 @@ declare namespace taskpool {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Execute a concurrent function.
+   *
+   * @param { Function } func - func func Concurrent function want to execute.
+   * @param { Object[] } args - args args The concurrent function arguments.
+   * @returns { Promise<Object> }
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types;
+   * 3.Parameter verification failed.
+   * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+   * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   function execute(func: Function, ...args: Object[]): Promise<Object>;
 
   /**
@@ -1174,7 +1195,6 @@ declare namespace taskpool {
    * <br>1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types;
    * <br>3. Parameter verification failed.
-   * @throws { BusinessError } 10200003 - Worker initialization failed.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
    * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
    * @throws { BusinessError } 10200051 - The periodic task cannot be executed again.
@@ -1246,6 +1266,8 @@ declare namespace taskpool {
    * <br>1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types;
    * <br>3. Parameter verification failed.
+   * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+   * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
    * @throws { BusinessError } 10200028 - The delayTime is less than zero.
    * @throws { BusinessError } 10200051 - The periodic task cannot be executed again.
    * @syscap SystemCapability.Utils.Lang
@@ -1265,7 +1287,6 @@ declare namespace taskpool {
    * <br>1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types;
    * <br>3. Parameter verification failed.
-   * @throws { BusinessError } 10200003 - Worker initialization failed.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
    * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
    * @throws { BusinessError } 10200028 - The period is less than zero.

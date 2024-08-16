@@ -1,3 +1,4 @@
 {
-  "ApiCheckVersion": 12
+  "ApiCheckVersion": 12,
+  "ApiMaxVersion":13
 }

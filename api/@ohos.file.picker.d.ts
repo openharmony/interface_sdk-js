@@ -60,14 +60,6 @@ declare namespace picker {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @atomicservice
    * @since 11
-   */
-  /**
-   * PhotoViewMIMETypes represents the type of media resource that photo picker selects.
-   *
-   * @enum { string } PhotoViewMIMETypes
-   * @syscap SystemCapability.FileManagement.UserFileService
-   * @atomicservice
-   * @since 9
    * @deprecated since 12
    * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoViewMIMETypes
    */
@@ -130,13 +122,6 @@ declare namespace picker {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @atomicservice
    * @since 11
-   */
-  /**
-   * PhotoSelectOptions Object
-   *
-   * @syscap SystemCapability.FileManagement.UserFileService
-   * @atomicservice
-   * @since 9
    * @deprecated since 12
    * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoSelectOptions
    */
@@ -188,13 +173,6 @@ declare namespace picker {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @atomicservice
    * @since 11
-   */
-  /**
-   * PhotoSelectResult Object
-   *
-   * @syscap SystemCapability.FileManagement.UserFileService
-   * @atomicservice
-   * @since 9
    * @deprecated since 12
    * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoSelectResult
    */
@@ -239,12 +217,6 @@ declare namespace picker {
    *
    * @syscap SystemCapability.FileManagement.UserFileService
    * @since 9
-   */
-  /**
-   * PhotoSaveOptions Object
-   *
-   * @syscap SystemCapability.FileManagement.UserFileService
-   * @since 9
    * @deprecated since 12
    */
   class PhotoSaveOptions {
@@ -270,13 +242,6 @@ declare namespace picker {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @atomicservice
    * @since 11
-   */
-  /**
-   * PhotoViewPicker Object
-   *
-   * @syscap SystemCapability.FileManagement.UserFileService
-   * @atomicservice
-   * @since 9
    * @deprecated since 12
    * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoViewPicker
    */
@@ -315,15 +280,6 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 11
-     */
-    /**
-     * Pull up the photo picker based on the selection mode.
-     *
-     * @param { PhotoSelectOptions } option - represents the options provided in select mode.
-     * @returns { Promise<PhotoSelectResult> } Returns the uris for the selected files.
-     * @syscap SystemCapability.FileManagement.UserFileService
-     * @atomicservice
-     * @since 9
      * @deprecated since 12
      * @useinstead ohos.file.photoAccessHelper/photoAccessHelper.PhotoViewPicker#select
      */
@@ -345,15 +301,6 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 11
-     */
-    /**
-     * Pull up the photo picker based on the selection mode.
-     *
-     * @param { PhotoSelectOptions } option - represents the options provided in select mode.
-     * @param { AsyncCallback<PhotoSelectResult> } callback - callback
-     * @syscap SystemCapability.FileManagement.UserFileService
-     * @atomicservice
-     * @since 9
      * @deprecated since 12
      * @useinstead ohos.file.photoAccessHelper/photoAccessHelper.PhotoViewPicker#select
      */
@@ -373,27 +320,11 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 11
-     */
-    /**
-     * Pull up the photo picker based on the selection mode.
-     *
-     * @param { AsyncCallback<PhotoSelectResult> } callback - callback
-     * @syscap SystemCapability.FileManagement.UserFileService
-     * @atomicservice
-     * @since 9
      * @deprecated since 12
      * @useinstead ohos.file.photoAccessHelper/photoAccessHelper.PhotoViewPicker#select
      */
     select(callback: AsyncCallback<PhotoSelectResult>): void;
 
-    /**
-     * Pull up the photo picker based on the save mode.
-     *
-     * @param { PhotoSaveOptions } option - represents the options provided in save mode.
-     * @returns { Promise<Array<string>> } Returns the uris for the saved files.
-     * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 9
-     */
     /**
      * Pull up the photo picker based on the save mode.
      *
@@ -413,26 +344,11 @@ declare namespace picker {
      * @param { AsyncCallback<Array<string>> } callback - callback
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 9
-     */
-    /**
-     * Pull up the photo picker based on the save mode.
-     *
-     * @param { PhotoSaveOptions } option - represents the options provided in save mode.
-     * @param { AsyncCallback<Array<string>> } callback - callback
-     * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 9
      * @deprecated since 12
      * @useinstead save_button/SaveButton
      */
     save(option: PhotoSaveOptions, callback: AsyncCallback<Array<string>>): void;
 
-    /**
-     * Pull up the photo picker based on the save mode.
-     *
-     * @param { AsyncCallback<Array<string>> } callback - callback
-     * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 9
-     */
     /**
      * Pull up the photo picker based on the save mode.
      *
@@ -958,6 +874,7 @@ declare namespace picker {
      * The constructor used to create a AudioViewPicker object.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
      * @since 12
      */
     constructor();

@@ -153,6 +153,26 @@ declare interface TextDataDetectorConfig {
    * @since 12
    */
   onDetectResultUpdate?: (result: string) => void
+
+  /**
+   * The color of AI entity.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  color?: ResourceColor,
+
+  /**
+   * The decoration of AI entity.
+   *
+   * @type { ?DecorationStyleInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  decoration?: DecorationStyleInterface
 }
 
 /**
@@ -809,6 +829,18 @@ declare class TextMenuItemId {
    * @since 12
    */
   static readonly CAMERA_INPUT: TextMenuItemId;
+
+  /**
+   * Indicates the TextMenuItemId to help with text creation by invoking large models.
+   *
+   * @type { TextMenuItemId }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  static readonly AI_WRITER: TextMenuItemId;
 }
 
 /**
@@ -898,7 +930,7 @@ declare interface EditMenuOptions {
   /**
    * Passes the default menu, invokes before every display to generate a menu for triggering click events.
    *
-   * @param { TextMenuItem } menuItem - current default menu array.
+   * @param { Array<TextMenuItem> } menuItems - current default menu array.
    * @returns { Array<TextMenuItem> } - Return the menu after operations.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

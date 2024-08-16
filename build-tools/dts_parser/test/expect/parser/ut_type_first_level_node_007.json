@@ -20,6 +20,9 @@
       "jsDocText": "",
       "isJoinType": false,
       "genericInfo": [],
+      "parentApiType": "SourceFile",
+      "fileAbsolutePath": "E:\\code\\wcy\\gitee\\interface_sdk-js\\build-tools\\dts_parser\\test\\ut\\parser\\ut_type_first_level_node_007.d.ts",
+      "isSameNameFunction": false,
       "importValues": [
         {
           "key": "ValueType",
@@ -45,14 +48,97 @@
       "isStruct": false,
       "syscap": "",
       "currentVersion": "-1",
-      "jsDocText": "\r\n\r\n",
+      "jsDocText": "",
       "isJoinType": false,
       "genericInfo": [],
-      "jsDocInfos": [],
+      "parentApiType": "SourceFile",
+      "fileAbsolutePath": "E:\\code\\wcy\\gitee\\interface_sdk-js\\build-tools\\dts_parser\\test\\ut\\parser\\ut_type_first_level_node_007.d.ts",
+      "isSameNameFunction": false,
+      "jsDocInfos": [
+        {
+          "description": "",
+          "syscap": "",
+          "since": "-1",
+          "isForm": false,
+          "isCrossPlatForm": false,
+          "isSystemApi": false,
+          "modelLimitation": "",
+          "deprecatedVersion": "-1",
+          "useinstead": "",
+          "permissions": "",
+          "errorCodes": [],
+          "typeInfo": "",
+          "isConstant": false,
+          "isAtomicService": false,
+          "kit": "NA",
+          "fileTagContent": "NA"
+        }
+      ],
       "type": [
         "{ [key: string]: ValueType | Uint8Array | null }"
       ],
-      "typeName": "ObjectType"
+      "typeName": "ObjectType",
+      "returnType": "",
+      "paramInfos": [],
+      "typeIsFunction": false,
+      "typeLiteralApiInfos": [
+        {
+          "filePath": "ut_type_first_level_node_007.d.ts",
+          "apiType": "Property",
+          "definedText": "[key: string]: ValueType | Uint8Array | null",
+          "pos": {
+            "line": 18,
+            "character": 22
+          },
+          "isExport": false,
+          "hierarchicalRelations": [
+            "ut_type_first_level_node_007.d.ts",
+            "TextOneType",
+            null
+          ],
+          "isStruct": false,
+          "syscap": "",
+          "currentVersion": "-1",
+          "jsDocText": "",
+          "isJoinType": false,
+          "genericInfo": [],
+          "parentApiType": "TypeAlias",
+          "fileAbsolutePath": "E:\\code\\wcy\\gitee\\interface_sdk-js\\build-tools\\dts_parser\\test\\ut\\parser\\ut_type_first_level_node_007.d.ts",
+          "isSameNameFunction": false,
+          "jsDocInfos": [
+            {
+              "description": "",
+              "syscap": "",
+              "since": "-1",
+              "isForm": false,
+              "isCrossPlatForm": false,
+              "isSystemApi": false,
+              "modelLimitation": "",
+              "deprecatedVersion": "-1",
+              "useinstead": "",
+              "permissions": "",
+              "errorCodes": [],
+              "typeInfo": "",
+              "isConstant": false,
+              "isAtomicService": false,
+              "kit": "NA",
+              "fileTagContent": "NA"
+            }
+          ],
+          "type": [
+            "ValueType",
+            "Uint8Array",
+            "null"
+          ],
+          "isReadOnly": false,
+          "isRequired": true,
+          "isStatic": false,
+          "typeKind": 183,
+          "typeLocations": [],
+          "objLocations": []
+        }
+      ],
+      "typeIsObject": true
     }
   ]
 }

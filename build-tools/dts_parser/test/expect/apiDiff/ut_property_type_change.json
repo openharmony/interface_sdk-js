@@ -31,12 +31,13 @@
       "line": 21,
       "character": 3
     },
-    "oldDescription": "tring",
+    "oldDescription": "string",
     "newDescription": "number",
     "oldSyscapField": "",
     "newSyscapField": "",
-    "oldKitInfo": "",
-    "newKitInfo": "",
-    "isSystemapi": false
+    "oldKitInfo": "NA",
+    "newKitInfo": "NA",
+    "isSystemapi": false,
+    "isSameNameFunction": false
   }
 ]

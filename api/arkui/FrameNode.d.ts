@@ -44,7 +44,7 @@ declare interface LayoutConstraint {
    * @since 12
    */
   maxSize: Size;
-  
+
   /**
    * MinSize
    *
@@ -55,7 +55,7 @@ declare interface LayoutConstraint {
    * @since 12
    */
   minSize: Size;
-  
+
   /**
    * PercentReference, if the size unit of the child nodes is percentage, then they use PercentReference to calculate
    * the px size.
@@ -173,7 +173,7 @@ export class FrameNode {
 
   /**
    * Clear children of the current FrameNode.
-   * 
+   *
    * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -632,6 +632,7 @@ export class FrameNode {
    * Mount ComponentContent to FrameNode.
    * 
    * @param { ComponentContent<T> } content - Newly added ComponentContent.
+   * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice

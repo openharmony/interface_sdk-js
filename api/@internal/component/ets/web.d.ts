@@ -2506,6 +2506,22 @@ declare enum NativeEmbedStatus {
    * @since 12
    */
   LEAVE_BFCACHE = 4,
+
+  /**
+   * The embed tag visible.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  VISIBLE = 5,
+
+  /**
+   * The embed tag hidden.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  HIDDEN = 6,
 }
 
 /**
@@ -8460,6 +8476,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 12
    */
   keyboardAvoidMode(mode: WebKeyboardAvoidMode): WebAttribute;
+
+  /**
+   * Set the custom text menu.
+   *
+   * @param { EditMenuOptions } editMenu - Customize text menu options.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  editMenuOptions(editMenu: EditMenuOptions): WebAttribute;
 }
 
 /**

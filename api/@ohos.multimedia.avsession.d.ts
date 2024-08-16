@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+* Copyright (c) 2022-2024 Huawei Device Co., Ltd.
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
 * You may obtain a copy of the License at
@@ -86,6 +86,7 @@ declare namespace avSession {
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @param { AsyncCallback<Array<Readonly<AVSessionDescriptor>>> } callback - async callback for an array of AVSessionDescriptors.
    * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
@@ -98,6 +99,7 @@ declare namespace avSession {
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @returns { Promise<Array<Readonly<AVSessionDescriptor>>> } Promise for an array of AVSessionDescriptors
    * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
@@ -111,6 +113,8 @@ declare namespace avSession {
    * @param { number } maxSize - Specifies the maximum size of the returned value array.
    * @param { AsyncCallback<Array<Readonly<AVSessionDescriptor>>> } callback - async callback for an array of AVSessionDescriptors.
    * If provided '0' or not provided, the maximum value is determined by the system.
+   * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App
    * @throws { BusinessError } 401 - parameter check failed. Possible causes: 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types.
    * @throws { BusinessError } 6600101 - Session service exception.
@@ -126,6 +130,8 @@ declare namespace avSession {
    * @param { number } maxSize - Specifies the maximum size of the returned value array.
    * If provided '0' or not provided, the maximum value is determined by the system.
    * @returns { Promise<Array<Readonly<AVSessionDescriptor>>> } Promise for an array of AVSessionDescriptors
+   * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types.
    * @throws { BusinessError } 6600101 - Session service exception.
@@ -175,6 +181,7 @@ declare namespace avSession {
    * @param { AsyncCallback<AVSessionController> } callback - async callback for AVSessionController.
    * If provided 'default', the system will create a default controller, Used to control the system default session
    * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Parameter verification failed.
    * @throws { BusinessError } 6600101 - Session service exception.
@@ -192,6 +199,7 @@ declare namespace avSession {
    * If provided 'default', the system will create a default controller, Used to control the system default session
    * @returns { Promise<AVSessionController> } Promise for AVSessionController
    * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Parameter verification failed.
    * @throws { BusinessError } 6600101 - Session service exception.
@@ -210,6 +218,7 @@ declare namespace avSession {
    * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
    * 'all' means cast all the media audio of this device to remote.
    * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Parameter verification failed.
    * @throws { BusinessError } 6600101 - Session service exception.
@@ -229,6 +238,7 @@ declare namespace avSession {
    * @returns { Promise<void> } void promise when executed successfully
    * 'all' means cast all the media audio of this device to remote.
    * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Parameter verification failed.
    * @throws { BusinessError } 6600101 - Session service exception.
@@ -260,7 +270,6 @@ declare namespace avSession {
   /**
    * Session token. Used to judge the legitimacy of the session.
    * @typedef SessionToken
-   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
    * @since 9
@@ -299,10 +308,9 @@ declare namespace avSession {
 
   /**
    * Register session create callback
-   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @param { 'sessionCreate' } type - Registration Type, 'sessionCreate'
    * @param { function } callback - Used to handle ('sessionCreate' command)
-   * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types.
    * @throws { BusinessError } 6600101 - Session service exception.
@@ -314,10 +322,9 @@ declare namespace avSession {
 
   /**
    * Register session destroy callback
-   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @param { 'sessionDestroy' } type - Registration Type, 'sessionDestroy'
    * @param { function } callback - Used to handle ('sessionDestroy' command)
-   * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types.
    * @throws { BusinessError } 6600101 - Session service exception.
@@ -329,10 +336,9 @@ declare namespace avSession {
 
   /**
    * Register top session changed callback
-   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @param { 'topSessionChange' } type - Registration Type, top priority session change, 'topSessionChange'
    * @param { function } callback - Used to handle ('topSessionChange' command)
-   * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types.
    * @throws { BusinessError } 6600101 - Session service exception.
@@ -344,10 +350,9 @@ declare namespace avSession {
 
   /**
    * Unregister session create callback
-   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @param { 'sessionCreate' } type - Registration Type, session creation, 'sessionCreate'
    * @param { function } callback - Used to unregister listener for ('sessionCreate') command
-   * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types.
    * @throws { BusinessError } 6600101 - Session service exception.
@@ -359,10 +364,9 @@ declare namespace avSession {
 
   /**
    * Unregister session destroy callback
-   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @param { 'sessionDestroy' } type - Registration Type, session deletion, 'sessionDestroy'
    * @param { function } callback - Used to unregister listener for ('sessionDestroy') command
-   * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types.
    * @throws { BusinessError } 6600101 - Session service exception.
@@ -374,10 +378,9 @@ declare namespace avSession {
 
   /**
    * Unregister top session changed callback
-   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @param { 'topSessionChange' } type - Registration Type, top priority session change, 'topSessionChange'
    * @param { function } callback - Used to unregister listener for ('topSessionChange') command
-   * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types.
    * @throws { BusinessError } 6600101 - Session service exception.
@@ -391,7 +394,7 @@ declare namespace avSession {
    * Register Session service death callback, notifying the application to clean up resources.
    * @param { 'sessionServiceDie' } type - Registration Type, 'sessionServiceDie'
    * @param { function } callback - Used to handle ('sessionServiceDie') command.
-   * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types.
    * @throws { BusinessError } 6600101 - Session service exception.
@@ -405,7 +408,7 @@ declare namespace avSession {
    * Unregister Session service death callback, notifying the application to clean up resources.
    * @param { 'sessionServiceDie' } type - Registration Type, 'sessionServiceDie'
    * @param { function } callback -  Used to unregister listener for ('sessionServiceDie') command.
-   * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types.
    * @throws { BusinessError } 6600101 - Session service exception.
@@ -421,6 +424,7 @@ declare namespace avSession {
    * @param { KeyEvent } event - The key event to be sent
    * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
    * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Parameter verification failed.
    * @throws { BusinessError } 6600101 - Session service exception.
@@ -437,6 +441,7 @@ declare namespace avSession {
    * @param { KeyEvent } event - The key event to be sent
    * @returns { Promise<void> } void promise when executed successfully
    * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Parameter verification failed.
    * @throws { BusinessError } 6600101 - Session service exception.
@@ -453,6 +458,7 @@ declare namespace avSession {
    * @param { AVControlCommand } command - The command to be sent. See {@link AVControlCommand}
    * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
    * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Parameter verification failed.
    * @throws { BusinessError } 6600101 - Session service exception.
@@ -470,6 +476,7 @@ declare namespace avSession {
    * @param { AVControlCommand } command - The command to be sent. See {@link AVControlCommand}
    * @returns { Promise<void> } void promise when executed successfully
    * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Parameter verification failed.
    * @throws { BusinessError } 6600101 - Session service exception.
@@ -546,6 +553,7 @@ declare namespace avSession {
   /**
    * Start device discovery.
    * @param { AsyncCallback<void> } callback a callback function
+   * @throws { BusinessError } 202 - Not System App.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
    * @since 10
@@ -556,6 +564,7 @@ declare namespace avSession {
    * Start device discovery.
    * @param { number } filter device filter when discovering, can be an union of {@link ProtocolType}
    * @param { AsyncCallback<void> } callback a callback function
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Parameter verification failed.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -592,6 +601,7 @@ declare namespace avSession {
   /**
    * Stop device discovery.
    * @param { AsyncCallback<void> } callback a callback function
+   * @throws { BusinessError } 202 - Not System App.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
    * @since 10
@@ -601,6 +611,7 @@ declare namespace avSession {
   /**
    * Stop device discovery.
    * @returns { Promise<void> } Promise for the result
+   * @throws { BusinessError } 202 - Not System App.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
    * @since 10
@@ -611,6 +622,7 @@ declare namespace avSession {
    * Enable or disable device to be discoverable, used at sink side.
    * @param { boolean } enable true: can be discoverable, false: cannot be discoverable.
    * @param { AsyncCallback<void> } callback a callback function
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Parameter verification failed.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -623,6 +635,7 @@ declare namespace avSession {
    * Enable or disable device to be discoverable, used at sink side.
    * @param { boolean } enable true: can be discoverable, false: cannot be discoverable.
    * @returns { Promise<void> } Promise for the result
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Parameter verification failed.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -635,7 +648,7 @@ declare namespace avSession {
    * Register device discovery callback
    * @param { 'deviceAvailable' } type Registration Type
    * @param { function } callback Used to returns the device info
-   * @throws {BusinessError} 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws {BusinessError} 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -648,7 +661,7 @@ declare namespace avSession {
    * Unregister device discovery callback
    * @param { 'deviceAvailable' } type Registration Type
    * @param { function } callback Used to returns the device info
-   * @throws {BusinessError} 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws {BusinessError} 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -661,7 +674,7 @@ declare namespace avSession {
    * Register device offline callback
    * @param { 'deviceOffline' } type - Registration Type
    * @param { function } callback - Used to returns the device info
-   * @throws {BusinessError} 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws {BusinessError} 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -672,11 +685,9 @@ declare namespace avSession {
 
   /**
    * Unregister device offline callback
-   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @param { 'deviceOffline' } type - Registration Type
    * @param { function } callback - Used to returns the device info
-   * @throws {BusinessError} 201 - permission denied
-   * @throws {BusinessError} 202 - Not System App.
+   * @throws { BusinessError } 202 - Not System App.
    * @throws {BusinessError} 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -692,6 +703,7 @@ declare namespace avSession {
    * @param { string } sessionId Specifies the sessionId to get controller.
    * @param { AsyncCallback<AVCastController> } callback - async callback for the AVCastController.
    * @throws {BusinessError} 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Parameter verification failed.
    * @throws {BusinessError} 6600101 - Session service exception
@@ -709,6 +721,7 @@ declare namespace avSession {
    * @param { string } sessionId Specifies the sessionId to get controller.
    * @returns { Promise<AVCastController> } Promise for the AVCastController
    * @throws {BusinessError} 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Parameter verification failed.
    * @throws {BusinessError} 6600101 - server exception
@@ -726,6 +739,7 @@ declare namespace avSession {
    * @param { OutputDeviceInfo } device Specifies the device to cast.
    * @param { AsyncCallback<void> } callback A callback instance used to return when start casting.
    * @throws {BusinessError} 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws {BusinessError} 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 6600101 - Session service exception
@@ -743,6 +757,7 @@ declare namespace avSession {
    * @param { OutputDeviceInfo } device Specifies the device to cast.
    * @returns { Promise<void> } Promise for the result
    * @throws {BusinessError} 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws {BusinessError} 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 6600101 - Session service exception
@@ -757,6 +772,7 @@ declare namespace avSession {
    * Stop current cast and disconnect device connection.
    * @param { SessionToken } session Specifies the sessionId which is to be stopped.
    * @param { AsyncCallback<void> } callback A callback instance used to return when cast stopped completed.
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 6600109 - The remote connection is not established
@@ -770,6 +786,7 @@ declare namespace avSession {
    * Stop current cast and disconnect device connection.
    * @param { SessionToken } session Specifies the sessionId which is to be stopped.
    * @returns { Promise<void> } Promise for the result
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 6600109 - The remote connection is not established
@@ -1200,8 +1217,8 @@ declare namespace avSession {
      * Get the cast controller when the session is casted to remote device.
      * If the avsession is not under casting state, the controller will return null.
      * @param { AsyncCallback<AVCastController> } callback - async callback for the AVCastController.
-     * @throws {BusinessError} 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @throws {BusinessError} 6600110 - 6600109 - remote connection does not exist
+     * @throws {BusinessError} 6600102 - The session does not exist
+     * @throws {BusinessError} 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
@@ -1211,8 +1228,8 @@ declare namespace avSession {
      * Get the cast controller when the session is casted to remote device.
      * If the avsession is not under casting state, the controller will return null.
      * @returns { Promise<AVCastController> } Promise for the AVCastController
-     * @throws {BusinessError} 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} session does not exist
-     * @throws {BusinessError} 6600110 - 6600109 - remote connection does not exist
+     * @throws {BusinessError} 6600102 - The session does not exist
+     * @throws {BusinessError} 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
@@ -1220,8 +1237,8 @@ declare namespace avSession {
      * Get the cast controller when the session is casted to remote device.
      * If the avsession is not under casting state, the controller will return null.
      * @returns { Promise<AVCastController> } Promise for the AVCastController
-     * @throws {BusinessError} 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} session does not exist
-     * @throws {BusinessError} 6600110 - 6600109 - remote connection does not exist
+     * @throws {BusinessError} 6600102 - The session does not exist
+     * @throws {BusinessError} 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 12
@@ -2592,6 +2609,7 @@ declare namespace avSession {
      * Set a surface instance to display playing view, used at sink side.
      * @param { string } surfaceId - surface id, video player will use this id get a surface instance.
      * @param { AsyncCallback<void> } callback - A callback instance used to return when set surface completed.
+     * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
      * 2.Parameter verification failed.
      * @throws { BusinessError } 6600109 - The remote connection is not established
@@ -2605,6 +2623,7 @@ declare namespace avSession {
      * Set a surface instance to display playing view, used at sink side.
      * @param { string } surfaceId - surface id, video player will use this id get a surface instance.
      * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
      * 2.Parameter verification failed.
      * @throws { BusinessError } 6600109 - The remote connection is not established
@@ -3163,8 +3182,7 @@ declare namespace avSession {
      * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
-     * @systemapi
-     * @since 10
+     * @since 12
      */
     on(type: 'videoSizeChange', callback: (width: number, height: number) => void): void;
 
@@ -3175,8 +3193,7 @@ declare namespace avSession {
      * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
-     * @systemapi
-     * @since 10
+     * @since 12
      */
     off(type: 'videoSizeChange'): void;
 
@@ -3292,6 +3309,7 @@ declare namespace avSession {
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
+   * @atomicservice
    * @since 12
    */
   enum CastDisplayState {
@@ -3299,6 +3317,7 @@ declare namespace avSession {
      * Screen off.
      *
      * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
+     * @atomicservice
      * @since 12
      */
     STATE_OFF = 1,
@@ -3307,6 +3326,7 @@ declare namespace avSession {
      * Screen on.
      *
      * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
+     * @atomicservice
      * @since 12
      */
     STATE_ON = 2,

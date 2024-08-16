@@ -687,7 +687,7 @@ declare interface ProvideOptions {
 declare const Provide: PropertyDecorator & ((value: string | ProvideOptions) => PropertyDecorator);
 
 /**
- * Defining Provider PropertyDecorator.
+ * Defining Provider PropertyDecorator, aliasName is the only matching key and if aliasName is the default, the default attribute name is regarded as aliasName.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -728,7 +728,8 @@ declare const Provider: (aliasName?: string) => PropertyDecorator;
 declare const Consume: PropertyDecorator & ((value: string) => PropertyDecorator);
 
 /**
-* Defining Consumer PropertyDecorator.
+* Defining Consumer PropertyDecorator, aliasName is the only matching key and if aliasName is the default, the default attribute name is regarded as aliasName.
+* And @Consumer will find the nearest @Provider.
 * @syscap SystemCapability.ArkUI.ArkUI.Full
 * @crossplatform
 * @atomicservice
@@ -2715,7 +2716,6 @@ declare interface GeometryTransitionOptions {
    * @default TransitionHierarchyStrategy.ADAPTIVE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @atomicservice
    * @since 12
    */
   hierarchyStrategy?: TransitionHierarchyStrategy
@@ -2730,7 +2730,6 @@ declare interface GeometryTransitionOptions {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @atomicservice
  * @since 12
  */
 declare enum TransitionHierarchyStrategy {
@@ -2740,7 +2739,6 @@ declare enum TransitionHierarchyStrategy {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @atomicservice
    * @since 12
    */
   NONE = 0,
@@ -2752,7 +2750,6 @@ declare enum TransitionHierarchyStrategy {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @atomicservice
    * @since 12
    */
   ADAPTIVE = 1,
@@ -4096,7 +4093,7 @@ declare class TransitionEffect<
   Effect extends TransitionEffects[Type] = TransitionEffects[Type]
 > {
   /**
-   * Defines an identity transition effect
+   * Disables the transition effect
    *
    * @type { TransitionEffect<"identity"> }
    * @readonly
@@ -4107,7 +4104,7 @@ declare class TransitionEffect<
    * @since 10
    */
   /**
-   * Defines an identity transition effect
+   * Disables the transition effect
    *
    * @type { TransitionEffect<"identity"> }
    * @readonly
@@ -4121,7 +4118,7 @@ declare class TransitionEffect<
   static readonly IDENTITY: TransitionEffect<"identity">;
 
   /**
-   * Defines an opacity transition effect
+   * Specifies a transition effect with transparency of 0, which is equivalent to TransitionEffect.opacity(0).
    *
    * @type { TransitionEffect<"opacity"> }
    * @readonly
@@ -4132,7 +4129,7 @@ declare class TransitionEffect<
    * @since 10
    */
   /**
-   * Defines an opacity transition effect
+   * Specifies a transition effect with transparency of 0, which is equivalent to TransitionEffect.opacity(0).
    *
    * @type { TransitionEffect<"opacity"> }
    * @readonly
@@ -4185,7 +4182,10 @@ declare class TransitionEffect<
   >;
 
   /**
-   * Defines a slide & switch transition effect
+   * Specify a transition effect where the element enters by shrinking first and then expanding as it slides in from the right, 
+   * and exits by shrinking first and then expanding as it slides out to the left, with a minimum scale ratio of 0.8. 
+   * It comes with default animation parameters, which can also be overridden. 
+   * The default animation duration is set to 600ms, and the specified animation curve is cubicBezierCurve(0.24, 0.0, 0.50, 1.0).
    *
    * @type { TransitionEffect<"slideSwitch"> }
    * @readonly
@@ -4196,7 +4196,10 @@ declare class TransitionEffect<
    * @since 10
    */
   /**
-   * Defines a slide & switch transition effect
+   * Specify a transition effect where the element enters by shrinking first and then expanding as it slides in from the right, 
+   * and exits by shrinking first and then expanding as it slides out to the left, with a minimum scale ratio of 0.8. 
+   * It comes with default animation parameters, which can also be overridden. 
+   * The default animation duration is set to 600ms, and the specified animation curve is cubicBezierCurve(0.24, 0.0, 0.50, 1.0).
    *
    * @type { TransitionEffect<"slideSwitch"> }
    * @readonly
@@ -4236,6 +4239,16 @@ declare class TransitionEffect<
    * Creates a rotation transition effect
    *
    * @param { RotateOptions } options - rotate options
+   * Set the rotation effect for component transitions when inserting and deleting. 
+   * The value represents the starting rotation point for the inserting animation and the ending rotation point for the deleting animation.
+   * -x: Horizontal component of the rotational vector.
+   * -y: Vertical component of the rotational vector.
+   * -z: Vertical component of the rotational vector.
+   * -centerX, centerY specify the rotation center point, with default values of "50%", 
+   * meaning that the default rotation center point is the center point of the component.
+   * -The center point of (0, 0) represents the upper-left corner of the component.
+   * -centerZ refers to the Z-axis anchor point. The default value of centerZ is 0.
+   * -perspective indicates the visual distance. The perspective property does not support transition animation.
    * @returns { TransitionEffect<"rotate"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -4246,6 +4259,16 @@ declare class TransitionEffect<
    * Creates a rotation transition effect
    *
    * @param { RotateOptions } options - rotate options
+   * Set the rotation effect for component transitions when inserting and deleting. 
+   * The value represents the starting rotation point for the inserting animation and the ending rotation point for the deleting animation.
+   * -x: Horizontal component of the rotational vector.
+   * -y: Vertical component of the rotational vector.
+   * -z: Vertical component of the rotational vector.
+   * -centerX, centerY specify the rotation center point, with default values of "50%", 
+   * meaning that the default rotation center point is the center point of the component.
+   * -The center point of (0, 0) represents the upper-left corner of the component.
+   * -centerZ refers to the Z-axis anchor point. The default value of centerZ is 0.
+   * -perspective indicates the visual distance. The perspective property does not support transition animation.
    * @returns { TransitionEffect<"rotate"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -4281,7 +4304,7 @@ declare class TransitionEffect<
   /**
    * Creates an opacity transition effect with alpha value
    *
-   * @param { number } alpha - opacity alpha value
+   * @param { number } alpha - opacity alpha value, value range [0, 1].
    * @returns { TransitionEffect<"opacity"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -4291,13 +4314,25 @@ declare class TransitionEffect<
   /**
    * Creates an opacity transition effect with alpha value
    *
-   * @param { number } alpha - opacity alpha value
+   * @param { number } alpha - opacity alpha value, value range [0, 1].
    * @returns { TransitionEffect<"opacity"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Creates an opacity transition effect with alpha value
+   *
+   * @param { number } alpha - opacity alpha value, value range [0, 1].
+   * Illegal values less than 0 are treated as 0, and illegal values greater than 1 are treated as 1.
+   * @returns { TransitionEffect<"opacity"> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
    */
   static opacity(alpha: number): TransitionEffect<"opacity">;
 
@@ -6570,7 +6605,7 @@ declare interface BackgroundEffectOptions {
    * Define the blurOptions of BackgroundEffect.
    *
    * @type { ?BlurOptions }
-   * @default { grayScale: [0,1] }
+   * @default { grayScale: [0,0] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -13293,13 +13328,13 @@ declare interface ContextMenuOptions {
   /**
    * Defines the border radius of menu.
    *
-   * @type { ?(Length | BorderRadiuses) }
+   * @type { ?(Length | BorderRadiuses | LocalizedBorderRadiuses) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  borderRadius?: Length | BorderRadiuses;
+  borderRadius?: Length | BorderRadiuses | LocalizedBorderRadiuses;
 
   /**
    * Callback function when the context menu appears.
@@ -16186,6 +16221,20 @@ declare class CommonMethod<T> {
   onClick(event: (event: ClickEvent) => void): T;
 
   /**
+   * Trigger a click event when a click is clicked, move distance should smaller than distanceThreshold. 
+   *
+   * @param { function } event - this function callback executed when the click action is recognized
+   * @param { number } distanceThreshold - the distance threshold of finger's movement when detecting a click action
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  onClick(event: Callback<ClickEvent>, distanceThreshold: number): T;
+
+  /**
    * Trigger a hover event.
    *
    * @param { function } event
@@ -18306,7 +18355,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    * @deprecated since 9
-   * @useinstead grid_col/[GridColColumnOption] and grid_row/[GridRowColumnOption]
+   * @useinstead grid_col/GridColColumnOption and grid_row/GridRowColumnOption
    */
   useSizeType(value: {
     xs?: number | { span: number; offset: number };
@@ -18363,8 +18412,8 @@ declare class CommonMethod<T> {
   /**
    * Specifies the direction and style of chain in relative container
    *
-   * @param { Axis } value - indicates direction of the chain
-   * @param { ChainStyle } value - indicates style of the chain
+   * @param { Axis } direction - indicates direction of the chain
+   * @param { ChainStyle } style - indicates style of the chain
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -19061,12 +19110,13 @@ declare class CommonMethod<T> {
   blendMode(value: BlendMode, type?: BlendApplyType): T;
 
   /**
-   * The parameter specifies whether to crop based on the edge contour.
+   * Whether to crop the sub components of the current component.
    *
    * @param { boolean } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
    */
@@ -19114,7 +19164,7 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    * @deprecated since 12
-   * @useinstead common[CommonMethod]#clipShape
+   * @useinstead CommonMethod#clipShape
    */
   clip(value: boolean | CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute): T;
 
@@ -19125,6 +19175,7 @@ declare class CommonMethod<T> {
   * @returns { T }
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
+  * @form
   * @atomicservice
   * @since 12
   */
@@ -19180,7 +19231,7 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    * @deprecated since 12
-   * @useinstead common[CommonMethod]#maskShape
+   * @useinstead CommonMethod#maskShape
    */
   mask(value: CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute | ProgressMask): T;
 
@@ -19191,6 +19242,7 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
    */
@@ -22063,7 +22115,7 @@ declare class CustomComponent extends CommonAttribute {
    * @form
    * @since 9
    * @deprecated since 10
-   * @useinstead common[CustomComponent]#onPlaceChildren
+   * @useinstead CustomComponent#onPlaceChildren
    */
   onLayout?(children: Array<LayoutChild>, constraint: ConstraintSizeOptions): void;
 
@@ -22099,7 +22151,7 @@ declare class CustomComponent extends CommonAttribute {
    * @form
    * @since 9
    * @deprecated since 10
-   * @useinstead common[CustomComponent]#onMeasureSize
+   * @useinstead CustomComponent#onMeasureSize
    */
   onMeasure?(children: Array<LayoutChild>, constraint: ConstraintSizeOptions): void;
 
@@ -22658,6 +22710,16 @@ declare abstract class TextContentControllerBase {
  * @atomicservice
  * @since 11
  */
+/**
+ * CommonScrollableMethod
+ *
+ * @extends CommonMethod<T>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 12
+ */
 declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   /**
    * Scrollbar status.
@@ -22698,7 +22760,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   /**
    * Edge scrolling effect.
    *
-   * @param { EdgeEffect } value - edge scrolling effect.
+   * @param { EdgeEffect } edgeEffect - edge scrolling effect.
    * @param { EdgeEffectOptions } options - edge scrolling effect options. 
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -22754,6 +22816,8 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 12
+   * @useinstead ScrollableCommonMethod#onDidScroll
    */
   onScroll(event: (scrollOffset: number, scrollState: ScrollState) => void): T;
 
@@ -22777,6 +22841,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
    */
@@ -22888,6 +22953,7 @@ declare type OnWillScrollCallback =
   * @param { ScrollState } scrollState - current scroll state.
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
+  * @form
   * @atomicservice
   * @since 12
   */
@@ -23438,6 +23504,8 @@ declare interface Callback<T, V = void> {
  * The value of event contains information about HoverEvent.
  *
  * @typedef HoverCallback
+ * @param { boolean } isHover
+ * @param { HoverEvent} event
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -23451,6 +23519,8 @@ declare type HoverCallback = (isHover: boolean, event: HoverEvent) => void
  * The value of event contains information about AccessibilityHoverEvent.
  *
  * @typedef { function }
+ * @param { boolean } isHover
+ * @param { AccessibilityHoverEvent } event
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice

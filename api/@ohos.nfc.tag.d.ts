@@ -1247,6 +1247,7 @@ declare namespace tag {
      * The uid of this tag, it.
      *
      * @permission ohos.permission.NFC_TAG
+     * @type { number[] }
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12
@@ -1264,6 +1265,7 @@ declare namespace tag {
      * The supported technology list of this tag.
      *
      * @permission ohos.permission.NFC_TAG
+     * @type { number[] }
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12
@@ -1274,6 +1276,7 @@ declare namespace tag {
      * The extra data for each technology of this tag.
      *
      * @permission ohos.permission.NFC_TAG
+     * @type { PacMap[] }
      * @syscap SystemCapability.Communication.NFC.Tag
      * @systemapi hide for inner use.
      * @since 9
@@ -1284,6 +1287,7 @@ declare namespace tag {
      * The the RF discovery id of this tag.
      *
      * @permission ohos.permission.NFC_TAG
+     * @type { number }
      * @syscap SystemCapability.Communication.NFC.Tag
      * @systemapi hide for inner use.
      * @since 9
@@ -1294,6 +1298,7 @@ declare namespace tag {
      * The extra data for the technology of this tag.
      *
      * @permission ohos.permission.NFC_TAG
+     * @type { rpc.RemoteObject }
      * @syscap SystemCapability.Communication.NFC.Tag
      * @systemapi hide for inner use.
      * @since 9
@@ -1337,6 +1342,7 @@ declare namespace tag {
     /**
      * tnf of NdefRecord
      *
+     * @type { number }
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12
@@ -1346,12 +1352,14 @@ declare namespace tag {
     /**
      * RTD type of NdefRecord
      *
+     * @type { number[] }
      * @syscap SystemCapability.Communication.NFC.Tag
      * @since 9
      */
     /**
      * RTD type of NdefRecord
      *
+     * @type { number[] }
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12
@@ -1367,6 +1375,7 @@ declare namespace tag {
     /**
      * id of NdefRecord
      *
+     * @type { number[] }
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12
@@ -1382,6 +1391,7 @@ declare namespace tag {
     /**
      * payload of NdefRecord
      *
+     * @type { number[] }
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12
@@ -1608,6 +1618,7 @@ declare namespace tag {
  /**
   * Exports type NfcATag.
   *
+  * @typedef { _NfcATag }
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
   * @since 12
@@ -1623,6 +1634,7 @@ declare namespace tag {
  /**
   * Exports type NfcBTag.
   *
+  * @typedef { _NfcBTag }
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
   * @since 12
@@ -1638,6 +1650,7 @@ declare namespace tag {
  /**
   * Exports type NfcFTag.
   *
+  * @typedef { _NfcFTag }
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
   * @since 12
@@ -1653,6 +1666,7 @@ declare namespace tag {
  /**
   * Exports type NfcVTag.
   *
+  * @typedef { _NfcVTag }
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
   * @since 12
@@ -1668,6 +1682,7 @@ declare namespace tag {
  /**
   * Exports type IsoDepTag.
   *
+  * @typedef { _IsoDepTag }
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
   * @since 12
@@ -1683,6 +1698,7 @@ declare namespace tag {
  /**
   * Exports type NdefTag.
   *
+  * @typedef { _NdefTag }
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
   * @since 12
@@ -1698,6 +1714,7 @@ declare namespace tag {
  /**
   * Exports type MifareClassicTag.
   *
+  * @typedef { _MifareClassicTag }
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
   * @since 12
@@ -1713,6 +1730,7 @@ declare namespace tag {
  /**
   * Exports type MifareUltralightTag.
   *
+  * @typedef { _MifareUltralightTag }
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
   * @since 12
@@ -1728,6 +1746,7 @@ declare namespace tag {
  /**
   * Exports type NdefFormatableTag.
   *
+  * @typedef { _NdefFormatableTag }
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
   * @since 12
@@ -1743,6 +1762,7 @@ declare namespace tag {
  /**
   * Exports type NdefMessage.
   *
+  * @typedef { _NdefMessage }
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
   * @since 12
@@ -1758,6 +1778,7 @@ declare namespace tag {
  /**
   * Exports type TagSession.
   *
+  * @typedef { _TagSession }
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
   * @since 12

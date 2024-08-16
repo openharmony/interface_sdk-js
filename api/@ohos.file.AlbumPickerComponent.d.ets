@@ -33,7 +33,7 @@ export declare struct AlbumPickerComponent {
    * AlbumPickerOptions
    *
    * @type { ?AlbumPickerOptions }
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Corea
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 12
    */
