@@ -172,7 +172,8 @@ declare namespace huks {
    * @param { string } keyAlias - keyAlias indicates the key's name.
    * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied. An attempt was made to use key as user forbidden by permission: ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to use key as user forbidden by permission:
+   * <br>ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
    * @throws { BusinessError } 202 - not system app
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
@@ -311,7 +312,8 @@ declare namespace huks {
    * @param { string } keyAlias - keyAlias indicates the key's name.
    * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied. An attempt was made to use key as user forbidden by permission: ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to use key as user forbidden by permission:
+   * <br>ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
    * @throws { BusinessError } 202 - not system app
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
@@ -495,7 +497,8 @@ declare namespace huks {
    * @param { string } keyAlias - keyAlias indicates the key's name.
    * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied. An attempt was made to use key as user forbidden by permission: ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to use key as user forbidden by permission:
+   * <br>ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
    * @throws { BusinessError } 202 - not system app
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
@@ -588,7 +591,8 @@ declare namespace huks {
    * @param { string } wrappingKeyAlias - wrappingKeyAlias indicates the name of key for wrapping the key to be imported.
    * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied. An attempt was made to use key as user forbidden by permission: ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to use key as user forbidden by permission:
+   * <br>ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
    * @throws { BusinessError } 202 - not system app
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
@@ -750,7 +754,8 @@ declare namespace huks {
    * @param { string } keyAlias - keyAlias indicates the key's name.
    * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key.
    * @returns { Promise<HuksReturnResult> } the promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied. An attempt was made to use key as user forbidden by permission: ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to use key as user forbidden by permission:
+   * <br>ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
    * @throws { BusinessError } 202 - not system app
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
@@ -908,7 +913,8 @@ declare namespace huks {
    * @param { string } keyAlias - keyAlias indicates the key's name.
    * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key.
    * @returns { Promise<HuksReturnResult> } the promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied. An attempt was made to use key as user forbidden by permission: ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to use key as user forbidden by permission:
+   * <br>ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
    * @throws { BusinessError } 202 - not system app
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
@@ -1085,7 +1091,8 @@ declare namespace huks {
    * @param { string } keyAlias - keyAlias indicates the key's name.
    * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key.
    * @returns { Promise<boolean> } the promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied. An attempt was made to use key as user forbidden by permission: ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to use key as user forbidden by permission:
+   * <br>ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
    * @throws { BusinessError } 202 - not system app
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
@@ -1265,7 +1272,8 @@ declare namespace huks {
    * @param { string } keyAlias - keyAlias indicates the key's name.
    * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key.
    * @returns { Promise<HuksSessionHandle> } the promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied. An attempt was made to use key as user forbidden by permission: ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to use key as user forbidden by permission:
+   * <br>ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
    * @throws { BusinessError } 202 - not system app
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
@@ -1833,7 +1841,8 @@ declare namespace huks {
    * @param { string } keyAlias - keyAlias indicates the key's name.
    * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key attestation operation.
    * @returns { Promise<HuksReturnResult> } the promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied. An attempt was made to use key as user forbidden by permission: ohos.permission.ATTEST_KEY or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to use key as user forbidden by permission:
+   * <br>ohos.permission.ATTEST_KEY or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
    * @throws { BusinessError } 202 - not system app
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
@@ -1939,7 +1948,8 @@ declare namespace huks {
    * @param { string } keyAlias - keyAlias indicates the key's name.
    * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key attestation operation.
    * @returns { Promise<HuksReturnResult> } the promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied. An attempt was made to use key as user forbidden by permission: ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to use key as user forbidden by permission:
+   * <br>ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
    * @throws { BusinessError } 202 - not system app
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
