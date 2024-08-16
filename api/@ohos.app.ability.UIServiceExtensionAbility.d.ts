@@ -71,7 +71,7 @@ export default class UIServiceExtensionAbility extends ExtensionAbility {
   onRequest(want: Want, startId: number): void;
 
   /**
-   * Called back when a UI service extension is first connected to an ability.
+   * Called back when a UI service extension is connected to an ability.
    *
    * @param { Want } want - Indicates connection information about the UI service ability.
    * @param { UIServiceHostProxy } proxy - Indicates the UI service host proxy.
@@ -83,7 +83,7 @@ export default class UIServiceExtensionAbility extends ExtensionAbility {
   onConnect(want: Want, proxy: UIServiceHostProxy): void;
 
   /**
-   * Called back when all abilities connected to a UI service extension are disconnected.
+   * Called back when ability connected to a UI service extension is disconnected.
    *
    * @param { Want } want - Indicates disconnection information about the UI service extension.
    * @param { UIServiceHostProxy } proxy - Indicates the UI service host proxy.
