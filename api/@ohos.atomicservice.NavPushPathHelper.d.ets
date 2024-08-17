@@ -135,7 +135,8 @@ export class NavPushPathHelper {
    * @atomicservice
    * @since 12
    */
-  pushPathByName(moduleName: string, name: string, param: Object, onPop: Callback<PopInfo>, animated?: boolean): Promise<void>;
+  pushPathByName(moduleName: string, name: string, param: Object,
+    onPop: Callback<PopInfo>, animated?: boolean): Promise<void>;
 
   /**
    * Pushes the specified route page into the stack.
@@ -180,7 +181,8 @@ export class NavPushPathHelper {
    * @atomicservice
    * @since 12
    */
-  pushDestinationByName(moduleName: string, name: string, param: Object, onPop: Callback<PopInfo>, animated?: boolean): Promise<void>;
+  pushDestinationByName(moduleName: string, name: string, param: Object,
+    onPop: Callback<PopInfo>, animated?: boolean): Promise<void>;
 
   /**
    * replace the current page with the specific one.The current page will be destroyed.
