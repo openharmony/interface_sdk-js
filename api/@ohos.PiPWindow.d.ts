@@ -20,7 +20,8 @@
 
 import type BaseContext from './application/BaseContext';
 import type { Callback } from './@ohos.base';
-import { NodeController, typeNode } from '@kit.ArkUI';
+import { NodeController } from '@kit.ArkUI';
+import { typeNode } from './arkui/FrameNode';
 
 /**
  * Picture In Picture Window Manager
