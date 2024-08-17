@@ -5071,11 +5071,11 @@ declare namespace webview {
     getScrollOffset(): ScrollOffset;
 
     /**
-     * Checks whether the web page can scroll by the given number of delta.
+     * Scrolls by the specified delta position and returns a result indicating whether the scrolling operation was successful or not.
      *
      * @param { number } deltaX - the delta x of the position.
      * @param { number } deltaY - the delta y of the position.
-     * @returns { boolean } false if the web page is being pressed, otherwise true.
+     * @returns { boolean } true if the scroll operation is successful, otherwise false.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
