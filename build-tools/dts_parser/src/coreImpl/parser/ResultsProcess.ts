@@ -121,6 +121,11 @@ export class ResultsProcessHelper {
     }
     if (basicApiInfo instanceof TypeAliasInfo) {
       ResultsProcessHelper.cleanChildrenApiInfo(basicApiInfo.getTypeLiteralApiInfos());
+      basicApiInfo.getParamInfos().forEach((param: ParamInfo) => {
+        ResultsProcessHelper.cleanChildrenApiInfo(param.getObjLocations());
+        ResultsProcessHelper.cleanChildrenApiInfo(param.getTypeLocations());
+        ResultsProcessHelper.cleanApiInfo(param.getMethodApiInfo());
+      });
     }
     ResultsProcessHelper.processJsDocInfos(basicApiInfo as ApiInfo);
   }
