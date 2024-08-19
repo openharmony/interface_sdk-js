@@ -1146,6 +1146,15 @@ declare namespace media {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Enumerates ErrorCode types, return in BusinessError::code.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   enum AVErrorCode {
     /**
      * Operation success.
@@ -1157,6 +1166,13 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Operation success.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     AVERR_OK = 0,
 
@@ -1171,6 +1187,13 @@ declare namespace media {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Permission denied.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     AVERR_NO_PERMISSION = 201,
 
     /**
@@ -1183,6 +1206,13 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Invalid parameter.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     AVERR_INVALID_PARAMETER = 401,
 
@@ -1197,6 +1227,13 @@ declare namespace media {
      * @atomicservice
      * @since 11
      */
+    /**
+     * The api is not supported in the current version.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     AVERR_UNSUPPORT_CAPABILITY = 801,
 
     /**
@@ -1209,6 +1246,13 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * The system memory is insufficient or the number of services reaches the upper limit.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     AVERR_NO_MEMORY = 5400101,
 
@@ -1223,6 +1267,13 @@ declare namespace media {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Current status does not allow or do not have permission to perform this operation.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     AVERR_OPERATE_NOT_PERMIT = 5400102,
 
     /**
@@ -1235,6 +1286,13 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Data flow exception information.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     AVERR_IO = 5400103,
 
@@ -1249,6 +1307,13 @@ declare namespace media {
      * @atomicservice
      * @since 11
      */
+    /**
+     * System or network response timeout.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     AVERR_TIMEOUT = 5400104,
 
     /**
@@ -1261,6 +1326,13 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Service process died.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     AVERR_SERVICE_DIED = 5400105,
 
@@ -1275,6 +1347,13 @@ declare namespace media {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Unsupported media format.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     AVERR_UNSUPPORT_FORMAT = 5400106,
 
     /**
@@ -1282,6 +1361,13 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Audio interrupted.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     AVERR_AUDIO_INTERRUPTED = 5400107,
   }
@@ -5528,6 +5614,15 @@ declare namespace media {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Enumerates media data type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   enum MediaType {
     /**
      * track is audio.
@@ -5540,6 +5635,13 @@ declare namespace media {
      * @atomicservice
      * @since 11
      */
+    /**
+     * track is audio.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     MEDIA_TYPE_AUD = 0,
     /**
      * track is video.
@@ -5551,6 +5653,13 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * track is video.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     MEDIA_TYPE_VID = 1,
     /**
@@ -5577,6 +5686,15 @@ declare namespace media {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Enumerates media description key.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   enum MediaDescriptionKey {
     /**
      * key for track index, value type is number.
@@ -5588,6 +5706,13 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * key for track index, value type is number.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     MD_KEY_TRACK_INDEX = 'track_index',
 
@@ -5602,6 +5727,13 @@ declare namespace media {
      * @atomicservice
      * @since 11
      */
+    /**
+     * key for track type, value type is number, see @MediaType.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     MD_KEY_TRACK_TYPE = 'track_type',
 
     /**
@@ -5614,6 +5746,13 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * key for codec mime type, value type is string.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     MD_KEY_CODEC_MIME = 'codec_mime',
 
@@ -5628,6 +5767,13 @@ declare namespace media {
      * @atomicservice
      * @since 11
      */
+    /**
+     * key for duration, value type is number.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     MD_KEY_DURATION = 'duration',
 
     /**
@@ -5640,6 +5786,13 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * key for bitrate, value type is number.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     MD_KEY_BITRATE = 'bitrate',
 
@@ -5654,6 +5807,13 @@ declare namespace media {
      * @atomicservice
      * @since 11
      */
+    /**
+     * key for video width, value type is number.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     MD_KEY_WIDTH = 'width',
 
     /**
@@ -5666,6 +5826,13 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * key for video height, value type is number.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     MD_KEY_HEIGHT = 'height',
 
@@ -5680,6 +5847,13 @@ declare namespace media {
      * @atomicservice
      * @since 11
      */
+    /**
+     * key for video frame rate, value type is number.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     MD_KEY_FRAME_RATE = 'frame_rate',
 
     /**
@@ -5693,6 +5867,13 @@ declare namespace media {
      * @atomicservice
      * @since 11
      */
+    /**
+     * key for audio channel count, value type is number
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     MD_KEY_AUD_CHANNEL_COUNT = 'channel_count',
 
     /**
@@ -5705,6 +5886,13 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * key for audio sample rate, value type is number
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     MD_KEY_AUD_SAMPLE_RATE = 'sample_rate',
 
