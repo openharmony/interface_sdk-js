@@ -226,6 +226,18 @@ declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
    * @since 11
    */
   pointLight(value: PointLightStyle): ColumnAttribute;
+  /**
+   * Called when the Main-Axis's direction is set reversed or not
+   *
+   * @param { Optional<boolean> } isReversed - If the main axis is reversed.
+   * @returns { ColumnAttribute } The attribute of the column.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  reverse(isReversed: Optional<boolean>): ColumnAttribute;
 }
 
 /**
