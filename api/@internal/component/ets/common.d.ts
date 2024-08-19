@@ -18974,6 +18974,20 @@ declare class CommonMethod<T> {
   blendMode(value: BlendMode, type?: BlendApplyType): T;
 
   /**
+   * Add a blendMode effect to the current component.Cannot be used together with the blendMode interface.
+   * 
+   * @param { BlendMode | Blender } effect - When the effect type is BlendMode type, define Different hybrid modes.
+   * When the effect type is Blender type, Define the corresponding blending effect.
+   * @param { BlendApplyType } [type] - Different blend apply type
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @form
+   * @since 13
+   */
+  advancedBlendMode(effect: BlendMode | Blender, type?: BlendApplyType): T;
+
+  /**
    * Whether to crop the sub components of the current component.
    *
    * @param { boolean } value
@@ -21717,6 +21731,17 @@ declare type VisualEffect = import('../api/@ohos.graphics.uiEffect').default.Vis
  * @since 12
  */
 declare type Filter = import('../api/@ohos.graphics.uiEffect').default.Filter;
+
+/**
+ * Blender
+ *
+ * @typedef { import('../api/@ohos.graphics.uiEffect').default.Blender } Blender
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @form
+ * @since 13
+ */
+declare type Blender = import('../api/@ohos.graphics.uiEffect').default.Blender;
 
 /**
  * ComponentContent.
