@@ -7791,6 +7791,29 @@ declare namespace window {
      * @since 12
      */
     getImmersiveModeEnabledState(): boolean;
+
+    /**
+     * Get the window status of current window.
+     *
+     * @returns { WindowStatusType } - The status of window.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 12
+     */
+    getWindowStatus(): WindowStatusType;
+
+    /**
+     * Checks whether the window is focused.
+     *
+     * @returns { boolean } - Whether the window is focused. The value true means that the window is focused, and false means the opposite.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 12
+     */
+    isFocused(): boolean;
   }
 
   /**
