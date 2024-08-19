@@ -350,6 +350,7 @@ declare namespace usbManager {
    * @param { boolean } [force] - optional parameter that determines whether to forcibly claim the USB interface.
    * @returns { number } returns **0** if the USB interface is successfully claimed; returns an error code otherwise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * @throws { BusinessError } 14400003 - Unsupported operation. The current device does not support port role switching.
    * <br>1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.  
    * @syscap SystemCapability.USB.USBManager
