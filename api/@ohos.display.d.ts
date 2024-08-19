@@ -189,6 +189,7 @@ declare namespace display {
    *
    * @param { number } displayId Display id to query. This parameter should be greater than or equal to 0.
    * @returns { boolean } true means there is a privacy window on the current display
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
@@ -249,6 +250,7 @@ declare namespace display {
    *
    * @param { 'privateModeChange' } type the event of private mode changes
    * @param { Callback<boolean> } callback Callback used to return the result whether display is on private mode or not
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -262,6 +264,7 @@ declare namespace display {
    *
    * @param { 'privateModeChange' } type the event of private mode changes
    * @param { Callback<boolean> } callback Callback used to return the result whether display is on private mode or not
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -1639,6 +1642,7 @@ declare namespace display {
      * Check if current display has immersive window.
      *
      * @param { AsyncCallback<boolean> } callback
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1400001 - Invalid display or screen.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
@@ -1652,6 +1656,7 @@ declare namespace display {
      * Check if current display has immersive window.
      *
      * @returns { Promise<boolean> }
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1400001 - Invalid display or screen.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
