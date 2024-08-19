@@ -593,7 +593,7 @@ export class ConstantInfo extends ApiInfo {
 export class TypeAliasInfo extends ApiInfo {
   type: string[] = []; // type定义的类型
   typeName: TypeAliasType = '' as TypeAliasType; //type的类型
-  returnType: string = ''; //type类型为function时的返回值
+  returnType: string[] = []; //type类型为function时的返回值
   paramInfos: ParamInfo[] = []; //type类型为function时的参数名和参数类型
   typeIsFunction: boolean = false; //type类型是否为function
   typeLiteralApiInfos: PropertyInfo[] = [];//type类型为匿名对象时的属性数据
@@ -615,12 +615,11 @@ export class TypeAliasInfo extends ApiInfo {
     return this.typeName;
   }
 
-  setReturnType(returnType: string): TypeAliasInfo {
-    this.returnType = returnType;
-    return this;
+  setReturnType(returnValue: string[]): void {
+    this.returnType.push(...returnValue);
   }
 
-  getReturnType(): string {
+  getReturnType(): string[] {
     return this.returnType;
   }
 

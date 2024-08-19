@@ -272,8 +272,8 @@ export class DiffHelper {
         DiffProcessorHelper.ApiNodeDiffHelper.diffNodeInfo(oldApiInfo, newApiInfo, diffInfos, isCheck);
         DiffProcessorHelper.JsDocDiffHelper.diffJsDocInfo(oldApiInfo, newApiInfo, diffInfos);
         DiffProcessorHelper.ApiDecoratorsDiffHelper.diffDecorator(oldApiInfo, newApiInfo, diffInfos);
-        newMethodInfoMap.delete(oldApiInfo.getDefinedText());
-        oldMethodInfoMap.delete(oldApiInfo.getDefinedText());
+        newMethodInfoMap.delete(oldApiInfo.getDefinedText().replace(/\r|\n|\s+|,|;/g, ''));
+        oldMethodInfoMap.delete(oldApiInfo.getDefinedText().replace(/\r|\n|\s+|,|;/g, ''));
       });
 
       for (const apiInfo of newMethodInfoMap.values()) {
