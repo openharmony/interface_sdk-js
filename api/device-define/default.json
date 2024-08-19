@@ -20,6 +20,7 @@
     "SystemCapability.Notification.CommonEvent",
     "SystemCapability.Notification.Notification",
     "SystemCapability.Notification.ReminderAgent",
+    "SystemCapability.Notification.NotificationSettings",
     "SystemCapability.Notification.Emitter",
     "SystemCapability.Communication.IPC.Core",
     "SystemCapability.Communication.SoftBus.Core",
