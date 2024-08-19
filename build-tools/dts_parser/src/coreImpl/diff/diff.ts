@@ -15,6 +15,7 @@
 
 import _ from 'lodash';
 import ts from 'typescript';
+import crypto from 'crypto';
 import { StringConstant } from '../../utils/Constant';
 import { EnumUtils } from '../../utils/EnumUtils';
 import {
@@ -25,6 +26,8 @@ import {
   MethodInfo,
   ParamInfo,
   containerApiTypes,
+  TypeAliasInfo,
+  PropertyInfo,
 } from '../../typedef/parser/ApiInfoDefination';
 import {
   ApiDiffType,
@@ -41,7 +44,7 @@ import { Comment } from '../../typedef/parser/Comment';
 import { notJsDocApiTypes } from '../../typedef/parser/ApiInfoDefination';
 import { StringUtils } from '../../utils/StringUtils';
 import { CommentHelper } from '../parser/JsDocProcessor';
-import { ResultsProcessHelper } from '../parser/ResultsProcess'
+import { ResultsProcessHelper } from '../parser/ResultsProcess';
 
 export class DiffHelper {
   /**
@@ -52,13 +55,11 @@ export class DiffHelper {
    * @returns { BasicDiffInfo[] } 差异结果集
    */
   static diffSDK(
-    oldSDKApiMap: FilesMap,
-    newSDKApiMap: FilesMap,
+    clonedOldSDKApiMap: FilesMap,
+    clonedNewSDKApiMap: FilesMap,
     isAllSheet: boolean,
     isCheck?: boolean
   ): BasicDiffInfo[] {
-    const clonedOldSDKApiMap: FilesMap = _.cloneDeep(oldSDKApiMap);
-    const clonedNewSDKApiMap: FilesMap = _.cloneDeep(newSDKApiMap);
     const diffInfos: BasicDiffInfo[] = [];
     const oldSDKApiLocations: Map<string, string[]> = DiffHelper.getApiLocations(clonedOldSDKApiMap, isCheck);
     const newSDKApiLocations: Map<string, string[]> = DiffHelper.getApiLocations(clonedNewSDKApiMap, isCheck);
@@ -366,6 +367,72 @@ export class DiffHelper {
     }
   }
 
+  static removeApiInfo(basicApiInfo: BasicApiInfo): void {
+    DiffHelper.cleanApiInfo(basicApiInfo);
+    if (!containerApiTypes.has(basicApiInfo.getApiType())) {
+      return;
+    }
+    const containerApiInfo: ContainerApiInfo = basicApiInfo as ContainerApiInfo;
+    containerApiInfo.getChildApis().forEach((childApiInfo: BasicApiInfo) => {
+      DiffHelper.removeApiInfo(childApiInfo);
+    });
+  }
+
+  static cleanApiInfo(basicApiInfo: BasicApiInfo | undefined): void {
+    if (!basicApiInfo) {
+      return;
+    }
+    basicApiInfo.setParentApi(undefined);
+    basicApiInfo.removeNode();
+    if (basicApiInfo instanceof MethodInfo || basicApiInfo instanceof PropertyInfo) {
+      DiffHelper.cleanChildrenApiInfo(basicApiInfo.getObjLocations());
+      DiffHelper.cleanChildrenApiInfo(basicApiInfo.getTypeLocations());
+      if (basicApiInfo instanceof MethodInfo) {
+        basicApiInfo.getParams().forEach((param: ParamInfo) => {
+          DiffHelper.cleanChildrenApiInfo(param.getObjLocations());
+          DiffHelper.cleanChildrenApiInfo(param.getTypeLocations());
+          DiffHelper.cleanApiInfo(param.getMethodApiInfo());
+        });
+      }
+    }
+    if (basicApiInfo instanceof TypeAliasInfo) {
+      DiffHelper.cleanChildrenApiInfo(basicApiInfo.getTypeLiteralApiInfos());
+      basicApiInfo.getParamInfos().forEach((param: ParamInfo) => {
+        DiffHelper.cleanChildrenApiInfo(param.getObjLocations());
+        DiffHelper.cleanChildrenApiInfo(param.getTypeLocations());
+        DiffHelper.cleanApiInfo(param.getMethodApiInfo());
+      });
+    }
+  }
+
+  static cleanChildrenApiInfo(basicApiInfos: BasicApiInfo[] | undefined): void {
+    if (!basicApiInfos) {
+      return;
+    }
+    basicApiInfos.forEach((basicApiInfos: BasicApiInfo) => {
+      DiffHelper.processApiInfos(basicApiInfos);
+    });
+  }
+
+    /**
+   * 将每一个节点解析后的对象的parentApi属性置为undefined，防止循环引用
+   *
+   * @param { BasicApiInfo } basicApiInfo 解析后的api对象
+   */
+    static processApiInfos(basicApiInfo: BasicApiInfo | undefined): void {
+      if (!basicApiInfo) {
+        return;
+      }
+      DiffHelper.cleanApiInfo(basicApiInfo);
+      if (!containerApiTypes.has(basicApiInfo.getApiType())) {
+        return;
+      }
+      const containerApiInfo: ContainerApiInfo = basicApiInfo as ContainerApiInfo;
+      containerApiInfo.getChildApis().forEach((childApiInfo: BasicApiInfo) => {
+        DiffHelper.processApiInfos(childApiInfo);
+      });
+    }
+
   static diffJsDoc(newJsDocInfo: Comment.JsDocInfo | undefined, oldJsDocInfo: Comment.JsDocInfo | undefined): boolean {
     const tagInfoIsSame: Set<boolean> = new Set();
     const paramAndReturnsIsSame: boolean =
@@ -549,9 +616,7 @@ export class DiffHelper {
     }
 
     basicApiInfo.setSyscap(DiffHelper.getSyscapField(basicApiInfo));
-    basicApiInfo.setParentApi(undefined);
-
-    basicApiInfo.removeNode();
+    DiffHelper.removeApiInfo(basicApiInfo);
     let isExportApiNode: boolean = EnumUtils.enum2arr([ApiType.EXPORT, ApiType.EXPORT_DEFAULT])
       .includes(basicApiInfo.getApiType());
     if (!apiStatisticsType.has(basicApiInfo.getApiType()) && !isExportApiNode) {

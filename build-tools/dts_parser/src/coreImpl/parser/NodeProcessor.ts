@@ -334,7 +334,7 @@ export class NodeProcessorHelper {
       //export * from 'test';
       exportDeclareInfo.setApiName(
         StringConstant.EXPORT +
-        (exportDeclarationNode.moduleSpecifier ? exportDeclarationNode.moduleSpecifier.getText() : '')
+          (exportDeclarationNode.moduleSpecifier ? exportDeclarationNode.moduleSpecifier.getText() : '')
       );
     } else if (ts.isNamespaceExport(exportClause)) {
       //export * as myTest from 'test';

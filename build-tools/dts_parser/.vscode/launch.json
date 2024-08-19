@@ -1,0 +1,86 @@
+{
+  // 使用 IntelliSense 了解相关属性。 
+  // 悬停以查看现有属性的描述。
+  // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "collect",
+      "args": [
+        "${workspaceRoot}/src/main.ts",
+        "-N",
+        "collect",
+        "-C",
+        "D:\\ChromeCoreDownloads\\interface_sdk-js-master4\\interface_sdk-js-master",
+        "--format",
+        "excel",
+      ],
+      "runtimeArgs": [
+        "--nolazy",
+        "-r",
+        "ts-node/register"
+      ],
+      "sourceMaps": true,
+      "cwd": "${workspaceRoot}",
+      "protocol": "inspector",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "diff2",
+      "args": [
+        "${workspaceRoot}/src/main.ts",
+        "-N",
+        "diff",
+        "--old",
+        "D:\\cloneCode\\diff_new_type\\interface_sdk-js_3\\build-tools\\dts_parser\\test\\ut\\apiDiff\\old\\ut_anonymous_function_004.d.ts",
+        "--new",
+        "D:\\cloneCode\\diff_new_type\\interface_sdk-js_3\\build-tools\\dts_parser\\test\\ut\\apiDiff\\new\\ut_anonymous_function_004.d.ts",
+        "--format",
+        "json",
+      ],
+      "runtimeArgs": [
+        "--nolazy",
+        "-r",
+        "ts-node/register"
+      ],
+      "sourceMaps": true,
+      "cwd": "${workspaceRoot}",
+      "protocol": "inspector",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "diff3",
+      "args": [
+        "${workspaceRoot}/src/main.ts",
+        "-N",
+        "diff",
+        "--old",
+        "D:\\ChromeCoreDownloads\\old\\ohos-sdk\\windows\\ets",
+        "--new",
+        "D:\\ChromeCoreDownloads\\new\\ohos-sdk\\windows\\ets",
+        "--format",
+        "excel",
+        "--all",
+        "true"
+      ],
+      "runtimeArgs": [
+        "--nolazy",
+        "-r",
+        "ts-node/register"
+      ],
+      "sourceMaps": true,
+      "cwd": "${workspaceRoot}",
+      "protocol": "inspector",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+    }
+  ]
+}
