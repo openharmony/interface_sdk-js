@@ -1778,7 +1778,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12
      */
-    BURST_KEY = 'burst_key'
+    BURST_KEY = 'burst_key',
     /**
      * Thumbnail of photo asset has been ready, read only
      *
