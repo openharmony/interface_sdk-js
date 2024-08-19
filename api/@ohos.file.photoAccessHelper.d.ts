@@ -4551,7 +4551,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12
-     */    
+     */
     getAsset(): PhotoAsset;
 
     /**
@@ -4631,7 +4631,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12
-     */    
+     */
     setTitle(title: string): void;
 
     /**
