@@ -5948,6 +5948,7 @@ declare namespace media {
      */
     VIDEO_MAKER_INFO = 0,
   }
+
   /**
    * Enumerates mode of creating recorder file
    *
@@ -5969,6 +5970,7 @@ declare namespace media {
      */
     AUTO_CREATE_CAMERA_SCENE = 1,
   }
+
   /**
    * Provides the video recorder configuration definitions.
    *
