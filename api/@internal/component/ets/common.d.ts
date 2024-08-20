@@ -22713,6 +22713,16 @@ declare abstract class TextContentControllerBase {
  * @atomicservice
  * @since 11
  */
+/**
+ * CommonScrollableMethod
+ *
+ * @extends CommonMethod<T>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 12
+ */
 declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   /**
    * Scrollbar status.
@@ -22832,6 +22842,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
    */
@@ -22943,6 +22954,7 @@ declare type OnWillScrollCallback =
   * @param { ScrollState } scrollState - current scroll state.
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
+  * @form
   * @atomicservice
   * @since 12
   */
