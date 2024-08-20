@@ -1021,7 +1021,7 @@ declare namespace appManager {
    * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 12
+   * @since 13
    */
   function clearUpAppData(bundleName: string, appCloneIndex?: number): Promise<void>;
 
