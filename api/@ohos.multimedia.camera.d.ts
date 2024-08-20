@@ -515,6 +515,8 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 10
+     * @deprecated since 12
+     * @useinstead ohos.multimedia.camera.CameraManager#muteCameraPersistent
      */
     muteCamera(mute: boolean): void;
 
