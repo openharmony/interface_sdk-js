@@ -8748,7 +8748,7 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
-   * @since 12
+   * @since 13
    */
    enum ExtensionWindowAttribute {
     /**
@@ -8757,7 +8757,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 12
+     * @since 13
      */
     SYSTEM_WINDOW,
 
@@ -8767,7 +8767,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 12
+     * @since 13
      */
     SUB_WINDOW
   }
@@ -8779,7 +8779,7 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
-   * @since 12
+   * @since 13
    */
   interface SystemWindowOptions {
     /**
@@ -8789,7 +8789,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 12
+     * @since 13
      */
     windowType: WindowType;
   }
@@ -8801,7 +8801,7 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
-   * @since 12
+   * @since 13
    */
   interface ExtensionWindowConfig {
     /**
@@ -8811,7 +8811,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 12
+     * @since 13
      */
     windowName: string;
 
@@ -8822,7 +8822,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 12
+     * @since 13
      */
     windowAttribute: ExtensionWindowAttribute;
 
@@ -8833,7 +8833,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 12
+     * @since 13
      */
     windowRect: Rect;
 
@@ -8844,7 +8844,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 12
+     * @since 13
      */
     subWindowOptions?: SubWindowOptions;
 
@@ -8855,7 +8855,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 12
+     * @since 13
      */
     systemWindowOptions?: SystemWindowOptions;
   }
