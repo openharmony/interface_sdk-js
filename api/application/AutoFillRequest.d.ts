@@ -62,7 +62,7 @@ export interface FillRequest {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 13
    */
   customData: CustomData;
 
