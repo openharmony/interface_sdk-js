@@ -121,6 +121,7 @@ declare namespace fileIo {
   export { write };
   export { writeSync };
   export { AccessModeType };
+  export { AccessFlagType };
   export { File };
   export { OpenMode };
   export { RandomAccessFile };
@@ -535,6 +536,29 @@ declare function access(path: string, mode?: AccessModeType): Promise<boolean>;
 declare function access(path: string, callback: AsyncCallback<boolean>): void;
 
 /**
+ * Access file.
+ *
+ * @param { string } path - file path that needs to be checked whether the calling process can access.
+ * @param { AccessModeType } mode - accessibility mode.
+ * @param { AccessFlagType } flag - accessibility flag.
+ * @returns { Promise<boolean> } Returns the file is accessible or not in promise mode.
+ * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+ * <br>2.Incorrect parameter types.
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900023 - Text file busy
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 12
+ */
+declare function access(path: string, mode: AccessModeType, flag: AccessFlagType): Promise<boolean>;
+
+/**
  * Access file with sync interface.
  *
  * @param { string } path - path.
@@ -622,6 +646,29 @@ declare function access(path: string, callback: AsyncCallback<boolean>): void;
  * @since 12
  */
 declare function accessSync(path: string, mode?: AccessModeType): boolean;
+
+/**
+ * Access file with sync interface.
+ *
+ * @param { string } path - file path that needs to be checked whether the calling process can access.
+ * @param { AccessModeType } mode - accessibility mode.
+ * @param { AccessFlagType } flag - accessibility flag.
+ * @returns { boolean } Returns the file is accessible or not.
+ * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+ * <br>2.Incorrect parameter types.
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900023 - Text file busy
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 12
+ */
+declare function accessSync(path: string, mode: AccessModeType, flag: AccessFlagType): boolean;
 
 /**
  * Close file or fd.
@@ -8785,4 +8832,21 @@ declare enum AccessModeType {
    * @since 12
    */
   READ_WRITE = 6,
+}
+
+/**
+ * Enumeration of different types of access flag.
+ *
+ * @enum { number } access flag type
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 12
+ */
+declare enum AccessFlagType {
+  /**
+   * Check if the file is on the local.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 12
+   */
+  LOCAL = 0,
 }
