@@ -515,6 +515,8 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 10
+     * @deprecated since 12
+     * @useinstead ohos.multimedia.camera.CameraManager#muteCameraPersistent
      */
     muteCamera(mute: boolean): void;
 
@@ -1636,7 +1638,16 @@ declare namespace camera {
      * @systemapi
      * @since 12
      */
-    APERTURE_VIDEO = 14
+    APERTURE_VIDEO = 14,
+
+    /**
+     * Panorama photo camera mode.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    PANORAMA_PHOTO = 15
   }
 
   /**
@@ -2409,7 +2420,16 @@ declare namespace camera {
      * @systemapi
      * @since 12
      */
-    MANUAL = 5
+    MANUAL = 5,
+
+    /**
+     * Lock white balance mode.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    LOCKED = 6
   }
 
   /**
@@ -6449,6 +6469,65 @@ declare namespace camera {
      * @since 12
      */
     off(type: 'smoothZoomInfoAvailable', callback?: AsyncCallback<SmoothZoomInfo>): void;
+  }
+
+  /**
+   * Panorama photo session object.
+   *
+   * @interface PanoramaPhotoSession
+   * @extends Session, Focus, AutoExposure, WhiteBalance, ColorEffect
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 12
+   */
+  interface PanoramaPhotoSession extends Session, Focus, AutoExposure, WhiteBalance, ColorEffect {
+    /**
+     * Subscribes to error events.
+     *
+     * @param { 'error' } type - Event type.
+     * @param { ErrorCallback } callback - Callback used to get the capture session errors.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Unsubscribes from error events.
+     *
+     * @param { 'error' } type - Event type.
+     * @param { ErrorCallback } callback - Callback used to get the capture session errors.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Subscribes focus state change event callback.
+     *
+     * @param { 'focusStateChange' } type - Event type.
+     * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
+
+    /**
+     * Unsubscribes from focus state change event callback.
+     *
+     * @param { 'focusStateChange' } type - Event type.
+     * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
   }
 
   /**

@@ -25,6 +25,14 @@
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 9
  */
+/**
+ * KeyCode
+ *
+ * @enum { number }
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @atomicservice
+ * @since 12
+ */
 export declare enum KeyCode {
   /**
    * KEYCODE_FN
