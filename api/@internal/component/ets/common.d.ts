@@ -12565,13 +12565,13 @@ declare interface PopupOptions {
    * Determine if it is compatible popup's half folded.
    *
    * @type { ?boolean }
-   * @default true
+   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 13
    */
-  enableFoldedArea?: boolean;
+  enableHoverMode?: boolean;
 }
 
 /**
@@ -13088,13 +13088,13 @@ declare interface CustomPopupOptions {
    * Determine if it is compatible popup's half folded.
    *
    * @type { ?boolean }
-   * @default true
+   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 13
    */
-  enableFoldedArea?: boolean;
+  enableHoverMode?: boolean;
 }
 
 /**
@@ -13513,13 +13513,13 @@ declare interface ContextMenuOptions {
     * Determine if it is compatible menu's half folded.
     *
     * @type { ?boolean }
-    * @default true
+    * @default false
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
     * @since 13
     */
-  enableFoldedArea?: boolean;
+  enableHoverMode?: boolean;
 }
 
 /**
