@@ -447,14 +447,6 @@ declare namespace utils {
       * @since 12
       */
       OBJECT = 0,
-      /**
-      * Return type is map.
-      *
-      * @syscap SystemCapability.Utils.Lang
-      * @atomicservice
-      * @since 12
-      */
-      MAP = 1,
     }
     /**
     * Parse's options
