@@ -5095,6 +5095,21 @@ declare namespace webview {
      * @since 12
      */
     getScrollOffset(): ScrollOffset;
+
+    /**
+     * Scrolls by the specified delta position and returns a result indicating whether the scrolling operation was successful or not.
+     *
+     * @param { number } deltaX - the delta x of the position.
+     * @param { number } deltaY - the delta y of the position.
+     * @returns { boolean } true if the scroll operation is successful, otherwise false.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    scrollByWithResult(deltaX: number, deltaY: number): boolean;
   }
 
   /**
