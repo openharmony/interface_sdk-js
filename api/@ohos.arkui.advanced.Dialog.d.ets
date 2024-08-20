@@ -866,7 +866,7 @@ export declare struct PopoverDialog {
    * @since 13
    */
   @Prop
-  popup: PopoverDialogOptions;
+  popover: PopoverDialogOptions;
   /**
    * Sets the targetBuilder content.
    * 
