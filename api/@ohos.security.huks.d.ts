@@ -406,6 +406,32 @@ declare namespace huks {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Import Key.
+   *
+   * @param { string } keyAlias - keyAlias indicates the key's name.
+   * @param { HuksOptions } options - options indicates the properties of the key.
+   * @param { AsyncCallback<void> } callback - the callback of importKeyItem.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                                 1. Mandatory parameters are left unspecified.
+   *                                 2. Incorrect parameter types.
+   *                                 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000013 - queried credential does not exist
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000015 - call service failed
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 12
+   */
   function importKeyItem(keyAlias: string, options: HuksOptions, callback: AsyncCallback<void>): void;
 
   /**
@@ -542,7 +568,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000015 - call service failed
-   * @syscap SystemCapability.Security.Huks.Extension
+   * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 12
    */
@@ -710,7 +736,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
-   * @syscap SystemCapability.Security.Huks.Extension
+   * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 12
    */
@@ -864,7 +890,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
-   * @syscap SystemCapability.Security.Huks.Extension
+   * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 12
    */
@@ -2963,7 +2989,7 @@ declare namespace huks {
      */
     /**
      * Usable with RSA, EC keys.
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -2975,7 +3001,7 @@ declare namespace huks {
      */
     /**
      * Usable with RSA, EC keys.
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -2987,7 +3013,7 @@ declare namespace huks {
      */
     /**
      * Usable with EC keys.
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -2999,7 +3025,7 @@ declare namespace huks {
      */
     /**
      * Usable with wrap key.
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3011,7 +3037,7 @@ declare namespace huks {
      */
     /**
      * Usable with unwrap key.
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3023,7 +3049,7 @@ declare namespace huks {
      */
     /**
      * Usable with mac.
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3035,7 +3061,7 @@ declare namespace huks {
      */
     /**
      * Usable with agree.
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3053,7 +3079,7 @@ declare namespace huks {
    * Enum for huks key digest.
    *
    * @enum { number }
-   * @syscap SystemCapability.Security.Huks.Extension
+   * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 12
    */
@@ -3063,7 +3089,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3073,7 +3099,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3083,7 +3109,7 @@ declare namespace huks {
      * @since 9
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3093,7 +3119,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3103,7 +3129,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3113,7 +3139,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3123,7 +3149,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3133,7 +3159,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3171,7 +3197,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3181,7 +3207,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3191,7 +3217,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3201,7 +3227,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3215,7 +3241,19 @@ declare namespace huks {
      * @atomicservice
      * @since 12
      */
-    HUKS_PADDING_PKCS7 = 5
+    HUKS_PADDING_PKCS7 = 5,
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 12
+     */
+    HUKS_PADDING_ISO_IEC_9796_2 = 6,
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 12
+     */
+    HUKS_PADDING_ISO_IEC_9797_1 = 7,
   }
 
   /**
@@ -3269,7 +3307,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3277,7 +3315,7 @@ declare namespace huks {
     /**
      * Cipher Feedback (CFB) mode
      *
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3287,7 +3325,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3326,7 +3364,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3336,7 +3374,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3346,7 +3384,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3356,7 +3394,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3366,7 +3404,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3376,7 +3414,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3387,7 +3425,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3397,7 +3435,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3407,7 +3445,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3417,7 +3455,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3466,7 +3504,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3477,7 +3515,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3487,7 +3525,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3497,7 +3535,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3508,7 +3546,7 @@ declare namespace huks {
      * @since 9
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3518,11 +3556,29 @@ declare namespace huks {
      * @since 9
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
-    HUKS_SM4_KEY_SIZE_128 = 128
+    HUKS_SM4_KEY_SIZE_128 = 128,
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 12
+     */
+    HUKS_DES_KEY_SIZE_64 = 64,
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 12
+     */
+    HUKS_3DES_KEY_SIZE_128 = 128,
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 12
+     */
+    HUKS_3DES_KEY_SIZE_192 = 192,
   }
 
   /**
@@ -3546,7 +3602,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3556,7 +3612,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3566,7 +3622,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3587,7 +3643,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3597,7 +3653,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3607,7 +3663,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3618,7 +3674,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3628,7 +3684,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3638,7 +3694,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3648,7 +3704,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3659,7 +3715,7 @@ declare namespace huks {
      * @since 9
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3669,7 +3725,7 @@ declare namespace huks {
      * @since 9
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3679,11 +3735,29 @@ declare namespace huks {
      * @since 9
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
-    HUKS_ALG_SM4 = 152
+    HUKS_ALG_SM4 = 152,
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 12
+     */
+    HUKS_ALG_DES = 160,
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 12
+     */
+    HUKS_ALG_3DES = 161,
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 12
+     */
+    HUKS_ALG_CMAC = 162
   }
 
   /**
@@ -3697,7 +3771,7 @@ declare namespace huks {
    * Enum for huks unwrap suite.
    *
    * @enum { number }
-   * @syscap SystemCapability.Security.Huks.Extension
+   * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 12
    */
@@ -3707,7 +3781,7 @@ declare namespace huks {
      * @since 9
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3717,7 +3791,7 @@ declare namespace huks {
      * @since 9
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3735,7 +3809,7 @@ declare namespace huks {
    * Enum for huks key generate type.
    *
    * @enum { number }
-   * @syscap SystemCapability.Security.Huks.Extension
+   * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 12
    */
@@ -3745,7 +3819,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3755,7 +3829,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3765,7 +3839,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3867,7 +3941,7 @@ declare namespace huks {
     /**
      * The key is stored and used only in HUKS. It is mutually exclusive with HUKS_STORAGE_KEY_EXPORT_ALLOWED.
      *
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3881,7 +3955,7 @@ declare namespace huks {
     /**
      * The key can be exported. It is mutually exclusive with HUKS_STORAGE_ONLY_USED_IN_HUKS.
      *
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3899,7 +3973,7 @@ declare namespace huks {
    * Enum for huks import key type.
    *
    * @enum { number }
-   * @syscap SystemCapability.Security.Huks.Extension
+   * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 12
    */
@@ -3909,7 +3983,7 @@ declare namespace huks {
      * @since 9
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3919,7 +3993,7 @@ declare namespace huks {
      * @since 9
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3929,7 +4003,7 @@ declare namespace huks {
      * @since 9
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3947,7 +4021,7 @@ declare namespace huks {
    * Enum for rsa salt len type.
    *
    * @enum { number }
-   * @syscap SystemCapability.Security.Huks.Extension
+   * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 12
    */
@@ -3961,7 +4035,7 @@ declare namespace huks {
     /**
      * Salt length that matches the digest length.
      *
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -3976,7 +4050,7 @@ declare namespace huks {
     /**
      * Maximum salt length.
      *
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -4082,7 +4156,7 @@ declare namespace huks {
      */
     HUKS_AUTH_ACCESS_ALWAYS_VALID = 1 << 2
   }
- 
+
   /**
    * Enum for huks user auth mode.
    *
@@ -4094,7 +4168,7 @@ declare namespace huks {
   export enum HuksUserAuthMode {
     /**
      * Auth mode for local scenarios.
-     * 
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
      * @since 12
@@ -4102,7 +4176,7 @@ declare namespace huks {
     HUKS_USER_AUTH_MODE_LOCAL = 0,
     /**
      * Auth mode for co-auth scenarios.
-     * 
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
      * @since 12
@@ -4120,7 +4194,7 @@ declare namespace huks {
    * Enum for huks key file storage authentication level.
    *
    * @enum { number }
-   * @syscap SystemCapability.Security.Huks.Extension
+   * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 12
    */
@@ -4132,7 +4206,7 @@ declare namespace huks {
      */
     /**
      * Key file storage security level for device encryption standard.
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -4144,7 +4218,7 @@ declare namespace huks {
      */
     /**
      * Key file storage security level for credential encryption standard.
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -4156,7 +4230,7 @@ declare namespace huks {
      */
     /**
      * Key file storage security level for enhanced credential encryption standard.
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -4308,7 +4382,7 @@ declare namespace huks {
    * Enum for huks ipc send type.
    *
    * @enum { number }
-   * @syscap SystemCapability.Security.Huks.Extension
+   * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 12
    */
@@ -4318,7 +4392,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -4328,7 +4402,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -4475,7 +4549,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -4561,7 +4635,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -4577,7 +4651,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -4621,7 +4695,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -4631,7 +4705,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -4641,7 +4715,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -4651,7 +4725,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -4671,7 +4745,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -4686,7 +4760,7 @@ declare namespace huks {
     /**
      * Choose from enum HuksImportKeyType
      *
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -4697,7 +4771,7 @@ declare namespace huks {
      * @since 9
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -4712,7 +4786,7 @@ declare namespace huks {
     /**
      * Key storage type, which can be HUKS_STORAGE_ONLY_USED_IN_HUKS or HUKS_STORAGE_KEY_EXPORT_ALLOWED.
      *
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -4727,7 +4801,7 @@ declare namespace huks {
     /**
      * RSA salt length type. For details, see HuksRsaPssSaltLenType.
      *
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -4775,7 +4849,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -4785,7 +4859,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -4795,7 +4869,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -5061,7 +5135,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -5071,7 +5145,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -5091,7 +5165,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -5115,7 +5189,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -5268,7 +5342,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
@@ -5278,7 +5352,7 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
