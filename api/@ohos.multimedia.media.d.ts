@@ -7347,6 +7347,7 @@ declare namespace media {
      * Listens for AVScreenCaptureRecord info callback.
      * @param { 'stateChange' } type - Type of the AVScreenCaptureRecord event to listen for.
      * @param { Callback<AVScreenCaptureStateCode> } callback - Callback used to listen for the AVScreenCaptureRecord info return.
+     * @throws { BusinessError } 201 - permission denied.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
