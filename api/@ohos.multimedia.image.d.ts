@@ -6304,21 +6304,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 12
      */
     setMetadata(key: HdrMetadataKey, value: HdrMetadataValue): Promise<void>;
-
-    /**
-     * Set metadata.
-     * 
-     * @param { HdrMetadataKey } key Type of metadata.
-     * @param { HdrMetadataValue } value Value of metadata.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 501 - Resource unavailable.
-     * @throws { BusinessError } 62980173 - The DMA memory does not exist.
-     * @throws { BusinessError } 62980302 - Memory copy failed.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
-     */
-    setMetadataSync(key: HdrMetadataKey, value: HdrMetadataValue): void;
   }
 
   /**
