@@ -187,6 +187,7 @@ declare namespace media {
    * The maintenance of this interface has been stopped since version api 9. Please use AVRecorder
    * Creates an VideoRecorder instance.
    * @param { AsyncCallback<VideoRecorder> } callback - used to return AudioPlayer instance if the operation is successful; returns null otherwise.
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 5400101 - No memory. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.VideoRecorder
    * @systemapi
@@ -198,6 +199,7 @@ declare namespace media {
    * The maintenance of this interface has been stopped since version api 9. Please use AVRecorder
    * Creates an VideoRecorder instance.
    * @returns { Promise<VideoRecorder> } A Promise instance used to return VideoRecorder instance if the operation is successful; returns null otherwise.
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.VideoRecorder
    * @systemapi
@@ -4784,6 +4786,7 @@ declare namespace media {
      * Prepares for recording.
      * @permission ohos.permission.MICROPHONE
      * @param { AudioRecorderConfig } config - Recording parameters.
+     * @throws { BusinessError } 201 - permission denied.
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6
      * @deprecated since 9
@@ -4898,6 +4901,7 @@ declare namespace media {
      * @param { VideoRecorderConfig } config - Recording parameters.
      * @param { AsyncCallback<void> } callback - A callback instance used to return when prepare completed.
      * @throws { BusinessError } 201 - Permission denied. Return by callback.
+     * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
@@ -4913,6 +4917,7 @@ declare namespace media {
      * @param { VideoRecorderConfig } config - Recording parameters.
      * @returns { Promise<void> } A Promise instance used to return when prepare completed.
      * @throws { BusinessError } 201 - Permission denied. Return by promise.
+     * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
@@ -4925,6 +4930,7 @@ declare namespace media {
     /**
      * get input surface.it must be called between prepare completed and start.
      * @param { AsyncCallback<string> } callback - Callback used to return the input surface id in string.
+     * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @throws { BusinessError } 5400103 - I/O error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
@@ -4936,6 +4942,7 @@ declare namespace media {
     /**
      * get input surface. it must be called between prepare completed and start.
      * @returns { Promise<string> } A Promise instance used to return the input surface id in string.
+     * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400103 - I/O error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
@@ -4947,6 +4954,7 @@ declare namespace media {
     /**
      * Starts video recording.
      * @param { AsyncCallback<void> } callback - A callback instance used to return when start completed.
+     * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @throws { BusinessError } 5400103 - I/O error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
@@ -4958,6 +4966,7 @@ declare namespace media {
     /**
      * Starts video recording.
      * @returns { Promise<void> } A Promise instance used to return when start completed.
+     * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400103 - I/O error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
@@ -4969,6 +4978,7 @@ declare namespace media {
     /**
      * Pauses video recording.
      * @param { AsyncCallback<void> } callback - A callback instance used to return when pause completed.
+     * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @throws { BusinessError } 5400103 - I/O error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
@@ -4980,6 +4990,7 @@ declare namespace media {
     /**
      * Pauses video recording.
      * @returns { Promise<void> } A Promise instance used to return when pause completed.
+     * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400103 - I/O error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
@@ -4991,6 +5002,7 @@ declare namespace media {
     /**
      * Resumes video recording.
      * @param { AsyncCallback<void> } callback - A callback instance used to return when resume completed.
+     * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @throws { BusinessError } 5400103 - I/O error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
@@ -5002,6 +5014,7 @@ declare namespace media {
     /**
      * Resumes video recording.
      * @returns { Promise<void> } A Promise instance used to return when resume completed.
+     * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400103 - I/O error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
@@ -5013,6 +5026,7 @@ declare namespace media {
     /**
      * Stops video recording.
      * @param { AsyncCallback<void>  } callback A callback instance used to return when stop completed.
+     * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @throws { BusinessError } 5400103 - I/O error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
@@ -5024,6 +5038,7 @@ declare namespace media {
     /**
      * Stops video recording.
      * @returns { Promise<void> } A Promise instance used to return when stop completed.
+     * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400103 - I/O error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
@@ -5035,6 +5050,7 @@ declare namespace media {
     /**
      * Releases resources used for video recording.
      * @param { AsyncCallback<void> } callback - A callback instance used to return when release completed.
+     * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
@@ -5044,6 +5060,7 @@ declare namespace media {
     /**
      * Releases resources used for video recording.
      * @returns { Promise<void> } A Promise instance used to return when release completed.
+     * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
@@ -5055,6 +5072,7 @@ declare namespace media {
      * Before resetting video recording, you must call stop() to stop recording. After video recording is reset,
      * you must call prepare() to set the recording configurations for another recording.
      * @param { AsyncCallback<void> } callback - A callback instance used to return when reset completed.
+     * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 5400103 - I/O error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
@@ -5067,6 +5085,7 @@ declare namespace media {
      * Before resetting video recording, you must call stop() to stop recording. After video recording is reset,
      * you must call prepare() to set the recording configurations for another recording.
      * @returns { Promise<void> } A Promise instance used to return when reset completed.
+     * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 5400103 - I/O error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
@@ -5078,6 +5097,8 @@ declare namespace media {
      * Listens for video recording error events.
      * @param { 'error' } type - Type of the video recording error event to listen for.
      * @param { ErrorCallback } callback - Callback used to listen for the video recording error event.
+     * @throws { BusinessError } 201 - permission denied.
+     * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 5400103 - I/O error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
@@ -7326,6 +7347,7 @@ declare namespace media {
      * Listens for AVScreenCaptureRecord info callback.
      * @param { 'stateChange' } type - Type of the AVScreenCaptureRecord event to listen for.
      * @param { Callback<AVScreenCaptureStateCode> } callback - Callback used to listen for the AVScreenCaptureRecord info return.
+     * @throws { BusinessError } 201 - permission denied.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
