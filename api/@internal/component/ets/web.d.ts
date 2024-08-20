@@ -8371,16 +8371,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   enableNativeMediaPlayer(config: NativeMediaPlayerConfig): WebAttribute;
 
-  /**
-   * Sets the enable window drag smooth for web.
-   *
-   * @param { boolean } mode - True if it needs to enable window drag smooth.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12
-   */
-   enableSmoothDragResize(mode: boolean): WebAttribute;
+  // /**
+  //  * Sets the enable window drag smooth for web.
+  //  *
+  //  * @param { boolean } mode - True if it needs to enable window drag smooth.
+  //  * @returns { WebAttribute }
+  //  * @syscap SystemCapability.Web.Webview.Core
+  //  * @atomicservice
+  //  * @since 12
+  //  */
+  //  enableSmoothDragResize(mode: boolean): WebAttribute;
 
   /**
    * Triggered when render process not responding.
