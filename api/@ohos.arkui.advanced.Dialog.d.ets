@@ -839,16 +839,16 @@ export declare struct CustomContentDialog {
 }
 
 /**
- * Declare struct PopupDialog
+ * Declare struct PopoverDialog
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 13
  */
 @Component
-export declare struct PopupDialog {
+export declare struct PopoverDialog {
   /**
-   * Sets the PopupDialog Visible Status.
+   * Sets the PopoverDialog Visible Status.
    * 
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -858,15 +858,15 @@ export declare struct PopupDialog {
   @Link
   show: boolean;
   /**
-   * Sets the PopupDialog options.
+   * Sets the PopoverDialog options.
    * 
-   * @type { PopupDialogOptions }
+   * @type { PopoverDialogOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 13
    */
   @Prop
-  popup: PopupDialogOptions;
+  popup: PopoverDialogOptions;
   /**
    * Sets the targetBuilder content.
    * 
@@ -879,13 +879,13 @@ export declare struct PopupDialog {
 }
 
 /**
- * Defines PopupDialog Options
+ * Defines PopoverDialog Options
  * 
- * @interface PopupDialogOptions
+ * @interface PopoverDialogOptions
  * @extends CustomPopupOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 13
  */
-export declare interface PopupDialogOptions extends CustomPopupOptions {
+export declare interface PopoverDialogOptions extends CustomPopupOptions {
 }
