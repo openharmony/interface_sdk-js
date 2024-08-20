@@ -25,6 +25,8 @@ import {
   TypeAliasInfo,
   ExportDeclareInfo,
   ExportImportValue,
+  InterfaceInfo,
+  ClassInfo
 } from '../../typedef/parser/ApiInfoDefination';
 import { Comment } from '../../typedef/parser/Comment';
 import {
@@ -1148,8 +1150,8 @@ export namespace DiffProcessorHelper {
         newParamInfo.getParamType() === ts.SyntaxKind.TypeReference
       ) {
         const oldApiInfos: ApiInfo[] = oldParamInfo.getObjLocations();
-        const newApiInfos: ApiInfo[] = newParamInfo.getTypeLocations()[0]?.getTypeLiteralApiInfos();
-        diffType = !ApiNodeDiffHelper.judgeIsCompatible(oldApiInfos, newApiInfos)
+        const newApiInfo: ApiInfo = newParamInfo.getTypeLocations()[0];
+        diffType = !ApiNodeDiffHelper.judgeIsCompatible(oldApiInfos, newApiInfo)
           ? ApiDiffType.PARAM_TYPE_CHANGE_IN_COMPATIABLE
           : ApiDiffType.PARAM_TYPE_CHANGE_COMPATIABLE;
       } else if (
@@ -1172,7 +1174,7 @@ export namespace DiffProcessorHelper {
      */
     static diffFunctionTypeNode(oldParamInfo: ParamInfo, newParamInfo: ParamInfo): boolean {
       const oldApiInfo: MethodInfo | undefined = oldParamInfo.getMethodApiInfo();
-      const newApiInfo: TypeAliasInfo = newParamInfo.getTypeLocations()[0];
+      const newApiInfo: TypeAliasInfo = (newParamInfo.getTypeLocations()[0]) as TypeAliasInfo;
       const diffTypes: DiffTypeInfo[] = [];
       if (!oldApiInfo || !newApiInfo) {
         return false;
@@ -1202,7 +1204,7 @@ export namespace DiffProcessorHelper {
      * @param newApiInfos
      * @returns
      */
-    static diffTypeLiteral(oldApiInfos: ApiInfo[], newApiInfos: ApiInfo[]): BasicDiffInfo[] {
+    static diffTypeLiteral(oldApiInfos: ApiInfo[], newApiInfos: BasicApiInfo[]): BasicDiffInfo[] {
       const oldApiInfoMap: Map<string, ApiInfo> = ApiNodeDiffHelper.setmethodInfoMap(oldApiInfos);
       const newApiInfoMap: Map<string, ApiInfo> = ApiNodeDiffHelper.setmethodInfoMap(newApiInfos);
       const diffInfos: BasicDiffInfo[] = [];
@@ -1235,10 +1237,20 @@ export namespace DiffProcessorHelper {
       return diffInfos;     
     }
 
-    static judgeIsCompatible(oldApiInfos: ApiInfo[], newApiInfos: ApiInfo[]): boolean {
-      if (!newApiInfos) {
+    static judgeIsCompatible(oldApiInfos: ApiInfo[], newApiInfo: ApiInfo): boolean {
+      if (!newApiInfo) {
         return false;
       }
+
+      let newApiInfos: BasicApiInfo[] | PropertyInfo[] = []
+      if (newApiInfo.getApiType() === ApiType.TYPE_ALIAS) {
+        newApiInfos = (newApiInfo as TypeAliasInfo).getTypeLiteralApiInfos();
+      } else if (newApiInfo.getApiType() === ApiType.INTERFACE) {
+        newApiInfos = (newApiInfo as InterfaceInfo).getChildApis();
+      } else if (newApiInfo.getApiType() === ApiType.CLASS) {
+        newApiInfos = (newApiInfo as ClassInfo).getChildApis();
+      }
+  
       const diffInfos: BasicDiffInfo[] = ApiNodeDiffHelper.diffTypeLiteral(oldApiInfos, newApiInfos);
       let isCompatible: boolean = true;
       diffInfos.forEach((diffInfo: BasicDiffInfo) => {
@@ -1249,10 +1261,10 @@ export namespace DiffProcessorHelper {
       return isCompatible;
     }
 
-    static setmethodInfoMap(apiInfos: ApiInfo[]): Map<string, ApiInfo> {
+    static setmethodInfoMap(apiInfos:BasicApiInfo[]): Map<string, ApiInfo> {
       const methodInfoMap: Map<string, ApiInfo> = new Map();
-      apiInfos.forEach((apiInfo: ApiInfo) => {
-        methodInfoMap.set(apiInfo.getApiName(), apiInfo);
+      apiInfos.forEach((apiInfo: BasicApiInfo) => {
+        methodInfoMap.set(apiInfo.getApiName(), apiInfo as ApiInfo);
       });
       return methodInfoMap;
     }
