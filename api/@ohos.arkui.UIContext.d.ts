@@ -2047,6 +2047,26 @@ export class SwiperDynamicSyncScene extends DynamicSyncScene {
 }
 
 /**
+ * Represents a dynamic synchronization scene of Marquee.
+ * 
+ * @extends DynamicSyncScene
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 13
+ */
+export class MarqueeDynamicSyncScene extends DynamicSyncScene {
+  /**
+  * Type of the MarqueeDynamicSyncSceneType.
+  * @type { MarqueeDynamicSyncSceneType }
+  * @readonly
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @atomicservice
+  * @since 13
+  */
+  readonly type: MarqueeDynamicSyncSceneType;
+}
+
+/**
  * class DragController
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 11
@@ -3247,6 +3267,25 @@ export const enum SwiperDynamicSyncSceneType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
+   */
+  ANIMATION = 1
+}
+
+/**
+ * Enum of scene type for Marquee
+ * 
+ * @enum { number } MarqueeDynamicSyncSceneType
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 13
+ */
+export const enum MarqueeDynamicSyncSceneType {
+  /**
+   * Scene type is ANIMATION.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
    */
   ANIMATION = 1
 }
