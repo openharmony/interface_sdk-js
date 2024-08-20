@@ -182,11 +182,11 @@ export class JsDocProcessorHelper {
   }
 
   static setKitContent(jsDocInfo: Comment.JsDocInfo, commentTag: Comment.CommentTag): void {
-    jsDocInfo.setKit(commentTag.source.replace(/\* @kit\s+|\r|\n/g, '').trim());
+    jsDocInfo.setKit(commentTag.source.replace(/\* @kit|\r|\n/g, '').trim());
   }
 
   static setIsFile(jsDocInfo: Comment.JsDocInfo, commentTag: Comment.CommentTag): void {
-    jsDocInfo.setFileTagContent(commentTag.source.replace(/\* @file\s+|\r|\n/g, '').trim());
+    jsDocInfo.setFileTagContent(commentTag.source.replace(/\* @file|\r|\n/g, '').trim());
   }
 
   /**

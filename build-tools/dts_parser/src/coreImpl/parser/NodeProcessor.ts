@@ -943,7 +943,7 @@ export class NodeProcessorHelper {
         );
         typeAliasInfo.setParamInfos(typeParamInfo);
       });
-      typeAliasInfo.setReturnType(nodeType.type.getText());
+      typeAliasInfo.setReturnType(NodeProcessorHelper.processDataType(nodeType.type));
       typeAliasInfo.setTypeIsFunction(true);
     } else if (ts.isTypeLiteralNode(nodeType)) {
       nodeType.members.forEach((member: ts.TypeElement) => {
