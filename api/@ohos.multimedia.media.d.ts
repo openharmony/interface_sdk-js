@@ -1964,6 +1964,31 @@ declare namespace media {
     getPlaybackInfo(): Promise<PlaybackInfo>;
 
     /**
+     * Set playback strategy to AVPlayer.
+     * @param { PlaybackStrategy } strategy : specified strategy of the AVPlayer.
+     * @returns { Promise<void> }  A Promise instance used to return when setPlaybackStrategy completed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter verification failed.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 12
+     */
+    setPlaybackStrategy(strategy: PlaybackStrategy): Promise<void>;
+
+    /**
+     * Mute specified media stream.
+     * @param { MediaType } mediaType - specified media Type, see @MediaType..
+     * @param { boolean } muted - true for mute, false for unmute.
+     * @returns { Promise<void> } A Promise instance used to return when setMediaMuted completed.
+     * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 12
+     */
+    setMediaMuted(mediaType: MediaType,  muted: boolean ): Promise<void>;
+
+    /**
      * Media URI. Mainstream media formats are supported.
      * Network:http://xxx
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -3235,6 +3260,13 @@ declare namespace media {
      */
     preferredHdr?: boolean;
 
+    /**
+     * mute the specified media stream when playing.
+     * @type { ?MediaType }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
+    mutedMediaType?: MediaType;
   }
 
   /**
