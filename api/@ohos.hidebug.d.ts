@@ -835,7 +835,7 @@ declare namespace hidebug {
    *
    * @returns { boolean } true if the application is debugged.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 13
+   * @since 12
    */
   function isDebugState(): boolean;
 }
