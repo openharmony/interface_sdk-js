@@ -7824,6 +7824,24 @@ declare namespace window {
      * @since 12
      */
     isFocused(): boolean;
+
+    /**
+     * Create sub window with options.
+     *
+     * @param { string } name - window name of sub window
+     * @param { SubWindowOptions } options - options of sub window creation
+     * @returns { Promise<Window> } Promise used to return the subwindow.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @StageModelOnly
+     * @atomicservice
+     * @since 12
+     */
+    createSubWindowWithOptions(name: string, options: SubWindowOptions): Promise<Window>;
   }
 
   /**
