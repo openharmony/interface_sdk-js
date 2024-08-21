@@ -19,7 +19,6 @@
  */
 
 import ExtensionContext from './ExtensionContext';
-import type CustomData from './CustomData';
 
 /**
  * The context of auto fill extension. It allows access to AutoFillExtension-specific resources.
@@ -31,20 +30,4 @@ import type CustomData from './CustomData';
  * @since 11
  */
 export default class AutoFillExtensionContext extends ExtensionContext {
-  /**
-   * Reload autoFillExtension in modal window.
-   *
-   * @param { CustomData } customData - User defined data. When the modal window of AutoFillExtension
-   * needs to be raised again, pass this parameter to the application framework.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
-   * @stagemodelonly
-   * @since 12
-   */
-  reloadInModal(customData: CustomData): Promise<void>;
 }

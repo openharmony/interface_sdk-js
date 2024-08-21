@@ -19,7 +19,6 @@
  */
 
 import type { AutoFillType } from './AutoFillType';
-import type CustomData from './CustomData';
 import type AutoFillPopupConfig from './AutoFillPopupConfig';
 import type ViewData from './ViewData';
 
@@ -54,17 +53,6 @@ export interface FillRequest {
    * @since 11
    */
   viewData: ViewData;
-
-  /**
-   * The custom data.
-   *
-   * @type { CustomData }
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
-   * @stagemodelonly
-   * @since 12
-   */
-  customData: CustomData;
 
   /**
    * Whether the UI extension window type is popup window.
