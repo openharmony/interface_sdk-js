@@ -645,6 +645,7 @@ export class FrameNode {
  * Used to define the FrameNode type.
  *
  * @interface TypedFrameNode
+ * @extends FrameNode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -1235,6 +1236,19 @@ export namespace typeNode {
    * @since 12
    */
   function createNode(context: UIContext, nodeType: 'XComponent'): XComponent;
+
+  /**
+   * Create a FrameNode of XComponent type with options.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'XComponent' } nodeType - node type.
+   * @param { XComponentOptions } options - initialization parameters.
+   * @returns { XComponent } - Return XComponent type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  function createNode(context: UIContext, nodeType: 'XComponent', options: XComponentOptions): XComponent;
 }
 
 /**
