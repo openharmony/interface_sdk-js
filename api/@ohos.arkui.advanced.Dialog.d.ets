@@ -862,14 +862,14 @@ export declare struct PopoverDialog {
   /**
    * Sets the PopoverDialog options.
    * 
-   * @type { PopoverDialogOptions }
+   * @type { PopoverOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 13
    */
   @Prop
-  popover: PopoverDialogOptions;
+  popover: PopoverOptions;
   /**
    * Sets the targetBuilder content.
    * 
@@ -885,12 +885,12 @@ export declare struct PopoverDialog {
 /**
  * Defines PopoverDialog Options
  * 
- * @interface PopoverDialogOptions
+ * @interface PopoverOptions
  * @extends CustomPopupOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 13
  */
-export declare interface PopoverDialogOptions extends CustomPopupOptions {
+export declare interface PopoverOptions extends CustomPopupOptions {
 }
