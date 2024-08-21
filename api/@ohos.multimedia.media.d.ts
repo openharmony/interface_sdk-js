@@ -3199,6 +3199,7 @@ declare namespace media {
      * @since 12
      */
     preferredHdr?: boolean;
+
   }
 
   /**
