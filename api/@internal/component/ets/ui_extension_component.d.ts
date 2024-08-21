@@ -79,6 +79,18 @@ declare interface UIExtensionOptions {
   placeholder?: ComponentContent;
 
   /**
+   * Set Areachange placeholder.
+   * If the Areachange placeholder ComponentContent is set, the placeholder node is displayed until
+   * the UIExtensionComponent size change is complete.
+   *
+   * @type { ?Record<string, ComponentContent> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 13
+   */
+  areaChangePlaceholder?: Record<string, ComponentContent>;
+
+  /**
    * Set UIExtensionComponent Content Dpi Follow Strategy.
    *
    * @type { ?DpiFollowStrategy }
