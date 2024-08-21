@@ -858,7 +858,7 @@ export declare struct PopoverDialog {
    * @since 13
    */
   @Link
-  show: boolean;
+  visible: boolean;
   /**
    * Sets the PopoverDialog options.
    * 
