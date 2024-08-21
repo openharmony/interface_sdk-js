@@ -843,6 +843,7 @@ export declare struct CustomContentDialog {
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 13
  */
 @Component
@@ -853,6 +854,7 @@ export declare struct PopoverDialog {
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 13
    */
   @Link
@@ -863,6 +865,7 @@ export declare struct PopoverDialog {
    * @type { PopoverDialogOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 13
    */
   @Prop
@@ -873,6 +876,7 @@ export declare struct PopoverDialog {
    * @type { Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 13
    */
   @BuilderParam targetBuilder: Callback<void>;
@@ -885,6 +889,7 @@ export declare struct PopoverDialog {
  * @extends CustomPopupOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 13
  */
 export declare interface PopoverDialogOptions extends CustomPopupOptions {
