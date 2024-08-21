@@ -1643,7 +1643,21 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12
      */
-    BURST_KEY = 'burst_key'
+    BURST_KEY = 'burst_key',
+    /**
+     * Width and height information of lcd picture, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    LCD_SIZE = 'lcd_size',
+    /**
+     * Width and height information of thumbnail picture, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    THM_SIZE = 'thm_size'
   }
 
   /**
