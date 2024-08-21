@@ -700,7 +700,7 @@ declare type RectWidthStyle = import('../api/@ohos.graphics.text').default.RectW
  * @atomicservice
  * @since 13
  */
-declare type RectHeightStyle = import('../api/@ohos.graphics.text').default.RectHeightStyle
+declare type RectHeightStyle = import('../api/@ohos.graphics.text').default.RectHeightStyle;
 
 /**
  * Define the TextBox type.
@@ -711,7 +711,7 @@ declare type RectHeightStyle = import('../api/@ohos.graphics.text').default.Rect
  * @atomicservice
  * @since 13
  */
-declare type TextBox = import('../api/@ohos.graphics.text').default.TextBox
+declare type TextBox = import('../api/@ohos.graphics.text').default.TextBox;
 
 /**
  * Defines the cursor style
