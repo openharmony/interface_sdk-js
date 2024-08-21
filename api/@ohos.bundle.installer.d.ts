@@ -568,7 +568,6 @@ declare namespace installer {
      * @throws { BusinessError } 17700020 - The specified bundle is a pre-installed bundle and cannot be uninstalled.
      * @throws { BusinessError } 17700040 - The specified bundle is a shared bundle and cannot be uninstalled.
      * @throws { BusinessError } 17700045 - Failed to uninstall the HAP because uninstall is not allowed by the enterprise device management.
-     * @throws { BusinessError } 17700060 - The specified application cannot be uninstalled.
      * @throws { BusinessError } 17700067 - Failed to uninstall the HAP because uninstalling the native package failed.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -606,7 +605,6 @@ declare namespace installer {
      * @throws { BusinessError } 17700020 - The specified bundle is a pre-installed bundle and cannot be uninstalled.
      * @throws { BusinessError } 17700040 - The specified bundle is a shared bundle and cannot be uninstalled.
      * @throws { BusinessError } 17700045 - Failed to uninstall the HAP because uninstall is not allowed by the enterprise device management.
-     * @throws { BusinessError } 17700060 - The specified application cannot be uninstalled.
      * @throws { BusinessError } 17700067 - Failed to uninstall the HAP because uninstalling the native package failed.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -648,7 +646,6 @@ declare namespace installer {
      * @throws { BusinessError } 17700020 - The specified bundle is a pre-installed bundle and cannot be uninstalled.
      * @throws { BusinessError } 17700040 - The specified bundle is a shared bundle and cannot be uninstalled.
      * @throws { BusinessError } 17700045 - Failed to uninstall the HAP because uninstall is not allowed by the enterprise device management.
-     * @throws { BusinessError } 17700060 - The specified application cannot be uninstalled.
      * @throws { BusinessError } 17700067 - Failed to uninstall the HAP because uninstalling the native package failed.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
