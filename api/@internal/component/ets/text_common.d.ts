@@ -275,6 +275,37 @@ declare enum TextDeleteDirection {
 }
 
 /**
+ * Defines menu type.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 13
+ */
+declare enum MenuType {
+  /**
+   * Selection menu.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  SELECTION_MENU = 0,
+
+  /**
+   * Preview menu, only for image.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  PREVIEW_MENU = 1,
+}
+
+/**
  * Provides an interface for deleting value from text.
  *
  * @interface DeleteValue
