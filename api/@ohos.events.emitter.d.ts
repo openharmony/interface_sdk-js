@@ -221,7 +221,7 @@ declare namespace emitter {
   function off(eventId: string): void;
 
   /**
-   * Unsubscribe specified callback function from an event.
+   * Unsubscribe from an event.
    *
    * @param { number } eventId - indicates ID of the event to unsubscribe from.
    * @param { Callback<EventData> } callback - indicates callback used to receive the event.
@@ -229,7 +229,7 @@ declare namespace emitter {
    * @since 10
    */
   /**
-   * Unsubscribe specified callback function  from an event.
+   * Unsubscribe from an event.
    *
    * @param { number } eventId - indicates ID of the event to unsubscribe from.
    * @param { Callback<EventData> } callback - indicates callback used to receive the event.
@@ -250,7 +250,7 @@ declare namespace emitter {
   function off(eventId: number, callback: Callback<EventData>): void;
 
   /**
-   * Unsubscribe specified callback function  from an event.
+   * Unsubscribe from an event.
    *
    * @param { string } eventId - indicates ID of the event to unsubscribe from.
    * @param { Callback<EventData> } callback - indicates callback used to receive the event.
