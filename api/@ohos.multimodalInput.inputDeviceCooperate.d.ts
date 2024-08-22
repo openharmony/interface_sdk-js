@@ -153,8 +153,8 @@ declare namespace inputDeviceCooperate {
   /**
    * Stops mouse traversal.
    *
-   * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
    * @since 9
    */
