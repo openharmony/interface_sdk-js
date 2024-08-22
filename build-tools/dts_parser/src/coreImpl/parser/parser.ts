@@ -88,6 +88,7 @@ export class Parser {
     if (!fs.existsSync(filePath)) {
       return new Map();
     }
+    NodeProcessorHelper.typeReferenceFileMap = new Map();
     if (parserParam.getFileDir() === '') {
       parserParam.setSdkPath(fileDir);
       parserParam.setFileDir(path.resolve(fileDir, '..'));
