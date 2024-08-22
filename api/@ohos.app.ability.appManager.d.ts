@@ -1038,7 +1038,7 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 12
+   * @since 13
    */
   function terminateMission(missionId: number): Promise<void>;
 
