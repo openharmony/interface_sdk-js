@@ -91,7 +91,10 @@ export class ResultsProcessHelper {
    *
    * @param { BasicApiInfo } basicApiInfo 解析后的api对象
    */
-  static processApiInfo(basicApiInfo: BasicApiInfo): void {
+  static processApiInfo(basicApiInfo: BasicApiInfo | undefined): void {
+    if (!basicApiInfo) {
+      return;
+    }
     ResultsProcessHelper.cleanApiInfo(basicApiInfo);
     if (!containerApiTypes.has(basicApiInfo.getApiType())) {
       return;
@@ -109,22 +112,22 @@ export class ResultsProcessHelper {
     basicApiInfo.setParentApi(undefined);
     basicApiInfo.removeNode();
     if (basicApiInfo instanceof MethodInfo || basicApiInfo instanceof PropertyInfo) {
-      ResultsProcessHelper.cleanChildrenApiInfo(basicApiInfo.getObjLocations());
-      ResultsProcessHelper.cleanChildrenApiInfo(basicApiInfo.getTypeLocations());
+      basicApiInfo.setObjLocations([]);
+      basicApiInfo.setTypeLocations([]);
       if (basicApiInfo instanceof MethodInfo) {
         basicApiInfo.getParams().forEach((param: ParamInfo) => {
-          ResultsProcessHelper.cleanChildrenApiInfo(param.getObjLocations());
-          ResultsProcessHelper.cleanChildrenApiInfo(param.getTypeLocations());
-          ResultsProcessHelper.cleanApiInfo(param.getMethodApiInfo());
+          param.setObjLocations([]);
+          param.setTypeLocations([]);
+          ResultsProcessHelper.processApiInfo(param.getMethodApiInfo());
         });
       }
     }
     if (basicApiInfo instanceof TypeAliasInfo) {
       ResultsProcessHelper.cleanChildrenApiInfo(basicApiInfo.getTypeLiteralApiInfos());
       basicApiInfo.getParamInfos().forEach((param: ParamInfo) => {
-        ResultsProcessHelper.cleanChildrenApiInfo(param.getObjLocations());
-        ResultsProcessHelper.cleanChildrenApiInfo(param.getTypeLocations());
-        ResultsProcessHelper.cleanApiInfo(param.getMethodApiInfo());
+        param.setObjLocations([]);
+        param.setTypeLocations([]);
+        ResultsProcessHelper.processApiInfo(param.getMethodApiInfo());
       });
     }
     ResultsProcessHelper.processJsDocInfos(basicApiInfo as ApiInfo);
@@ -135,7 +138,7 @@ export class ResultsProcessHelper {
       return;
     }
     basicApiInfos.forEach((basicApiInfos: BasicApiInfo) => {
-      ResultsProcessHelper.cleanApiInfo(basicApiInfos);
+      ResultsProcessHelper.processApiInfo(basicApiInfos);
     });
   }
 
