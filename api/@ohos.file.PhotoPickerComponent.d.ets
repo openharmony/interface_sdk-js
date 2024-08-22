@@ -101,6 +101,16 @@ export declare struct PhotoPickerComponent {
   onPickerControllerReady?: () => void;
 
   /**
+   * Callback when photo browser change, will return browserItemInfo
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 12
+   */
+  onPhotoBrowserChanged?: (browserItemInfo: BaseItemInfo) => boolean;
+
+  /**
    * PickerController
    *
    * @type { ?PickerController }
@@ -150,6 +160,17 @@ export declare class PickerController {
    * @since 12
    */
   setMaxSelected(maxSelected: MaxSelected): void;
+
+  /**
+   * Set photo browser item to picker component.
+   *
+   * @param { string } uri - specify image uri for photo browsing
+   * @param { PhotoBrowserRange } photoBrowserRange - photo browser slide range
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 12
+   */
+  setPhotoBrowserItem(uri: string, photoBrowserRange?: PhotoBrowserRange): void;
 }
 
 /**
@@ -262,23 +283,13 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
 }
 
 /**
- * ItemInfo
+ * BaseItemInfo
  *
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
  * @since 12
  */
-export declare class ItemInfo {
-  /**
-   * itemType. include CAMERA and THUMBNAIL.
-   *
-   * @type { ?ItemType }
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 12
-   */
-  itemType?: ItemType;
-
+export declare class BaseItemInfo {
   /**
    * Uri. if the itemType is CAMERA, it will be null
    *
@@ -338,6 +349,26 @@ export declare class ItemInfo {
    * @since 12
    */
   duration?: number;
+}
+
+/**
+ * ItemInfo
+ *
+ * @extends BaseItemInfo
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @atomicservice
+ * @since 12
+ */
+export declare class ItemInfo extends BaseItemInfo {
+  /**
+   * itemType. include CAMERA and THUMBNAIL.
+   *
+   * @type { ?ItemType }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 12
+   */
+  itemType?: ItemType;
 }
 
 /**
@@ -656,4 +687,32 @@ export declare enum MaxCountType {
    * @since 12
    */
   VIDEO_MAX_COUNT = 2
+}
+
+/**
+ * PhotoBrowserRange. include ALL and SELECTED_ONLY
+ *
+ * @enum { number } PhotoBrowserRange
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @atomicservice
+ * @since 12
+ */
+export declare enum PhotoBrowserRange {
+  /**
+   * ALL. all photos or vedios
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 12
+   */
+  ALL = 0,
+
+  /**
+   * SELECTED_ONLY. only selected photos or vedios
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 12
+   */
+  SELECTED_ONLY = 1,
 }
