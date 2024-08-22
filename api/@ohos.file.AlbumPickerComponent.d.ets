@@ -87,4 +87,14 @@ export declare class AlbumInfo {
    * @since 12
    */
   uri?: string;
+
+  /**
+   * Album name
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 12
+   */
+  albumName?: string;
 }
