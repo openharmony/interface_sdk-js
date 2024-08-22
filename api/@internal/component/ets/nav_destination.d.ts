@@ -474,6 +474,19 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
   hideTitleBar(value: boolean): NavDestinationAttribute;
 
   /**
+   * Hide navigation title bar
+   *
+   * @param { boolean } hide
+   * @param { boolean } animated
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  hideTitleBar(hide: boolean, animated: boolean): NavDestinationAttribute;
+
+  /**
    * Invoked when the navDestination page is displayed.
    *
    * @param { function } callback - Indicates callback when the navDestination page is displayed.
