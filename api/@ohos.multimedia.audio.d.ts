@@ -4901,6 +4901,32 @@ declare namespace audio {
   }
 
   /**
+   * This interface is used to notify the listener of any device Spatialization or Head Tracking enable state change.
+   * @interface AudioSpatialEnabledStateForDevice
+   * @syscap SystemCapability.Multimedia.Audio.Spatialization
+   * @systemapi
+   * @since 12
+   */
+  interface AudioSpatialEnabledStateForDevice {
+    /**
+     * Audio device description.
+     * @type { AudioDeviceDescriptor }
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 12
+     */
+    deviceDescriptor: AudioDeviceDescriptor;
+    /**
+     * Spatialization or Head Tracking enable state.
+     * @type { boolean }
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 12
+     */
+    enabled: boolean;
+  }
+
+  /**
    * Implements audio spatialization management.
    * @typedef AudioSpatializationManager
    * @syscap SystemCapability.Multimedia.Audio.Spatialization
@@ -4972,6 +4998,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
+     * @deprecated since 12
+     * @useinstead ohos.multimedia.audio.AudioSpatializationManager#setSpatializationEnabled
      */
     setSpatializationEnabled(enable: boolean, callback: AsyncCallback<void>): void;
     /**
@@ -4987,8 +5015,28 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
+     * @deprecated since 12
+     * @useinstead ohos.multimedia.audio.AudioSpatializationManager#setSpatializationEnabled
      */
     setSpatializationEnabled(enable: boolean): Promise<void>;
+    /**
+     * Sets the spatialization enabled or disabled by the specified device.
+     * This method uses a promise to return the result.
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
+     * @param { AudioDeviceDescriptor } deviceDescriptor - Audio device description.
+     * @param { boolean } enabled - Spatialization enable state.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied. Return by promise.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 12
+     */
+    setSpatializationEnabled(deviceDescriptor: AudioDeviceDescriptor, enabled: boolean): Promise<void>;
 
     /**
      * Checks whether the spatialization is enabled.
@@ -4997,8 +5045,24 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
+     * @deprecated since 12
+     * @useinstead ohos.multimedia.audio.AudioSpatializationManager#isSpatializationEnabled
      */
     isSpatializationEnabled(): boolean;
+    /**
+     * Checks whether the spatialization is enabled by the specified device.
+     * @param { AudioDeviceDescriptor } deviceDescriptor - Audio device description.
+     * @returns { boolean } Whether the spatialization is enabled by the specified device.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 12
+     */
+    isSpatializationEnabled(deviceDescriptor: AudioDeviceDescriptor): boolean;
 
     /**
      * Subscribes to the spatialization enable state change events. When the spatialization enable state changes,
@@ -5013,8 +5077,25 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
+     * @deprecated since 12
+     * @useinstead ohos.multimedia.audio.AudioSpatializationManager#on
      */
     on(type: 'spatializationEnabledChange', callback: Callback<boolean>): void;
+    /**
+     * Subscribes to the spatialization enable state change events by the specified device.
+     * When the spatialization enable state changes, registered clients will receive the callback.
+     * @param { 'spatializationEnabledChangeForAnyDevice' } type - Type of the event to listen for.
+     * @param { Callback<AudioSpatialEnabledStateForDevice> } callback - Callback used to get the spatialization enable state by the specified device.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 12
+     */
+    on(type: 'spatializationEnabledChangeForAnyDevice', callback: Callback<AudioSpatialEnabledStateForDevice>): void;
 
     /**
      * Unsubscribes to the spatialization enable state change events.
@@ -5028,8 +5109,24 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
+     * @deprecated since 12
+     * @useinstead ohos.multimedia.audio.AudioSpatializationManager#off
      */
     off(type: 'spatializationEnabledChange', callback?: Callback<boolean>): void;
+    /**
+     * Unsubscribes to the spatialization enable state change events by the specified device.
+     * @param { 'spatializationEnabledChangeForAnyDevice' } type - Type of the event to listen for.
+     * @param { Callback<AudioSpatialEnabledStateForDevice> } callback - Callback used to get the spatialization enable state by the specified device.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 12
+     */
+    off(type: 'spatializationEnabledChangeForAnyDevice', callback?: Callback<AudioSpatialEnabledStateForDevice>): void;
 
     /**
      * Sets the head tracking enabled or disabled. This method uses an asynchronous callback to return the result.
@@ -5045,6 +5142,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
+     * @deprecated since 12
+     * @useinstead ohos.multimedia.audio.AudioSpatializationManager#setHeadTrackingEnabled
      */
     setHeadTrackingEnabled(enable: boolean, callback: AsyncCallback<void>): void;
     /**
@@ -5060,8 +5159,28 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
+     * @deprecated since 12
+     * @useinstead ohos.multimedia.audio.AudioSpatializationManager#setHeadTrackingEnabled
      */
     setHeadTrackingEnabled(enable: boolean): Promise<void>;
+    /**
+     * Sets the head tracking enabled or disabled by the specified device.
+     * This method uses a promise to return the result.
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
+     * @param { AudioDeviceDescriptor } deviceDescriptor - Audio device description.
+     * @param { boolean } enabled - Head tracking enable state.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied. Return by promise.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 12
+     */
+    setHeadTrackingEnabled(deviceDescriptor: AudioDeviceDescriptor, enabled: boolean): Promise<void>;
 
     /**
      * Checks whether the head tracking is enabled.
@@ -5070,8 +5189,24 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
+     * @deprecated since 12
+     * @useinstead ohos.multimedia.audio.AudioSpatializationManager#isHeadTrackingEnabled
      */
     isHeadTrackingEnabled(): boolean;
+    /**
+     * Checks whether the head tracking is enabled by the specified device.
+     * @param { AudioDeviceDescriptor } deviceDescriptor - Audio device description.
+     * @returns { boolean } Whether the head tracking is enabled by the specified device.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 12
+     */
+    isHeadTrackingEnabled(deviceDescriptor: AudioDeviceDescriptor): boolean;
 
     /**
      * Subscribes to the head tracking enable state change events. When the head tracking enable state changes,
@@ -5086,8 +5221,25 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
+     * @deprecated since 12
+     * @useinstead ohos.multimedia.audio.AudioSpatializationManager#on
      */
     on(type: 'headTrackingEnabledChange', callback: Callback<boolean>): void;
+    /**
+     * Subscribes to the head tracking enable state change events by the specified device.
+     * When the head tracking enable state changes, registered clients will receive the callback.
+     * @param { 'headTrackingEnabledChangeForAnyDevice' } type - Type of the event to listen for.
+     * @param { Callback<AudioSpatialEnabledStateForDevice> } callback - Callback used to get the head tracking enable state by the specified device.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 12
+     */
+    on(type: 'headTrackingEnabledChangeForAnyDevice', callback: Callback<AudioSpatialEnabledStateForDevice>): void;
 
     /**
      * Unsubscribes to the head tracking enable state change events.
@@ -5101,8 +5253,24 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
+     * @deprecated since 12
+     * @useinstead ohos.multimedia.audio.AudioSpatializationManager#off
      */
     off(type: 'headTrackingEnabledChange', callback?: Callback<boolean>): void;
+    /**
+     * Unsubscribes to the head tracking enable state change events by the specified device.
+     * @param { 'headTrackingEnabledChangeForAnyDevice' } type - Type of the event to listen for.
+     * @param { Callback<AudioSpatialEnabledStateForDevice> } callback - Callback used to get the head tracking enable state by the specified device.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 12
+     */
+    off(type: 'headTrackingEnabledChangeForAnyDevice', callback?: Callback<AudioSpatialEnabledStateForDevice>): void;
 
     /**
      * Updates the spatial device state.
