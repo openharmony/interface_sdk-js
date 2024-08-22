@@ -2755,20 +2755,12 @@ declare namespace webview {
    */
   enum ScrollType {
     /**
-     * Indicates scrolling the web page through touch screen, touch pad, and mouse wheel.
+     * Indicates scrolling the web page through scroll event, include touch screen, touch pad, and mouse wheel.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12
      */
-    EVENT,
-
-    /**
-     * Indicates scrolling the web page through the keyboard up and down arrows, PageUp/PageDown, and scroll bars.
-     *
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 12
-     */
-    POSITION
+    EVENT
   }
 
   /**
