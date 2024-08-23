@@ -67,15 +67,41 @@ declare namespace inputMonitor {
    * @param { 'touch' } type - Event type, which is **touch**.
    * @param { TouchEventReceiver } receiver - Callback used to receive the reported data.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 7
    */
+  /**
+   * Listens for touch input events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { 'touch' } type - Event type, which is **touch**.
+   * @param { TouchEventReceiver } receiver - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 12
+   */
   function on(type: 'touch', receiver: TouchEventReceiver): void;
 
+  /**
+   * Listens for mouse input events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { 'mouse' } type - Event type, which is **mouse**.
+   * @param { Callback<MouseEvent> } receiver - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 9
+   */
   /**
    * Listens for mouse input events.
    *
@@ -88,10 +114,24 @@ declare namespace inputMonitor {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 9
+   * @since 12
    */
   function on(type: 'mouse', receiver: Callback<MouseEvent>): void;
 
+  /**
+   * Listens for mouse input events when the mouse arrow is within the specified rectangular area.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { 'mouse' } type - Event type, which is **mouse**.
+   * @param { display.Rect[] } rect - A specified rectangular area that can trigger a callback, with a maximum of two.
+   * @param { Callback<MouseEvent> } receiver - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 11
+   */
   /**
    * Listens for mouse input events when the mouse arrow is within the specified rectangular area.
    *
@@ -105,10 +145,23 @@ declare namespace inputMonitor {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 11
+   * @since 12
    */
   function on(type: 'mouse', rect: display.Rect[], receiver: Callback<MouseEvent>): void;
 
+  /**
+   * Cancel listening for touch input events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { 'touch' } type - Event type, which is **touch**.
+   * @param { TouchEventReceiver } receiver - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 7
+   */
   /**
    * Cancel listening for touch input events.
    *
@@ -121,10 +174,23 @@ declare namespace inputMonitor {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 7
+   * @since 12
    */
   function off(type: 'touch', receiver?: TouchEventReceiver): void;
 
+  /**
+   * Cancel listening for mouse input events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { 'mouse' } type - Event type, which is **mouse**.
+   * @param { Callback<MouseEvent> } receiver - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 9
+   */
   /**
    * Cancel listening for mouse input events.
    *
@@ -137,7 +203,7 @@ declare namespace inputMonitor {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 9
+   * @since 12
    */
   function off(type: 'mouse', receiver?: Callback<MouseEvent>): void;
 
