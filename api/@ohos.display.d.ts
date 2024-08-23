@@ -189,7 +189,7 @@ declare namespace display {
    *
    * @param { number } displayId Display id to query. This parameter should be greater than or equal to 0.
    * @returns { boolean } true means there is a privacy window on the current display
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API. 
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
