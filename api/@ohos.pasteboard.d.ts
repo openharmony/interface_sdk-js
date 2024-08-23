@@ -344,7 +344,7 @@ declare namespace pasteboard {
   }
 
   /**
-   * Pattern can be detected by the system pasteboard.
+   * Enumerates the patterns allowed in the system pasteboard.
    * @enum { number }
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
@@ -352,19 +352,19 @@ declare namespace pasteboard {
    */
   enum Pattern {
     /**
-     * URL indicates the URL pattern.
+     * URL pattern.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 13
      */
     URL,
     /**
-     * NUMBER indicates the number pattern.
+     * Number pattern.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 13
      */
     NUMBER,
     /**
-     * EMAILADDRESS indicates the email address pattern.
+     * Email address pattern.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 13
      */
@@ -1528,10 +1528,10 @@ declare namespace pasteboard {
     removeAppShareOptions(): void;
 
     /**
-     * Detect patterns in the pasteboard.
+     * Detects the patterns in the pasteboard.
      * 
-     * @param { Array<Pattern> } patterns - The patterns to detect.
-     * @returns { Promise<Array<Pattern>> } the promise returned by the detectPatterns.
+     * @param { Array<Pattern> } patterns - Patterns to detect.
+     * @returns { Promise<Array<Pattern>> } Promise used to return the patterns detected.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *                                                                   2. Incorrect parameter types;
      *                                                                   3. Parameter verification failed.
