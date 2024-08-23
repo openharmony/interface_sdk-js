@@ -112,6 +112,16 @@ type OnOverrideUrlLoadingCallback = (webResourceRequest: WebResourceRequest) => 
 type OnIntelligentTrackingPreventionCallback = (details: IntelligentTrackingPreventionDetails) => void;
 
 /**
+ * The callback of onNativeEmbedVisibilityChange.
+ *
+ * @typedef { function } OnNativeEmbedVisibilityChangeCallback
+ * @param { NativeEmbedVisibilityInfo } nativeEmbedVisibilityInfo - callback information of onNativeEmbedVisibilityChange.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 12
+ */
+type OnNativeEmbedVisibilityChangeCallback = (nativeEmbedVisibilityInfo: NativeEmbedVisibilityInfo) => void;
+
+/**
  * The configuration of native media player.
  *
  * @typedef NativeMediaPlayerConfig
@@ -2506,22 +2516,6 @@ declare enum NativeEmbedStatus {
    * @since 12
    */
   LEAVE_BFCACHE = 4,
-
-  /**
-   * The embed tag visible.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 12
-   */
-  VISIBLE = 5,
-
-  /**
-   * The embed tag hidden.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 12
-   */
-  HIDDEN = 6,
 }
 
 /**
@@ -4693,6 +4687,32 @@ declare interface NativeEmbedDataInfo {
    * @since 11
    */
   info?: NativeEmbedInfo;
+}
+
+/**
+ * Defines the Embed Visibility info.
+ *
+ * @typedef NativeEmbedVisibilityInfo
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 12
+ */
+declare interface NativeEmbedVisibilityInfo {
+  /**
+   * The embed visibility.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  visibility: boolean;
+  /**
+   * The embed id.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  embedId: string;
 }
 
 /**
@@ -8330,6 +8350,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   onNativeEmbedLifecycleChange(callback: (event: NativeEmbedDataInfo) => void): WebAttribute;
+
+  /**
+   * Triggered when embed visibility changes.
+   *
+   * @param { OnNativeEmbedVisibilityChangeCallback } callback - Callback triggered when embed visibility changes.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  onNativeEmbedVisibilityChange(callback: OnNativeEmbedVisibilityChangeCallback): WebAttribute;
 
   /**
    * Triggered when gesture effect on embed tag.
