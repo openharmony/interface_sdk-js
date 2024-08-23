@@ -1530,25 +1530,11 @@ declare namespace pasteboard {
      * Detect patterns in the pasteboard. This method will not trigger a pop-up warning that the application is reading the pasteboard content.
      * 
      * @param { Array<Pattern> } patternsToDetect - The patterns to detect.
-     * @param { AsyncCallback<Array<Pattern>> } callback - The callback of detectPatterns.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
-     * @since 12
-     */
-    detectPatterns(patternsToDetect: Array<Pattern>, callback: AsyncCallback<Array<Pattern>>): void;
-    /**
-     * Detect patterns in the pasteboard. This method will not trigger a pop-up warning that the application is reading the pasteboard content.
-     * 
-     * @param { Array<Pattern> } patternsToDetect - The patterns to detect.
      * @returns { Promise<Array<Pattern>> } the promise returned by the detectPatterns.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *                                                                   2. Incorrect parameter types;
      *                                                                   3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 12
      */
       detectPatterns(patternsToDetect: Array<Pattern>): Promise<Array<Pattern>>;
