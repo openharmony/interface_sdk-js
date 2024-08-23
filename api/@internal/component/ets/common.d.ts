@@ -23894,3 +23894,35 @@ declare interface SelectionOptions {
    */
   menuPolicy?: MenuPolicy;
 }
+
+/**
+ * Enumerates the type of area in hover mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 13
+ */
+declare enum HoverModeAreaType {
+
+  /**
+   * Layout top half screen when the phone in hover mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  TOP_SCREEN = 0,
+
+  /**
+   * Layout bottom half screen when the phone in hover mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  BOTTOM_SCREEN = 1,
+}
