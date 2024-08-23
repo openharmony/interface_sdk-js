@@ -313,7 +313,7 @@ export class NodeProcessorHelper {
   static processExportAssignment(node: ts.Node, parentApi: BasicApiInfo): ExportDefaultInfo {
     const exportDefaultInfo: ExportDefaultInfo = new ExportDefaultInfo(ApiType.EXPORT_DEFAULT, node, parentApi);
     const exportDefaultNode: ts.ExportAssignment = node as ts.ExportAssignment;
-    exportDefaultInfo.setApiName(StringConstant.EXPORT_DEFAULT);// + exportDefaultNode.expression.getText()
+    exportDefaultInfo.setApiName(StringConstant.EXPORT_DEFAULT + exportDefaultNode.expression.getText());
     exportDefaultInfo.setDefinedText(exportDefaultNode.getText());
     ModifierHelper.processModifiers(exportDefaultNode.modifiers, exportDefaultInfo);
     return exportDefaultInfo;
@@ -351,7 +351,6 @@ export class NodeProcessorHelper {
       });
       exportDeclareInfo.setApiName(StringConstant.EXPORT + exportValueNames.join('_'));
     }
-    exportDeclareInfo.setApiName(StringConstant.EXPORT);
     exportDeclareInfo.setDefinedText(exportDeclarationNode.getText());
     ModifierHelper.processModifiers(exportDeclarationNode.modifiers, exportDeclareInfo);
     return exportDeclareInfo;
