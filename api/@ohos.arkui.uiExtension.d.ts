@@ -117,19 +117,6 @@ declare namespace uiExtension {
 
     /**
      * Hide the non-secure windows.
-     *
-     * @param { boolean } shouldHide - Hide the non-secure windows if true, otherwise means the opposite.
-     * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @since 12
-     */
-    /**
-     * Hide the non-secure windows.
      * When called by modal UIExtension and shouldHide == false, the "ohos.permission.ALLOW_SHOW_NON_SECURE_WINDOWS" permission is required.
      *
      * @permission ohos.permission.ALLOW_SHOW_NON_SECURE_WINDOWS
@@ -141,7 +128,7 @@ declare namespace uiExtension {
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 13
+     * @since 12
      */
     hideNonSecureWindows(shouldHide: boolean): Promise<void>;
 
