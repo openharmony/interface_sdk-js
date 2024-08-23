@@ -529,8 +529,9 @@ function diffApi(options: OptionObjType): ToolNameValueType {
   let data: BasicDiffInfo[] = [];
   try {
     if (status.isDirectory()) {
-      const oldSDKApiMap: FilesMap = Parser.parseDir(oldFileDir);
       const newSDKApiMap: FilesMap = Parser.parseDir(newFileDir);
+      Parser.cleanParserParamSDK();
+      const oldSDKApiMap: FilesMap = Parser.parseDir(oldFileDir);
       data = DiffHelper.diffSDK(oldSDKApiMap, newSDKApiMap, options.all);
     } else {
       const oldSDKApiMap: FilesMap = Parser.parseFile(path.resolve(oldFileDir, '..'), oldFileDir);

@@ -12,7 +12,7 @@
     "diffMessage": "新增export名称",
     "changeLogUrl": "",
     "changeLogs": [],
-    "isCompatible": false,
+    "isCompatible": true,
     "oldHierarchicalRelations": [
       "ut_exoprt_name_number_add.d.ts",
       "export"

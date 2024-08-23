@@ -696,7 +696,11 @@ export enum ApiDiffType {
   REDUCE_SAME_NAME_FUNCTION,
   EXPORT_NAME_CHANGE,
   EXPORT_NAME_NUMBER_REDUCE,
-  EXPORT_NAME_NUMBER_ADD
+  EXPORT_NAME_NUMBER_ADD,
+  /** 匿名对象整改导致的参数类型的兼容改变，*/
+  PARAM_TYPE_CHANGE_COMPATIABLE,
+  /** 匿名对象整改导致的参数类型的不兼容改变，*/
+  PARAM_TYPE_CHANGE_IN_COMPATIABLE,
 }
 
 export const diffTypeMap: Map<ApiDiffType, string> = new Map([
@@ -792,8 +796,8 @@ export const diffTypeMap: Map<ApiDiffType, string> = new Map([
   [ApiDiffType.EXPORT_NAME_CHANGE, 'export名称变更'],
   [ApiDiffType.EXPORT_NAME_NUMBER_REDUCE, '删除export名称'],
   [ApiDiffType.EXPORT_NAME_NUMBER_ADD, '新增export名称'],
-  
-  
+  [ApiDiffType.PARAM_TYPE_CHANGE_COMPATIABLE, '函数变更'],
+  [ApiDiffType.PARAM_TYPE_CHANGE_IN_COMPATIABLE, '函数变更'],
 ]);
 
 export const diffMap: Map<ApiDiffType, string> = new Map([
@@ -891,7 +895,8 @@ export const diffMap: Map<ApiDiffType, string> = new Map([
   [ApiDiffType.EXPORT_NAME_CHANGE, 'export名称变更'],
   [ApiDiffType.EXPORT_NAME_NUMBER_REDUCE, '删除export名称'],
   [ApiDiffType.EXPORT_NAME_NUMBER_ADD, '新增export名称'],
-
+  [ApiDiffType.PARAM_TYPE_CHANGE_COMPATIABLE, '函数的参数类型变更'],
+  [ApiDiffType.PARAM_TYPE_CHANGE_IN_COMPATIABLE, '函数的参数类型变更'],
 ]);
 
 export const apiChangeMap: Map<ApiDiffType, string> = new Map([
@@ -987,6 +992,8 @@ export const apiChangeMap: Map<ApiDiffType, string> = new Map([
   [ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_CHANGE, 'API修改（原型修改）'],
   [ApiDiffType.NEW_SAME_NAME_FUNCTION, 'API修改（原型修改）'],
   [ApiDiffType.REDUCE_SAME_NAME_FUNCTION, 'API修改（原型修改）'],
+  [ApiDiffType.PARAM_TYPE_CHANGE_COMPATIABLE, 'API修改（原型修改）'],
+  [ApiDiffType.PARAM_TYPE_CHANGE_IN_COMPATIABLE, 'API修改（原型修改）'],
 ]);
 
 /**
@@ -1047,6 +1054,7 @@ export const incompatibleApiDiffTypes: Set<ApiDiffType> = new Set([
   ApiDiffType.REDUCE_SAME_NAME_FUNCTION,
   ApiDiffType.EXPORT_NAME_CHANGE,
   ApiDiffType.EXPORT_NAME_NUMBER_REDUCE,
+  ApiDiffType.PARAM_TYPE_CHANGE_IN_COMPATIABLE,
 ]);
 
 export const isNotApiSet: Set<string> = new Set([
@@ -1061,5 +1069,6 @@ export const isNotApiSet: Set<string> = new Set([
 export const parentApiTypeSet: Set<string> = new Set([
   ApiType.INTERFACE,
   ApiType.STRUCT,
-  ApiType.CLASS
+  ApiType.CLASS,
+  ApiType.TYPE_ALIAS,
 ]);
