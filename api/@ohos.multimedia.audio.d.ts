@@ -539,50 +539,43 @@ declare namespace audio {
    * Enumerates audio device for usage.
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Audio.Device
-   * @systemapi
-   * @since 11
+   * @since 12
    */
   enum DeviceUsage {
     /**
      * Media output devices.
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     MEDIA_OUTPUT_DEVICES = 1,
     /**
      * Media input devices.
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     MEDIA_INPUT_DEVICES = 2,
     /**
      * All media devices.
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     ALL_MEDIA_DEVICES = 3,
     /**
      * Call output devices.
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     CALL_OUTPUT_DEVICES = 4,
     /**
      * Call input devices.
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     CALL_INPUT_DEVICES = 8,
     /**
      * All call devices.
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     ALL_CALL_DEVICES = 12,
   }
@@ -920,7 +913,7 @@ declare namespace audio {
      */
     PRIVACY = 1,
   }
- 
+
   /**
    * Enumerates the audio sample formats.
    * @enum { number }
@@ -2447,15 +2440,13 @@ declare namespace audio {
     /**
      * Ringing audio scene
      * @syscap SystemCapability.Multimedia.Audio.Communication
-     * @systemapi
-     * @since 8
+     * @since 12
      */
     AUDIO_SCENE_RINGING = 1,
     /**
      * Phone call audio scene
      * @syscap SystemCapability.Multimedia.Audio.Communication
-     * @systemapi
-     * @since 8
+     * @since 12
      */
     AUDIO_SCENE_PHONE_CALL = 2,
     /**
@@ -3276,14 +3267,12 @@ declare namespace audio {
      * Obtains all the available audio devices with a specific device usage.
      * @param { DeviceUsage } deviceUsage - Audio device usage.
      * @returns { AudioDeviceDescriptors } The device list.
-     * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     getAvailableDevices(deviceUsage: DeviceUsage): AudioDeviceDescriptors;
 
@@ -3293,14 +3282,12 @@ declare namespace audio {
      * @param { 'availableDeviceChange' } type - Type of the event to listen for. Only the availableDeviceChange event is supported.
      * @param { DeviceUsage } deviceUsage - Audio device usage.
      * @param { Callback<DeviceChangeAction> } callback - Callback used to obtain the device update details.
-     * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     on(type: 'availableDeviceChange', deviceUsage: DeviceUsage, callback: Callback<DeviceChangeAction>): void;
 
@@ -3308,14 +3295,12 @@ declare namespace audio {
      * UnSubscribes to available device change events.
      * @param { 'availableDeviceChange' } type - Type of the event to listen for. Only the availableDeviceChange event is supported.
      * @param { Callback<DeviceChangeAction> } callback - Callback used to obtain the device update details.
-     * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     off(type: 'availableDeviceChange', callback?: Callback<DeviceChangeAction>): void;
 
@@ -4930,7 +4915,7 @@ declare namespace audio {
 
     /**
      * Unsubscribes to the microphone state change events.
-     * @param { 'micStateChange' } type - Type of the event to listen for. 
+     * @param { 'micStateChange' } type - Type of the event to listen for.
      * @param { Callback<MicStateChangeEvent> } callback - Callback used to get the system microphone state change event.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters missing;
