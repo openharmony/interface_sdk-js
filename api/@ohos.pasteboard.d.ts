@@ -354,21 +354,18 @@ declare namespace pasteboard {
     /**
      * URL indicates the URL pattern.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
      * @since 13
      */
     URL,
     /**
      * NUMBER indicates the number pattern.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
      * @since 13
      */
     NUMBER,
     /**
      * EMAILADDRESS indicates the email address pattern.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
      * @since 13
      */
     EMAILADDRESS,
@@ -1531,7 +1528,7 @@ declare namespace pasteboard {
     removeAppShareOptions(): void;
 
     /**
-     * Detect patterns in the pasteboard. This method will not trigger a pop-up warning that the application is reading the pasteboard content.
+     * Detect patterns in the pasteboard.
      * 
      * @param { Array<Pattern> } patterns - The patterns to detect.
      * @returns { Promise<Array<Pattern>> } the promise returned by the detectPatterns.
@@ -1539,6 +1536,7 @@ declare namespace pasteboard {
      *                                                                   2. Incorrect parameter types;
      *                                                                   3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
      * @since 13
      */
       detectPatterns(patterns: Array<Pattern>): Promise<Array<Pattern>>;
